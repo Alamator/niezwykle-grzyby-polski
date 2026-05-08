@@ -5,6 +5,9 @@ import vm from "node:vm";
 const indexHtml = fs.readFileSync("index.html", "utf8");
 const scriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
 
+assert.match(indexHtml, /60\s+osobliwości/, "hero should mention 60 curiosities after the new pack");
+assert.match(indexHtml, /60\s+grzybowych osobliwości/, "atlas heading should mention 60 mushroom curiosities");
+
 assert(
   scriptSources.includes("./data/region-pack-v07.js"),
   "index.html should load data/region-pack-v07.js"
@@ -12,6 +15,14 @@ assert(
 assert(
   scriptSources.indexOf("./data/region-pack-v07.js") < scriptSources.indexOf("./js/app.js"),
   "region-pack-v07.js should load before app.js"
+);
+assert(
+  scriptSources.includes("./data/photo-pack-v08.js"),
+  "index.html should load data/photo-pack-v08.js"
+);
+assert(
+  scriptSources.indexOf("./data/photo-pack-v08.js") < scriptSources.indexOf("./js/app.js"),
+  "photo-pack-v08.js should load before app.js"
 );
 
 const context = { window: {} };
@@ -42,6 +53,29 @@ for (const id of requiredGlowIds) {
   assert.match(item.quiz_angle, /bioluminescenc|fluorescenc/i, `${id} should explain the glow angle`);
 }
 
+const specialEffectsCategory = data.categories.find((category) => category.id === "efekty-specjalne");
+assert(specialEffectsCategory, "special effects category should exist");
+assert.equal(specialEffectsCategory.short, "Efekty", "special effects category should have the expected short label");
+
+const requiredSpecialEffectIds = [
+  "wrosniak-roznobarwny",
+  "boczniaczek-pomaranczowozolty",
+  "zaslonak-fioletowy",
+  "czernidlak-kolpakowaty",
+  "miekusz-rabarbarowy",
+  "krasnoborowik-ceglastopory",
+  "lejkowiec-dety",
+  "zagwiak-luskowaty"
+];
+
+for (const id of requiredSpecialEffectIds) {
+  const item = data.mushrooms.find((mushroom) => mushroom.id === id);
+  assert(item, `${id} should be present`);
+  assert.equal(item.category, "efekty-specjalne", `${id} should be in the special effects category`);
+  assert(item.region_pl && item.habitat_pl && item.occurrence_note, `${id} should include occurrence details`);
+  assert(item.image && item.image_source && item.image_license, `${id} should include image credits`);
+}
+
 const missingOccurrence = data.mushrooms.filter(
   (mushroom) => !mushroom.region_pl || !mushroom.habitat_pl || !mushroom.occurrence_note
 );
@@ -52,9 +86,9 @@ assert.equal(
   `every mushroom should have region_pl, habitat_pl, and occurrence_note; missing: ${missingOccurrence.map((mushroom) => mushroom.id).join(", ")}`
 );
 
-assert.equal(data.mushrooms.length, 52, "atlas should include the original 50 plus two glowing fungi");
+assert.equal(data.mushrooms.length, 60, "atlas should include the original 50 plus two glowing fungi plus eight special-effect fungi");
 assert.equal(
   data.mushrooms.filter((mushroom) => mushroom.image).length,
-  52,
-  "all atlas entries should have images after the glow pack"
+  60,
+  "all atlas entries should have images after the special-effect pack"
 );
