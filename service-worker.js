@@ -1,4 +1,4 @@
-const CACHE_NAME = "niezwykle-grzyby-polski-v0-1-0";
+const CACHE_NAME = "niezwykle-grzyby-polski-v0-2-0";
 const ASSETS = [
   "./",
   "./index.html",

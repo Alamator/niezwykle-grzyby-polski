@@ -76,3 +76,10 @@ Pliki zdjęć trzymaj w katalogu `images/`.
 ## Stopka
 
 W stopce jest: **Made by Oroloko** oraz znak „created with AI assistance”.
+
+
+## v0.2 — pierwsze zdjęcia Commons
+
+Dodano pierwszą paczkę 10 zdjęć z Wikimedia Commons z atrybucją w danych gatunków. Zdjęcia są ładowane z Wikimedia Commons przez `Special:Redirect/file/...`, więc repozytorium pozostaje lekkie, a sekcja „Źródła” pokazuje autora, licencję i link do strony pliku.
+
+Pierwsza paczka obejmuje: okratek australijski, sromotnik bezwstydny, czarka austriacka, soplówka jeżowata, siedzuń sosnowy, trzęsak pomarańczowożółty, uszak bzowy, promieniak wilgociomierz, kolczakówka piekąca i muchomor czerwony.
