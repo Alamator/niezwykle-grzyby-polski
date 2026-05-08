@@ -1,0 +1,20 @@
+{
+  "name": "niezwykle-grzyby-polski",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interaktywny atlas, nauka, quiz i konkurs o niezwykłych grzybach Polski.",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "check:no-omttk": "! grep -R -i -E 'OMTTK|PTTK' . --exclude-dir=.git --exclude=package.json",
+    "deploy:vercel": "vercel --prod"
+  },
+  "keywords": [
+    "grzyby",
+    "atlas",
+    "quiz",
+    "edukacja",
+    "static-site"
+  ],
+  "author": "Oroloko",
+  "license": "UNLICENSED"
+}
