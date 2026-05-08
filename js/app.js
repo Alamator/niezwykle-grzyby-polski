@@ -97,6 +97,7 @@
           <h3>${escapeHtml(item.name_pl)}</h3>
           <div class="latin">${escapeHtml(item.name_lat)}</div>
           <p class="hook">${escapeHtml(item.hook)}</p>
+          ${item.region_pl ? `<p class="occurrence-snippet"><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>` : ""}
           <div class="meta-line">
             <span class="pill">${escapeHtml(item.category_icon)} ${escapeHtml(item.category_short)}</span>
             <span class="pill">${escapeHtml(item.level)}</span>
@@ -121,7 +122,7 @@
     const phrase = state.search.trim().toLocaleLowerCase("pl");
     return mushrooms.filter((item) => {
       const matchesCategory = state.category === "all" || item.category === state.category;
-      const haystack = [item.name_pl, item.name_lat, item.hook, item.category_label, item.quiz_angle]
+      const haystack = [item.name_pl, item.name_lat, item.hook, item.category_label, item.quiz_angle, item.region_pl, item.habitat_pl]
         .join(" ")
         .toLocaleLowerCase("pl");
       const matchesSearch = !phrase || haystack.includes(phrase);
@@ -163,6 +164,13 @@
         <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(item.name_pl)}</h2>
         <p class="latin">${escapeHtml(item.name_lat)}</p>
         <p class="hook">${escapeHtml(item.hook)}</p>
+        ${item.region_pl ? `
+          <div class="occurrence-box">
+            <h3>Występowanie w Polsce</h3>
+            <p><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>
+            <p><strong>Siedlisko:</strong> ${escapeHtml(item.habitat_pl)}</p>
+            <p>${escapeHtml(item.occurrence_note)}</p>
+          </div>` : ""}
         <h3>Kąt quizowy</h3>
         <p>${escapeHtml(item.quiz_angle)}</p>
         <div class="safety"><strong>Bezpieczeństwo:</strong> ${escapeHtml(item.safety_note || data.safety_notice)}</div>
@@ -189,6 +197,7 @@
             <div class="reveal-box">
               <h3>${escapeHtml(item.name_pl)}</h3>
               <p class="latin">${escapeHtml(item.name_lat)}</p>
+              ${item.region_pl ? `<p><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>` : ""}
               <p><strong>Warto zapamiętać:</strong> ${escapeHtml(item.quiz_angle)}</p>
               <p><strong>Bezpieczeństwo:</strong> ${escapeHtml(item.safety_note)}</p>
             </div>` : ""}
