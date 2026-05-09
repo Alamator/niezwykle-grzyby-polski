@@ -11,11 +11,17 @@ assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not b
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be in navigation");
 assert(scriptSources.includes("./data/insects.js"), "index.html should load data/insects.js");
 assert(scriptSources.includes("./data/flowers.js"), "index.html should load data/flowers.js");
+assert(scriptSources.includes("./data/flower-photo-pack-v01.js"), "index.html should load flower Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
   scriptSources.indexOf("./data/flowers.js") < scriptSources.indexOf("./data/collections.js"),
   "flowers.js should load before collections.js"
+);
+assert(
+  scriptSources.indexOf("./data/flowers.js") < scriptSources.indexOf("./data/flower-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/flower-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "flower photo pack should load after flowers.js and before collections.js"
 );
 assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
@@ -57,7 +63,18 @@ assert(flowers, "flower collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
-assert(flowers.items.every((item) => !item.image && !item.image_author), "flower collection should start with placeholders until Commons images are curated");
+const flowerImages = flowers.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(flowerImages.length, 31, "flower collection should include 31 curated images with attribution");
+assert(
+  flowers.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "flower images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  flowers.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "flower image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
