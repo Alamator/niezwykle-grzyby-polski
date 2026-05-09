@@ -44,6 +44,23 @@ assert.equal(
   29,
   "insect collection should include 29 Commons images with attribution; Phausis splendidula remains without a verified photo"
 );
+assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
+assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
+assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");
+
+const requiredPolishInsectText = {
+  "oleica-krowka": "Oleica krówka",
+  "zmierzchnica-trupia-glowka": "Zmierzchnica trupia główka",
+  "zyrytwa-pluskwowata": "Żyrytwa pluskwowata",
+  "paz-krolowej": "Paź królowej",
+  "kozog-debowy": "Kozóg dębowy"
+};
+
+for (const [id, expectedName] of Object.entries(requiredPolishInsectText)) {
+  const item = insects.items.find((entry) => entry.id === id);
+  assert(item, `${id} should exist`);
+  assert.equal(item.name_pl, expectedName, `${id} should use Polish diacritics in name`);
+}
 
 for (const collection of collections) {
   assert(collection.title, `${collection.id} should have a title`);
