@@ -15,14 +15,14 @@
     collections.push({
       id: "grzyby",
       title: "Grzyby",
-      heading: "Niezwykle grzyby Polski",
-      subtitle: "60 grzybowych osobliwosci: formy, kolory, zapachy i gatunki, ktore latwo zapamietac.",
-      count_label: "60 osobliwosci",
+      heading: "Niezwykłe grzyby Polski",
+      subtitle: "60 grzybowych osobliwości: formy, kolory, zapachy i gatunki, które łatwo zapamiętać.",
+      count_label: "60 osobliwości",
       icon: "G",
       accent: "forest",
       search_placeholder: "np. sromotnik, koral, gwiazda...",
       safety_notice: mushroomData.safety_notice,
-      source_note: "Zdjecia dodajemy tylko z jasna licencja. Pierwsze paczki Wikimedia Commons maja autora, zrodlo i licencje.",
+      source_note: "Zdjęcia dodajemy tylko z jasną licencją. Pierwsze paczki Wikimedia Commons mają autora, źródło i licencję.",
       categories: mushroomData.categories,
       items: mushroomData.mushrooms
     });
@@ -34,12 +34,12 @@
       title: "Owady",
       heading: "Osobliwe owady Polski",
       subtitle: insectData.subtitle,
-      count_label: "30 osobliwosci",
+      count_label: "30 osobliwości",
       icon: "O",
       accent: "amber",
       search_placeholder: "np. oleica, świetlik, jelonek...",
       safety_notice: insectData.safety_notice,
-      source_note: "Opisy startuja z listy roboczej. Zdjecia i atrybucje bedziemy uzupelniac stopniowo z legalnych zrodel.",
+      source_note: "Opisy startują z listy roboczej. Zdjęcia i atrybucje będziemy uzupełniać stopniowo z legalnych źródeł.",
       categories: insectData.categories,
       items: insectData.insects
     });
@@ -47,7 +47,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykle grzyby, owady i kolejne osobliwosci polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections
