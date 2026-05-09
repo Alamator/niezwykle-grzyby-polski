@@ -1,6 +1,6 @@
 # Atlas Osobliwości Polski
 
-Statyczna strona edukacyjna: **wybór kolekcji + Atlas + Nauka + Quiz + Źródła**.
+Statyczna strona edukacyjna: **wybór kolekcji + przełącznik PL/EN + Atlas + Nauka + Quiz + Źródła**.
 
 Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama dla kolejnych osobliwości polskiej przyrody. Pierwsze kolekcje:
 
@@ -16,6 +16,7 @@ js/app.js
 data/mushrooms.js
 data/insects.js
 data/collections.js
+data/i18n.js
 data/photo-pack-*.js
 data/region-pack-v07.js
 assets/logo-oroloko-ai.svg
@@ -53,8 +54,9 @@ Najprostsza ścieżka:
 1. Dodaj plik danych w `data/`, np. `fish.js`.
 2. Utrzymaj pola pozycji zgodne z obecnymi kolekcjami: `id`, `name_pl`, `name_lat`, `category`, `hook`, `quiz_angle`, `safety_note`, `region_pl`, `habitat_pl`, `occurrence_note` oraz pola zdjęć/licencji.
 3. Dopisz kolekcję w `data/collections.js`.
-4. Dodaj skrypt danych do `index.html` przed `data/collections.js`.
-5. Uruchom oba testy.
+4. Dodaj tłumaczenia interfejsu kolekcji, kategorii i pozycji w `data/i18n.js`.
+5. Dodaj skrypt danych do `index.html` przed `data/collections.js`.
+6. Uruchom oba testy.
 
 ## Zasady treści
 
