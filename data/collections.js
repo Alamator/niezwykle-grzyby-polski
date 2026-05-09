@@ -1,6 +1,7 @@
 (() => {
   const mushroomData = window.MUSHROOM_APP_DATA;
   const insectData = window.INSECT_APP_DATA;
+  const flowerData = window.FLOWER_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -42,6 +43,23 @@
       source_note: "Opisy startują z listy roboczej. Zdjęcia i atrybucje będziemy uzupełniać stopniowo z legalnych źródeł.",
       categories: insectData.categories,
       items: insectData.insects
+    });
+  }
+
+  if (flowerData) {
+    collections.push({
+      id: "kwiaty",
+      title: "Kwiaty",
+      heading: "Osobliwe kwiaty i rośliny Polski",
+      subtitle: flowerData.subtitle,
+      count_label: "31 osobliwości",
+      icon: "K",
+      accent: "rose",
+      search_placeholder: "np. aldrowanda, storczyk, dyptam...",
+      safety_notice: flowerData.safety_notice,
+      source_note: "Opisy startują z listy roboczej o osobliwych roślinach Polski. Zdjęcia i atrybucje dodamy później z legalnych źródeł.",
+      categories: flowerData.categories,
+      items: flowerData.flowers
     });
   }
 

@@ -6,6 +6,7 @@ Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama 
 
 - **Grzyby**: 60 pozycji z uzupełnionymi zdjęciami i atrybucjami.
 - **Owady**: 30 pozycji startowych z miejscem na przyszłe zdjęcia i licencje.
+- **Kwiaty**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych.
 
 ## Struktura
 
@@ -15,6 +16,7 @@ css/styles.css
 js/app.js
 data/mushrooms.js
 data/insects.js
+data/flowers.js
 data/collections.js
 data/i18n.js
 data/photo-pack-*.js

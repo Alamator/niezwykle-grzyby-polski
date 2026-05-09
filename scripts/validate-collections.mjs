@@ -10,8 +10,13 @@ assert.doesNotMatch(indexHtml, /Otwórz owady/, "hero should not privilege one c
 assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not be in navigation");
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be in navigation");
 assert(scriptSources.includes("./data/insects.js"), "index.html should load data/insects.js");
+assert(scriptSources.includes("./data/flowers.js"), "index.html should load data/flowers.js");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
+assert(
+  scriptSources.indexOf("./data/flowers.js") < scriptSources.indexOf("./data/collections.js"),
+  "flowers.js should load before collections.js"
+);
 assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
@@ -41,14 +46,18 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 2, "first release should expose mushrooms and insects");
+assert.equal(collections.length, 3, "atlas should expose mushrooms, insects and flowers");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
+const flowers = collections.find((collection) => collection.id === "kwiaty");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
+assert(flowers, "flower collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
+assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
+assert(flowers.items.every((item) => !item.image && !item.image_author), "flower collection should start with placeholders until Commons images are curated");
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -79,6 +88,9 @@ for (const collection of collections) {
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");
+assert(flowers.subtitle.includes("dziko rosnące"), "flower subtitle should describe the wild/naturalized scope");
+assert(flowers.categories.some((category) => category.label === "Łowcy i pułapki"), "flower categories should use Polish diacritics");
+assert(flowers.items.some((item) => item.name_pl === "Świetlik mszysty"), "flower collection should include the moss curiosity from the source file");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
