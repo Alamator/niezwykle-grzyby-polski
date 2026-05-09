@@ -44,7 +44,28 @@
     "arystokrata": "aristocrat",
     "delikatny sprzymierzeniec": "delicate ally",
     "majestat": "majestic species",
-    "prehistoryczny król": "prehistoric king"
+    "prehistoryczny król": "prehistoric king",
+    "krytyczna rzadkość": "critical rarity",
+    "torfowiskowy łowca": "bog hunter",
+    "termiczna pułapka": "thermal trap",
+    "świetlny relikt": "light relic",
+    "nocny zegar": "night clock",
+    "sygnał UV": "UV signal",
+    "nocny zapach": "night scent",
+    "mimikra": "mimicry",
+    "żywa pułapka": "living trap",
+    "podziemny duch": "underground ghost",
+    "pasożyt": "parasite",
+    "półpasożyt": "hemiparasite",
+    "gorejący krzew": "burning bush",
+    "trujący klasyk": "toxic classic",
+    "mroczny klasyk": "hidden-flower classic",
+    "chemiczna obrona": "chemical defense",
+    "relikt kulturowy": "cultural relic",
+    "czterolistna iluzja": "four-leaf illusion",
+    "żółty dywan": "yellow carpet",
+    "polny zegar": "field clock",
+    "botaniczny księżyc": "botanical moon"
   };
 
   const mushroomCategories = {
@@ -67,6 +88,15 @@
     "majestatyczne-i-chronione": { label: "Majestic and protected", short: "Protected" }
   };
 
+  const flowerCategories = {
+    "lowcy-i-pulapki": { label: "Hunters and traps", short: "Traps" },
+    "zapach-swiatlo-i-noc": { label: "Scent, light and night", short: "Night and light" },
+    "storczyki-i-mimikra": { label: "Orchids and mimicry", short: "Orchids" },
+    "pasozyty-i-polpasozyty": { label: "Parasites and hemiparasites", short: "Parasites" },
+    "toksyczne-i-obronne": { label: "Toxic and defensive plants", short: "Defense" },
+    "relikty-i-dziwne-formy": { label: "Relics and strange forms", short: "Forms" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -85,6 +115,14 @@
       "dziwne-ksztalty": "warm edges, shrubs, gardens, old trees, bark and varied low vegetation",
       "barwy-i-piekno": "flowers, gardens, meadows, woodland rides and sunny edges",
       "majestatyczne-i-chronione": "old deciduous forests, veteran trees and dead or dying wood"
+    },
+    kwiaty: {
+      "lowcy-i-pulapki": "bogs, shallow waters, wet rocks and nutrient-poor places where plants supplement their diet",
+      "zapach-swiatlo-i-noc": "woodland shade, field edges, night-blooming sites and microhabitats shaped by light or scent",
+      "storczyki-i-mimikra": "calcareous grasslands, old woods, meadows and orchid sites with sensitive mycorrhizal networks",
+      "pasozyty-i-polpasozyty": "woods, meadows and host-rich places where plants tap into roots, fungi or neighboring plants",
+      "toksyczne-i-obronne": "woodlands, sunny edges, grasslands and ruderal sites where chemical defense matters",
+      "relikty-i-dziwne-formy": "old woods, springs, field margins, grasslands and small habitats with distinctive forms"
     }
   };
 
@@ -106,15 +144,15 @@
   }
 
   function defaultRegion(collectionId) {
-    return collectionId === "grzyby"
-      ? "Recorded in Poland; local abundance depends strongly on habitat and season."
-      : "Found locally or more widely in Poland, depending on habitat quality and season.";
+    if (collectionId === "grzyby") return "Recorded in Poland; local abundance depends strongly on habitat and season.";
+    if (collectionId === "kwiaty") return "Recorded in Poland as a native, wild or established plant curiosity, depending strongly on habitat.";
+    return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
   function defaultOccurrence(collectionId) {
-    return collectionId === "grzyby"
-      ? "Use the habitat, shape and season as field context; the note is educational, not a collecting guide."
-      : "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
+    if (collectionId === "grzyby") return "Use the habitat, shape and season as field context; the note is educational, not a collecting guide.";
+    if (collectionId === "kwiaty") return "Observe without collecting; many plant curiosities depend on fragile microhabitats.";
+    return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
   function makeItemMap(collectionId, overrides) {
@@ -740,6 +778,195 @@
     }
   };
 
+  const flowerText = {
+    "aldrowanda-pecherzykowata": {
+      name: "Waterwheel plant",
+      hook: "A rootless aquatic plant with tiny snap traps that catch plankton like an underwater Venus flytrap.",
+      quiz_angle: "underwater snap traps, rootless growth and winter turions",
+      safety_note: "Critically endangered and protected; never collect it from wild sites."
+    },
+    "plywacz-zwyczajny": {
+      name: "Greater bladderwort",
+      hook: "An underwater hunter with thousands of tiny bladders that suck in small organisms in a fraction of a second.",
+      quiz_angle: "vacuum bladder traps, no classic roots and yellow flowers above the water",
+      safety_note: "Observe without uprooting; it is part of delicate aquatic habitats."
+    },
+    "rosiczka": {
+      name: "Sundew",
+      hook: "A small rosette with sticky dew-like drops that turn leaves into insect traps.",
+      quiz_angle: "red glandular hairs, sticky mucilage and slow leaf movement around prey",
+      safety_note: "Protected species; do not pick them or trample bog habitats."
+    },
+    "tlustosz": {
+      name: "Butterwort",
+      hook: "Flat glossy leaves look harmless, but their surface works as a sticky trap for tiny flies.",
+      quiz_angle: "greasy leaves, microscopic glands and large flowers on stalks",
+      safety_note: "Rare and sensitive; do not remove plants from wet rocks, fens or bogs."
+    },
+    "obrazki-plamiste": {
+      name: "Lords-and-ladies",
+      hook: "Its inflorescence can warm itself and release a rotting smell to lure flies into a temporary trap.",
+      quiz_angle: "thermogenesis, spadix, spathe and a short-lived pollinator prison",
+      safety_note: "Poisonous and protected; do not touch the berries or dig up plants."
+    },
+    "obrazki-alpejskie": {
+      name: "Alpine arum",
+      hook: "A woodland arum with the same strange aura of scent, warmth and specialized fly pollination.",
+      quiz_angle: "arum-like spadix, spathe and the attraction of small flies",
+      safety_note: "Protected species; do not pick it or damage its sites."
+    },
+    "swietlik-mszysty": {
+      name: "Goblin's gold",
+      hook: "It does not glow chemically, but its protonema reflects faint light like a green-gold shine in cracks.",
+      quiz_angle: "lens-like protonema cells, reflected light and dark microhabitats",
+      safety_note: "Do not scrape it from rocks or root plates; observe without disturbing the micro-site."
+    },
+    "wiesiolek-dwuletni": {
+      name: "Common evening-primrose",
+      hook: "Yellow flowers open toward evening, as if the plant starts a night clock for moths.",
+      quiz_angle: "evening flower opening, yellow corolla and nocturnal pollinators",
+      safety_note: "Educational material only; the atlas is not a herbal-use guide."
+    },
+    "bniec-bialy": {
+      name: "White campion",
+      hook: "White flowers become more fragrant after dusk, when nocturnal pollinators take over.",
+      quiz_angle: "white corolla, evening scent and separate male and female plants",
+      safety_note: "Observe without stripping field margins and roadsides of flowers."
+    },
+    "chaber-blawatek": {
+      name: "Cornflower",
+      hook: "For people it is a blue field classic; for insects it is also a map of ultraviolet signals.",
+      quiz_angle: "flower head, intense blue color and hidden contrasts for pollinators",
+      safety_note: "Do not pick it in bulk; leave flowers for pollinators and seed set."
+    },
+    "fiolek-trojbarwny": {
+      name: "Wild pansy",
+      hook: "A small flower whose patterned petals work like a landing pad and signpost for pollinators.",
+      quiz_angle: "three-colored corolla, dark veins and hidden nectar guides",
+      safety_note: "Educational material only; do not damage grassland or field-edge sites."
+    },
+    "dwulistnik-pszczeli": {
+      name: "Bee orchid",
+      hook: "An orchid whose flower imitates an insect so well that it looks like evolutionary deception in bloom.",
+      quiz_angle: "bee-like lip, sexual mimicry and very rare sites",
+      safety_note: "Protected and very rare orchid; do not pick, dig up or publicize precise sites."
+    },
+    "obuwik-pospolity": {
+      name: "Lady's-slipper orchid",
+      hook: "The large yellow slipper acts as a trap that guides an insect out through a narrow pollen route.",
+      quiz_angle: "slipper-shaped lip, trap flower and sensitive protected sites",
+      safety_note: "Strictly protected; do not pick it or trample sites while photographing."
+    },
+    "podkolan-bialy": {
+      name: "Lesser butterfly-orchid",
+      hook: "White flowers become more scented in the evening, calling long-tongued night moths.",
+      quiz_angle: "night scent, long spurs and moth pollination",
+      safety_note: "Protected orchid; do not pick or transplant it from meadows or woods."
+    },
+    "podkolan-zielonawy": {
+      name: "Greater butterfly-orchid",
+      hook: "A greenish orchid whose pollination depends on precise contact with nocturnal insects.",
+      quiz_angle: "greenish flowers, spurs and anther arrangement separating it from the lesser butterfly-orchid",
+      safety_note: "Protected orchid; observe without damaging plants or forest floor."
+    },
+    "kukuczka-kapturkowata": {
+      name: "Hooded orchid",
+      hook: "A small hooded orchid that rewards careful looking close to the forest floor.",
+      quiz_angle: "small size, hooded flowers and rarity of sites",
+      safety_note: "Protected species; do not pick it or trample the ground while searching."
+    },
+    "storzan-bezlistny": {
+      name: "Ghost orchid",
+      hook: "A leafless orchid that spends most of its life underground and suddenly sends up a pale flowering shoot.",
+      quiz_angle: "no leaves, dependence on fungi and irregular above-ground flowering",
+      safety_note: "Extremely rare and protected; do not reveal sites or touch flowering shoots."
+    },
+    "luskiewnik-rozowy": {
+      name: "Common toothwort",
+      hook: "A pink plant without green leaves emerges from the soil because it steals resources from tree and shrub roots.",
+      quiz_angle: "no chlorophyll, scaly shoots and root parasitism",
+      safety_note: "Do not dig it up; the most interesting part of the plant is underground."
+    },
+    "zaraza-zolta": {
+      name: "Yellow broomrape",
+      hook: "A yellowish parasite without chlorophyll, choosing a host connection instead of photosynthesis.",
+      quiz_angle: "non-green shoot, parasitism and dependence on host plants",
+      safety_note: "Rare plant; do not pick it or damage its sites."
+    },
+    "gnidosz-rozeslany": {
+      name: "Lousewort",
+      hook: "A low hemiparasitic plant that looks delicate but taps resources from neighbors underground.",
+      quiz_angle: "hemiparasitism, pink flowers and wet-meadow habitats",
+      safety_note: "Rare and habitat-sensitive; do not drain or damage wet meadows."
+    },
+    "pszeniec-gajowy": {
+      name: "Wood cow-wheat",
+      hook: "Yellow flowers and purple bracts create a two-colored plant with a hidden hemiparasitic lifestyle.",
+      quiz_angle: "purple bracts, yellow flowers and root hemiparasitism",
+      safety_note: "Educational material only; do not treat it as a useful plant."
+    },
+    "dyptam-jesionolistny": {
+      name: "Burning bush",
+      hook: "A fragrant, beautiful plant famous for the burning-bush legend and painful phototoxic burns.",
+      quiz_angle: "essential oils, furanocoumarins, phototoxicity and the burning-plant story",
+      safety_note: "Do not touch it in sunshine; it can cause strong burns and skin discoloration."
+    },
+    "wawrzynek-wilczelyko": {
+      name: "Mezereon",
+      hook: "Pink flowers appear very early, often before the leaves, while later red berries are highly poisonous.",
+      quiz_angle: "flowering before leaves, strong scent and toxic red berries",
+      safety_note: "Highly poisonous; do not touch berries or pick twigs."
+    },
+    "kopytnik-pospolity": {
+      name: "European wild ginger",
+      hook: "Glossy leaves hide brown flowers close to the ground like small woodland secrets.",
+      quiz_angle: "ground-level flowers, hoof-shaped leaves and peppery-ginger scent",
+      safety_note: "Poisonous plant; do not use it as a medicinal plant on your own."
+    },
+    "barszcz-zwyczajny": {
+      name: "Hogweed",
+      hook: "A native relative of famous giant hogweeds, useful for learning the furanocoumarin caution pattern.",
+      quiz_angle: "umbel flowerhead, large leaves and photosensitizing compounds in the sap",
+      safety_note: "Avoid sap contact in sunshine; it can irritate skin."
+    },
+    "wilczomlecz-pstry": {
+      name: "Cushion spurge",
+      hook: "Bright bracts look like petals, while the white sap reminds you that spurges defend themselves chemically.",
+      quiz_angle: "yellow bracts, inconspicuous flowers and irritating milky sap",
+      safety_note: "Do not touch the sap; it can irritate skin and eyes."
+    },
+    "klokoczka-poludniowa": {
+      name: "European bladdernut",
+      hook: "A shrub with inflated seed capsules that rattle after drying like natural beads.",
+      quiz_angle: "pinnate leaves, white flowers and bladder-like fruits with rattling seeds",
+      safety_note: "Do not damage shrubs; wild sites are local and biogeographically valuable."
+    },
+    "czworolist-pospolity": {
+      name: "Herb-paris",
+      hook: "It looks like a botanical sign: four leaves in a whorl and one geometric flower in the center.",
+      quiz_angle: "four leaves, solitary flower and black berry",
+      safety_note: "Poisonous plant; do not touch berries or confuse them with edible fruit."
+    },
+    "sledziennica-skretolistna": {
+      name: "Alternate-leaved golden saxifrage",
+      hook: "It makes yellow-green carpets near springs, although the true flowers are tiny and modest.",
+      quiz_angle: "yellow bracts, spring habitats and lack of classic showy petals",
+      safety_note: "Do not damage springs or wet microhabitats."
+    },
+    "kurzyslad-polny": {
+      name: "Scarlet pimpernel",
+      hook: "A tiny field flower closes with changing weather, so it was once treated as a natural barometer.",
+      quiz_angle: "small orange or red flowers and response to clouding weather",
+      safety_note: "Poisonous plant; do not treat it as useful or edible."
+    },
+    "podejzrzon-ksiezycowy": {
+      name: "Moonwort",
+      hook: "A tiny fern with crescent-shaped leaflets, like a botanical miniature from another age.",
+      quiz_angle: "crescent leaf segments, spore-bearing shoot and inconspicuous size",
+      safety_note: "Rare and easy to overlook; do not pick it or trample grasslands."
+    }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -931,6 +1158,17 @@
           source_note: "Descriptions start from the working species list. Photos and attribution are added gradually from legal sources.",
           categories: insectCategories,
           items: makeItemMap("owady", insectText)
+        },
+        kwiaty: {
+          title: "Flowers",
+          heading: "Unusual Flowers and Plants of Poland",
+          subtitle: "31 Polish wild or established plant curiosities: traps, scents, mimicry, parasites and relics.",
+          count_label: "31 curiosities",
+          search_placeholder: "e.g. waterwheel, orchid, burning bush...",
+          safety_notice: "Educational prototype. Many plants are protected, rare, toxic or habitat-sensitive: observe without picking or moving them.",
+          source_note: "Descriptions start from the working list of unusual Polish plants. Photos and attribution will be added later from legal sources.",
+          categories: flowerCategories,
+          items: makeItemMap("kwiaty", flowerText)
         }
       }
     }
