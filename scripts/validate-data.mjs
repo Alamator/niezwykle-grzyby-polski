@@ -5,8 +5,9 @@ import vm from "node:vm";
 const indexHtml = fs.readFileSync("index.html", "utf8");
 const scriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
 
-assert.match(indexHtml, /60\s+osobliwości/, "hero should mention 60 curiosities after the new pack");
-assert.match(indexHtml, /60\s+grzybowych osobliwości/, "atlas heading should mention 60 mushroom curiosities");
+assert.match(indexHtml, /Atlas Osobliwości Polski/, "page should use the umbrella atlas title");
+assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not be present");
+assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be present");
 
 assert(
   scriptSources.includes("./data/region-pack-v07.js"),
@@ -23,6 +24,10 @@ assert(
 assert(
   scriptSources.indexOf("./data/photo-pack-v08.js") < scriptSources.indexOf("./js/app.js"),
   "photo-pack-v08.js should load before app.js"
+);
+assert(
+  scriptSources.includes("./data/collections.js"),
+  "index.html should load the collection registry"
 );
 
 const context = { window: {} };

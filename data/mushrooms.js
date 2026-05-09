@@ -1,6 +1,6 @@
 window.MUSHROOM_APP_DATA = {
-  "project": "Niezwykłe Grzyby Polski",
-  "subtitle": "Atlas ciekawostek, fiszki, quiz i konkurs — edukacyjnie, nie do koszyka.",
+  "project": "Grzyby - Atlas Osobliwości Polski",
+  "subtitle": "Atlas ciekawostek, fiszki, quiz i źródła — edukacyjnie, nie do koszyka.",
   "version": "0.2.0-photo-credits",
   "created_for": "Oroloko",
   "last_updated": "2026-05-08",

@@ -1,8 +1,11 @@
-# Niezwykłe Grzyby Polski — MVP
+# Atlas Osobliwości Polski
 
-Statyczna strona edukacyjna: **Atlas + Nauka + Quiz + Konkurs + Powtórki + Źródła**.
+Statyczna strona edukacyjna: **wybór kolekcji + Atlas + Nauka + Quiz + Źródła**.
 
-Projekt jest przygotowany jako niezależne MVP, bez nazw OMTTK/PTTK i bez kopiowania cudzych opisów. Wersja 0.1 ma 50 gatunków i placeholdery zdjęć. Zdjęcia można dodawać stopniowo, najlepiej z Wikimedia Commons albo innych źródeł z jasną licencją.
+Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama dla kolejnych osobliwości polskiej przyrody. Pierwsze kolekcje:
+
+- **Grzyby**: 60 pozycji z uzupełnionymi zdjęciami i atrybucjami.
+- **Owady**: 30 pozycji startowych z miejscem na przyszłe zdjęcia i licencje.
 
 ## Struktura
 
@@ -11,7 +14,10 @@ index.html
 css/styles.css
 js/app.js
 data/mushrooms.js
-images/.gitkeep
+data/insects.js
+data/collections.js
+data/photo-pack-*.js
+data/region-pack-v07.js
 assets/logo-oroloko-ai.svg
 assets/favicon.svg
 manifest.webmanifest
@@ -24,7 +30,7 @@ vercel.json
 W katalogu projektu:
 
 ```bash
-python3 -m http.server 5173
+python -m http.server 5173
 ```
 
 Następnie otwórz:
@@ -33,53 +39,34 @@ Następnie otwórz:
 http://localhost:5173
 ```
 
-## Publikacja na Vercel
-
-Najprościej:
-
-1. Utwórz repozytorium na GitHubie.
-2. Wrzuć zawartość tego katalogu.
-3. W Vercel wybierz **New Project** i wskaż repozytorium.
-4. Framework: **Other** albo brak frameworka.
-5. Build command: puste.
-6. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
-
-Alternatywnie z CLI:
+## Testy danych
 
 ```bash
-npm i -g vercel
-vercel --prod
+npm run test:data
+npm run test:collections
 ```
 
-## Dodawanie zdjęć
+## Dodawanie kolekcji
 
-Dla każdego grzyba w `data/mushrooms.js` uzupełnij pola:
+Najprostsza ścieżka:
 
-```js
-"image": "./images/okratek-australijski.webp",
-"image_alt": "Okratek australijski",
-"image_author": "Autor zdjęcia",
-"image_source": "https://commons.wikimedia.org/wiki/File:...",
-"image_license": "CC BY-SA 4.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
-```
-
-Pliki zdjęć trzymaj w katalogu `images/`.
+1. Dodaj plik danych w `data/`, np. `fish.js`.
+2. Utrzymaj pola pozycji zgodne z obecnymi kolekcjami: `id`, `name_pl`, `name_lat`, `category`, `hook`, `quiz_angle`, `safety_note`, `region_pl`, `habitat_pl`, `occurrence_note` oraz pola zdjęć/licencji.
+3. Dopisz kolekcję w `data/collections.js`.
+4. Dodaj skrypt danych do `index.html` przed `data/collections.js`.
+5. Uruchom oba testy.
 
 ## Zasady treści
 
-- Projekt edukacyjny, nie poradnik zbioru ani potwierdzania jadalności.
+- Projekt edukacyjny, nie narzędzie do pewnego oznaczania gatunków w terenie.
 - Nie kopiować opisów z cudzych atlasów.
 - Każde zdjęcie musi mieć autora, źródło i licencję.
-- Przy gatunkach chronionych lub wrażliwych dodawać komunikat „nie zbierać”.
+- Przy gatunkach chronionych, toksycznych lub wrażliwych dodawać komunikat o obserwacji bez niepokojenia.
+
+## Publikacja na Vercel
+
+Framework: **Other** albo brak frameworka. Build command pusty. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
 
 ## Stopka
 
-W stopce jest: **Made by Oroloko** oraz znak „created with AI assistance”.
-
-
-## v0.2 — pierwsze zdjęcia Commons
-
-Dodano pierwszą paczkę 10 zdjęć z Wikimedia Commons z atrybucją w danych gatunków. Zdjęcia są ładowane z Wikimedia Commons przez `Special:Redirect/file/...`, więc repozytorium pozostaje lekkie, a sekcja „Źródła” pokazuje autora, licencję i link do strony pliku.
-
-Pierwsza paczka obejmuje: okratek australijski, sromotnik bezwstydny, czarka austriacka, soplówka jeżowata, siedzuń sosnowy, trzęsak pomarańczowożółty, uszak bzowy, promieniak wilgociomierz, kolczakówka piekąca i muchomor czerwony.
+W stopce jest znak **Made by Oroloko** oraz informacja o asyście AI.

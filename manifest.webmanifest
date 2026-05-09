@@ -1,7 +1,7 @@
 {
-  "name": "Niezwykłe Grzyby Polski",
-  "short_name": "Grzyby PL",
-  "description": "Interaktywny atlas, nauka, quiz i konkurs o niezwykłych grzybach Polski.",
+  "name": "Atlas Osobliwości Polski",
+  "short_name": "Osobliwości PL",
+  "description": "Interaktywny atlas, nauka, quiz i źródła o osobliwościach polskiej przyrody.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6f0e5",
