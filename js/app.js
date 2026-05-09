@@ -2,6 +2,7 @@
   "use strict";
 
   const app = window.ATLAS_APP_DATA;
+  const i18n = window.ATLAS_I18N || {};
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
@@ -10,7 +11,19 @@
     return;
   }
 
+  const languageIds = Object.keys(i18n.languages || { pl: { label: "PL" } });
+  const defaultLanguage = i18n.defaultLanguage || languageIds[0] || "pl";
+
+  function storedLanguage() {
+    try {
+      return window.localStorage.getItem("atlasLanguage");
+    } catch {
+      return null;
+    }
+  }
+
   const state = {
+    language: languageIds.includes(storedLanguage()) ? storedLanguage() : defaultLanguage,
     collectionId: null,
     view: "atlas",
     category: "all",
@@ -24,6 +37,26 @@
     return String(value ?? "").replace(/[&<>'"]/g, (char) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
     })[char]);
+  }
+
+  function format(value, params = {}) {
+    if (typeof value !== "string") return value;
+    return value.replace(/\{(\w+)\}/g, (_, key) => params[key] ?? "");
+  }
+
+  function uiValue(key) {
+    const current = i18n.ui?.[state.language]?.[key];
+    const fallback = i18n.ui?.[defaultLanguage]?.[key];
+    return current ?? fallback ?? key;
+  }
+
+  function t(key, params = {}) {
+    return format(uiValue(key), params);
+  }
+
+  function tList(key) {
+    const value = uiValue(key);
+    return Array.isArray(value) ? value : [];
   }
 
   function randomIndex(length) {
@@ -47,6 +80,14 @@
     return app.collections.find((collection) => collection.id === state.collectionId) || app.collections[0];
   }
 
+  function collectionTranslation(collection = activeCollection()) {
+    return i18n.collections?.[state.language]?.[collection.id] || {};
+  }
+
+  function collectionText(collection, field) {
+    return collectionTranslation(collection)[field] || collection[field] || "";
+  }
+
   function items() {
     return activeCollection().items || [];
   }
@@ -59,50 +100,184 @@
     return items().find((item) => item.id === id);
   }
 
+  function categoryById(id) {
+    return categories().find((category) => category.id === id);
+  }
+
+  function categoryText(category, field) {
+    if (!category) return "";
+    const translated = collectionTranslation().categories?.[category.id] || {};
+    return translated[field] || category[field] || "";
+  }
+
+  function itemTranslation(item) {
+    return collectionTranslation().items?.[item.id] || {};
+  }
+
+  function itemField(item, field, fallbackField = field) {
+    const translated = itemTranslation(item);
+    return translated[field] || item[fallbackField] || item[field] || "";
+  }
+
+  function itemName(item) {
+    return itemField(item, "name", "name_pl") || item.name_lat;
+  }
+
+  function itemHook(item) {
+    return itemField(item, "hook", "hook");
+  }
+
+  function itemQuizAngle(item) {
+    return itemField(item, "quiz_angle", "quiz_angle");
+  }
+
+  function itemSafety(item) {
+    return itemField(item, "safety_note", "safety_note") || collectionText(activeCollection(), "safety_notice");
+  }
+
+  function itemRegion(item) {
+    return itemField(item, "region", "region_pl");
+  }
+
+  function itemHabitat(item) {
+    return itemField(item, "habitat", "habitat_pl");
+  }
+
+  function itemOccurrence(item) {
+    return itemField(item, "occurrence", "occurrence_note");
+  }
+
+  function itemLevel(item) {
+    return itemField(item, "level", "level");
+  }
+
+  function itemCategoryLabel(item) {
+    return categoryText(categoryById(item.category), "label") || item.category_label || "";
+  }
+
+  function itemCategoryShort(item) {
+    return categoryText(categoryById(item.category), "short") || item.category_short || item.category_label || "";
+  }
+
+  function setText(selector, key, params = {}) {
+    const node = $(selector);
+    if (node) node.textContent = t(key, params);
+  }
+
+  function updateActiveCollectionLabels() {
+    if (!state.collectionId) return;
+    const collection = activeCollection();
+    $("#collectionEyebrow").textContent = collectionText(collection, "count_label");
+    $("#collectionTitle").textContent = collectionText(collection, "heading") || collectionText(collection, "title");
+    $("#safetyNotice").textContent = collectionText(collection, "safety_notice");
+    $("#sourceNote").textContent = collectionText(collection, "source_note");
+    $("#searchInput").placeholder = collectionText(collection, "search_placeholder") || t("searchFallback");
+  }
+
+  function renderChrome() {
+    document.documentElement.lang = state.language;
+    document.title = t("documentTitle");
+
+    setText("#skipLink", "skipLink");
+    setText("#heroEyebrow", "heroEyebrow");
+    setText("#heroTitle", "heroTitle");
+    setText("#heroLead", "heroLead");
+    setText("#chooseCollectionHero", "chooseCollection");
+    setText("#collectionsEyebrow", "collectionsEyebrow");
+    setText("#collections-title", "collectionsTitle");
+    setText("#collectionsNote", "collectionsNote");
+    setText("#changeCollectionButton", "changeCollection");
+    setText("#noticePrefix", "noticePrefix");
+    setText("#atlasEyebrow", "atlasEyebrow");
+    setText("#atlasNote", "atlasNote");
+    setText("#searchLabel", "searchLabel");
+    setText("#learnEyebrow", "learnEyebrow");
+    setText("#learn-title", "learnTitle");
+    setText("#learnNote", "learnNote");
+    setText("#quizEyebrow", "quizEyebrow");
+    setText("#quiz-title", "quizTitle");
+    setText("#quizNote", "quizNote");
+    setText("#sourcesEyebrow", "sourcesEyebrow");
+    setText("#sources-title", "sourcesTitle");
+    setText("#sourcePanelTitle", "sourcePanelTitle");
+    setText("#sourcePanelCopy", "sourcePanelCopy");
+    setText("#sourceChecklistTitle", "sourceChecklistTitle");
+
+    $("#heroActions")?.setAttribute("aria-label", t("quickActions"));
+    $("#languageToggle")?.setAttribute("aria-label", t("languageLabel"));
+    $("#appNav")?.setAttribute("aria-label", t("appNavLabel"));
+
+    $("#sourceChecklist").innerHTML = tList("sourceChecklistItems")
+      .map((item) => `<li>${escapeHtml(item)}</li>`)
+      .join("");
+
+    $$(".language-btn").forEach((button) => {
+      button.classList.toggle("is-active", button.dataset.language === state.language);
+      button.setAttribute("aria-pressed", String(button.dataset.language === state.language));
+    });
+
+    const navLabels = {
+      pl: { atlas: "Atlas", learn: "Nauka", quiz: "Quiz", sources: "Źródła" },
+      en: { atlas: "Atlas", learn: "Learn", quiz: "Quiz", sources: "Sources" }
+    };
+    $$(".nav-btn[data-view]").forEach((button) => {
+      button.textContent = navLabels[state.language]?.[button.dataset.view] || navLabels.pl[button.dataset.view] || button.dataset.view;
+    });
+
+    updateActiveCollectionLabels();
+    renderCollections();
+  }
+
   function renderCollections() {
-    $("#collectionGrid").innerHTML = app.collections.map((collection) => `
-      <article class="collection-card collection-card--${escapeHtml(collection.accent || "default")}">
-        <div class="collection-card__icon" aria-hidden="true">${escapeHtml(collection.icon || collection.title.slice(0, 1))}</div>
-        <div>
-          <p class="eyebrow">${escapeHtml(collection.count_label || `${collection.items.length} pozycji`)}</p>
-          <h3>${escapeHtml(collection.title)}</h3>
-          <p>${escapeHtml(collection.subtitle)}</p>
-        </div>
-        <button class="primary" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">Otwórz atlas</button>
-      </article>`).join("");
+    $("#collectionGrid").innerHTML = app.collections.map((collection) => {
+      const title = collectionText(collection, "title");
+      return `
+        <article class="collection-card collection-card--${escapeHtml(collection.accent || "default")}">
+          <div class="collection-card__icon" aria-hidden="true">${escapeHtml(collection.icon || title.slice(0, 1))}</div>
+          <div>
+            <p class="eyebrow">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(collectionText(collection, "subtitle"))}</p>
+          </div>
+          <button class="primary" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(t("collectionCardButton"))}</button>
+        </article>`;
+    }).join("");
   }
 
   function visualHtml(item, large = false) {
+    const name = itemName(item);
     if (item.image) {
+      const altText = state.language === defaultLanguage ? item.image_alt || name : name;
       return `
         <div class="m-card__visual">
-          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.image_alt || item.name_pl)}" loading="lazy" onerror="this.closest('.m-card__visual').classList.add('visual-error'); this.remove();" />
+          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(altText)}" loading="lazy" onerror="this.closest('.m-card__visual').classList.add('visual-error'); this.remove();" />
         </div>`;
     }
     return `
-      <div class="m-card__visual visual-fallback" aria-label="Zdjęcie do uzupełnienia: ${escapeHtml(item.name_pl)}">
+      <div class="m-card__visual visual-fallback" aria-label="${escapeHtml(t("imageToAddLabel", { name }))}">
         <span>${escapeHtml(item.category_icon || activeCollection().icon || "?")}</span>
-        <span>${large ? "zdjęcie do dodania" : escapeHtml(item.category_short || "osobliwość")}</span>
+        <span>${large ? escapeHtml(t("imageToAdd")) : escapeHtml(itemCategoryShort(item) || t("defaultCategory"))}</span>
       </div>`;
   }
 
   function cardHtml(item) {
+    const region = itemRegion(item);
     return `
       <article class="m-card" data-id="${escapeHtml(item.id)}">
         ${visualHtml(item)}
         <div class="m-card__body">
-          <h3>${escapeHtml(item.name_pl)}</h3>
+          <h3>${escapeHtml(itemName(item))}</h3>
           <div class="latin">${escapeHtml(item.name_lat)}</div>
-          <p class="hook">${escapeHtml(item.hook)}</p>
-          ${item.region_pl ? `<p class="occurrence-snippet"><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>` : ""}
+          <p class="hook">${escapeHtml(itemHook(item))}</p>
+          ${region ? `<p class="occurrence-snippet"><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
           <div class="meta-line">
-            <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(item.category_short || item.category_label || "")}</span>
-            <span class="pill">${escapeHtml(item.level || "atlas")}</span>
+            <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryShort(item))}</span>
+            <span class="pill">${escapeHtml(itemLevel(item) || "atlas")}</span>
           </div>
         </div>
         <div class="card-actions">
-          <button class="secondary" data-action="details" data-id="${escapeHtml(item.id)}">Szczegóły</button>
-          <button class="ghost" data-action="learn-item" data-id="${escapeHtml(item.id)}">Ucz się</button>
+          <button class="secondary" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(t("details"))}</button>
+          <button class="ghost" data-action="learn-item" data-id="${escapeHtml(item.id)}">${escapeHtml(t("learnItem"))}</button>
         </div>
       </article>`;
   }
@@ -110,18 +285,26 @@
   function renderCategoryFilters() {
     const container = $("#categoryFilters");
     container.innerHTML = [
-      `<button class="chip ${state.category === "all" ? "is-active" : ""}" data-category="all">Wszystkie</button>`,
-      ...categories().map((cat) => `<button class="chip ${state.category === cat.id ? "is-active" : ""}" data-category="${escapeHtml(cat.id)}">${escapeHtml(cat.icon)} ${escapeHtml(cat.short)}</button>`)
+      `<button class="chip ${state.category === "all" ? "is-active" : ""}" data-category="all">${escapeHtml(t("all"))}</button>`,
+      ...categories().map((cat) => `<button class="chip ${state.category === cat.id ? "is-active" : ""}" data-category="${escapeHtml(cat.id)}">${escapeHtml(cat.icon)} ${escapeHtml(categoryText(cat, "short"))}</button>`)
     ].join("");
   }
 
   function filteredItems() {
-    const phrase = state.search.trim().toLocaleLowerCase("pl");
+    const locale = state.language === "en" ? "en" : "pl";
+    const phrase = state.search.trim().toLocaleLowerCase(locale);
     return items().filter((item) => {
       const matchesCategory = state.category === "all" || item.category === state.category;
-      const haystack = [item.name_pl, item.name_lat, item.hook, item.category_label, item.quiz_angle, item.region_pl, item.habitat_pl]
-        .join(" ")
-        .toLocaleLowerCase("pl");
+      const haystack = [
+        itemName(item),
+        item.name_lat,
+        itemHook(item),
+        itemQuizAngle(item),
+        itemCategoryLabel(item),
+        itemCategoryShort(item),
+        itemRegion(item),
+        itemHabitat(item)
+      ].join(" ").toLocaleLowerCase(locale);
       const matchesSearch = !phrase || haystack.includes(phrase);
       return matchesCategory && matchesSearch;
     });
@@ -131,11 +314,11 @@
     const collection = activeCollection();
     const withImages = items().filter((item) => item.image).length;
     $("#statsGrid").innerHTML = `
-      <div class="stat-card"><strong>${items().length}</strong><span>pozycji w kolekcji</span></div>
-      <div class="stat-card"><strong>${categories().length}</strong><span>grup ciekawostek</span></div>
-      <div class="stat-card"><strong>${list.length}</strong><span>widocznych po filtrach</span></div>
-      <div class="stat-card"><strong>${withImages}</strong><span>zdjęć z atrybucją</span></div>`;
-    $("#atlas-title").textContent = `${collection.count_label} - ${collection.title}`;
+      <div class="stat-card"><strong>${items().length}</strong><span>${escapeHtml(t("statItems"))}</span></div>
+      <div class="stat-card"><strong>${categories().length}</strong><span>${escapeHtml(t("statGroups"))}</span></div>
+      <div class="stat-card"><strong>${list.length}</strong><span>${escapeHtml(t("statVisible"))}</span></div>
+      <div class="stat-card"><strong>${withImages}</strong><span>${escapeHtml(t("statPhotos"))}</span></div>`;
+    $("#atlas-title").textContent = `${collectionText(collection, "count_label")} - ${collectionText(collection, "title")}`;
   }
 
   function renderAtlas() {
@@ -144,39 +327,47 @@
     renderStats(list);
     $("#atlasGrid").innerHTML = list.length
       ? list.map(cardHtml).join("")
-      : `<div class="empty-state">Brak wyników. Zmień wyszukiwanie albo filtr.</div>`;
+      : `<div class="empty-state">${escapeHtml(t("noResults"))}</div>`;
+  }
+
+  function renderDialogContent(item) {
+    const region = itemRegion(item);
+    const habitat = itemHabitat(item);
+    const occurrence = itemOccurrence(item);
+    $("#dialogContent").innerHTML = `
+      <div class="dialog-body">
+        ${visualHtml(item, true)}
+        <div class="meta-line" style="margin-top:1rem">
+          <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryLabel(item))}</span>
+          <span class="pill">${escapeHtml(t("levelLabel"))}: ${escapeHtml(itemLevel(item) || "atlas")}</span>
+        </div>
+        <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(itemName(item))}</h2>
+        <p class="latin">${escapeHtml(item.name_lat)}</p>
+        <p class="hook">${escapeHtml(itemHook(item))}</p>
+        ${region ? `
+          <div class="occurrence-box">
+            <h3>${escapeHtml(t("occurrenceTitle"))}</h3>
+            <p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>
+            ${habitat ? `<p><strong>${escapeHtml(t("habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : ""}
+            ${occurrence ? `<p>${escapeHtml(occurrence)}</p>` : ""}
+          </div>` : ""}
+        <h3>${escapeHtml(t("quizAngleTitle"))}</h3>
+        <p>${escapeHtml(itemQuizAngle(item))}</p>
+        <div class="safety"><strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}</div>
+        <div class="row-actions">
+          <button class="primary" data-action="learn-item" data-id="${escapeHtml(item.id)}">${escapeHtml(t("learnSpecies"))}</button>
+          <button class="secondary" data-action="close-dialog">${escapeHtml(t("close"))}</button>
+        </div>
+      </div>`;
   }
 
   function showDialog(id) {
     const item = byId(id);
     if (!item) return;
     const dialog = $("#itemDialog");
-    $("#dialogContent").innerHTML = `
-      <div class="dialog-body">
-        ${visualHtml(item, true)}
-        <div class="meta-line" style="margin-top:1rem">
-          <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(item.category_label || "")}</span>
-          <span class="pill">Poziom: ${escapeHtml(item.level || "atlas")}</span>
-        </div>
-        <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(item.name_pl)}</h2>
-        <p class="latin">${escapeHtml(item.name_lat)}</p>
-        <p class="hook">${escapeHtml(item.hook)}</p>
-        ${item.region_pl ? `
-          <div class="occurrence-box">
-            <h3>Występowanie w Polsce</h3>
-            <p><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>
-            <p><strong>Siedlisko:</strong> ${escapeHtml(item.habitat_pl)}</p>
-            <p>${escapeHtml(item.occurrence_note)}</p>
-          </div>` : ""}
-        <h3>Kąt quizowy</h3>
-        <p>${escapeHtml(item.quiz_angle)}</p>
-        <div class="safety"><strong>Uwaga:</strong> ${escapeHtml(item.safety_note || activeCollection().safety_notice)}</div>
-        <div class="row-actions">
-          <button class="primary" data-action="learn-item" data-id="${escapeHtml(item.id)}">Ucz się tego gatunku</button>
-          <button class="secondary" data-action="close-dialog">Zamknij</button>
-        </div>
-      </div>`;
-    if (typeof dialog.showModal === "function") dialog.showModal();
+    dialog.dataset.itemId = id;
+    renderDialogContent(item);
+    if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
     else dialog.setAttribute("open", "");
   }
 
@@ -184,28 +375,29 @@
     const list = items();
     const item = list[state.flashIndex] || list[0];
     if (!item) {
-      $("#flashcard").innerHTML = `<div class="empty-state">Ta kolekcja nie ma jeszcze fiszek.</div>`;
+      $("#flashcard").innerHTML = `<div class="empty-state">${escapeHtml(t("flashEmpty"))}</div>`;
       return;
     }
+    const region = itemRegion(item);
     $("#flashcard").innerHTML = `
       <div class="flash-inner">
         ${visualHtml(item, true)}
         <div class="flash-content">
-          <p class="eyebrow">Fiszka ${state.flashIndex + 1} / ${list.length}</p>
+          <p class="eyebrow">${escapeHtml(t("flashCounter", { current: state.flashIndex + 1, total: list.length }))}</p>
           <div class="big-icon" aria-hidden="true">${escapeHtml(item.category_icon || activeCollection().icon || "?")}</div>
-          <blockquote>${escapeHtml(item.hook)}</blockquote>
-          <p><strong>Kategoria:</strong> ${escapeHtml(item.category_label)}</p>
+          <blockquote>${escapeHtml(itemHook(item))}</blockquote>
+          <p><strong>${escapeHtml(t("categoryLabel"))}:</strong> ${escapeHtml(itemCategoryLabel(item))}</p>
           ${state.flashRevealed ? `
             <div class="reveal-box">
-              <h3>${escapeHtml(item.name_pl)}</h3>
+              <h3>${escapeHtml(itemName(item))}</h3>
               <p class="latin">${escapeHtml(item.name_lat)}</p>
-              ${item.region_pl ? `<p><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>` : ""}
-              <p><strong>Warto zapamiętać:</strong> ${escapeHtml(item.quiz_angle)}</p>
-              <p><strong>Uwaga:</strong> ${escapeHtml(item.safety_note)}</p>
+              ${region ? `<p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
+              <p><strong>${escapeHtml(t("rememberLabel"))}:</strong> ${escapeHtml(itemQuizAngle(item))}</p>
+              <p><strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}</p>
             </div>` : ""}
           <div class="row-actions">
-            <button class="primary" data-action="reveal-flash">${state.flashRevealed ? "Ukryj odpowiedź" : "Pokaż odpowiedź"}</button>
-            <button class="secondary" data-action="known-flash">Następny</button>
+            <button class="primary" data-action="reveal-flash">${state.flashRevealed ? escapeHtml(t("hideAnswer")) : escapeHtml(t("showAnswer"))}</button>
+            <button class="secondary" data-action="known-flash">${escapeHtml(t("next"))}</button>
           </div>
         </div>
       </div>`;
@@ -216,21 +408,22 @@
     const correct = sample(list, 1)[0];
     const mode = Math.random() > 0.45 ? "hook" : "latin";
     const prompt = mode === "hook"
-      ? `Który gatunek pasuje do opisu: „${correct.hook}”?`
-      : `Jaką polską nazwę ma gatunek ${correct.name_lat}?`;
+      ? t("quizHookPrompt", { hook: itemHook(correct) })
+      : t("quizLatinPrompt", { latin: correct.name_lat });
     const wrong = sample(list.filter((item) => item.id !== correct.id), 3);
     return {
       correctId: correct.id,
-      correctName: correct.name_pl,
+      correctName: itemName(correct),
       prompt,
-      detail: correct.quiz_angle,
-      options: shuffle([correct, ...wrong]).map((item) => ({ id: item.id, label: item.name_pl }))
+      detail: itemQuizAngle(correct),
+      options: shuffle([correct, ...wrong]).map((item) => ({ id: item.id, label: itemName(item) }))
     };
   }
 
   function initQuiz() {
     state.quiz = {
       collectionId: state.collectionId,
+      language: state.language,
       questions: Array.from({ length: Math.min(10, items().length) }, buildQuestion),
       index: 0,
       score: 0,
@@ -242,25 +435,25 @@
   }
 
   function renderQuiz() {
-    if (!state.quiz || state.quiz.collectionId !== state.collectionId) initQuiz();
+    if (!state.quiz || state.quiz.collectionId !== state.collectionId || state.quiz.language !== state.language) initQuiz();
     const quiz = state.quiz;
     const box = $("#quizBox");
     if (quiz.finished) {
       box.innerHTML = `
         <div class="question-card">
-          <p class="eyebrow">Wynik</p>
+          <p class="eyebrow">${escapeHtml(t("quizResult"))}</p>
           <h3>${quiz.score} / ${quiz.questions.length}</h3>
-          <p>${quiz.score >= 8 ? "Świetnie - osobliwości zaczynają wchodzić w pamięć." : "Dobra rozgrzewka. Wróć do fiszek i spróbuj ponownie."}</p>
+          <p>${escapeHtml(quiz.score >= 8 ? t("quizExcellent") : t("quizRetry"))}</p>
           <div class="row-actions">
-            <button class="primary" data-action="restart-quiz">Jeszcze raz</button>
-            <button class="secondary" data-go="learn">Przejdź do nauki</button>
+            <button class="primary" data-action="restart-quiz">${escapeHtml(t("again"))}</button>
+            <button class="secondary" data-go="learn">${escapeHtml(t("goLearn"))}</button>
           </div>
         </div>`;
       return;
     }
     const q = quiz.questions[quiz.index];
     box.innerHTML = `
-      <div class="quiz-progress"><span>Pytanie ${quiz.index + 1} / ${quiz.questions.length}</span><span>Wynik: ${quiz.score}</span></div>
+      <div class="quiz-progress"><span>${escapeHtml(t("questionCounter", { current: quiz.index + 1, total: quiz.questions.length }))}</span><span>${escapeHtml(t("scoreLabel", { score: quiz.score }))}</span></div>
       <div class="question-card">
         <h3>${escapeHtml(q.prompt)}</h3>
         <div class="answers">
@@ -269,10 +462,10 @@
             return `<button class="answer-btn ${klass}" data-action="answer-quiz" data-id="${escapeHtml(option.id)}" ${quiz.answered ? "disabled" : ""}>${escapeHtml(option.label)}</button>`;
           }).join("")}
         </div>
-        ${quiz.answered ? `<div class="feedback"><strong>Poprawna odpowiedź:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(q.detail)}</div>` : ""}
+        ${quiz.answered ? `<div class="feedback"><strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(q.detail)}</div>` : ""}
         <div class="row-actions">
-          ${quiz.answered ? `<button class="primary" data-action="next-quiz">${quiz.index + 1 === quiz.questions.length ? "Zakończ quiz" : "Następne pytanie"}</button>` : ""}
-          <button class="ghost" data-action="restart-quiz">Restart</button>
+          ${quiz.answered ? `<button class="primary" data-action="next-quiz">${escapeHtml(quiz.index + 1 === quiz.questions.length ? t("finishQuiz") : t("nextQuestion"))}</button>` : ""}
+          <button class="ghost" data-action="restart-quiz">${escapeHtml(t("restart"))}</button>
         </div>
       </div>`;
   }
@@ -280,15 +473,15 @@
   function renderCredits() {
     const rows = items().map((item) => `
       <tr>
-        <td><strong>${escapeHtml(item.name_pl)}</strong><br><span class="latin">${escapeHtml(item.name_lat)}</span></td>
-        <td>${item.image ? `<a href="${escapeHtml(item.image)}" rel="noopener noreferrer" target="_blank">podgląd</a>` : "do uzupełnienia"}</td>
-        <td>${item.image_author ? escapeHtml(item.image_author) : "do uzupełnienia"}</td>
-        <td>${item.image_license ? escapeHtml(item.image_license) : "do uzupełnienia"}</td>
-        <td>${item.image_source ? `<a href="${escapeHtml(item.image_source)}" rel="noopener noreferrer" target="_blank">źródło</a>` : "do uzupełnienia"}</td>
+        <td><strong>${escapeHtml(itemName(item))}</strong><br><span class="latin">${escapeHtml(item.name_lat)}</span></td>
+        <td>${item.image ? `<a href="${escapeHtml(item.image)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("preview"))}</a>` : escapeHtml(t("missing"))}</td>
+        <td>${item.image_author ? escapeHtml(item.image_author) : escapeHtml(t("missing"))}</td>
+        <td>${item.image_license ? escapeHtml(item.image_license) : escapeHtml(t("missing"))}</td>
+        <td>${item.image_source ? `<a href="${escapeHtml(item.image_source)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("creditSource").toLowerCase())}</a>` : escapeHtml(t("missing"))}</td>
       </tr>`).join("");
     $("#creditsTable").innerHTML = `
       <table>
-        <thead><tr><th>Gatunek</th><th>Plik</th><th>Autor</th><th>Licencja</th><th>Źródło</th></tr></thead>
+        <thead><tr><th>${escapeHtml(t("creditSpecies"))}</th><th>${escapeHtml(t("creditFile"))}</th><th>${escapeHtml(t("creditAuthor"))}</th><th>${escapeHtml(t("creditLicense"))}</th><th>${escapeHtml(t("creditSource"))}</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>`;
   }
@@ -316,11 +509,7 @@
     $("#collectionPicker").classList.add("is-hidden");
     $(".app-nav").classList.remove("is-hidden");
     $("#main").classList.remove("is-hidden");
-    $("#collectionEyebrow").textContent = collection.count_label;
-    $("#collectionTitle").textContent = collection.heading || collection.title;
-    $("#safetyNotice").textContent = collection.safety_notice;
-    $("#sourceNote").textContent = collection.source_note;
-    $("#searchInput").placeholder = collection.search_placeholder || "Szukaj...";
+    updateActiveCollectionLabels();
     activateView("atlas");
   }
 
@@ -332,8 +521,29 @@
     $("#collectionPicker").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function setLanguage(language) {
+    if (!languageIds.includes(language)) return;
+    state.language = language;
+    try {
+      window.localStorage.setItem("atlasLanguage", language);
+    } catch {
+      // Local storage is optional; the switch still works for the current page.
+    }
+    state.quiz = null;
+    renderChrome();
+    if (state.collectionId) {
+      activateView(state.view);
+    }
+    const dialog = $("#itemDialog");
+    if (dialog?.open && dialog.dataset.itemId) {
+      const item = byId(dialog.dataset.itemId);
+      if (item) renderDialogContent(item);
+    }
+  }
+
   function handleAction(action, target) {
     const id = target.dataset.id;
+    if (action === "set-language") setLanguage(target.dataset.language);
     if (action === "select-collection") selectCollection(target.dataset.collection);
     if (action === "show-collections") showCollections();
     if (action === "details") showDialog(id);
@@ -402,6 +612,6 @@
   }
 
   bindEvents();
-  renderCollections();
+  renderChrome();
   registerServiceWorker();
 })();

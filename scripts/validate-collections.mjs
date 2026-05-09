@@ -11,9 +11,14 @@ assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not b
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be in navigation");
 assert(scriptSources.includes("./data/insects.js"), "index.html should load data/insects.js");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
+assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
+);
+assert(
+  scriptSources.indexOf("./data/i18n.js") < scriptSources.indexOf("./js/app.js"),
+  "i18n.js should load before app.js"
 );
 
 const context = { window: {} };
@@ -26,9 +31,14 @@ for (const source of scriptSources.filter((src) => src.startsWith("./data/"))) {
 }
 
 const app = context.window.ATLAS_APP_DATA;
+const i18n = context.window.ATLAS_I18N;
 assert(app, "ATLAS_APP_DATA should be defined");
+assert(i18n, "ATLAS_I18N should be defined");
 assert.equal(app.project, "Atlas Osobliwości Polski");
 assert.equal(JSON.stringify(app.views.map((view) => view.id)), JSON.stringify(["atlas", "learn", "quiz", "sources"]));
+assert.equal(i18n.defaultLanguage, "pl", "Polish should remain the default language");
+assert.equal(i18n.languages.en.label, "EN", "English language metadata should exist");
+assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
 assert.equal(collections.length, 2, "first release should expose mushrooms and insects");
@@ -44,6 +54,28 @@ assert.equal(
   29,
   "insect collection should include 29 Commons images with attribution; Phausis splendidula remains without a verified photo"
 );
+
+for (const collection of collections) {
+  const translatedCollection = i18n.collections.en[collection.id];
+  assert(translatedCollection, `${collection.id} should have English collection text`);
+  assert(translatedCollection.title, `${collection.id} should have an English title`);
+  assert(translatedCollection.categories, `${collection.id} should have English category labels`);
+  assert(translatedCollection.items, `${collection.id} should have English item translations`);
+
+  for (const category of collection.categories) {
+    assert(translatedCollection.categories[category.id]?.label, `${collection.id}/${category.id} should have an English category label`);
+    assert(translatedCollection.categories[category.id]?.short, `${collection.id}/${category.id} should have an English category short label`);
+  }
+
+  for (const item of collection.items) {
+    const translatedItem = translatedCollection.items[item.id];
+    assert(translatedItem, `${collection.id}/${item.id} should have English item text`);
+    assert(translatedItem.name, `${collection.id}/${item.id} should have an English display name`);
+    assert(translatedItem.hook, `${collection.id}/${item.id} should have an English hook`);
+    assert(translatedItem.quiz_angle, `${collection.id}/${item.id} should have an English quiz angle`);
+    assert(translatedItem.safety_note, `${collection.id}/${item.id} should have an English safety note`);
+  }
+}
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");

@@ -19,18 +19,25 @@
   <script defer src="./data/photo-pack-v08.js"></script>
   <script defer src="./data/insects.js"></script>
   <script defer src="./data/collections.js"></script>
+  <script defer src="./data/i18n.js"></script>
   <script defer src="./js/app.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <a id="skipLink" class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="hero shell">
     <div class="hero__content">
-      <p class="eyebrow">Atlas • Polska • kolekcje przyrodnicze</p>
-      <h1>Atlas Osobliwości Polski</h1>
-      <p class="lead">Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt jest gotowy na kolejne działy: ryby, motyle, kwiaty i następne osobliwości.</p>
-      <div class="hero__actions" aria-label="Szybkie akcje">
-        <button class="primary" data-action="show-collections">Wybierz kolekcję</button>
+      <div class="hero__topline">
+        <p id="heroEyebrow" class="eyebrow">Atlas • Polska • kolekcje przyrodnicze</p>
+        <div id="languageToggle" class="language-toggle" aria-label="Wybór języka">
+          <button class="language-btn is-active" data-action="set-language" data-language="pl" type="button">PL</button>
+          <button class="language-btn" data-action="set-language" data-language="en" type="button">EN</button>
+        </div>
+      </div>
+      <h1 id="heroTitle">Atlas Osobliwości Polski</h1>
+      <p id="heroLead" class="lead">Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt jest gotowy na kolejne działy: ryby, motyle, kwiaty i następne osobliwości.</p>
+      <div id="heroActions" class="hero__actions" aria-label="Szybkie akcje">
+        <button id="chooseCollectionHero" class="primary" data-action="show-collections">Wybierz kolekcję</button>
       </div>
     </div>
     <div class="hero__badge" aria-hidden="true">
@@ -42,15 +49,15 @@
   <section id="collectionPicker" class="collection-picker shell" aria-labelledby="collections-title">
     <div class="section-head">
       <div>
-        <p class="eyebrow">Kolekcje</p>
+        <p id="collectionsEyebrow" class="eyebrow">Kolekcje</p>
         <h2 id="collections-title">Wybierz atlas</h2>
       </div>
-      <p class="section-note">Każdy dział ma ten sam rytm: Atlas, Nauka, Quiz i Źródła.</p>
+      <p id="collectionsNote" class="section-note">Każdy dział ma ten sam rytm: Atlas, Nauka, Quiz i Źródła.</p>
     </div>
     <div id="collectionGrid" class="collection-grid"></div>
   </section>
 
-  <nav class="app-nav shell is-hidden" aria-label="Nawigacja aplikacji">
+  <nav id="appNav" class="app-nav shell is-hidden" aria-label="Nawigacja aplikacji">
     <button class="nav-btn is-active" data-view="atlas">Atlas</button>
     <button class="nav-btn" data-view="learn">Nauka</button>
     <button class="nav-btn" data-view="quiz">Quiz</button>
@@ -63,26 +70,26 @@
         <p class="eyebrow" id="collectionEyebrow">Aktywna kolekcja</p>
         <h2 id="collectionTitle">Atlas</h2>
       </div>
-      <button class="secondary" data-action="show-collections">Zmień kolekcję</button>
+      <button id="changeCollectionButton" class="secondary" data-action="show-collections">Zmień kolekcję</button>
     </section>
 
     <section class="notice" role="note">
-      <strong>Uwaga:</strong>
+      <strong id="noticePrefix">Uwaga:</strong>
       <span id="safetyNotice">To jest prototyp edukacyjny.</span>
     </section>
 
     <section id="atlas" class="view is-active" aria-labelledby="atlas-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Atlas</p>
+          <p id="atlasEyebrow" class="eyebrow">Atlas</p>
           <h2 id="atlas-title">Osobliwości</h2>
         </div>
-        <p class="section-note">Kliknij kartę, żeby zobaczyć szczegóły.</p>
+        <p id="atlasNote" class="section-note">Kliknij kartę, żeby zobaczyć szczegóły.</p>
       </div>
 
       <div class="filters" aria-label="Filtry atlasu">
         <label class="search-box">
-          <span>Szukaj</span>
+          <span id="searchLabel">Szukaj</span>
           <input id="searchInput" type="search" placeholder="Szukaj w aktywnej kolekcji..." autocomplete="off" />
         </label>
         <div id="categoryFilters" class="chips" aria-label="Kategorie"></div>
@@ -95,10 +102,10 @@
     <section id="learn" class="view" aria-labelledby="learn-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Nauka</p>
+          <p id="learnEyebrow" class="eyebrow">Nauka</p>
           <h2 id="learn-title">Fiszki: zgadnij gatunek</h2>
         </div>
-        <p class="section-note">Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.</p>
+        <p id="learnNote" class="section-note">Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.</p>
       </div>
       <div id="flashcard" class="flashcard"></div>
     </section>
@@ -106,10 +113,10 @@
     <section id="quiz" class="view" aria-labelledby="quiz-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Quiz</p>
+          <p id="quizEyebrow" class="eyebrow">Quiz</p>
           <h2 id="quiz-title">10 pytań na spokojnie</h2>
         </div>
-        <p class="section-note">Pytania są generowane z opisów i nazw łacińskich aktywnej kolekcji.</p>
+        <p id="quizNote" class="section-note">Pytania są generowane z opisów i nazw łacińskich aktywnej kolekcji.</p>
       </div>
       <div id="quizBox" class="quiz-box"></div>
     </section>
@@ -117,16 +124,16 @@
     <section id="sources" class="view" aria-labelledby="sources-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Źródła i licencje</p>
+          <p id="sourcesEyebrow" class="eyebrow">Źródła i licencje</p>
           <h2 id="sources-title">Atrybucja zdjęć</h2>
         </div>
         <p class="section-note" id="sourceNote">Zdjęcia uzupełniamy stopniowo z legalnych źródeł.</p>
       </div>
-      <div class="source-panel">
-        <h3>Zasada projektu</h3>
-        <p>Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.</p>
-        <h3>Checklist zdjęcia</h3>
-        <ul>
+      <div id="sourcePanel" class="source-panel">
+        <h3 id="sourcePanelTitle">Zasada projektu</h3>
+        <p id="sourcePanelCopy">Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.</p>
+        <h3 id="sourceChecklistTitle">Checklist zdjęcia</h3>
+        <ul id="sourceChecklist">
           <li>autor / właściciel praw,</li>
           <li>link do strony pliku,</li>
           <li>nazwa licencji,</li>
