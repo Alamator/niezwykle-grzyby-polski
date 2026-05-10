@@ -107,6 +107,17 @@
     "inwazyjne-alarmy": { label: "Invasive alerts", short: "Alerts" }
   };
 
+  const birdCategories = {
+    "rekordy-i-skala": { label: "Records and scale", short: "Scale" },
+    "lot-i-wedrowki": { label: "Flight and migrations", short: "Flight" },
+    "swiatlo-i-zmysly": { label: "Light and senses", short: "Senses" },
+    "zapach-i-obrona": { label: "Scent and defense", short: "Defense" },
+    "gniazda-i-architektura": { label: "Nests and architecture", short: "Nests" },
+    "strategie-i-mity": { label: "Strategies and myths", short: "Strategies" },
+    "woda-i-gory": { label: "Water and mountains", short: "Niches" },
+    "rzadkie-goscie": { label: "Rare visitors", short: "Visitors" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -142,6 +153,16 @@
       "rzeczne-paradoksy": "rivers, lakes, reservoirs and open water where familiar fish families produce surprising forms",
       "oceaniczni-goscie": "open seas and rare Baltic or northern-sea contexts rather than regular inland habitats",
       "inwazyjne-alarmy": "ports, canals, ponds, river mouths and connected waters where invasive fish can spread"
+    },
+    ptaki: {
+      "rekordy-i-skala": "forests, cliffs, open water and tree crowns where size or miniaturization becomes the story",
+      "lot-i-wedrowki": "open sky, wetlands, coasts, towns and migration routes where endurance or speed matters",
+      "swiatlo-i-zmysly": "woodland, towns, fields and night habitats where sight, UV, sound or camouflage shape behavior",
+      "zapach-i-obrona": "nest cavities, oceanic edges and places where scent becomes a defense or navigation clue",
+      "gniazda-i-architektura": "riverbanks, buildings, sandy cliffs, willow thickets and other nest-building sites",
+      "strategie-i-mity": "fields, forests and nocturnal places where unusual feeding, breeding or folklore attaches to birds",
+      "woda-i-gory": "marshes, fast streams, mountain cliffs and wet forests with strongly specialized bird niches",
+      "rzadkie-goscie": "coasts, wetlands, fields and reservoirs where vagrant birds may briefly appear"
     }
   };
 
@@ -162,6 +183,9 @@
     if (collectionId === "ryby") {
       return "Educational material only; do not use the atlas as fishing, handling or legal guidance.";
     }
+    if (collectionId === "ptaki") {
+      return "Educational material only; observe from a distance and do not disturb nests, leks or rare-bird sites.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
@@ -169,6 +193,7 @@
     if (collectionId === "grzyby") return "Recorded in Poland; local abundance depends strongly on habitat and season.";
     if (collectionId === "kwiaty") return "Recorded in Poland as a native, wild or established plant curiosity, depending strongly on habitat.";
     if (collectionId === "ryby") return "Recorded in Polish waters or included as a rare visitor from the marine edge of the atlas.";
+    if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
@@ -176,6 +201,7 @@
     if (collectionId === "grzyby") return "Use the habitat, shape and season as field context; the note is educational, not a collecting guide.";
     if (collectionId === "kwiaty") return "Observe without collecting; many plant curiosities depend on fragile microhabitats.";
     if (collectionId === "ryby") return "Treat the note as natural-history context, not as identification, fishing or handling advice.";
+    if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -1218,6 +1244,201 @@
     }
   };
 
+  const birdText = {
+    bielik: {
+      name: "White-tailed Eagle",
+      hook: "Poland's largest breeding bird patrols lakes and river valleys on broad, board-like wings.",
+      quiz_angle: "huge wingspan, pale adult tail and apex-predator role",
+      level: "sky monarch"
+    },
+    mysikrolik: {
+      name: "Goldcrest",
+      hook: "Poland's smallest bird weighs almost nothing, yet survives by feeding nearly constantly.",
+      quiz_angle: "tiny size, golden crown stripe and restless feeding in conifers",
+      level: "featherweight"
+    },
+    zniczek: {
+      name: "Firecrest",
+      hook: "A goldcrest relative with a fiery crown and a sharper, more contrasting face pattern.",
+      quiz_angle: "small size, bright crown, white eyebrow and dark eye stripe",
+      level: "spark in needles"
+    },
+    puchacz: {
+      name: "Eurasian Eagle-Owl",
+      hook: "Europe's largest owl pairs orange eyes, ear tufts and a deep nocturnal call.",
+      quiz_angle: "massive size, orange eyes, feather tufts and resonant hooting",
+      level: "night giant"
+    },
+    "jerzyk-zwyczajny": {
+      name: "Common Swift",
+      hook: "A nearly aerial bird that feeds, drinks, mates and even sleeps on the wing outside the breeding season.",
+      quiz_angle: "sickle wings, tiny feet, screaming summer flight and nesting in buildings",
+      level: "air bird"
+    },
+    "sokol-wedrowny": {
+      name: "Peregrine Falcon",
+      hook: "The fastest hunting bird turns its body into a controlled missile during a stoop.",
+      quiz_angle: "diving speed, black moustache mark and aerial hunting",
+      level: "living projectile"
+    },
+    szlamnik: {
+      name: "Bar-tailed Godwit",
+      hook: "A shorebird built for astonishing non-stop migration over enormous distances.",
+      quiz_angle: "long bill, shorebird shape and marathon flights",
+      level: "sky marathoner"
+    },
+    dubelt: {
+      name: "Great Snipe",
+      hook: "A secretive wetland bird that combines lekking meadows with remarkable migration speed.",
+      quiz_angle: "cryptic plumage, wet meadow leks and fast long-distance travel",
+      level: "wetland sprinter"
+    },
+    "slonka-zwyczajna": {
+      name: "Eurasian Woodcock",
+      hook: "A leaf-colored forest bird whose white feather patches can act like natural reflectors at dusk.",
+      quiz_angle: "camouflage, roding flights and unusually reflective white feathers",
+      level: "forest reflector"
+    },
+    uszatka: {
+      name: "Long-eared Owl",
+      hook: "A slim owl whose fresh feathers can glow pinkish under ultraviolet light.",
+      quiz_angle: "ear tufts, orange eyes, winter roosts and feather porphyrins",
+      level: "UV glow"
+    },
+    "puszczyk-zwyczajny": {
+      name: "Tawny Owl",
+      hook: "A black-eyed woodland owl whose voice became one of Europe's classic night sounds.",
+      quiz_angle: "dark eyes, round head, silent flight and familiar hooting",
+      level: "night voice"
+    },
+    pustulka: {
+      name: "Common Kestrel",
+      hook: "A hovering falcon that can use ultraviolet clues when searching for vole activity.",
+      quiz_angle: "hovering, rusty back, long tail and UV-assisted hunting",
+      level: "UV detector"
+    },
+    dudek: {
+      name: "Eurasian Hoopoe",
+      hook: "A spectacular crested bird whose nesting family can defend itself with a foul-smelling secretion.",
+      quiz_angle: "crest, black-and-white wings, up-up-up call and chemical nest defense",
+      level: "scent shield"
+    },
+    "nawalnik-duzy": {
+      name: "Leach's Storm Petrel",
+      hook: "A rare oceanic visitor whose world of scent and night feels far more Atlantic than Baltic.",
+      quiz_angle: "tiny seabird, tube-like nostrils, musky smell and rarity in Poland",
+      level: "musky visitor"
+    },
+    remiz: {
+      name: "European Penduline Tit",
+      hook: "A masked little bird that weaves a hanging nest like a soft pouch or mitten.",
+      quiz_angle: "black mask, riverside shrubs and a nest woven from plant down",
+      level: "waterside weaver"
+    },
+    zimorodek: {
+      name: "Common Kingfisher",
+      hook: "A blue flash over the river that nests not in a tree, but in a tunnel dug into a bank.",
+      quiz_angle: "turquoise back, orange belly, bank tunnel and plunge-diving",
+      level: "river jewel"
+    },
+    zolna: {
+      name: "European Bee-eater",
+      hook: "Poland's most tropical-looking bird nests in sandy banks and specializes in stinging insects.",
+      quiz_angle: "bright colors, bank burrows and bee-handling behavior",
+      level: "ravine parrot"
+    },
+    brzegowka: {
+      name: "Sand Martin",
+      hook: "A small swallow that turns river cliffs into crowded apartment blocks of tunnels.",
+      quiz_angle: "colonial burrows, brown breast band and low flight over water",
+      level: "tunnel colony"
+    },
+    dymowka: {
+      name: "Barn Swallow",
+      hook: "A mud-building swallow that mixes soil with saliva and nests under human roofs.",
+      quiz_angle: "forked tail, red throat and mud cup nest in buildings",
+      level: "mud mason"
+    },
+    srokosz: {
+      name: "Great Grey Shrike",
+      hook: "A songbird predator that stores prey by impaling it on thorns or wire.",
+      quiz_angle: "black mask, hooked bill and prey caches on sharp points",
+      level: "butcher bird"
+    },
+    kukulka: {
+      name: "Common Cuckoo",
+      hook: "A brood parasite that lays its eggs in other birds' nests and leaves parenting to hosts.",
+      quiz_angle: "famous call, slim shape and egg-laying in host nests",
+      level: "social engineer"
+    },
+    "krzyzodziob-swierkowy": {
+      name: "Red Crossbill",
+      hook: "Its crossed bill looks odd until you see it work as a tool for opening cones.",
+      quiz_angle: "crossed bill tips, cone feeding and red males",
+      level: "living pliers"
+    },
+    gluszec: {
+      name: "Western Capercaillie",
+      hook: "A large forest grouse whose display song includes a trance-like phase behind the old 'deaf' reputation.",
+      quiz_angle: "large male, fanned tail, lek site and display song sequence",
+      level: "lek trance"
+    },
+    "lelek-kozodoj": {
+      name: "European Nightjar",
+      hook: "A nocturnal insect hunter with a huge mouth and a folklore reputation it never deserved.",
+      quiz_angle: "churring call, wide gape, bristles and night hunting over open woodland",
+      level: "night myth"
+    },
+    szablodziob: {
+      name: "Pied Avocet",
+      hook: "An elegant wader with an upcurved bill that sweeps through shallow mud like a sensitive probe.",
+      quiz_angle: "black-and-white pattern, blue legs and upturned bill",
+      level: "sabre in mud"
+    },
+    pluszcz: {
+      name: "White-throated Dipper",
+      hook: "A songbird that dives and walks along the bottom of fast mountain streams.",
+      quiz_angle: "white bib, bobbing posture and underwater feeding in current",
+      level: "underwater walker"
+    },
+    pomurnik: {
+      name: "Wallcreeper",
+      hook: "A grey cliff climber that suddenly flashes red wings against mountain rock.",
+      quiz_angle: "vertical rock movement, crimson wing panels and thin curved bill",
+      level: "Tatras butterfly"
+    },
+    wodniczka: {
+      name: "Aquatic Warbler",
+      hook: "A globally threatened sedge-bed singer for which Polish wetlands are crucial refuges.",
+      quiz_angle: "crown stripe, sedge habitat and dependence on intact fens",
+      level: "fen voice"
+    },
+    "puszczyk-mszarny": {
+      name: "Great Grey Owl",
+      hook: "A huge pale owl of northern forests, rare in Poland and tied to wet woodland landscapes.",
+      quiz_angle: "massive facial disc, pale eyes and wet forest edge habitat",
+      level: "taiga owl"
+    },
+    "czajka-stepowa": {
+      name: "Sociable Lapwing",
+      hook: "An extremely rare eastern visitor that can turn an ordinary field into a birding event.",
+      quiz_angle: "steppe origin, pale eyebrow and rarity status",
+      level: "steppe alert"
+    },
+    "cyranka-modroskrzydla": {
+      name: "Blue-winged Teal",
+      hook: "An American duck whose blue wing patch can make a Polish wetland suddenly feel transatlantic.",
+      quiz_angle: "blue wing panel, American origin and vagrant status",
+      level: "blue visitor"
+    },
+    "mewa-delawarska": {
+      name: "Ring-billed Gull",
+      hook: "A North American gull picked out among similar birds by the dark ring on its bill.",
+      quiz_angle: "bill ring, gull similarity and rare-vagrant context",
+      level: "American bill ring"
+    }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -1230,7 +1451,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • kolekcje przyrodnicze",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt jest gotowy na kolejne działy: ryby, motyle, kwiaty i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt jest gotowy na kolejne działy: motyle i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -1310,7 +1531,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature collections",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project is ready for future sections: fish, butterflies, flowers and more natural curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project is ready for future sections: butterflies and more natural curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -1431,6 +1652,17 @@
           source_note: "Descriptions start from the working list of unusual fish of Poland. Photos come from Wikimedia Commons with full attribution.",
           categories: fishCategories,
           items: makeItemMap("ryby", fishText)
+        },
+        ptaki: {
+          title: "Birds",
+          heading: "Unusual Birds of Poland",
+          subtitle: "32 bird curiosities of Poland: scale records, flight, senses, nests, strategies, wetlands, mountains and rare visitors.",
+          count_label: "32 curiosities",
+          search_placeholder: "e.g. hoopoe, swift, wallcreeper...",
+          safety_notice: "Educational prototype. Birds may be protected, sensitive to disturbance and tied to nests or leks: observe from a distance, do not reveal rare sites and do not interfere with habitats.",
+          source_note: "Descriptions start from two working lists of unusual Polish avifauna. Photos come from Wikimedia Commons with full attribution.",
+          categories: birdCategories,
+          items: makeItemMap("ptaki", birdText)
         }
       }
     }

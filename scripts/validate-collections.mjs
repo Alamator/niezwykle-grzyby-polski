@@ -14,6 +14,8 @@ assert(scriptSources.includes("./data/flowers.js"), "index.html should load data
 assert(scriptSources.includes("./data/flower-photo-pack-v01.js"), "index.html should load flower Commons photo pack");
 assert(scriptSources.includes("./data/fish.js"), "index.html should load data/fish.js");
 assert(scriptSources.includes("./data/fish-photo-pack-v01.js"), "index.html should load fish Commons photo pack");
+assert(scriptSources.includes("./data/birds.js"), "index.html should load data/birds.js");
+assert(scriptSources.includes("./data/bird-photo-pack-v01.js"), "index.html should load bird Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -29,6 +31,11 @@ assert(
   scriptSources.indexOf("./data/fish.js") < scriptSources.indexOf("./data/fish-photo-pack-v01.js") &&
     scriptSources.indexOf("./data/fish-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
   "fish photo pack should load after fish.js and before collections.js"
+);
+assert(
+  scriptSources.indexOf("./data/birds.js") < scriptSources.indexOf("./data/bird-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/bird-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "bird photo pack should load after birds.js and before collections.js"
 );
 assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
@@ -59,20 +66,23 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 4, "atlas should expose mushrooms, insects, flowers and fish");
+assert.equal(collections.length, 5, "atlas should expose mushrooms, insects, flowers, fish and birds");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
 const flowers = collections.find((collection) => collection.id === "kwiaty");
 const fish = collections.find((collection) => collection.id === "ryby");
+const birds = collections.find((collection) => collection.id === "ptaki");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
 assert(fish, "fish collection should exist");
+assert(birds, "bird collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
 assert.equal(fish.items.length, 32, "fish collection should contain 32 fish curiosities");
+assert.equal(birds.items.length, 32, "bird collection should contain 32 bird curiosities");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -96,6 +106,18 @@ assert(
 assert(
   fish.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "fish image sources should link to Wikimedia Commons file pages"
+);
+const birdImages = birds.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(birdImages.length, 32, "bird collection should include 32 curated images with attribution");
+assert(
+  birds.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "bird images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  birds.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "bird image sources should link to Wikimedia Commons file pages"
 );
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
@@ -133,6 +155,9 @@ assert(flowers.items.some((item) => item.name_pl === "Świetlik mszysty"), "flow
 assert(fish.subtitle.includes("rybie osobliwości"), "fish subtitle should describe fish curiosities");
 assert(fish.categories.some((category) => category.label === "Dźwięk i światło"), "fish categories should use Polish diacritics");
 assert(fish.items.some((item) => item.name_pl === "Różanka"), "fish collection should include the bitterling curiosity from the source file");
+assert(birds.subtitle.includes("ptasie osobliwości"), "bird subtitle should describe bird curiosities");
+assert(birds.categories.some((category) => category.label === "Światło i zmysły"), "bird categories should use Polish diacritics");
+assert(birds.items.some((item) => item.name_pl === "Dudek"), "bird collection should include the hoopoe curiosity from the source files");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
