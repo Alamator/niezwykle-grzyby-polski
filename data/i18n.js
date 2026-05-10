@@ -118,6 +118,16 @@
     "rzadkie-goscie": { label: "Rare visitors", short: "Visitors" }
   };
 
+  const treeCategories = {
+    "zapach-i-chemia": { label: "Scent and chemistry", short: "Chemistry" },
+    "swiatlo-i-mikrozycie": { label: "Light and micro-life", short: "Light" },
+    "anomalie-formy": { label: "Form anomalies", short: "Form" },
+    "rekordy-i-dlugowiecznosc": { label: "Records and longevity", short: "Records" },
+    "historia-i-pamiec": { label: "History and memory", short: "Memory" },
+    "kataklizmy-i-przetrwanie": { label: "Disasters and survival", short: "Survival" },
+    "egzotyka-i-kolekcje": { label: "Exotics and collections", short: "Exotics" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -163,6 +173,15 @@
       "strategie-i-mity": "fields, forests and nocturnal places where unusual feeding, breeding or folklore attaches to birds",
       "woda-i-gory": "marshes, fast streams, mountain cliffs and wet forests with strongly specialized bird niches",
       "rzadkie-goscie": "coasts, wetlands, fields and reservoirs where vagrant birds may briefly appear"
+    },
+    drzewa: {
+      "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
+      "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
+      "anomalie-formy": "sandy soils, shaped stands, damaged crowns and exposed roots where growth form becomes the main feature",
+      "rekordy-i-dlugowiecznosc": "veteran-tree sites, parks, villages and forests where age, girth or crown scale defines the curiosity",
+      "historia-i-pamiec": "parks, town squares, memorial woods and cultural landscapes where trees carry human stories",
+      "kataklizmy-i-przetrwanie": "cliffs, river valleys, storm-prone coasts and damaged trunks shaped by wind, water, lightning or drought",
+      "egzotyka-i-kolekcje": "arboreta, botanical gardens and old estates where introduced trees survived outside their native range"
     }
   };
 
@@ -186,6 +205,9 @@
     if (collectionId === "ptaki") {
       return "Educational material only; observe from a distance and do not disturb nests, leks or rare-bird sites.";
     }
+    if (collectionId === "drzewa") {
+      return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
@@ -194,6 +216,7 @@
     if (collectionId === "kwiaty") return "Recorded in Poland as a native, wild or established plant curiosity, depending strongly on habitat.";
     if (collectionId === "ryby") return "Recorded in Polish waters or included as a rare visitor from the marine edge of the atlas.";
     if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
+    if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
@@ -202,6 +225,7 @@
     if (collectionId === "kwiaty") return "Observe without collecting; many plant curiosities depend on fragile microhabitats.";
     if (collectionId === "ryby") return "Treat the note as natural-history context, not as identification, fishing or handling advice.";
     if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
+    if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -1663,6 +1687,17 @@
           source_note: "Descriptions start from two working lists of unusual Polish avifauna. Photos come from Wikimedia Commons with full attribution.",
           categories: birdCategories,
           items: makeItemMap("ptaki", birdText)
+        },
+        drzewa: {
+          title: "Trees",
+          heading: "Unusual Trees of Poland",
+          subtitle: "30 dendrological curiosities of Poland: scents, glowing deadwood, strange forms, veteran trees, memory sites, disasters and park exotics.",
+          count_label: "30 curiosities",
+          search_placeholder: "e.g. pine, oak, yew, plane tree...",
+          safety_notice: "Educational prototype. Veteran trees, old trunks and memorial sites should be observed from a distance: do not climb roots, remove bark, disturb supports or leave marked paths.",
+          source_note: "Descriptions start from the working list of dendrological curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
+          categories: treeCategories,
+          items: makeItemMap("drzewa", {})
         }
       }
     }
