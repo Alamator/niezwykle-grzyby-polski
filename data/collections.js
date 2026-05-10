@@ -2,6 +2,7 @@
   const mushroomData = window.MUSHROOM_APP_DATA;
   const insectData = window.INSECT_APP_DATA;
   const flowerData = window.FLOWER_APP_DATA;
+  const fishData = window.FISH_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -60,6 +61,23 @@
       source_note: "Opisy startują z listy roboczej o osobliwych roślinach Polski. Zdjęcia i atrybucje dodamy później z legalnych źródeł.",
       categories: flowerData.categories,
       items: flowerData.flowers
+    });
+  }
+
+  if (fishData) {
+    collections.push({
+      id: "ryby",
+      title: "Ryby",
+      heading: "Osobliwe ryby polskich wód",
+      subtitle: fishData.subtitle,
+      count_label: "32 osobliwości",
+      icon: "R",
+      accent: "aqua",
+      search_placeholder: "np. stynka, tasza, różanka...",
+      safety_notice: fishData.safety_notice,
+      source_note: "Opisy powstały na bazie listy roboczej o osobliwych rybach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
+      categories: fishData.categories,
+      items: fishData.fish
     });
   }
 
