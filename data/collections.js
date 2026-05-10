@@ -4,6 +4,7 @@
   const flowerData = window.FLOWER_APP_DATA;
   const fishData = window.FISH_APP_DATA;
   const birdData = window.BIRD_APP_DATA;
+  const treeData = window.TREE_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -99,9 +100,26 @@
     });
   }
 
+  if (treeData) {
+    collections.push({
+      id: "drzewa",
+      title: "Drzewa",
+      heading: "Osobliwe drzewa Polski",
+      subtitle: treeData.subtitle,
+      count_label: "30 osobliwości",
+      icon: "D",
+      accent: "leaf",
+      search_placeholder: "np. sosna, dąb, cis, platan...",
+      safety_notice: treeData.safety_notice,
+      source_note: "Opisy powstały na bazie listy roboczej o osobliwościach dendrologicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      categories: treeData.categories,
+      items: treeData.trees
+    });
+  }
+
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections
