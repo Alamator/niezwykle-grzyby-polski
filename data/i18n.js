@@ -97,6 +97,16 @@
     "relikty-i-dziwne-formy": { label: "Relics and strange forms", short: "Forms" }
   };
 
+  const fishCategories = {
+    "zapach-i-zmysly": { label: "Scent and senses", short: "Senses" },
+    "dzwiek-i-swiatlo": { label: "Sound and light", short: "Sound" },
+    "forma-i-kamuflaz": { label: "Form and camouflage", short: "Form" },
+    "rozrod-i-wedrowki": { label: "Reproduction and migrations", short: "Breeding" },
+    "rzeczne-paradoksy": { label: "River paradoxes", short: "Rivers" },
+    "oceaniczni-goscie": { label: "Oceanic visitors", short: "Visitors" },
+    "inwazyjne-alarmy": { label: "Invasive alerts", short: "Alerts" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -123,6 +133,15 @@
       "pasozyty-i-polpasozyty": "woods, meadows and host-rich places where plants tap into roots, fungi or neighboring plants",
       "toksyczne-i-obronne": "woodlands, sunny edges, grasslands and ruderal sites where chemical defense matters",
       "relikty-i-dziwne-formy": "old woods, springs, field margins, grasslands and small habitats with distinctive forms"
+    },
+    ryby: {
+      "zapach-i-zmysly": "cold lakes, clean rivers and coastal waters where smell and sensory ecology matter",
+      "dzwiek-i-swiatlo": "muddy lowland waters, rocky Baltic shallows or deeper marine layers with unusual signals",
+      "forma-i-kamuflaz": "bottom habitats, aquatic vegetation, sand, stones and places where body shape becomes camouflage",
+      "rozrod-i-wedrowki": "waters where breeding behavior, parental care or long migration shapes the whole life cycle",
+      "rzeczne-paradoksy": "rivers, lakes, reservoirs and open water where familiar fish families produce surprising forms",
+      "oceaniczni-goscie": "open seas and rare Baltic or northern-sea contexts rather than regular inland habitats",
+      "inwazyjne-alarmy": "ports, canals, ponds, river mouths and connected waters where invasive fish can spread"
     }
   };
 
@@ -140,18 +159,23 @@
     if (collectionId === "grzyby") {
       return "Educational material only; do not use the atlas to decide whether a fungus is edible.";
     }
+    if (collectionId === "ryby") {
+      return "Educational material only; do not use the atlas as fishing, handling or legal guidance.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
   function defaultRegion(collectionId) {
     if (collectionId === "grzyby") return "Recorded in Poland; local abundance depends strongly on habitat and season.";
     if (collectionId === "kwiaty") return "Recorded in Poland as a native, wild or established plant curiosity, depending strongly on habitat.";
+    if (collectionId === "ryby") return "Recorded in Polish waters or included as a rare visitor from the marine edge of the atlas.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
   function defaultOccurrence(collectionId) {
     if (collectionId === "grzyby") return "Use the habitat, shape and season as field context; the note is educational, not a collecting guide.";
     if (collectionId === "kwiaty") return "Observe without collecting; many plant curiosities depend on fragile microhabitats.";
+    if (collectionId === "ryby") return "Treat the note as natural-history context, not as identification, fishing or handling advice.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -967,6 +991,233 @@
     }
   };
 
+  const fishText = {
+    stynka: {
+      name: "European smelt",
+      hook: "A small silver fish that can smell distinctly like fresh cucumber when taken from the water.",
+      quiz_angle: "cucumber scent, cold-water shoals and the small adipose fin behind the dorsal fin",
+      safety_note: "Educational material only; do not use the atlas as fishing or food guidance.",
+      level: "cucumber scent"
+    },
+    lipien: {
+      name: "European grayling",
+      hook: "A fish of clean rivers with a sail-like dorsal fin and a delicate herbal scent.",
+      quiz_angle: "scented mucus, the male's large dorsal fin and dependence on cold oxygen-rich water",
+      safety_note: "Sensitive and locally regulated; observe without disturbing spawning grounds.",
+      level: "river aristocrat"
+    },
+    "kur-diabel": {
+      name: "Shorthorn sculpin",
+      hook: "A Baltic bottom predator with a spiny head that can grunt or growl when stressed.",
+      quiz_angle: "spiny head, scaleless body and sound amplified by the swim bladder",
+      safety_note: "Do not handle with bare hands; the spines and animal stress are reason enough to keep distance.",
+      level: "underwater caller"
+    },
+    piskorz: {
+      name: "Weatherfish",
+      hook: "A mud-loving fish that can breathe through its gut and squeak when air is forced out.",
+      quiz_angle: "intestinal breathing, burrowing in mud and sensitivity to pressure changes",
+      safety_note: "Protected and habitat-sensitive; do not collect it or damage oxbows and muddy ponds.",
+      level: "living barometer"
+    },
+    "murowy-swiecik": {
+      name: "Pearlside",
+      hook: "A small deep-water fish with photophores that help erase its silhouette with light.",
+      quiz_angle: "belly photophores, counter-illumination and rare Baltic appearances",
+      safety_note: "A rare marine visitor; treat it as natural-history context, not a field target.",
+      level: "light visitor"
+    },
+    tasza: {
+      name: "Lumpfish",
+      hook: "A stout marine fish with a belly suction disc that lets it cling to rocks in waves.",
+      quiz_angle: "fused pelvic fins forming a suction disc, bumpy skin and male care for eggs",
+      safety_note: "Observe without taking it from shallow habitats; the atlas is not a fishing guide.",
+      level: "Baltic suction cup"
+    },
+    dennik: {
+      name: "Common seasnail",
+      hook: "A soft scaleless bottom fish that looks more like a gelatinous shadow than a classic swimmer.",
+      quiz_angle: "soft body, bottom life and links with cold marine waters",
+      safety_note: "Associated with sensitive seabed habitats; do not disturb bottom environments.",
+      level: "soft benthos"
+    },
+    stornia: {
+      name: "European flounder",
+      hook: "A flatfish whose young begin symmetrical, then one eye migrates to the other side of the head.",
+      quiz_angle: "eye migration, flattened body and camouflage on the seabed",
+      safety_note: "Educational material only; do not use the atlas as fishing guidance.",
+      level: "asymmetry"
+    },
+    wezynka: {
+      name: "Straightnose pipefish",
+      hook: "A thread-thin seagrass mimic related to seahorses, with a tail used for anchoring in vegetation.",
+      quiz_angle: "loss of tail fin, elongated body and camouflage in underwater meadows",
+      safety_note: "Do not uproot marine vegetation; it is the shelter that makes this fish possible.",
+      level: "grass with eyes"
+    },
+    iglicznia: {
+      name: "Broadnosed pipefish",
+      hook: "A stiff marine needle with a tube snout and a male that carries young in a brood pouch.",
+      quiz_angle: "tube-shaped snout, stick-like body and male incubation of eggs",
+      safety_note: "Protect underwater vegetation and do not collect pipefish out of curiosity.",
+      level: "marine needle"
+    },
+    koza: {
+      name: "Spined loach",
+      hook: "A tiny fish of sandy shallows with a hidden sharp spine beneath the eye.",
+      quiz_angle: "suborbital spine, mottled pattern and burrowing in sand",
+      safety_note: "Protected species; do not collect it or sieve the bottom for fun.",
+      level: "hidden spine"
+    },
+    jazgarz: {
+      name: "Ruffe",
+      hook: "A small perch relative whose spiny fins and gill covers make it a difficult mouthful.",
+      quiz_angle: "rough body, sharp spines and bottom-oriented life",
+      safety_note: "Avoid needless handling; spines can hurt and the fish belongs in the water.",
+      level: "rough armor"
+    },
+    wegorzyca: {
+      name: "Viviparous eelpout",
+      hook: "A Baltic fish that bypasses exposed eggs and gives birth to live young.",
+      quiz_angle: "live-bearing reproduction, elongated body and bottom-dwelling marine life",
+      safety_note: "Educational material only; avoid disturbing bottom habitats.",
+      level: "live-bearing fish"
+    },
+    rozanka: {
+      name: "Bitterling",
+      hook: "A tiny fish that needs living freshwater mussels and places its eggs inside them.",
+      quiz_angle: "female ovipositor, bright male breeding colors and dependence on mussels",
+      safety_note: "Protect mussels and clean water; without them the bitterling loses its nursery.",
+      level: "mussel tenant"
+    },
+    mietus: {
+      name: "Burbot",
+      hook: "Poland's freshwater cod relative becomes most active when cold slows many other fish down.",
+      quiz_angle: "cold-loving life, chin barbel and spawning in the coldest part of the year",
+      safety_note: "Locally regulated species; the atlas does not replace current fishing rules.",
+      level: "winter cod"
+    },
+    "wegorz-europejski": {
+      name: "European eel",
+      hook: "A migrant whose life cycle links Polish waters with a long oceanic journey toward the Sargasso Sea.",
+      quiz_angle: "catadromy, snake-like body, glass eels and distant spawning migration",
+      safety_note: "Threatened species; do not treat the atlas as encouragement to catch or buy it.",
+      level: "ocean migrant"
+    },
+    ciernik: {
+      name: "Three-spined stickleback",
+      hook: "A tiny fighter with three spines, breeding colors and nests glued from plant fibers.",
+      quiz_angle: "three spines, red-bellied males and nest building with egg guarding",
+      safety_note: "Observe without damaging shoreline vegetation where nests may be built.",
+      level: "spiny father"
+    },
+    cierniczek: {
+      name: "Ninespine stickleback",
+      hook: "A smaller stickleback relative with a row of many little dorsal spines.",
+      quiz_angle: "more small spines than the three-spined stickleback, tiny size and nesting behavior",
+      safety_note: "Do not collect it from small waters; its habitats are easy to damage.",
+      level: "nine spines"
+    },
+    sapa: {
+      name: "White-eye bream",
+      hook: "A river cyprinid with large eyes and a tail whose lower lobe is noticeably longer.",
+      quiz_angle: "large eyes, downturned mouth, asymmetrical tail and deeper river channels",
+      safety_note: "Locally regulated species; the atlas does not replace current protection rules.",
+      level: "asymmetrical tail"
+    },
+    slonecznica: {
+      name: "Sunbleak",
+      hook: "A tiny silver fish that may shed scales into a glittering distraction when attacked.",
+      quiz_angle: "loosely attached scales, upward mouth and bluish side stripe",
+      safety_note: "Do not collect small schooling fish from shallow water; they matter to the ecosystem too.",
+      level: "living glitter"
+    },
+    swinka: {
+      name: "Common nase",
+      hook: "A cyprinid stone-scraper with a hard lower lip adapted to grazing periphyton from rocks.",
+      quiz_angle: "downturned mouth, hardened lip and feeding on stones in faster current",
+      safety_note: "Protect natural riffles and clean gravel; do not trample shallow spawning areas.",
+      level: "river scraper"
+    },
+    bolen: {
+      name: "Asp",
+      hook: "A predatory cyprinid that hunts quickly near the surface, unlike many calmer-looking relatives.",
+      quiz_angle: "predatory behavior in a cyprinid, surface strikes and streamlined body",
+      safety_note: "Locally regulated species; this is not a fishing guide.",
+      level: "toothless predator"
+    },
+    sielawa: {
+      name: "Vendace",
+      hook: "A silver fish of cold lakes that lives in open water and needs clean, well-oxygenated conditions.",
+      quiz_angle: "pelagic life, silver shine and dependence on cold lakes",
+      safety_note: "Sensitive to water quality; the atlas does not replace local protection or fishing rules.",
+      level: "silver open water"
+    },
+    rozpior: {
+      name: "Blue bream",
+      hook: "A slender bream relative often hidden in plain sight among similar fish of large rivers.",
+      quiz_angle: "deep flattened body, bream resemblance and life in larger waters",
+      safety_note: "Educational material only; similar cyprinids require careful keys and current references.",
+      level: "bream look-alike"
+    },
+    krap: {
+      name: "Silver bream",
+      hook: "A common but tricky bream look-alike that teaches attention to proportions and fin details.",
+      quiz_angle: "bream resemblance, body proportions and subtle diagnostic differences",
+      safety_note: "Educational material only; do not use the atlas as the only identification key.",
+      level: "master of confusion"
+    },
+    samoglow: {
+      name: "Ocean sunfish",
+      hook: "A giant ocean fish without a classic tail, occasionally recorded as a sensational Baltic visitor.",
+      quiz_angle: "no typical tail fin, enormous size and sporadic records near the Polish coast",
+      safety_note: "Rare visitor, often in poor condition; leave reports to services and specialists.",
+      level: "swimming head"
+    },
+    "lis-morski": {
+      name: "Common thresher",
+      hook: "A shark with a tail so long it can use it like a whip to stun schooling fish.",
+      quiz_angle: "long upper tail lobe, oceanic shark and very rare northern appearances",
+      safety_note: "Oceanic visitor, not a search target; unusual records should be handled by experts.",
+      level: "whip tail"
+    },
+    "zebacz-smugowy": {
+      name: "Atlantic wolffish",
+      hook: "A marine predator with massive teeth for crushing hard shells and armored prey.",
+      quiz_angle: "durophagy, powerful teeth and a famously rough face",
+      safety_note: "Marine fish that can bite; do not touch found specimens.",
+      level: "crushing teeth"
+    },
+    lamna: {
+      name: "Porbeagle",
+      hook: "A strong torpedo-shaped shark of cool seas, included here as a rare northern marine edge case.",
+      quiz_angle: "streamlined body, porbeagle identity and rare-visitor status",
+      safety_note: "Do not approach living or freshly stranded sharks; report unusual finds.",
+      level: "cool-water torpedo"
+    },
+    "wstegor-krolewski": {
+      name: "Giant oarfish",
+      hook: "A legendary ribbon-like deep-sea fish whose length helped inspire sea-serpent stories.",
+      quiz_angle: "ribbon body, great length and deep-water life",
+      safety_note: "Exceptional oceanic visitor; document any find and contact specialists.",
+      level: "king of herrings"
+    },
+    "czebaczek-amurski": {
+      name: "Topmouth gudgeon",
+      hook: "A small invasive Asian fish whose success comes from fast breeding and ecological opportunism.",
+      quiz_angle: "alien invasive species, small size, early maturity and risk to native fauna",
+      safety_note: "Invasive alien species; do not move, keep or release it, and follow current rules.",
+      level: "micro-invasion"
+    },
+    "babka-bycza": {
+      name: "Round goby",
+      hook: "A Ponto-Caspian goby that colonized the Baltic and many connected waters with remarkable toughness.",
+      quiz_angle: "alien species, fused pelvic fins forming a suction disc and spread via ballast-water pathways",
+      safety_note: "Invasive alien species; do not release caught individuals and check local rules.",
+      level: "bottom colonizer"
+    }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -1169,6 +1420,17 @@
           source_note: "Descriptions start from the working list of unusual Polish plants. Photos and attribution will be added later from legal sources.",
           categories: flowerCategories,
           items: makeItemMap("kwiaty", flowerText)
+        },
+        ryby: {
+          title: "Fish",
+          heading: "Unusual Fish of Polish Waters",
+          subtitle: "32 fish curiosities of Polish waters and their marine edge: scents, sounds, suction discs, migrations, camouflage and invasive species.",
+          count_label: "32 curiosities",
+          search_placeholder: "e.g. smelt, lumpfish, bitterling...",
+          safety_notice: "Educational prototype. Fish may be protected, locally regulated or invasive: observe without collecting and always check current rules.",
+          source_note: "Descriptions start from the working list of unusual fish of Poland. Photos come from Wikimedia Commons with full attribution.",
+          categories: fishCategories,
+          items: makeItemMap("ryby", fishText)
         }
       }
     }

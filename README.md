@@ -7,6 +7,7 @@ Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama 
 - **Grzyby**: 60 pozycji z uzupełnionymi zdjęciami i atrybucjami.
 - **Owady**: 30 pozycji startowych z miejscem na przyszłe zdjęcia i licencje.
 - **Kwiaty**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych ze zdjęciami i atrybucjami z Wikimedia Commons.
+- **Ryby**: 32 osobliwości polskich wód i ich rubieży ze zdjęciami Wikimedia Commons.
 
 ## Struktura
 
@@ -18,6 +19,8 @@ data/mushrooms.js
 data/insects.js
 data/flowers.js
 data/flower-photo-pack-v01.js
+data/fish.js
+data/fish-photo-pack-v01.js
 data/collections.js
 data/i18n.js
 data/photo-pack-*.js
