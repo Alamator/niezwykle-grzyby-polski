@@ -3,6 +3,7 @@
   const insectData = window.INSECT_APP_DATA;
   const flowerData = window.FLOWER_APP_DATA;
   const fishData = window.FISH_APP_DATA;
+  const birdData = window.BIRD_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -81,9 +82,26 @@
     });
   }
 
+  if (birdData) {
+    collections.push({
+      id: "ptaki",
+      title: "Ptaki",
+      heading: "Osobliwe ptaki Polski",
+      subtitle: birdData.subtitle,
+      count_label: "32 osobliwości",
+      icon: "P",
+      accent: "sky",
+      search_placeholder: "np. dudek, jerzyk, pomurnik...",
+      safety_notice: birdData.safety_notice,
+      source_note: "Opisy powstały na bazie dwóch list roboczych o osobliwej awifaunie Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
+      categories: birdData.categories,
+      items: birdData.birds
+    });
+  }
+
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections
