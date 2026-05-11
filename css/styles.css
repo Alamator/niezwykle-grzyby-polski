@@ -283,6 +283,9 @@ h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
 .collection-card--cliff .collection-card__icon {
   background: linear-gradient(145deg, #9f7a4e, #46505a);
 }
+.collection-card--fossil .collection-card__icon {
+  background: linear-gradient(145deg, #7f5a3a, #2f6f73);
+}
 .collection-card h3 {
   margin: 0 0 .45rem;
   font-size: 1.6rem;
