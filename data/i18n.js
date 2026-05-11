@@ -91,7 +91,40 @@
     "radioaktywny rozdział": "radioactive chapter",
     "metaliczny klasyk": "metallic classic",
     "ruda cynku": "zinc ore",
-    "organiczna granica": "organic boundary"
+    "organiczna granica": "organic boundary",
+    "pancerz początku": "first armor",
+    "rafa w mieście": "reef in the city",
+    "pierwsze zielone lądy": "first green lands",
+    "szczęka z innej planety": "jaw from another planet",
+    "ślady przełomu": "tracks of a turning point",
+    "las węglowy": "coal forest",
+    "triasowy drapieżnik": "Triassic predator",
+    "gigant roślinożerca": "herbivore giant",
+    "żółw u początku": "turtle near the beginning",
+    "morski ząb triasu": "Triassic marine tooth",
+    "lilia w wapieniu": "crinoid in limestone",
+    "tropy w piaskowcu": "tracks in sandstone",
+    "park tropów": "track park",
+    "ślad sensacji": "sensational trace",
+    "drapieżnik z morza": "marine predator",
+    "długa szyja jury": "long-necked Jurassic reptile",
+    "lagunowy krokodyl": "lagoon crocodile",
+    "żywa skamieniałość": "living fossil",
+    "pterozaur z laguny": "lagoon pterosaur",
+    "okno laguny": "lagoon window",
+    "spiralny klasyk": "spiral classic",
+    "gigant głowonóg": "cephalopod giant",
+    "pocisk z morza": "sea projectile",
+    "bursztynowe okno": "amber window",
+    "pająk w bursztynie": "spider in amber",
+    "owad w kapsule": "insect in a capsule",
+    "gekko w bursztynie": "gecko in amber",
+    "ptasi relikt": "bird relic",
+    "kamienne drewno": "stone wood",
+    "lodowy olbrzym": "ice-age giant",
+    "rogi lodowca": "ice-age horns",
+    "stanowisko łowców": "hunter site",
+    "sen w jaskini": "sleep in the cave"
   };
 
   const mushroomCategories = {
@@ -173,6 +206,14 @@
     "swietokrzyskie-niz": { label: "Świętokrzyskie and lowlands", short: "Lowlands" }
   };
 
+  const fossilCategories = {
+    "paleozoik-pierwsze-lady": { label: "Paleozoic and first lands", short: "Paleozoic" },
+    "tropy-i-lad-triasu": { label: "Tracks and Triassic land", short: "Triassic" },
+    "morza-mezozoiku": { label: "Mesozoic seas", short: "Seas" },
+    "bursztyn-i-kenozoik": { label: "Amber and Cenozoic", short: "Cenozoic" },
+    "epoka-lodowcowa": { label: "Ice Age", short: "Pleistocene" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -244,6 +285,13 @@
       "jurajski-kras": "limestone gates, windows, cliffs and karst landforms of the Kraków-Częstochowa Upland",
       "karpaty-flisz-tatry": "flysch sandstones, limestone massifs, river gorges and mountain rock forms",
       "swietokrzyskie-niz": "lowland erratics, Devonian and Jurassic rocks, pseudokarst caves and protected outcrops"
+    },
+    skamienialosci: {
+      "paleozoik-pierwsze-lady": "Paleozoic seas, reefs, coal forests and early land ecosystems known from rocks and museum collections",
+      "tropy-i-lad-triasu": "Triassic and Early Jurassic land surfaces, clay pits, track-bearing sandstones and vertebrate fossil sites",
+      "morza-mezozoiku": "Mesozoic seas, lagoons, quarries and limestone or marl deposits with marine reptiles and invertebrates",
+      "bursztyn-i-kenozoik": "Baltic amber, Cenozoic bird sites, museum inclusions and silicified wood from fossil-rich collections",
+      "epoka-lodowcowa": "Pleistocene caves, river deposits, loess sites and archaeological layers with Ice Age megafauna"
     }
   };
 
@@ -276,6 +324,9 @@
     if (collectionId === "formacje-skalne") {
       return "Educational material only; stay on marked trails, do not damage rock surfaces, enter caves only on official routes and respect protected sites.";
     }
+    if (collectionId === "skamienialosci") {
+      return "Educational material only; do not damage fossil sites, dig protected layers, enter quarries without permission or remove rare finds from context.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
@@ -287,6 +338,7 @@
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
+    if (collectionId === "skamienialosci") return "Recorded in Poland as a fossil, trace fossil, fossil site, amber inclusion or representative palaeontological specimen.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
@@ -298,6 +350,7 @@
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
+    if (collectionId === "skamienialosci") return "Treat this as palaeontological context, not as permission to collect fossils, dig sites or disturb scientific layers.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -1607,6 +1660,42 @@
     "groty-mechowskie": { name: "Mechowo Caves" }
   };
 
+  const fossilText = {
+    "trylobity-kambryjskie-gor-swietokrzyskich": { name: "Cambrian trilobites of the Świętokrzyskie Mountains" },
+    "rafy-dewonskie-kadzielni": { name: "Devonian reefs of Kadzielnia" },
+    "wczesna-flora-ladowa-dewonu": { name: "Early Devonian land flora" },
+    "alienacanthus-malkowskii": { name: "Alienacanthus malkowskii" },
+    "tropy-tetrapodow-z-zachelmia": { name: "Zachełmie tetrapod tracks" },
+    "karbonskie-lasy-weglowe": { name: "Carboniferous coal forests" },
+    "smok-wawelski-lisowice": { name: "Smok wawelski" },
+    "lisowicia-bojani": { name: "Lisowicia bojani" },
+    "proterochersis-robusta": { name: "Proterochersis robusta" },
+    "tholodus-schmidi": { name: "Tholodus schmidi" },
+    "encrinus-liliiformis": { name: "Encrinus liliiformis" },
+    "tropy-dinozaurow-gor-swietokrzyskich": { name: "Dinosaur tracks of the Świętokrzyskie Mountains" },
+    "tropy-dinozaurow-baltow": { name: "Dinosaur tracks from Bałtów" },
+    "tropy-dinozaurow-borkowice": { name: "Dinosaur tracks from Borkowice" },
+    "pliozaury-z-krzyzanowic": { name: "Pliosaurs from Krzyżanowice near Iłża" },
+    "plezjozaury-annopola": { name: "Plesiosaurs of Annopol" },
+    "krokodylomorfy-owadowa": { name: "Crocodylomorphs from Owadów-Brzezinki" },
+    "limulus-darwini-owadow": { name: "Limulus darwini from Owadów-Brzezinki" },
+    "ctenochasma-owadow": { name: "Pterosaurs from Owadów-Brzezinki" },
+    "laguna-owadow-brzezinki": { name: "Owadów-Brzezinki lagoon" },
+    "amonity-jurajskie-polski": { name: "Jurassic ammonites of Poland" },
+    "pachydesmoceras-z-opola": { name: "Giant ammonites from Opole" },
+    "belemnity-polskich-morz": { name: "Belemnites of Polish Mesozoic seas" },
+    "inkluzje-owadow-w-bursztynie": { name: "Insect inclusions in amber" },
+    "ptasznik-w-bursztynie-baltyckim": { name: "Spider in Baltic amber" },
+    "chwytowka-w-bursztynie": { name: "Grasping insect in amber" },
+    "jantarogekko-balticus": { name: "Jantarogekko balticus" },
+    "oligocenskie-ptaki-polski": { name: "Oligocene birds of Poland" },
+    "skamieniale-drewna-roztocza": { name: "Petrified woods of Roztocze" },
+    "mamuty-z-okolic-konina": { name: "Mammoths from the Konin area" },
+    "nosorozec-wlochaty-polski": { name: "Woolly rhinoceros of Poland" },
+    "krakow-spadzista-lowcy-mamutow": { name: "Kraków-Spadzista mammoth hunters" },
+    "niedzwiedzie-jaskiniowe-kletna": { name: "Cave bears of Kletno" }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -1864,6 +1953,17 @@
           source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: rockFormationCategories,
           items: makeItemMap("formacje-skalne", rockFormationText)
+        },
+        skamienialosci: {
+          title: "Fossils",
+          heading: "Unusual Fossils of Poland",
+          subtitle: "33 paleontological curiosities of Poland: trilobites, Devonian reefs, Zachełmie, Triassic giants, dinosaur tracks, Jurassic seas, amber and Ice Age megafauna.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. Zachełmie, Smok, ammonites, amber...",
+          safety_notice: "Educational prototype. Observe fossils without damaging sites: do not chip specimens from reserves, enter quarries without permission, dig fossil sites or remove rare finds from their context.",
+          source_note: "Descriptions start from the working list of unusual Polish fossils. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
+          categories: fossilCategories,
+          items: makeItemMap("skamienialosci", fossilText)
         }
       }
     }

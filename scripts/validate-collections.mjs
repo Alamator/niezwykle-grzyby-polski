@@ -22,6 +22,8 @@ assert(scriptSources.includes("./data/minerals.js"), "index.html should load dat
 assert(scriptSources.includes("./data/mineral-photo-pack-v01.js"), "index.html should load mineral Commons photo pack");
 assert(scriptSources.includes("./data/rock-formations.js"), "index.html should load data/rock-formations.js");
 assert(scriptSources.includes("./data/rock-formation-photo-pack-v01.js"), "index.html should load rock formation Commons photo pack");
+assert(scriptSources.includes("./data/fossils.js"), "index.html should load data/fossils.js");
+assert(scriptSources.includes("./data/fossil-photo-pack-v01.js"), "index.html should load fossil Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -59,6 +61,11 @@ assert(
   "rock formation photo pack should load after rock-formations.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/fossils.js") < scriptSources.indexOf("./data/fossil-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/fossil-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "fossil photo pack should load after fossils.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -87,7 +94,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 8, "atlas should expose mushrooms, insects, flowers, fish, birds, trees, minerals and rock formations");
+assert.equal(collections.length, 9, "atlas should expose mushrooms, insects, flowers, fish, birds, trees, minerals, rock formations and fossils");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -97,6 +104,7 @@ const birds = collections.find((collection) => collection.id === "ptaki");
 const trees = collections.find((collection) => collection.id === "drzewa");
 const minerals = collections.find((collection) => collection.id === "mineraly");
 const rockFormations = collections.find((collection) => collection.id === "formacje-skalne");
+const fossils = collections.find((collection) => collection.id === "skamienialosci");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -105,6 +113,7 @@ assert(birds, "bird collection should exist");
 assert(trees, "tree collection should exist");
 assert(minerals, "mineral collection should exist");
 assert(rockFormations, "rock formation collection should exist");
+assert(fossils, "fossil collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -113,6 +122,7 @@ assert.equal(birds.items.length, 32, "bird collection should contain 32 bird cur
 assert.equal(trees.items.length, 30, "tree collection should contain 30 dendrological curiosities");
 assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mineralogical curiosities");
 assert.equal(rockFormations.items.length, 33, "rock formation collection should contain 33 geological curiosities");
+assert.equal(fossils.items.length, 33, "fossil collection should contain 33 paleontological curiosities");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -185,6 +195,18 @@ assert(
   rockFormations.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "rock formation image sources should link to Wikimedia Commons file pages"
 );
+const fossilImages = fossils.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(fossilImages.length, 33, "fossil collection should include 33 curated images with attribution");
+assert(
+  fossils.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "fossil images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  fossils.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "fossil image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -236,6 +258,11 @@ assert(rockFormations.categories.some((category) => category.label === "Labirynt
 assert(rockFormations.items.some((item) => item.name_pl === "Błędne Skały"), "rock formation collection should include Błędne Skały from the source file");
 assert(rockFormations.items.some((item) => item.name_pl === "Maczuga Herkulesa"), "rock formation collection should include Maczuga Herkulesa from the source file");
 assert(rockFormations.items.some((item) => item.name_pl === "Kolorowe Jeziorka"), "rock formation collection should include Kolorowe Jeziorka from the user's requested scope");
+assert(fossils.subtitle.includes("paleontologiczne osobliwości"), "fossil subtitle should describe paleontological curiosities");
+assert(fossils.categories.some((category) => category.label === "Tropy i ląd triasu"), "fossil categories should use Polish diacritics");
+assert(fossils.items.some((item) => item.name_pl === "Tropy tetrapodów z Zachełmia"), "fossil collection should include Zachełmie tetrapod tracks from the source file");
+assert(fossils.items.some((item) => item.name_pl === "Tropy dinozaurów z Gór Świętokrzyskich"), "fossil collection should include dinosaur tracks from the user's requested scope");
+assert(fossils.items.some((item) => item.name_pl === "Amonity jurajskie Polski"), "fossil collection should include ammonites from the user's requested scope");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
