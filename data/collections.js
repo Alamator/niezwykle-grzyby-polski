@@ -6,6 +6,7 @@
   const birdData = window.BIRD_APP_DATA;
   const treeData = window.TREE_APP_DATA;
   const mineralData = window.MINERAL_APP_DATA;
+  const rockFormationData = window.ROCK_FORMATION_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -135,9 +136,26 @@
     });
   }
 
+  if (rockFormationData) {
+    collections.push({
+      id: "formacje-skalne",
+      title: "Formacje skalne",
+      heading: "Osobliwe formacje skalne Polski",
+      subtitle: rockFormationData.subtitle,
+      count_label: "33 osobliwości",
+      icon: "F",
+      accent: "cliff",
+      search_placeholder: "np. Błędne Skały, Maczuga, Giewont...",
+      safety_notice: rockFormationData.safety_notice,
+      source_note: "Opisy powstały na bazie listy roboczej o osobliwych formacjach skalnych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      categories: rockFormationData.categories,
+      items: rockFormationData.formations
+    });
+  }
+
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa, minerały i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa, minerały, formacje skalne i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections

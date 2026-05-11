@@ -164,6 +164,15 @@
     "radioaktywne-organiczne": { label: "Radioactive and organic minerals", short: "Boundaries" }
   };
 
+  const rockFormationCategories = {
+    "granitowe-karkonosze": { label: "Granite Karkonosze", short: "Granite" },
+    "wulkaniczne-i-pogornicze": { label: "Volcanic and post-mining", short: "Volcanic" },
+    "labirynty-piaskowcowe": { label: "Sandstone labyrinths", short: "Labyrinths" },
+    "jurajski-kras": { label: "Jurassic karst", short: "Karst" },
+    "karpaty-flisz-tatry": { label: "Carpathians, flysch and Tatras", short: "Carpathians" },
+    "swietokrzyskie-niz": { label: "Świętokrzyskie and lowlands", short: "Lowlands" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -227,6 +236,14 @@
       "historia-surowce-kultury": "archaeological mining landscapes, beaches, museum collections and cultural materials shaped by geology",
       "strefy-wietrzenia": "oxidized ore veins, dumps and weathered copper-bearing rocks where secondary minerals form",
       "radioaktywne-organiczne": "uranium districts, coal measures and low-temperature veins where geology touches radiation or organic chemistry"
+    },
+    "formacje-skalne": {
+      "granitowe-karkonosze": "granite tors, castle hills and high-mountain blocks shaped by frost, water and jointing",
+      "wulkaniczne-i-pogornicze": "volcanic outcrops, columnar jointing and post-mining basins where rock chemistry is visible",
+      "labirynty-piaskowcowe": "sandstone labyrinths, walls, mushrooms and isolated blocks shaped by widening joints",
+      "jurajski-kras": "limestone gates, windows, cliffs and karst landforms of the Kraków-Częstochowa Upland",
+      "karpaty-flisz-tatry": "flysch sandstones, limestone massifs, river gorges and mountain rock forms",
+      "swietokrzyskie-niz": "lowland erratics, Devonian and Jurassic rocks, pseudokarst caves and protected outcrops"
     }
   };
 
@@ -256,6 +273,9 @@
     if (collectionId === "mineraly") {
       return "Educational material only; do not enter abandoned mines, damage protected sites, collect toxic ores or experiment with radioactive minerals.";
     }
+    if (collectionId === "formacje-skalne") {
+      return "Educational material only; stay on marked trails, do not damage rock surfaces, enter caves only on official routes and respect protected sites.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
@@ -266,6 +286,7 @@
     if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
+    if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
@@ -276,6 +297,7 @@
     if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
+    if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -1549,6 +1571,42 @@
     "whewellit-weglowy": { name: "Whewellite from coal measures" }
   };
 
+  const rockFormationText = {
+    slonecznik: { name: "Słonecznik rock" },
+    pielgrzymy: { name: "Pielgrzymy granite towers" },
+    "dziurawa-skala": { name: "Dziurawa Skała rock window" },
+    "trzy-swinki": { name: "Three Little Pigs rocks" },
+    chojnik: { name: "Chojnik rocks" },
+    "male-organy-mysliborskie": { name: "Little Myślibórz Organs" },
+    "organy-wielislawskie": { name: "Wielisław Organs" },
+    "kolorowe-jeziorka": { name: "Colourful Lakes" },
+    "szczeliniec-wielki": { name: "Szczeliniec Wielki" },
+    "bledne-skaly": { name: "Błędne Skały labyrinth" },
+    "biale-skaly": { name: "Białe Skały" },
+    "skalne-grzyby": { name: "Rock Mushrooms" },
+    "czartowskie-skaly": { name: "Czartowskie Rocks" },
+    "skalna-czaszka": { name: "Skalna Czaszka" },
+    "radkowskie-skaly": { name: "Radkowskie Rocks" },
+    "diabelska-maczuga-gorzeszow": { name: "Devil's Club of Gorzeszów" },
+    "maczuga-herkulesa": { name: "Hercules' Club" },
+    "brama-krakowska": { name: "Kraków Gate" },
+    "brama-bolechowicka": { name: "Bolechowice Gate" },
+    "okiennik-wielki": { name: "Great Rock Window" },
+    "skala-milosci-mstow": { name: "Love Rock in Mstów" },
+    "gora-zborow": { name: "Góra Zborów" },
+    giewont: { name: "Giewont" },
+    "przelom-bialki": { name: "Białka River Gorge" },
+    przadki: { name: "Prządki rocks" },
+    "skamieniale-miasto": { name: "Petrified City" },
+    "diable-skaly-bukowiec": { name: "Devil's Rocks in Bukowiec" },
+    "zezow-czarne-dzialy": { name: "Zęzów and Czarne Działy" },
+    "skalki-pieklo-nieklan": { name: "Piekło Rocks near Niekłań" },
+    kadzielnia: { name: "Kadzielnia" },
+    krzemionki: { name: "Krzemionki" },
+    "glaz-tryglaw": { name: "Trygław erratic boulder" },
+    "groty-mechowskie": { name: "Mechowo Caves" }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -1561,7 +1619,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • kolekcje przyrodnicze",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt jest gotowy na kolejne działy: motyle i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o minerały, formacje skalne i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -1641,7 +1699,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature collections",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project is ready for future sections: butterflies and more natural curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes minerals, rock formations and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -1795,6 +1853,17 @@
           source_note: "Descriptions start from the working list of mineralogical curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mineralCategories,
           items: makeItemMap("mineraly", mineralText)
+        },
+        "formacje-skalne": {
+          title: "Rock Formations",
+          heading: "Unusual Rock Formations of Poland",
+          subtitle: "33 Polish rock-form curiosities: Karkonosze granite tors, volcanic organs, sandstone labyrinths, Jurassic gates, Carpathian outcrops and glacial boulders.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. Błędne Skały, Hercules' Club, Giewont...",
+          safety_notice: "Educational prototype. Observe rock formations without damaging sites: stay on marked trails, do not chip or mark rock, enter caves only on official routes and respect protected areas.",
+          source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
+          categories: rockFormationCategories,
+          items: makeItemMap("formacje-skalne", rockFormationText)
         }
       }
     }
