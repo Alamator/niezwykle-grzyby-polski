@@ -65,7 +65,33 @@
     "czterolistna iluzja": "four-leaf illusion",
     "żółty dywan": "yellow carpet",
     "polny zegar": "field clock",
-    "botaniczny księżyc": "botanical moon"
+    "botaniczny księżyc": "botanical moon",
+    "naukowy klejnot": "scientific jewel",
+    "toksyczna rzadkość": "toxic rarity",
+    "strukturalna zagadka": "structural puzzle",
+    "złoto północy": "northern gold",
+    "gigant złoża": "deposit giant",
+    "światowy rekord": "world-class record",
+    "błękitna sól": "blue salt",
+    "ciężka wskazówka": "heavy clue",
+    "forma z tej samej chemii": "same-chemistry form",
+    "pospolity świadek": "common witness",
+    "podziemny cud": "underground wonder",
+    "młoda krystalizacja": "young crystallization",
+    "rzadka sól": "rare salt",
+    "kamieniołomowy klasyk": "quarry classic",
+    "twardy akcent": "hard accent",
+    "pegmatytowy wskaźnik": "pegmatite marker",
+    "czarny podpis skały": "black rock signature",
+    "barwny topnik": "colorful flux",
+    "turkus wietrzenia": "weathering turquoise",
+    "zielony sygnał": "green signal",
+    "błękitny wskaźnik": "blue indicator",
+    "czerwony trop": "red clue",
+    "radioaktywny rozdział": "radioactive chapter",
+    "metaliczny klasyk": "metallic classic",
+    "ruda cynku": "zinc ore",
+    "organiczna granica": "organic boundary"
   };
 
   const mushroomCategories = {
@@ -128,6 +154,16 @@
     "egzotyka-i-kolekcje": { label: "Exotics and collections", short: "Exotics" }
   };
 
+  const mineralCategories = {
+    "endemity-nowe-mineraly": { label: "Endemics and new minerals", short: "Endemics" },
+    "kolor-swiatlo-forma": { label: "Color, light and form", short: "Form" },
+    "kruszce-pierwiastki": { label: "Ores and elements", short: "Ores" },
+    "sole-ewaporaty-konkrecje": { label: "Salts, evaporites and concretions", short: "Salts" },
+    "historia-surowce-kultury": { label: "History and cultural materials", short: "History" },
+    "strefy-wietrzenia": { label: "Weathering zones", short: "Weathering" },
+    "radioaktywne-organiczne": { label: "Radioactive and organic minerals", short: "Boundaries" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -182,6 +218,15 @@
       "historia-i-pamiec": "parks, town squares, memorial woods and cultural landscapes where trees carry human stories",
       "kataklizmy-i-przetrwanie": "cliffs, river valleys, storm-prone coasts and damaged trunks shaped by wind, water, lightning or drought",
       "egzotyka-i-kolekcje": "arboreta, botanical gardens and old estates where introduced trees survived outside their native range"
+    },
+    mineraly: {
+      "endemity-nowe-mineraly": "microscopic type minerals, pegmatites, serpentinites and research collections where new species are identified",
+      "kolor-swiatlo-forma": "pegmatites, volcanic cavities, crystal pockets and museum specimens where color and crystal form stand out",
+      "kruszce-pierwiastki": "ore deposits, old mining districts and museum collections connected with metals and native elements",
+      "sole-ewaporaty-konkrecje": "evaporite deposits, salt caverns, sulfur-bearing limestones and secondary crystallization zones",
+      "historia-surowce-kultury": "archaeological mining landscapes, beaches, museum collections and cultural materials shaped by geology",
+      "strefy-wietrzenia": "oxidized ore veins, dumps and weathered copper-bearing rocks where secondary minerals form",
+      "radioaktywne-organiczne": "uranium districts, coal measures and low-temperature veins where geology touches radiation or organic chemistry"
     }
   };
 
@@ -208,6 +253,9 @@
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
+    if (collectionId === "mineraly") {
+      return "Educational material only; do not enter abandoned mines, damage protected sites, collect toxic ores or experiment with radioactive minerals.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
@@ -217,6 +265,7 @@
     if (collectionId === "ryby") return "Recorded in Polish waters or included as a rare visitor from the marine edge of the atlas.";
     if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
+    if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
@@ -226,6 +275,7 @@
     if (collectionId === "ryby") return "Treat the note as natural-history context, not as identification, fishing or handling advice.";
     if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
+    if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -1463,6 +1513,42 @@
     }
   };
 
+  const mineralText = {
+    nioboholtit: { name: "Nioboholtite" },
+    zabinskiit: { name: "Żabińskiite" },
+    taliomelan: { name: "Thalliomelane" },
+    heflikit: { name: "Heflikite" },
+    skandiowinchit: { name: "Scandio-winchite" },
+    "berylokordieryt-na": { name: "Beryllocordierite-Na" },
+    "berylosachanbinskiit-na": { name: "Beryllosachanbińskiite-Na" },
+    magnesiodutrowit: { name: "Magnesio-dutrowite" },
+    "krzemien-pasiasty": { name: "Striped flint" },
+    "bursztyn-baltycki": { name: "Baltic amber" },
+    "siarka-rodzima-tarnobrzeg": { name: "Native sulfur from Tarnobrzeg" },
+    "haueryt-machow-jeziorko": { name: "Hauerite from Machów and Jeziórko" },
+    "celestyn-machow": { name: "Celestine from Machów" },
+    "baryt-machow": { name: "Baryte from Machów" },
+    "aragonit-machow": { name: "Aragonite from Machów" },
+    "kalcyt-siarkowy": { name: "Calcite from sulfur deposits" },
+    "halit-wieliczka": { name: "Halite from the Crystal Caves" },
+    "gips-wtorny-jeziorko": { name: "Secondary gypsum from sulfur zones" },
+    "stroncjanit-tarnobrzeg": { name: "Strontianite from the sulfur assemblage" },
+    "agat-gwiazdzisty-nowy-kosciol": { name: "Star-like agate from Nowy Kościół" },
+    "kwarc-dymny-strzegom": { name: "Smoky quartz from Strzegom" },
+    "topaz-strzegom": { name: "Topaz from Strzegom pegmatites" },
+    "beryl-strzegom": { name: "Beryl from Strzegom" },
+    "turmalin-strzegom": { name: "Tourmaline from Strzegom" },
+    "fluoryt-kowary": { name: "Fluorite from Kowary" },
+    "chryzokola-miedzianka": { name: "Chrysocolla from Miedzianka" },
+    "malachit-miedzianka": { name: "Malachite from Miedzianka" },
+    "azuryt-miedzianka": { name: "Azurite from Miedzianka" },
+    "kupryt-miedzianka": { name: "Cuprite from Miedzianka" },
+    "uraninit-kowary": { name: "Uraninite from Kowary" },
+    "galena-olkusz": { name: "Galena from the Olkusz region" },
+    "sfaleryt-olkusz": { name: "Sphalerite from the Olkusz region" },
+    "whewellit-weglowy": { name: "Whewellite from coal measures" }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -1698,6 +1784,17 @@
           source_note: "Descriptions start from the working list of dendrological curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: treeCategories,
           items: makeItemMap("drzewa", {})
+        },
+        mineraly: {
+          title: "Minerals",
+          heading: "Unusual Minerals of Poland",
+          subtitle: "33 mineralogical curiosities of Poland: IMA endemics, ores, salts, agates, striped flint, amber and minerals from old mines.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. flint, sulfur, halite, agate...",
+          safety_notice: "Educational prototype. Observe minerals without damaging sites: do not enter abandoned mines, break protected rocks, collect toxic or radioactive ores, or run home chemistry experiments.",
+          source_note: "Descriptions start from the working list of mineralogical curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
+          categories: mineralCategories,
+          items: makeItemMap("mineraly", mineralText)
         }
       }
     }
