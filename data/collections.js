@@ -5,6 +5,7 @@
   const fishData = window.FISH_APP_DATA;
   const birdData = window.BIRD_APP_DATA;
   const treeData = window.TREE_APP_DATA;
+  const mineralData = window.MINERAL_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -117,9 +118,26 @@
     });
   }
 
+  if (mineralData) {
+    collections.push({
+      id: "mineraly",
+      title: "Minerały",
+      heading: "Osobliwe minerały Polski",
+      subtitle: mineralData.subtitle,
+      count_label: "33 osobliwości",
+      icon: "M",
+      accent: "stone",
+      search_placeholder: "np. krzemień, siarka, halit, agat...",
+      safety_notice: mineralData.safety_notice,
+      source_note: "Opisy powstały na bazie listy roboczej o osobliwościach mineralogicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      categories: mineralData.categories,
+      items: mineralData.minerals
+    });
+  }
+
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa, minerały i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections

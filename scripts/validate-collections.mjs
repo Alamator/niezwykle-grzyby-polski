@@ -18,6 +18,8 @@ assert(scriptSources.includes("./data/birds.js"), "index.html should load data/b
 assert(scriptSources.includes("./data/bird-photo-pack-v01.js"), "index.html should load bird Commons photo pack");
 assert(scriptSources.includes("./data/trees.js"), "index.html should load data/trees.js");
 assert(scriptSources.includes("./data/tree-photo-pack-v01.js"), "index.html should load tree Commons photo pack");
+assert(scriptSources.includes("./data/minerals.js"), "index.html should load data/minerals.js");
+assert(scriptSources.includes("./data/mineral-photo-pack-v01.js"), "index.html should load mineral Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -43,6 +45,11 @@ assert(
   scriptSources.indexOf("./data/trees.js") < scriptSources.indexOf("./data/tree-photo-pack-v01.js") &&
     scriptSources.indexOf("./data/tree-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
   "tree photo pack should load after trees.js and before collections.js"
+);
+assert(
+  scriptSources.indexOf("./data/minerals.js") < scriptSources.indexOf("./data/mineral-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/mineral-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "mineral photo pack should load after minerals.js and before collections.js"
 );
 assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
@@ -73,7 +80,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 6, "atlas should expose mushrooms, insects, flowers, fish, birds and trees");
+assert.equal(collections.length, 7, "atlas should expose mushrooms, insects, flowers, fish, birds, trees and minerals");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -81,18 +88,21 @@ const flowers = collections.find((collection) => collection.id === "kwiaty");
 const fish = collections.find((collection) => collection.id === "ryby");
 const birds = collections.find((collection) => collection.id === "ptaki");
 const trees = collections.find((collection) => collection.id === "drzewa");
+const minerals = collections.find((collection) => collection.id === "mineraly");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
 assert(fish, "fish collection should exist");
 assert(birds, "bird collection should exist");
 assert(trees, "tree collection should exist");
+assert(minerals, "mineral collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
 assert.equal(fish.items.length, 32, "fish collection should contain 32 fish curiosities");
 assert.equal(birds.items.length, 32, "bird collection should contain 32 bird curiosities");
 assert.equal(trees.items.length, 30, "tree collection should contain 30 dendrological curiosities");
+assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mineralogical curiosities");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -141,6 +151,18 @@ assert(
   trees.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "tree image sources should link to Wikimedia Commons file pages"
 );
+const mineralImages = minerals.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(mineralImages.length, 33, "mineral collection should include 33 curated images with attribution");
+assert(
+  minerals.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "mineral images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  minerals.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "mineral image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -183,6 +205,10 @@ assert(birds.items.some((item) => item.name_pl === "Dudek"), "bird collection sh
 assert(trees.subtitle.includes("dendrologiczne osobliwości"), "tree subtitle should describe dendrological curiosities");
 assert(trees.categories.some((category) => category.label === "Zapach i chemia"), "tree categories should use Polish diacritics");
 assert(trees.items.some((item) => item.name_pl === "Sosna na Szczudłach"), "tree collection should include the walking pine curiosity from the source file");
+assert(minerals.subtitle.includes("mineralogiczne osobliwości"), "mineral subtitle should describe mineralogical curiosities");
+assert(minerals.categories.some((category) => category.label === "Endemity i nowe minerały"), "mineral categories should use Polish diacritics");
+assert(minerals.items.some((item) => item.name_pl === "Krzemień pasiasty"), "mineral collection should include striped flint from the source file");
+assert(minerals.items.some((item) => item.name_pl === "Haueryt z Machowa i Jeziórka"), "mineral collection should include the Polish hauerite curiosity from the source file");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
