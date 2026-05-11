@@ -8,6 +8,7 @@
   const mineralData = window.MINERAL_APP_DATA;
   const rockFormationData = window.ROCK_FORMATION_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
+  const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -171,9 +172,26 @@
     });
   }
 
+  if (atmosphereAstronomyData) {
+    collections.push({
+      id: "atmosfera-astronomia",
+      title: "Atmosfera i astronomia",
+      heading: "Osobliwości atmosferyczne i astronomiczne Polski",
+      subtitle: atmosphereAstronomyData.subtitle,
+      count_label: "33 osobliwości",
+      icon: "N",
+      accent: "skyfire",
+      search_placeholder: "np. Brockenu, zorza, Bałtyk, mrozowisko...",
+      safety_notice: atmosphereAstronomyData.safety_notice,
+      source_note: "Opisy powstały na bazie listy roboczej o polskich zjawiskach atmosferycznych i astronomicznych. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      categories: atmosphereAstronomyData.categories,
+      items: atmosphereAstronomyData.phenomena
+    });
+  }
+
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa, minerały, formacje skalne, skamieniałości i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa, minerały, formacje skalne, skamieniałości, niebo i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections
