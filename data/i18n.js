@@ -124,7 +124,40 @@
     "lodowy olbrzym": "ice-age giant",
     "rogi lodowca": "ice-age horns",
     "stanowisko łowców": "hunter site",
-    "sen w jaskini": "sleep in the cave"
+    "sen w jaskini": "sleep in the cave",
+    "cień olbrzyma": "giant shadow",
+    "aureola z mgły": "halo in the mist",
+    "wyspy nad chmurami": "islands above clouds",
+    "burzowy alarm": "storm alarm",
+    "iskry przed piorunem": "sparks before lightning",
+    "błysk nad burzą": "flash above the storm",
+    "strumień z kowadła": "jet from the anvil",
+    "pierścień jonosfery": "ionosphere ring",
+    "piorun z plusa": "positive lightning",
+    "grzmot w śniegu": "thunder in snow",
+    "noc bez czerni": "night without blackness",
+    "jasny horyzont": "bright horizon",
+    "chmury z kosmosu": "clouds from space",
+    "rezerwat nocy": "night reserve",
+    "ciemność premium": "premium darkness",
+    "mądra latarnia": "smart lamp",
+    "galaktyczny pas": "galactic band",
+    "kosmiczna pogoda": "space weather",
+    "sierpniowe smugi": "August streaks",
+    "zimowy rój": "winter shower",
+    "statek nad horyzontem": "ship above the horizon",
+    "fatamorgana Bałtyku": "Baltic Fata Morgana",
+    "śnieg z morza": "snow from the sea",
+    "góry zza horyzontu": "mountains beyond the horizon",
+    "rekord widoczności": "visibility record",
+    "niewidzialna soczewka": "invisible lens",
+    "niecka mrozu": "frost basin",
+    "kocioł zimna": "cold cauldron",
+    "torfowiskowy mróz": "peatland frost",
+    "liczba w historii": "number in history",
+    "pustynia w powietrzu": "desert in the air",
+    "rdzawy ślad": "rusty trace",
+    "śnieg z rumieńcem": "blushing snow"
   };
 
   const mushroomCategories = {
@@ -214,6 +247,14 @@
     "epoka-lodowcowa": { label: "Ice Age", short: "Pleistocene" }
   };
 
+  const atmosphereAstronomyCategories = {
+    "optyka-gorska": { label: "Mountain optics", short: "Optics" },
+    "burze-i-gorna-atmosfera": { label: "Storms and upper atmosphere", short: "Storms" },
+    "niebo-nocne-i-kosmos": { label: "Night sky and space", short: "Sky" },
+    "baltyk-refrakcja-obserwacje": { label: "Baltic, refraction and long views", short: "Refraction" },
+    "mroz-pyl-osady": { label: "Frost, dust and odd deposits", short: "Extremes" }
+  };
+
   const defaultHabitats = {
     grzyby: {
       "kosmici-i-zapachowcy": "mulch, compost, fertile litter, parks, gardens and warm transformed sites",
@@ -292,6 +333,13 @@
       "morza-mezozoiku": "Mesozoic seas, lagoons, quarries and limestone or marl deposits with marine reptiles and invertebrates",
       "bursztyn-i-kenozoik": "Baltic amber, Cenozoic bird sites, museum inclusions and silicified wood from fossil-rich collections",
       "epoka-lodowcowa": "Pleistocene caves, river deposits, loess sites and archaeological layers with Ice Age megafauna"
+    },
+    "atmosfera-astronomia": {
+      "optyka-gorska": "mountain ridges, summits, mist, cloud layers and exposed terrain where light and electric fields become visible",
+      "burze-i-gorna-atmosfera": "storm systems, thundercloud tops and upper-atmosphere layers connected with strong convection",
+      "niebo-nocne-i-kosmos": "dark skies, summer twilight, northern horizons, meteor nights and low-light observing sites",
+      "baltyk-refrakcja-obserwacje": "sea horizons, inversion layers, long sight lines and coastal or upland viewpoints shaped by refraction",
+      "mroz-pyl-osady": "frost hollows, peatlands, mountain basins, snow cover and air masses carrying dust or unusual deposits"
     }
   };
 
@@ -327,6 +375,9 @@
     if (collectionId === "skamienialosci") {
       return "Educational material only; do not damage fossil sites, dig protected layers, enter quarries without permission or remove rare finds from context.";
     }
+    if (collectionId === "atmosfera-astronomia") {
+      return "Educational material only; do not chase storms, enter exposed ridges during electrical activity, ignore cold risk or treat the atlas as a forecast.";
+    }
     return "Educational material only; observe without disturbing the insect or its habitat.";
   }
 
@@ -339,6 +390,7 @@
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
     if (collectionId === "skamienialosci") return "Recorded in Poland as a fossil, trace fossil, fossil site, amber inclusion or representative palaeontological specimen.";
+    if (collectionId === "atmosfera-astronomia") return "Recorded in Poland as an atmospheric, astronomical, optical, thermal or sky-observation phenomenon.";
     return "Found locally or more widely in Poland, depending on habitat quality and season.";
   }
 
@@ -351,6 +403,7 @@
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
     if (collectionId === "skamienialosci") return "Treat this as palaeontological context, not as permission to collect fossils, dig sites or disturb scientific layers.";
+    if (collectionId === "atmosfera-astronomia") return "Treat this as sky and weather context, not as a forecast, safety instruction or guarantee that the phenomenon will appear.";
     return "Best treated as a field curiosity: observe, photograph and leave the habitat undisturbed.";
   }
 
@@ -1696,6 +1749,42 @@
     "niedzwiedzie-jaskiniowe-kletna": { name: "Cave bears of Kletno" }
   };
 
+  const atmosphereAstronomyText = {
+    "widmo-brockenu": { name: "Brocken spectre" },
+    gloria: { name: "Glory" },
+    "morze-chmur-i-inwersje-gorskie": { name: "Sea of clouds and mountain inversions" },
+    "ognie-swietego-elma": { name: "St. Elmo's fire" },
+    "wyladowania-koronowe-na-szczytach": { name: "Corona discharges on summits" },
+    "czerwone-duszki-nad-polska": { name: "Red sprites over Poland" },
+    "niebieskie-strumienie": { name: "Blue jets" },
+    "elves-nad-burzami": { name: "ELVES above storms" },
+    "dodatnie-wyladowania-cg-plus": { name: "Positive CG+ lightning" },
+    "burze-sniezne-z-wyladowaniami": { name: "Thundersnow" },
+    "biale-noce-astronomiczne": { name: "Astronomical white nights" },
+    "biale-noce-zeglarskie": { name: "Nautical white nights" },
+    "obloki-srebrzyste": { name: "Noctilucent clouds" },
+    "izerski-park-ciemnego-nieba": { name: "Izera Dark-Sky Park" },
+    "bieszczadzki-park-gwiezdnego-nieba": { name: "Bieszczady Starry-Sky Park" },
+    "sopotnia-wielka-ciemne-niebo": { name: "Sopotnia Wielka and smart dark-sky lighting" },
+    "droga-mleczna-nad-polska": { name: "The Milky Way over Poland" },
+    "zorze-polarne-nad-polska": { name: "Auroras over Poland" },
+    perseidy: { name: "Perseids" },
+    geminidy: { name: "Geminids" },
+    "miraz-gorny-nad-baltykiem": { name: "Superior mirage over the Baltic" },
+    "fata-morgana-latajace-statki": { name: "Fata Morgana and flying ships" },
+    "baltycki-efekt-morza": { name: "Baltic sea-effect snow" },
+    "tatry-z-wyzyny-lubelskiej": { name: "The Tatras seen from the Lublin Upland" },
+    "rekord-godziszow-zadni-gerlach": { name: "Godziszów and Zadni Gerlach" },
+    "atmosfera-jako-soczewka": { name: "The atmosphere as a lens" },
+    "hala-izerska-mala-syberia": { name: "Hala Izerska, the little Siberia" },
+    "litworowy-kociol": { name: "Litworowy Kocioł" },
+    "puscizna-rekowianska": { name: "Puścizna Rękowiańska" },
+    "siedlce-rekord-mrozu": { name: "Siedlce and the official cold record" },
+    "pyl-saharyjski-nad-polska": { name: "Saharan dust over Poland" },
+    "brudny-deszcz": { name: "Dust rain" },
+    "czerwony-snieg-w-gorach": { name: "Red snow in the mountains" }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -1964,6 +2053,17 @@
           source_note: "Descriptions start from the working list of unusual Polish fossils. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: fossilCategories,
           items: makeItemMap("skamienialosci", fossilText)
+        },
+        "atmosfera-astronomia": {
+          title: "Atmosphere and Astronomy",
+          heading: "Atmospheric and Astronomical Curiosities of Poland",
+          subtitle: "33 sky and weather curiosities of Poland: Brocken spectres, sprites, white nights, noctilucent clouds, dark-sky parks, auroras, Baltic snow bands, long-distance views, frost hollows and Saharan dust.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. Brocken, aurora, Baltic, frost hollow...",
+          safety_notice: "Educational prototype. Sky and weather phenomena are not forecasts or invitations to take risks: do not chase storms, stand on ridges during electrical activity, ignore cold or use the atlas as safety guidance.",
+          source_note: "Descriptions start from the working list of Polish atmospheric and astronomical phenomena. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
+          categories: atmosphereAstronomyCategories,
+          items: makeItemMap("atmosfera-astronomia", atmosphereAstronomyText)
         }
       }
     }
