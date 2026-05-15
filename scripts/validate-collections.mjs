@@ -4,6 +4,7 @@ import vm from "node:vm";
 
 const indexHtml = fs.readFileSync("index.html", "utf8");
 const appJs = fs.readFileSync("js/app.js", "utf8");
+const cacheResetJs = fs.readFileSync("js/cache-reset.js", "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
 const rawScriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
 const scriptSources = rawScriptSources.map((source) => (source.startsWith("/") ? `.${source}` : source));
@@ -147,7 +148,8 @@ assert(
 assert.match(appJs, /routeForCollection/, "app should derive collection routes");
 assert.match(appJs, /history\.pushState/, "app should push collection routes into browser history");
 assert.match(appJs, /popstate/, "app should restore collections from browser history");
-assert.match(appJs, /serviceWorker\.register\("\/service-worker\.js"\)/, "service worker registration should be absolute for nested atlas routes");
+assert.doesNotMatch(appJs, /serviceWorker\.register/, "app should not re-register the self-unregistering service worker");
+assert.match(cacheResetJs, /getRegistrations\(\)/, "cache reset should keep unregistering old service workers");
 assert(
   vercelConfig.rewrites?.some((rewrite) => rewrite.source === "/atlas/:path*" && rewrite.destination === "/"),
   "Vercel should rewrite nested atlas routes to the static SPA entry using the documented wildcard syntax"
