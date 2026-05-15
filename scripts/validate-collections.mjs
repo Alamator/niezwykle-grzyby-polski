@@ -5,146 +5,97 @@ import vm from "node:vm";
 const indexHtml = fs.readFileSync("index.html", "utf8");
 const appJs = fs.readFileSync("js/app.js", "utf8");
 const cacheResetJs = fs.readFileSync("js/cache-reset.js", "utf8");
+const collectionsJs = fs.readFileSync("data/collections.js", "utf8");
+const i18nJs = fs.readFileSync("data/i18n.js", "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
 const rawScriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
-const scriptSources = rawScriptSources.map((source) => (source.startsWith("/") ? `.${source}` : source));
+const htmlScripts = rawScriptSources.map((source) => (source.startsWith("/") ? `.${source}` : source));
 
 assert.match(indexHtml, /Atlas Osobliwości Polski/, "page should use the umbrella atlas title");
 assert.doesNotMatch(indexHtml, /(src|href)="\.\/(?:assets|css|data|js|manifest)/, "root assets should use absolute paths so nested atlas routes can load them");
 assert.doesNotMatch(indexHtml, /Otwórz owady/, "hero should not privilege one collection with a direct shortcut");
 assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not be in navigation");
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be in navigation");
-assert(scriptSources.includes("./data/insects.js"), "index.html should load data/insects.js");
-assert(scriptSources.includes("./data/flowers.js"), "index.html should load data/flowers.js");
-assert(scriptSources.includes("./data/flower-photo-pack-v01.js"), "index.html should load flower Commons photo pack");
-assert(scriptSources.includes("./data/fish.js"), "index.html should load data/fish.js");
-assert(scriptSources.includes("./data/fish-photo-pack-v01.js"), "index.html should load fish Commons photo pack");
-assert(scriptSources.includes("./data/birds.js"), "index.html should load data/birds.js");
-assert(scriptSources.includes("./data/bird-photo-pack-v01.js"), "index.html should load bird Commons photo pack");
-assert(scriptSources.includes("./data/trees.js"), "index.html should load data/trees.js");
-assert(scriptSources.includes("./data/tree-photo-pack-v01.js"), "index.html should load tree Commons photo pack");
-assert(scriptSources.includes("./data/minerals.js"), "index.html should load data/minerals.js");
-assert(scriptSources.includes("./data/mineral-photo-pack-v01.js"), "index.html should load mineral Commons photo pack");
-assert(scriptSources.includes("./data/rock-formations.js"), "index.html should load data/rock-formations.js");
-assert(scriptSources.includes("./data/rock-formation-photo-pack-v01.js"), "index.html should load rock formation Commons photo pack");
-assert(scriptSources.includes("./data/fossils.js"), "index.html should load data/fossils.js");
-assert(scriptSources.includes("./data/fossil-photo-pack-v01.js"), "index.html should load fossil Commons photo pack");
-assert(scriptSources.includes("./data/atmosphere-astronomy.js"), "index.html should load data/atmosphere-astronomy.js");
-assert(scriptSources.includes("./data/atmosphere-astronomy-photo-pack-v01.js"), "index.html should load atmosphere and astronomy Commons photo pack");
-assert(scriptSources.includes("./data/mammals.js"), "index.html should load data/mammals.js");
-assert(scriptSources.includes("./data/mammal-photo-pack-v01.js"), "index.html should load mammal Commons photo pack");
-assert(scriptSources.includes("./data/amphibians-reptiles.js"), "index.html should load data/amphibians-reptiles.js");
-assert(scriptSources.includes("./data/amphibian-reptile-photo-pack-v01.js"), "index.html should load amphibian and reptile Commons photo pack");
-assert(scriptSources.includes("./data/wooden-architecture.js"), "index.html should load data/wooden-architecture.js");
-assert(scriptSources.includes("./data/wooden-architecture-photo-pack-v01.js"), "index.html should load wooden architecture Commons photo pack");
-assert(scriptSources.includes("./data/underground.js"), "index.html should load data/underground.js");
-assert(scriptSources.includes("./data/underground-photo-pack-v01.js"), "index.html should load underground Commons photo pack");
-assert(scriptSources.includes("./data/engineering-wonders.js"), "index.html should load data/engineering-wonders.js");
-assert(scriptSources.includes("./data/engineering-wonders-photo-pack-v01.js"), "index.html should load engineering wonders Commons photo pack");
-assert(scriptSources.includes("./data/fortresses-ruins.js"), "index.html should load data/fortresses-ruins.js");
-assert(scriptSources.includes("./data/fortresses-ruins-photo-pack-v01.js"), "index.html should load fortresses and ruins Commons photo pack");
-assert(scriptSources.includes("./data/memento-mori.js"), "index.html should load data/memento-mori.js");
-assert(scriptSources.includes("./data/memento-mori-photo-pack-v01.js"), "index.html should load memento mori Commons photo pack");
-assert(scriptSources.includes("./data/landscape-records.js"), "index.html should load data/landscape-records.js");
-assert(scriptSources.includes("./data/landscape-records-photo-pack-v01.js"), "index.html should load landscape records Commons photo pack");
-assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
-assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
+
+// New architecture: index.html only eagerly loads the cache reset, i18n table, the collection
+// registry and the app. Per-collection data scripts are lazy-loaded by collections.js.
+assert(htmlScripts.includes("./js/cache-reset.js"), "index.html should load js/cache-reset.js");
+assert(htmlScripts.includes("./data/i18n.js"), "index.html should load data/i18n.js");
+assert(htmlScripts.includes("./data/collections.js"), "index.html should load data/collections.js");
+assert(htmlScripts.includes("./js/app.js"), "index.html should load js/app.js");
 assert(
-  scriptSources.indexOf("./data/flowers.js") < scriptSources.indexOf("./data/collections.js"),
-  "flowers.js should load before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/flowers.js") < scriptSources.indexOf("./data/flower-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/flower-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "flower photo pack should load after flowers.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/fish.js") < scriptSources.indexOf("./data/fish-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/fish-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "fish photo pack should load after fish.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/birds.js") < scriptSources.indexOf("./data/bird-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/bird-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "bird photo pack should load after birds.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/trees.js") < scriptSources.indexOf("./data/tree-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/tree-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "tree photo pack should load after trees.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/minerals.js") < scriptSources.indexOf("./data/mineral-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/mineral-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "mineral photo pack should load after minerals.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/rock-formations.js") < scriptSources.indexOf("./data/rock-formation-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/rock-formation-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "rock formation photo pack should load after rock-formations.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/fossils.js") < scriptSources.indexOf("./data/fossil-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/fossil-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "fossil photo pack should load after fossils.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/atmosphere-astronomy.js") < scriptSources.indexOf("./data/atmosphere-astronomy-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/atmosphere-astronomy-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "atmosphere and astronomy photo pack should load after atmosphere-astronomy.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/mammals.js") < scriptSources.indexOf("./data/mammal-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/mammal-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "mammal photo pack should load after mammals.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/amphibians-reptiles.js") < scriptSources.indexOf("./data/amphibian-reptile-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/amphibian-reptile-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "amphibian and reptile photo pack should load after amphibians-reptiles.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/wooden-architecture.js") < scriptSources.indexOf("./data/wooden-architecture-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/wooden-architecture-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "wooden architecture photo pack should load after wooden-architecture.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/underground.js") < scriptSources.indexOf("./data/underground-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/underground-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "underground photo pack should load after underground.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/engineering-wonders.js") < scriptSources.indexOf("./data/collections.js"),
-  "engineering wonders data should load before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/engineering-wonders.js") < scriptSources.indexOf("./data/engineering-wonders-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/engineering-wonders-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "engineering wonders photo pack should load after engineering-wonders.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/fortresses-ruins.js") < scriptSources.indexOf("./data/fortresses-ruins-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/fortresses-ruins-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "fortresses and ruins photo pack should load after fortresses-ruins.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/memento-mori.js") < scriptSources.indexOf("./data/memento-mori-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/memento-mori-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "memento mori photo pack should load after memento-mori.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/landscape-records.js") < scriptSources.indexOf("./data/landscape-records-photo-pack-v01.js") &&
-    scriptSources.indexOf("./data/landscape-records-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
-  "landscape records photo pack should load after landscape-records.js and before collections.js"
-);
-assert(
-  scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
+  htmlScripts.indexOf("./data/collections.js") < htmlScripts.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
 assert(
-  scriptSources.indexOf("./data/i18n.js") < scriptSources.indexOf("./js/app.js"),
+  htmlScripts.indexOf("./data/i18n.js") < htmlScripts.indexOf("./js/app.js"),
   "i18n.js should load before app.js"
 );
+assert(
+  htmlScripts.indexOf("./data/collections.js") < htmlScripts.indexOf("./data/i18n.js"),
+  "collections.js must load before i18n.js so the i18n table can read ATLAS_APP_DATA at IIFE start"
+);
+assert(
+  !htmlScripts.some((src) => /\/data\/(mushrooms|insects|flowers|fish|birds|mammals|amphibians-reptiles|trees|minerals|rock-formations|wooden-architecture|underground|engineering-wonders|fortresses-ruins|memento-mori|fossils|atmosphere-astronomy|landscape-records|photo-pack-v0[3-8]|region-pack-v07|[a-z-]+-photo-pack-v01)\.js$/.test(src)),
+  "per-collection data scripts must be lazy-loaded by collections.js, not declared eagerly in index.html"
+);
+
+// Extract every "/data/X.js" reference from the per-collection scripts arrays in collections.js.
+const scriptsArrayBlocks = [...collectionsJs.matchAll(/scripts:\s*\[([\s\S]*?)\]/g)];
+assert(scriptsArrayBlocks.length >= 18, "collections.js should expose at least 18 lazy-load script lists, one per collection");
+const manifestScripts = scriptsArrayBlocks.map((match) =>
+  [...match[1].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1])
+);
+const allManifestFiles = manifestScripts.flat();
+
+function assertManifestIncludes(file, message) {
+  assert(allManifestFiles.includes(file), message);
+}
+assertManifestIncludes("/data/mushrooms.js", "collections.js manifest should reference data/mushrooms.js");
+assertManifestIncludes("/data/insects.js", "collections.js manifest should reference data/insects.js");
+assertManifestIncludes("/data/flowers.js", "collections.js manifest should reference data/flowers.js");
+assertManifestIncludes("/data/flower-photo-pack-v01.js", "collections.js manifest should reference the flower Commons photo pack");
+assertManifestIncludes("/data/fish.js", "collections.js manifest should reference data/fish.js");
+assertManifestIncludes("/data/fish-photo-pack-v01.js", "collections.js manifest should reference the fish Commons photo pack");
+assertManifestIncludes("/data/birds.js", "collections.js manifest should reference data/birds.js");
+assertManifestIncludes("/data/bird-photo-pack-v01.js", "collections.js manifest should reference the bird Commons photo pack");
+assertManifestIncludes("/data/trees.js", "collections.js manifest should reference data/trees.js");
+assertManifestIncludes("/data/tree-photo-pack-v01.js", "collections.js manifest should reference the tree Commons photo pack");
+assertManifestIncludes("/data/minerals.js", "collections.js manifest should reference data/minerals.js");
+assertManifestIncludes("/data/mineral-photo-pack-v01.js", "collections.js manifest should reference the mineral Commons photo pack");
+assertManifestIncludes("/data/rock-formations.js", "collections.js manifest should reference data/rock-formations.js");
+assertManifestIncludes("/data/rock-formation-photo-pack-v01.js", "collections.js manifest should reference the rock formation Commons photo pack");
+assertManifestIncludes("/data/fossils.js", "collections.js manifest should reference data/fossils.js");
+assertManifestIncludes("/data/fossil-photo-pack-v01.js", "collections.js manifest should reference the fossil Commons photo pack");
+assertManifestIncludes("/data/atmosphere-astronomy.js", "collections.js manifest should reference data/atmosphere-astronomy.js");
+assertManifestIncludes("/data/atmosphere-astronomy-photo-pack-v01.js", "collections.js manifest should reference the atmosphere and astronomy Commons photo pack");
+assertManifestIncludes("/data/mammals.js", "collections.js manifest should reference data/mammals.js");
+assertManifestIncludes("/data/mammal-photo-pack-v01.js", "collections.js manifest should reference the mammal Commons photo pack");
+assertManifestIncludes("/data/amphibians-reptiles.js", "collections.js manifest should reference data/amphibians-reptiles.js");
+assertManifestIncludes("/data/amphibian-reptile-photo-pack-v01.js", "collections.js manifest should reference the amphibian and reptile Commons photo pack");
+assertManifestIncludes("/data/wooden-architecture.js", "collections.js manifest should reference data/wooden-architecture.js");
+assertManifestIncludes("/data/wooden-architecture-photo-pack-v01.js", "collections.js manifest should reference the wooden architecture Commons photo pack");
+assertManifestIncludes("/data/underground.js", "collections.js manifest should reference data/underground.js");
+assertManifestIncludes("/data/underground-photo-pack-v01.js", "collections.js manifest should reference the underground Commons photo pack");
+assertManifestIncludes("/data/engineering-wonders.js", "collections.js manifest should reference data/engineering-wonders.js");
+assertManifestIncludes("/data/engineering-wonders-photo-pack-v01.js", "collections.js manifest should reference the engineering wonders Commons photo pack");
+assertManifestIncludes("/data/fortresses-ruins.js", "collections.js manifest should reference data/fortresses-ruins.js");
+assertManifestIncludes("/data/fortresses-ruins-photo-pack-v01.js", "collections.js manifest should reference the fortresses and ruins Commons photo pack");
+assertManifestIncludes("/data/memento-mori.js", "collections.js manifest should reference data/memento-mori.js");
+assertManifestIncludes("/data/memento-mori-photo-pack-v01.js", "collections.js manifest should reference the memento mori Commons photo pack");
+assertManifestIncludes("/data/landscape-records.js", "collections.js manifest should reference data/landscape-records.js");
+assertManifestIncludes("/data/landscape-records-photo-pack-v01.js", "collections.js manifest should reference the landscape records Commons photo pack");
+
+// Inside each collection entry the base data file must precede its photo / region packs
+// (photo packs mutate the base data, so order within the entry matters).
+for (const collectionScripts of manifestScripts) {
+  const firstPackIdx = collectionScripts.findIndex((src) => /-photo-pack|-region-pack|\/photo-pack-v0|\/region-pack-v0/.test(src));
+  const firstBaseIdx = collectionScripts.findIndex((src) => !/-photo-pack|-region-pack|\/photo-pack-v0|\/region-pack-v0/.test(src));
+  if (firstPackIdx !== -1 && firstBaseIdx !== -1) {
+    assert(firstBaseIdx < firstPackIdx, `base data file must precede photo/region packs in collection entry [${collectionScripts.join(", ")}]`);
+  }
+}
+
 assert.match(appJs, /routeForCollection/, "app should derive collection routes");
 assert.match(appJs, /history\.pushState/, "app should push collection routes into browser history");
 assert.match(appJs, /popstate/, "app should restore collections from browser history");
@@ -155,14 +106,31 @@ assert(
   "Vercel should rewrite nested atlas routes to the static SPA entry using the documented wildcard syntax"
 );
 
-const context = { window: {} };
+// Run all manifest data files in a shared vm context (preserving per-entry order), then i18n.js,
+// then collections.js. The eager-build pass inside collections.js populates each collection from
+// the now-present window.*_APP_DATA globals.
+const context = {
+  window: {},
+  document: {
+    head: { appendChild() {} },
+    createElement: () => ({ dataset: {} }),
+    querySelector: () => null
+  }
+};
 vm.createContext(context);
 
-for (const source of scriptSources.filter((src) => src.startsWith("./data/"))) {
-  vm.runInContext(fs.readFileSync(source.replace("./", ""), "utf8"), context, {
-    filename: source
-  });
+const dedupedManifestFiles = [];
+for (const collectionScripts of manifestScripts) {
+  for (const src of collectionScripts) {
+    if (!dedupedManifestFiles.includes(src)) dedupedManifestFiles.push(src);
+  }
 }
+for (const source of dedupedManifestFiles) {
+  vm.runInContext(fs.readFileSync(source.replace(/^\//, ""), "utf8"), context, { filename: source });
+}
+// collections.js builds window.ATLAS_APP_DATA; i18n.js reads it at IIFE start.
+vm.runInContext(collectionsJs, context, { filename: "data/collections.js" });
+vm.runInContext(i18nJs, context, { filename: "data/i18n.js" });
 
 const app = context.window.ATLAS_APP_DATA;
 const i18n = context.window.ATLAS_I18N;

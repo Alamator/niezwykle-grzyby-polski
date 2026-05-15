@@ -3,42 +3,35 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const indexHtml = fs.readFileSync("index.html", "utf8");
-const rawScriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
-const scriptSources = rawScriptSources.map((source) => (source.startsWith("/") ? `.${source}` : source));
+const collectionsJs = fs.readFileSync("data/collections.js", "utf8");
 
 assert.match(indexHtml, /Atlas Osobliwości Polski/, "page should use the umbrella atlas title");
 assert.doesNotMatch(indexHtml, /(src|href)="\.\/(?:assets|css|data|js|manifest)/, "root assets should use absolute paths so nested atlas routes can load them");
 assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not be present");
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be present");
 
+// The mushroom data scripts are now lazy-loaded by collections.js. We pick them out of the manifest
+// and run them in a shared vm context to validate the data shape.
+const mushroomBlockMatch = collectionsJs.match(/id:\s*"grzyby"[\s\S]*?scripts:\s*\[([\s\S]*?)\]/);
+assert(mushroomBlockMatch, "collections.js should declare the grzyby entry with a scripts array");
+const mushroomScripts = [...mushroomBlockMatch[1].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1]);
+
+assert(mushroomScripts.includes("/data/mushrooms.js"), "grzyby manifest should reference data/mushrooms.js");
+assert(mushroomScripts.includes("/data/region-pack-v07.js"), "grzyby manifest should reference data/region-pack-v07.js");
+assert(mushroomScripts.includes("/data/photo-pack-v08.js"), "grzyby manifest should reference data/photo-pack-v08.js");
 assert(
-  scriptSources.includes("./data/region-pack-v07.js"),
-  "index.html should load data/region-pack-v07.js"
-);
-assert(
-  scriptSources.indexOf("./data/region-pack-v07.js") < scriptSources.indexOf("./js/app.js"),
-  "region-pack-v07.js should load before app.js"
-);
-assert(
-  scriptSources.includes("./data/photo-pack-v08.js"),
-  "index.html should load data/photo-pack-v08.js"
-);
-assert(
-  scriptSources.indexOf("./data/photo-pack-v08.js") < scriptSources.indexOf("./js/app.js"),
-  "photo-pack-v08.js should load before app.js"
-);
-assert(
-  scriptSources.includes("./data/collections.js"),
-  "index.html should load the collection registry"
+  mushroomScripts.indexOf("/data/mushrooms.js") < mushroomScripts.indexOf("/data/photo-pack-v08.js"),
+  "mushrooms.js must load before photo-pack-v08.js so the pack can mutate the mushroom list"
 );
 
-const context = { window: {} };
+const context = {
+  window: {},
+  document: { head: { appendChild() {} }, createElement: () => ({ dataset: {} }), querySelector: () => null }
+};
 vm.createContext(context);
 
-for (const source of scriptSources.filter((src) => src.startsWith("./data/"))) {
-  vm.runInContext(fs.readFileSync(source.replace("./", ""), "utf8"), context, {
-    filename: source
-  });
+for (const source of mushroomScripts) {
+  vm.runInContext(fs.readFileSync(source.replace(/^\//, ""), "utf8"), context, { filename: source });
 }
 
 const data = context.window.MUSHROOM_APP_DATA;

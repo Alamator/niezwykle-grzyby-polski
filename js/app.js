@@ -521,18 +521,43 @@
     if (view === "sources") renderCredits();
   }
 
-  function selectCollection(id, options = {}) {
+  let selectionSerial = 0;
+
+  async function selectCollection(id, options = {}) {
     const collection = app.collections.find((entry) => entry.id === id) || app.collections[0];
+    const serial = ++selectionSerial;
     state.collectionId = collection.id;
     state.category = "all";
     state.search = "";
-    state.flashIndex = randomIndex(collection.items.length);
     state.flashRevealed = false;
     state.quiz = null;
     $("#searchInput").value = "";
     $("#collectionPicker").classList.add("is-hidden");
     $(".app-nav").classList.remove("is-hidden");
     $("#main").classList.remove("is-hidden");
+    updateActiveCollectionLabels();
+
+    const needsLoad = !collection._loaded && typeof app.loadCollection === "function";
+    if (needsLoad) {
+      const loadingLabel = state.language === "en"
+        ? "Loading collection data…"
+        : "Wczytuję dane kolekcji…";
+      $("#statsGrid").innerHTML = "";
+      $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(loadingLabel)}</div>`;
+      try {
+        await app.loadCollection(collection.id);
+      } catch (err) {
+        if (selectionSerial !== serial) return;
+        const errorLabel = state.language === "en"
+          ? "Could not load the collection. Check your connection and try again."
+          : "Nie udało się załadować kolekcji. Sprawdź połączenie i odśwież.";
+        $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(errorLabel)}</div>`;
+        return;
+      }
+      if (selectionSerial !== serial) return;
+    }
+
+    state.flashIndex = randomIndex(collection.items.length);
     updateActiveCollectionLabels();
     activateView("atlas");
     if (options.updateRoute !== false) pushRoute(routeForCollection(collection), { collectionId: collection.id });
