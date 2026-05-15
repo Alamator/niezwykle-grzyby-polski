@@ -324,6 +324,14 @@
     "beton-fortyfikacje": { label: "Concrete and fortifications", short: "Concrete" }
   };
 
+  const fortressRuinCategories = {
+    "miasta-idealne": { label: "Ideal cities", short: "Cities" },
+    "zamki-rezydencje": { label: "Castles and residences", short: "Castles" },
+    twierdze: { label: "Fortresses", short: "Fortresses" },
+    ruiny: { label: "Ruins", short: "Ruins" },
+    "zapomniane-konstrukcje": { label: "Forgotten structures", short: "Structures" }
+  };
+
   const treeCategories = {
     "zapach-i-chemia": { label: "Scent and chemistry", short: "Chemistry" },
     "swiatlo-i-mikrozycie": { label: "Light and micro-life", short: "Light" },
@@ -454,6 +462,13 @@
       "adaptacje-industrialne": "former industrial sites reused for culture, knowledge or public life while keeping their technical memory",
       "beton-fortyfikacje": "reinforced concrete, earthworks and fortification landscapes where material and geometry solve structural problems"
     },
+    "twierdze-ruiny": {
+      "miasta-idealne": "planned urban layouts where streets, squares, residence and fortifications were designed as one organism",
+      "zamki-rezydencje": "castles, palaces and residences where defense, representation, landscape and memory meet",
+      twierdze: "fortress landscapes, ring forts, bastions, wartime sites and defensive systems shaped by terrain",
+      ruiny: "castle and palace ruins where missing roofs, exposed walls and geology reveal former ambition",
+      "zapomniane-konstrukcje": "abandoned palaces, unused viaducts and unfinished structures that require careful access and source checking"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -531,6 +546,9 @@
     if (collectionId === "cuda-inzynierii") {
       return "Educational material only; view technical sites from legal public areas, do not enter tracks, dams, bridges, port zones, industrial grounds or active infrastructure without permission.";
     }
+    if (collectionId === "twierdze-ruiny") {
+      return "Educational material only; visit castles, fortresses and ruins legally, do not enter closed, private or unstable structures, and treat memorial sites with historical respect.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -559,6 +577,7 @@
     if (collectionId === "architektura-drewniana") return "Recorded in Poland as a wooden church, tserkva, mosque, house, manor, village ensemble or imported wooden monument.";
     if (collectionId === "podziemia") return "Recorded in Poland as a mine, adit, urban cellar, fortress, shelter, wartime tunnel or chalk underground open to careful historical interpretation.";
     if (collectionId === "cuda-inzynierii") return "Recorded in Poland as a canal, lock, tower, bridge, tunnel, railway, power plant, port, factory district or technical monument.";
+    if (collectionId === "twierdze-ruiny") return "Recorded in Poland as an ideal city, castle, residence, fortress, ruin, memorial landscape, abandoned palace, viaduct or unfinished structure.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -577,6 +596,7 @@
     if (collectionId === "architektura-drewniana") return "Treat this as cultural and architectural context, not as a conservation assessment or guarantee of opening and access.";
     if (collectionId === "podziemia") return "Treat this as cultural, industrial and historical context, not as permission to explore closed undergrounds or rely on unverified legends.";
     if (collectionId === "cuda-inzynierii") return "Treat this as engineering and cultural context, not as access guidance, technical certification or permission to enter restricted infrastructure.";
+    if (collectionId === "twierdze-ruiny") return "Treat this as architectural, historical and landscape context, not as access guidance, ownership advice or permission to explore unsafe ruins.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -596,14 +616,18 @@
           ? `${name} is included here for its underground engineering, urban, mining or wartime story.`
           : collectionId === "cuda-inzynierii"
             ? `${name} is included here because it turns water, height, concrete, radio, transport or industry into a memorable engineering story.`
-            : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
+            : collectionId === "twierdze-ruiny"
+              ? `${name} is included here for its unusual architecture, defensive logic, ruined form or memory of place.`
+              : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
       const defaultQuizAngle = collectionId === "architektura-drewniana"
         ? "Recognize it by the building type, wooden technique, region and the feature that makes it unusual."
         : collectionId === "podziemia"
           ? "Recognize it by the type of underground site, region and the historical or technical feature that makes it unusual."
           : collectionId === "cuda-inzynierii"
             ? "Recognize it by the mechanism, material, region and problem that the engineering solved."
-            : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
+            : collectionId === "twierdze-ruiny"
+              ? "Recognize it by the building type, landscape position, defensive idea and the detail that makes it unusual."
+              : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
       return [item.id, {
         name,
         hook: entry.hook || defaultHook,
@@ -2080,6 +2104,174 @@
     "czerwony-snieg-w-gorach": { name: "Red snow in the mountains" }
   };
 
+  const fortressRuinText = {
+    zamosc: {
+      name: "Zamość",
+      hook: "A Renaissance ideal city designed as one urban organism of market square, residence and defenses.",
+      quiz_angle: "remember the planned layout, UNESCO status and the idea of a city shaped like a designed body"
+    },
+    "zamek-krzyztopor": {
+      name: "Krzyżtopór Castle",
+      hook: "A palace-fortress whose calendar symbolism turned architecture into a legend of numbers.",
+      quiz_angle: "recognize the bastions, ruined residence and the famous story of towers, rooms and windows"
+    },
+    "zamek-malbork": {
+      name: "Malbork Castle",
+      hook: "A vast brick stronghold that worked as fortress, monastery, warehouse and Teutonic capital.",
+      quiz_angle: "recognize the brick Gothic scale, the Nogat setting and the UNESCO Teutonic castle complex"
+    },
+    "twierdza-srebrna-gora": {
+      name: "Srebrna Góra Fortress",
+      hook: "A mountain fortress built to endure siege like a self-contained town.",
+      quiz_angle: "remember the donjon, casemates, Sudeten ridge and Prussian fortress engineering"
+    },
+    "zamek-ksiaz": {
+      name: "Książ Castle",
+      hook: "A grand residence above a valley, with wartime tunnels adding a darker lower layer.",
+      quiz_angle: "recognize the terraces, monumental residence, Riese context and contrast between palace and underground"
+    },
+    "zamek-ogrodzieniec": {
+      name: "Ogrodzieniec Castle",
+      hook: "A Jurassic ruin fused with limestone rock, as if the hill itself became architecture.",
+      quiz_angle: "remember the Eagles' Nests, limestone outcrops and the ruin growing out of the rock"
+    },
+    "zamek-moszna": {
+      name: "Moszna Castle",
+      hook: "An eclectic residence whose towers make it look like architectural fantasy made solid.",
+      quiz_angle: "recognize the towered silhouette, eclectic form and theatrical palace character"
+    },
+    "zamek-lancut": {
+      name: "Łańcut Castle",
+      hook: "A preserved aristocratic residence where interiors, park and carriage house still tell one story.",
+      quiz_angle: "remember the interiors, park, carriage collection and magnate residence context"
+    },
+    "zamek-krasiczyn": {
+      name: "Krasiczyn Castle",
+      hook: "A Renaissance residence whose towers and sgraffito turn the facade into a family program.",
+      quiz_angle: "recognize the four symbolic towers, courtyard and sgraffito decoration"
+    },
+    "zamek-baranow-sandomierski": {
+      name: "Baranów Sandomierski Castle",
+      hook: "A compact Renaissance residence remembered for harmony, arcades and the 'Little Wawel' nickname.",
+      quiz_angle: "remember the courtyard, arcades, Renaissance proportions and Little Wawel comparison"
+    },
+    "zamek-janowiec": {
+      name: "Janowiec Castle",
+      hook: "A large ruin above the Vistula that reveals ambition precisely because so much is missing.",
+      quiz_angle: "recognize the Vistula setting, monumental outline and the scale of a former residence"
+    },
+    "zamek-czocha": {
+      name: "Czocha Castle",
+      hook: "A lakeside castle where documented history and secret-passage legends have to be kept separate.",
+      quiz_angle: "remember the Kwisa setting, rebuilt residence and the need to separate legend from evidence"
+    },
+    "zamek-bolkow": {
+      name: "Bolków Castle",
+      hook: "A defensive castle whose pointed tower looks like a stone beak facing attack.",
+      quiz_angle: "recognize the beak-shaped tower, Piast Silesian context and compact defensive plan"
+    },
+    "zamek-chojnik": {
+      name: "Chojnik Castle",
+      hook: "A mountain ruin where the steep approach is as memorable as the walls.",
+      quiz_angle: "remember Chojnik Hill, Karkonosze setting and the legend of Kunegunda"
+    },
+    "zamek-niedzica": {
+      name: "Niedzica Castle",
+      hook: "A border castle above the Dunajec where landscape, water and treasure legends cluster tightly.",
+      quiz_angle: "recognize the Pieniny setting, former borderland, lake view and Inca treasure legend"
+    },
+    "zamek-czorsztyn": {
+      name: "Czorsztyn Castle Ruins",
+      hook: "A ruin that gains meaning by facing Niedzica across water.",
+      quiz_angle: "remember the pair of castles, Dunajec landscape and Lake Czorsztyn setting"
+    },
+    "zamek-pieskowa-skala": {
+      name: "Pieskowa Skała Castle",
+      hook: "A Renaissance castle whose stage set is completed by the Hercules' Club limestone stack.",
+      quiz_angle: "recognize the Ojców landscape, arcade courtyard and the rock standing nearby"
+    },
+    "zamki-mirow-bobolice": {
+      name: "Mirów and Bobolice Castles",
+      hook: "Two Jurassic strongholds show the tension between ruin, reconstruction and landscape memory.",
+      quiz_angle: "remember the paired castles, Eagles' Nests route and contrast between ruin and reconstruction"
+    },
+    "zamek-tenczyn-rudno": {
+      name: "Tenczyn Castle in Rudno",
+      hook: "A castle ruin on a hill shaped by much older volcanic history.",
+      quiz_angle: "recognize the Tenczyn ridge, ruined residence and volcanic-geological background"
+    },
+    "mysia-wieza-kruszwica": {
+      name: "Mouse Tower in Kruszwica",
+      hook: "One surviving tower carries one of Poland's best-known foundation legends.",
+      quiz_angle: "remember Lake Gopło, Popiel's legend and the power of a single surviving tower"
+    },
+    "zamek-bedzin": {
+      name: "Będzin Castle",
+      hook: "A compact border stronghold that marked movement between historical lands.",
+      quiz_angle: "recognize the hilltop castle, tower, former border function and route control"
+    },
+    "twierdza-modlin": {
+      name: "Modlin Fortress",
+      hook: "A huge fortress landscape where rivers, barracks and fort rings work together.",
+      quiz_angle: "remember the Vistula-Narew junction, long barracks and sprawling military system"
+    },
+    "twierdza-klodzko": {
+      name: "Kłodzko Fortress",
+      hook: "A fortress that defended not only above the town, but also through underground passages.",
+      quiz_angle: "recognize bastions, counter-mine corridors and the layered defense above Kłodzko"
+    },
+    "twierdza-przemysl": {
+      name: "Przemyśl Fortress",
+      hook: "A whole city encircled by forts from the Austro-Hungarian military landscape.",
+      quiz_angle: "remember the ring forts, First World War context and system-wide scale"
+    },
+    "twierdza-boyen": {
+      name: "Boyen Fortress",
+      hook: "A fortress placed like a stone plug in the strategic throat of the Masurian lakes.",
+      quiz_angle: "recognize Giżycko, the lake isthmus, gates and star-like fortress plan"
+    },
+    "twierdza-osowiec": {
+      name: "Osowiec Fortress",
+      hook: "A fortress whose defenses included not only walls, but also the Biebrza marshes.",
+      quiz_angle: "remember the marshland setting, forts and the defensive value of difficult terrain"
+    },
+    "wilczy-szaniec": {
+      name: "Wolf's Lair",
+      hook: "Forest-covered concrete ruins that demand historical calm rather than sensationalism.",
+      quiz_angle: "recognize Gierłoż, camouflage, massive bunkers and the July 20 assassination attempt context"
+    },
+    westerplatte: {
+      name: "Westerplatte",
+      hook: "A small peninsula carrying an outsized memory of the beginning of the Second World War.",
+      quiz_angle: "remember the military transit depot, guardhouses and memorial landscape"
+    },
+    "wiadukty-stanczyki": {
+      name: "Stańczyki Viaducts",
+      hook: "Monumental railway arches often compared to northern aqueducts, though trains no longer use them.",
+      quiz_angle: "recognize the unused railway line, paired arches and scale in the Romincka Forest landscape"
+    },
+    "wiadukty-kiepojcie": {
+      name: "Kiepojcie Viaducts",
+      hook: "A quieter sibling of Stańczyki: monumental railway engineering without the same fame.",
+      quiz_angle: "remember the paired viaducts, former railway line and the Bludzia valley"
+    },
+    "palac-kopice": {
+      name: "Kopice Palace",
+      hook: "A ghostly palace ruin that teaches how easily a residence can become a warning about neglect.",
+      quiz_angle: "recognize the Schaffgotsch residence, ruined neo-Gothic silhouette and conservation problem"
+    },
+    "palac-slobity": {
+      name: "Słobity Palace",
+      hook: "A former East Prussian aristocratic giant now read mostly through walls and absence.",
+      quiz_angle: "remember the scale, East Prussian residence context and postwar ruin"
+    },
+    "zamek-lapalice": {
+      name: "Łapalice Castle",
+      hook: "Not a historic castle, but a modern unfinished structure that became a local legend.",
+      quiz_angle: "recognize the contemporary unfinished building, private-access caution and unusual status"
+    }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -2092,7 +2284,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • przyroda i kultura",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny oraz następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -2172,7 +2364,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature and culture",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds, engineering wonders and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds, engineering wonders, fortresses and ruins, and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2392,6 +2584,17 @@
           source_note: "Descriptions start from the supplied working material on Polish technical and architectural curiosities. Technical figures and source references should be verified before final publication.",
           categories: engineeringWonderCategories,
           items: makeItemMap("cuda-inzynierii", {})
+        },
+        "twierdze-ruiny": {
+          title: "Fortresses and Ruins",
+          heading: "Fortresses, Ruins and Forgotten Places",
+          subtitle: "33 curiosities of Polish fortresses and ruins: ideal cities, legendary castles, fortress systems, abandoned palaces and structures left after ambition.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. Zamość, Krzyżtopór, Malbork, Modlin, Stańczyki...",
+          safety_notice: "Educational prototype. Visit castles, fortresses and ruins legally and carefully: do not enter abandoned, private or closed sites, do not climb walls and treat memorial places with calm historical language.",
+          source_note: "Descriptions start from the supplied working material on Polish castles, fortresses, ruins and forgotten structures. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
+          categories: fortressRuinCategories,
+          items: makeItemMap("twierdze-ruiny", fortressRuinText)
         },
         skamienialosci: {
           title: "Fossils",
