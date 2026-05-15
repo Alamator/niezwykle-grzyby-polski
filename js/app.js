@@ -264,6 +264,19 @@
     }).join("");
   }
 
+  function creditChipHtml(item) {
+    if (!item.image_author) return "";
+    const labelParts = [item.image_author];
+    if (item.image_license) labelParts.push(item.image_license);
+    const label = labelParts.join(" · ");
+    const href = item.image_source || item.license_url || "";
+    const aria = state.language === "en" ? "Photo attribution" : "Atrybucja zdjęcia";
+    if (!href) {
+      return `<span class="m-card__credit m-card__credit--static" aria-label="${escapeHtml(aria)}">${escapeHtml(label)}</span>`;
+    }
+    return `<a class="m-card__credit" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(aria)}">${escapeHtml(label)}</a>`;
+  }
+
   function visualHtml(item, large = false) {
     const name = itemName(item);
     if (item.image) {
@@ -271,6 +284,7 @@
       return `
         <div class="m-card__visual">
           <img src="${escapeHtml(item.image)}" alt="${escapeHtml(altText)}" loading="lazy" onerror="this.closest('.m-card__visual').classList.add('visual-error'); this.remove();" />
+          ${creditChipHtml(item)}
         </div>`;
     }
     return `
@@ -350,6 +364,34 @@
       : `<div class="empty-state">${escapeHtml(t("noResults"))}</div>`;
   }
 
+  function dialogCreditsHtml(item) {
+    if (!item.image || !item.image_author) return "";
+    const en = state.language === "en";
+    const labels = {
+      title: en ? "Photo attribution" : "Atrybucja zdjęcia",
+      author: en ? "Author" : "Autor",
+      source: en ? "Source" : "Źródło",
+      license: en ? "License" : "Licencja",
+      modifications: en ? "Modifications" : "Modyfikacje"
+    };
+    const licenseHtml = item.image_license
+      ? (item.license_url
+        ? `<a href="${escapeHtml(item.license_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.image_license)}</a>`
+        : escapeHtml(item.image_license))
+      : "";
+    const sourceHtml = item.image_source
+      ? `<a href="${escapeHtml(item.image_source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.image_source)}</a>`
+      : "";
+    return `
+      <div class="dialog-credits">
+        <h3>${escapeHtml(labels.title)}</h3>
+        <p><strong>${escapeHtml(labels.author)}:</strong> ${escapeHtml(item.image_author)}</p>
+        ${sourceHtml ? `<p><strong>${escapeHtml(labels.source)}:</strong> ${sourceHtml}</p>` : ""}
+        ${licenseHtml ? `<p><strong>${escapeHtml(labels.license)}:</strong> ${licenseHtml}</p>` : ""}
+        ${item.image_modifications ? `<p><strong>${escapeHtml(labels.modifications)}:</strong> ${escapeHtml(item.image_modifications)}</p>` : ""}
+      </div>`;
+  }
+
   function renderDialogContent(item) {
     const region = itemRegion(item);
     const habitat = itemHabitat(item);
@@ -374,6 +416,7 @@
         <h3>${escapeHtml(t("quizAngleTitle"))}</h3>
         <p>${escapeHtml(itemQuizAngle(item))}</p>
         <div class="safety"><strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}</div>
+        ${dialogCreditsHtml(item)}
         <div class="row-actions">
           <button class="primary" data-action="learn-item" data-id="${escapeHtml(item.id)}">${escapeHtml(t("learnSpecies"))}</button>
           <button class="secondary" data-action="close-dialog">${escapeHtml(t("close"))}</button>
