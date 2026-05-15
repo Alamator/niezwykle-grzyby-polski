@@ -310,6 +310,9 @@ h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
 .collection-card--skyfire .collection-card__icon {
   background: linear-gradient(145deg, #365fc7, #c85c2d);
 }
+.collection-card--landscape .collection-card__icon {
+  background: linear-gradient(145deg, #2f8f9d, #6c8b45 52%, #4a4f55);
+}
 .collection-card h3 {
   margin: 0 0 .45rem;
   font-size: 1.6rem;
