@@ -12,6 +12,7 @@
   const woodenArchitectureData = window.WOODEN_ARCHITECTURE_APP_DATA;
   const undergroundData = window.UNDERGROUND_APP_DATA;
   const engineeringWonderData = window.ENGINEERING_WONDER_APP_DATA;
+  const fortressRuinData = window.FORTRESS_RUIN_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
   const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
 
@@ -248,6 +249,24 @@
     });
   }
 
+  if (fortressRuinData) {
+    collections.push({
+      id: "twierdze-ruiny",
+      title: "Twierdze i Ruiny",
+      heading: "Twierdze, ruiny i zapomniane miejsca",
+      subtitle: fortressRuinData.subtitle,
+      count_label: "33 osobliwości",
+      icon: "T",
+      accent: "civitas",
+      route: "/atlas/twierdze-ruiny",
+      search_placeholder: "np. Zamość, Krzyżtopór, Malbork, Modlin, Stańczyki...",
+      safety_notice: fortressRuinData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o zamkach, twierdzach, ruinach i zapomnianych konstrukcjach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
+      categories: fortressRuinData.categories,
+      items: fortressRuinData.fortressesRuins
+    });
+  }
+
   if (fossilData) {
     collections.push({
       id: "skamienialosci",
@@ -284,7 +303,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, skamieniałości, niebo i kolejne osobliwości Polski.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, skamieniałości, niebo i kolejne osobliwości Polski.",
     version: "0.1.0-collections",
     views,
     collections
