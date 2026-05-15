@@ -314,6 +314,16 @@
     "tajemnice-legendy": { label: "Mysteries and legends", short: "Mysteries" }
   };
 
+  const engineeringWonderCategories = {
+    "woda-kanaly": { label: "Water and canals", short: "Water" },
+    "mosty-tunele-koleje": { label: "Bridges and tunnels", short: "Bridges" },
+    energia: { label: "Energy", short: "Energy" },
+    "radio-komunikacja": { label: "Radio and communication", short: "Radio" },
+    "przemyslowe-miasta": { label: "Industrial cities", short: "Cities" },
+    "adaptacje-industrialne": { label: "Industrial adaptations", short: "Adaptations" },
+    "beton-fortyfikacje": { label: "Concrete and fortifications", short: "Concrete" }
+  };
+
   const treeCategories = {
     "zapach-i-chemia": { label: "Scent and chemistry", short: "Chemistry" },
     "swiatlo-i-mikrozycie": { label: "Light and micro-life", short: "Light" },
@@ -435,6 +445,15 @@
       "fortyfikacje-schrony": "fortresses, shelters, railway bunkers and command sites where concrete and corridors shaped defense",
       "tajemnice-legendy": "partly documented undergrounds, local legends and places where careful uncertainty is part of the story"
     },
+    "cuda-inzynierii": {
+      "woda-kanaly": "canals, locks, brine structures, water towers and urban river systems where water level, pressure or flow is the main mechanism",
+      "mosty-tunele-koleje": "bridges, viaducts, tunnels and mountain railways where structure solves distance, height or barriers",
+      energia: "dams, pumped-storage plants and former power infrastructure where water, height and machines become energy",
+      "radio-komunikacja": "radio, ports and long-range infrastructure where communication, logistics and movement organize whole places",
+      "przemyslowe-miasta": "factory settlements, port cities, worker districts and shipyard landscapes shaped by production",
+      "adaptacje-industrialne": "former industrial sites reused for culture, knowledge or public life while keeping their technical memory",
+      "beton-fortyfikacje": "reinforced concrete, earthworks and fortification landscapes where material and geometry solve structural problems"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -509,6 +528,9 @@
     if (collectionId === "podziemia") {
       return "Educational material only; visit underground sites only on legal routes, follow guides, do not enter abandoned adits or shelters, and treat wartime places with calm historical respect.";
     }
+    if (collectionId === "cuda-inzynierii") {
+      return "Educational material only; view technical sites from legal public areas, do not enter tracks, dams, bridges, port zones, industrial grounds or active infrastructure without permission.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -536,6 +558,7 @@
     if (collectionId === "plazy-gady") return "Recorded in Poland as a native, local, newly documented, protected or invasive amphibian or reptile curiosity, depending on the species.";
     if (collectionId === "architektura-drewniana") return "Recorded in Poland as a wooden church, tserkva, mosque, house, manor, village ensemble or imported wooden monument.";
     if (collectionId === "podziemia") return "Recorded in Poland as a mine, adit, urban cellar, fortress, shelter, wartime tunnel or chalk underground open to careful historical interpretation.";
+    if (collectionId === "cuda-inzynierii") return "Recorded in Poland as a canal, lock, tower, bridge, tunnel, railway, power plant, port, factory district or technical monument.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -553,6 +576,7 @@
     if (collectionId === "plazy-gady") return "Treat this as natural-history context, not as handling advice, site-disclosure guidance or permission to move amphibians and reptiles.";
     if (collectionId === "architektura-drewniana") return "Treat this as cultural and architectural context, not as a conservation assessment or guarantee of opening and access.";
     if (collectionId === "podziemia") return "Treat this as cultural, industrial and historical context, not as permission to explore closed undergrounds or rely on unverified legends.";
+    if (collectionId === "cuda-inzynierii") return "Treat this as engineering and cultural context, not as access guidance, technical certification or permission to enter restricted infrastructure.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -570,12 +594,16 @@
         ? `${name} is included here for its unusual wooden structure, craft or cultural story.`
         : collectionId === "podziemia"
           ? `${name} is included here for its underground engineering, urban, mining or wartime story.`
-          : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
+          : collectionId === "cuda-inzynierii"
+            ? `${name} is included here because it turns water, height, concrete, radio, transport or industry into a memorable engineering story.`
+            : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
       const defaultQuizAngle = collectionId === "architektura-drewniana"
         ? "Recognize it by the building type, wooden technique, region and the feature that makes it unusual."
         : collectionId === "podziemia"
           ? "Recognize it by the type of underground site, region and the historical or technical feature that makes it unusual."
-          : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
+          : collectionId === "cuda-inzynierii"
+            ? "Recognize it by the mechanism, material, region and problem that the engineering solved."
+            : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
       return [item.id, {
         name,
         hook: entry.hook || defaultHook,
@@ -2064,7 +2092,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • przyroda i kultura",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -2144,7 +2172,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature and culture",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds, engineering wonders and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2353,6 +2381,17 @@
           source_note: "Descriptions start from the supplied working material on Polish underground curiosities. Photos come from Wikimedia Commons with full attribution; diagrams and representative frames are labelled honestly.",
           categories: undergroundCategories,
           items: makeItemMap("podziemia", {})
+        },
+        "cuda-inzynierii": {
+          title: "Engineering Wonders",
+          heading: "Technical Curiosities of Poland",
+          subtitle: "33 technical curiosities of Poland: canals, locks, brine graduation towers, radio towers, halls, dams, bridges, tunnels, railways and industrial cities.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. Elbląg Canal, graduation towers, Gliwice Radio Tower, Solina, Gdynia...",
+          safety_notice: "Educational prototype. View technical sites only from legal public areas: do not enter dams, tracks, quays, bridge structures, industrial grounds or active infrastructure without permission.",
+          source_note: "Descriptions start from the supplied working material on Polish technical and architectural curiosities. Technical figures and source references should be verified before final publication.",
+          categories: engineeringWonderCategories,
+          items: makeItemMap("cuda-inzynierii", {})
         },
         skamienialosci: {
           title: "Fossils",

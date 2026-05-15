@@ -36,6 +36,7 @@ assert(scriptSources.includes("./data/wooden-architecture.js"), "index.html shou
 assert(scriptSources.includes("./data/wooden-architecture-photo-pack-v01.js"), "index.html should load wooden architecture Commons photo pack");
 assert(scriptSources.includes("./data/underground.js"), "index.html should load data/underground.js");
 assert(scriptSources.includes("./data/underground-photo-pack-v01.js"), "index.html should load underground Commons photo pack");
+assert(scriptSources.includes("./data/engineering-wonders.js"), "index.html should load data/engineering-wonders.js");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -103,6 +104,10 @@ assert(
   "underground photo pack should load after underground.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/engineering-wonders.js") < scriptSources.indexOf("./data/collections.js"),
+  "engineering wonders data should load before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -139,7 +144,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 14, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, fossils and sky phenomena");
+assert.equal(collections.length, 15, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fossils and sky phenomena");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -155,6 +160,7 @@ const mammals = collections.find((collection) => collection.id === "ssaki");
 const amphibiansReptiles = collections.find((collection) => collection.id === "plazy-gady");
 const woodenArchitecture = collections.find((collection) => collection.id === "architektura-drewniana");
 const underground = collections.find((collection) => collection.id === "podziemia");
+const engineeringWonders = collections.find((collection) => collection.id === "cuda-inzynierii");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -169,6 +175,7 @@ assert(mammals, "mammal collection should exist");
 assert(amphibiansReptiles, "amphibian and reptile collection should exist");
 assert(woodenArchitecture, "wooden architecture collection should exist");
 assert(underground, "underground collection should exist");
+assert(engineeringWonders, "engineering wonders collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -185,6 +192,8 @@ assert.equal(woodenArchitecture.items.length, 30, "wooden architecture collectio
 assert.equal(woodenArchitecture.route, "/atlas/architektura-drewniana", "wooden architecture collection should expose the requested route");
 assert.equal(underground.items.length, 30, "underground collection should contain 30 prepared subterranean curiosities");
 assert.equal(underground.route, "/atlas/podziemia", "underground collection should expose the requested route");
+assert.equal(engineeringWonders.items.length, 33, "engineering wonders collection should contain 33 technical and architectural curiosities");
+assert.equal(engineeringWonders.route, "/atlas/cuda-inzynierii", "engineering wonders collection should expose the requested route");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -420,6 +429,14 @@ assert(underground.items.some((item) => item.name_pl === "Projekt Riese — Wło
 assert(underground.items.some((item) => item.name_pl === "Międzyrzecki Rejon Umocniony"), "underground collection should include Międzyrzecz Fortified Region");
 assert(underground.items.some((item) => item.name_pl === "Chełmskie Podziemia Kredowe"), "underground collection should include Chełm Chalk Tunnels");
 assert(underground.items.every((item) => !/sensac/i.test(item.hook)), "underground wartime descriptions should avoid sensational framing");
+assert(engineeringWonders.subtitle.includes("techniczne osobliwości Polski"), "engineering wonders subtitle should describe technical curiosities");
+assert(engineeringWonders.categories.some((category) => category.label === "Woda i kanały"), "engineering wonders categories should include water and canals");
+assert(engineeringWonders.categories.some((category) => category.label === "Mosty i tunele"), "engineering wonders categories should include bridges and tunnels");
+assert(engineeringWonders.items.some((item) => item.name_pl === "Kanał Elbląski"), "engineering wonders collection should include the Elbląg Canal");
+assert(engineeringWonders.items.some((item) => item.name_pl === "Radiostacja Gliwicka"), "engineering wonders collection should include the Gliwice Radio Tower");
+assert(engineeringWonders.items.some((item) => item.name_pl === "Elektrownia Porąbka-Żar"), "engineering wonders collection should include the Porąbka-Żar pumped storage plant");
+assert(engineeringWonders.items.some((item) => item.name_pl === "Tunel pod Świną"), "engineering wonders collection should include the Świna tunnel");
+assert(engineeringWonders.items.every((item) => item.scienceNote && item.quizFacts?.length >= 3 && item.sourceHints?.length >= 3), "engineering wonders entries should include science notes, quiz facts and source hints");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",

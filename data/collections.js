@@ -11,6 +11,7 @@
   const rockFormationData = window.ROCK_FORMATION_APP_DATA;
   const woodenArchitectureData = window.WOODEN_ARCHITECTURE_APP_DATA;
   const undergroundData = window.UNDERGROUND_APP_DATA;
+  const engineeringWonderData = window.ENGINEERING_WONDER_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
   const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
 
@@ -229,6 +230,24 @@
     });
   }
 
+  if (engineeringWonderData) {
+    collections.push({
+      id: "cuda-inzynierii",
+      title: "Cuda Inżynierii",
+      heading: "Techniczne osobliwości Polski",
+      subtitle: engineeringWonderData.subtitle,
+      count_label: "33 osobliwości",
+      icon: "I",
+      accent: "machina",
+      route: "/atlas/cuda-inzynierii",
+      search_placeholder: "np. Kanał Elbląski, tężnie, Radiostacja Gliwicka, Solina, Gdynia...",
+      safety_notice: engineeringWonderData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o techniczno-architektonicznych osobliwościach Polski. Źródła i dane liczbowe należy weryfikować przed publikacją finalnych kart.",
+      categories: engineeringWonderData.categories,
+      items: engineeringWonderData.engineeringWonders
+    });
+  }
+
   if (fossilData) {
     collections.push({
       id: "skamienialosci",
@@ -265,7 +284,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, skamieniałości, niebo i kolejne osobliwości Polski.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, skamieniałości, niebo i kolejne osobliwości Polski.",
     version: "0.1.0-collections",
     views,
     collections
