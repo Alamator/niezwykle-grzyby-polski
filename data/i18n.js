@@ -342,6 +342,18 @@
     "kopce-pradawne-pochowki": { label: "Mounds and ancient burials", short: "Mounds" }
   };
 
+  const landscapeRecordCategories = {
+    "piasek-wydmy": { label: "Sand and dunes", short: "Sand" },
+    "las-deformacje": { label: "Forest and deformations", short: "Forest" },
+    "morze-klify-wyspy": { label: "Sea, cliffs and islands", short: "Coast" },
+    "jeziora-mokradla": { label: "Lakes and wetlands", short: "Water" },
+    "rzeki-zrodla-przelomy": { label: "Rivers, springs and gorges", short: "Rivers" },
+    "kolory-pokopalniane": { label: "Colors and post-mining landscapes", short: "Colors" },
+    "gaz-wulkany-geologia": { label: "Gas, volcanoes and living geology", short: "Geology" },
+    "gory-skaly-lodowce": { label: "Mountains, rocks and glaciers", short: "Mountains" },
+    "ekstrema-iluzje-mikroklimaty": { label: "Extremes, illusions and microclimates", short: "Extremes" }
+  };
+
   const treeCategories = {
     "zapach-i-chemia": { label: "Scent and chemistry", short: "Chemistry" },
     "swiatlo-i-mikrozycie": { label: "Light and micro-life", short: "Light" },
@@ -488,6 +500,17 @@
       "miejsca-martyrologii": "martyrdom memorials and execution sites where architecture helps visitors read historical trauma calmly",
       "kopce-pradawne-pochowki": "mounds, stone circles and ancient burial landscapes that connect archaeology, legend and commemoration"
     },
+    "rekordy-krajobrazu": {
+      "piasek-wydmy": "wind-shaped sands, spits and dunes where loose sediment becomes the main landscape mechanism",
+      "las-deformacje": "forests and trees where growth, erosion or flooding makes the hidden structure visible",
+      "morze-klify-wyspy": "coastal cliffs, spits, deltas and sandbars shaped by waves, currents and sediment",
+      "jeziora-mokradla": "deep lakes, vast marshes, peatlands and river wetlands controlled by water level and glacial history",
+      "rzeki-zrodla-przelomy": "rivers, springs, gorges and ravines where flowing water cuts, carries or reveals the land",
+      "kolory-pokopalniane": "post-mining lakes and landscapes where rock chemistry and extraction history create strong colors",
+      "gaz-wulkany-geologia": "gas vents, extinct volcanic forms and old rock outcrops where geology feels unusually alive",
+      "gory-skaly-lodowce": "mountain, rock and glacial forms where ice, frost, joints and resistant rock shape the view",
+      "ekstrema-iluzje-mikroklimaty": "highest and lowest points, optical illusions, warm pockets and cultural landscapes with unusual spatial effects"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -571,6 +594,9 @@
     if (collectionId === "memento-mori") {
       return "Educational material only; this collection includes memorial places and difficult history, so visit respectfully, avoid sensational framing and follow cemetery, museum and site rules.";
     }
+    if (collectionId === "rekordy-krajobrazu") {
+      return "Educational material only; treat this as landscape context, not route guidance, and follow current rules for national parks, reserves, private land, cliffs, bogs, dunes and mountain terrain.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -601,6 +627,7 @@
     if (collectionId === "cuda-inzynierii") return "Recorded in Poland as a canal, lock, tower, bridge, tunnel, railway, power plant, port, factory district or technical monument.";
     if (collectionId === "twierdze-ruiny") return "Recorded in Poland as an ideal city, castle, residence, fortress, ruin, memorial landscape, abandoned palace, viaduct or unfinished structure.";
     if (collectionId === "memento-mori") return "Recorded in Poland as a cemetery, ossuary, memorial, Holocaust site, war cemetery, mound or ancient burial landscape.";
+    if (collectionId === "rekordy-krajobrazu") return "Recorded in Poland as a landscape record, contrast, landform, hydrological curiosity, microclimate or cultural landscape with an unusual spatial effect.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -621,6 +648,7 @@
     if (collectionId === "cuda-inzynierii") return "Treat this as engineering and cultural context, not as access guidance, technical certification or permission to enter restricted infrastructure.";
     if (collectionId === "twierdze-ruiny") return "Treat this as architectural, historical and landscape context, not as access guidance, ownership advice or permission to explore unsafe ruins.";
     if (collectionId === "memento-mori") return "Treat this as historical and memorial context, not as access guidance or permission to enter restricted, fragile or sacred areas.";
+    if (collectionId === "rekordy-krajobrazu") return "Treat this as landscape and process context, not as access guidance, safety advice or permission to enter fragile or restricted terrain.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -633,7 +661,7 @@
     const collection = collectionById(collectionId);
     return Object.fromEntries((collection.items || []).map((item) => {
       const entry = overrides[item.id] || {};
-      const name = entry.name || item.name_lat || item.name_pl;
+      const name = entry.name || item.name_en || item.name_lat || item.name_pl;
       const defaultHook = collectionId === "architektura-drewniana"
         ? `${name} is included here for its unusual wooden structure, craft or cultural story.`
         : collectionId === "podziemia"
@@ -644,6 +672,8 @@
               ? `${name} is included here for its unusual architecture, defensive logic, ruined form or memory of place.`
               : collectionId === "memento-mori"
                 ? `${name} is included here for its memorial architecture, burial culture, symbolic landscape or difficult historical testimony.`
+                : collectionId === "rekordy-krajobrazu"
+                  ? `${name} is included here because it turns a record, contrast, process or microclimate into a memorable Polish landscape.`
                 : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
       const defaultQuizAngle = collectionId === "architektura-drewniana"
         ? "Recognize it by the building type, wooden technique, region and the feature that makes it unusual."
@@ -655,15 +685,17 @@
               ? "Recognize it by the building type, landscape position, defensive idea and the detail that makes it unusual."
               : collectionId === "memento-mori"
                 ? "Recognize it by the type of memorial place, community, period and the form through which memory is kept."
+                : collectionId === "rekordy-krajobrazu"
+                  ? "Recognize it by the landform, process, region and record or nickname that makes the landscape unusual."
                 : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
       return [item.id, {
         name,
-        hook: entry.hook || defaultHook,
-        quiz_angle: entry.quiz_angle || defaultQuizAngle,
-        safety_note: entry.safety_note || defaultSafety(item, collectionId),
-        region: entry.region || defaultRegion(collectionId),
-        habitat: entry.habitat || defaultHabitats[collectionId]?.[item.category] || "specialized habitats in Poland",
-        occurrence: entry.occurrence || defaultOccurrence(collectionId),
+        hook: entry.hook || item.hook_en || defaultHook,
+        quiz_angle: entry.quiz_angle || item.quiz_angle_en || defaultQuizAngle,
+        safety_note: entry.safety_note || item.safety_note_en || defaultSafety(item, collectionId),
+        region: entry.region || item.region_en || defaultRegion(collectionId),
+        habitat: entry.habitat || item.habitat_en || defaultHabitats[collectionId]?.[item.category] || "specialized habitats in Poland",
+        occurrence: entry.occurrence || item.occurrence_en || defaultOccurrence(collectionId),
         level: entry.level || levels[item.level] || item.level || "atlas note"
       }];
     }));
@@ -2809,6 +2841,17 @@
           source_note: "Descriptions start from the working list of Polish atmospheric and astronomical phenomena. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: atmosphereAstronomyCategories,
           items: makeItemMap("atmosfera-astronomia", atmosphereAstronomyText)
+        },
+        "rekordy-krajobrazu": {
+          title: "Landscape Records",
+          heading: "Landscape Records and Curiosities of Poland",
+          subtitle: "56 Polish landscape curiosities: a desert-like sand plain, moving dunes, crooked forest, cliffs, marshes, colored lakes, gorges, extinct volcanoes, microclimates and places that feel from another map.",
+          count_label: "56 curiosities",
+          search_placeholder: "e.g. desert, dunes, Hańcza, mofette, Rysy...",
+          safety_notice: "Educational prototype. Treat this as landscape context, not route guidance: follow park and reserve rules, do not damage rocks, dunes, peatlands or plants, and check current access before visiting.",
+          source_note: "Descriptions start from the supplied working material on Polish landscape records and curiosities. Photos come from Wikimedia Commons with full attribution; contextual and representative frames are labelled honestly.",
+          categories: landscapeRecordCategories,
+          items: makeItemMap("rekordy-krajobrazu", {})
         }
       }
     }

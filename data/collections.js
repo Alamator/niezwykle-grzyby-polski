@@ -16,6 +16,7 @@
   const mementoMoriData = window.MEMENTO_MORI_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
   const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
+  const landscapeRecordData = window.LANDSCAPE_RECORD_APP_DATA;
 
   const views = [
     { id: "atlas", label: "Atlas" },
@@ -320,9 +321,27 @@
     });
   }
 
+  if (landscapeRecordData) {
+    collections.push({
+      id: "rekordy-krajobrazu",
+      title: "Rekordy krajobrazu",
+      heading: "Rekordy i osobliwości krajobrazowe Polski",
+      subtitle: landscapeRecordData.subtitle,
+      count_label: "56 osobliwości",
+      icon: "RK",
+      accent: "landscape",
+      route: "/atlas/rekordy-krajobrazu",
+      search_placeholder: "np. pustynia, wydmy, Hańcza, mofeta, Rysy...",
+      safety_notice: landscapeRecordData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o rekordach i osobliwościach krajobrazowych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry kontekstowe są oznaczone uczciwie.",
+      categories: landscapeRecordData.categories,
+      items: landscapeRecordData.landscapeRecords
+    });
+  }
+
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, skamieniałości, niebo i kolejne osobliwości Polski.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, skamieniałości, niebo, rekordy krajobrazu i kolejne osobliwości Polski.",
     version: "0.1.0-collections",
     views,
     collections
