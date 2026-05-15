@@ -3,6 +3,8 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const indexHtml = fs.readFileSync("index.html", "utf8");
+const appJs = fs.readFileSync("js/app.js", "utf8");
+const vercelConfig = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
 const scriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
 
 assert.match(indexHtml, /Atlas Osobliwości Polski/, "page should use the umbrella atlas title");
@@ -30,6 +32,8 @@ assert(scriptSources.includes("./data/mammals.js"), "index.html should load data
 assert(scriptSources.includes("./data/mammal-photo-pack-v01.js"), "index.html should load mammal Commons photo pack");
 assert(scriptSources.includes("./data/amphibians-reptiles.js"), "index.html should load data/amphibians-reptiles.js");
 assert(scriptSources.includes("./data/amphibian-reptile-photo-pack-v01.js"), "index.html should load amphibian and reptile Commons photo pack");
+assert(scriptSources.includes("./data/wooden-architecture.js"), "index.html should load data/wooden-architecture.js");
+assert(scriptSources.includes("./data/wooden-architecture-photo-pack-v01.js"), "index.html should load wooden architecture Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -87,12 +91,25 @@ assert(
   "amphibian and reptile photo pack should load after amphibians-reptiles.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/wooden-architecture.js") < scriptSources.indexOf("./data/wooden-architecture-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/wooden-architecture-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "wooden architecture photo pack should load after wooden-architecture.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
 assert(
   scriptSources.indexOf("./data/i18n.js") < scriptSources.indexOf("./js/app.js"),
   "i18n.js should load before app.js"
+);
+assert.match(appJs, /routeForCollection/, "app should derive collection routes");
+assert.match(appJs, /history\.pushState/, "app should push collection routes into browser history");
+assert.match(appJs, /popstate/, "app should restore collections from browser history");
+assert.match(appJs, /serviceWorker\.register\("\/service-worker\.js"\)/, "service worker registration should be absolute for nested atlas routes");
+assert(
+  vercelConfig.rewrites?.some((rewrite) => rewrite.source === "/atlas/(.*)" && rewrite.destination === "/index.html"),
+  "Vercel should rewrite atlas routes to index.html"
 );
 
 const context = { window: {} };
@@ -115,7 +132,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 12, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, fossils and sky phenomena");
+assert.equal(collections.length, 13, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, fossils and sky phenomena");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -129,6 +146,7 @@ const fossils = collections.find((collection) => collection.id === "skamienialos
 const skyPhenomena = collections.find((collection) => collection.id === "atmosfera-astronomia");
 const mammals = collections.find((collection) => collection.id === "ssaki");
 const amphibiansReptiles = collections.find((collection) => collection.id === "plazy-gady");
+const woodenArchitecture = collections.find((collection) => collection.id === "architektura-drewniana");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -141,6 +159,7 @@ assert(fossils, "fossil collection should exist");
 assert(skyPhenomena, "atmosphere and astronomy collection should exist");
 assert(mammals, "mammal collection should exist");
 assert(amphibiansReptiles, "amphibian and reptile collection should exist");
+assert(woodenArchitecture, "wooden architecture collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -153,6 +172,8 @@ assert.equal(fossils.items.length, 33, "fossil collection should contain 33 pale
 assert.equal(skyPhenomena.items.length, 33, "atmosphere and astronomy collection should contain 33 sky and weather curiosities");
 assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mammal curiosities");
 assert.equal(amphibiansReptiles.items.length, 30, "amphibian and reptile collection should contain 30 well-documented herpetofauna curiosities");
+assert.equal(woodenArchitecture.items.length, 30, "wooden architecture collection should contain 30 prepared architectural curiosities");
+assert.equal(woodenArchitecture.route, "/atlas/architektura-drewniana", "wooden architecture collection should expose the requested route");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -273,6 +294,18 @@ assert(
   amphibiansReptiles.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "amphibian and reptile image sources should link to Wikimedia Commons file pages"
 );
+const woodenArchitectureImages = woodenArchitecture.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(woodenArchitectureImages.length, 30, "wooden architecture collection should include 30 curated images with attribution");
+assert(
+  woodenArchitecture.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "wooden architecture images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  woodenArchitecture.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "wooden architecture image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -348,6 +381,14 @@ assert(amphibiansReptiles.items.some((item) => item.name_pl === "Wąż Eskulapa"
 assert(amphibiansReptiles.items.some((item) => item.name_pl === "Zaskroniec rybołów"), "amphibian and reptile collection should include the documented dice snake population from the source file");
 assert(amphibiansReptiles.items.some((item) => item.name_pl === "Żółw błotny"), "amphibian and reptile collection should include the native European pond turtle from the source file");
 assert(!amphibiansReptiles.items.some((item) => item.name_pl === "Jaszczurka zielona"), "amphibian and reptile collection should omit the unconfirmed green lizard as a species card");
+assert(woodenArchitecture.subtitle.includes("drewnianych osobliwości Polski"), "wooden architecture subtitle should describe Polish wooden curiosities");
+assert(woodenArchitecture.categories.some((category) => category.label === "Kościoły Pokoju"), "wooden architecture categories should include Peace Churches");
+assert(woodenArchitecture.items.some((item) => item.name_pl === "Kościół Pokoju w Świdnicy"), "wooden architecture collection should include the Świdnica Peace Church");
+assert(woodenArchitecture.items.some((item) => item.name_pl === "Kościół św. Michała Archanioła w Dębnie Podhalańskim"), "wooden architecture collection should include the Dębno wooden church");
+assert(woodenArchitecture.items.some((item) => item.name_pl === "Cerkiew św. Paraskewii w Kwiatoniu"), "wooden architecture collection should include the Kwiatoń Lemko church");
+assert(woodenArchitecture.items.some((item) => item.name_pl === "Świątynia Wang"), "wooden architecture collection should include the Wang stave church");
+assert(woodenArchitecture.items.some((item) => item.name_pl === "Meczet tatarski w Kruszynianach"), "wooden architecture collection should include the Kruszyniany wooden mosque");
+assert(woodenArchitecture.items.some((item) => item.source_status === "expanded_candidate"), "wooden architecture collection should mark expanded candidates for later verification");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",

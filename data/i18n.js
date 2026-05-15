@@ -219,7 +219,15 @@
     "nowy wąż": "new snake",
     "łagodny sobowtór": "gentle lookalike",
     "reliktowy dusiciel": "relic constrictor",
-    "jadowity termometr": "venomous thermometer"
+    "jadowity termometr": "venomous thermometer",
+    "szachulec UNESCO": "UNESCO half-timber",
+    "gotyk zrębowy": "log Gothic",
+    "cerkiew UNESCO": "UNESCO tserkva",
+    "drewno gór": "mountain wood",
+    "wielokulturowe drewno": "multicultural wood",
+    "żywy zabytek": "living monument",
+    "drewniany barok": "wooden Baroque",
+    "dwór z modrzewia": "larch manor"
   };
 
   const mushroomCategories = {
@@ -288,6 +296,14 @@
     "zolwie-i-inwazje": { label: "Turtles and invasions", short: "Turtles" },
     "jaszczurki-i-beznogie": { label: "Lizards and legless lizards", short: "Lizards" },
     "weze-jad-i-relikty": { label: "Snakes, venom and relics", short: "Snakes" }
+  };
+
+  const woodenArchitectureCategories = {
+    "koscioly-pokoju": { label: "Peace Churches", short: "Peace" },
+    "gotyk-zrebowy": { label: "Log Gothic", short: "Log Gothic" },
+    "cerkwie-karpat": { label: "Carpathian tserkvas", short: "Tserkvas" },
+    "styl-zakopianski-i-gorale": { label: "Zakopane style and mountain wood", short: "Mountain" },
+    "wielokulturowe-drewno": { label: "Multicultural wood", short: "Cultures" }
   };
 
   const treeCategories = {
@@ -397,6 +413,13 @@
       "jaszczurki-i-beznogie": "sunny banks, grasslands, gardens, forest edges, bogs and ground-level cover used for warming and hiding",
       "weze-jad-i-relikty": "wetland edges, warm slopes, rocky refuges, Bieszczady valleys and mosaics where snakes find prey and shelter"
     },
+    "architektura-drewniana": {
+      "koscioly-pokoju": "large half-timbered sacred interiors where wood, history and restrictions shaped unusual spaces",
+      "gotyk-zrebowy": "log-built Gothic churches, shingled roofs, painted interiors and small village ensembles",
+      "cerkwie-karpat": "Carpathian wooden tserkvas, iconostases, towers, domes and borderland sacred landscapes",
+      "styl-zakopianski-i-gorale": "mountain wooden houses, chapels, villas and village ensembles shaped by Podhale carpentry",
+      "wielokulturowe-drewno": "wooden mosques, manor houses, arcaded homes and villages where culture, craft and settlement history meet"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -465,6 +488,9 @@
     if (collectionId === "plazy-gady") {
       return "Educational material only; observe amphibians and reptiles without handling, moving animals, disturbing breeding sites or revealing sensitive locations.";
     }
+    if (collectionId === "architektura-drewniana") {
+      return "Educational material only; visit wooden monuments respectfully, follow site rules, do not touch polychrome, icons, woodwork or fragile interiors, and check current opening times.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -490,6 +516,7 @@
     if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
     if (collectionId === "ssaki") return "Recorded in Poland as a native, reintroduced, expanding, invasive or Baltic mammal curiosity, depending on the species.";
     if (collectionId === "plazy-gady") return "Recorded in Poland as a native, local, newly documented, protected or invasive amphibian or reptile curiosity, depending on the species.";
+    if (collectionId === "architektura-drewniana") return "Recorded in Poland as a wooden church, tserkva, mosque, house, manor, village ensemble or imported wooden monument.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -505,6 +532,7 @@
     if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
     if (collectionId === "ssaki") return "Treat this as natural-history context, not as handling, tracking, feeding or site-disclosure guidance.";
     if (collectionId === "plazy-gady") return "Treat this as natural-history context, not as handling advice, site-disclosure guidance or permission to move amphibians and reptiles.";
+    if (collectionId === "architektura-drewniana") return "Treat this as cultural and architectural context, not as a conservation assessment or guarantee of opening and access.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -517,10 +545,17 @@
     const collection = collectionById(collectionId);
     return Object.fromEntries((collection.items || []).map((item) => {
       const entry = overrides[item.id] || {};
+      const name = entry.name || item.name_lat || item.name_pl;
+      const defaultHook = collectionId === "architektura-drewniana"
+        ? `${name} is included here for its unusual wooden structure, craft or cultural story.`
+        : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
+      const defaultQuizAngle = collectionId === "architektura-drewniana"
+        ? "Recognize it by the building type, wooden technique, region and the feature that makes it unusual."
+        : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
       return [item.id, {
-        name: entry.name || item.name_lat || item.name_pl,
-        hook: entry.hook || `${entry.name || item.name_lat || item.name_pl} is included here for its unusual field appearance and memorable natural-history story.`,
-        quiz_angle: entry.quiz_angle || "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.",
+        name,
+        hook: entry.hook || defaultHook,
+        quiz_angle: entry.quiz_angle || defaultQuizAngle,
         safety_note: entry.safety_note || defaultSafety(item, collectionId),
         region: entry.region || defaultRegion(collectionId),
         habitat: entry.habitat || defaultHabitats[collectionId]?.[item.category] || "specialized habitats in Poland",
@@ -1924,6 +1959,39 @@
     "zmija-zygzakowata": { name: "Common European adder" }
   };
 
+  const woodenArchitectureText = {
+    "kosciol-pokoju-swidnica": { name: "Peace Church in Świdnica" },
+    "kosciol-pokoju-jawor": { name: "Peace Church in Jawor" },
+    "debno-podhalanskie": { name: "St. Michael the Archangel Church in Dębno Podhalańskie" },
+    binarowa: { name: "St. Michael the Archangel Church in Binarowa" },
+    sekowa: { name: "Sts. Philip and James Church in Sękowa" },
+    "lipnica-murowana": { name: "St. Leonard's Church in Lipnica Murowana" },
+    haczow: { name: "Church of the Assumption and St. Michael in Haczów" },
+    blizne: { name: "All Saints Church in Blizne" },
+    kwiaton: { name: "St. Paraskevi Tserkva in Kwiatoń" },
+    powroznik: { name: "St. James Tserkva in Powroźnik" },
+    owczary: { name: "Protection of the Mother of God Tserkva in Owczary" },
+    "brunary-wyzne": { name: "St. Michael the Archangel Tserkva in Brunary Wyżne" },
+    chotyniec: { name: "Nativity of the Mother of God Tserkva in Chotyniec" },
+    radruz: { name: "St. Paraskevi Tserkva in Radruż" },
+    smolnik: { name: "St. Michael the Archangel Tserkva in Smolnik" },
+    turzansk: { name: "St. Michael the Archangel Tserkva in Turzańsk" },
+    "swiatynia-wang": { name: "Wang Church" },
+    jaszczurowka: { name: "Sacred Heart Chapel in Jaszczurówka" },
+    "willa-koliba": { name: "Koliba Villa" },
+    chocholow: { name: "Wooden village buildings of Chochołów" },
+    orawka: { name: "St. John the Baptist Church in Orawka" },
+    szalowa: { name: "St. Michael the Archangel Church in Szalowa" },
+    grywalt: { name: "St. Martin's Church in Grywałd" },
+    lopuszna: { name: "Holy Trinity and St. Anthony the Abbot Church in Łopuszna" },
+    kruszyniany: { name: "Tatar mosque in Kruszyniany" },
+    bohoniki: { name: "Tatar mosque in Bohoniki" },
+    "kraina-otwartych-okiennic": { name: "Land of Open Shutters" },
+    "domy-podcieniowe-zulawy": { name: "Żuławy arcaded houses" },
+    "dwor-z-drogini": { name: "Manor house from Droginia" },
+    "chata-na-wysokosci": { name: "Chata na Wysokości" }
+  };
+
   const atmosphereAstronomyText = {
     "widmo-brockenu": { name: "Brocken spectre" },
     gloria: { name: "Glory" },
@@ -1970,9 +2038,9 @@
       pl: {
         documentTitle: "Atlas Osobliwości Polski",
         skipLink: "Przejdź do treści",
-        heroEyebrow: "Atlas • Polska • kolekcje przyrodnicze",
+        heroEyebrow: "Atlas • Polska • przyroda i kultura",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -1988,11 +2056,11 @@
         searchLabel: "Szukaj",
         searchFallback: "Szukaj...",
         learnEyebrow: "Nauka",
-        learnTitle: "Fiszki: zgadnij gatunek",
+        learnTitle: "Fiszki: zgadnij wpis",
         learnNote: "Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.",
         quizEyebrow: "Quiz",
         quizTitle: "10 pytań na spokojnie",
-        quizNote: "Pytania są generowane z opisów i nazw łacińskich aktywnej kolekcji.",
+        quizNote: "Pytania są generowane z opisów i nazw aktywnej kolekcji.",
         sourcesEyebrow: "Źródła i licencje",
         sourcesTitle: "Atrybucja zdjęć",
         sourcePanelTitle: "Zasada projektu",
@@ -2009,7 +2077,7 @@
         levelLabel: "Poziom",
         quizAngleTitle: "Kąt quizowy",
         cautionLabel: "Uwaga",
-        learnSpecies: "Ucz się tego gatunku",
+        learnSpecies: "Ucz się tego wpisu",
         close: "Zamknij",
         imageToAdd: "zdjęcie do dodania",
         imageToAddLabel: "Zdjęcie do uzupełnienia: {name}",
@@ -2037,9 +2105,9 @@
         finishQuiz: "Zakończ quiz",
         nextQuestion: "Następne pytanie",
         restart: "Restart",
-        quizHookPrompt: "Który gatunek pasuje do opisu: „{hook}”?",
-        quizLatinPrompt: "Jaką polską nazwę ma gatunek {latin}?",
-        creditSpecies: "Gatunek",
+        quizHookPrompt: "Który wpis pasuje do opisu: „{hook}”?",
+        quizLatinPrompt: "Jaką nazwę w atlasie ma: {latin}?",
+        creditSpecies: "Wpis",
         creditFile: "Plik",
         creditAuthor: "Autor",
         creditLicense: "Licencja",
@@ -2050,9 +2118,9 @@
       en: {
         documentTitle: "Atlas of Polish Curiosities",
         skipLink: "Skip to content",
-        heroEyebrow: "Atlas • Poland • nature collections",
+        heroEyebrow: "Atlas • Poland • nature and culture",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2068,11 +2136,11 @@
         searchLabel: "Search",
         searchFallback: "Search...",
         learnEyebrow: "Learn",
-        learnTitle: "Flashcards: guess the species",
+        learnTitle: "Flashcards: guess the entry",
         learnNote: "First read the clue, then reveal the answer.",
         quizEyebrow: "Quiz",
         quizTitle: "10 calm questions",
-        quizNote: "Questions are generated from descriptions and Latin names in the active collection.",
+        quizNote: "Questions are generated from descriptions and names in the active collection.",
         sourcesEyebrow: "Sources and licenses",
         sourcesTitle: "Photo attribution",
         sourcePanelTitle: "Project rule",
@@ -2089,7 +2157,7 @@
         levelLabel: "Level",
         quizAngleTitle: "Quiz angle",
         cautionLabel: "Note",
-        learnSpecies: "Learn this species",
+        learnSpecies: "Learn this entry",
         close: "Close",
         imageToAdd: "photo to add",
         imageToAddLabel: "Photo to add: {name}",
@@ -2117,9 +2185,9 @@
         finishQuiz: "Finish quiz",
         nextQuestion: "Next question",
         restart: "Restart",
-        quizHookPrompt: "Which species matches this description: \"{hook}\"?",
-        quizLatinPrompt: "Which common name belongs to {latin}?",
-        creditSpecies: "Species",
+        quizHookPrompt: "Which entry matches this description: \"{hook}\"?",
+        quizLatinPrompt: "Which atlas entry is described as {latin}?",
+        creditSpecies: "Entry",
         creditFile: "File",
         creditAuthor: "Author",
         creditLicense: "License",
@@ -2239,6 +2307,17 @@
           source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: rockFormationCategories,
           items: makeItemMap("formacje-skalne", rockFormationText)
+        },
+        "architektura-drewniana": {
+          title: "Wooden Architecture",
+          heading: "Architectural Curiosities: Wood",
+          subtitle: "30 wooden curiosities of Poland: Peace Churches, log-built Gothic churches, Carpathian tserkvas, Zakopane style, Tatar mosques and living wooden villages.",
+          count_label: "30 curiosities",
+          search_placeholder: "e.g. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
+          safety_notice: "Educational prototype. Visit wooden monuments respectfully: do not touch polychrome, icons, carved wood or construction elements, do not enter private property without permission and check current visiting rules.",
+          source_note: "Descriptions start from the supplied working material on Polish wooden architecture. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
+          categories: woodenArchitectureCategories,
+          items: makeItemMap("architektura-drewniana", woodenArchitectureText)
         },
         skamienialosci: {
           title: "Fossils",
