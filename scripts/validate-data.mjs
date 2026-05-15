@@ -3,9 +3,11 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const indexHtml = fs.readFileSync("index.html", "utf8");
-const scriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
+const rawScriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
+const scriptSources = rawScriptSources.map((source) => (source.startsWith("/") ? `.${source}` : source));
 
 assert.match(indexHtml, /Atlas Osobliwości Polski/, "page should use the umbrella atlas title");
+assert.doesNotMatch(indexHtml, /(src|href)="\.\/(?:assets|css|data|js|manifest)/, "root assets should use absolute paths so nested atlas routes can load them");
 assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not be present");
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be present");
 
