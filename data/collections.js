@@ -9,6 +9,7 @@
   const treeData = window.TREE_APP_DATA;
   const mineralData = window.MINERAL_APP_DATA;
   const rockFormationData = window.ROCK_FORMATION_APP_DATA;
+  const woodenArchitectureData = window.WOODEN_ARCHITECTURE_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
   const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
 
@@ -191,6 +192,24 @@
     });
   }
 
+  if (woodenArchitectureData) {
+    collections.push({
+      id: "architektura-drewniana",
+      title: "Architektura drewniana",
+      heading: "Architektoniczne osobliwości: drewno",
+      subtitle: woodenArchitectureData.subtitle,
+      count_label: "30 osobliwości",
+      icon: "AD",
+      accent: "wood",
+      route: "/atlas/architektura-drewniana",
+      search_placeholder: "np. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
+      safety_notice: woodenArchitectureData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o drewnianej architekturze Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
+      categories: woodenArchitectureData.categories,
+      items: woodenArchitectureData.woodenArchitecture
+    });
+  }
+
   if (fossilData) {
     collections.push({
       id: "skamienialosci",
@@ -227,7 +246,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, skamieniałości, niebo i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, skamieniałości, niebo i kolejne osobliwości Polski.",
     version: "0.1.0-collections",
     views,
     collections

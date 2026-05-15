@@ -80,6 +80,26 @@
     return app.collections.find((collection) => collection.id === state.collectionId) || app.collections[0];
   }
 
+  function normalizedPath(path = window.location.pathname) {
+    const clean = path.replace(/\/+$/, "");
+    return clean || "/";
+  }
+
+  function routeForCollection(collection) {
+    return collection.route || `/atlas/${collection.id}`;
+  }
+
+  function collectionFromRoute(path = window.location.pathname) {
+    const target = normalizedPath(path);
+    return app.collections.find((collection) => normalizedPath(routeForCollection(collection)) === target);
+  }
+
+  function pushRoute(path, stateData = {}) {
+    if (!window.history?.pushState) return;
+    if (normalizedPath(window.location.pathname) === normalizedPath(path)) return;
+    window.history.pushState(stateData, "", path);
+  }
+
   function collectionTranslation(collection = activeCollection()) {
     return i18n.collections?.[state.language]?.[collection.id] || {};
   }
@@ -497,7 +517,7 @@
     if (view === "sources") renderCredits();
   }
 
-  function selectCollection(id) {
+  function selectCollection(id, options = {}) {
     const collection = app.collections.find((entry) => entry.id === id) || app.collections[0];
     state.collectionId = collection.id;
     state.category = "all";
@@ -511,14 +531,16 @@
     $("#main").classList.remove("is-hidden");
     updateActiveCollectionLabels();
     activateView("atlas");
+    if (options.updateRoute !== false) pushRoute(routeForCollection(collection), { collectionId: collection.id });
   }
 
-  function showCollections() {
+  function showCollections(options = {}) {
     state.collectionId = null;
     $("#collectionPicker").classList.remove("is-hidden");
     $(".app-nav").classList.add("is-hidden");
     $("#main").classList.add("is-hidden");
     $("#collectionPicker").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (options.updateRoute !== false) pushRoute("/", { collectionId: null });
   }
 
   function setLanguage(language) {
@@ -603,15 +625,27 @@
       const clickedBackdrop = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
       if (clickedBackdrop) dialog.close?.();
     });
+
+    window.addEventListener("popstate", () => {
+      const collection = collectionFromRoute();
+      if (collection) selectCollection(collection.id, { updateRoute: false });
+      else showCollections({ updateRoute: false });
+    });
+  }
+
+  function restoreRoute() {
+    const collection = collectionFromRoute();
+    if (collection) selectCollection(collection.id, { updateRoute: false });
   }
 
   function registerServiceWorker() {
     if (!("serviceWorker" in navigator)) return;
     if (location.protocol !== "https:" && location.hostname !== "localhost") return;
-    navigator.serviceWorker.register("./service-worker.js").catch(() => undefined);
+    navigator.serviceWorker.register("/service-worker.js").catch(() => undefined);
   }
 
   bindEvents();
   renderChrome();
+  restoreRoute();
   registerServiceWorker();
 })();
