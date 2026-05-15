@@ -381,12 +381,53 @@
       </div>`;
   }
 
-  function showDialog(id) {
+  function itemIdFromHash(hash = window.location.hash) {
+    const match = hash.match(/^#item=(.+)$/);
+    if (!match) return null;
+    try { return decodeURIComponent(match[1]); } catch { return null; }
+  }
+
+  function currentRouteWithoutHash() {
+    return window.location.pathname + window.location.search;
+  }
+
+  function setItemHash(id) {
+    if (!window.history?.pushState) return;
+    const target = `${currentRouteWithoutHash()}#item=${encodeURIComponent(id)}`;
+    const current = `${currentRouteWithoutHash()}${window.location.hash}`;
+    if (current === target) return;
+    window.history.pushState(window.history.state || {}, "", target);
+  }
+
+  function clearItemHash() {
+    if (!window.location.hash) return;
+    if (!window.history?.replaceState) return;
+    window.history.replaceState(window.history.state || {}, "", currentRouteWithoutHash());
+  }
+
+  function syncDialogFromHash() {
+    const dialog = $("#itemDialog");
+    const hashId = itemIdFromHash();
+    if (hashId) {
+      const item = byId(hashId);
+      if (item && (!dialog.open || dialog.dataset.itemId !== hashId)) {
+        showDialog(hashId, { skipRoute: true });
+      } else if (!item) {
+        clearItemHash();
+        if (dialog.open) dialog.close?.();
+      }
+    } else if (dialog.open) {
+      dialog.close?.();
+    }
+  }
+
+  function showDialog(id, options = {}) {
     const item = byId(id);
     if (!item) return;
     const dialog = $("#itemDialog");
     dialog.dataset.itemId = id;
     renderDialogContent(item);
+    if (!options.skipRoute) setItemHash(id);
     if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
     else dialog.setAttribute("open", "");
   }
@@ -561,6 +602,7 @@
     updateActiveCollectionLabels();
     activateView("atlas");
     if (options.updateRoute !== false) pushRoute(routeForCollection(collection), { collectionId: collection.id });
+    syncDialogFromHash();
   }
 
   function showCollections(options = {}) {
@@ -653,6 +695,15 @@
       const rect = dialog.getBoundingClientRect();
       const clickedBackdrop = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
       if (clickedBackdrop) dialog.close?.();
+    });
+
+    $("#itemDialog").addEventListener("close", () => {
+      clearItemHash();
+    });
+
+    window.addEventListener("hashchange", () => {
+      if (!state.collectionId) return;
+      syncDialogFromHash();
     });
 
     window.addEventListener("popstate", () => {
