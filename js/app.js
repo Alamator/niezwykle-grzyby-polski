@@ -423,28 +423,32 @@
       </div>`;
   }
 
-  function buildQuestion() {
+  function buildQuestion(correct) {
     const list = items();
-    const correct = sample(list, 1)[0];
+    const selected = correct || sample(list, 1)[0];
     const mode = Math.random() > 0.45 ? "hook" : "latin";
     const prompt = mode === "hook"
-      ? t("quizHookPrompt", { hook: itemHook(correct) })
-      : t("quizLatinPrompt", { latin: correct.name_lat });
-    const wrong = sample(list.filter((item) => item.id !== correct.id), 3);
+      ? t("quizHookPrompt", { hook: itemHook(selected) })
+      : t("quizLatinPrompt", { latin: selected.name_lat });
+    const wrong = sample(list.filter((item) => item.id !== selected.id), 3);
     return {
-      correctId: correct.id,
-      correctName: itemName(correct),
+      correctId: selected.id,
+      correctName: itemName(selected),
       prompt,
-      detail: itemQuizAngle(correct),
-      options: shuffle([correct, ...wrong]).map((item) => ({ id: item.id, label: itemName(item) }))
+      detail: itemQuizAngle(selected),
+      options: shuffle([selected, ...wrong]).map((item) => ({ id: item.id, label: itemName(item) }))
     };
+  }
+
+  function buildQuestions() {
+    return sample(items(), Math.min(10, items().length)).map((item) => buildQuestion(item));
   }
 
   function initQuiz() {
     state.quiz = {
       collectionId: state.collectionId,
       language: state.language,
-      questions: Array.from({ length: Math.min(10, items().length) }, buildQuestion),
+      questions: buildQuestions(),
       index: 0,
       score: 0,
       answered: false,
@@ -638,14 +642,7 @@
     if (collection) selectCollection(collection.id, { updateRoute: false });
   }
 
-  function registerServiceWorker() {
-    if (!("serviceWorker" in navigator)) return;
-    if (location.protocol !== "https:" && location.hostname !== "localhost") return;
-    navigator.serviceWorker.register("/service-worker.js").catch(() => undefined);
-  }
-
   bindEvents();
   renderChrome();
   restoreRoute();
-  registerServiceWorker();
 })();

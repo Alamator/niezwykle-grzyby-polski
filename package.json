@@ -4,10 +4,11 @@
   "private": true,
   "description": "Interaktywny atlas, nauka, quiz i źródła o osobliwościach polskiej przyrody.",
   "scripts": {
-    "dev": "python3 -m http.server 5173",
+    "dev": "node scripts/dev-server.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:collections": "node scripts/validate-collections.mjs",
     "check:no-omttk": "node scripts/check-no-forbidden-names.mjs",
+    "test:technical": "node scripts/validate-technical.mjs",
     "deploy:vercel": "vercel --prod"
   },
   "keywords": [

@@ -40,7 +40,7 @@ vercel.json
 W katalogu projektu:
 
 ```bash
-python -m http.server 5173
+npm run dev
 ```
 
 Następnie otwórz:
@@ -49,11 +49,18 @@ Następnie otwórz:
 http://localhost:5173
 ```
 
-## Testy danych
+Lokalny serwer obsługuje też bezpośrednie wejścia w podstrony atlasu, np.:
+
+```text
+http://localhost:5173/atlas/rekordy-krajobrazu
+```
+
+## Testy
 
 ```bash
 npm run test:data
 npm run test:collections
+npm run test:technical
 ```
 
 ## Dodawanie kolekcji
