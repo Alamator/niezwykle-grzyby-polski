@@ -42,6 +42,8 @@ assert(scriptSources.includes("./data/engineering-wonders.js"), "index.html shou
 assert(scriptSources.includes("./data/engineering-wonders-photo-pack-v01.js"), "index.html should load engineering wonders Commons photo pack");
 assert(scriptSources.includes("./data/fortresses-ruins.js"), "index.html should load data/fortresses-ruins.js");
 assert(scriptSources.includes("./data/fortresses-ruins-photo-pack-v01.js"), "index.html should load fortresses and ruins Commons photo pack");
+assert(scriptSources.includes("./data/memento-mori.js"), "index.html should load data/memento-mori.js");
+assert(scriptSources.includes("./data/memento-mori-photo-pack-v01.js"), "index.html should load memento mori Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -123,6 +125,11 @@ assert(
   "fortresses and ruins photo pack should load after fortresses-ruins.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/memento-mori.js") < scriptSources.indexOf("./data/memento-mori-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/memento-mori-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "memento mori photo pack should load after memento-mori.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -159,7 +166,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 16, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, fossils and sky phenomena");
+assert.equal(collections.length, 17, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, memento mori, fossils and sky phenomena");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -177,6 +184,7 @@ const woodenArchitecture = collections.find((collection) => collection.id === "a
 const underground = collections.find((collection) => collection.id === "podziemia");
 const engineeringWonders = collections.find((collection) => collection.id === "cuda-inzynierii");
 const fortressesRuins = collections.find((collection) => collection.id === "twierdze-ruiny");
+const mementoMori = collections.find((collection) => collection.id === "memento-mori");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -193,6 +201,7 @@ assert(woodenArchitecture, "wooden architecture collection should exist");
 assert(underground, "underground collection should exist");
 assert(engineeringWonders, "engineering wonders collection should exist");
 assert(fortressesRuins, "fortresses and ruins collection should exist");
+assert(mementoMori, "memento mori collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -213,6 +222,8 @@ assert.equal(engineeringWonders.items.length, 33, "engineering wonders collectio
 assert.equal(engineeringWonders.route, "/atlas/cuda-inzynierii", "engineering wonders collection should expose the requested route");
 assert.equal(fortressesRuins.items.length, 33, "fortresses and ruins collection should contain 33 architectural and historical curiosities");
 assert.equal(fortressesRuins.route, "/atlas/twierdze-ruiny", "fortresses and ruins collection should expose the requested route");
+assert.equal(mementoMori.items.length, 30, "memento mori collection should contain 30 memorial and burial-culture curiosities");
+assert.equal(mementoMori.route, "/atlas/memento-mori", "memento mori collection should expose the requested route");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -381,6 +392,18 @@ assert(
   fortressesRuins.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "fortresses and ruins image sources should link to Wikimedia Commons file pages"
 );
+const mementoMoriImages = mementoMori.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(mementoMoriImages.length, 30, "memento mori collection should include 30 curated images with attribution");
+assert(
+  mementoMori.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "memento mori images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  mementoMori.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "memento mori image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -489,6 +512,16 @@ assert(fortressesRuins.items.some((item) => item.name_pl === "Twierdza Srebrna G
 assert(fortressesRuins.items.some((item) => item.name_pl === "Wiadukty w Stańczykach"), "fortresses and ruins collection should include Stańczyki viaducts");
 assert(fortressesRuins.items.some((item) => item.name_pl === "Zamek w Łapalicach"), "fortresses and ruins collection should include the unfinished Łapalice castle");
 assert(fortressesRuins.items.every((item) => item.scienceNote && item.quizFacts?.length >= 3 && item.sourceHints?.length >= 3), "fortresses and ruins entries should include science notes, quiz facts and source hints");
+assert(mementoMori.subtitle.includes("miejsc pamięci i przemijania"), "memento mori subtitle should describe memorial and transience places");
+assert(mementoMori.categories.some((category) => category.label === "Miejsca Zagłady"), "memento mori categories should include Holocaust memorial sites");
+assert(mementoMori.categories.some((category) => category.label === "Kopce i pradawne pochówki"), "memento mori categories should include mounds and ancient burials");
+assert(mementoMori.items.some((item) => item.name_pl === "Kaplica Czaszek w Czermnej"), "memento mori collection should include the Czermna Skull Chapel");
+assert(mementoMori.items.some((item) => item.name_pl === "Auschwitz-Birkenau"), "memento mori collection should include Auschwitz-Birkenau");
+assert(mementoMori.items.some((item) => item.name_pl === "Cmentarz Żydowski przy ul. Okopowej w Warszawie"), "memento mori collection should include the Okopowa Jewish Cemetery");
+assert(mementoMori.items.some((item) => item.name_pl === "Mizar w Kruszynianach"), "memento mori collection should include the Kruszyniany mizar");
+assert(mementoMori.items.some((item) => item.name_pl === "Kopiec Powstania Warszawskiego"), "memento mori collection should include the Warsaw Uprising Mound");
+assert(mementoMori.items.every((item) => item.scienceNote && item.quizFacts?.length >= 3 && item.sourceHints?.length >= 3), "memento mori entries should include science notes, quiz facts and source hints");
+assert(mementoMori.items.every((item) => !/(najstrasz|makabr|horror|sensac|creepy)/i.test(`${item.hook} ${item.quiz_angle} ${item.safety_note}`)), "memento mori entries should avoid sensational framing");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
