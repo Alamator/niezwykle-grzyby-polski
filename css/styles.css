@@ -277,6 +277,9 @@ h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
 .collection-card--fur .collection-card__icon {
   background: linear-gradient(145deg, #8b6a4f, #245b61);
 }
+.collection-card--herp .collection-card__icon {
+  background: linear-gradient(145deg, #5f8f3d, #2b6272);
+}
 .collection-card--leaf .collection-card__icon {
   background: linear-gradient(145deg, #4f8b45, #5b3b1f);
 }

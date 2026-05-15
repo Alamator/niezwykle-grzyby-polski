@@ -5,6 +5,7 @@
   const fishData = window.FISH_APP_DATA;
   const birdData = window.BIRD_APP_DATA;
   const mammalData = window.MAMMAL_APP_DATA;
+  const amphibianReptileData = window.AMPHIBIAN_REPTILE_APP_DATA;
   const treeData = window.TREE_APP_DATA;
   const mineralData = window.MINERAL_APP_DATA;
   const rockFormationData = window.ROCK_FORMATION_APP_DATA;
@@ -122,6 +123,23 @@
     });
   }
 
+  if (amphibianReptileData) {
+    collections.push({
+      id: "plazy-gady",
+      title: "Płazy i Gady",
+      heading: "Osobliwe płazy i gady Polski",
+      subtitle: amphibianReptileData.subtitle,
+      count_label: "30 osobliwości",
+      icon: "P+G",
+      accent: "herp",
+      search_placeholder: "np. żaba moczarowa, kumak, żółw, żmija...",
+      safety_notice: amphibianReptileData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach herpetofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      categories: amphibianReptileData.categories,
+      items: amphibianReptileData.amphibiansReptiles
+    });
+  }
+
   if (treeData) {
     collections.push({
       id: "drzewa",
@@ -209,7 +227,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, drzewa, minerały, formacje skalne, skamieniałości, niebo i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, skamieniałości, niebo i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections

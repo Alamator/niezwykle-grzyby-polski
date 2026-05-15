@@ -28,6 +28,8 @@ assert(scriptSources.includes("./data/atmosphere-astronomy.js"), "index.html sho
 assert(scriptSources.includes("./data/atmosphere-astronomy-photo-pack-v01.js"), "index.html should load atmosphere and astronomy Commons photo pack");
 assert(scriptSources.includes("./data/mammals.js"), "index.html should load data/mammals.js");
 assert(scriptSources.includes("./data/mammal-photo-pack-v01.js"), "index.html should load mammal Commons photo pack");
+assert(scriptSources.includes("./data/amphibians-reptiles.js"), "index.html should load data/amphibians-reptiles.js");
+assert(scriptSources.includes("./data/amphibian-reptile-photo-pack-v01.js"), "index.html should load amphibian and reptile Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -80,6 +82,11 @@ assert(
   "mammal photo pack should load after mammals.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/amphibians-reptiles.js") < scriptSources.indexOf("./data/amphibian-reptile-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/amphibian-reptile-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "amphibian and reptile photo pack should load after amphibians-reptiles.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -108,7 +115,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 11, "atlas should expose mushrooms, insects, flowers, fish, birds, trees, minerals, rock formations, fossils, sky phenomena and mammals");
+assert.equal(collections.length, 12, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, fossils and sky phenomena");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -121,6 +128,7 @@ const rockFormations = collections.find((collection) => collection.id === "forma
 const fossils = collections.find((collection) => collection.id === "skamienialosci");
 const skyPhenomena = collections.find((collection) => collection.id === "atmosfera-astronomia");
 const mammals = collections.find((collection) => collection.id === "ssaki");
+const amphibiansReptiles = collections.find((collection) => collection.id === "plazy-gady");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -132,6 +140,7 @@ assert(rockFormations, "rock formation collection should exist");
 assert(fossils, "fossil collection should exist");
 assert(skyPhenomena, "atmosphere and astronomy collection should exist");
 assert(mammals, "mammal collection should exist");
+assert(amphibiansReptiles, "amphibian and reptile collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -143,6 +152,7 @@ assert.equal(rockFormations.items.length, 33, "rock formation collection should 
 assert.equal(fossils.items.length, 33, "fossil collection should contain 33 paleontological curiosities");
 assert.equal(skyPhenomena.items.length, 33, "atmosphere and astronomy collection should contain 33 sky and weather curiosities");
 assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mammal curiosities");
+assert.equal(amphibiansReptiles.items.length, 30, "amphibian and reptile collection should contain 30 well-documented herpetofauna curiosities");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -251,6 +261,18 @@ assert(
   mammals.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "mammal image sources should link to Wikimedia Commons file pages"
 );
+const amphibianReptileImages = amphibiansReptiles.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(amphibianReptileImages.length, 30, "amphibian and reptile collection should include 30 curated images with attribution");
+assert(
+  amphibiansReptiles.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "amphibian and reptile images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  amphibiansReptiles.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "amphibian and reptile image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -318,6 +340,14 @@ assert(mammals.items.some((item) => item.name_pl === "Ryjówka aksamitna"), "mam
 assert(mammals.items.some((item) => item.name_pl === "Rzęsorek rzeczek"), "mammal collection should include the venomous water shrew from the source file");
 assert(mammals.items.some((item) => item.name_pl === "Żubr europejski"), "mammal collection should include the European bison from the source file");
 assert(mammals.items.some((item) => item.name_pl === "Morświn zwyczajny"), "mammal collection should include the Baltic porpoise from the source file");
+assert(amphibiansReptiles.subtitle.includes("herpetologiczne osobliwości"), "amphibian and reptile subtitle should describe herpetofauna curiosities");
+assert(amphibiansReptiles.categories.some((category) => category.label === "Barwy i obrona"), "amphibian and reptile categories should use Polish diacritics");
+assert(amphibiansReptiles.items.some((item) => item.name_pl === "Żaba moczarowa"), "amphibian and reptile collection should include the blue moor frog phenomenon from the source file");
+assert(amphibiansReptiles.items.some((item) => item.name_pl === "Grzebiuszka ziemna"), "amphibian and reptile collection should include the garlic-scented spadefoot from the source file");
+assert(amphibiansReptiles.items.some((item) => item.name_pl === "Wąż Eskulapa"), "amphibian and reptile collection should include the Aesculapian snake from the source file");
+assert(amphibiansReptiles.items.some((item) => item.name_pl === "Zaskroniec rybołów"), "amphibian and reptile collection should include the documented dice snake population from the source file");
+assert(amphibiansReptiles.items.some((item) => item.name_pl === "Żółw błotny"), "amphibian and reptile collection should include the native European pond turtle from the source file");
+assert(!amphibiansReptiles.items.some((item) => item.name_pl === "Jaszczurka zielona"), "amphibian and reptile collection should omit the unconfirmed green lizard as a species card");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
