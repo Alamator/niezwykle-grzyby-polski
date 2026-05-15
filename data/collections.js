@@ -13,6 +13,7 @@
   const undergroundData = window.UNDERGROUND_APP_DATA;
   const engineeringWonderData = window.ENGINEERING_WONDER_APP_DATA;
   const fortressRuinData = window.FORTRESS_RUIN_APP_DATA;
+  const mementoMoriData = window.MEMENTO_MORI_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
   const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
 
@@ -267,6 +268,24 @@
     });
   }
 
+  if (mementoMoriData) {
+    collections.push({
+      id: "memento-mori",
+      title: "Memento Mori",
+      heading: "Memento Mori: miejsca pamięci i przemijania",
+      subtitle: mementoMoriData.subtitle,
+      count_label: "30 osobliwości",
+      icon: "M",
+      accent: "memento",
+      route: "/atlas/memento-mori",
+      search_placeholder: "np. Czermna, Powązki, mizar, Treblinka, kopiec...",
+      safety_notice: mementoMoriData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o miejscach pamięci i przemijania w Polsce. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; przy miejscach trudnej historii zachowujemy spokojny, edukacyjny ton.",
+      categories: mementoMoriData.categories,
+      items: mementoMoriData.mementoMori
+    });
+  }
+
   if (fossilData) {
     collections.push({
       id: "skamienialosci",
@@ -303,7 +322,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, skamieniałości, niebo i kolejne osobliwości Polski.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, skamieniałości, niebo i kolejne osobliwości Polski.",
     version: "0.1.0-collections",
     views,
     collections

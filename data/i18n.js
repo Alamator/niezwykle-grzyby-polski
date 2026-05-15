@@ -332,6 +332,16 @@
     "zapomniane-konstrukcje": { label: "Forgotten structures", short: "Structures" }
   };
 
+  const mementoMoriCategories = {
+    ossuaria: { label: "Ossuaries", short: "Ossuaries" },
+    nekropolie: { label: "Necropolises", short: "Necropolises" },
+    "cmentarze-wielu-kultur": { label: "Multicultural cemeteries", short: "Many cultures" },
+    "cmentarze-wojenne": { label: "War cemeteries", short: "War graves" },
+    "miejsca-zaglady": { label: "Holocaust memorial sites", short: "Holocaust" },
+    "miejsca-martyrologii": { label: "Martyrdom memorials", short: "Memorials" },
+    "kopce-pradawne-pochowki": { label: "Mounds and ancient burials", short: "Mounds" }
+  };
+
   const treeCategories = {
     "zapach-i-chemia": { label: "Scent and chemistry", short: "Chemistry" },
     "swiatlo-i-mikrozycie": { label: "Light and micro-life", short: "Light" },
@@ -469,6 +479,15 @@
       ruiny: "castle and palace ruins where missing roofs, exposed walls and geology reveal former ambition",
       "zapomniane-konstrukcje": "abandoned palaces, unused viaducts and unfinished structures that require careful access and source checking"
     },
+    "memento-mori": {
+      ossuaria: "ossuaries and chapels where architecture turns human remains into a sober lesson about mortality",
+      nekropolie: "historic cemeteries and necropolises where art, biography and city memory share one landscape",
+      "cmentarze-wielu-kultur": "Jewish, Tatar, Mennonite and multicultural burial grounds where inscriptions preserve community history",
+      "cmentarze-wojenne": "war cemeteries and military memorials where landscape design organizes collective remembrance",
+      "miejsca-zaglady": "Holocaust memorial sites where evidence, names, emptiness and museum language protect difficult history",
+      "miejsca-martyrologii": "martyrdom memorials and execution sites where architecture helps visitors read historical trauma calmly",
+      "kopce-pradawne-pochowki": "mounds, stone circles and ancient burial landscapes that connect archaeology, legend and commemoration"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -549,6 +568,9 @@
     if (collectionId === "twierdze-ruiny") {
       return "Educational material only; visit castles, fortresses and ruins legally, do not enter closed, private or unstable structures, and treat memorial sites with historical respect.";
     }
+    if (collectionId === "memento-mori") {
+      return "Educational material only; this collection includes memorial places and difficult history, so visit respectfully, avoid sensational framing and follow cemetery, museum and site rules.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -578,6 +600,7 @@
     if (collectionId === "podziemia") return "Recorded in Poland as a mine, adit, urban cellar, fortress, shelter, wartime tunnel or chalk underground open to careful historical interpretation.";
     if (collectionId === "cuda-inzynierii") return "Recorded in Poland as a canal, lock, tower, bridge, tunnel, railway, power plant, port, factory district or technical monument.";
     if (collectionId === "twierdze-ruiny") return "Recorded in Poland as an ideal city, castle, residence, fortress, ruin, memorial landscape, abandoned palace, viaduct or unfinished structure.";
+    if (collectionId === "memento-mori") return "Recorded in Poland as a cemetery, ossuary, memorial, Holocaust site, war cemetery, mound or ancient burial landscape.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -597,6 +620,7 @@
     if (collectionId === "podziemia") return "Treat this as cultural, industrial and historical context, not as permission to explore closed undergrounds or rely on unverified legends.";
     if (collectionId === "cuda-inzynierii") return "Treat this as engineering and cultural context, not as access guidance, technical certification or permission to enter restricted infrastructure.";
     if (collectionId === "twierdze-ruiny") return "Treat this as architectural, historical and landscape context, not as access guidance, ownership advice or permission to explore unsafe ruins.";
+    if (collectionId === "memento-mori") return "Treat this as historical and memorial context, not as access guidance or permission to enter restricted, fragile or sacred areas.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -618,7 +642,9 @@
             ? `${name} is included here because it turns water, height, concrete, radio, transport or industry into a memorable engineering story.`
             : collectionId === "twierdze-ruiny"
               ? `${name} is included here for its unusual architecture, defensive logic, ruined form or memory of place.`
-              : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
+              : collectionId === "memento-mori"
+                ? `${name} is included here for its memorial architecture, burial culture, symbolic landscape or difficult historical testimony.`
+                : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
       const defaultQuizAngle = collectionId === "architektura-drewniana"
         ? "Recognize it by the building type, wooden technique, region and the feature that makes it unusual."
         : collectionId === "podziemia"
@@ -627,7 +653,9 @@
             ? "Recognize it by the mechanism, material, region and problem that the engineering solved."
             : collectionId === "twierdze-ruiny"
               ? "Recognize it by the building type, landscape position, defensive idea and the detail that makes it unusual."
-              : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
+              : collectionId === "memento-mori"
+                ? "Recognize it by the type of memorial place, community, period and the form through which memory is kept."
+                : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
       return [item.id, {
         name,
         hook: entry.hook || defaultHook,
@@ -2272,6 +2300,159 @@
     }
   };
 
+  const mementoMoriText = {
+    "kaplica-czaszek-czermna": {
+      name: "Skull Chapel in Czermna",
+      hook: "A small Baroque chapel where an ossuary speaks quietly about mortality.",
+      quiz_angle: "remember the ossuary, Silesian wars, epidemics and memento mori symbolism"
+    },
+    "stare-powazki": {
+      name: "Old Powązki Cemetery",
+      hook: "A Warsaw necropolis that reads like an encyclopedia of national memory.",
+      quiz_angle: "recognize the Avenue of Merit, funerary sculpture and the biographies gathered in one cemetery"
+    },
+    "cmentarz-rakowicki": {
+      name: "Rakowicki Cemetery",
+      hook: "A Kraków cemetery where art, city history and civic memory meet in stone.",
+      quiz_angle: "remember Kraków, historic tombs, sculptural detail and the cemetery as a city archive"
+    },
+    "peksowy-brzyzek": {
+      name: "Pęksowy Brzyzek Cemetery",
+      hook: "A mountain necropolis where Zakopane style gives memory a local wooden language.",
+      quiz_angle: "recognize Podhale, carved crosses, artists' graves and the Zakopane cultural landscape"
+    },
+    "cmentarz-zydowski-okopowa": {
+      name: "Okopowa Street Jewish Cemetery in Warsaw",
+      hook: "A vast Jewish cemetery whose matzevot preserve family, language and Warsaw history.",
+      quiz_angle: "remember the scale, Hebrew and Polish inscriptions, symbolic reliefs and Jewish Warsaw"
+    },
+    "nowy-cmentarz-zydowski-lodz": {
+      name: "New Jewish Cemetery in Łódź",
+      hook: "One of Europe's largest Jewish cemeteries, shaped by industrial Łódź and its communities.",
+      quiz_angle: "recognize the Łódź scale, industrial-era mausolea and the Ghetto Field"
+    },
+    "cmentarz-remuh": {
+      name: "Remuh Cemetery",
+      hook: "A compact Kraków cemetery that concentrates centuries of Jewish memory in Kazimierz.",
+      quiz_angle: "remember Kazimierz, Renaissance-period matzevot, Rabbi Moses Isserles and lapidarium walls"
+    },
+    "mizar-kruszyniany": {
+      name: "Kruszyniany Mizar",
+      hook: "A Tatar Muslim cemetery where wooden village, mosque and burial ground explain one borderland story.",
+      quiz_angle: "recognize Tatar heritage, crescent symbols, Podlasie and the Muslim cemetery tradition"
+    },
+    "mizar-bohoniki": {
+      name: "Bohoniki Mizar",
+      hook: "A quiet Podlasie mizar that keeps the memory of Polish-Lithuanian Tatars visible.",
+      quiz_angle: "remember Bohoniki, Tatar settlement, Islamic grave forms and borderland continuity"
+    },
+    "cmentarz-mennonicki-stogi": {
+      name: "Mennonite Cemetery in Stogi Malborskie",
+      hook: "A Żuławy cemetery where Mennonite stelae point to migration, drainage and delta communities.",
+      quiz_angle: "recognize Mennonite heritage, Żuławy, old grave stelae and the Vistula delta landscape"
+    },
+    "cmentarz-wojenny-luzna-pustki": {
+      name: "War Cemetery No. 123 Łużna-Pustki",
+      hook: "A First World War cemetery where forest, crosses and designed order shape remembrance.",
+      quiz_angle: "remember Gorlice campaign context, wooden crosses, cemetery design and the Pustki hill"
+    },
+    "cmentarz-wojenny-magura-malastowska": {
+      name: "War Cemetery No. 60 Magura Małastowska",
+      hook: "A Beskid war cemetery whose form is inseparable from pass, forest and First World War front.",
+      quiz_angle: "recognize the Małastowska Pass, Austro-Hungarian cemetery system and mountain setting"
+    },
+    "rotunda-zamojska": {
+      name: "Zamość Rotunda",
+      hook: "A former defensive structure turned memorial, carrying the memory of wartime imprisonment and executions.",
+      quiz_angle: "remember Zamość, the rotunda form, German occupation and martyrdom memorial function"
+    },
+    palmiry: {
+      name: "Palmiry",
+      hook: "A forest cemetery and memorial landscape for people murdered near Warsaw during the German occupation.",
+      quiz_angle: "recognize Kampinos Forest, mass executions, cemetery rows and documentary museum context"
+    },
+    "auschwitz-birkenau": {
+      name: "Auschwitz-Birkenau",
+      hook: "A preserved former German Nazi concentration and extermination camp, central to Holocaust education.",
+      quiz_angle: "remember the Auschwitz and Birkenau sites, preserved evidence, UNESCO status and survivor testimony"
+    },
+    majdanek: {
+      name: "Majdanek State Museum",
+      hook: "A former German Nazi camp whose preserved fields and museum work keep evidence readable.",
+      quiz_angle: "recognize Lublin, barracks, the memorial dome and the role of a state museum"
+    },
+    belzec: {
+      name: "Bełżec Memorial and Museum",
+      hook: "A memorial whose austere architecture marks the site of a German Nazi extermination camp.",
+      quiz_angle: "remember Operation Reinhardt, the memorial path, names and the restrained museum language"
+    },
+    sobibor: {
+      name: "Sobibór Memorial and Museum",
+      hook: "A memorial site where archaeology, documentation and museum design protect the memory of victims.",
+      quiz_angle: "recognize Operation Reinhardt, the prisoners' uprising, archaeological traces and memorial reconstruction"
+    },
+    "kulmhof-chelmno": {
+      name: "Kulmhof Extermination Center",
+      hook: "A memorial to the first German Nazi extermination center on occupied Polish lands.",
+      quiz_angle: "remember Chełmno nad Nerem, gas vans, forest graves and early Holocaust chronology"
+    },
+    treblinka: {
+      name: "Treblinka",
+      hook: "A memorial landscape where stones, paths and names stand in for a destroyed extermination camp.",
+      quiz_angle: "recognize Operation Reinhardt, the stone field, symbolic station and memorial architecture"
+    },
+    piasnica: {
+      name: "Piaśnica",
+      hook: "A forest memorial for mass executions in Pomerania at the beginning of the Second World War.",
+      quiz_angle: "remember the Pomeranian forest, early occupation crimes, graves and regional memory"
+    },
+    michniow: {
+      name: "Mauzoleum of Martyrology of Polish Villages in Michniów",
+      hook: "A memorial to pacified villages, using architecture to speak about civilian suffering.",
+      quiz_angle: "recognize Michniów, village pacification, memorial architecture and Polish rural martyrdom"
+    },
+    "grob-nieznanego-zolnierza": {
+      name: "Tomb of the Unknown Soldier in Warsaw",
+      hook: "A central state memorial that turns an architectural fragment into a national ritual of remembrance.",
+      quiz_angle: "remember Piłsudski Square, the Saxon Palace arcade, guard of honor and symbolic unknown soldier"
+    },
+    "kopiec-powstania-warszawskiego": {
+      name: "Warsaw Uprising Mound",
+      hook: "A mound built from the rubble of Warsaw, linking ruined material with civic memory.",
+      quiz_angle: "recognize the uprising symbol, rubble origin, anchor sign and Warsaw's postwar landscape"
+    },
+    "westerplatte-cmentarz": {
+      name: "Westerplatte Defenders' Cemetery",
+      hook: "A military cemetery on the peninsula associated with the opening of the Second World War.",
+      quiz_angle: "remember Westerplatte, the Military Transit Depot, defenders' graves and coastal memorial landscape"
+    },
+    "kamienne-kregi-odry": {
+      name: "Stone Circles in Odry",
+      hook: "An archaeological cemetery where stone circles connect burial custom, landscape and interpretation.",
+      quiz_angle: "recognize the Wielbark culture context, stone circles, tumuli and protected archaeological reserve"
+    },
+    "kamienne-kregi-wesiory": {
+      name: "Stone Circles in Węsiory",
+      hook: "A forested archaeological site where circles and mounds preserve a pre-medieval burial landscape.",
+      quiz_angle: "remember Kashubia, stone circles, barrows and Wielbark culture interpretation"
+    },
+    "kopiec-krakusa": {
+      name: "Krakus Mound",
+      hook: "An ancient-looking mound where archaeology, legend and Kraków's skyline meet.",
+      quiz_angle: "recognize the legendary ruler, mound form, Kraków panorama and uncertain chronology"
+    },
+    "kopiec-wandy": {
+      name: "Wanda Mound",
+      hook: "A Kraków mound tied to legend, landscape memory and questions that archaeology cannot fully close.",
+      quiz_angle: "remember the Wanda legend, Nowa Huta setting, mound silhouette and uncertain origins"
+    },
+    "stary-cmentarz-zydowski-wroclaw": {
+      name: "Old Jewish Cemetery in Wrocław",
+      hook: "A preserved Jewish cemetery-museum where tombs, symbols and biographies show the city's multicultural past.",
+      quiz_angle: "recognize Wrocław, museum status, sculptural tombs and nineteenth-century Jewish civic life"
+    }
+  };
+
   window.ATLAS_I18N = {
     defaultLanguage: "pl",
     languages: {
@@ -2284,7 +2465,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • przyroda i kultura",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny oraz następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori oraz następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -2364,7 +2545,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature and culture",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds, engineering wonders, fortresses and ruins, and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds, engineering wonders, fortresses and ruins, Memento Mori, and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2595,6 +2776,17 @@
           source_note: "Descriptions start from the supplied working material on Polish castles, fortresses, ruins and forgotten structures. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: fortressRuinCategories,
           items: makeItemMap("twierdze-ruiny", fortressRuinText)
+        },
+        "memento-mori": {
+          title: "Memento Mori",
+          heading: "Memento Mori: Places of Memory and Transience",
+          subtitle: "30 places of memory and transience in Poland: ossuaries, cemeteries, necropolises, Holocaust and martyrdom memorials, war graves, mounds and ancient burials.",
+          count_label: "30 curiosities",
+          search_placeholder: "e.g. Czermna, Powązki, mizar, Treblinka, mound...",
+          safety_notice: "Educational prototype. This collection includes memorial places and difficult history; read and visit respectfully, without sensational framing, posing at graves or entering closed or fragile areas.",
+          source_note: "Descriptions start from the supplied working material on Polish memorial and burial-culture places. Photos come from Wikimedia Commons with full attribution; difficult-history sites use calm educational language.",
+          categories: mementoMoriCategories,
+          items: makeItemMap("memento-mori", mementoMoriText)
         },
         skamienialosci: {
           title: "Fossils",
