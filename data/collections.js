@@ -10,6 +10,7 @@
   const mineralData = window.MINERAL_APP_DATA;
   const rockFormationData = window.ROCK_FORMATION_APP_DATA;
   const woodenArchitectureData = window.WOODEN_ARCHITECTURE_APP_DATA;
+  const undergroundData = window.UNDERGROUND_APP_DATA;
   const fossilData = window.FOSSIL_APP_DATA;
   const atmosphereAstronomyData = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
 
@@ -210,6 +211,24 @@
     });
   }
 
+  if (undergroundData) {
+    collections.push({
+      id: "podziemia",
+      title: "Podziemia",
+      heading: "Podziemia Atlasu Osobliwości",
+      subtitle: undergroundData.subtitle,
+      count_label: "30 osobliwości",
+      icon: "P",
+      accent: "subterra",
+      route: "/atlas/podziemia",
+      search_placeholder: "np. Wieliczka, Riese, MRU, Sandomierz, Chełm...",
+      safety_notice: undergroundData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o podziemnych osobliwościach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; schematy i kadry reprezentatywne są oznaczone uczciwie.",
+      categories: undergroundData.categories,
+      items: undergroundData.underground
+    });
+  }
+
   if (fossilData) {
     collections.push({
       id: "skamienialosci",
@@ -246,7 +265,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, skamieniałości, niebo i kolejne osobliwości Polski.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, skamieniałości, niebo i kolejne osobliwości Polski.",
     version: "0.1.0-collections",
     views,
     collections

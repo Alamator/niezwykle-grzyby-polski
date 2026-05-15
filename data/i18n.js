@@ -306,6 +306,14 @@
     "wielokulturowe-drewno": { label: "Multicultural wood", short: "Cultures" }
   };
 
+  const undergroundCategories = {
+    "kopalnie-surowce": { label: "Mines and raw materials", short: "Mines" },
+    "podziemia-wojenne": { label: "Wartime undergrounds", short: "Wartime" },
+    "miejskie-piwnice": { label: "Urban cellars", short: "Cellars" },
+    "fortyfikacje-schrony": { label: "Fortifications and shelters", short: "Shelters" },
+    "tajemnice-legendy": { label: "Mysteries and legends", short: "Mysteries" }
+  };
+
   const treeCategories = {
     "zapach-i-chemia": { label: "Scent and chemistry", short: "Chemistry" },
     "swiatlo-i-mikrozycie": { label: "Light and micro-life", short: "Light" },
@@ -420,6 +428,13 @@
       "styl-zakopianski-i-gorale": "mountain wooden houses, chapels, villas and village ensembles shaped by Podhale carpentry",
       "wielokulturowe-drewno": "wooden mosques, manor houses, arcaded homes and villages where culture, craft and settlement history meet"
     },
+    podziemia: {
+      "kopalnie-surowce": "salt, flint, metal, coal, gold and uranium mines where geology meets work and engineering",
+      "podziemia-wojenne": "wartime tunnels, unfinished works and underground structures interpreted with calm historical context",
+      "miejskie-piwnice": "urban cellars, merchant storage spaces, archaeology and routes below old-town streets",
+      "fortyfikacje-schrony": "fortresses, shelters, railway bunkers and command sites where concrete and corridors shaped defense",
+      "tajemnice-legendy": "partly documented undergrounds, local legends and places where careful uncertainty is part of the story"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -491,6 +506,9 @@
     if (collectionId === "architektura-drewniana") {
       return "Educational material only; visit wooden monuments respectfully, follow site rules, do not touch polychrome, icons, woodwork or fragile interiors, and check current opening times.";
     }
+    if (collectionId === "podziemia") {
+      return "Educational material only; visit underground sites only on legal routes, follow guides, do not enter abandoned adits or shelters, and treat wartime places with calm historical respect.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -517,6 +535,7 @@
     if (collectionId === "ssaki") return "Recorded in Poland as a native, reintroduced, expanding, invasive or Baltic mammal curiosity, depending on the species.";
     if (collectionId === "plazy-gady") return "Recorded in Poland as a native, local, newly documented, protected or invasive amphibian or reptile curiosity, depending on the species.";
     if (collectionId === "architektura-drewniana") return "Recorded in Poland as a wooden church, tserkva, mosque, house, manor, village ensemble or imported wooden monument.";
+    if (collectionId === "podziemia") return "Recorded in Poland as a mine, adit, urban cellar, fortress, shelter, wartime tunnel or chalk underground open to careful historical interpretation.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -533,6 +552,7 @@
     if (collectionId === "ssaki") return "Treat this as natural-history context, not as handling, tracking, feeding or site-disclosure guidance.";
     if (collectionId === "plazy-gady") return "Treat this as natural-history context, not as handling advice, site-disclosure guidance or permission to move amphibians and reptiles.";
     if (collectionId === "architektura-drewniana") return "Treat this as cultural and architectural context, not as a conservation assessment or guarantee of opening and access.";
+    if (collectionId === "podziemia") return "Treat this as cultural, industrial and historical context, not as permission to explore closed undergrounds or rely on unverified legends.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -548,10 +568,14 @@
       const name = entry.name || item.name_lat || item.name_pl;
       const defaultHook = collectionId === "architektura-drewniana"
         ? `${name} is included here for its unusual wooden structure, craft or cultural story.`
-        : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
+        : collectionId === "podziemia"
+          ? `${name} is included here for its underground engineering, urban, mining or wartime story.`
+          : `${name} is included here for its unusual field appearance and memorable natural-history story.`;
       const defaultQuizAngle = collectionId === "architektura-drewniana"
         ? "Recognize it by the building type, wooden technique, region and the feature that makes it unusual."
-        : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
+        : collectionId === "podziemia"
+          ? "Recognize it by the type of underground site, region and the historical or technical feature that makes it unusual."
+          : "Recognize it by the strongest field mark, habitat and the feature that makes it unusual.";
       return [item.id, {
         name,
         hook: entry.hook || defaultHook,
@@ -2040,7 +2064,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • przyroda i kultura",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne, architekturę drewnianą, podziemia i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -2120,7 +2144,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature and culture",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations, wooden architecture, undergrounds and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2318,6 +2342,17 @@
           source_note: "Descriptions start from the supplied working material on Polish wooden architecture. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: woodenArchitectureCategories,
           items: makeItemMap("architektura-drewniana", woodenArchitectureText)
+        },
+        podziemia: {
+          title: "Undergrounds",
+          heading: "Underground Curiosities of Poland",
+          subtitle: "30 subterranean curiosities of Poland: salt, flint and silver mines, urban cellars, adits, shelters and the unanswered questions of the Owl Mountains.",
+          count_label: "30 curiosities",
+          search_placeholder: "e.g. Wieliczka, Riese, MRU, Sandomierz, Chełm...",
+          safety_notice: "Educational prototype. Visit underground sites only on official routes: do not enter abandoned adits, shelters or cellars, do not touch safety structures, and keep a calm historical tone around wartime places.",
+          source_note: "Descriptions start from the supplied working material on Polish underground curiosities. Photos come from Wikimedia Commons with full attribution; diagrams and representative frames are labelled honestly.",
+          categories: undergroundCategories,
+          items: makeItemMap("podziemia", {})
         },
         skamienialosci: {
           title: "Fossils",

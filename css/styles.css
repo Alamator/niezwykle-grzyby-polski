@@ -292,6 +292,9 @@ h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
 .collection-card--wood .collection-card__icon {
   background: linear-gradient(145deg, #7b5a32, #1f5d4c);
 }
+.collection-card--subterra .collection-card__icon {
+  background: linear-gradient(145deg, #3f4a52, #a85d2c);
+}
 .collection-card--fossil .collection-card__icon {
   background: linear-gradient(145deg, #7f5a3a, #2f6f73);
 }
