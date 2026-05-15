@@ -44,6 +44,8 @@ assert(scriptSources.includes("./data/fortresses-ruins.js"), "index.html should 
 assert(scriptSources.includes("./data/fortresses-ruins-photo-pack-v01.js"), "index.html should load fortresses and ruins Commons photo pack");
 assert(scriptSources.includes("./data/memento-mori.js"), "index.html should load data/memento-mori.js");
 assert(scriptSources.includes("./data/memento-mori-photo-pack-v01.js"), "index.html should load memento mori Commons photo pack");
+assert(scriptSources.includes("./data/landscape-records.js"), "index.html should load data/landscape-records.js");
+assert(scriptSources.includes("./data/landscape-records-photo-pack-v01.js"), "index.html should load landscape records Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -130,6 +132,11 @@ assert(
   "memento mori photo pack should load after memento-mori.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/landscape-records.js") < scriptSources.indexOf("./data/landscape-records-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/landscape-records-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "landscape records photo pack should load after landscape-records.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -166,7 +173,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 17, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, memento mori, fossils and sky phenomena");
+assert.equal(collections.length, 18, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, memento mori, landscape records, fossils and sky phenomena");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -185,6 +192,7 @@ const underground = collections.find((collection) => collection.id === "podziemi
 const engineeringWonders = collections.find((collection) => collection.id === "cuda-inzynierii");
 const fortressesRuins = collections.find((collection) => collection.id === "twierdze-ruiny");
 const mementoMori = collections.find((collection) => collection.id === "memento-mori");
+const landscapeRecords = collections.find((collection) => collection.id === "rekordy-krajobrazu");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -202,6 +210,7 @@ assert(underground, "underground collection should exist");
 assert(engineeringWonders, "engineering wonders collection should exist");
 assert(fortressesRuins, "fortresses and ruins collection should exist");
 assert(mementoMori, "memento mori collection should exist");
+assert(landscapeRecords, "landscape records collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -224,6 +233,8 @@ assert.equal(fortressesRuins.items.length, 33, "fortresses and ruins collection 
 assert.equal(fortressesRuins.route, "/atlas/twierdze-ruiny", "fortresses and ruins collection should expose the requested route");
 assert.equal(mementoMori.items.length, 30, "memento mori collection should contain 30 memorial and burial-culture curiosities");
 assert.equal(mementoMori.route, "/atlas/memento-mori", "memento mori collection should expose the requested route");
+assert.equal(landscapeRecords.items.length, 56, "landscape records collection should contain 56 landscape curiosities");
+assert.equal(landscapeRecords.route, "/atlas/rekordy-krajobrazu", "landscape records collection should expose the requested route");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -404,6 +415,18 @@ assert(
   mementoMori.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "memento mori image sources should link to Wikimedia Commons file pages"
 );
+const landscapeRecordImages = landscapeRecords.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(landscapeRecordImages.length, 56, "landscape records collection should include 56 curated images with attribution");
+assert(
+  landscapeRecords.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "landscape records images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  landscapeRecords.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "landscape records image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -522,6 +545,16 @@ assert(mementoMori.items.some((item) => item.name_pl === "Mizar w Kruszynianach"
 assert(mementoMori.items.some((item) => item.name_pl === "Kopiec Powstania Warszawskiego"), "memento mori collection should include the Warsaw Uprising Mound");
 assert(mementoMori.items.every((item) => item.scienceNote && item.quizFacts?.length >= 3 && item.sourceHints?.length >= 3), "memento mori entries should include science notes, quiz facts and source hints");
 assert(mementoMori.items.every((item) => !/(najstrasz|makabr|horror|sensac|creepy)/i.test(`${item.hook} ${item.quiz_angle} ${item.safety_note}`)), "memento mori entries should avoid sensational framing");
+assert(landscapeRecords.subtitle.includes("krajobrazowych osobliwości"), "landscape records subtitle should describe landscape curiosities");
+assert(landscapeRecords.count_label === "56 osobliwości", "landscape records tile should use the requested 56-item badge");
+assert(landscapeRecords.categories.some((category) => category.label === "Piasek i wydmy"), "landscape records categories should include sand and dunes");
+assert(landscapeRecords.categories.some((category) => category.label === "Ekstrema, iluzje i mikroklimaty"), "landscape records categories should include extremes, illusions and microclimates");
+assert(landscapeRecords.items.some((item) => item.name_pl === "Pustynia Błędowska"), "landscape records collection should include Błędów Desert");
+assert(landscapeRecords.items.some((item) => item.name_pl === "Ruchome wydmy Słowińskiego Parku Narodowego"), "landscape records collection should include the moving dunes");
+assert(landscapeRecords.items.some((item) => item.name_pl === "Krzywy Las"), "landscape records collection should include the Crooked Forest");
+assert(landscapeRecords.items.some((item) => item.name_pl === "Rysy — najwyższy punkt Polski"), "landscape records collection should include Rysy as the highest point");
+assert(landscapeRecords.items.some((item) => item.name_pl === "Skit w Odrynkach"), "landscape records collection should include the Odrynki skete");
+assert(landscapeRecords.items.every((item) => item.scienceNote && item.quizFacts?.length >= 3 && item.sourceHints?.length >= 3), "landscape records entries should include science notes, quiz facts and source hints");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
