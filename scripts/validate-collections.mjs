@@ -5,9 +5,11 @@ import vm from "node:vm";
 const indexHtml = fs.readFileSync("index.html", "utf8");
 const appJs = fs.readFileSync("js/app.js", "utf8");
 const vercelConfig = JSON.parse(fs.readFileSync("vercel.json", "utf8"));
-const scriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
+const rawScriptSources = [...indexHtml.matchAll(/<script\s+defer\s+src="([^"]+)"/g)].map((match) => match[1]);
+const scriptSources = rawScriptSources.map((source) => (source.startsWith("/") ? `.${source}` : source));
 
 assert.match(indexHtml, /Atlas Osobliwości Polski/, "page should use the umbrella atlas title");
+assert.doesNotMatch(indexHtml, /(src|href)="\.\/(?:assets|css|data|js|manifest)/, "root assets should use absolute paths so nested atlas routes can load them");
 assert.doesNotMatch(indexHtml, /Otwórz owady/, "hero should not privilege one collection with a direct shortcut");
 assert.doesNotMatch(indexHtml, /data-view="contest"/, "contest view should not be in navigation");
 assert.doesNotMatch(indexHtml, /data-view="review"/, "review view should not be in navigation");
@@ -37,6 +39,7 @@ assert(scriptSources.includes("./data/wooden-architecture-photo-pack-v01.js"), "
 assert(scriptSources.includes("./data/underground.js"), "index.html should load data/underground.js");
 assert(scriptSources.includes("./data/underground-photo-pack-v01.js"), "index.html should load underground Commons photo pack");
 assert(scriptSources.includes("./data/engineering-wonders.js"), "index.html should load data/engineering-wonders.js");
+assert(scriptSources.includes("./data/engineering-wonders-photo-pack-v01.js"), "index.html should load engineering wonders Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -108,6 +111,11 @@ assert(
   "engineering wonders data should load before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/engineering-wonders.js") < scriptSources.indexOf("./data/engineering-wonders-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/engineering-wonders-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "engineering wonders photo pack should load after engineering-wonders.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -120,8 +128,8 @@ assert.match(appJs, /history\.pushState/, "app should push collection routes int
 assert.match(appJs, /popstate/, "app should restore collections from browser history");
 assert.match(appJs, /serviceWorker\.register\("\/service-worker\.js"\)/, "service worker registration should be absolute for nested atlas routes");
 assert(
-  vercelConfig.rewrites?.some((rewrite) => rewrite.source === "/atlas/(.*)" && rewrite.destination === "/index.html"),
-  "Vercel should rewrite atlas routes to index.html"
+  vercelConfig.rewrites?.some((rewrite) => rewrite.source === "/atlas/:path*" && rewrite.destination === "/"),
+  "Vercel should rewrite nested atlas routes to the static SPA entry using the documented wildcard syntax"
 );
 
 const context = { window: {} };
@@ -337,6 +345,18 @@ assert(
 assert(
   underground.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "underground image sources should link to Wikimedia Commons file pages"
+);
+const engineeringWonderImages = engineeringWonders.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(engineeringWonderImages.length, 33, "engineering wonders collection should include 33 curated images with attribution");
+assert(
+  engineeringWonders.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "engineering wonders images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  engineeringWonders.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "engineering wonders image sources should link to Wikimedia Commons file pages"
 );
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
