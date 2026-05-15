@@ -34,6 +34,8 @@ assert(scriptSources.includes("./data/amphibians-reptiles.js"), "index.html shou
 assert(scriptSources.includes("./data/amphibian-reptile-photo-pack-v01.js"), "index.html should load amphibian and reptile Commons photo pack");
 assert(scriptSources.includes("./data/wooden-architecture.js"), "index.html should load data/wooden-architecture.js");
 assert(scriptSources.includes("./data/wooden-architecture-photo-pack-v01.js"), "index.html should load wooden architecture Commons photo pack");
+assert(scriptSources.includes("./data/underground.js"), "index.html should load data/underground.js");
+assert(scriptSources.includes("./data/underground-photo-pack-v01.js"), "index.html should load underground Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -96,6 +98,11 @@ assert(
   "wooden architecture photo pack should load after wooden-architecture.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/underground.js") < scriptSources.indexOf("./data/underground-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/underground-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "underground photo pack should load after underground.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -132,7 +139,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 13, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, fossils and sky phenomena");
+assert.equal(collections.length, 14, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, fossils and sky phenomena");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -147,6 +154,7 @@ const skyPhenomena = collections.find((collection) => collection.id === "atmosfe
 const mammals = collections.find((collection) => collection.id === "ssaki");
 const amphibiansReptiles = collections.find((collection) => collection.id === "plazy-gady");
 const woodenArchitecture = collections.find((collection) => collection.id === "architektura-drewniana");
+const underground = collections.find((collection) => collection.id === "podziemia");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -160,6 +168,7 @@ assert(skyPhenomena, "atmosphere and astronomy collection should exist");
 assert(mammals, "mammal collection should exist");
 assert(amphibiansReptiles, "amphibian and reptile collection should exist");
 assert(woodenArchitecture, "wooden architecture collection should exist");
+assert(underground, "underground collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -174,6 +183,8 @@ assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mamm
 assert.equal(amphibiansReptiles.items.length, 30, "amphibian and reptile collection should contain 30 well-documented herpetofauna curiosities");
 assert.equal(woodenArchitecture.items.length, 30, "wooden architecture collection should contain 30 prepared architectural curiosities");
 assert.equal(woodenArchitecture.route, "/atlas/architektura-drewniana", "wooden architecture collection should expose the requested route");
+assert.equal(underground.items.length, 30, "underground collection should contain 30 prepared subterranean curiosities");
+assert.equal(underground.route, "/atlas/podziemia", "underground collection should expose the requested route");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -306,6 +317,18 @@ assert(
   woodenArchitecture.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "wooden architecture image sources should link to Wikimedia Commons file pages"
 );
+const undergroundImages = underground.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(undergroundImages.length, 30, "underground collection should include 30 curated images with attribution");
+assert(
+  underground.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "underground images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  underground.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "underground image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -389,6 +412,14 @@ assert(woodenArchitecture.items.some((item) => item.name_pl === "Cerkiew św. Pa
 assert(woodenArchitecture.items.some((item) => item.name_pl === "Świątynia Wang"), "wooden architecture collection should include the Wang stave church");
 assert(woodenArchitecture.items.some((item) => item.name_pl === "Meczet tatarski w Kruszynianach"), "wooden architecture collection should include the Kruszyniany wooden mosque");
 assert(woodenArchitecture.items.some((item) => item.source_status === "expanded_candidate"), "wooden architecture collection should mark expanded candidates for later verification");
+assert(underground.subtitle.includes("podziemnych osobliwości Polski"), "underground subtitle should describe Polish subterranean curiosities");
+assert(underground.categories.some((category) => category.label === "Kopalnie i surowce"), "underground categories should include mines and raw materials");
+assert(underground.items.some((item) => item.name_pl === "Kopalnia Soli „Wieliczka”"), "underground collection should include Wieliczka Salt Mine");
+assert(underground.items.some((item) => item.name_pl === "Krzemionki Opatowskie"), "underground collection should include Krzemionki Opatowskie");
+assert(underground.items.some((item) => item.name_pl === "Projekt Riese — Włodarz"), "underground collection should include Riese Włodarz");
+assert(underground.items.some((item) => item.name_pl === "Międzyrzecki Rejon Umocniony"), "underground collection should include Międzyrzecz Fortified Region");
+assert(underground.items.some((item) => item.name_pl === "Chełmskie Podziemia Kredowe"), "underground collection should include Chełm Chalk Tunnels");
+assert(underground.items.every((item) => !/sensac/i.test(item.hook)), "underground wartime descriptions should avoid sensational framing");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
