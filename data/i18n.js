@@ -189,7 +189,37 @@
     "biały podpis": "white signature",
     "relikt bieli": "relic of white",
     "powrót na łachy": "return to sandbars",
-    "niewidzialny waleń": "invisible cetacean"
+    "niewidzialny waleń": "invisible cetacean",
+    "błękitny sygnał": "blue signal",
+    "czosnkowa obrona": "garlic defense",
+    "brzuch ostrzegawczy": "warning belly",
+    "żółty alarm": "yellow alarm",
+    "jaskrawy komunikat": "bright warning",
+    "parotydowy klasyk": "parotoid classic",
+    "godowy grzebień": "breeding crest",
+    "mały wachlarz": "small fan",
+    "karpacki endemit": "Carpathian endemic",
+    "górska pomarańcza": "mountain orange",
+    "biegacz wydm": "dune runner",
+    "zielona mozaika": "green mosaic",
+    "przylga liścia": "leaf adhesive",
+    "bliźniacza rzekotka": "twin tree frog",
+    "zimny start": "cold start",
+    "skok z liści": "leaf-litter leap",
+    "mała zielona": "small green frog",
+    "hybrydowy rodowód": "hybrid lineage",
+    "głośny olbrzym": "loud giant",
+    "pancerz mokradeł": "wetland armor",
+    "obcy pancerz": "alien shell",
+    "ogon awaryjny": "emergency tail",
+    "ukryty bliźniak": "hidden twin",
+    "zielony samiec": "green male",
+    "żyworodny chłód": "live-bearing cold",
+    "teatr obrony": "defense theatre",
+    "nowy wąż": "new snake",
+    "łagodny sobowtór": "gentle lookalike",
+    "reliktowy dusiciel": "relic constrictor",
+    "jadowity termometr": "venomous thermometer"
   };
 
   const mushroomCategories = {
@@ -249,6 +279,15 @@
     "puszcze-i-turnie": { label: "Primeval forests and crags", short: "Wildlands" },
     "drapiezniki-i-zmiany-arealow": { label: "Predators and range shifts", short: "Predators" },
     "baltyckie-ssaki-morskie": { label: "Baltic marine mammals", short: "Baltic" }
+  };
+
+  const amphibianReptileCategories = {
+    "barwy-i-obrona": { label: "Colors and defense", short: "Defense" },
+    "gody-i-metamorfozy": { label: "Breeding and metamorphosis", short: "Breeding" },
+    "wspinaczka-i-woda": { label: "Climbing and water", short: "Niches" },
+    "zolwie-i-inwazje": { label: "Turtles and invasions", short: "Turtles" },
+    "jaszczurki-i-beznogie": { label: "Lizards and legless lizards", short: "Lizards" },
+    "weze-jad-i-relikty": { label: "Snakes, venom and relics", short: "Snakes" }
   };
 
   const treeCategories = {
@@ -350,6 +389,14 @@
       "drapiezniki-i-zmiany-arealow": "fields, wetlands, forests, river valleys and human-shaped mosaics where predators track prey and range shifts",
       "baltyckie-ssaki-morskie": "Baltic waters, sandbars, beaches and quiet coastal haul-out or feeding areas"
     },
+    "plazy-gady": {
+      "barwy-i-obrona": "breeding pools, damp woods, shallow waters and refuges where color or skin chemistry becomes defensive",
+      "gody-i-metamorfozy": "small fish-free ponds, spring pools, ruts, ditches and moist terrestrial shelters used during amphibian breeding cycles",
+      "wspinaczka-i-woda": "pond edges, shrubs, reeds, woodland pools and vegetated waters where climbing, calling or aquatic life dominates",
+      "zolwie-i-inwazje": "quiet wetlands, oxbows, park ponds, basking logs and sandy nesting places used by native or released turtles",
+      "jaszczurki-i-beznogie": "sunny banks, grasslands, gardens, forest edges, bogs and ground-level cover used for warming and hiding",
+      "weze-jad-i-relikty": "wetland edges, warm slopes, rocky refuges, Bieszczady valleys and mosaics where snakes find prey and shelter"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -415,6 +462,9 @@
     if (collectionId === "ssaki") {
       return "Educational material only; observe mammals from a distance, do not handle wild animals, disturb bat roosts or approach large mammals and seals.";
     }
+    if (collectionId === "plazy-gady") {
+      return "Educational material only; observe amphibians and reptiles without handling, moving animals, disturbing breeding sites or revealing sensitive locations.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -439,6 +489,7 @@
     if (collectionId === "ryby") return "Recorded in Polish waters or included as a rare visitor from the marine edge of the atlas.";
     if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
     if (collectionId === "ssaki") return "Recorded in Poland as a native, reintroduced, expanding, invasive or Baltic mammal curiosity, depending on the species.";
+    if (collectionId === "plazy-gady") return "Recorded in Poland as a native, local, newly documented, protected or invasive amphibian or reptile curiosity, depending on the species.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -453,6 +504,7 @@
     if (collectionId === "ryby") return "Treat the note as natural-history context, not as identification, fishing or handling advice.";
     if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
     if (collectionId === "ssaki") return "Treat this as natural-history context, not as handling, tracking, feeding or site-disclosure guidance.";
+    if (collectionId === "plazy-gady") return "Treat this as natural-history context, not as handling advice, site-disclosure guidance or permission to move amphibians and reptiles.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -1839,6 +1891,39 @@
     "morswin-zwyczajny": { name: "Harbour porpoise" }
   };
 
+  const amphibianReptileText = {
+    "zaba-moczarowa": { name: "Moor frog" },
+    "grzebiuszka-ziemna": { name: "Common spadefoot" },
+    "kumak-nizinny": { name: "Fire-bellied toad" },
+    "kumak-gorski": { name: "Yellow-bellied toad" },
+    "salamandra-plamista": { name: "Fire salamander" },
+    "ropucha-szara": { name: "Common toad" },
+    "traszka-grzebieniasta": { name: "Great crested newt" },
+    "traszka-zwyczajna": { name: "Smooth newt" },
+    "traszka-karpacka": { name: "Carpathian newt" },
+    "traszka-gorska": { name: "Alpine newt" },
+    "ropucha-paskowka": { name: "Natterjack toad" },
+    "ropucha-zielona": { name: "European green toad" },
+    "rzekotka-drzewna": { name: "European tree frog" },
+    "rzekotka-wschodnia": { name: "Eastern tree frog" },
+    "zaba-trawna": { name: "Common frog" },
+    "zaba-zwinka": { name: "Agile frog" },
+    "zaba-jeziorkowa": { name: "Pool frog" },
+    "zaba-wodna": { name: "Edible frog" },
+    "zaba-smieszka": { name: "Marsh frog" },
+    "zolw-blotny": { name: "European pond turtle" },
+    "zolw-ozdobny": { name: "Pond slider" },
+    "padalec-zwyczajny": { name: "Slow worm" },
+    "padalec-kolchidzki": { name: "Eastern slow worm" },
+    "jaszczurka-zwinka": { name: "Sand lizard" },
+    "jaszczurka-zyworodna": { name: "Viviparous lizard" },
+    "zaskroniec-zwyczajny": { name: "Grass snake" },
+    "zaskroniec-rybolow": { name: "Dice snake" },
+    "gniewosz-plamisty": { name: "Smooth snake" },
+    "waz-eskulapa": { name: "Aesculapian snake" },
+    "zmija-zygzakowata": { name: "Common European adder" }
+  };
+
   const atmosphereAstronomyText = {
     "widmo-brockenu": { name: "Brocken spectre" },
     gloria: { name: "Glory" },
@@ -1887,7 +1972,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • kolekcje przyrodnicze",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o minerały, formacje skalne, ssaki i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o ssaki, płazy i gady, minerały, formacje skalne i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -1967,7 +2052,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature collections",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes minerals, rock formations, mammals and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes mammals, amphibians and reptiles, minerals, rock formations and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2110,6 +2195,17 @@
           source_note: "Descriptions start from the supplied working material on unusual Polish mammals. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mammalCategories,
           items: makeItemMap("ssaki", mammalText)
+        },
+        "plazy-gady": {
+          title: "Amphibians and Reptiles",
+          heading: "Unusual Amphibians and Reptiles of Poland",
+          subtitle: "30 herpetofauna curiosities of Poland: blue moor-frog breeding, garlic-scented spadefoots, Bombina warning displays, newt crests, tree-frog climbing, relic snakes, pond turtles and invasive ornamental turtles.",
+          count_label: "30 curiosities",
+          search_placeholder: "e.g. moor frog, fire-bellied toad, pond turtle, adder...",
+          safety_notice: "Educational prototype. Observe amphibians and reptiles without handling, moving or damaging habitats; many are protected, sensitive to disturbance or risky when approached carelessly. Never release terrarium animals into the wild.",
+          source_note: "Descriptions start from the supplied working material on Polish herpetofauna curiosities. Photos come from Wikimedia Commons with full attribution; representative frames are labelled as such.",
+          categories: amphibianReptileCategories,
+          items: makeItemMap("plazy-gady", amphibianReptileText)
         },
         drzewa: {
           title: "Trees",
