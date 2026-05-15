@@ -157,7 +157,39 @@
     "liczba w historii": "number in history",
     "pustynia w powietrzu": "desert in the air",
     "rdzawy ślad": "rusty trace",
-    "śnieg z rumieńcem": "blushing snow"
+    "śnieg z rumieńcem": "blushing snow",
+    "miniaturowy piec": "miniature furnace",
+    "mózg na zimę": "winter brain",
+    "leśny wskaźnik": "forest indicator",
+    "cień potoku": "stream shadow",
+    "jadowity pływak": "venomous swimmer",
+    "cień większego": "larger cousin's shadow",
+    "dominant podziemi": "underground dominant",
+    "lot nad taflą": "flight over water",
+    "rzadki nocek": "rare myotis",
+    "ucho starego lasu": "old-forest ear",
+    "nocny zbieracz": "night gleaner",
+    "mały echolokator": "small echolocator",
+    "stepowa kolonia": "steppe colony",
+    "znikające pole": "vanishing field",
+    "sen w koronach": "sleep in the canopy",
+    "kulka w leszczynie": "hazel thicket ball",
+    "maska w koronach": "mask in the canopy",
+    "pilch z legendy": "legendary dormouse",
+    "gwizd na hali": "whistle on alpine grassland",
+    "renaturyzator": "renaturation engineer",
+    "obcy pływak": "alien swimmer",
+    "olbrzym po powrocie": "returned giant",
+    "kopyta na krawędzi": "hooves on the edge",
+    "obcy psowaty": "alien canid",
+    "cień mokradeł": "wetland shadow",
+    "zręczny kolonista": "dexterous colonist",
+    "nowy sąsiad": "new neighbor",
+    "drapieżnik w miniaturze": "miniature predator",
+    "biały podpis": "white signature",
+    "relikt bieli": "relic of white",
+    "powrót na łachy": "return to sandbars",
+    "niewidzialny waleń": "invisible cetacean"
   };
 
   const mushroomCategories = {
@@ -208,6 +240,15 @@
     "strategie-i-mity": { label: "Strategies and myths", short: "Strategies" },
     "woda-i-gory": { label: "Water and mountains", short: "Niches" },
     "rzadkie-goscie": { label: "Rare visitors", short: "Visitors" }
+  };
+
+  const mammalCategories = {
+    "mikrossaki-i-jad": { label: "Micromammals and venom", short: "Micro" },
+    "nietoperze-i-zimowiska": { label: "Bats and winter refuges", short: "Bats" },
+    "gryzonie-relikty-inzynierowie": { label: "Rodents, relics and engineers", short: "Rodents" },
+    "puszcze-i-turnie": { label: "Primeval forests and crags", short: "Wildlands" },
+    "drapiezniki-i-zmiany-arealow": { label: "Predators and range shifts", short: "Predators" },
+    "baltyckie-ssaki-morskie": { label: "Baltic marine mammals", short: "Baltic" }
   };
 
   const treeCategories = {
@@ -301,6 +342,14 @@
       "woda-i-gory": "marshes, fast streams, mountain cliffs and wet forests with strongly specialized bird niches",
       "rzadkie-goscie": "coasts, wetlands, fields and reservoirs where vagrant birds may briefly appear"
     },
+    ssaki: {
+      "mikrossaki-i-jad": "leaf litter, damp banks, underground corridors and small mammal microhabitats where metabolism and senses dominate",
+      "nietoperze-i-zimowiska": "old forests, water edges, attics, caves, bunkers and humid underground refuges used through the year",
+      "gryzonie-relikty-inzynierowie": "steppe grasslands, old woods, mountain meadows, wetlands and water edges shaped by rodents",
+      "puszcze-i-turnie": "large forest mosaics, mountain crags, alpine grasslands and wide protected landscapes",
+      "drapiezniki-i-zmiany-arealow": "fields, wetlands, forests, river valleys and human-shaped mosaics where predators track prey and range shifts",
+      "baltyckie-ssaki-morskie": "Baltic waters, sandbars, beaches and quiet coastal haul-out or feeding areas"
+    },
     drzewa: {
       "zapach-i-chemia": "parks, streets, arboreta and old plantings where bark, resin, leaves or fruits create a memorable chemical story",
       "swiatlo-i-mikrozycie": "dead wood, old trunks, forest litter and living-decay boundaries where fungi and wood organisms become visible",
@@ -363,6 +412,9 @@
     if (collectionId === "ptaki") {
       return "Educational material only; observe from a distance and do not disturb nests, leks or rare-bird sites.";
     }
+    if (collectionId === "ssaki") {
+      return "Educational material only; observe mammals from a distance, do not handle wild animals, disturb bat roosts or approach large mammals and seals.";
+    }
     if (collectionId === "drzewa") {
       return "Educational material only; veteran trees and memorial sites should be observed from a distance without damaging bark, roots or supports.";
     }
@@ -386,6 +438,7 @@
     if (collectionId === "kwiaty") return "Recorded in Poland as a native, wild or established plant curiosity, depending strongly on habitat.";
     if (collectionId === "ryby") return "Recorded in Polish waters or included as a rare visitor from the marine edge of the atlas.";
     if (collectionId === "ptaki") return "Recorded in Poland as a breeding bird, migrant or rare visitor, depending on the species.";
+    if (collectionId === "ssaki") return "Recorded in Poland as a native, reintroduced, expanding, invasive or Baltic mammal curiosity, depending on the species.";
     if (collectionId === "drzewa") return "Recorded in Poland as a named veteran tree, unusual stand, planted exotic or dendrological phenomenon.";
     if (collectionId === "mineraly") return "Recorded in Poland as a mineral, mineralogical material, ore curiosity or representative geological specimen.";
     if (collectionId === "formacje-skalne") return "Recorded in Poland as a rock formation, protected outcrop, landform, erratic or geologically distinctive site.";
@@ -399,6 +452,7 @@
     if (collectionId === "kwiaty") return "Observe without collecting; many plant curiosities depend on fragile microhabitats.";
     if (collectionId === "ryby") return "Treat the note as natural-history context, not as identification, fishing or handling advice.";
     if (collectionId === "ptaki") return "Use this as natural-history context, not as a reason to approach nests, roosts or sensitive sites.";
+    if (collectionId === "ssaki") return "Treat this as natural-history context, not as handling, tracking, feeding or site-disclosure guidance.";
     if (collectionId === "drzewa") return "Treat this as natural-history and cultural context, not as a reason to climb, enter cavities or disturb roots.";
     if (collectionId === "mineraly") return "Treat this as mineralogical context, not as permission to collect, enter mines or handle hazardous specimens.";
     if (collectionId === "formacje-skalne") return "Treat this as geological context, not as permission to climb, collect rock, leave trails or enter restricted caves.";
@@ -1749,6 +1803,42 @@
     "niedzwiedzie-jaskiniowe-kletna": { name: "Cave bears of Kletno" }
   };
 
+  const mammalText = {
+    "ryjowka-malutka": { name: "Eurasian pygmy shrew" },
+    "ryjowka-aksamitna": { name: "Common shrew" },
+    "ryjowka-srednia": { name: "Laxmann's shrew" },
+    "ryjowka-gorska": { name: "Alpine shrew" },
+    "rzesorek-rzeczek": { name: "Eurasian water shrew" },
+    "rzesorek-mniejszy": { name: "Mediterranean water shrew" },
+    "kret-europejski": { name: "European mole" },
+    "nocek-duzy": { name: "Greater mouse-eared bat" },
+    "nocek-rudy": { name: "Daubenton's bat" },
+    "nocek-lydkowlosy": { name: "Pond bat" },
+    "nocek-bechsteina": { name: "Bechstein's bat" },
+    "nocek-natterera": { name: "Natterer's bat" },
+    "nocek-wasatek": { name: "Whiskered bat" },
+    "susel-perelkowany": { name: "Speckled ground squirrel" },
+    "chomik-europejski": { name: "European hamster" },
+    "popielica-szara": { name: "Edible dormouse" },
+    orzesznica: { name: "Hazel dormouse" },
+    "koszatka-lesna": { name: "Forest dormouse" },
+    "zolednica-europejska": { name: "Garden dormouse" },
+    "swistak-tatrzanski": { name: "Tatra marmot" },
+    "bobr-europejski": { name: "Eurasian beaver" },
+    pizmak: { name: "Muskrat" },
+    "zubr-europejski": { name: "European bison" },
+    "kozica-tatrzanska": { name: "Tatra chamois" },
+    jenot: { name: "Raccoon dog" },
+    "norka-amerykanska": { name: "American mink" },
+    "szop-pracz": { name: "Raccoon" },
+    "szakal-zlocisty": { name: "Golden jackal" },
+    lasica: { name: "Least weasel" },
+    gronostaj: { name: "Stoat" },
+    "zajac-bielak": { name: "Mountain hare" },
+    "foka-szara": { name: "Grey seal" },
+    "morswin-zwyczajny": { name: "Harbour porpoise" }
+  };
+
   const atmosphereAstronomyText = {
     "widmo-brockenu": { name: "Brocken spectre" },
     gloria: { name: "Glory" },
@@ -1797,7 +1887,7 @@
         skipLink: "Przejdź do treści",
         heroEyebrow: "Atlas • Polska • kolekcje przyrodnicze",
         heroTitle: "Atlas Osobliwości Polski",
-        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o minerały, formacje skalne i następne osobliwości.",
+        heroLead: "Wybierz kolekcję i ucz się przez atlas, fiszki, quiz oraz źródła. Projekt rośnie o minerały, formacje skalne, ssaki i następne osobliwości.",
         quickActions: "Szybkie akcje",
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
@@ -1877,7 +1967,7 @@
         skipLink: "Skip to content",
         heroEyebrow: "Atlas • Poland • nature collections",
         heroTitle: "Atlas of Polish Curiosities",
-        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes minerals, rock formations and the next curiosities.",
+        heroLead: "Choose a collection and learn through the atlas, flashcards, quiz and sources. The project now includes minerals, rock formations, mammals and the next curiosities.",
         quickActions: "Quick actions",
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
@@ -2009,6 +2099,17 @@
           source_note: "Descriptions start from two working lists of unusual Polish avifauna. Photos come from Wikimedia Commons with full attribution.",
           categories: birdCategories,
           items: makeItemMap("ptaki", birdText)
+        },
+        ssaki: {
+          title: "Mammals",
+          heading: "Unusual Mammals of Poland",
+          subtitle: "33 mammal curiosities of Poland: Dehnel shrews, venomous water shrews, MRU bats, steppe and Tatra relics, bison, expanding predators and Baltic mammals.",
+          count_label: "33 curiosities",
+          search_placeholder: "e.g. shrew, bat, bison, porpoise...",
+          safety_notice: "Educational prototype. Observe mammals from a distance: do not handle small animals, disturb bat winter roosts, approach large mammals or seals, or reveal sensitive sites.",
+          source_note: "Descriptions start from the supplied working material on unusual Polish mammals. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
+          categories: mammalCategories,
+          items: makeItemMap("ssaki", mammalText)
         },
         drzewa: {
           title: "Trees",

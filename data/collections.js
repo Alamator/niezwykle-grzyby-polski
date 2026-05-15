@@ -4,6 +4,7 @@
   const flowerData = window.FLOWER_APP_DATA;
   const fishData = window.FISH_APP_DATA;
   const birdData = window.BIRD_APP_DATA;
+  const mammalData = window.MAMMAL_APP_DATA;
   const treeData = window.TREE_APP_DATA;
   const mineralData = window.MINERAL_APP_DATA;
   const rockFormationData = window.ROCK_FORMATION_APP_DATA;
@@ -104,6 +105,23 @@
     });
   }
 
+  if (mammalData) {
+    collections.push({
+      id: "ssaki",
+      title: "Ssaki",
+      heading: "Osobliwe ssaki Polski",
+      subtitle: mammalData.subtitle,
+      count_label: "33 osobliwości",
+      icon: "S",
+      accent: "fur",
+      search_placeholder: "np. ryjówka, nocek, żubr, morświn...",
+      safety_notice: mammalData.safety_notice,
+      source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach teriofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      categories: mammalData.categories,
+      items: mammalData.mammals
+    });
+  }
+
   if (treeData) {
     collections.push({
       id: "drzewa",
@@ -191,7 +209,7 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, drzewa, minerały, formacje skalne, skamieniałości, niebo i kolejne osobliwości polskiej przyrody.",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, drzewa, minerały, formacje skalne, skamieniałości, niebo i kolejne osobliwości polskiej przyrody.",
     version: "0.1.0-collections",
     views,
     collections
