@@ -26,6 +26,8 @@ assert(scriptSources.includes("./data/fossils.js"), "index.html should load data
 assert(scriptSources.includes("./data/fossil-photo-pack-v01.js"), "index.html should load fossil Commons photo pack");
 assert(scriptSources.includes("./data/atmosphere-astronomy.js"), "index.html should load data/atmosphere-astronomy.js");
 assert(scriptSources.includes("./data/atmosphere-astronomy-photo-pack-v01.js"), "index.html should load atmosphere and astronomy Commons photo pack");
+assert(scriptSources.includes("./data/mammals.js"), "index.html should load data/mammals.js");
+assert(scriptSources.includes("./data/mammal-photo-pack-v01.js"), "index.html should load mammal Commons photo pack");
 assert(scriptSources.includes("./data/collections.js"), "index.html should load data/collections.js");
 assert(scriptSources.includes("./data/i18n.js"), "index.html should load data/i18n.js");
 assert(
@@ -73,6 +75,11 @@ assert(
   "atmosphere and astronomy photo pack should load after atmosphere-astronomy.js and before collections.js"
 );
 assert(
+  scriptSources.indexOf("./data/mammals.js") < scriptSources.indexOf("./data/mammal-photo-pack-v01.js") &&
+    scriptSources.indexOf("./data/mammal-photo-pack-v01.js") < scriptSources.indexOf("./data/collections.js"),
+  "mammal photo pack should load after mammals.js and before collections.js"
+);
+assert(
   scriptSources.indexOf("./data/collections.js") < scriptSources.indexOf("./js/app.js"),
   "collections.js should load before app.js"
 );
@@ -101,7 +108,7 @@ assert.equal(i18n.languages.en.label, "EN", "English language metadata should ex
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
 
 const collections = app.collections || [];
-assert.equal(collections.length, 10, "atlas should expose mushrooms, insects, flowers, fish, birds, trees, minerals, rock formations, fossils and sky phenomena");
+assert.equal(collections.length, 11, "atlas should expose mushrooms, insects, flowers, fish, birds, trees, minerals, rock formations, fossils, sky phenomena and mammals");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -113,6 +120,7 @@ const minerals = collections.find((collection) => collection.id === "mineraly");
 const rockFormations = collections.find((collection) => collection.id === "formacje-skalne");
 const fossils = collections.find((collection) => collection.id === "skamienialosci");
 const skyPhenomena = collections.find((collection) => collection.id === "atmosfera-astronomia");
+const mammals = collections.find((collection) => collection.id === "ssaki");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -123,6 +131,7 @@ assert(minerals, "mineral collection should exist");
 assert(rockFormations, "rock formation collection should exist");
 assert(fossils, "fossil collection should exist");
 assert(skyPhenomena, "atmosphere and astronomy collection should exist");
+assert(mammals, "mammal collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -133,6 +142,7 @@ assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mi
 assert.equal(rockFormations.items.length, 33, "rock formation collection should contain 33 geological curiosities");
 assert.equal(fossils.items.length, 33, "fossil collection should contain 33 paleontological curiosities");
 assert.equal(skyPhenomena.items.length, 33, "atmosphere and astronomy collection should contain 33 sky and weather curiosities");
+assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mammal curiosities");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -229,6 +239,18 @@ assert(
   skyPhenomena.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "atmosphere and astronomy image sources should link to Wikimedia Commons file pages"
 );
+const mammalImages = mammals.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(mammalImages.length, 33, "mammal collection should include 33 curated images with attribution");
+assert(
+  mammals.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  "mammal images should use Wikimedia Commons Special:Redirect links"
+);
+assert(
+  mammals.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  "mammal image sources should link to Wikimedia Commons file pages"
+);
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   29,
@@ -290,6 +312,12 @@ assert(skyPhenomena.categories.some((category) => category.label === "Niebo nocn
 assert(skyPhenomena.items.some((item) => item.name_pl === "Widmo Brockenu"), "atmosphere and astronomy collection should include the Brocken spectre from the source file");
 assert(skyPhenomena.items.some((item) => item.name_pl === "Obłoki srebrzyste"), "atmosphere and astronomy collection should include noctilucent clouds from the source file");
 assert(skyPhenomena.items.some((item) => item.name_pl === "Zorze polarne nad Polską"), "atmosphere and astronomy collection should include auroras over Poland from the source file");
+assert(mammals.subtitle.includes("ssacze osobliwości"), "mammal subtitle should describe mammal curiosities");
+assert(mammals.categories.some((category) => category.label === "Mikrossaki i jad"), "mammal categories should use Polish diacritics");
+assert(mammals.items.some((item) => item.name_pl === "Ryjówka aksamitna"), "mammal collection should include the Dehnel phenomenon shrew from the source file");
+assert(mammals.items.some((item) => item.name_pl === "Rzęsorek rzeczek"), "mammal collection should include the venomous water shrew from the source file");
+assert(mammals.items.some((item) => item.name_pl === "Żubr europejski"), "mammal collection should include the European bison from the source file");
+assert(mammals.items.some((item) => item.name_pl === "Morświn zwyczajny"), "mammal collection should include the Baltic porpoise from the source file");
 
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
