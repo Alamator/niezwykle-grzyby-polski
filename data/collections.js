@@ -1,6 +1,9 @@
 (() => {
   // Each entry: static metadata visible before data loads + scripts to lazy-fetch + builder that
   // pulls live data from the window globals defined by those scripts.
+  // Within "przyroda-zywa" the order follows an evolutionary / complexity progression used in
+  // Polish biology textbooks: Fungi → plants (herbaceous → woody) → invertebrates → vertebrates
+  // (fish → amphibians and reptiles → birds → mammals).
   const COLLECTION_BUILDERS = [
     {
       id: "grzyby",
@@ -29,24 +32,6 @@
       }
     },
     {
-      id: "owady",
-      group: "przyroda-zywa",
-      title: "Owady",
-      heading: "Osobliwe owady Polski",
-      subtitle: "30 rzadkich, dziwnych i zapadających w pamięć owadów spotykanych w Polsce.",
-      count_label: "30 osobliwości",
-      icon: "O",
-      accent: "amber",
-      search_placeholder: "np. oleica, świetlik, jelonek...",
-      source_note: "Opisy startują z listy roboczej. Zdjęcia i atrybucje będziemy uzupełniać stopniowo z legalnych źródeł.",
-      scripts: ["/data/insects.js"],
-      build: () => {
-        const data = window.INSECT_APP_DATA;
-        if (!data) return null;
-        return { safety_notice: data.safety_notice, categories: data.categories, items: data.insects };
-      }
-    },
-    {
       id: "kwiaty",
       group: "przyroda-zywa",
       title: "Kwiaty",
@@ -65,6 +50,42 @@
       }
     },
     {
+      id: "drzewa",
+      group: "przyroda-zywa",
+      title: "Drzewa",
+      heading: "Osobliwe drzewa Polski",
+      subtitle: "Te dendrologiczne osobliwości Polski to 30 historii zapachu, światła próchna, deformacji, rekordów wieku, pamięci miejsc, katastrof i parkowych egzotów.",
+      count_label: "30 osobliwości",
+      icon: "D",
+      accent: "leaf",
+      search_placeholder: "np. sosna, dąb, cis, platan...",
+      source_note: "Opisy powstały na bazie listy roboczej o osobliwościach dendrologicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      scripts: ["/data/trees.js", "/data/tree-photo-pack-v01.js"],
+      build: () => {
+        const data = window.TREE_APP_DATA;
+        if (!data) return null;
+        return { safety_notice: data.safety_notice, categories: data.categories, items: data.trees };
+      }
+    },
+    {
+      id: "owady",
+      group: "przyroda-zywa",
+      title: "Owady",
+      heading: "Osobliwe owady Polski",
+      subtitle: "30 rzadkich, dziwnych i zapadających w pamięć owadów spotykanych w Polsce.",
+      count_label: "30 osobliwości",
+      icon: "O",
+      accent: "amber",
+      search_placeholder: "np. oleica, świetlik, jelonek...",
+      source_note: "Opisy startują z listy roboczej. Zdjęcia i atrybucje będziemy uzupełniać stopniowo z legalnych źródeł.",
+      scripts: ["/data/insects.js"],
+      build: () => {
+        const data = window.INSECT_APP_DATA;
+        if (!data) return null;
+        return { safety_notice: data.safety_notice, categories: data.categories, items: data.insects };
+      }
+    },
+    {
       id: "ryby",
       group: "przyroda-zywa",
       title: "Ryby",
@@ -80,6 +101,24 @@
         const data = window.FISH_APP_DATA;
         if (!data) return null;
         return { safety_notice: data.safety_notice, categories: data.categories, items: data.fish };
+      }
+    },
+    {
+      id: "plazy-gady",
+      group: "przyroda-zywa",
+      title: "Płazy i Gady",
+      heading: "Osobliwe płazy i gady Polski",
+      subtitle: "30 herpetologiczne osobliwości Polski: błękitne gody żaby moczarowej, czosnkowa obrona grzebiuszki, odruch kumaka, grzebienie traszek, nadrzewne rzekotki, reliktowe węże, żółw błotny i inwazyjne żółwie ozdobne.",
+      count_label: "30 osobliwości",
+      icon: "P+G",
+      accent: "herp",
+      search_placeholder: "np. żaba moczarowa, kumak, żółw, żmija...",
+      source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach herpetofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
+      scripts: ["/data/amphibians-reptiles.js", "/data/amphibian-reptile-photo-pack-v01.js"],
+      build: () => {
+        const data = window.AMPHIBIAN_REPTILE_APP_DATA;
+        if (!data) return null;
+        return { safety_notice: data.safety_notice, categories: data.categories, items: data.amphibiansReptiles };
       }
     },
     {
@@ -116,42 +155,6 @@
         const data = window.MAMMAL_APP_DATA;
         if (!data) return null;
         return { safety_notice: data.safety_notice, categories: data.categories, items: data.mammals };
-      }
-    },
-    {
-      id: "plazy-gady",
-      group: "przyroda-zywa",
-      title: "Płazy i Gady",
-      heading: "Osobliwe płazy i gady Polski",
-      subtitle: "30 herpetologiczne osobliwości Polski: błękitne gody żaby moczarowej, czosnkowa obrona grzebiuszki, odruch kumaka, grzebienie traszek, nadrzewne rzekotki, reliktowe węże, żółw błotny i inwazyjne żółwie ozdobne.",
-      count_label: "30 osobliwości",
-      icon: "P+G",
-      accent: "herp",
-      search_placeholder: "np. żaba moczarowa, kumak, żółw, żmija...",
-      source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach herpetofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/amphibians-reptiles.js", "/data/amphibian-reptile-photo-pack-v01.js"],
-      build: () => {
-        const data = window.AMPHIBIAN_REPTILE_APP_DATA;
-        if (!data) return null;
-        return { safety_notice: data.safety_notice, categories: data.categories, items: data.amphibiansReptiles };
-      }
-    },
-    {
-      id: "drzewa",
-      group: "przyroda-zywa",
-      title: "Drzewa",
-      heading: "Osobliwe drzewa Polski",
-      subtitle: "Te dendrologiczne osobliwości Polski to 30 historii zapachu, światła próchna, deformacji, rekordów wieku, pamięci miejsc, katastrof i parkowych egzotów.",
-      count_label: "30 osobliwości",
-      icon: "D",
-      accent: "leaf",
-      search_placeholder: "np. sosna, dąb, cis, platan...",
-      source_note: "Opisy powstały na bazie listy roboczej o osobliwościach dendrologicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/trees.js", "/data/tree-photo-pack-v01.js"],
-      build: () => {
-        const data = window.TREE_APP_DATA;
-        if (!data) return null;
-        return { safety_notice: data.safety_notice, categories: data.categories, items: data.trees };
       }
     },
     {
@@ -447,8 +450,8 @@
 
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
-    subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, skamieniałości, niebo, rekordy krajobrazu i kolejne osobliwości Polski.",
-    version: "0.3.0-groups",
+    subtitle: "Jedno miejsce na niezwykłe grzyby, kwiaty, drzewa, owady, ryby, płazy i gady, ptaki, ssaki, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, skamieniałości, niebo i rekordy krajobrazu.",
+    version: "0.4.0-evolutionary-order",
     views,
     groups,
     collections,
