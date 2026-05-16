@@ -1,7 +1,7 @@
 {
   "name": "Atlas Osobliwości Polski",
   "short_name": "Osobliwości PL",
-  "description": "Interaktywny atlas, nauka, quiz i źródła o osobliwościach polskiej przyrody.",
+  "description": "Interaktywny atlas, nauka, quiz i źródła o osobliwościach polskiej przyrody i kultury.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6f0e5",
@@ -10,7 +10,26 @@
     {
       "src": "./assets/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/aop-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
