@@ -215,6 +215,66 @@ h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
 }
 
 .app-main { padding: 1.2rem 0 2rem; }
+.about {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.25rem 0 1.5rem;
+}
+.about__head {
+  display: grid;
+  gap: .5rem;
+  max-width: 760px;
+}
+.about__head h2 {
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: 0;
+}
+.about__lead {
+  margin: .75rem 0 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--accent-2);
+  background: rgba(255, 250, 240, .55);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.about__lead p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+.about__lead cite {
+  display: block;
+  margin-top: .55rem;
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 800;
+  font-size: .92rem;
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.about-card {
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: 0 12px 34px rgba(28, 40, 31, 0.08);
+}
+.about-card h3 {
+  margin: 0 0 .55rem;
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+.about-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.55;
+}
 .collection-picker { padding: .25rem 0 1rem; }
 .collection-grid,
 .collection-group__grid {
@@ -671,6 +731,8 @@ th { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-sp
   .hero { grid-template-columns: 1fr; gap: 1.25rem; }
   .hero__badge { min-height: 190px; }
   .hero__logo { max-width: 220px; border-radius: 24px; }
+  .about__head h2 { font-size: 1.85rem; }
+  .about__grid { grid-template-columns: 1fr; }
   .filters { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
