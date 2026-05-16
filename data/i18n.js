@@ -2502,6 +2502,7 @@
         languageLabel: "Wybór języka",
         chooseCollection: "Wybierz kolekcję",
         collectionsEyebrow: "Kolekcje",
+        groupEyebrow: "Sekcja",
         collectionsTitle: "Wybierz atlas",
         collectionsNote: "Każdy dział ma ten sam rytm: Atlas, Nauka, Quiz i Źródła.",
         appNavLabel: "Nawigacja aplikacji",
@@ -2582,6 +2583,7 @@
         languageLabel: "Language selection",
         chooseCollection: "Choose a collection",
         collectionsEyebrow: "Collections",
+        groupEyebrow: "Section",
         collectionsTitle: "Choose an atlas",
         collectionsNote: "Each section follows the same rhythm: Atlas, Learn, Quiz and Sources.",
         appNavLabel: "Application navigation",
@@ -2852,6 +2854,36 @@
           source_note: "Descriptions start from the supplied working material on Polish landscape records and curiosities. Photos come from Wikimedia Commons with full attribution; contextual and representative frames are labelled honestly.",
           categories: landscapeRecordCategories,
           items: makeItemMap("rekordy-krajobrazu", {})
+        }
+      }
+    },
+    groups: {
+      pl: {
+        "przyroda-zywa": {
+          label: "Przyroda żywa",
+          description: "Fauna i flora Polski — od bioluminescencji po reliktowe gatunki."
+        },
+        "ziemia-niebo": {
+          label: "Ziemia i niebo",
+          description: "Geologia, minerały, formacje skalne, atmosfera i krajobraz."
+        },
+        "czlowiek-kultura": {
+          label: "Człowiek i kultura",
+          description: "Architektura, technika i pamięć — ślady ludzi w polskim krajobrazie."
+        }
+      },
+      en: {
+        "przyroda-zywa": {
+          label: "Living nature",
+          description: "Polish flora and fauna — from bioluminescence to relict species."
+        },
+        "ziemia-niebo": {
+          label: "Earth & sky",
+          description: "Geology, minerals, rock formations, atmosphere and landscape."
+        },
+        "czlowiek-kultura": {
+          label: "People & culture",
+          description: "Architecture, technology and memory — human traces in the Polish landscape."
         }
       }
     }
