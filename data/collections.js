@@ -4,6 +4,7 @@
   const COLLECTION_BUILDERS = [
     {
       id: "grzyby",
+      group: "przyroda-zywa",
       title: "Grzyby",
       heading: "Niezwykłe grzyby Polski",
       subtitle: "60 grzybowych osobliwości: formy, kolory, zapachy i gatunki, które łatwo zapamiętać.",
@@ -29,6 +30,7 @@
     },
     {
       id: "owady",
+      group: "przyroda-zywa",
       title: "Owady",
       heading: "Osobliwe owady Polski",
       subtitle: "30 rzadkich, dziwnych i zapadających w pamięć owadów spotykanych w Polsce.",
@@ -46,6 +48,7 @@
     },
     {
       id: "kwiaty",
+      group: "przyroda-zywa",
       title: "Kwiaty",
       heading: "Osobliwe kwiaty i rośliny Polski",
       subtitle: "31 polskie, dziko rosnące lub zadomowione osobliwości roślinne: pułapki, zapachy, mimikra, pasożyty i relikty.",
@@ -63,6 +66,7 @@
     },
     {
       id: "ryby",
+      group: "przyroda-zywa",
       title: "Ryby",
       heading: "Osobliwe ryby polskich wód",
       subtitle: "32 rybie osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
@@ -80,6 +84,7 @@
     },
     {
       id: "ptaki",
+      group: "przyroda-zywa",
       title: "Ptaki",
       heading: "Osobliwe ptaki Polski",
       subtitle: "32 ptasie osobliwości Polski: rekordy skali, lotu, zmysłów, gniazd, strategii, mokradeł, gór i rzadkich gości.",
@@ -97,6 +102,7 @@
     },
     {
       id: "ssaki",
+      group: "przyroda-zywa",
       title: "Ssaki",
       heading: "Osobliwe ssaki Polski",
       subtitle: "33 ssacze osobliwości Polski: ryjówki ze zjawiskiem Dehnela, jadowite rzęsorki, nietoperze z MRU, relikty stepów i Tatr, żubr, ekspansywne drapieżniki oraz ssaki Bałtyku.",
@@ -114,6 +120,7 @@
     },
     {
       id: "plazy-gady",
+      group: "przyroda-zywa",
       title: "Płazy i Gady",
       heading: "Osobliwe płazy i gady Polski",
       subtitle: "30 herpetologiczne osobliwości Polski: błękitne gody żaby moczarowej, czosnkowa obrona grzebiuszki, odruch kumaka, grzebienie traszek, nadrzewne rzekotki, reliktowe węże, żółw błotny i inwazyjne żółwie ozdobne.",
@@ -131,6 +138,7 @@
     },
     {
       id: "drzewa",
+      group: "przyroda-zywa",
       title: "Drzewa",
       heading: "Osobliwe drzewa Polski",
       subtitle: "Te dendrologiczne osobliwości Polski to 30 historii zapachu, światła próchna, deformacji, rekordów wieku, pamięci miejsc, katastrof i parkowych egzotów.",
@@ -148,6 +156,7 @@
     },
     {
       id: "mineraly",
+      group: "ziemia-niebo",
       title: "Minerały",
       heading: "Osobliwe minerały Polski",
       subtitle: "33 mineralogiczne osobliwości Polski: endemity IMA, kruszce, sole, agaty, krzemień pasiasty, bursztyn i minerały z dawnych kopalń.",
@@ -165,6 +174,7 @@
     },
     {
       id: "formacje-skalne",
+      group: "ziemia-niebo",
       title: "Formacje skalne",
       heading: "Osobliwe formacje skalne Polski",
       subtitle: "33 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
@@ -182,6 +192,7 @@
     },
     {
       id: "architektura-drewniana",
+      group: "czlowiek-kultura",
       title: "Architektura drewniana",
       heading: "Architektoniczne osobliwości: drewno",
       subtitle: "30 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
@@ -200,6 +211,7 @@
     },
     {
       id: "podziemia",
+      group: "czlowiek-kultura",
       title: "Podziemia",
       heading: "Podziemia Atlasu Osobliwości",
       subtitle: "30 podziemnych osobliwości Polski: kopalnie soli, krzemienia i srebra, miejskie piwnice, sztolnie, schrony oraz tajemnice Gór Sowich.",
@@ -218,6 +230,7 @@
     },
     {
       id: "cuda-inzynierii",
+      group: "czlowiek-kultura",
       title: "Cuda Inżynierii",
       heading: "Techniczne osobliwości Polski",
       subtitle: "33 techniczne osobliwości Polski: kanały, śluzy, tężnie, radiostacje, hale, zapory, mosty, tunele, koleje i przemysłowe miasta.",
@@ -236,6 +249,7 @@
     },
     {
       id: "twierdze-ruiny",
+      group: "czlowiek-kultura",
       title: "Twierdze i Ruiny",
       heading: "Twierdze, ruiny i zapomniane miejsca",
       subtitle: "33 osobliwości twierdz i ruin Polski: miasta idealne, zamki-legendy, twierdze, opuszczone pałace i konstrukcje, które zostały po ambicji.",
@@ -254,6 +268,7 @@
     },
     {
       id: "memento-mori",
+      group: "czlowiek-kultura",
       title: "Memento Mori",
       heading: "Memento Mori: miejsca pamięci i przemijania",
       subtitle: "30 miejsc pamięci i przemijania: ossuaria, cmentarze, nekropolie, miejsca Zagłady, martyrologii, wojenne cmentarze, kopce i pradawne pochówki.",
@@ -272,6 +287,7 @@
     },
     {
       id: "skamienialosci",
+      group: "ziemia-niebo",
       title: "Skamieniałości",
       heading: "Osobliwe skamieniałości Polski",
       subtitle: "33 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
@@ -289,6 +305,7 @@
     },
     {
       id: "atmosfera-astronomia",
+      group: "ziemia-niebo",
       title: "Atmosfera i astronomia",
       heading: "Osobliwości atmosferyczne i astronomiczne Polski",
       subtitle: "33 atmosferyczne i astronomiczne osobliwości Polski: widmo Brockenu, duszki, białe noce, obłoki srebrzyste, ciemne niebo, zorze, Bałtyk jako fabryka śniegu, dalekie obserwacje, mrozowiska i pył saharyjski.",
@@ -306,6 +323,7 @@
     },
     {
       id: "rekordy-krajobrazu",
+      group: "ziemia-niebo",
       title: "Rekordy krajobrazu",
       heading: "Rekordy i osobliwości krajobrazowe Polski",
       subtitle: "56 krajobrazowych osobliwości Polski: polska pustynia, ruchome wydmy, krzywy las, klify, bagna, kolorowe jeziora, przełomy, dawne wulkany, mikroklimaty i miejsca jak z innej mapy.",
@@ -331,10 +349,30 @@
     { id: "sources", label: "Źródła" }
   ];
 
+  // Group manifest — labels and descriptions are the Polish fallback. i18n.js can override per language.
+  const groups = [
+    {
+      id: "przyroda-zywa",
+      label: "Przyroda żywa",
+      description: "Fauna i flora Polski — od bioluminescencji po reliktowe gatunki."
+    },
+    {
+      id: "ziemia-niebo",
+      label: "Ziemia i niebo",
+      description: "Geologia, minerały, formacje skalne, atmosfera i krajobraz."
+    },
+    {
+      id: "czlowiek-kultura",
+      label: "Człowiek i kultura",
+      description: "Architektura, technika i pamięć — ślady ludzi w polskim krajobrazie."
+    }
+  ];
+
   // Placeholders rendered on the home grid before any collection is opened. items[] stays empty
   // until loadCollection() pulls the matching data files.
   const collections = COLLECTION_BUILDERS.map((builder) => ({
     id: builder.id,
+    group: builder.group,
     title: builder.title,
     heading: builder.heading,
     subtitle: builder.subtitle,
@@ -410,8 +448,9 @@
   window.ATLAS_APP_DATA = {
     project: "Atlas Osobliwości Polski",
     subtitle: "Jedno miejsce na niezwykłe grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architekturę drewnianą, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, skamieniałości, niebo, rekordy krajobrazu i kolejne osobliwości Polski.",
-    version: "0.2.0-lazy-load",
+    version: "0.3.0-groups",
     views,
+    groups,
     collections,
     loadCollection
   };

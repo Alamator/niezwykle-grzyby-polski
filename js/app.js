@@ -108,6 +108,17 @@
     return collectionTranslation(collection)[field] || collection[field] || "";
   }
 
+  function groupTranslation(groupId) {
+    return i18n.groups?.[state.language]?.[groupId] || {};
+  }
+
+  function groupText(groupId, field) {
+    const trans = groupTranslation(groupId);
+    if (trans[field]) return trans[field];
+    const group = (app.groups || []).find((g) => g.id === groupId);
+    return group?.[field] || "";
+  }
+
   function items() {
     return activeCollection().items || [];
   }
@@ -248,19 +259,51 @@
     renderCollections();
   }
 
+  function collectionCardHtml(collection) {
+    const title = collectionText(collection, "title");
+    return `
+      <article class="collection-card collection-card--${escapeHtml(collection.accent || "default")}">
+        <div class="collection-card__icon" aria-hidden="true">${escapeHtml(collection.icon || title.slice(0, 1))}</div>
+        <div>
+          <p class="eyebrow">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
+          <h3>${escapeHtml(title)}</h3>
+          <p>${escapeHtml(collectionText(collection, "subtitle"))}</p>
+        </div>
+        <button class="primary" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(t("collectionCardButton"))}</button>
+      </article>`;
+  }
+
   function renderCollections() {
-    $("#collectionGrid").innerHTML = app.collections.map((collection) => {
-      const title = collectionText(collection, "title");
+    const grid = $("#collectionGrid");
+    const groups = Array.isArray(app.groups) ? app.groups : [];
+    const byGroup = new Map();
+    for (const collection of app.collections) {
+      if (!collection.group) continue;
+      if (!byGroup.has(collection.group)) byGroup.set(collection.group, []);
+      byGroup.get(collection.group).push(collection);
+    }
+    const orderedGroups = groups.filter((g) => byGroup.has(g.id));
+
+    if (!orderedGroups.length) {
+      grid.classList.remove("is-grouped");
+      grid.innerHTML = app.collections.map(collectionCardHtml).join("");
+      return;
+    }
+
+    grid.classList.add("is-grouped");
+    grid.innerHTML = orderedGroups.map((group) => {
+      const label = groupText(group.id, "label");
+      const description = groupText(group.id, "description");
+      const cards = byGroup.get(group.id).map(collectionCardHtml).join("");
       return `
-        <article class="collection-card collection-card--${escapeHtml(collection.accent || "default")}">
-          <div class="collection-card__icon" aria-hidden="true">${escapeHtml(collection.icon || title.slice(0, 1))}</div>
-          <div>
-            <p class="eyebrow">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
-            <h3>${escapeHtml(title)}</h3>
-            <p>${escapeHtml(collectionText(collection, "subtitle"))}</p>
-          </div>
-          <button class="primary" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(t("collectionCardButton"))}</button>
-        </article>`;
+        <section class="collection-group" data-group="${escapeHtml(group.id)}">
+          <header class="collection-group__head">
+            <p class="eyebrow">${escapeHtml(t("groupEyebrow"))}</p>
+            <h3>${escapeHtml(label)}</h3>
+            ${description ? `<p class="collection-group__lead">${escapeHtml(description)}</p>` : ""}
+          </header>
+          <div class="collection-group__grid">${cards}</div>
+        </section>`;
     }).join("");
   }
 
