@@ -214,6 +214,16 @@
     setText("#heroTitle", "heroTitle");
     setText("#heroLead", "heroLead");
     setText("#chooseCollectionHero", "chooseCollection");
+    setText("#aboutEyebrow", "aboutEyebrow");
+    setText("#about-title", "aboutTitle");
+    setText("#aboutLeadBody", "aboutLeadBody");
+    setText("#aboutLeadSignature", "aboutLeadSignature");
+    setText("#aboutCard1Title", "aboutCard1Title");
+    setText("#aboutCard1Body", "aboutCard1Body");
+    setText("#aboutCard2Title", "aboutCard2Title");
+    setText("#aboutCard2Body", "aboutCard2Body");
+    setText("#aboutCard3Title", "aboutCard3Title");
+    setText("#aboutCard3Body", "aboutCard3Body");
     setText("#collectionsEyebrow", "collectionsEyebrow");
     setText("#collections-title", "collectionsTitle");
     setText("#collectionsNote", "collectionsNote");
