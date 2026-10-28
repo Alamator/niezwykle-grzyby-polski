@@ -315,7 +315,7 @@ window.ATLAS_ITEM_TEXT_EN["ssaki"] = {
   },
   "foka-szara": {
     "name": "Grey seal",
-    "hook": "Gray seals have returned to the sandbars at the mouth of the Vistula as a visible sign of the recovery of Baltic wildlife, though their peace depends on people keeping their distance.",
+    "hook": "Grey seals have returned to the sandbars at the mouth of the Vistula as a visible sign of the recovery of Baltic wildlife, though their peace depends on people keeping their distance.",
     "quiz_angle": "recolonization of the Baltic, hauling out on sandbars, the Hel Marine Station and watching without approaching",
     "safety_note": "Do not approach seals on the beach and do not push them into the water; report injured animals to the appropriate services.",
     "region": "The Polish Baltic coast, especially the Gulf of Gdańsk, the Hel area and the sandbars at the mouth of the Vistula.",

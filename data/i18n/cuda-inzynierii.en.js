@@ -16,7 +16,7 @@ window.ATLAS_ITEM_TEXT_EN["cuda-inzynierii"] = {
   },
   "teznie-ciechocinek": {
     "name": "Ciechocinek Graduation Towers",
-    "hook": "The largest inhaler for strolling, built of wood and blackthorn.",
+    "hook": "The largest inhaler you can stroll along, made of wood and blackthorn.",
     "quiz_angle": "brine trickling down blackthorn, evaporation, aerosol and the wooden scale of the structure",
     "safety_note": "Use the paths open to visitors and follow the spa rules; do not climb onto the structure or break off blackthorn twigs.",
     "region": "Ciechocinek, Kuyavia-Pomerania.",
