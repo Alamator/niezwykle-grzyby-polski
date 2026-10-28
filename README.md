@@ -100,6 +100,11 @@ Najprostsza ścieżka:
   - Wpisy muszą się zgadzać ze stroną pliku w Wikimedia Commons, a link licencji prowadzi do tekstu licencji, nie do pliku.
   - Zdjęcia z autorem lub licencją „do weryfikacji” i niesprawdzone (`commons_candidate`) zatrzymuje `npm run test:collections`.
   - Ostatnie sprawdzenie wszystkich zdjęć: `docs/content/zdjecia-2026-10.md`.
+- Zdjęcie innego okazu, osobnika albo miejsca niż to z karty ma na początku opisu oznaczenie:
+  - „Kadr reprezentatywny: …”, gdy pokazuje podobny okaz, osobnika lub miejsce;
+  - „Kadr kontekstowy: …”, gdy pokazuje otoczenie;
+  - „Diagram reprezentatywny: …” albo „Schemat reprezentatywny: …”, gdy to rysunek.
+  - Strona pokazuje to oznaczenie pod zdjęciem. Opis, który wspomina o kadrze reprezentatywnym albo kontekstowym bez oznaczenia na początku, zatrzymuje `npm run test:collections`.
 - Przy gatunkach chronionych, toksycznych lub wrażliwych dodawać komunikat o obserwacji bez niepokojenia.
 
 ## Publikacja na Vercel

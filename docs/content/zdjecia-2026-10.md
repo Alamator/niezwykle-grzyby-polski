@@ -53,13 +53,32 @@ Atlas ma **617 kart**. Zdjęcie ma **616** z nich (601 różnych plików z Wikim
 - Zdjęcie innego okazu mogłoby wyglądać jak okaz z Krzyżanowic. Na stronie dopisek „kadr reprezentatywny” jest tylko w tekście alternatywnym i widzący czytelnik go nie widzi.
 - Karta zostaje więc bez zdjęcia, zgodnie z decyzją z 28.10.2026.
 
-## Do decyzji Roberta (poza tym PR)
+## Podpis pod kadrem reprezentatywnym (decyzja Roberta z 28.10.2026)
 
-- **Kadry reprezentatywne:** 123 karty (m.in. płazy i gady 26, minerały 25, ssaki 24, atmosfera 21, skamieniałości 15) mają zdjęcie innego okazu albo miejsca. Podpis „Kadr reprezentatywny” jest tylko w tekście alternatywnym. Można go pokazać pod zdjęciem.
+**129 zdjęć** ma pod spodem podpis: 123 kadry reprezentatywne, 3 kadry kontekstowe oraz 3 diagramy i schematy.
+
+- **Gdzie widać podpis:**
+  - kafelek w Atlasie i fiszka w Nauce: samo oznaczenie, np. „Kadr reprezentatywny”, bo pełny opis w Nauce zdradzałby odpowiedź;
+  - okno karty: cały opis zdjęcia, np. „Kadr reprezentatywny: czaszka dewońskiej ryby pancernej, użyta jako kontekst dla placoderma Alienacanthus”;
+  - po angielsku: „Representative photo”, „Context photo” albo „Representative diagram”, a w oknie karty jedno zdanie wyjaśnienia (polskich opisów zdjęć nie tłumaczymy).
+- **Jak strona rozpoznaje taki kadr:** po oznaczeniu na początku opisu zdjęcia: „Kadr reprezentatywny”, „Kadr kontekstowy”, „Diagram reprezentatywny” albo „Schemat reprezentatywny”.
+- **Ujednolicone opisy (28):** dotąd część opisów mówiła o kadrze reprezentatywnym w środku zdania albo innymi słowami. Każdy przypadek sprawdzony z opisem pliku w Commons:
+  - 20 to rzeczywiście kadry albo schematy reprezentatywne. Teraz oznaczenie jest na początku, np. nietoperze sfotografowane w Czechach, Belgii i na Słowacji, czaszka nosorożca z muzeum w Brnie, sam zamek Mirów na karcie o parze zamków.
+  - Zamek Chojnik to kadr kontekstowy: zdjęcie pokazuje dziedziniec zamku, a karta opisuje skały wzgórza.
+  - 7 zdjęć pokazuje dokładnie obiekt z karty, więc oznaczenie usunięte. Według Commons:
+    - baryt, celestyn, siarka i aragonit pochodzą z kopalni Machów, czyli z miejsca opisanego na kartach;
+    - rzekotka wschodnia jest z Białowieskiego Parku Narodowego;
+    - jenot był sfotografowany w Polsce;
+    - Maczuga Herkulesa to sama skała z karty.
+- **Test:** `npm run test:collections` zatrzyma opis, który mówi o kadrze reprezentatywnym albo kontekstowym, a nie ma oznaczenia na początku.
+
+## Do decyzji Roberta
+
 - **Nazwa iskrzyka:**
   - Commons i polska baza biomap.pl używają nazwy *Lamprohiza splendidula*. Biomap podaje rodzaj *Phausis* jako synonim rodzaju *Lamprohiza*.
   - Karta ma nazwę *Phausis splendidula*.
   - Można dopisać synonim albo zmienić nazwę.
+- **Zdjęcia spoza Polski bez oznaczenia:** paczki zdjęć ssaków, płazów i gadów oznaczają zdjęcia gatunków sfotografowanych poza Polską jako kadry reprezentatywne, a paczki ryb, ptaków, kwiatów i owadów nie. Na przykład krąp jest na zdjęciu z Finlandii bez oznaczenia. To osobna decyzja: oznaczać jednolicie wszędzie albo nigdzie przy kartach gatunków.
 
 ## Pilnuje tego test
 
