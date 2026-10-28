@@ -97,7 +97,7 @@
       hook: "Nie tyle kapelusze, co grzybnia i ciemne ryzomorfy opieniek mogą dawać zielonkawą poświatę w zupełnej ciemności.",
       quiz_angle: "bioluminescencja: własne światło grzybni i ryzomorfów, zwykle nie świecą same owocniki",
       safety_note: "nie używać świecenia do identyfikacji ani zbioru; opieńki wymagają ostrożnego oznaczania, a strona jest edukacyjna",
-      image_status: "commons_candidate",
+      image_status: "commons_verified",
       ordinal: nextOrdinal,
       category_label: glowingCategory.label,
       category_short: glowingCategory.short,
@@ -112,7 +112,7 @@
       image_author: "George Chernilevsky",
       image_source: "https://commons.wikimedia.org/wiki/File:Armillaria_mellea_2011_G1.jpg",
       image_license: "Public domain",
-      license_url: "https://commons.wikimedia.org/wiki/File:Armillaria_mellea_2011_G1.jpg",
+      license_url: "https://creativecommons.org/publicdomain/mark/1.0/",
       image_modifications: embeddedFromCommons
     },
     {
@@ -123,7 +123,7 @@
       hook: "Małe ochrowe kapelusze rosną gromadnie na martwym drewnie; wątek świecenia jest prawdziwy, ale europejskie okazy zwykle świecą słabo albo wcale.",
       quiz_angle: "bioluminescencja i fluorescencja: szczepy północnoamerykańskie bywają wyraźnie bioluminescencyjne, europejskie traktujemy ostrożnie",
       safety_note: "niejadalny; nie używać świecenia lub lampy UV jako jedynej cechy rozpoznawczej",
-      image_status: "commons_candidate",
+      image_status: "commons_verified",
       ordinal: nextOrdinal + 1,
       category_label: glowingCategory.label,
       category_short: glowingCategory.short,

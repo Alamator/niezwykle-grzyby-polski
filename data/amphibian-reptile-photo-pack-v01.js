@@ -24,6 +24,7 @@
   const ccBy20 = "https://creativecommons.org/licenses/by/2.0/";
   const ccBy30 = "https://creativecommons.org/licenses/by/3.0/";
   const ccBy40 = "https://creativecommons.org/licenses/by/4.0/";
+  const ccBySa20 = "https://creativecommons.org/licenses/by-sa/2.0/";
   const ccBySa25 = "https://creativecommons.org/licenses/by-sa/2.5/";
   const ccBySa30 = "https://creativecommons.org/licenses/by-sa/3.0/";
   const ccBySa40 = "https://creativecommons.org/licenses/by-sa/4.0/";
@@ -231,7 +232,7 @@
       "Kadr reprezentatywny: wąż Eskulapa, najdłuższy polski wąż i niejadowity dusiciel",
       "Bernard DUPONT from FRANCE",
       "CC BY-SA 2.0",
-      ccBy20
+      ccBySa20
     ),
     "zmija-zygzakowata": photo(
       "Common European viper (Vipera berus) female Pieniny.jpg",

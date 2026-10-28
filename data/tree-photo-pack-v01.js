@@ -232,7 +232,7 @@
       "Dęby Rogalińskie Lech, Czech i Rus w krajobrazie Rogalina",
       "Noaśka",
       "CC0",
-      "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      "https://creativecommons.org/publicdomain/zero/1.0/"
     )
   };
 

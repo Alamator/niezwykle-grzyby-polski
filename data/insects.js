@@ -473,7 +473,7 @@ const insectImageCredits = {
     author: "IronChris",
     source: "https://commons.wikimedia.org/wiki/File:Macroglossum_stellatarum1_NR.jpg",
     license: "CC BY-SA 3.0",
-    licenseUrl: "http://creativecommons.org/licenses/by-sa/3.0/"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
   },
   "zyrytwa-pluskwowata": {
     file: "Wasserskorpion Nepa cinerea.jpg",
@@ -580,6 +580,13 @@ const insectImageCredits = {
     license: "CC BY-SA 3.0",
     licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0"
   },
+  "iskrzyk": {
+    file: "Lamprohiza-splendidula-30-fws.jpg",
+    author: "Francisco Welter-Schultes",
+    source: "https://commons.wikimedia.org/wiki/File:Lamprohiza-splendidula-30-fws.jpg",
+    license: "CC0",
+    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
   "gasienica-zmrocznika-gladysza": {
     file: "Deilephila elpenor 11.JPG",
     author: "AfroBrazilian",
@@ -606,7 +613,7 @@ const insectImageCredits = {
     author: "Chrumps",
     source: "https://commons.wikimedia.org/wiki/File:Cetonia-aurata.jpg",
     license: "CC BY-SA 3.0",
-    licenseUrl: "http://creativecommons.org/licenses/by-sa/3.0/"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
   },
   "strzyzak-sarni": {
     file: "Lipoptena cervi (10.3897-zookeys.862.25992) Figure 2.jpg",
@@ -648,7 +655,7 @@ const insectImageCredits = {
     author: "Orchi",
     source: "https://commons.wikimedia.org/wiki/File:Lucanus_cervus_male_Saarland_22.jpg",
     license: "CC BY-SA 3.0",
-    licenseUrl: "http://creativecommons.org/licenses/by-sa/3.0/"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
   },
   "kozog-debowy": {
     file: "Cerambyx cerdo (couple).jpg",

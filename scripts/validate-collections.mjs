@@ -403,8 +403,8 @@ assert(
 );
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
-  29,
-  "insect collection should include 29 Commons images with attribution; Phausis splendidula remains without a verified photo"
+  30,
+  "insect collection should include 30 Commons images with attribution"
 );
 
 // Every photo shown in any collection needs confirmed credits checked on Commons.

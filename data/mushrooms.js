@@ -385,13 +385,12 @@ window.MUSHROOM_APP_DATA = {
       "category_icon": "🪸",
       "tags": [],
       "level": "średni",
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sparassis_crispa.JPG?width=900",
-      "image_alt": "Siedzuń sosnowy (Sparassis crispa), owocnik przypominający leśny kalafior",
-      "image_author": "Marek Młynarczyk",
-      "image_source": "https://commons.wikimedia.org/wiki/File:Sparassis_crispa.JPG",
-      "image_license": "Copyrighted free use",
-      "license_url": "https://commons.wikimedia.org/wiki/File:Sparassis_crispa.JPG"
-   ,
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Siedzu%C5%84%20sosnowy%2C%20Lubniewice.jpg?width=900",
+      "image_alt": "Siedzuń sosnowy (Sparassis crispa), kędzierzawy owocnik przypominający leśny kalafior przy pniaku sosny",
+      "image_author": "Julo",
+      "image_source": "https://commons.wikimedia.org/wiki/File:Siedzuń_sosnowy,_Lubniewice.jpg",
+      "image_license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "image_modifications": "osadzenie z Wikimedia Commons przez Special:Redirect; przeglądarka pobiera wersję skalowaną do ok. 900 px"
     },
     {
