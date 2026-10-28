@@ -220,7 +220,7 @@ Gdy zmieniała się nazwa polska (albo łacińska), dawna nazwa trafiła do pola
 | ID | Karta / temat | Status | Co zrobiono |
 | --- | --- | --- | --- |
 | C129 | Siedlce i oficjalny rekord mrozu / Litworowy Kocioł | ✅ wprowadzona | „Siedlce i rekord mrozu” (dawniej: „…i oficjalny rekord mrozu”); notka: pomiar −41 °C z 1940 r. budzi wątpliwości, a −41,1 °C zanotowano 17.02.2025 w Litworowym Kotle (wysokogórska kotlina). EN zaktualizowane. Sprzeczność między ciekawostkami F1073 i F1070 — patrz lista do decyzji. |
-| C130 | Bieszczadzki Park Gwiezdnego Nieba | ✅ wprowadzona | Oficjalna nazwa „Park Gwiezdnego Nieba „Bieszczady”” (dawniej: „Bieszczadzki Park Gwiezdnego Nieba”, zostaje w synonimach); data powołania jest w ciekawostce F1047. |
+| C130 | Bieszczadzki Park Gwiezdnego Nieba | ✅ wprowadzona | Oficjalna nazwa: Park Gwiezdnego Nieba „Bieszczady” (dawna nazwa „Bieszczadzki Park Gwiezdnego Nieba” zostaje w synonimach); data powołania jest w ciekawostce F1047. |
 | C131 | Geminidy | 📌 w ciekawostce | Phaethon jako ciało macierzyste Geminidów (najpewniej odewoluowane jądro komety) jest w ciekawostce F1056; karta nie twierdziła inaczej. |
 | C132 | Białe noce żeglarskie | ✅ wprowadzona | Region białych nocy żeglarskich ujednolicony z ciekawostką F1042: „zwłaszcza klify Jastrzębiej Góry” zamiast Rozewia, Władysławowa i Helu. |
 | C133 | Godziszów i Zadni Gerlach | ✅ wprowadzona | Notka: rekordowe zdjęcie 30.01.2025 z odległości 246,1 km (zamiast zdania o „dacie pliku”); EN zaktualizowane. |
