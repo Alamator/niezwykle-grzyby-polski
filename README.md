@@ -5,7 +5,7 @@ Statyczna strona edukacyjna: **wybór kolekcji + przełącznik PL/EN + Atlas + N
 Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama dla kolejnych osobliwości polskiej przyrody. Pierwsze kolekcje:
 
 - **Grzyby**: 60 pozycji z uzupełnionymi zdjęciami i atrybucjami.
-- **Owady**: 30 pozycji startowych z miejscem na przyszłe zdjęcia i licencje.
+- **Owady**: 30 pozycji ze zdjęciami i atrybucjami z Wikimedia Commons.
 - **Kwiaty**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych ze zdjęciami i atrybucjami z Wikimedia Commons.
 - **Ryby**: 32 osobliwości polskich wód i ich rubieży ze zdjęciami Wikimedia Commons.
 - **Ptaki**: 32 osobliwości polskiej awifauny ze zdjęciami Wikimedia Commons.
@@ -97,6 +97,9 @@ Najprostsza ścieżka:
 - Projekt edukacyjny, nie narzędzie do pewnego oznaczania gatunków w terenie.
 - Nie kopiować opisów z cudzych atlasów.
 - Każde zdjęcie musi mieć autora, źródło i licencję.
+  - Wpisy muszą się zgadzać ze stroną pliku w Wikimedia Commons, a link licencji prowadzi do tekstu licencji, nie do pliku.
+  - Zdjęcia z autorem lub licencją „do weryfikacji” i niesprawdzone (`commons_candidate`) zatrzymuje `npm run test:collections`.
+  - Ostatnie sprawdzenie wszystkich zdjęć: `docs/content/zdjecia-2026-10.md`.
 - Przy gatunkach chronionych, toksycznych lub wrażliwych dodawać komunikat o obserwacji bez niepokojenia.
 
 ## Publikacja na Vercel
