@@ -4,8 +4,8 @@
   "description": "Interaktywny atlas, nauka, quiz i źródła o osobliwościach polskiej przyrody i kultury.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f6f0e5",
-  "theme_color": "#102018",
+  "background_color": "#0c110f",
+  "theme_color": "#0c110f",
   "icons": [
     {
       "src": "./assets/favicon.svg",
@@ -26,7 +26,7 @@
       "purpose": "any"
     },
     {
-      "src": "./assets/aop-logo.png",
+      "src": "./assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"

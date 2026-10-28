@@ -1,0 +1,123 @@
+// Builds data/start-page.js: the five curiosities in the start-page cabinet, the photo on each collection
+// drawer and the numbers under the hero. The start page shows them before any collection data loads, so
+// they are copies of the cards; scripts/validate-collections.mjs fails when a copy no longer matches.
+// Run after changing a card's name, hook or photo: npm run build:start-page
+import fs from "node:fs";
+import vm from "node:vm";
+import { pathToFileURL } from "node:url";
+
+// [collection, card] in the order of the cabinet: the large tile first, the wide bottom tile last.
+export const SPECIMENS = [
+  ["grzyby", "okratek-australijski"],
+  ["rekordy-krajobrazu", "krzywy-las"],
+  ["podziemia", "kopalnia-soli-wieliczka"],
+  ["atmosfera-astronomia", "zorze-polarne-nad-polska"],
+  ["drzewa", "sosna-na-szczudlach"]
+];
+
+// The card whose photo covers each drawer. None repeats a cabinet photo, and none carries a
+// "Kadr reprezentatywny" or "Kadr kontekstowy" label, because the start page shows no photo labels.
+export const COVERS = {
+  grzyby: "kolczakowka-piekaca",
+  kwiaty: "aldrowanda-pecherzykowata",
+  drzewa: "deby-rogalinskie",
+  owady: "oleica-krowka",
+  ryby: "stynka",
+  "plazy-gady": "ropucha-zielona",
+  ptaki: "zimorodek",
+  ssaki: "rzesorek-rzeczek",
+  mineraly: "halit-wieliczka",
+  "formacje-skalne": "szczeliniec-wielki",
+  "architektura-drewniana": "kosciol-pokoju-swidnica",
+  podziemia: "sztolnia-czarnego-pstraga",
+  "cuda-inzynierii": "kanal-elblaski",
+  "twierdze-ruiny": "zamek-ogrodzieniec",
+  "memento-mori": "kamienne-kregi-odry",
+  skamienialosci: "rafy-dewonskie-kadzielni",
+  "atmosfera-astronomia": "obloki-srebrzyste",
+  "rekordy-krajobrazu": "ruchome-wydmy-slowinski"
+};
+
+// Runs every data script of every collection, then collections.js and i18n.js, the way the browser
+// would after opening all collections. Returns the window of that context.
+export function loadAtlas() {
+  const collectionsJs = fs.readFileSync("data/collections.js", "utf8");
+  const context = {
+    window: {},
+    document: { head: { appendChild() {} }, createElement: () => ({ dataset: {} }), querySelector: () => null }
+  };
+  vm.createContext(context);
+  const sources = [...new Set([...collectionsJs.matchAll(/"(\/data\/[^"]+\.js)"/g)].map((match) => match[1]))];
+  for (const source of sources) {
+    vm.runInContext(fs.readFileSync(source.slice(1), "utf8"), context, { filename: source });
+  }
+  vm.runInContext(collectionsJs, context, { filename: "data/collections.js" });
+  vm.runInContext(fs.readFileSync("data/i18n.js", "utf8"), context, { filename: "data/i18n.js" });
+  return context.window;
+}
+
+function photoOf(item, where) {
+  if (!item.image) throw new Error(`${where} has no photo`);
+  return {
+    // The page asks Commons for the width it needs, so the copy keeps the address without "?width=".
+    image: item.image.split("?")[0],
+    alt: item.image_alt,
+    author: item.image_author,
+    license: item.image_license,
+    license_url: item.license_url,
+    source: item.image_source
+  };
+}
+
+export function buildStartPage(win) {
+  const app = win.ATLAS_APP_DATA;
+  const english = win.ATLAS_I18N.collections.en;
+  const card = (collectionId, id) => {
+    const collection = app.collections.find((entry) => entry.id === collectionId);
+    const item = collection?.items.find((entry) => entry.id === id);
+    if (!item) throw new Error(`${collectionId}/${id} is not a card`);
+    return { item, en: english[collectionId].items[id] };
+  };
+
+  const specimens = SPECIMENS.map(([collection, id]) => {
+    const { item, en } = card(collection, id);
+    return {
+      collection,
+      id,
+      name: { pl: item.name_pl, en: en.name },
+      hook: { pl: item.hook, en: en.hook },
+      photo: photoOf(item, `${collection}/${id}`)
+    };
+  });
+
+  const covers = Object.fromEntries(app.collections.map((collection) => {
+    const id = COVERS[collection.id];
+    if (!id) throw new Error(`${collection.id} has no drawer photo in COVERS`);
+    const { item, en } = card(collection.id, id);
+    return [collection.id, { id, name: { pl: item.name_pl, en: en.name }, photo: photoOf(item, `${collection.id}/${id}`) }];
+  }));
+
+  // Cards are counted, not "different curiosities": a few places have a card in two collections, and the
+  // Sosna na Szczudłach has two cards under two names. A place on the map is one Wikidata item, and a
+  // photo is one Commons file, however many cards use it.
+  const cards = app.collections.reduce((sum, collection) => sum + collection.items.length, 0);
+  const places = new Set(app.collections.flatMap((collection) => Object.values(collection.places || {}).map((place) => place.wikidata)));
+  const photos = new Set(app.collections.flatMap((collection) => collection.items.filter((item) => item.image).map((item) => item.image.split("?")[0])));
+
+  return { stats: { cards, places: places.size, photos: photos.size }, specimens, covers };
+}
+
+export function startPageSource(data) {
+  return `// Generated by scripts/build-start-page.mjs from the cards; do not edit by hand.
+// The start page shows these before any collection loads: the cabinet of five curiosities, the photo on
+// each collection drawer and the numbers under the hero.
+window.ATLAS_START = ${JSON.stringify(data, null, 2)};
+`;
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const data = buildStartPage(loadAtlas());
+  fs.writeFileSync("data/start-page.js", startPageSource(data));
+  console.log(`data/start-page.js: ${data.specimens.length} curiosities, ${Object.keys(data.covers).length} drawers, ` +
+    `${data.stats.cards} cards, ${data.stats.places} places, ${data.stats.photos} photos`);
+}
