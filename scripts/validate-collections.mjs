@@ -456,6 +456,37 @@ for (const file of fs.existsSync("data/i18n") ? fs.readdirSync("data/i18n") : []
   }
 }
 
+// Map points live in data/places/<collection>.places.js: coordinates from Wikidata, checked against the
+// card's municipality and voivodeship. Only collections of places get them; the atlas never shows where
+// species live, and a card whose safety note asks not to reveal the site gets no point either.
+const placeCollections = new Set(["podziemia", "cuda-inzynierii", "architektura-drewniana", "twierdze-ruiny", "memento-mori",
+  "rekordy-krajobrazu", "formacje-skalne", "drzewa", "skamienialosci", "atmosfera-astronomia"]);
+const hiddenSite = /nie (ujawniać|publikować|nagłaśniać|zdradzać)/i;
+const placeData = context.window.ATLAS_PLACES || {};
+for (const file of fs.existsSync("data/places") ? fs.readdirSync("data/places") : []) {
+  const collectionId = file.replace(/\.places\.js$/, "");
+  const collection = collections.find((entry) => entry.id === collectionId);
+  assert(collection, `data/places/${file} does not belong to any collection`);
+  assert(placeCollections.has(collectionId), `data/places/${file}: ${collectionId} is not a collection of places`);
+  assert(manifestScripts.some((scripts) => scripts.includes(`/data/places/${file}`)), `data/places/${file} should be loaded with its collection`);
+  const places = placeData[collectionId];
+  assert(places?.items, `data/places/${file} should set window.ATLAS_PLACES["${collectionId}"].items`);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(places.checked || ""), `data/places/${file} should give the date the points were checked`);
+  for (const [id, place] of Object.entries(places.items)) {
+    const item = collection.items.find((entry) => entry.id === id);
+    assert(item, `data/places/${file}: ${id} is not a card of ${collectionId}`);
+    assert(!hiddenSite.test(item.safety_note || ""), `${collectionId}/${id}: the safety note asks not to reveal the site, so it gets no map point`);
+    assert(Number.isFinite(place.lat) && place.lat >= 49 && place.lat <= 54.9, `${collectionId}/${id}: latitude ${place.lat} is outside Poland`);
+    assert(Number.isFinite(place.lng) && place.lng >= 14.1 && place.lng <= 24.2, `${collectionId}/${id}: longitude ${place.lng} is outside Poland`);
+    assert(/^Q\d+$/.test(place.wikidata || ""), `${collectionId}/${id}: the map point should name its Wikidata item`);
+  }
+  assert.equal(Object.keys(collection.places || {}).length, Object.keys(places.items).length, `${collectionId}: every map point should reach the collection`);
+}
+for (const scripts of manifestScripts) {
+  const placesFile = scripts.find((src) => src.startsWith("/data/places/"));
+  if (placesFile) assert(fs.existsSync(placesFile.slice(1)), `${placesFile} is listed in collections.js but missing`);
+}
+
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");

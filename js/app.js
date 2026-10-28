@@ -427,6 +427,9 @@
     setText("#atlasEyebrow", "atlasEyebrow");
     setText("#atlasNote", "atlasNote");
     setText("#searchLabel", "searchLabel");
+    setText("#mapEyebrow", "mapEyebrow");
+    setText("#map-title", "mapTitle");
+    setText("#mapNote", "mapNote");
     setText("#learnEyebrow", "learnEyebrow");
     setText("#learn-title", "learnTitle");
     setText("#learnNote", "learnNote");
@@ -454,8 +457,8 @@
     });
 
     const navLabels = {
-      pl: { atlas: "Atlas", learn: "Nauka", quiz: "Quiz", sources: "Źródła" },
-      en: { atlas: "Atlas", learn: "Learn", quiz: "Quiz", sources: "Sources" }
+      pl: { atlas: "Atlas", map: "Mapa", learn: "Nauka", quiz: "Quiz", sources: "Źródła" },
+      en: { atlas: "Atlas", map: "Map", learn: "Learn", quiz: "Quiz", sources: "Sources" }
     };
     $$(".nav-btn[data-view]").forEach((button) => {
       button.textContent = navLabels[state.language]?.[button.dataset.view] || navLabels.pl[button.dataset.view] || button.dataset.view;
@@ -661,6 +664,7 @@
     return `
       <div class="card-tools">
         <button class="secondary card-tools__share" type="button" data-action="share-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}"><span aria-hidden="true">🔗</span> ${escapeHtml(t("share"))}</button>
+        ${collectionPlaces(collection)[item.id] ? `<button class="secondary card-tools__map" type="button" data-action="show-on-map" data-id="${escapeHtml(item.id)}"><span aria-hidden="true">📍</span> ${escapeHtml(t("mapShowOnMap"))}</button>` : ""}
         <a class="card-tools__link" href="${escapeHtml(cardPath(collection, item))}" data-action="copy-card-link" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}">${escapeHtml(t("cardLink"))}</a>
       </div>
       <p class="share-status" role="status" aria-live="polite"></p>`;
@@ -1203,12 +1207,308 @@
       </table>`;
   }
 
+  // ----- Map of places -----
+
+  // MapLibre GL 4.7.1 (not 5.x, which breaks iOS < 13.4) is vendored and loaded only when the map opens.
+  const MAPLIBRE_BASE = "/vendor/maplibre-gl-4.7.1/";
+  const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+  const POLAND_BOUNDS = [[14.07, 48.99], [24.15, 54.84]];
+  const MAP_LINKS = {
+    wikidata: ["Wikidata", "https://www.wikidata.org/"],
+    openfreemap: ["OpenFreeMap", "https://openfreemap.org/"],
+    osm: ["OpenStreetMap", "https://www.openstreetmap.org/copyright"],
+    maplibre: ["MapLibre GL JS 4.7.1", `${MAPLIBRE_BASE}LICENSE.txt`]
+  };
+  const mapState = { library: null, map: null, language: null, ready: false, collectionId: null, popup: null, pendingFocus: null };
+  let mapLibraryPromise = null;
+
+  function collectionPlaces(collection = activeCollection()) {
+    return collection?.places || {};
+  }
+
+  function hasPlaces(collection = activeCollection()) {
+    return Object.keys(collectionPlaces(collection)).length > 0;
+  }
+
+  function placedItems(collection = activeCollection()) {
+    const places = collectionPlaces(collection);
+    return (collection?.items || []).filter((item) => places[item.id]);
+  }
+
+  function updateMapNav() {
+    $('.nav-btn[data-view="map"]')?.classList.toggle("is-hidden", !hasPlaces());
+  }
+
+  function loadMapLibrary() {
+    if (window.maplibregl) return Promise.resolve(window.maplibregl);
+    if (mapLibraryPromise) return mapLibraryPromise;
+    mapLibraryPromise = new Promise((resolve, reject) => {
+      if (!document.querySelector("link[data-maplibre]")) {
+        const css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.href = `${MAPLIBRE_BASE}maplibre-gl.css`;
+        css.dataset.maplibre = "";
+        document.head.appendChild(css);
+      }
+      const script = document.createElement("script");
+      script.src = `${MAPLIBRE_BASE}maplibre-gl.js`;
+      script.onload = () => (window.maplibregl ? resolve(window.maplibregl) : reject(new Error("maplibregl is missing")));
+      script.onerror = () => {
+        script.remove();
+        reject(new Error("maplibre-gl.js did not load"));
+      };
+      document.head.appendChild(script);
+    }).catch((error) => {
+      mapLibraryPromise = null;
+      throw error;
+    });
+    return mapLibraryPromise;
+  }
+
+  function webglAvailable() {
+    try {
+      const canvas = document.createElement("canvas");
+      return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+    } catch {
+      return false;
+    }
+  }
+
+  function mapLocale() {
+    return {
+      "CooperativeGesturesHandler.WindowsHelpText": t("mapGesturesDesktop"),
+      "CooperativeGesturesHandler.MacHelpText": t("mapGesturesMac"),
+      "CooperativeGesturesHandler.MobileHelpText": t("mapGesturesMobile"),
+      "NavigationControl.ZoomIn": t("mapZoomIn"),
+      "NavigationControl.ZoomOut": t("mapZoomOut"),
+      "NavigationControl.ResetBearing": t("mapResetBearing"),
+      "AttributionControl.ToggleAttribution": t("mapToggleAttribution"),
+      "Popup.Close": t("mapPopupClose"),
+      "Map.Title": t("mapCanvas")
+    };
+  }
+
+  function placesGeoJson(collection = activeCollection()) {
+    const places = collectionPlaces(collection);
+    return {
+      type: "FeatureCollection",
+      features: placedItems(collection).map((item) => ({
+        type: "Feature",
+        geometry: { type: "Point", coordinates: [places[item.id].lng, places[item.id].lat] },
+        properties: { id: item.id }
+      }))
+    };
+  }
+
+  function setMapStatus(message) {
+    const node = $("#mapStatus");
+    node.textContent = message;
+    node.classList.toggle("is-visible", Boolean(message));
+  }
+
+  function mapSourceNoteHtml() {
+    const links = Object.fromEntries(Object.entries(MAP_LINKS).map(([key, [label, href]]) =>
+      [key, `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`]));
+    return escapeHtml(uiValue("mapSourceNote")).replace(/\{(\w+)\}/g, (_, key) => links[key] || "");
+  }
+
+  function renderPlaceList() {
+    const collection = activeCollection();
+    const list = placedItems(collection);
+    const total = collection?.items?.length || 0;
+    const missing = list.length < total ? ` ${t("mapMissing")}` : "";
+    $("#placeList").innerHTML = `
+      <h3>${escapeHtml(t("mapListTitle"))}</h3>
+      <p class="place-list__count">${escapeHtml(t("mapCount", { count: list.length, total }) + missing)}</p>
+      <ol class="place-list__items">
+        ${list.map((item) => `
+          <li>
+            <span class="place-list__text">
+              <button class="place-list__name" type="button" data-action="map-focus" data-id="${escapeHtml(item.id)}">${escapeHtml(itemName(item))}</button>
+              <span class="latin">${escapeHtml(itemLatin(item))}</span>
+            </span>
+            <button class="secondary place-list__card" type="button" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(t("mapOpenCard"))}</button>
+          </li>`).join("")}
+      </ol>`;
+  }
+
+  function popupHtml(ids) {
+    const entries = ids.map((id) => byId(id)).filter(Boolean);
+    if (entries.length === 1) {
+      const [item] = entries;
+      return `
+        <div class="map-popup">
+          <strong class="map-popup__name">${escapeHtml(itemName(item))}</strong>
+          <span class="latin">${escapeHtml(itemLatin(item))}</span>
+          <button class="primary map-popup__open" type="button" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(t("mapOpenCard"))}</button>
+        </div>`;
+    }
+    return `
+      <div class="map-popup">
+        <strong class="map-popup__name">${escapeHtml(t("mapHere"))}</strong>
+        <ul class="map-popup__list">
+          ${entries.map((item) => `<li><button type="button" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(itemName(item))}</button></li>`).join("")}
+        </ul>
+      </div>`;
+  }
+
+  function selectPlaces(ids) {
+    mapState.map?.setFilter("places-selected", ["in", ["get", "id"], ["literal", ids]]);
+  }
+
+  function showPlacePopup(ids, lngLat) {
+    const { library: lib, map } = mapState;
+    if (!lib || !map) return;
+    mapState.popup?.remove();
+    // No focus jump into the popup: during flyTo it can sit outside the visible map and the page would
+    // scroll after it. Keyboard users have the same buttons in the list under the map.
+    const popup = new lib.Popup({ maxWidth: "270px", offset: 12, focusAfterOpen: false })
+      .setLngLat(lngLat)
+      .setHTML(popupHtml(ids))
+      .addTo(map);
+    popup.on("close", () => {
+      if (mapState.popup === popup) {
+        mapState.popup = null;
+        selectPlaces([]);
+      }
+    });
+    mapState.popup = popup;
+    selectPlaces(ids);
+  }
+
+  function focusPlace(id) {
+    const place = collectionPlaces()[id];
+    if (!place) return;
+    // Without a working map the list still leads to the card.
+    if (!mapState.ready) {
+      showDialog(id);
+      return;
+    }
+    const lngLat = [place.lng, place.lat];
+    mapState.map.flyTo({ center: lngLat, zoom: Math.max(mapState.map.getZoom(), 9) });
+    showPlacePopup([id], lngLat);
+    $("#placeMap").scrollIntoView({ block: "nearest" });
+  }
+
+  function fitPlaces() {
+    const { features } = placesGeoJson();
+    if (!features.length) return;
+    const bounds = new mapState.library.LngLatBounds();
+    features.forEach((feature) => bounds.extend(feature.geometry.coordinates));
+    mapState.map.fitBounds(bounds, { padding: 40, maxZoom: 9, duration: 0 });
+  }
+
+  function syncMapCollection() {
+    if (!mapState.ready) return;
+    const changed = mapState.collectionId !== state.collectionId;
+    mapState.collectionId = state.collectionId;
+    mapState.map.getSource("places")?.setData(placesGeoJson());
+    if (changed) {
+      mapState.popup?.remove();
+      fitPlaces();
+    }
+    if (mapState.pendingFocus) {
+      const id = mapState.pendingFocus;
+      mapState.pendingFocus = null;
+      focusPlace(id);
+    }
+  }
+
+  function onMapClick(event) {
+    const { x, y } = event.point;
+    // A finger is wider than a dot, so a small box around the tap picks up every point under it.
+    const hits = mapState.map.queryRenderedFeatures([[x - 12, y - 12], [x + 12, y + 12]], { layers: ["places-dot"] });
+    const ids = [...new Set(hits.map((feature) => feature.properties.id))];
+    if (ids.length) showPlacePopup(ids, hits[0].geometry.coordinates);
+  }
+
+  function createMap(lib) {
+    const map = new lib.Map({
+      container: "placeMap",
+      style: MAP_STYLE_URL,
+      bounds: POLAND_BOUNDS,
+      fitBoundsOptions: { padding: 16 },
+      cooperativeGestures: true,
+      dragRotate: false,
+      pitchWithRotate: false,
+      touchPitch: false,
+      attributionControl: { compact: true },
+      locale: mapLocale()
+    });
+    map.touchZoomRotate.disableRotation();
+    map.addControl(new lib.NavigationControl({ showCompass: false }), "top-right");
+    map.on("load", () => {
+      map.addSource("places", { type: "geojson", data: placesGeoJson() });
+      map.addLayer({
+        id: "places-dot",
+        type: "circle",
+        source: "places",
+        paint: { "circle-radius": 7, "circle-color": "#c8562d", "circle-stroke-color": "#fffaf0", "circle-stroke-width": 2 }
+      });
+      map.addLayer({
+        id: "places-selected",
+        type: "circle",
+        source: "places",
+        filter: ["in", ["get", "id"], ["literal", []]],
+        paint: { "circle-radius": 10, "circle-color": "#102018", "circle-stroke-color": "#fffaf0", "circle-stroke-width": 3 }
+      });
+      map.on("click", onMapClick);
+      map.on("mouseenter", "places-dot", () => { map.getCanvas().style.cursor = "pointer"; });
+      map.on("mouseleave", "places-dot", () => { map.getCanvas().style.cursor = ""; });
+      mapState.ready = true;
+      setMapStatus("");
+      syncMapCollection();
+    });
+    // Without a listener MapLibre logs every error to the console. Before the first load an error
+    // means the base map is missing; a single tile failing later is not worth a message.
+    map.on("error", () => {
+      if (!mapState.ready) setMapStatus(t("mapBaseError"));
+    });
+    return map;
+  }
+
+  async function renderMap() {
+    const collection = activeCollection();
+    $("#placeMap").setAttribute("aria-label", t("mapLabel", { collection: collectionText(collection, "title") }));
+    $("#mapSourceNote").innerHTML = mapSourceNoteHtml();
+    renderPlaceList();
+    if (!webglAvailable()) {
+      mapState.pendingFocus = null;
+      setMapStatus(t("mapNoWebgl"));
+      return;
+    }
+    if (mapState.map && mapState.language !== state.language) {
+      // MapLibre takes the labels of its controls when it is created, so a language switch rebuilds the map.
+      // The state is cleared first, so the closing popup does not touch the map being removed.
+      const previous = mapState.map;
+      Object.assign(mapState, { map: null, ready: false, collectionId: null, popup: null });
+      previous.remove();
+    }
+    if (mapState.map) {
+      mapState.map.resize();
+      syncMapCollection();
+      return;
+    }
+    setMapStatus(t("mapLoading"));
+    try {
+      mapState.library = await loadMapLibrary();
+    } catch {
+      setMapStatus(t("mapLoadError"));
+      return;
+    }
+    if (state.view !== "map" || mapState.map) return;
+    mapState.language = state.language;
+    mapState.map = createMap(mapState.library);
+  }
+
   function activateView(view) {
+    if (view === "map" && !hasPlaces()) view = "atlas";
     state.view = view;
     $$(".nav-btn").forEach((btn) => btn.classList.toggle("is-active", btn.dataset.view === view));
     $$(".view").forEach((section) => section.classList.toggle("is-active", section.id === view));
     $("#main").focus({ preventScroll: true });
     if (view === "atlas") renderAtlas();
+    if (view === "map") renderMap();
     if (view === "learn") renderFlashcard();
     if (view === "quiz") renderQuiz();
     if (view === "sources") {
@@ -1255,6 +1555,7 @@
 
     state.flashIndex = randomIndex(collection.items.length);
     updateActiveCollectionLabels();
+    updateMapNav();
     activateView("atlas");
     if (options.updateRoute !== false) pushRoute(routeForCollection(collection), { collectionId: collection.id });
     syncDialogFromHash();
@@ -1306,6 +1607,12 @@
       activateView("learn");
     }
     if (action === "close-dialog") $("#itemDialog").close?.();
+    if (action === "show-on-map") {
+      mapState.pendingFocus = id;
+      $("#itemDialog").close?.();
+      activateView("map");
+    }
+    if (action === "map-focus") focusPlace(id);
     if (action === "reveal-flash") { state.flashRevealed = !state.flashRevealed; renderFlashcard(); }
     if (action === "known-flash") { state.flashIndex = randomIndex(items().length); state.flashRevealed = false; renderFlashcard(); }
     if (action === "restart-quiz") { state.quiz = null; initQuiz(); }

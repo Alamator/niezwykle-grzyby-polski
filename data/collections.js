@@ -472,6 +472,17 @@
     collection.facts_checked = facts?.checked || "";
   }
 
+  // Map points live in data/places/<collection>.places.js, loaded with the collection, and set
+  // window.ATLAS_PLACES[<collection>] = { checked, items: { <card id>: { lat, lng, wikidata } } }.
+  // Species collections have no such file: the atlas does not show where species live.
+  function attachPlaces(collection) {
+    const places = window.ATLAS_PLACES?.[collection.id];
+    const cardIds = new Set((collection.items || []).map((item) => item.id));
+    collection.places = Object.fromEntries(Object.entries(places?.items || {})
+      .filter(([cardId]) => cardIds.has(cardId)));
+    collection.places_checked = places?.checked || "";
+  }
+
   const scriptCache = new Map();
 
   function loadScriptOnce(src) {
@@ -504,6 +515,7 @@
       if (built) {
         Object.assign(collection, built);
         attachFacts(collection);
+        attachPlaces(collection);
         collection._loaded = true;
       }
       return collection;
@@ -525,6 +537,7 @@
     if (built) {
       Object.assign(collection, built);
       attachFacts(collection);
+      attachPlaces(collection);
       collection._loaded = true;
     }
   }
