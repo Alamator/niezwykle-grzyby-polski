@@ -2,7 +2,7 @@
 
 Krok zapowiedziany w [README-weryfikacja.md](README-weryfikacja.md): ciekawostki z liczbami i datami sprawdzone wyszukiwaniem w niezależnych źródłach. Zasada Roberta: **to, co niepewne albo niepotwierdzone, nie trafia do atlasu.**
 
-**Stan: sprawdzono 173 z 707 (24%).** Pozostałe 534 czekają na kolejne rundy wyszukiwania (limit narzędzia: 200 wyszukiwań na turę).
+**Stan: sprawdzono 272 z 707 (38%).** Pozostałe 435 czekają na kolejne rundy wyszukiwania (limit narzędzia: 200 wyszukiwań na turę).
 
 ## Zakres
 
@@ -25,16 +25,16 @@ Krok zapowiedziany w [README-weryfikacja.md](README-weryfikacja.md): ciekawostki
 
 ## Co to zmienia w atlasie
 
-- Ciekawostki **do poprawki** i **niepotwierdzone** strona ukrywa od razu: lista `WITHDRAWN.numbers` w `data/collections.js` (74 ciekawostki).
+- Ciekawostki **do poprawki** i **niepotwierdzone** strona ukrywa od razu: lista `WITHDRAWN.numbers` w `data/collections.js` (129 ciekawostek).
 - Poprawione brzmienie trafia do generatora ciekawostek (poza repo) przez [`zmiany-dla-generatora-2026-10.json`](zmiany-dla-generatora-2026-10.json): `replace_facts` (nowa treść PL i EN, źródła), `skip_facts` (pominąć), `confirm_facts` (status `checked` i niezależne źródła). Po ponownym wygenerowaniu plików `data/facts/*.facts.js` ciekawostki wrócą w nowym brzmieniu, a `npm run test:facts` przypomni, które wpisy usunąć z `WITHDRAWN.numbers`.
 
 ## Wyniki
 
-Razem: 173 sprawdzonych, ✅ potwierdzona: 99, ✏️ do poprawki: 31, ❔ niepotwierdzona: 43.
+Razem: 272 sprawdzonych, ✅ potwierdzona: 143, ✏️ do poprawki: 52, ❔ niepotwierdzona: 77.
 
 ### Grzyby
 
-Sprawdzone 11 z 79; ✅ potwierdzona: 5; ✏️ do poprawki: 3; ❔ niepotwierdzona: 3.
+Sprawdzone 17 z 79; ✅ potwierdzona: 6; ✏️ do poprawki: 3; ❔ niepotwierdzona: 8.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -44,9 +44,14 @@ Sprawdzone 11 z 79; ✅ potwierdzona: 5; ✏️ do poprawki: 3; ❔ niepotwierdz
 | F0007 | Sromotnik smrodliwy | ❔ niepotwierdzona | Ma mnóstwo ludowych nazw: śmierdziuch, smrodnik, bedłka pańska, węże jajo… Polską nazwę nadał mu Józef Jundziłł w 1830 r., a samo słowo „sromotnik” to staropolski wyraz oznaczający osobę okrytą hańbą lub siejącą zgorszenie. | ❔ polską nazwę nadał mu Józef Jundziłł w 1830 r.<br>Autorstwa nazwy przez Józefa Jundziłła w 1830 r. nie podaje żadne znalezione niezależne źródło (grzyby.pl, RCIN, bazhum); zostawiono tylko nazwy ludowe i znaczenie słowa. | Ma mnóstwo ludowych nazw: śmierdziuch, smrodnik, bedłka pańska, węże jajo… Samo słowo „sromotnik” to staropolski wyraz oznaczający osobę okrytą hańbą lub siejącą zgorszenie. | — |
 | F0009 | Mądziak psi | ✏️ do poprawki | Dorasta do ok. 16 cm wysokości przy grubości zaledwie ok. 1 cm. Prawdziwa leśna antena! 📡 | ❌ dorasta do ok. 16 cm wysokości<br>✅ grubość zaledwie ok. 1 cm<br>NatureSpot podaje 8–15 cm wysokości i 1–1,5 cm średnicy trzonu, strona Oakes Museum (Messiah University) 7–12 cm wysokości i 1–2 cm szerokości; wartości 16 cm nie podaje żadne niezależne źródło. | Dorasta do ok. 15 cm wysokości przy grubości zaledwie ok. 1 cm. Prawdziwa leśna antena! 📡 | [naturespot.org](https://www.naturespot.org/species/dog-stinkhorn) |
 | F0010 | Mądziak psi | ❔ niepotwierdzona | Był ściśle chroniony. 9.10.2014 r. wykreślono go z listy, ale na Czerwonej liście nadal ma status V (narażony). | ❔ był ściśle chroniony; 9.10.2014 r. wykreślono go z listy gatunków chronionych<br>❔ na Czerwonej liście nadal ma status V (narażony)<br>Rozporządzenie o ochronie gatunkowej grzybów rzeczywiście nosi datę 9 października 2014 r. (Dz.U. 2014 poz. 1408), ale żadne dostępne niezależne źródło nie potwierdza skreślenia mądziaka z listy ani kategorii V na czerwonej liście, a tekstu rozporządzenia nie dało się otworzyć. | — (pominąć) | — |
+| F0020 | Dzbankówka kulista | ❔ niepotwierdzona | Jest pod ochroną ścisłą i na Czerwonej liście ma kategorię E. W polskiej literaturze do 2020 r. podano 13 stanowisk, ale **wszystkie są historyczne**. | ✅ na Czerwonej liście ma kategorię E (zagrożony)<br>❔ w polskiej literaturze do 2020 r. podano 13 stanowisk<br>❔ wszystkie 13 stanowisk są historyczne<br>Ocena IUCN (redlist.info) podaje dla Polski kategorię EN, czyli polskie E, ale liczby 13 stanowisk do 2020 r. ani tego, że wszystkie są historyczne, nie podaje żadne znalezione niezależne źródło. | Jest pod ochroną ścisłą i na Czerwonej liście ma kategorię E. | [redlist.info](https://redlist.info/iucn/species_view/120549/) |
+| F0025 | Czareczka długotrzonkowa | ❔ niepotwierdzona | W 2019 r. mieszkanka Włocławka odkryła na Kujawach bardzo duże stanowisko czareczki długotrzonkowej, uznawane za najbogatsze w Polsce. To grzyb niezmiernie rzadki, w Polsce znany z zaledwie kilku miejsc. | ❔ w 2019 r. mieszkanka Włocławka odkryła stanowisko na Kujawach<br>❔ stanowisko uznawane za najbogatsze w Polsce<br>✅ w Polsce znany z zaledwie kilku miejsc<br>Źródło faktu niedostępne: zgorzelec.info (odkrycia z 2019 r. i „najbogatszego” stanowiska nie potwierdza żadne znalezione źródło); Acta Mycologica (Kujawa i in. 2018) wymienia w Polsce 5 dawniej znanych i 2 nowe stanowiska. | To grzyb niezmiernie rzadki, w Polsce znany z zaledwie kilku miejsc. | [pbsociety.org.pl](https://pbsociety.org.pl/journals/index.php/am/article/view/8190) |
+| F0028 | Krążkówka żyłkowana | ❔ niepotwierdzona | Od 1983 r. jest pod **ochroną ścisłą**, bez wyjątków dla gospodarki rolnej i leśnej. | ❔ od 1983 r. jest pod ochroną ścisłą<br>Opracowania o pierwszym rozporządzeniu z 1983 r. (Studia i Materiały CEPL, 2015) wymieniają wszystkie smardzowate, do których należy rodzaj *Disciotis*, ale żadne znalezione źródło nie podaje wprost krążkówki na liście z 1983 r. | Jest pod **ochroną ścisłą**, bez wyjątków dla gospodarki rolnej i leśnej. | — |
+| F0029 | Krążkówka żyłkowana | ❔ niepotwierdzona | Owocniki pokazuje w kwietniu i maju, najchętniej na podłożu wapiennym. Do 2020 r. podano 6 historycznych i 27 nowych stanowisk. | ❔ owocniki pokazuje w kwietniu i maju<br>❔ do 2020 r. podano 6 historycznych i 27 nowych stanowisk<br>Brytyjski serwis BioImages potwierdza wiosenne owocniki na podłożu wapiennym, ale dokładne miesiące (strony brytyjskie podają kwiecień–maj albo marzec–maj) i liczby 6 historycznych oraz 27 nowych stanowisk do 2020 r. nie znalazły niezależnego źródła. | Owocniki pokazuje wiosną, najchętniej na podłożu wapiennym. | — |
+| F0033 | Piestrzenica kasztanowata | ❔ niepotwierdzona | Trafiła na przywieszkę znaczka ze smardzem (2012). To filatelistyczna lekcja o pomyłkach! | ❔ znaczek ze smardzem i piestrzenicą na przywieszce wydano w 2012 r.<br>Plan emisji znaczków na 2012 r. (decyzja Ministra Infrastruktury) obejmuje serię „Grzyby w polskich lasach” (4 znaczki z przywieszką, sierpień), ale żadne znalezione źródło nie podaje, że jest w niej smardz z piestrzenicą na przywieszce. | Trafiła na przywieszkę znaczka ze smardzem. To filatelistyczna lekcja o pomyłkach! | — |
 
 <details>
-<summary>Potwierdzone (5)</summary>
+<summary>Potwierdzone (6)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -55,14 +60,15 @@ Sprawdzone 11 z 79; ✅ potwierdzona: 5; ✏️ do poprawki: 3; ❔ niepotwierdz
 | F0012 | Sromotnik fiołkowy | w 1564 r. Hadrianus Junius wydał broszurę o sromotnikach z holenderskich piasków | [encyclopedia.odeuropa.eu](https://encyclopedia.odeuropa.eu/items/show/17) |
 | F0013 | Sromotnik fiołkowy | w 1980 r. Poczta Polska wydała znaczek ze sromotnikiem fiołkowym | [stampworld.com](https://www.stampworld.com/en/stamps/Poland/Postage%20stamps/1980-1989) |
 | F0016 | Czarka austriacka | do 2014 r. czarka austriacka była ściśle chroniona | [kp.org.pl](https://kp.org.pl/pdf/pp/pdf2/PPXXVI_1_N_markiewicz.pdf) |
+| F0022 | Dzbankówka kulista | w Finlandii przez trzy dekady przybywało jej stwierdzeń; dane z 2013 r. | [doaj.org](https://doaj.org/article/80944622c94e4c8281d702a1a4b28cee) |
 
 </details>
 
-Czeka na sprawdzenie (68): F0020, F0022, F0025, F0028, F0029, F0033, F0034, F0036, F0039, F0040, F0042, F0043, F0044, F0045, F0046, F0047, F0048, F0050, F0051, F0052, F0060, F0070, F0074, F0075, F0079, F0082, F0083, F0084, F0086, F0087, F0088, F0090, F0091, F0093, F0096, F0097, F0101, F0103, F0105, F0108, F0111, F0114, F0115, F0116, F0127, F0128, F0131, F0132, F0133, F0134, F0135, F0136, F0139, F0140, F0146, F0147, F0148, F0153, F0160, F0163, F0165, F0166, F0167, F0168, F0172, F0177, F0189, F0200.
+Czeka na sprawdzenie (62): F0034, F0036, F0039, F0040, F0042, F0043, F0044, F0045, F0046, F0047, F0048, F0050, F0051, F0052, F0060, F0070, F0074, F0075, F0079, F0082, F0083, F0084, F0086, F0087, F0088, F0090, F0091, F0093, F0096, F0097, F0101, F0103, F0105, F0108, F0111, F0114, F0115, F0116, F0127, F0128, F0131, F0132, F0133, F0134, F0135, F0136, F0139, F0140, F0146, F0147, F0148, F0153, F0160, F0163, F0165, F0166, F0167, F0168, F0172, F0177, F0189, F0200.
 
 ### Kwiaty
 
-Sprawdzone 12 z 26; ✅ potwierdzona: 6; ❔ niepotwierdzona: 6.
+Sprawdzone 16 z 26; ✅ potwierdzona: 6; ❔ niepotwierdzona: 10.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -72,6 +78,10 @@ Sprawdzone 12 z 26; ✅ potwierdzona: 6; ❔ niepotwierdzona: 6.
 | F0220 | Obrazki alpejskie | ❔ niepotwierdzona | Od 2014 r. są pod **ochroną częściową**, a w latach 2001–2014 były pod ścisłą. | ✅ od 2014 r. obrazki alpejskie są pod ochroną częściową<br>❔ w latach 2001–2014 były pod ochroną ścisłą<br>Ochronę częściową według rozporządzenia z 2014 r. potwierdza lista RDLP w Krakowie (Lasy Państwowe); okresu ochrony ścisłej 2001–2014 nie potwierdziło żadne niezależne źródło. | Od 2014 r. są pod **ochroną częściową**. | [krakow.lasy.gov.pl](https://www.krakow.lasy.gov.pl/documents/688359/20929648/Lista+ro%C5%9Blin+obj%C4%99tych+ochron%C4%85+w+zasi%C4%99gu+terytorialnym++RDLP+w+Krakowie/55ba0cc3-270d-f890-9555-73c01b311169) |
 | F0232 | Dwulistnik pszczeli | ❔ niepotwierdzona | Jeden z nowych gatunków polskiej flory. Do 2010 r. nie był w Polsce notowany. Pierwszą populację znaleziono wtedy na Górnym Śląsku, a dekadę później, w 2020 r., kolejną w Sudetach. | ✅ do 2010 r. nie był w Polsce notowany; pierwszą populację znaleziono w 2010 r. na Górnym Śląsku<br>❔ dekadę później, w 2020 r., znaleziono kolejną populację w Sudetach<br>Rok 2010 (kamieniołom pod Imielinem) potwierdzają Osiadacz i Kręciała (2014) oraz Scientific Reports (2025); stanowisko w Górach Kaczawskich opisano w 2020 r. (Biodiversity Research and Conservation), ale roku jego znalezienia nie podaje żadne znalezione źródło. | Jeden z nowych gatunków polskiej flory. Do 2010 r. nie był w Polsce notowany. Pierwszą populację znaleziono wtedy na Górnym Śląsku, a w 2020 r. opisano kolejną, w Sudetach. | [pressto.amu.edu.pl](https://pressto.amu.edu.pl/index.php/biorc/article/download/biorc-2014-0027/29164/71695) |
 | F0239 | Podkolan biały | ❔ niepotwierdzona | W latach 1946–2014 był pod ochroną ścisłą, a **od 2014 r. jest pod częściową**. | ❔ w latach 1946–2014 był pod ochroną ścisłą<br>✅ od 2014 r. jest pod ochroną częściową<br>Ochronę częściową według rozporządzenia z 2014 r. potwierdza artykuł w „Chrońmy Przyrodę Ojczystą” (2015); żadne niezależne źródło nie potwierdza ochrony ścisłej podkolanu białego nieprzerwanie od 1946 r. | **Od 2014 r. jest pod ochroną częściową**. | [rcin.org.pl](https://rcin.org.pl//Content/125587/PDF/KR038_156827_r2015-t71-no2_ChPO-Soltys-137-143.pdf) |
+| F0254 | Gnidosz rozesłany | ❔ niepotwierdzona | Roślina trująca i półpasożyt. 🛡️ **Ochrona częściowa** od 2014 r., a w latach 1983–2014 była ścisła. | ✅ od 2014 r. jest pod ochroną częściową<br>✅ do 2014 r. była pod ochroną ścisłą<br>❔ ochronę ścisłą wprowadzono w 1983 r.<br>Artykuł o nowym stanowisku w Beskidzie Niskim (Roczniki Bieszczadzkie 30) podaje ochronę ścisłą do 2014 r. i częściową od rozporządzenia z 2014 r., notatka we Fragmenta Floristica et Geobotanica Polonica potwierdza ochronę ścisłą wg rozporządzenia z 2004 r., ale początku ochrony ścisłej w 1983 r. nie podaje żadne znalezione niezależne źródło. | Roślina trująca i półpasożyt. 🛡️ **Ochrona częściowa** od 2014 r., a wcześniej była ścisła. | [archiwum.bdpn.pl](https://archiwum.bdpn.pl/dokumenty/roczniki/rb30/art07.pdf), [archiwum.botany.pl](https://archiwum.botany.pl/ibwyd/fragm-pl/Pdfy/Fragmenta_Polonica-15/Strony%20od%20Frpl15-1_s131-133_bnotes.pdf) |
+| F0261 | Wawrzynek wilczełyko | ❔ niepotwierdzona | Od 2014 r. pod **ochroną częściową**, a wcześniej ścisłą. | ❔ od 2014 r. pod ochroną częściową<br>❔ przed 2014 r. pod ochroną ścisłą<br>Wyszukiwanie potwierdza tylko samo rozporządzenie z 9 października 2014 r. (Dz.U. 2014 poz. 1409, zastąpiło rozporządzenie z 2012 r.), ale żadna strona nie wiąże z nim przeniesienia wawrzynka wilczełyka z ochrony ścisłej do częściowej; załączniki trzeba sprawdzić w eli.gov.pl, którego nie da się tu otworzyć. | — (pominąć) | — |
+| F0263 | Kopytnik pospolity | ❔ niepotwierdzona | Paradoks: ochroną objęto go w 1983 r., gdy zbiór ziela już malał. **Od 2014 r. nie jest chroniony.** Jego toksyczność ograniczyła zastosowanie lecznicze. | ❔ ochroną objęto go w 1983 r.<br>❔ od 2014 r. nie jest chroniony<br>Przegląd historii ochrony roślin z 1990 r. (RCIN) potwierdza tylko, że nową listę gatunków chronionych wprowadzono rozporządzeniem z 1983 r.; ani objęcia kopytnika ochroną w 1983 r., ani zdjęcia go z listy w 2014 r. nie podaje żadne znalezione niezależne źródło. | Paradoks: ochroną objęto go, gdy zbiór ziela już malał. **Dziś nie jest chroniony.** Jego toksyczność ograniczyła zastosowanie lecznicze. | — |
+| F0271 | Czworolist pospolity | ❔ niepotwierdzona | Zwykle ma 4 liście w okółku, ale zdarzają się okazy z 3 albo z 5–8 liśćmi! | ✅ zwykle ma 4 liście w okółku<br>✅ zdarzają się okazy z 3 liśćmi<br>✅ zdarzają się okazy z 5 liśćmi<br>❔ zdarzają się okazy z 6–8 liśćmi<br>Royal Horticultural Society podaje okółek „zwykle z 4, czasem z 3 lub 5” liści; zakres aż do 8 liści podają tylko Wikipedia i strony hobbystyczne. | Zwykle ma 4 liście w okółku, ale zdarzają się okazy z 3 albo z 5 liśćmi! | [rhs.org.uk](https://www.rhs.org.uk/Plants/12323/wd/Details) |
 
 <details>
 <summary>Potwierdzone (6)</summary>
@@ -87,11 +97,11 @@ Sprawdzone 12 z 26; ✅ potwierdzona: 6; ❔ niepotwierdzona: 6.
 
 </details>
 
-Czeka na sprawdzenie (14): F0203, F0225, F0237, F0241, F0243, F0246, F0247, F0252, F0254, F0258, F0259, F0261, F0263, F0271.
+Czeka na sprawdzenie (10): F0203, F0225, F0237, F0241, F0243, F0246, F0247, F0252, F0258, F0259.
 
 ### Drzewa
 
-Sprawdzone 14 z 48; ✅ potwierdzona: 7; ✏️ do poprawki: 5; ❔ niepotwierdzona: 2.
+Sprawdzone 21 z 48; ✅ potwierdzona: 9; ✏️ do poprawki: 7; ❔ niepotwierdzona: 5.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -101,10 +111,15 @@ Sprawdzone 14 z 48; ✅ potwierdzona: 7; ✏️ do poprawki: 5; ❔ niepotwierdz
 | F0300 | Krzywy Las | ✏️ do poprawki | W 2021 r. Nadleśnictwo Gryfino utworzyło „powierzchnię zastępczą” Krzywego Lasu, na której posadzono 1000 młodych drzewek. | ✅ w 2021 r. utworzono powierzchnię zastępczą<br>❌ posadzono 1000 młodych drzewek<br>National Geographic Polska (listopad 2021) pisze, że w pierwszym etapie rewitalizacji posadzono 1100 sadzonek zdeformowanych sosen, a nie 1000. | W 2021 r. Nadleśnictwo Gryfino utworzyło „powierzchnię zastępczą” Krzywego Lasu, na której posadzono 1100 młodych drzewek. | [national-geographic.pl](https://www.national-geographic.pl/przyroda/krzywy-las-obumiera-dlatego-obok-powstaje-drugi-taki-sam-211125025653/) |
 | F0303 | Cis Henrykowski | ✏️ do poprawki | **Najstarsze drzewo w Polsce.** Jego wiek w 1987 r. oszacowano na około 1250 lat, a w 1992 r. dr Cezary Pacyniak ocenił go na 1253 lata. Według przeliczenia z 2020 r. drzewo miało około 1280 lat. Niektóre źródła podają nawet 1300–1500 lat. | ✅ najstarsze drzewo w Polsce<br>❔ w 1987 r. wiek oszacowano na około 1250 lat<br>❔ w 1992 r. dr Cezary Pacyniak ocenił wiek na 1253 lata<br>❌ według przeliczenia z 2020 r. około 1280 lat<br>✅ niektóre źródła podają około 1300 lat<br>❔ niektóre źródła podają do 1500 lat<br>RMF24 podaje, że w 2020 r. wiek określono na 1270 lat (nie ok. 1280), National Geographic – ok. 1300 lat; szacunków z 1987 r. (1250) i 1992 r. (Pacyniak, 1253) ani górnej granicy 1500 lat nie potwierdza żadne niezależne źródło. | **Najstarsze drzewo w Polsce.** W 2020 r. jego wiek określono na około 1270 lat, a niektóre źródła podają około 1300 lat. | [rmf24.pl](https://www.rmf24.pl/ciekawostki-rmf24/news-najstarsze-drzewo-swiata-ile-ma-lat-odpowiedz-jest-nieoczywi,nId,8071674), [national-geographic.pl](https://www.national-geographic.pl/przyroda/ma-okolo-1300-lat-i-obumiera-trwa-ratowanie-najstarszego-z-polskich-cisow/) |
 | F0304 | Cis Henrykowski | ❔ niepotwierdzona | Przeżył uszkodzenia od żołnierzy (1813), pocisku artyleryjskiego (1945) i huraganu (1989). Ma dziś zraszacze, zamgławiacze i monitoring. | ❔ uszkodzenia od żołnierzy (1813)<br>❔ uszkodzenia od pocisku artyleryjskiego (1945)<br>✅ uszkodzenia od huraganu (1989)<br>TVN24 opisuje wichurę z lat 1988–1989, która zniszczyła odnogę cisa; dat 1813 (żołnierze) i 1945 (pocisk) nie podaje żadne dostępne niezależne źródło. | Przeżył uszkodzenia od huraganu (1989). Ma dziś zraszacze, zamgławiacze i monitoring. | [tvn24.pl](https://tvn24.pl/tvnmeteo/najnowsze/najstarsze-drzewo-w-polsce-zagrozone-ls4905878) |
+| F0306 | Dąb Uparty Mazur | ❔ niepotwierdzona | To jeden z największych dębów szypułkowych w Polsce i jeden z nielicznych, których obwód pnia przekroczył 900 cm: w 2014 roku miał 900 cm obwodu, a w 2025 roku już 950 cm. Ma około 28 m wysokości i koronę 32 × 27 m. | ✅ jeden z największych dębów szypułkowych w Polsce<br>❔ jeden z nielicznych dębów o obwodzie pnia ponad 900 cm<br>❔ w 2014 roku miał 900 cm obwodu<br>❔ w 2025 roku miał 950 cm obwodu<br>✅ ma około 28 m wysokości<br>❔ korona 32 × 27 m<br>Komunikat samorządu Mazowsza (mazovia.pl) podaje obwód ok. 900 cm (bez roku pomiaru), 28 m wysokości i miejsce wśród najgrubszych dębów szypułkowych w Polsce; pomiaru 950 cm z 2025 r. i korony 32 × 27 m nie podaje żadne znalezione niezależne źródło. | To jeden z największych dębów szypułkowych w Polsce, o obwodzie pnia około 900 cm. Ma około 28 m wysokości. | [mazovia.pl](https://mazovia.pl/pl/dla_mediow/informacje_prasowe/mazowsze-dba-o-drzewa.html) |
+| F0307 | Dąb Uparty Mazur | ❔ niepotwierdzona | Wiek szacuje się na około 500 lat. „Mazur” to dawne określenie mieszkańca Mazowsza. | ❔ wiek szacuje się na około 500 lat<br>Wieku ok. 500 lat nie podaje żadne znalezione niezależne źródło; komunikat mazovia.pl porównuje go tylko z dębem Mieszko I („nieco młodszy”), a serwisy turystyczne (komoot) piszą o 800 latach. | „Mazur” to dawne określenie mieszkańca Mazowsza. | — |
+| F0321 | Dąb Bolko | ✏️ do poprawki | Według pomiarów z 1992 r. wykiełkował około **1370 r.**, więc ma około 650 lat. Obwód 870 cm, a korona 34 × 30 m! | ❔ według pomiarów z 1992 r. wykiełkował około 1370 r.<br>❔ ma około 650 lat<br>✅ obwód 870 cm<br>✅ korona ma 34 m rozpiętości<br>❔ korona ma 30 m w drugim wymiarze (34 × 30 m)<br>Gmina Ruda-Huta podaje pomiar geodezyjny z 2016 r. (obwód 874 cm, korona do 34 m), Zespół Lubelskich Parków Krajobrazowych 875 cm i 36 m, wiek źródła szacują różnie (400–800 lub 500–650 lat), a pomiarów z 1992 r. i daty ok. 1370 r. nie podaje żadne niezależne źródło. | Ma kilkaset lat. Obwód pnia wynosi ok. 870 cm, a korona ma ponad 30 m rozpiętości! | [ruda-huta.pl](https://ruda-huta.pl/dab-bolko-zmierzony/) |
+| F0324 | Dąb Bażyńskiego | ❔ niepotwierdzona | Jego wiek szacuje się na około 700 lat. Ma przyziemną dziuplę, w której za czasów Birknera z Elbląga mieściło się **11 żołnierzy**. | ✅ wiek szacuje się na około 700 lat<br>❔ w dziupli za czasów Birknera mieściło się 11 żołnierzy<br>Artykuł w „Chrońmy Przyrodę Ojczystą” (1988, RCIN) szacuje wiek na ok. 680–700 lat (wcześniejszy szacunek z 1967 r.: 666 lat); historii o 11 żołnierzach w dziupli za czasów Birknera nie podaje żadne znalezione niezależne źródło. | Jego wiek szacuje się na około 700 lat. Ma przyziemną dziuplę. | [rcin.org.pl](https://rcin.org.pl//Content/83831/PDF/KR038_100154_r1988-t44-no2_ChPO-Czart-86-87.pdf) |
 | F0338 | Sosna na Sokolicy | ✏️ do poprawki | ⏳ Ma ponad 500 lat, a dokładnego wieku nie zbadano, żeby jej nie uszkodzić. To sosna reliktowa wysoka na około 3 m. | ❌ ma ponad 500 lat<br>❔ wysoka na około 3 m<br>RMF24 i komunikaty PPN w mediach mówią o szacunkowo ok. 500 latach (sosna nigdy nie była badana), nie „ponad 500”; wysokości ok. 3 m nie podaje żadne dostępne niezależne źródło. | ⏳ Ma około 500 lat, a dokładnego wieku nie zbadano, żeby jej nie uszkodzić. To sosna reliktowa. | [rmf24.pl](https://www.rmf24.pl/fakty/polska/news-slynny-500-letni-symbol-pienin-zostal-zniszczony-w-trakcie-a,nId,2627787) |
+| F0350 | Mamutowiec olbrzymi w Brwicach | ✏️ do poprawki | Mamutowce to najbardziej masywne drzewa na Ziemi, a ich kora u podstawy ma do **90 cm grubości** i chroni przed pożarami. | ❌ kora mamutowca u podstawy ma do 90 cm grubości<br>Strona parku Sequoia i Kings Canyon (NPS) podaje korę do 18 cali (46 cm), a monografia Hartesveldta na nps.gov najgrubszy zmierzony fragment 31 cali (ok. 79 cm); 90 cm nie potwierdza żadne źródło instytucjonalne. | Mamutowce to najbardziej masywne drzewa na Ziemi, a ich kora u podstawy ma nawet **kilkadziesiąt centymetrów grubości** i chroni przed pożarami. | [nps.gov](https://nps.gov/seki/learn/nature/bigtrees.htm) |
 
 <details>
-<summary>Potwierdzone (7)</summary>
+<summary>Potwierdzone (9)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -112,80 +127,98 @@ Sprawdzone 14 z 48; ✅ potwierdzona: 7; ✏️ do poprawki: 5; ❔ niepotwierdz
 | F0286 | Bożodrzew gruczołowaty | w młodości przyrasta nawet 2 m rocznie; w Polsce dorasta do 30 m; do Europy trafił w 1751 r. | [ogrod.uw.edu.pl](https://www.ogrod.uw.edu.pl/baza-wiedzy/bozodrzew-gruczolowaty-3/), [research.fs.usda.gov](https://research.fs.usda.gov/silvics/ailanthus) |
 | F0297 | Sosna na Szczudłach | finalistka konkursu Drzewo Roku 2023 | [wroclaw.pl](https://www.wroclaw.pl/zielony-wroclaw/buk-serce-ogrodu-ktory-rosnie-w-arboretum-wojslawice-zostal-drzewem-roku-2023) |
 | F0318 | Drzewo z kulą armatnią | znalezisko jesienią 2025 r.; kula o wadze około 3 kg; średnica ponad 8 cm (potwierdza samo źródło faktu, strona instytucji) | [wloszczowa.pl](https://wloszczowa.pl/aktualnosci/jakie-tajemnice-kryje-jeszcze-historyczna-czarnca-w-starym-drzewie-w-parku-arboretum-pracownicy-miejskiej-zieleni-znalezli-najprawdopodobniej-kule-armatnia-z-xvi-lub-xvii-wieku.html) |
+| F0323 | Dąb Bolko | w 2016 r. reprezentował Polskę w konkursie Europejskie Drzewo Roku; zajął 4. miejsce; wśród 15 drzew; 23 313 głosów | [treeoftheyear.org](https://www.treeoftheyear.org/Previous-Years/2016/Dub-Bolko), [pisz.bialystok.lasy.gov.pl](https://pisz.bialystok.lasy.gov.pl/aktualnosci/-/asset_publisher/kCS6/content/dab-bolko-w-czolowce-europejskich-drzew) |
+| F0325 | Dąb Bażyńskiego | dąb nosił nazwę „1000-letni Dąb Niemiec” | [rcin.org.pl](https://rcin.org.pl//Content/83831/PDF/KR038_100154_r1988-t44-no2_ChPO-Czart-86-87.pdf) |
 | F0339 | Sosna na Sokolicy | 6 września 2018 r. podmuch wirnika śmigłowca podczas akcji ratunkowej uszkodził sosnę | [wydarzenia.interia.pl](https://wydarzenia.interia.pl/malopolskie/news-slynna-pieninska-sosna-w-opatrunku,nId,5003012) |
 | F0340 | Sosna na Sokolicy | odłamany konar miał około 160 lat; kilkadziesiąt gatunków epifitów, w tym 21 gatunków porostów | [radiokrakow.pl](https://www.radiokrakow.pl/aktualnosci/nowy-sacz/za-tydzien-szczegolowe-wyniki-badan-zlamanej-galezi-sosny-z-sokolicy), [scienceinpoland.pl](https://scienceinpoland.pl/en/node/33026) |
 | F0347 | Dawidia chińska | kwiatostany otaczają dwie białe podsadki; podsadki długości do 20 cm | [landscapeplants.oregonstate.edu](https://landscapeplants.oregonstate.edu/plants/davidia-involucrata), [rhs.org.uk](https://www.rhs.org.uk/plants/5364/wd/details) |
 
 </details>
 
-Czeka na sprawdzenie (34): F0301, F0302, F0306, F0307, F0308, F0309, F0310, F0311, F0312, F0313, F0315, F0321, F0323, F0324, F0325, F0326, F0327, F0328, F0329, F0330, F0331, F0332, F0333, F0335, F0336, F0337, F0342, F0343, F0344, F0345, F0346, F0350, F0352, F0353.
+Czeka na sprawdzenie (27): F0301, F0302, F0308, F0309, F0310, F0311, F0312, F0313, F0315, F0326, F0327, F0328, F0329, F0330, F0331, F0332, F0333, F0335, F0336, F0337, F0342, F0343, F0344, F0345, F0346, F0352, F0353.
 
 ### Owady
 
-Sprawdzone 4 z 20; ✅ potwierdzona: 1; ✏️ do poprawki: 2; ❔ niepotwierdzona: 1.
+Sprawdzone 9 z 20; ✅ potwierdzona: 4; ✏️ do poprawki: 2; ❔ niepotwierdzona: 3.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
+| F0388 | Topielica | ❔ niepotwierdzona | Sama rurka oddechowa ma **25–34 mm** długości. | ❔ rurka oddechowa topielicy ma 25–34 mm długości<br>Zakresu 25–34 mm nie podaje żadne znalezione niezależne źródło, a brytyjskie strony podają inne wartości (Gedling Conservation Trust: rurka do 20 mm, Wildlife Trusts: 5 cm długości całkowitej). | — (pominąć) | — |
 | F0397 | Wielbłądka | ✏️ do poprawki | To prastara grupa: rozkwit przeżyła w jurze i kredzie. Naukowo opisano dziś około 210 żyjących gatunków, a szacuje się, że na świecie jest ich około 260. | ❌ rozkwit przeżyła w jurze i kredzie<br>❌ naukowo opisano dziś około 210 żyjących gatunków<br>❔ szacuje się, że na świecie jest ich około 260<br>Aspöck i Aspöck (Deutsche Entomologische Zeitschrift 2023) podają ok. 250 opisanych gatunków, szacunku 260 nie podaje żadne niezależne źródło, a praca w BMC Evolutionary Biology (2014) mówi, że w jurze wielbłądki były nieliczne (7 rodzajów, 14 gatunków), więc rozkwit przypada na kredę. | To prastara grupa: rozkwit przeżyła w kredzie. Naukowo opisano dziś około 250 żyjących gatunków. | [biomedcentral.com](https://www.biomedcentral.com/1471-2148/14/84), [doaj.org](https://doaj.org/article/38c0fad96bb64c69a2d0d6e296809675) |
 | F0401 | Bujanka | ❔ niepotwierdzona | Długa, sztywna ssawka (u bujanki większej 5,5–7,5 mm) służy do picia nektaru i mimo groźnego wyglądu jest nieszkodliwa, a sama mucha **nie żądli**. | ❔ ssawka bujanki większej ma 5,5–7,5 mm<br>Zakres 5,5–7,5 mm podają tylko Wikipedia i strony popularne (powołujące się na Kastinger i Weber 2001), a badanie w Journal of Applied Entomology (2024, par.nsf.gov) zmierzyło u bujanki większej ssawki od 4,35 do 11,69 mm. | Długa, sztywna ssawka służy do picia nektaru i mimo groźnego wyglądu jest nieszkodliwa, a sama mucha **nie żądli**. | — |
+| F0410 | Bryzgun | ❔ niepotwierdzona | Jego larwy (do około 45 mm) wyglądają jak gąsienice motyli, ale to błonkówki. | ❔ larwy dorastają do około 45 mm<br>Długość larw ok. 45 mm podają tylko kopie Wikipedii (np. tyt.lt), a Lexikon der Biologie (Spektrum) mówi ogólnie o larwach rodzaju Cimbex do 50 mm, bez wartości dla tego gatunku. | Jego larwy wyglądają jak gąsienice motyli, ale to błonkówki. | — |
 | F0428 | Nadobnica alpejska | ✏️ do poprawki | Larwy rozwijają się 3–4 lata w martwym i obumierającym drewnie starych buków, rzadziej wiązów górskich. Głównym zagrożeniem jest wycinka starych buczyn i usuwanie z lasu obumierających buków. Pułapką bywa też drewno bukowe składowane latem w lesie, które wywozi się razem ze złożonymi w nim jajami. | ❌ larwy rozwijają się 3–4 lata<br>„Roczniki Bieszczadzkie” (BdPN) i rozprawa doktorska R. Gila (UWr) podają 2–4 lata całego rozwoju, a inne opracowanie ochroniarskie 4 lata z możliwym wydłużeniem o 1–2 lata w wyższych położeniach; zakresu 3–4 lata nie podaje żadne niezależne źródło, stąd ostrożne „kilka lat”. | Larwy rozwijają się kilka lat w martwym i obumierającym drewnie starych buków, rzadziej wiązów górskich. Głównym zagrożeniem jest wycinka starych buczyn i usuwanie z lasu obumierających buków. Pułapką bywa też drewno bukowe składowane latem w lesie, które wywozi się razem ze złożonymi w nim jajami. | [archiwum.bdpn.pl](https://archiwum.bdpn.pl/dokumenty/roczniki/rb24/art10.pdf) |
 
 <details>
-<summary>Potwierdzone (1)</summary>
+<summary>Potwierdzone (4)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
+| F0375 | Iskrzyk | jeden z 3 gatunków świetlikowatych w Polsce | [national-geographic.pl](https://www.national-geographic.pl/przyroda/kto-raz-zobaczyl-tego-owada-nigdy-go-nie-zapomni-swietlik-swietojanski-to-chrzaszcz-ktory-potrafi-swiecic/) |
+| F0378 | Gąsienica zmrocznika gładysza | pierwszy gatunek zwierzęcia z udokumentowanym nocnym widzeniem barwnym; badania z 2002 roku; rozróżniał kolory przy świetle tak słabym jak blask gwiazd | [lup.lub.lu.se](https://lup.lub.lu.se/record/131382) |
 | F0405 | Zgarb rogaty | przedplecze z 3 wyrostkami (2 boczne i 1 tylny) | [gbif.org](https://www.gbif.org/species/165258241) |
+| F0409 | Bryzgun | bryzgun brzozowiec dorasta do 20 mm | [spektrum.de](https://www.spektrum.de/lexikon/biologie/cimbicidae/14167) |
 
 </details>
 
-Czeka na sprawdzenie (16): F0371, F0374, F0375, F0378, F0380, F0388, F0409, F0410, F0422, F0424, F0427, F0430, F0431, F0432, F0434, F0435.
+Czeka na sprawdzenie (11): F0371, F0374, F0380, F0422, F0424, F0427, F0430, F0431, F0432, F0434, F0435.
 
 ### Ryby
 
-Sprawdzone 4 z 22; ✅ potwierdzona: 1; ✏️ do poprawki: 1; ❔ niepotwierdzona: 2.
+Sprawdzone 11 z 22; ✅ potwierdzona: 3; ✏️ do poprawki: 5; ❔ niepotwierdzona: 3.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
 | F0437 | Stynka | ❔ niepotwierdzona | Na tarło wędruje nawet **30 km w górę rzeki**. | ❔ na tarło wędruje nawet 30 km w górę rzeki<br>Niezależne źródła (m.in. Archiwum Rybactwa Polskiego na rcin.org.pl) potwierdzają tylko, że stynka wchodzi na tarło do rzek; dystansu 30 km nie podaje żadne znalezione źródło poza Wikipedią. | Na tarło wędruje w górę rzeki. | — |
 | F0451 | Tasza | ✏️ do poprawki | Inna nazwa to „zając morski”. W Bałtyku dorasta do około 30 cm. | ❌ w Bałtyku dorasta do około 30 cm<br>Atlas Stacji Morskiej Uniwersytetu Gdańskiego podaje, że w Bałtyku tasza ma do 40 cm (samce nieco mniejsze), a nie ok. 30 cm. | Inna nazwa to „zając morski”. W Bałtyku dorasta do 40 cm. | [hel.arch.ug.edu.pl](https://hel.arch.ug.edu.pl/atlas/org/ryb/tas/text.htm) |
 | F0454 | Stornia | ❔ niepotwierdzona | W rozwoju jej oczy „wędrują” zwykle na prawą stronę, ale u około **30%** osobników na lewą! | ❔ oczy wędrują na lewą stronę u około 30% osobników<br>Prace naukowe (Russo i in. 2012, badania z Morza Białego w Trudy ZIN 2021–2022) opisują dużą, zależną od populacji zmienność udziału osobników lewostronnych (np. 13–26% w Zatoce Onegi, 2–7% w innej zatoce); wartości ok. 30% dla gatunku nie podaje żadne znalezione źródło. | W rozwoju jej oczy „wędrują” zwykle na prawą stronę, ale u części osobników na lewą! | — |
+| F0465 | Jazgarz | ✏️ do poprawki | Jedna samica może złożyć **130–200 tys. ikrzyc** rocznie. | ✅ samica może złożyć do 200 tys. ikrzyc w sezonie<br>❌ dolna granica 130 tys. ikrzyc rocznie<br>Wisconsin Sea Grant podaje 130–200 tys. ikrzyc w sezonie, ale Minnesota Sea Grant 13–200 tys., a arkusz USACE 10–150 tys. rocznie, więc dolna granica jest niepewna i zostawiono tylko górną (200 tys.) zgodną w obu Sea Grant. | Jedna samica może złożyć w sezonie nawet 200 tys. ikrzyc. | [seagrant.wisc.edu](https://www.seagrant.wisc.edu/our-work/focus-areas/ais/invasive-species/invasive-species-fact-sheets/fish/eurasian-ruffe), [webarchive.library.unt.edu](https://webarchive.library.unt.edu/web/20090115182754/http://www.seagrant.umn.edu/exotics/ruffe.html) |
+| F0466 | Jazgarz | ✏️ do poprawki | W Szkocji, gdzie został zawleczony, od około 1985 r. szybko się rozprzestrzenia i uchodzi za gatunek inwazyjny, który wyjada ikrę rodzimych ryb. | ❌ w Szkocji szybko się rozprzestrzenia od około 1985 r.<br>Adams i Maitland (J. Great Lakes Res. 1998) podają, że jazgarza odkryto w Loch Lomond w 1982 r., a jego liczebność rosła wykładniczo w latach 1982–1992 i potem się ustabilizowała; daty „około 1985” nie potwierdza żadne niezależne źródło. | W Szkocji, gdzie został zawleczony, odnotowano go po raz pierwszy w 1982 r. Szybko się rozprzestrzenił i uchodzi za gatunek inwazyjny, który wyjada ikrę rodzimych ryb. | [bvbvf1.bib-bvb.de](https://bvbvf1.bib-bvb.de/vufind/PrimoRecord/cdi_proquest_miscellaneous_17109217) |
+| F0472 | Miętus | ❔ niepotwierdzona | Jest aktywny zimą, przy **0–3 °C**. | ❔ jest aktywny zimą przy temperaturze 0–3 °C<br>Polskie materiały rybackie potwierdzają najintensywniejsze żerowanie miętusa późną jesienią i zimą, ale zakresu 0–3 °C nie podaje żadne znalezione niezależne źródło (prace naukowe mówią tylko o preferencji zimnej wody i rozwoju ikry w ok. 2 °C). | Jest aktywny zimą. | — |
+| F0474 | Węgorz europejski | ✏️ do poprawki | Tarło odbywa w **Morzu Sargassowym**, ponad 6000 km od Europy. | ❌ Morze Sargassowe leży ponad 6000 km od Europy<br>Serwis CORDIS Komisji Europejskiej opisuje wędrówkę tarłową węgorzy jako podróż liczącą 5000 km, a Zintegrowana Platforma Edukacyjna (zpe.gov.pl) pisze o „nawet 5000 km”; wartości ponad 6000 km nie podaje żadne znalezione niezależne źródło. | Tarło odbywa w **Morzu Sargassowym**, około 5000 km od Europy. | [cordis.europa.eu](https://cordis.europa.eu/article/id/31361-researchers-unlock-mystery-of-european-eels-spawning-migration/pl) |
+| F0476 | Węgorz europejski | ✏️ do poprawki | Jego **krew zawiera ichtiotoksynę**, niebezpieczną dla ssaków. Traci właściwości trujące powyżej 58 °C. | ❌ krew traci właściwości trujące powyżej 58 °C (jako pewny próg)<br>„Nature” (1898) relacjonuje, że według Phisalixa 15 minut w 58 °C usuwało toksyczność surowicy, według Wehrmanna tylko jej większość, a według Mosso potrzeba było 68–78 °C, więc próg 58 °C nie jest pewny i zostawiono tylko ogólne stwierdzenie o działaniu ciepła. Redakcja: bez zdania o podgrzewaniu, bo przy rybie jadalnej czyta się jak porada kulinarna (zasada atlasu: zero porad kulinarnych). | Jego **krew zawiera ichtiotoksynę**, niebezpieczną dla ssaków. | [nature.com](https://www.nature.com/articles/058369a0.pdf) |
 
 <details>
-<summary>Potwierdzone (1)</summary>
+<summary>Potwierdzone (3)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
 | F0460 | Iglicznia | młode opuszczają torbę lęgową po około miesiącu; młode mają 2–3 cm długości | [pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC2842728), [fishes-fnam.linnaeus.naturalis.nl](https://fishes-fnam.linnaeus.naturalis.nl/linnaeus_ng/app/views/species/taxon.php?id=109991) |
+| F0478 | Ciernik | redukcja wynika z mutacji w jednym enhancerze genu Pitx1 | [archive.jgi.doe.gov](https://archive.jgi.doe.gov/?p=1578) |
+| F0479 | Cierniczek | ma 7–12 kolców na grzbiecie | [fishbase.se](https://www.fishbase.se/physiology/Pungitius_pungitius) |
 
 </details>
 
-Czeka na sprawdzenie (18): F0465, F0466, F0472, F0474, F0476, F0478, F0479, F0485, F0487, F0490, F0492, F0494, F0500, F0503, F0504, F0505, F0506, F0509.
+Czeka na sprawdzenie (11): F0485, F0487, F0490, F0492, F0494, F0500, F0503, F0504, F0505, F0506, F0509.
 
 ### Płazy i gady
 
-Sprawdzone 4 z 22; ✅ potwierdzona: 2; ✏️ do poprawki: 1; ❔ niepotwierdzona: 1.
+Sprawdzone 8 z 22; ✅ potwierdzona: 3; ✏️ do poprawki: 2; ❔ niepotwierdzona: 3.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
 | F0517 | Grzebiuszka ziemna | ❔ niepotwierdzona | Samica składa skrzek w jednym grubym sznurze o długości 40–100 cm. | ✅ sznur skrzeku ma do 100 cm długości (górna granica)<br>❔ sznur skrzeku ma od 40 cm długości (dolna granica zakresu 40–100 cm)<br>❔ skrzek składany jest w jednym sznurze<br>AmphibiaWeb podaje gruby, kiełbaskowaty sznur skrzeku do 1 m (opisany jako „paired”); dolnej granicy 40 cm ani pojedynczego sznura nie potwierdza żadne niezależne źródło. | Samica składa skrzek w grubym sznurze o długości do 100 cm. | [amphibiaweb.org](https://amphibiaweb.org/species/5270) |
 | F0530 | Ropucha szara | ✏️ do poprawki | Skrzek składa w sznurach długości **2,5–5 m**, z kilkoma tysiącami jaj. | ❌ sznury skrzeku długości 2,5–5 m<br>✅ z kilkoma tysiącami jaj<br>Źródła instytucjonalne różnią się co do długości: opis płazów Wigierskiego PN podaje 2,5–6,0 m i kilka tysięcy jaj, strony Lasów Państwowych mówią o „kilkumetrowych” sznurach (pojedynczy nawet do 5 m, do 6000 jaj), a Woodland Trust podaje średnio 1500 jaj (maks. 5000). | Skrzek składa w **kilkumetrowych sznurach**, z kilkoma tysiącami jaj. | [wigry.org.pl](https://www.wigry.org.pl/plazy2/ropu.htm) |
+| F0534 | Traszka zwyczajna | ❔ niepotwierdzona | *Lissotriton* to po grecku „gładki” plus imię morskiego boga Trytona. Gatunek doczekał się aż 48 synonimów naukowych! | ❔ gatunek ma 48 synonimów naukowych<br>Liczbę 48 synonimów podaje tylko angielska Wikipedia i jej kopie; niezależne bazy (np. Amphibian Species of the World, worldspecies.org) wymieniają wiele nazw, ale nie podają ich liczby, a wynik liczenia zależy od przyjętych kryteriów. | *Lissotriton* to po grecku „gładki” plus imię morskiego boga Trytona. | — |
+| F0537 | Traszka karpacka | ❔ niepotwierdzona | Żyje w Karpatach i we wschodniej części Sudetów (czeski Hrubý Jeseník): w Czechach, Polsce, Rumunii, Słowacji i na Ukrainie. W 1901 roku wsiedlono ją też w Lesie Bawarskim w Niemczech, gdzie przetrwała co najmniej 50 lat, ale późniejszych doniesień o tej populacji nie potwierdzono. | ❔ w 1901 r. wsiedlono ją w Lesie Bawarskim<br>❔ populacja przetrwała co najmniej 50 lat<br>Źródło faktu niedostępne: lars-ev.de; baza Amphibian Species of the World (AMNH) potwierdza tylko wsiedlenie w Bawarii, a roku 1901 i przetrwania populacji przez co najmniej 50 lat nie podaje żadne znalezione niezależne źródło. | Żyje w Karpatach i we wschodniej części Sudetów (czeski Hrubý Jeseník): w Czechach, Polsce, Rumunii, Słowacji i na Ukrainie. Wsiedlono ją też w Lesie Bawarskim w Niemczech. | — |
+| F0547 | Ropucha zielona | ✏️ do poprawki | Dawną „ropuchę zieloną” podzielono po badaniach genetycznych: 14 populacji uznano za odrębne gatunki. | ❌ 14 populacji uznano za odrębne gatunki<br>Dufresnes i in. (Molecular Phylogenetics and Evolution 2019, „Fifteen shades of green”) wyróżniają w rodzaju *Bufotes* 15 gatunków, a liczbę 14 podaje tylko Wikipedia, więc bezpieczniej napisać „kilkanaście”. | Dawną „ropuchę zieloną” podzielono po badaniach genetycznych na kilkanaście odrębnych gatunków. | [danieljablonski.com](https://www.danieljablonski.com/a/soubory/Dufresnes_et_al_2019_Bufotes_biogeography_taxonomy_MPE.pdf) |
 
 <details>
-<summary>Potwierdzone (2)</summary>
+<summary>Potwierdzone (3)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
 | F0522 | Kumak górski | bombininę wyizolowano na przełomie lat 60. i 70. XX w., pierwszy opis z 1970 r.; jeden z pierwszych poznanych peptydów przeciwdrobnoustrojowych płazów | [link.springer.com](https://link.springer.com/article/10.1007/BF00907538), [pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC4070539) |
 | F0525 | Salamandra plamista | największy płaz ogoniasty w Polsce; długość 10–24 cm; maksymalnie 32 cm | [polsatnews.pl](https://www.polsatnews.pl/wiadomosc/2023-10-23/salamandra-plamista-to-najwiekszy-plaz-ogoniasty-w-polsce-ostrzezono-przed-dotykaniem-zwierzecia/), [national-geographic.pl](https://www.national-geographic.pl/przyroda/salamandra-od-legend-o-ogniu-po-wspolczesna-ochrone-przyrody/), [liverpoolmuseums.org.uk](https://www.liverpoolmuseums.org.uk/artifact/salamandra-salamandra-linnaeus-1758-0) |
+| F0540 | Traszka górska | to jedyny żyjący dziś gatunek swojego rodzaju; część herpetologów od 2025 r. używa nazwy Mesotriton | [gbif.org](https://www.gbif.org/taxon/73BFQ), [salamandra-journal.com](https://www.salamandra-journal.com/salamandra/61-2025/61-1/61-1,%203,%20Mutz&Boehme,%20Ichthyosaura%20as%20a%20generic%20nomen%20for%20the%20Alpine%20Newt.pdf) |
 
 </details>
 
-Czeka na sprawdzenie (18): F0534, F0537, F0540, F0547, F0551, F0555, F0557, F0558, F0562, F0565, F0568, F0569, F0570, F0571, F0575, F0583, F0591, F0594.
+Czeka na sprawdzenie (14): F0551, F0555, F0557, F0558, F0562, F0565, F0568, F0569, F0570, F0571, F0575, F0583, F0591, F0594.
 
 ### Ptaki
 
-Sprawdzone 14 z 35; ✅ potwierdzona: 8; ❔ niepotwierdzona: 6.
+Sprawdzone 19 z 35; ✅ potwierdzona: 10; ✏️ do poprawki: 2; ❔ niepotwierdzona: 7.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -195,9 +228,12 @@ Sprawdzone 14 z 35; ✅ potwierdzona: 8; ❔ niepotwierdzona: 6.
 | F0623 | Dubelt | ❔ niepotwierdzona | Samce tokują **stadnie, nocą**, na torfowiskach. Niektóre tokowiska są używane **przez 20, a nawet 60 lat**! | ✅ niektóre tokowiska są używane przez 20 lat<br>❔ niektóre tokowiska są używane nawet przez 60 lat<br>Journal of Ornithology (2024) opisuje jedno tokowisko na Białorusi badane przez 22 lata, ale tokowiska używanego przez 60 lat nie podaje żadne niezależne źródło. | Samce tokują **stadnie, nocą**, na torfowiskach. Niektóre tokowiska są używane **przez 20 lat**! | [link.springer.com](https://link.springer.com/10.1007/s10336-023-02091-7) |
 | F0634 | Pustułka | ❔ niepotwierdzona | Poluje, **zawisając** w powietrzu 10–20 m nad ziemią. Dawna angielska nazwa to *windhover*. | ❔ zawisa w powietrzu 10–20 m nad ziemią<br>Zakres 10–20 m podają tylko Wikipedia i jej kopie, a EBSCO Research Starters i Oiseaux.net piszą o wypatrywaniu zdobyczy z wysokości 10–40 m, więc liczbę lepiej pominąć. | Poluje, **zawisając** w powietrzu. Dawna angielska nazwa to *windhover*. | — |
 | F0639 | Nawałnik duży | ❔ niepotwierdzona | W Polsce to rzadki zalatujący gość: do 2018 r. było **21 stwierdzeń**. | ❔ do 2018 r. w Polsce było 21 stwierdzeń<br>Raporty Komisji Faunistycznej dostępne w wynikach wyszukiwania nie podają łącznej liczby stwierdzeń nawałnika dużego do 2018 r., a liczby 21 nie potwierdza żadne niezależne źródło. | W Polsce to rzadki zalatujący gość. | — |
+| F0653 | Dymówka | ✏️ do poprawki | Gniazdo lepi z **gliny i grudek błota sklejonych śliną**, a budowa zajmuje parze około 2 tygodni, więc stare gniazda są w cenie. | ❌ budowa gniazda zajmuje parze około 2 tygodni<br>eXtension (amerykańska sieć uczelnianych służb doradczych) i strona Stanford Birds podają 7–14 dni (1–2 tygodnie) zależnie od dostępności błota i pogody, więc „około 2 tygodni” to tylko górna granica. | Gniazdo lepi z **gliny i grudek błota sklejonych śliną**, a budowa zajmuje parze 1–2 tygodnie, więc stare gniazda są w cenie. | [articles.extension.org](https://articles.extension.org/pages/11352/swallows) |
+| F0659 | Kukułka | ❔ niepotwierdzona | To jedyny przedstawiciel rzędu kukułkowych w polskiej awifaunie i pasożyt lęgowy: sama nie wysiaduje jaj, tylko podrzuca je do cudzych gniazd. Znanych jest około 125 gatunków gospodarzy, ale regularnie korzysta tylko z około 20. | ❔ jedyny przedstawiciel rzędu kukułkowych w polskiej awifaunie<br>❔ znanych jest około 125 gatunków gospodarzy<br>❔ regularnie korzysta tylko z około 20 gatunków<br>Źródło faktu niedostępne: magazyn.salamandra.org.pl; niezależnie znaleziono tylko „ponad sto gatunków gospodarzy” (yadda.icm.edu.pl), a „Ptaki Śląska” (1996) opisują drugie stwierdzenie kukułki czubatej w Polsce, więc „jedyny przedstawiciel rzędu” jest wątpliwy. | To pasożyt lęgowy: sama nie wysiaduje jaj, tylko podrzuca je do cudzych gniazd. | — |
+| F0681 | Wodniczka | ✏️ do poprawki | Zimowiska dużej części europejskiej populacji odkryto dopiero po wielu latach niepewności, w Senegalu (Djoudj): 5–10 tys. ptaków w jednym miejscu. | ❌ w Djoudj w Senegalu zimuje 5–10 tys. ptaków w jednym miejscu<br>Komunikat zespołu AWCT (BirdLife) na stronie OTOP z 2007 r. szacuje, że w Djoudj zimuje od 5 do 15 tys. wodniczek, czyli do 60% światowej populacji; zakresu 5–10 tys. nie znaleziono. | Zimowiska dużej części europejskiej populacji odkryto dopiero po wielu latach niepewności, w Senegalu (Djoudj): 5–15 tys. ptaków w jednym miejscu. | [otop.org.pl](https://otop.org.pl/2007/02/25/awct-expedition-finds-the-wintering-grounds-of-the-aquatic-warbler/) |
 
 <details>
-<summary>Potwierdzone (8)</summary>
+<summary>Potwierdzone (10)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -209,14 +245,16 @@ Sprawdzone 14 z 35; ✅ potwierdzona: 8; ❔ niepotwierdzona: 6.
 | F0624 | Słonka zwyczajna | widzenie dookoła, w 360° | [britannica.com](https://www.britannica.com/animal/woodcock) |
 | F0626 | Słonka zwyczajna | od 2.01.2026 słonka nie jest gatunkiem łownym w Polsce | [eli.gov.pl](https://eli.gov.pl/eli/DU/2025/1286/ogl) |
 | F0648 | Żołna | nora długości do 2 m | [parkilodzkie.pl](https://parkilodzkie.pl/npk/aktualnosci/2097-zolna-nowy-gatunek-legowy-w-spalskim-pk) |
+| F0672 | Szablodziób | w 2023 r. na sztucznej wyspie na Zalewie Szczecińskim gniazdowało 25 par | [ornis-polonica.pl](https://www.ornis-polonica.pl/en/artykul/first-breeding-colony-of-pied-avocets-recurvirostra-avosetta-in-poland-on-artificial-islands-of-the-szczecin-lagoon/) |
+| F0680 | Wodniczka | w Polsce gniazduje około 25% światowej populacji; najwięcej w Unii Europejskiej | [gov.pl](https://www.gov.pl/web/klimat/wzmocnienie-poludniowo-wschodniej-metapopulacji-wodniczki-acrocephalus-paludicola-w-polsce), [gov.pl](https://www.gov.pl/attachment/adb71c50-4569-447c-8693-4f081919a41a) |
 
 </details>
 
-Czeka na sprawdzenie (21): F0622, F0638, F0651, F0653, F0659, F0664, F0665, F0672, F0674, F0676, F0679, F0680, F0681, F0682, F0683, F0684, F0685, F0686, F0689, F0692, F0693.
+Czeka na sprawdzenie (16): F0622, F0638, F0651, F0664, F0665, F0674, F0676, F0679, F0682, F0683, F0684, F0685, F0686, F0689, F0692, F0693.
 
 ### Ssaki
 
-Sprawdzone 4 z 31; ✏️ do poprawki: 1; ❔ niepotwierdzona: 3.
+Sprawdzone 9 z 31; ✅ potwierdzona: 3; ✏️ do poprawki: 1; ❔ niepotwierdzona: 5.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -224,12 +262,25 @@ Sprawdzone 4 z 31; ✏️ do poprawki: 1; ❔ niepotwierdzona: 3.
 | F0704 | Ryjówka górska | ❔ niepotwierdzona | Codziennie zjada **2–3 razy więcej**, niż sama waży! | ❔ ryjówka górska codziennie zjada 2–3 razy więcej, niż sama waży<br>Dla ryjówki górskiej żadne niezależne źródło nie podaje dziennego pobrania pokarmu; strony Lasów Państwowych podają dla ryjówek ogólnie od ok. 100% do 150–200% masy ciała, a „trzykrotność” tylko dla karmiącej samicy ryjówki malutkiej. | — (pominąć) | — |
 | F0713 | Kret europejski | ❔ niepotwierdzona | Kopie korytarze w tempie **12–15 m na godzinę**, a na glebach bagiennych kretowiska osiągają do 90 cm wysokości! | ✅ kopie korytarze w tempie 12–15 m na godzinę<br>❔ na glebach bagiennych kretowiska osiągają do 90 cm wysokości<br>Game & Wildlife Conservation Trust podaje, że kret przekopał w godzinę ponad 15 jardów (ok. 14 m), co mieści się w 12–15 m; wysokości kretowisk do 90 cm na glebach bagiennych nie podaje żadne znalezione źródło. | Kopie korytarze w tempie **12–15 m na godzinę**! | [gwct.org.uk](https://gwct.org.uk/wildlife/species-of-the-month/2010/february/) |
 | F0720 | Nocek rudy | ❔ niepotwierdzona | W Finlandii samiec „Nestori”, żyjący w starym młynie, miał w 2024 r. około **21 lat**! | ❔ samiec „Nestori” miał w 2024 r. około 21 lat<br>Luomus (Uniwersytet Helsiński) potwierdza Nestoriego z młyna w Lieto (zaobrączkowany w 2008 r. jako dorosły, w 2019–2020 r. „blisko 20 lat”), ale wieku ok. 21 lat w 2024 r. nie podaje żadne niezależne źródło – tylko Wikipedia za „Helsingin Sanomat”. | — (pominąć) | — |
+| F0732 | Suseł perełkowany | ❔ niepotwierdzona | W Polsce żyje **tylko na Lubelszczyźnie** (między Wieprzem a Bugiem). W Polsce i na południu Rosji z zasięgu z połowy XX wieku zostało zaledwie około 10%. | ❔ w Polsce i na południu Rosji zostało około 10% zasięgu z połowy XX wieku<br>Wartość 10% zasięgu podają tylko kopie Wikipedii; praca o susłach we wschodniej Polsce (ResearchGate) mówi o spadku liczby stanowisk w Polsce o 90% w drugiej połowie XX w., a IUCN (2024) o spadku globalnej populacji o 99% w 30 lat, czyli o innych miarach. | W Polsce żyje **tylko na Lubelszczyźnie** (między Wieprzem a Bugiem). | — |
+| F0742 | Orzesznica leszczynowa | ❔ niepotwierdzona | W 2015 r. MiIZ PAN ustaliło nazwę gatunku „orzesznica leszczynowa”, a sama „orzesznica” oznacza teraz rodzaj. | ❔ w 2015 r. MiIZ PAN ustaliło nazwę „orzesznica leszczynowa”<br>Rekord VIAF potwierdza istnienie publikacji „Polskie nazewnictwo ssaków świata” (współautor W. Bogdanowicz), ale żaden znaleziony wynik nie podaje roku 2015 ani wydawcy. | MiIZ PAN ustaliło nazwę gatunku „orzesznica leszczynowa”, a sama „orzesznica” oznacza teraz rodzaj. | — |
 
-Czeka na sprawdzenie (27): F0702, F0707, F0710, F0722, F0724, F0727, F0729, F0732, F0734, F0741, F0742, F0747, F0749, F0750, F0751, F0752, F0753, F0754, F0757, F0760, F0761, F0765, F0767, F0769, F0772, F0780, F0782.
+<details>
+<summary>Potwierdzone (3)</summary>
+
+| ID | Karta | Potwierdzone liczby i daty | Źródła |
+| --- | --- | --- | --- |
+| F0722 | Nocek łydkowłosy | rekordowy osobnik dożył 20,5 roku | [umweltportal.mv-regierung.de](https://umweltportal.mv-regierung.de/lung/files/artenschutz/ffh-arten/ffh_asb_myotis_dasycneme.pdf) |
+| F0729 | Nocek wąsatek | nocka Brandta odróżniono jako osobny gatunek dopiero w 1970 r.; w 2001 r. opisano nocka alkatoe | [bats.org.uk](https://www.bats.org.uk/about-bats/what-are-bats/uk-bats/brandts-bat-2), [publication.plazi.org](https://publication.plazi.org/GgServer/html/4C3D87E8FF3B6A84FF4F9D621984B0D7) |
+| F0741 | Orzesznica leszczynowa | dorosła orzesznica waży około 20 g; przed snem zimowym jej masa może się nawet podwoić; sen zimowy trwa od października do kwietnia | [ptes.org](https://ptes.org/campaigns/dormice/about-hazel-dormice/hazel-dormouse-ecology/), [ptes.org](https://ptes.org/wp-content/uploads/2019/03/dormouse-fact-sheet.pdf) |
+
+</details>
+
+Czeka na sprawdzenie (22): F0702, F0707, F0710, F0724, F0727, F0734, F0747, F0749, F0750, F0751, F0752, F0753, F0754, F0757, F0760, F0761, F0765, F0767, F0769, F0772, F0780, F0782.
 
 ### Minerały
 
-Sprawdzone 16 z 25; ✅ potwierdzona: 10; ✏️ do poprawki: 2; ❔ niepotwierdzona: 4.
+Sprawdzone 20 z 25; ✅ potwierdzona: 11; ✏️ do poprawki: 5; ❔ niepotwierdzona: 4.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -239,9 +290,12 @@ Sprawdzone 16 z 25; ✅ potwierdzona: 10; ✏️ do poprawki: 2; ❔ niepotwierd
 | F0823 | Aragonit z Machowa | ✏️ do poprawki | To polimorficzna odmiana węglanu wapnia, druga co do powszechności po kalcycie. Z aragonitu składa się ok. 90% masy perłowej. | ✅ aragonit to druga co do powszechności po kalcycie odmiana węglanu wapnia<br>❌ z aragonitu składa się ok. 90% masy perłowej<br>Berkeley Lab podaje, że aragonit stanowi 95% masy perłowej (przegląd ScienceDirect: ponad 95% wagowo, reszta to 1–5% materii organicznej), a nie ok. 90%; drugie miejsce po kalcycie potwierdza Mindat. | To polimorficzna odmiana węglanu wapnia, druga co do powszechności po kalcycie. Z aragonitu składa się ok. 95% masy perłowej. | [mindat.org](https://www.mindat.org/min-307.html), [newscenter.lbl.gov](https://newscenter.lbl.gov/2008/11/25/mother-of-pearl-secret-revealed/) |
 | F0826 | Halit z Grot Kryształowych | ❔ niepotwierdzona | Groty Kryształowe to podziemny rezerwat przyrody nieożywionej w Kopalni Soli Wieliczka. W obecnej formie utworzono go rozporządzeniem Wojewody Małopolskiego z 11 września 2000 r., ale groty chroniono jako podziemny rezerwat już od 1928 r. | ❔ rezerwat w obecnej formie utworzono rozporządzeniem Wojewody Małopolskiego z 11 września 2000 r.<br>✅ rezerwat utworzono w 2000 r.<br>✅ groty chroniono jako podziemny rezerwat już od 1928 r.<br>Baza geostanowisk IOP PAN i prace w „Studia Naturae” (2000) potwierdzają ochronę od 1928 r. i utworzenie rezerwatu w 2000 r., ale dokładnej daty 11 września 2000 r. nie podaje żadne dostępne niezależne źródło. | Groty Kryształowe to podziemny rezerwat przyrody nieożywionej w Kopalni Soli Wieliczka. W obecnej formie utworzono go rozporządzeniem Wojewody Małopolskiego w 2000 r., ale groty chroniono jako podziemny rezerwat już od 1928 r. | [iop.krakow.pl](https://www.iop.krakow.pl/geosites/home/single/250) |
 | F0827 | Halit z Grot Kryształowych | ❔ niepotwierdzona | Chroni dwie naturalne pustki: Grotę Dolną (706 m³) i Górną (1000 m³), na głębokości 70–114 m. | ✅ Grota Dolna ma 706 m³<br>✅ Grota Górna ma 1000 m³<br>❔ groty leżą na głębokości 70–114 m<br>IOP PAN podaje 706 m³ Groty Dolnej i ok. 1000 m³ Górnej (w rozporządzeniu z 2000 r. 1000,17 m³), ale o głębokości mówi tylko, że groty leżą ok. 80 m pod powierzchnią; zakresu 70–114 m nie podaje żadne niezależne źródło. | Chroni dwie naturalne pustki: Grotę Dolną (706 m³) i Górną (1000 m³). | [iop.krakow.pl](https://www.iop.krakow.pl/geosites/home/single/250) |
+| F0845 | Fluoryt z Kowar | ✏️ do poprawki | Jego zastosowanie jako topnika opisał już w 1529 r. Georgius Agricola. Łacińskie *fluere* znaczy „płynąć”. | ❌ zastosowanie fluorytu jako topnika opisał Georgius Agricola w 1529 r.<br>Podręcznik chemii pierwiastków grup głównych (Barron, LibreTexts) podaje 1530 r., rok druku dialogu „Bermannus”; rok 1529 znaleziono tylko na stronach opartych na Wikipedii. | Jego zastosowanie jako topnika opisał już w 1530 r. Georgius Agricola. Łacińskie *fluere* znaczy „płynąć”. | [chem.libretexts.org](https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry/Chemistry_of_the_Main_Group_Elements_(Barron)/10%3A_The_Halogens/10.01%3A_The_Group_17_Elements-_The_Halogens) |
+| F0847 | Chryzokola z Miedzianki | ✏️ do poprawki | Miedzianka miała prawa miasta górniczego w latach 1519–1945. Nadał je król Ludwik Jagiellończyk. | ❌ prawa miasta górniczego od 1519 r.<br>❔ prawa miasta górniczego do 1945 r.<br>Publikacja naukowa w bibliotece cyfrowej Uniwersytetu w Heidelbergu (rhs2017, s. 0113) datuje nadanie praw miejskich i wolnego miasta górniczego przez króla Ludwika na 1520 r., książka F. Springera (jbc.jelenia-gora.pl) mówi o przywileju górniczym z 1519 r., a końca praw w 1945 r. nie podaje wprost żadne niezależne źródło. | Miedzianka otrzymała prawa miasta górniczego na początku XVI w. Nadał je król Ludwik Jagiellończyk. | [digi.ub.uni-heidelberg.de](https://digi.ub.uni-heidelberg.de/diglit/rhs2017/0113) |
+| F0849 | Malachit z Miedzianki | ✏️ do poprawki | W latach 1945–1954 w Miedziance wydobyto ok. 600 t rudy uranu. Całość wysłano do ZSRR. | ❌ wydobycie w Miedziance w latach 1945–1954<br>❌ wydobyto ok. 600 t rudy uranu<br>Wyższy Urząd Górniczy podaje, że radziecka grupa zaczęła prace w 1948 r., wydobycie zakończono w 1951 r., a sama Miedzianka dała ok. 2400 t rudy uranu (z Mniszkowem ok. 3470 t, 19,3 t uranu); 600 t pojawia się tylko w Atlas Obscura i dotyczy „uranu”. | W latach 1948–1951 w Miedziance wydobyto ok. 2400 t rudy uranu. Całość wysłano do ZSRR. | [wug.gov.pl](https://www.wug.gov.pl/download/467-Mniszkow,8640.pdf/view) |
 
 <details>
-<summary>Potwierdzone (10)</summary>
+<summary>Potwierdzone (11)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -255,45 +309,56 @@ Sprawdzone 16 z 25; ✅ potwierdzona: 10; ✏️ do poprawki: 2; ❔ niepotwierd
 | F0808 | Krzemień pasiasty | Krzemionki na Liście Światowego Dziedzictwa UNESCO od 2019 r. | [whc.unesco.org](https://whc.unesco.org/en/decisions/7390/) |
 | F0813 | Siarka rodzima z Tarnobrzega | odkrywkę w Machowie zamknięto w 1992 r. | [pgi.gov.pl](https://www.pgi.gov.pl/muzeum/kopalnia-wiedzy-1/12583-siarka.html) |
 | F0816 | Haueryt z Machowa i Jeziórka | opisano go w 1846 r. ze złoża siarki Kalinka koło Detvy (dziś Słowacja) | [webmineral.com](https://webmineral.com/data/Hauerite.shtml) |
+| F0852 | Kupryt z Miedzianki | kupryt (tlenek miedzi(I)) zawiera 88,8% miedzi | [webmineral.com](https://webmineral.com/data/Cuprite.shtml) |
 
 </details>
 
-Czeka na sprawdzenie (9): F0845, F0847, F0849, F0852, F0854, F0855, F0857, F0859, F0862.
+Czeka na sprawdzenie (5): F0854, F0855, F0857, F0859, F0862.
 
 ### Formacje skalne
 
-Sprawdzone 7 z 44; ✅ potwierdzona: 4; ❔ niepotwierdzona: 3.
+Sprawdzone 14 z 44; ✅ potwierdzona: 6; ✏️ do poprawki: 1; ❔ niepotwierdzona: 7.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
 | F0866 | Słonecznik | ❔ niepotwierdzona | Leży na wysokości 1423 m n.p.m. i ma 12,5 m wysokości. Północny filar przypomina postać ludzką. | ❔ Słonecznik leży na wysokości 1423 m n.p.m.<br>❔ skałki mają 12,5 m wysokości<br>Wysokość 1423 m n.p.m. podają tylko serwisy turystyczne (regionalna baza szlaków ma na tej samej stronie także 1413 m), a wysokość skałek podawana jest różnie: ok. 10 m, ok. 12 m, 12,5 m, a nawet 25 m; brak źródła instytucjonalnego. | Północny filar przypomina postać ludzką. | — |
 | F0870 | Dziurawa Skała | ❔ niepotwierdzona | Po niemiecku nazywała się Hohle Stein („Pusty Kamień”). To granitowa grupa skalna na wysokości 470 m n.p.m. | ❔ grupa skalna leży na wysokości 470 m n.p.m.<br>Wysokość ok. 470 m n.p.m. podaje tylko blog hotelu z Przesieki; bazy PIG-PIB (geostanowiska, Jaskinie Polski) opisują inną Dziurawą Skałę (Wyżyna Krakowsko-Częstochowska, 480 m). | Po niemiecku nazywała się Hohle Stein („Pusty Kamień”). To granitowa grupa skalna. | — |
 | F0872 | Trzy Świnki | ❔ niepotwierdzona | Skałki mają do 8 m wysokości. Budują je granity porfirowate z dużymi kremowymi kryształami skaleni. | ❔ skałki mają do 8 m wysokości<br>Przewodnik geoturystyczny KPN potwierdza, że Trzy Świnki zbudowane są z granitu porfirowatego, ale wysokość ok. 8 m podaje tylko blog turystyczny (TravelFeed), bez potwierdzenia w źródłach instytucjonalnych. | Skałki budują granity porfirowate z dużymi kremowymi kryształami skaleni. | — |
+| F0875 | Skały Chojnika | ❔ niepotwierdzona | Chojnik (627 m n.p.m.) jest zbudowany z granitu karkonoskiego. Jego południowo-zachodnie zbocze to urwisko o wysokości kilkudziesięciu metrów. | ✅ Chojnik ma 627 m n.p.m.<br>❔ południowo-zachodnie zbocze to urwisko o wysokości kilkudziesięciu metrów<br>Przewodnik geoturystyczny KPN podaje 627 m n.p.m. i opisuje Chojnik jako izolowane wzgórze granitowe, ale wysokości urwiska na południowo-zachodnim zboczu nie podaje żadne znalezione niezależne źródło (przewodnika po ścieżce KPN nie dało się otworzyć). | Chojnik (627 m n.p.m.) jest zbudowany z granitu karkonoskiego. | [kpnmab.pl](https://kpnmab.pl/img/files/Wydawnictwa3/Przewodnik_geoturystyczny.pdf) |
+| F0877 | Skały Chojnika | ❔ niepotwierdzona | U podnóża są Zbójeckie Skały i dwie małe jaskinie: Dziurawy Kamień i Jaskinia Zbójecka. | ❔ u podnóża są dwie małe jaskinie: Dziurawy Kamień i Jaskinia Zbójecka<br>KPN potwierdza jaskinię Dziurawy Kamień (ok. 20 m długości) przy szlaku przez Zbójeckie Skały, ale „Jaskini Zbójeckiej” ani tego, że są tam dwie jaskinie, nie podaje żadne znalezione niezależne źródło (opisy tras na portalach turystycznych wspominają tylko „Zbójecką Grotę”). | U podnóża są Zbójeckie Skały i mała jaskinia Dziurawy Kamień. | — |
+| F0879 | Małe Organy Myśliborskie | ❔ niepotwierdzona | ⏳ Wiek bazaltów szacuje się na ok. 30 mln lat. Obiekt jest pomnikiem przyrody w Parku Krajobrazowym Chełmy. | ❔ wiek bazaltów szacuje się na ok. 30 mln lat<br>Ani PIG-PIB, ani Dolnośląski Zespół Parków Krajobrazowych, ani inne znalezione niezależne źródła nie podają wieku bazaltów Małych Organów Myśliborskich; materiały PIG opisują tylko ogólnie wulkanizm regionu od oligocenu po pliocen. | Obiekt jest pomnikiem przyrody w Parku Krajobrazowym Chełmy. | — |
+| F0881 | Organy Wielisławskie | ❔ niepotwierdzona | Słupy są zwykle cztero- lub pięciokątne, o średnicy 20–30 cm. Powstały podczas stygnięcia lawy w kominie wulkanicznym. | ❔ słupy są zwykle cztero- lub pięciokątne<br>✅ słupy mają średnicę 20–30 cm<br>Średnicę 20–30 cm podaje geopark (gorykaczawskie.pl), ale liczby boków żadne niezależne źródło nie podaje: polska strona geoparku pisze o słupach „wielokątnych”, a angielska o „sześciokątnych”. | Słupy mają średnicę 20–30 cm. Powstały podczas stygnięcia lawy w kominie wulkanicznym. | [gorykaczawskie.pl](https://www.gorykaczawskie.pl/en/wielislaw-organ/) |
+| F0882 | Kolorowe Jeziorka | ✏️ do poprawki | To cztery stawy u stóp Wielkiej Kopy (871 m) w Rudawach Janowickich: Purpurowe, Błękitne, Zielone i okresowo wysychające Żółte. | ✅ Wielka Kopa ma 871 m<br>❌ to cztery stawy, w tym okresowo wysychające Żółte<br>Gmina Marciszów podaje Wielką Kopę 871 m n.p.m. i wymienia trzy stawy (Purpurowy, Błękitny, Zielony), a National Geographic Traveler pisze, że po Żółtym zostało tylko zagłębienie w ziemi, a okresowo wysycha Zielony, więc liczba „cztery” i opis Żółtego są niepewne. | To stawy u stóp Wielkiej Kopy (871 m) w Rudawach Janowickich, m.in. Purpurowe, Błękitne i Zielone. | [gmina.marciszow.pl](https://gmina.marciszow.pl/wp-content/uploads/2021/07/Marciszow-okl.pdf), [national-geographic.pl](https://www.national-geographic.pl/traveler/kierunki/kolorowe-jeziorka/) |
 
 <details>
-<summary>Potwierdzone (4)</summary>
+<summary>Potwierdzone (6)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
 | F0868 | Pielgrzymy | granitowe skały mają do 25 m wysokości; trzy potężne grupy skalne | [kpnmab.pl](https://kpnmab.pl/pielgrzymy-pl/a) |
 | F0869 | Pielgrzymy | stoją na wysokości 1204 m n.p.m. na Śląskim Grzbiecie, na południe od Borowic | [kpnmab.pl](https://kpnmab.pl/pielgrzymy-pl/a) |
+| F0876 | Skały Chojnika | zamek spłonął 31 sierpnia 1675 r. i od tego czasu jest ruiną | [en.jeleniagora.pl](https://en.jeleniagora.pl/content/chojnik-castle) |
+| F0880 | Organy Wielisławskie | ryolity są spękane na setki przylegających do siebie wielokątnych słupów; słupy mają średnicę 20–30 cm | [gorykaczawskie.pl](https://www.gorykaczawskie.pl/wycieczka-na-wielislawke/), [gorykaczawskie.pl](https://www.gorykaczawskie.pl/en/wielislaw-organ/) |
 | F0935 | Krzemionki | kopalnie eksploatowano ok. 3900–1600 p.n.e. | [whc.unesco.org](https://whc.unesco.org/en/decisions/7390/) |
 | F0936 | Krzemionki | od 2019 r. obiekt UNESCO „Krzemionkowski region prehistorycznego górnictwa krzemienia pasiastego” | [whc.unesco.org](https://whc.unesco.org/en/decisions/7390/) |
 
 </details>
 
-Czeka na sprawdzenie (37): F0875, F0876, F0877, F0879, F0880, F0881, F0882, F0886, F0887, F0888, F0889, F0890, F0891, F0893, F0895, F0897, F0899, F0900, F0901, F0902, F0904, F0908, F0909, F0910, F0917, F0918, F0919, F0920, F0922, F0924, F0926, F0927, F0930, F0931, F0932, F0937, F0941.
+Czeka na sprawdzenie (30): F0886, F0887, F0888, F0889, F0890, F0891, F0893, F0895, F0897, F0899, F0900, F0901, F0902, F0904, F0908, F0909, F0910, F0917, F0918, F0919, F0920, F0922, F0924, F0926, F0927, F0930, F0931, F0932, F0937, F0941.
 
 ### Skamieniałości
 
-Sprawdzone 5 z 25; ✅ potwierdzona: 4; ✏️ do poprawki: 1.
+Sprawdzone 12 z 25; ✅ potwierdzona: 8; ✏️ do poprawki: 2; ❔ niepotwierdzona: 2.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
 | F0956 | Karbońskie lasy węglowe | ✏️ do poprawki | Lepidodendrony to widłaki dorastające do 30 m wysokości i ok. 2 m średnicy. Ich rombowe „poduszki” liściowe łatwo poznać w skale. | ❌ lepidodendrony dorastały do 30 m wysokości<br>✅ pnie miały ok. 2 m średnicy<br>Britannica w haśle Lepidodendron podaje do ok. 40 m wysokości i ok. 2 m średnicy, a w haśle Lycopsid (oraz Smithsonian) do ok. 30 m, więc bezpieczniej podać zakres 30–40 m. | Lepidodendrony to widłaki dorastające do 30–40 m wysokości i ok. 2 m średnicy. Ich rombowe „poduszki” liściowe łatwo poznać w skale. | [britannica.com](https://www.britannica.com/plant/Lepidodendron) |
+| F0960 | Smok wawelski | ❔ niepotwierdzona | W Muzeum Paleontologicznym w Lisowicach pokazano pierwszą kompletną rekonstrukcję jego szkieletu. Gatunek opisano naukowo w 2012 r. | ❔ w muzeum w Lisowicach pokazano pierwszą kompletną rekonstrukcję szkieletu<br>✅ gatunek opisano naukowo w 2012 r.<br>Źródło faktu niedostępne: silesia.travel (tylko stamtąd może pochodzić „pierwsza” rekonstrukcja, wyszukiwanie tego nie potwierdza); rok opisu 2012 potwierdza artykuł w Acta Palaeontologica Polonica 57(2). | W Muzeum Paleontologicznym w Lisowicach pokazano kompletną rekonstrukcję jego szkieletu. Gatunek opisano naukowo w 2012 r. | [app.pan.pl](https://www.app.pan.pl/article/item/app20100045.html) |
+| F0971 | Tropy dinozaurów z Gór Świętokrzyskich | ✏️ do poprawki | Największe tropy teropodów z Sołtykowa mają od 45 do 65 cm długości. Towarzyszą im mniejsze ślady z ichnorodzajów *Eubrontes* i *Kayentapus*, a wśród tropów teropodów z dolnej jury Polski wymieniany jest *Kayentapus soltykovensis*. | ❌ największe tropy teropodów z Sołtykowa mają od 45 do 65 cm długości<br>Przegląd Geologiczny (Niedźwiedzki 2006, PIG-PIB) podaje dla 24 olbrzymich tropów typu *Eubrontes* z Sołtykowa 50–65 cm, a dla grupy typu *Kayentapus* 30–45 cm; zakresu 45–65 cm nie podaje żadne znalezione źródło, a cytowanego PDF z bibliotekanauki.pl nie dało się otworzyć. | Największe tropy teropodów z Sołtykowa mają od 50 do 65 cm długości. Towarzyszą im mniejsze ślady z ichnorodzajów *Eubrontes* i *Kayentapus*, a wśród tropów teropodów z dolnej jury Polski wymieniany jest *Kayentapus soltykovensis*. | [geojournals.pgi.gov.pl](https://geojournals.pgi.gov.pl/pg/article/view/30834) |
+| F0974 | Tropy dinozaurów z Bałtowa | ❔ niepotwierdzona | Stąd wziął się JuraPark Bałtów, otwarty 7 sierpnia 2004 r. z rekonstrukcjami dinozaurów naturalnej wielkości. | ✅ JuraPark Bałtów otwarto w 2004 r.<br>❔ dokładna data otwarcia: 7 sierpnia 2004 r.<br>Katalog JuraParku i artykuł w „Przeglądzie Geologicznym” (PIG-PIB) potwierdzają otwarcie parku w 2004 r., ale dokładnej daty 7 sierpnia nie podaje żadne znalezione niezależne źródło. | Stąd wziął się JuraPark Bałtów, otwarty w 2004 r. z rekonstrukcjami dinozaurów naturalnej wielkości. | [jurapark.pl](https://jurapark.pl/wp-content/uploads/2025/09/Katalog_Kongres_Turystyki_online.pdf) |
 
 <details>
-<summary>Potwierdzone (4)</summary>
+<summary>Potwierdzone (8)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -301,54 +366,69 @@ Sprawdzone 5 z 25; ✅ potwierdzona: 4; ✏️ do poprawki: 1.
 | F0950 | Alienacanthus malkowskii | gatunek opisany w 1957 r. przez Juliana Kulczyckiego | [royalsocietypublishing.org](https://royalsocietypublishing.org/doi/10.1098/rsos.231747) |
 | F0955 | Tropy tetrapodów z Zachełmia | w 2015 r. Spencer G. Lucas zakwestionował interpretację tropów z Zachełmia | [ui.adsabs.harvard.edu](https://ui.adsabs.harvard.edu/abs/2015Ichno..22..136L) |
 | F0957 | Karbońskie lasy węglowe | sygilarie osiągały ponad 20 m wysokości | [repository.si.edu](https://repository.si.edu/server/api/core/bitstreams/d4c37e19-24a4-44a0-85eb-952ee78deaab/content) |
+| F0958 | Smok wawelski | archozaur mierzył 5–6 m długości; czaszka mierzyła 50–60 cm; największy znany drapieżny archozaur późnego triasu i wczesnej jury w Europie Środkowej | [app.pan.pl](https://www.app.pan.pl/article/item/app20100045.html) |
+| F0959 | Smok wawelski | osady z przełomu noryku i retyku (205–200 mln lat) | [app.pan.pl](https://www.app.pan.pl/article/item/app20100045.html) |
+| F0968 | Encrinus liliiformis | triasowy liliowiec z 10 ramionami w koronie | [palass.org](https://palass.org/publications/palaeontology-journal/archive/32/3/article_pp483-497) |
+| F0972 | Tropy dinozaurów z Gór Świętokrzyskich | rezerwat utworzono 25 lipca 1997 r. | [gov.pl](https://www.gov.pl/web/nadlesnictwo-staporkow/ochrona-przyrody) |
 
 </details>
 
-Czeka na sprawdzenie (20): F0958, F0959, F0960, F0968, F0971, F0972, F0974, F0976, F0979, F0983, F0991, F0992, F1005, F1006, F1007, F1010, F1011, F1015, F1016, F1017.
+Czeka na sprawdzenie (13): F0976, F0979, F0983, F0991, F0992, F1005, F1006, F1007, F1010, F1011, F1015, F1016, F1017.
 
 ### Atmosfera i astronomia
 
-Sprawdzone 3 z 24; ✅ potwierdzona: 3.
+Sprawdzone 6 z 24; ✅ potwierdzona: 5; ❔ niepotwierdzona: 1.
+
+| ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
+| --- | --- | --- | --- | --- | --- | --- |
+| F1041 | Białe noce żeglarskie | ❔ niepotwierdzona | Na północy Polski, w okolicach przesilenia letniego, Słońce chowa się za horyzontem na mniej niż 12°. To tak zwane białe noce żeglarskie. | ❔ na północy Polski w okolicach przesilenia letniego Słońce chowa się za horyzontem na mniej niż 12°<br>Próg 12° pojawił się w wynikach tylko jako cytat z niewskazanego artykułu (geekweek.interia.pl, twojapogoda.pl albo urania.edu.pl), a National Geographic Polska podaje dla białych nocy próg 18° i o „białych nocach żeglarskich” na wybrzeżu pisze bez wartości kąta. | Na północy Polski, w okolicach przesilenia letniego, występują tak zwane białe noce żeglarskie. | — |
 
 <details>
-<summary>Potwierdzone (3)</summary>
+<summary>Potwierdzone (5)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
 | F1019 | Widmo Brockenu | zjawisko na Brockenie jako pierwszy opisał w 1780 r. Johann Esaias Silberschlag; Pierre Bouguer i Antonio de Ulloa opisali podobne zjawisko w Andach wcześniej, w połowie XVIII w. | [dwd.de](https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=100496&lv2=100310), [cambridge.org](https://www.cambridge.org/core/books/abs/diffraction-effects-in-semiclassical-scattering/glory/50FABA20DFE356B768663E737E0B6BD2) |
 | F1035 | Dodatnie wyładowania CG+ | pioruny dodatnie to średnio mniej niż 5% wszystkich uderzeń | [noaa.gov](https://www.noaa.gov/jetstream/lightning/positive-and-negative-side-of-lightning) |
 | F1039 | Białe noce astronomiczne | latem w całej Polsce nie zapada noc astronomiczna; Słońce chowa się wtedy pod horyzont na mniej niż 18° | [national-geographic.pl](https://www.national-geographic.pl/kosmos/biale-noce-zawitaly-nad-polska-przez-najblizsze-tygodnie-ciemnosc-niemal-calkowicie-zniknie/) |
+| F1044 | Obłoki srebrzyste | Ceraski obserwował je 13 czerwca 1885 r.; było to dwa lata po wybuchu Krakatau (1883) | [national-geographic.pl](https://www.national-geographic.pl/artykul/obloki-srebrzyste-w-polsce-dlaczego-ostatnio-widzimy-je-coraz-czesciej-220705124125), [tvn24.pl](https://tvn24.pl/tvnmeteo/najnowsze/obserwuj-niebo-moze-uda-ci-sie-dostrzec-rzadkie-obloki-mezosferyczne-ls4896573) |
+| F1045 | Izerski Park Ciemnego Nieba | park utworzono 4 listopada 2009 r., w Międzynarodowym Roku Astronomii; park ma ok. 7500 ha | [astro.uni.wroc.pl](https://www.astro.uni.wroc.pl/index.php/58-piec-lat-w-ciemnosci), [tai.czasopisma.pan.pl](https://tai.czasopisma.pan.pl/Content/94634/mainfile.pdf) |
 
 </details>
 
-Czeka na sprawdzenie (21): F1041, F1044, F1045, F1047, F1048, F1049, F1051, F1053, F1055, F1056, F1057, F1063, F1065, F1067, F1068, F1069, F1070, F1071, F1072, F1074, F1075.
+Czeka na sprawdzenie (18): F1047, F1048, F1049, F1051, F1053, F1055, F1056, F1057, F1063, F1065, F1067, F1068, F1069, F1070, F1071, F1072, F1074, F1075.
 
 ### Rekordy krajobrazu
 
-Sprawdzone 6 z 59; ✅ potwierdzona: 3; ✏️ do poprawki: 2; ❔ niepotwierdzona: 1.
+Sprawdzone 11 z 59; ✅ potwierdzona: 6; ✏️ do poprawki: 4; ❔ niepotwierdzona: 1.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
 | F1080 | Pustynia Błędowska | ✏️ do poprawki | To największy w Polsce obszar lotnych piasków. Pustynia ma ok. 8 km długości i do 4 km szerokości, a obszar Natura 2000 „Pustynia Błędowska” obejmuje ok. 19,6 km². | ✅ największy w Polsce obszar lotnych piasków<br>❌ pustynia ma ok. 8 km długości<br>✅ pustynia ma do 4 km szerokości<br>✅ obszar Natura 2000 „Pustynia Błędowska” obejmuje ok. 19,6 km²<br>Długości 8 km nie podaje żadne niezależne źródło: Interia i interpelacja poselska mówią o ok. 10 km, a praca z 1962 r. (rcin.org.pl) o ok. 7 km pola wydm, więc proponuję usunąć długość; obszar Natura 2000 to 1960,53 ha wg rozporządzenia z 2022 r. | To największy w Polsce obszar lotnych piasków. Pustynia ma do 4 km szerokości, a obszar Natura 2000 „Pustynia Błędowska” obejmuje ok. 19,6 km². | [radiokrakow.pl](https://www.radiokrakow.pl/aktualnosci/malopolskazachodnia/nowe-obiekty-turystyczne-na-pustyni-bledowskiej), [wydarzenia.interia.pl](https://wydarzenia.interia.pl/tematy-pustynia-bledowska,gsbi,7214), [eli.gov.pl](https://eli.gov.pl/eli/DU/2022/1949/ogl/pol/pdf) |
 | F1083 | Ruchome wydmy Słowińskiego Parku Narodowego | ❔ niepotwierdzona | Wyższy jest tylko Wielbłądzi Grzbiet (49,5 m n.p.m.), ale ta wydma ma stałą wysokość. | ✅ Wielbłądzi Grzbiet ma 49,5 m n.p.m. i jest wydmą stałą<br>❔ wyższy od Wydmy Łąckiej jest tylko Wielbłądzi Grzbiet (Łącka druga na polskim wybrzeżu)<br>Nadleśnictwo Elbląg podaje 49,5 m i nazywa Wielbłądzi Grzbiet (Mierzeja Wiślana) najwyższą stałą wydmą, Urząd Morski w Gdyni 49 m; żadne źródło nie potwierdza, że wyższy jest „tylko” on, a w wynikach pojawia się zalesiona Wydma Czołpińska w SPN z wysokością 56 m n.p.m. | Wyższy jest Wielbłądzi Grzbiet (49,5 m n.p.m.), ale ta wydma ma stałą wysokość. | [elblag.gdansk.lasy.gov.pl](https://elblag.gdansk.lasy.gov.pl/obiekty-edukacyjne/-/asset_publisher/1M8a/content/sciezka-przyrodnicza-i-wiata-widokowa-wielbladzi-garb-) |
 | F1084 | Krzywy Las | ✏️ do poprawki | Ponad 50 sosen jest wygiętych pod kątem ok. 90°, tuż nad ziemią (ok. 20 cm). Mają 11–12 m wysokości. | ✅ ponad 50 sosen jest wygiętych<br>✅ pnie wygięte pod kątem ok. 90°<br>❌ wygięcie tuż nad ziemią, ok. 20 cm<br>❔ sosny mają 11–12 m wysokości<br>Nadleśnictwo Gryfino podaje 105 zdeformowanych sosen i (za opracowaniem Ćwiklińskiego) zgięcia pod kątem 90° i mniejszym na wysokości 10–55 cm, a nie ok. 20 cm; wysokości drzew 11–12 m nie podaje żadne niezależne źródło. | Ponad 50 sosen jest wygiętych pod kątem ok. 90°, tuż nad ziemią (10–55 cm). | [gryfino.szczecin.lasy.gov.pl](https://gryfino.szczecin.lasy.gov.pl/wiecej-o-krzywym-lesie) |
+| F1086 | Sosna na Szczudłach w Wełczu | ✏️ do poprawki | Grunt pod sosną obniżył się o ok. 4 m przez dawne wydobycie piasku, a potem przez wywiewanie i wymywanie luźnego podłoża. Odsłonięte korzenie pokryły się korą i podpierają pień jak szczudła. | ❌ grunt pod sosną obniżył się o ok. 4 m<br>Źródła faktu (pomniki-przyrody.pl) nie dało się otworzyć, a Zintegrowana Platforma Edukacyjna (zpe.gov.pl) podaje, że korzenie są odsłonięte do wysokości trzech metrów nad ziemią; wartości 4 m nie potwierdza żadne niezależne źródło. | Grunt pod sosną obniżył się o ok. 3 m przez dawne wydobycie piasku, a potem przez wywiewanie i wymywanie luźnego podłoża. Odsłonięte korzenie pokryły się korą i podpierają pień jak szczudła. | [zpe.gov.pl](https://zpe.gov.pl/a/DFZxUoGzN) |
+| F1092 | Klif Orłowski | ✏️ do poprawki | Przez abrazję ściana cofa się średnio o ok. 1 m rocznie. | ❌ ściana cofa się średnio o ok. 1 m rocznie<br>Publikacja PIG-PIB podaje, że cofanie klifów Zatoki Gdańskiej (z Cyplem Redłowskim wśród najbardziej narażonych) sięga do ok. 1 m rocznie, ale zmierzone średnie tempo dla górnej krawędzi cypla w latach 2010–2015 to 0,23 m rocznie; łagodniejsza wersja to „nawet o ok. 1 m rocznie”. | Przez abrazję ściana klifu się cofa. W latach 2010–2015 jej górna krawędź cofała się średnio o 0,23 m rocznie. | [geojournals.pgi.gov.pl](https://geojournals.pgi.gov.pl/bp/article/download/28705/pdf/44892) |
 
 <details>
-<summary>Potwierdzone (3)</summary>
+<summary>Potwierdzone (6)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
 | F1081 | Pustynia Błędowska | warstwa piasków ma miejscami nawet 70 m grubości | [pgi.gov.pl](https://www.pgi.gov.pl/surowce/skalne-i-inne/surowce-ilaste/14022-piaski_podsadzkowe.html) |
 | F1082 | Ruchome wydmy Słowińskiego Parku Narodowego | Wydma Łącka wznosi się na ok. 40–42 m n.p.m.; jedna z najwyższych wydm na polskim wybrzeżu | [national-geographic.pl](https://www.national-geographic.pl/traveler/kierunki/polska-tez-ma-swoja-pustynie-wydma-lacka-to-kraina-wedrujacego-piasku/) |
 | F1085 | Krzywy Las | sosny zasadzono w latach 30. XX w.; prawdopodobnie w 1934 r. | [gryfino.pl](https://gryfino.pl/chapter_289126.asp?soid=69A23C003E55414E82E352CC8AC22540) |
+| F1087 | Sosna na Szczudłach w Wełczu | w 2023 r. była w finale konkursu „Drzewo Roku” | [radiokielce.pl](https://radiokielce.pl/703666/post-53615) |
+| F1090 | Klify Wolińskiego Parku Narodowego | najwyższe aktywne klify WPN mają do 93 m wysokości (Gosań) | [miedzyzdroje.pl](https://miedzyzdroje.pl/strona/przyroda) |
+| F1091 | Klify Wolińskiego Parku Narodowego | park utworzono w 1960 r. | [national-geographic.pl](https://www.national-geographic.pl/traveler/artykul/rosna-tu-nawet-storczyki-a-nadmorskie-klify-sa-najpiekniejsze-nad-baltykiem-wolinski-park-narodowy-potrafi-zachwycic) |
 
 </details>
 
-Czeka na sprawdzenie (53): F1086, F1087, F1090, F1091, F1092, F1094, F1096, F1098, F1100, F1103, F1107, F1108, F1110, F1112, F1114, F1117, F1118, F1119, F1122, F1123, F1125, F1126, F1128, F1132, F1133, F1134, F1135, F1136, F1137, F1141, F1145, F1148, F1149, F1150, F1151, F1152, F1157, F1159, F1160, F1161, F1162, F1163, F1164, F1165, F1167, F1168, F1169, F1172, F1173, F1179, F1181, F1182, F1183.
+Czeka na sprawdzenie (48): F1094, F1096, F1098, F1100, F1103, F1107, F1108, F1110, F1112, F1114, F1117, F1118, F1119, F1122, F1123, F1125, F1126, F1128, F1132, F1133, F1134, F1135, F1136, F1137, F1141, F1145, F1148, F1149, F1150, F1151, F1152, F1157, F1159, F1160, F1161, F1162, F1163, F1164, F1165, F1167, F1168, F1169, F1172, F1173, F1179, F1181, F1182, F1183.
 
 ### Architektura drewniana
 
-Sprawdzone 17 z 46; ✅ potwierdzona: 13; ✏️ do poprawki: 2; ❔ niepotwierdzona: 2.
+Sprawdzone 24 z 46; ✅ potwierdzona: 18; ✏️ do poprawki: 2; ❔ niepotwierdzona: 4.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -356,9 +436,11 @@ Sprawdzone 17 z 46; ✅ potwierdzona: 13; ✏️ do poprawki: 2; ❔ niepotwierd
 | F1203 | Cerkiew św. Paraskewii w Kwiatoniu | ✏️ do poprawki | Cerkiew zbudowano w drugiej połowie XVII w., a jako datę budowy często podaje się 1700 r. Wieżę dostawiono w 1743 r. | ✅ cerkiew zbudowano w drugiej połowie XVII w.<br>✅ jako datę budowy często podaje się 1700 r.<br>❌ wieżę dostawiono w 1743 r.<br>National Geographic Polska podaje, że datę 1743 odkryto na belce wieży i badacze łączą ją z remontem, a VisitMałopolska mówi tylko, że wieża jest o kilkadziesiąt lat młodsza od nawy; dostawienie wieży w 1743 r. podaje jedynie Wikipedia. | Cerkiew zbudowano w drugiej połowie XVII w., a jako datę budowy często podaje się 1700 r. Na jednej z belek wieży odkryto datę 1743, którą badacze wiążą raczej z remontem świątyni. | [visitmalopolska.pl](https://visitmalopolska.pl/obiekt/-/poi/cerkiew-pw-sw-paraskewii-w-kwiatoniu), [national-geographic.pl](https://www.national-geographic.pl/traveler/kierunki/to-arcydzielo-architektury-z-malopolski-zostalo-cudem-polski-2025-nie-wszyscy-znaja-te-cerkiew/) |
 | F1205 | Cerkiew św. Jakuba w Powroźniku | ❔ niepotwierdzona | Cerkiew istniała od 1600 r. Ze starego budynku zostało tylko tyle, ile wchodzi dziś w skład zakrystii. Na wieży wisi dzwon z 1615 r. | ✅ cerkiew istniała od 1600 r.<br>❔ na wieży wisi dzwon z 1615 r.<br>Regionalny portal visitmalopolska.pl potwierdza rok 1600 i zachowanie najstarszej części jako zakrystii, ale dzwonu z 1615 r. nie wymienia żadne dostępne niezależne źródło. | Cerkiew istniała od 1600 r. Ze starego budynku zostało tylko tyle, ile wchodzi dziś w skład zakrystii. | [visitmalopolska.pl](https://visitmalopolska.pl/obiekt/-/poi/cerkiew-pw-sw-jakuba-w-powrozniku) |
 | F1206 | Cerkiew św. Jakuba w Powroźniku | ✏️ do poprawki | Od 2013 r. jest w UNESCO. W 1813 r. z powodu powodzi cerkiew przeniesiono w nowe miejsce i zachowano przy tym jej pierwotną konstrukcję. | ✅ od 2013 r. jest w UNESCO<br>❌ w 1813 r. z powodu powodzi cerkiew przeniesiono w nowe miejsce<br>Portal visitmalopolska.pl mówi o przeniesieniu cerkwi po powodzi z lat 1813–1814, a opracowanie na digitalunesco.pl datuje przeniesienie na ok. 1813–1814, więc sam rok 1813 jest zbyt pewny; wpis do UNESCO w 2013 r. potwierdza „Gość Niedzielny”. | Od 2013 r. jest w UNESCO. Po powodzi w latach 1813–1814 cerkiew przeniesiono w nowe miejsce i zachowano przy tym jej pierwotną konstrukcję. | [tarnow.gosc.pl](https://tarnow.gosc.pl/doc/7290884.Powroznik-70-lat-parafii), [visitmalopolska.pl](https://visitmalopolska.pl/obiekt/-/poi/cerkiew-pw-sw-jakuba-w-powrozniku) |
+| F1210 | Cerkiew św. Michała Archanioła w Brunarach Wyżnych | ❔ niepotwierdzona | 16 września 1934 r. Brunary Niżne, Brunary Wyżne i Jaszkową połączono w jedną wieś. | ❔ 16 września 1934 r. połączono Brunary Niżne, Brunary Wyżne i Jaszkową w jedną wieś<br>Daty 16 września 1934 r. nie podaje żadne znalezione niezależne źródło, a w wynikach z Dziennika Ustaw z 1934 r. (rozporządzenia o gminach wiejskich, w życie od 1 sierpnia 1934 r.) nie ma aktu dotyczącego Brunar ani Jaszkowej. | Brunary Niżne, Brunary Wyżne i Jaszkową połączono w jedną wieś. | — |
+| F1211 | Cerkiew Narodzenia Przenajświętszej Bogurodzicy w Chotyńcu | ❔ niepotwierdzona | Według sprawozdań Kościoła greckokatolickiego z lat 1918–1928 cerkiew zbudowano w 1615 r., a konsekrowano w 1616 r. Żaden dokument nie potwierdza jednak tej daty. Badacze architektury cerkiewnej datują budowlę na około 1600 r. Pierwszym zachowanym dokumentem o samej świątyni jest przywilej króla Michała Korybuta Wiśniowieckiego z 1671 r. | ✅ sprawozdania Kościoła greckokatolickiego z lat 1918–1928<br>✅ cerkiew zbudowano w 1615 r.<br>✅ konsekrowano ją w 1616 r.<br>✅ badacze datują budowlę na około 1600 r.<br>❔ pierwszy zachowany dokument o świątyni to przywilej Michała Korybuta Wiśniowieckiego z 1671 r.<br>Źródło faktu niedostępne: nid.pl; zabytek.pl i NID (w wynikach wyszukiwania) potwierdzają sprawozdania z lat 1918–1928, lata 1615/1616 i datowanie na ok. 1600 r., ale przywileju Michała Korybuta Wiśniowieckiego z 1671 r. nie podaje żadne znalezione niezależne źródło (tylko Wikipedia). | Według sprawozdań Kościoła greckokatolickiego z lat 1918–1928 cerkiew zbudowano w 1615 r., a konsekrowano w 1616 r. Żaden dokument nie potwierdza jednak tej daty. Badacze architektury cerkiewnej datują budowlę na około 1600 r. | [zabytek.pl](https://zabytek.pl/en/obiekty/chotyniec-cerkiew-greckokatolicka-parafialna-pw-narodzenia-nmp), [nid.pl](https://nid.pl/miejsca/cerkwie/chotyniec/) |
 
 <details>
-<summary>Potwierdzone (13)</summary>
+<summary>Potwierdzone (18)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -375,17 +457,27 @@ Sprawdzone 17 z 46; ✅ potwierdzona: 13; ✏️ do poprawki: 2; ❔ niepotwierd
 | F1201 | Kościół Wszystkich Świętych w Bliznem | najwcześniejsza pewna wzmianka o kościele pochodzi z 1470 r. | [zabytek.pl](https://zabytek.pl/en/obiekty/blizne-kosciol-parafialny-pw-wszystkich-swietych) |
 | F1202 | Kościół Wszystkich Świętych w Bliznem | w 1549 r. ściany ozdobiono polichromią; od 2003 r. kościół jest na Liście UNESCO | [medievalheritage.eu](https://medievalheritage.eu/en/main-page/heritage/poland/blizne-all-saints-church/), [whc.unesco.org](https://whc.unesco.org/en/list/1053/documents) |
 | F1204 | Cerkiew św. Paraskewii w Kwiatoniu | od 2013 r. na Liście UNESCO w grupie drewnianych cerkwi polskiego i ukraińskiego regionu Karpat | [3d.drewniana.malopolska.pl](https://3d.drewniana.malopolska.pl/en/portfolio-item/st-paraskeva-greek-catholic-church-kwiaton-unesco-list/) |
+| F1208 | Cerkiew Opieki Bogurodzicy w Owczarach | od 2013 r. jest na Liście UNESCO | [whc.unesco.org](https://whc.unesco.org/en/list/1424/) |
+| F1209 | Cerkiew św. Michała Archanioła w Brunarach Wyżnych | cerkiew pochodzi z XVIII w.; od 2013 r. jest w UNESCO w grupie drewnianych cerkwi karpackich Polski i Ukrainy | [visitmalopolska.pl](https://visitmalopolska.pl/en_GB/obiekt/-/poi/cerkiew-sw-michala-archaniola-w-brunarach-wyznych), [whc.unesco.org](https://whc.unesco.org/en/decisions/5165) |
+| F1212 | Cerkiew Narodzenia Przenajświętszej Bogurodzicy w Chotyńcu | po wysiedleniach w 1947 r. cerkiew zamknięto; od 2013 r. jest w UNESCO | [zabytek.pl](https://zabytek.pl/en/obiekty/chotyniec-cerkiew-greckokatolicka-parafialna-pw-narodzenia-nmp), [whc.unesco.org](https://whc.unesco.org/en/list/1424/) |
+| F1213 | Cerkiew św. Paraskewy w Radrużu | cerkiew razem z dzwonnicą otacza mur z 1825 r. | [bezdroza.pl](https://bezdroza.pl/pobierz-fragment/s_00k4/pdf) |
+| F1214 | Cerkiew św. Paraskewy w Radrużu | od 2013 r. jest na Liście Światowego Dziedzictwa UNESCO | [whc.unesco.org](https://whc.unesco.org/en/list/1424/) |
 
 </details>
 
-Czeka na sprawdzenie (29): F1190, F1208, F1209, F1210, F1211, F1212, F1213, F1214, F1216, F1217, F1218, F1219, F1221, F1222, F1225, F1226, F1227, F1228, F1229, F1230, F1234, F1235, F1236, F1237, F1239, F1241, F1242, F1243, F1244.
+Czeka na sprawdzenie (22): F1190, F1216, F1217, F1218, F1219, F1221, F1222, F1225, F1226, F1227, F1228, F1229, F1230, F1234, F1235, F1236, F1237, F1239, F1241, F1242, F1243, F1244.
 
 ### Podziemia
 
-Sprawdzone 8 z 43; ✅ potwierdzona: 8.
+Sprawdzone 15 z 43; ✅ potwierdzona: 13; ❔ niepotwierdzona: 2.
+
+| ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
+| --- | --- | --- | --- | --- | --- | --- |
+| F1257 | Kopalnia Złota | ❔ niepotwierdzona | Złoty Stok to ośrodek górnictwa złota, a później arsenu, o średniowiecznej metryce. Pierwsze przekazy o robotach górniczych pochodzą z 1273 r., a nazwa pojawia się w dokumencie z 1291 r. | ✅ pierwsze przekazy o robotach górniczych pochodzą z 1273 r.<br>❔ nazwa pojawia się w dokumencie z 1291 r.<br>Źródło faktu niedostępne: geoportal.pgi.gov.pl (rok 1273 potwierdzają Przegląd Geologiczny PIG z 1997 r. i strona Kopalni Złota, a roku 1291 dla nazwy nie podaje żadne znalezione źródło; w wynikach 1291 to pierwsza wzmianka o czeskim Javorníku). | Złoty Stok to ośrodek górnictwa złota, a później arsenu, o średniowiecznej metryce. Pierwsze przekazy o robotach górniczych pochodzą z 1273 r. | [pgi.gov.pl](https://www.pgi.gov.pl/images/stories/przeglad/pdf/pg_1997_08_a12.doc) |
+| F1259 | Kopalnia Złota | ❔ niepotwierdzona | Trasę otwarto 28 maja 1996 r. W 1907 r. uruchomiono tu elektryczną kolejkę wąskotorową (500 mm) do wywozu urobku. | ✅ trasę otwarto 28 maja 1996 r.<br>❔ w 1907 r. uruchomiono elektryczną kolejkę wąskotorową<br>❔ rozstaw toru kolejki 500 mm<br>Datę 28 maja 1996 r. podaje strona Kopalni Złota (historia kopalni); elektrycznej kolejki z 1907 r. o rozstawie 500 mm nie podaje żadne znalezione niezależne źródło. | Trasę otwarto 28 maja 1996 r. | [kopalniazlota.pl](https://kopalniazlota.pl/historia-kopalni-zlota-w-zlotym-stoku/) |
 
 <details>
-<summary>Potwierdzone (8)</summary>
+<summary>Potwierdzone (13)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -397,14 +489,19 @@ Sprawdzone 8 z 43; ✅ potwierdzona: 8.
 | F1252 | Krzemionki Opatowskie | od 2019 r. na Liście światowego dziedzictwa UNESCO | [whc.unesco.org](https://whc.unesco.org/en/decisions/7390/) |
 | F1253 | Zabytkowa Kopalnia Srebra | w 2017 r. kopalnię wraz z systemem gospodarowania wodami podziemnymi wpisano na Listę UNESCO | [whc.unesco.org](https://whc.unesco.org/en/list/1539/) |
 | F1254 | Zabytkowa Kopalnia Srebra | trasę udostępniono w 1976 r.; labirynt wyrobisk i sztolni ma ponad 150 km | [kopalniasrebra.pl](https://kopalniasrebra.pl/historia-kopalnia-srebra/), [whc.unesco.org](https://whc.unesco.org/en/list/1539/) |
+| F1255 | Sztolnia Czarnego Pstrąga | 600-metrowy fragment Głębokiej Sztolni „Fryderyk”, zwiedzany łodziami | [slaskie.travel](https://slaskie.travel/culturalheritage/1709) |
+| F1256 | Sztolnia Czarnego Pstrąga | sztolnię zaczęto drążyć 21 kwietnia 1821 r.; cały chodnik miał mieć prawie 4570 m | [unesco.tarnowskiegory.pl](https://unesco.tarnowskiegory.pl/obiekt-unesco/sztolnia-gleboka-fryderyk/) |
+| F1258 | Kopalnia Złota | prawie 700-letni okres działalności górniczej | [delibra.bg.polsl.pl](https://delibra.bg.polsl.pl/Content/74043/BCPS-83107_2008_Podziemna-trasa-tury.pdf) |
+| F1260 | Kopalnia Guido | hrabia Guido Henckel von Donnersmarck otrzymał nadanie górnicze 2 października 1855 r. | [slaskie.travel](https://www.slaskie.travel/en-us/Poi/Pokaz/15656/1741/guido-coal-mine) |
+| F1261 | Kopalnia Guido | wydobycie prowadzono na poziomach 170 i 320 m | [slaskie.travel](https://www.slaskie.travel/en-us/Poi/Pokaz/15656/1741/guido-coal-mine) |
 
 </details>
 
-Czeka na sprawdzenie (35): F1255, F1256, F1257, F1258, F1259, F1260, F1261, F1263, F1265, F1266, F1269, F1270, F1274, F1275, F1276, F1277, F1278, F1280, F1281, F1284, F1286, F1287, F1289, F1291, F1292, F1293, F1295, F1296, F1297, F1300, F1301, F1303, F1304, F1305, F1306.
+Czeka na sprawdzenie (28): F1263, F1265, F1266, F1269, F1270, F1274, F1275, F1276, F1277, F1278, F1280, F1281, F1284, F1286, F1287, F1289, F1291, F1292, F1293, F1295, F1296, F1297, F1300, F1301, F1303, F1304, F1305, F1306.
 
 ### Cuda inżynierii
 
-Sprawdzone 16 z 55; ✅ potwierdzona: 11; ✏️ do poprawki: 2; ❔ niepotwierdzona: 3.
+Sprawdzone 22 z 55; ✅ potwierdzona: 14; ✏️ do poprawki: 4; ❔ niepotwierdzona: 4.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -413,9 +510,12 @@ Sprawdzone 16 z 55; ✅ potwierdzona: 11; ✏️ do poprawki: 2; ❔ niepotwierd
 | F1314 | Radiostacja Gliwicka | ❔ niepotwierdzona | Wieżę zmontowano w 1935 r. w 5 miesięcy. Wykonała ją firma Christoph & Unmack z Niesky. | ✅ wieżę zmontowano w 1935 r.<br>❔ montaż trwał 5 miesięcy<br>Rok 1935 potwierdza Muzeum w Gliwicach (wiecha 9 października 1935 r.), ale czasu montażu „5 miesięcy” nie podaje żadne niezależne źródło, a strony nieinstytucjonalne podają różne okresy budowy. | Wieżę zmontowano w 1935 r. Wykonała ją firma Christoph & Unmack z Niesky. | [muzeum.gliwice.pl](https://muzeum.gliwice.pl/pl/wydarzenia/90-lat-radiostacji-gliwice) |
 | F1322 | Zapora Pilchowice | ✏️ do poprawki | Zbudowano ją w latach 1902–1912 na Bobrze jako ochronę przed powodziami, po wielkiej powodzi z 1897 r. | ❌ zbudowano ją w latach 1902–1912<br>✅ po wielkiej powodzi z 1897 r.<br>Początek budowy jest sporny: Tauron (właściciel) podaje 1904–1912, artykuł w BazTech (2023) – start w 1903 r., inne źródła – 1906 r., a rok 1902 podają głównie Wikipedia i portale; ukończenie w 1912 r. i powódź z 1897 r. się zgadzają. | Zbudowano ją na Bobrze na początku XX w. (ukończono w 1912 r.) jako ochronę przed powodziami, po wielkiej powodzi z 1897 r. | [ekoenergia.tauron.pl](https://ekoenergia.tauron.pl/elektrownie/energia-wodna/ew-jelenia-gora/pilchowice-1), [yadda.icm.edu.pl](https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-202ea332-26b3-41b9-959c-8435b6a68913) |
 | F1325 | Elektrownia Żarnowiec | ❔ niepotwierdzona | To największa elektrownia szczytowo-pompowa w Polsce. Decyzję o jej budowie podjęto w 1973 r., budowę rozpoczęto w 1976 r., a elektrownię uruchomiono w 1983 r. | ✅ największa elektrownia szczytowo-pompowa w Polsce<br>❔ decyzję o budowie podjęto w 1973 r.<br>✅ budowę rozpoczęto w 1976 r.<br>✅ elektrownię uruchomiono w 1983 r.<br>Urząd Wojewódzki w Gdańsku potwierdza start budowy w 1976 r. i uruchomienie 7 lat później, ale decyzji z 1973 r. nie podaje żadne niezależne źródło (kalendarium SEP przy PW podaje 1973 jako początek budowy). | To największa elektrownia szczytowo-pompowa w Polsce. Budowę rozpoczęto w 1976 r., a elektrownię uruchomiono w 1983 r. | [gazetaprawna.pl](https://www.gazetaprawna.pl/biznes/energetyka/artykuly/10922961,elektrownie-szczytowopomowe-odrzucono-ustawe-senat.html), [gdansk.uw.gov.pl](https://www.gdansk.uw.gov.pl/850-30-lat-elektrowni-w-zarnowcu) |
+| F1332 | Most Grunwaldzki | ✏️ do poprawki | To stalowy, nitowany most wiszący. Pylony są z klinkieru, obłożone granitem, i mają ok. 20 m. | ❌ pylony mają ok. 20 m<br>Serwis miasta Wrocławia pisze o „25-metrowych pylonach”, a ok. 20 m podają tylko Wikipedia i społecznościowy serwis fotopolska.eu. | To stalowy, nitowany most wiszący. Pylony są z klinkieru, obłożone granitem, i mają ok. 25 m. | [wroclaw.pl](https://www.wroclaw.pl/komunikacja/remont-mostu-grunwaldzkiego-odzyska-kopuly-na-razie-tylko-na-projekcie) |
+| F1335 | Wiadukt kolejowy w Bolesławcu | ❔ niepotwierdzona | ⏱️ Budowa trwała dwa lata, od 18 czerwca 1844 r. do lipca 1846 r. | ✅ budowa ruszyła w czerwcu 1844 r.<br>❔ dokładna data rozpoczęcia budowy: 18 czerwca 1844 r.<br>✅ budowę zakończono w lipcu 1846 r.<br>Structurae podaje położenie kamienia węgielnego 17 maja 1844 r., początek robót miesiąc później i ukończenie 27 lipca 1846 r. (kamień węgielny 17 maja 1844 r. podaje też NBI), a dokładny dzień 18 czerwca 1844 r. podają tylko Wikipedia i portal turystyczny Tourpoland. | ⏱️ Budowa trwała dwa lata, od czerwca 1844 r. do lipca 1846 r. | [structurae.net](https://structurae.net/de/bauwerke/boberviadukt) |
+| F1337 | Kanał Augustowski — śluzy | ✏️ do poprawki | Kanał ma 101 km, z czego 82 km w Polsce. Jest Pomnikiem Historii. | ✅ kanał ma 101 km<br>❌ 82 km kanału leży w Polsce<br>Wody Polskie (RZGW Białystok) podają 101,2 km, z czego 80 km po stronie polskiej (dalej 3,4 km odcinka granicznego), 80 km podaje też Urząd Miejski w Augustowie; 82 km nie pojawia się w żadnym źródle, a część materiałów podaje 103,4 km długości całkowitej. | Kanał ma 101 km, z czego 80 km w Polsce. Jest Pomnikiem Historii. | [whc.unesco.org](https://whc.unesco.org/en/tentativelists/2101), [bialystok.wody.gov.pl](https://bialystok.wody.gov.pl/kanal-augustowski-pomnik-historii) |
 
 <details>
-<summary>Potwierdzone (11)</summary>
+<summary>Potwierdzone (14)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -430,14 +530,17 @@ Sprawdzone 16 z 55; ✅ potwierdzona: 11; ✏️ do poprawki: 2; ❔ niepotwierd
 | F1328 | Mosty Tczewskie | most kolejowy z 1891 r.; most kolejowy liczy ponad kilometr długości | [skarbnica.tczew.pl](https://skarbnica.tczew.pl/6974/tczew-wisla-most-drogowy-most-kolejowy-panorama-miasta/) |
 | F1329 | Mosty Tczewskie | 1 września 1939 r. most kolejowy wysadzili polscy saperzy; most odbudowano na stałe w 1958 r. | [skarbnica.tczew.pl](https://skarbnica.tczew.pl/26380/tczew-mosty-tczewskie-1-wrzesnia-1939-roku-niem-die-dirschauer-weichselbrucke-im-augenblick-der-sprengung-durch-die-polen/), [skarbnica.tczew.pl](https://skarbnica.tczew.pl/6974/tczew-wisla-most-drogowy-most-kolejowy-panorama-miasta/) |
 | F1331 | Most Rędziński | przeprawa (most główny) ma 612 m; z estakadami ma 1742 m; jest częścią autostrady A8 | [gazetawroclawska.pl](https://gazetawroclawska.pl/najdluzsze-mosty-wroclawia-top-10/ga/10661844/zd/20234726), [archiwum.gddkia.gov.pl](https://www.archiwum.gddkia.gov.pl/pl/a/9754/autostradowa-obwodnica-wroclawia-otwarta-do-ruchu), [auto-swiat.pl](https://www.auto-swiat.pl/wiadomosci/aktualnosci/najkrotsza-autostrada-w-polsce-ma-rekordowy-most-uwaga-bedzie-odcinkowy-pomiar/f8q6h5p) |
+| F1333 | Most Grunwaldzki | konkurs na projekt ogłoszono w 1904 r. | [wroclaw.pl](https://www.wroclaw.pl/dla-mieszkanca/tak-budowano-most-grunwaldzki-we-wroclawiu-zobaczcie-archiwalne-zdjecia-z-lat-1908-1910) |
+| F1334 | Wiadukt kolejowy w Bolesławcu | wiadukt ma prawie pół kilometra długości; wiadukt ma 35 kamiennych łuków | [nbi.com.pl](https://nbi.com.pl/content/uploads/assets/NBI-pdf/2009/6_27_2009/pdf/19_promost_wiadukt_boleslawiec.pdf) |
+| F1336 | Kanał Augustowski — śluzy | na kanale zbudowano 18 śluz, z czego 14 jest w Polsce; 3 śluzy są na Białorusi, a przez śluzę Kurzyniec biegnie granica | [wody.gov.pl](https://www.wody.gov.pl/aktualnosci/1385-rekordowy-sezon-na-kanale-augustowskim), [bialystok.wody.gov.pl](https://bialystok.wody.gov.pl/aktualnosci/529-wrota-na-sluzie-kurzyniec-naprawione) |
 
 </details>
 
-Czeka na sprawdzenie (39): F1332, F1333, F1334, F1335, F1336, F1337, F1338, F1339, F1340, F1341, F1343, F1346, F1347, F1348, F1349, F1350, F1351, F1352, F1353, F1354, F1355, F1357, F1358, F1359, F1360, F1361, F1362, F1363, F1364, F1365, F1366, F1367, F1368, F1370, F1371, F1372, F1374, F1375, F1377.
+Czeka na sprawdzenie (33): F1338, F1339, F1340, F1341, F1343, F1346, F1347, F1348, F1349, F1350, F1351, F1352, F1353, F1354, F1355, F1357, F1358, F1359, F1360, F1361, F1362, F1363, F1364, F1365, F1366, F1367, F1368, F1370, F1371, F1372, F1374, F1375, F1377.
 
 ### Twierdze i ruiny
 
-Sprawdzone 14 z 54; ✅ potwierdzona: 7; ✏️ do poprawki: 3; ❔ niepotwierdzona: 4.
+Sprawdzone 18 z 54; ✅ potwierdzona: 10; ✏️ do poprawki: 4; ❔ niepotwierdzona: 4.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -448,9 +551,10 @@ Sprawdzone 14 z 54; ✅ potwierdzona: 7; ✏️ do poprawki: 3; ❔ niepotwierdz
 | F1393 | Zamek w Łańcucie | ❔ niepotwierdzona | W latach 1629–1641 zamek rozbudował Stanisław Lubomirski według projektu Macieja Trapoli. Bastiony obroniły go przed Szwedami (1655) i Siedmiogrodzianami (1657). | ✅ w latach 1629–1641 zamek rozbudował Stanisław Lubomirski<br>❔ bastiony obroniły zamek przed Szwedami w 1655 r.<br>❔ bastiony obroniły zamek przed Siedmiogrodzianami w 1657 r.<br>Lata 1629–1641 podaje Muzeum-Zamek w Łańcucie, ale obronę w 1655 i 1657 r. opisują tylko Wikipedia i strony turystyczne, a muzeum pisze jedynie, że wiosną 1657 r. wojska Rakoczego spaliły miasto i dawny drewniany zamek. | W latach 1629–1641 zamek rozbudował Stanisław Lubomirski według projektu Macieja Trapoli. | [zamek-lancut.pl](https://www.zamek-lancut.pl/?view=article&id=398%3Aile-bylo-zamkow-w-lancucie-2&catid=2%3Auncategorised) |
 | F1394 | Zamek w Łańcucie | ❔ niepotwierdzona | Muzeum udostępniono zwiedzającym już we wrześniu 1944 r. | ✅ muzeum utworzono w 1944 r.<br>❔ muzeum udostępniono zwiedzającym we wrześniu 1944 r.<br>Folder Muzeum-Zamku podaje, że w 1944 r. zamek przekształcono w muzeum państwowe, ale miesiąca udostępnienia zwiedzającym (wrzesień) nie podaje żadne znalezione źródło, a jeden tekst PAP mówi nawet o 1945 r. | Muzeum utworzono w zamku już w 1944 r. | [old.zamek-lancut.pl](https://old.zamek-lancut.pl/digitalizacja/opisy/folderorka.pdf) |
 | F1395 | Zamek w Krasiczynie | ✏️ do poprawki | Zamek zbudowano ok. 1580–1590 na planie czworoboku, z czterema basztami. Później dodano ażurowe attyki. | ❌ zamek zbudowano ok. 1580–1590<br>✅ plan czworoboku z czterema basztami<br>NID (zabytek.pl) opisuje czworoboczny zamek z czterema okrągłymi basztami, przebudowany z inicjatywy Stanisława Krasickiego ok. 1580 r., i kolejną, manierystyczną przebudowę Marcina Krasickiego w latach 1596–1633; zakresu 1580–1590 nie podaje żadne niezależne źródło. Redakcja: bez daty, bo NID łączy rok ok. 1580 z przebudową, a nie z budową od podstaw. | Zamek zbudowano na planie czworoboku, z czterema basztami. Później dodano ażurowe attyki. | [zabytek.pl](https://zabytek.pl/en/obiekty/krasiczyn-zespol-zamkowy) |
+| F1400 | Zamek Czocha | ✏️ do poprawki | Warownię graniczną zbudowano w latach 1241–1247. | ❌ warownię zbudowano w latach 1241–1247<br>Gmina Leśna podaje, że zamek powstał w II poł. XIII w. z inicjatywy Wacława II, regionalny portal dolnyslask.travel podaje 1247 r. (Wacław I), a najstarsza wzmianka o zamku pochodzi z 1329 r.; lata 1241–1247 powtarzają tylko serwisy turystyczne. | Warownię graniczną zbudowano w XIII w. | [lesna.pl](https://www.lesna.pl/asp/pl_start.asp?menu=230&strona=1&sub=10&typ=14) |
 
 <details>
-<summary>Potwierdzone (7)</summary>
+<summary>Potwierdzone (10)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -461,14 +565,17 @@ Sprawdzone 14 z 54; ✅ potwierdzona: 7; ✏️ do poprawki: 3; ❔ niepotwierdz
 | F1384 | Zamek w Malborku | Wielki Refektarz zbudowany w drugiej ćwierci XIV w.; wymiary ok. 30 × 15 m; największe wnętrze w świeckiej architekturze zakonu; sklepienie na trzech granitowych filarach | [cejsh.icm.edu.pl](https://cejsh.icm.edu.pl/cejsh/element/bwmeta1.element.desklight-87d0df43-120c-4a8a-a147-31767c5c35e7/c/Ochrona_Zabytkow-r1994-t47-n2__185_-s123-137.pdf), [zamek.malbork.pl](https://zamek.malbork.pl/wnetrze/wielki-refektarz/) |
 | F1385 | Twierdza Srebrna Góra | twierdzę wzniesiono w latach 1765–1777; Przełęcz Srebrna ma 586 m n.p.m. | [forty.pl](https://forty.pl/en/fortress/calendar/), [encyklopedia.pwn.pl](https://encyklopedia.pwn.pl/haslo/Srebrna-Przelecz;3978652.html) |
 | F1391 | Pałac w Mosznej | od 1866 r. rezydencja Tiele-Wincklerów; rezydencja rodu do 1945 r. | [visitopolskie.pl](https://www.visitopolskie.pl/en/strona/discover/561-moszna-castle) |
+| F1397 | Zamek w Baranowie Sandomierskim | zamek zbudowano w latach 1591–1606 | [baranowsandomierski.pl](https://baranowsandomierski.pl/o-gminie/historia/dzieje-zamku/) |
+| F1398 | Zamek w Janowcu | budowę zamku rozpoczął w 1508 r. Mikołaj Firlej | [janowiec.pl](https://www.janowiec.pl/turystyka-i-atrakcje/zabytki-i-historia/zamek) |
+| F1399 | Zamek w Janowcu | w 1606 r. pojednali się tu Zygmunt III Waza i Mikołaj Zebrzydowski | [czasopisma.uni.lodz.pl](https://czasopisma.uni.lodz.pl/historica/article/view/19317) |
 
 </details>
 
-Czeka na sprawdzenie (40): F1381, F1397, F1398, F1399, F1400, F1403, F1404, F1406, F1407, F1408, F1410, F1412, F1413, F1414, F1415, F1416, F1417, F1418, F1419, F1421, F1422, F1423, F1424, F1425, F1426, F1427, F1428, F1429, F1430, F1431, F1433, F1434, F1435, F1436, F1437, F1438, F1439, F1440, F1441, F1442.
+Czeka na sprawdzenie (36): F1381, F1403, F1404, F1406, F1407, F1408, F1410, F1412, F1413, F1414, F1415, F1416, F1417, F1418, F1419, F1421, F1422, F1423, F1424, F1425, F1426, F1427, F1428, F1429, F1430, F1431, F1433, F1434, F1435, F1436, F1437, F1438, F1439, F1440, F1441, F1442.
 
 ### Memento mori
 
-Sprawdzone 14 z 49; ✅ potwierdzona: 6; ✏️ do poprawki: 6; ❔ niepotwierdzona: 2.
+Sprawdzone 20 z 49; ✅ potwierdzona: 8; ✏️ do poprawki: 8; ❔ niepotwierdzona: 4.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -480,9 +587,13 @@ Sprawdzone 14 z 49; ✅ potwierdzona: 6; ✏️ do poprawki: 6; ❔ niepotwierdz
 | F1457 | Nowy Cmentarz Żydowski w Łodzi | ✏️ do poprawki | Zachowało się ok. 160 tys. macew. Spoczywa tu też ok. 45 tys. zmarłych i zamordowanych w getcie Litzmannstadt. | ✅ zachowało się ok. 160 tys. macew<br>❌ spoczywa tu ok. 45 tys. zmarłych i zamordowanych w getcie Litzmannstadt<br>Ok. 160 tys. nagrobków podaje miejski portal lodz.pl (Biuro Architekta Miasta mówi o blisko 180 tys. grobów); liczbę ofiar getta lodz.pl podaje jako ok. 45 tys., a Wirtualny Sztetl (POLIN) jako ok. 43 tys., stąd przedział. | Zachowało się ok. 160 tys. macew. Spoczywa tu też ok. 43–45 tys. zmarłych i zamordowanych w getcie Litzmannstadt. | [lodz.pl](https://lodz.pl/artykul/najwieksza-nekropolia-zydowska-w-polsce-cmentarz-przy-brackiej-w-lodzi-ma-134-lata-70025/), [sztetl.org.pl](https://sztetl.org.pl/pl/miejscowosci/l/497-lodz/116-miejsca-martyrologii/48188-pole-gettowe-na-cmentarzu-zydowskim-ul-bracka) |
 | F1460 | Cmentarz Remuh | ✏️ do poprawki | Najstarsze zachowane macewy pochodzą z 1552 r. Władze austriackie zamknęły cmentarz w 1800 r. Ma ok. 0,75 ha. | ✅ najstarsze zachowane macewy pochodzą z 1552 r.<br>❌ władze austriackie zamknęły cmentarz w 1800 r.<br>✅ cmentarz ma ok. 0,75 ha<br>Większość źródeł podaje zamknięcie w 1800 r., ale miejski serwis krakow.pl pisze o 1809 r., a Radio Kraków o 1798 r.; rok 1552 podaje Gmina Wyznaniowa Żydowska, a ok. 0,75 ha Muzeum Krakowa. | Najstarsze zachowane macewy pochodzą z 1552 r. Władze austriackie zamknęły cmentarz na przełomie XVIII i XIX w. Ma ok. 0,75 ha. | [gwzkrakow.pl](https://gwzkrakow.pl/cmentarze/), [krakow.pl](https://www.krakow.pl/instcbi/1284,inst,10976,801,instcbi.html), [opowiedzmimiasto.mhk.pl](https://opowiedzmimiasto.mhk.pl/miejsca/stary-cmentarz-zydowski-remu/) |
 | F1464 | Mizar w Bohonikach | ❔ niepotwierdzona | W 1679 r. pod Sokółką osiedliło się 30 rodzin tatarskich (Lipków). | ✅ osadnictwo tatarskie pod Sokółką w 1679 r.<br>❔ osiedliło się 30 rodzin tatarskich<br>Muzułmańska Gmina Wyznaniowa Bohoniki podaje przywilej królewski z 12 marca 1679 r., ale liczbę 30 rodzin powtarzają tylko strony turystyczne i blogi bez źródeł, a jeden tekst o historii wsi podaje ok. 30 rodzin dopiero dla 1717 r. | W 1679 r. pod Sokółką osiedliły się rodziny tatarskie (Lipków). | [bohoniki.eu](https://bohoniki.eu/index.php?Itemid=123&id=3&lang=pl&option=com_content&view=article) |
+| F1465 | Cmentarz mennonicki w Stogach Malborskich | ✏️ do poprawki | Cmentarz mennonitów założono w drugiej połowie XVIII w., a w 1768 r. tuż obok wzniesiono drewniany dom modlitwy. Uważa się go za jeden z największych cmentarzy mennonickich w Polsce. | ❌ cmentarz założono w drugiej połowie XVIII w.<br>✅ w 1768 r. tuż obok wzniesiono drewniany dom modlitwy<br>Pomorskie.travel datuje założenie cmentarza na około połowę XVIII w., strona gminy Malbork pisze, że jego historia sięga XVII w., a drugiej połowy XVIII w. (zapewne za zabytek.pl, niedostępnym) nie potwierdza żadne znalezione źródło, natomiast dom modlitwy z 1768 r. podaje portal Żuławy infopl.info. Redakcja: bez daty założenia, bo źródła podają XVII w. i połowę XVIII w. | Uważa się go za jeden z największych cmentarzy mennonickich w Polsce. W 1768 r. tuż obok wzniesiono drewniany dom modlitwy. | [pomorskie.travel](https://pomorskie.travel/en/-/cmentarz-mennonicki-w-stogach-malborskich), [zulawy.infopl.info](https://zulawy.infopl.info/index.php/pm/gmalbork/stogi) |
+| F1466 | Cmentarz mennonicki w Stogach Malborskich | ❔ niepotwierdzona | Ma 2,6 ha i 6 kwater. Zachowało się 260 obramowań grobów i 78 stel. Rośnie tu ok. 300-letni dąb. | ✅ cmentarz ma 2,6 ha<br>❔ cmentarz ma 6 kwater<br>✅ zachowało się 260 obramowań grobów<br>✅ zachowało się 78 stel<br>❔ rośnie tu ok. 300-letni dąb<br>Powierzchnię 2,6 ha, ok. 260 obramowań i 78 stel podaje pomorskie.travel, a liczby 6 kwater ani wieku dębu (infopl.info wspomina tylko okazały dąb bez wieku) nie podaje żadne znalezione niezależne źródło. | Ma 2,6 ha. Zachowało się 260 obramowań grobów i 78 stel. | [pomorskie.travel](https://pomorskie.travel/en/-/cmentarz-mennonicki-w-stogach-malborskich) |
+| F1468 | Cmentarz wojenny nr 123 Łużna-Pustki | ✏️ do poprawki | To jeden z ponad 400 zachodniogalicyjskich cmentarzy z I wojny światowej, zbudowanych przez austro-węgierski Oddział Grobów Wojennych. | ❌ ponad 400 zachodniogalicyjskich cmentarzy z I wojny światowej<br>Małopolski Urząd Wojewódzki pisze, że efektem prac Oddziału było 400 cmentarzy, a gmina Łużna (wniosek o Znak Dziedzictwa Europejskiego) mówi o 401, więc „ponad 400” przesadza; bezpieczniej „około 400”. | To jeden z około 400 zachodniogalicyjskich cmentarzy z I wojny światowej, zbudowanych przez austro-węgierski Oddział Grobów Wojennych. | [grobywojenne.malopolska.uw.gov.pl](https://grobywojenne.malopolska.uw.gov.pl/pl-PL/Home/Artykul/1041) |
+| F1472 | Rotunda Zamojska | ❔ niepotwierdzona | Od 19 czerwca 1940 r. Niemcy prowadzili tu obóz przejściowy policji bezpieczeństwa. W 1942 r. odbywały się tu masowe egzekucje mieszkańców Zamojszczyzny, także dzieci. | ✅ od 19 czerwca 1940 r. Niemcy prowadzili tu obóz przejściowy policji bezpieczeństwa<br>✅ w 1942 r. odbywały się tu masowe egzekucje mieszkańców Zamojszczyzny<br>❔ w 1942 r. rozstrzeliwano tu także dzieci<br>Artykuł z Akademii Zamojskiej podaje obóz od 19 czerwca 1940 r., a Memorialmuseums i Muzeum Zamojskie masowe egzekucje od listopada 1942 r., ale żadne źródło nie mówi o rozstrzeliwaniu tu dzieci, bo cela w Rotundzie upamiętnia dzieci Zamojszczyzny wywiezione do Rzeszy i zamordowane w obozach. | Od 19 czerwca 1940 r. Niemcy prowadzili tu obóz przejściowy policji bezpieczeństwa. W 1942 r. odbywały się tu masowe egzekucje mieszkańców Zamojszczyzny. | [czaz.akademiazamojska.edu.pl](https://czaz.akademiazamojska.edu.pl/index.php/bp/article/download/2746/2653/5957), [memorialmuseums.org](https://www.memorialmuseums.org/memorialmuseum/the-zamo%C5%9B%C4%87-rotunda?locale=en) |
 
 <details>
-<summary>Potwierdzone (6)</summary>
+<summary>Potwierdzone (8)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -492,7 +603,9 @@ Sprawdzone 14 z 49; ✅ potwierdzona: 6; ✏️ do poprawki: 6; ❔ niepotwierdz
 | F1459 | Cmentarz Remuh | cmentarz powstał w XVI w.; źródła podają rok założenia od 1533 r.; źródła podają rok założenia do 1551 r.; najstarszy zachowany nagrobek pochodzi z 1552 r.; najstarszy zachowany cmentarz żydowski w Krakowie; jeden z najstarszych zachowanych cmentarzy żydowskich w Europie | [sztetl.org.pl](https://sztetl.org.pl/pl/miejscowosci/k/512-krakow/114-cmentarze/17208-cmentarz-zydowski-remu-w-krakowie-ul-szeroka-40), [gwzkrakow.pl](https://gwzkrakow.pl/cmentarze/), [muzeumkrakowa.pl](https://muzeumkrakowa.pl/plik-do-pobrania/45) |
 | F1461 | Mizar w Kruszynianach | najstarsze nagrobki na mizarze pochodzą z końca XVII w. | [dzieje.pl](https://dzieje.pl/dziedzictwo-kulturowe/odnowiono-xix-wieczne-nagrobki-na-mizarze-w-kruszynianach) |
 | F1462 | Mizar w Kruszynianach | Tatarzy osiedlali się tu na mocy nadań Jana III Sobieskiego (1679) | [pcr.uwb.edu.pl](https://pcr.uwb.edu.pl/BKWP/files/BKWP_2013_19_016.pdf) |
+| F1467 | Cmentarz wojenny nr 123 Łużna-Pustki | cmentarz powstał w miejscu walk z maja 1915 r. na wzgórzu Pustki | [luzna.pl](https://luzna.pl/znak-dziedzictwa-europejskiego-dla-cmentarza-nr-123-luzna-pustki/historia-cmentarza/) |
+| F1471 | Rotunda Zamojska | Rotundę zbudowano w latach 1825–1831 jako działobitnię Twierdzy Zamość | [muzeum-zamojskie.pl](https://www.muzeum-zamojskie.pl/o-muzeum/rotunda-zamojska/) |
 
 </details>
 
-Czeka na sprawdzenie (35): F1447, F1465, F1466, F1467, F1468, F1471, F1472, F1473, F1474, F1475, F1476, F1477, F1478, F1480, F1481, F1482, F1483, F1484, F1485, F1486, F1487, F1488, F1490, F1492, F1494, F1495, F1496, F1497, F1498, F1499, F1500, F1502, F1503, F1505, F1506.
+Czeka na sprawdzenie (29): F1447, F1473, F1474, F1475, F1476, F1477, F1478, F1480, F1481, F1482, F1483, F1484, F1485, F1486, F1487, F1488, F1490, F1492, F1494, F1495, F1496, F1497, F1498, F1499, F1500, F1502, F1503, F1505, F1506.
