@@ -34,7 +34,7 @@
     "kustrzebka-pomaranczowa": {
       image_status: "commons_verified",
       image: commonsImage("Aleuria-aurantia.jpg"),
-      image_alt: "Kustrzebka pomarańczowa (Aleuria aurantia), pomarańczowy czarkowaty owocnik na ziemi",
+      image_alt: "Dzieżka pomarańczowa (Aleuria aurantia), pomarańczowy czarkowaty owocnik na ziemi",
       image_author: "Holger Krisp",
       image_source: "https://commons.wikimedia.org/wiki/File:Aleuria-aurantia.jpg",
       image_license: "CC BY 3.0 / GFDL",
@@ -89,7 +89,7 @@
     "swiecznica-rozgaleziona": {
       image_status: "commons_verified",
       image: commonsImage("Artomyces pyxidatus (38109610811).jpg"),
-      image_alt: "Świecznica rozgałęziona (Artomyces pyxidatus), koralowe gałązki z koronkowymi końcówkami",
+      image_alt: "Świecznik rozgałęziony (Artomyces pyxidatus), koralowe gałązki z koronkowymi końcówkami",
       image_author: "Björn S...",
       image_source: "https://commons.wikimedia.org/wiki/File:Artomyces_pyxidatus_(38109610811).jpg",
       image_license: "CC BY-SA 2.0",
@@ -100,7 +100,7 @@
     "pieknorog-lepki": {
       image_status: "commons_verified",
       image: commonsImage("Calocera viscosa (36078920944).jpg"),
-      image_alt: "Pięknoróg lepki (Calocera viscosa), żółtopomarańczowe rogi na drewnie",
+      image_alt: "Pięknoróg największy (Calocera viscosa), żółtopomarańczowe rogi na drewnie",
       image_author: "Björn S...",
       image_source: "https://commons.wikimedia.org/wiki/File:Calocera_viscosa_(36078920944).jpg",
       image_license: "CC BY-SA 2.0",

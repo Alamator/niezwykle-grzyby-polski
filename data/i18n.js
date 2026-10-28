@@ -553,15 +553,18 @@
     }
   };
 
+  // Collections of living organisms; the species-level fallbacks below only make sense there.
+  const livingCollections = new Set(["grzyby", "owady", "kwiaty", "ryby", "ptaki", "ssaki", "plazy-gady"]);
+
   function defaultSafety(item, collectionId) {
     const text = normalize(item.safety_note);
     if (collectionId === "grzyby" && (text.includes("truj") || text.includes("niebez") || text.includes("psycho"))) {
       return "Toxic or potentially dangerous species; educational material only, not advice for collecting or eating.";
     }
-    if (text.includes("chron") || text.includes("wrazliw")) {
+    if (livingCollections.has(collectionId) && (text.includes("chron") || text.includes("wrazliw"))) {
       return "Sensitive or protected species; observe only and do not collect or disturb wild specimens.";
     }
-    if (text.includes("nie chwyt") || text.includes("nie dotyk") || text.includes("nie brac")) {
+    if (livingCollections.has(collectionId) && (text.includes("nie chwyt") || text.includes("nie dotyk") || text.includes("nie brac"))) {
       return "Do not handle; observe calmly and leave the animal or specimen in place.";
     }
     if (collectionId === "grzyby") {
@@ -661,7 +664,10 @@
     const collection = collectionById(collectionId);
     return Object.fromEntries((collection.items || []).map((item) => {
       const entry = overrides[item.id] || {};
-      const name = entry.name || item.name_en || item.name_lat || item.name_pl;
+      // Cards without any English text keep their Polish name: their name_lat is often shared
+      // (several "Quercus robur" trees) or a place descriptor rather than a name.
+      const untranslated = !overrides[item.id] && !item.name_en;
+      const name = entry.name || item.name_en || (untranslated ? item.name_pl : item.name_lat) || item.name_pl;
       const defaultHook = collectionId === "architektura-drewniana"
         ? `${name} is included here for its unusual wooden structure, craft or cultural story.`
         : collectionId === "podziemia"
@@ -701,6 +707,19 @@
     }));
   }
 
+  // Collections load their data lazily, so the English item map is built on first access after the
+  // collection data arrived, and rebuilt if the number of items changes.
+  const itemMapCache = new Map();
+
+  function lazyItemMap(collectionId, overrides) {
+    const count = (collectionById(collectionId).items || []).length;
+    const cached = itemMapCache.get(collectionId);
+    if (cached && cached.count === count) return cached.map;
+    const map = makeItemMap(collectionId, overrides);
+    if (count) itemMapCache.set(collectionId, { count, map });
+    return map;
+  }
+
   const mushroomText = {
     "okratek-australijski": {
       name: "Australian basket stinkhorn",
@@ -715,12 +734,15 @@
     "madziak-psi": {
       name: "Dog stinkhorn",
       hook: "A slender, strange stinkhorn relative that can look like a tiny woodland antenna.",
-      quiz_angle: "how to separate dog stinkhorn from the larger stinkhorns"
+      quiz_angle: "how to separate dog stinkhorn from the larger stinkhorns",
+      region: "Rare; listed as V (vulnerable) on the Polish Red List."
     },
     "sromotnik-fiolkowy": {
       name: "Dune stinkhorn",
       hook: "Its egg stage may be pinkish or violet, giving the fungus a surprisingly vivid look.",
-      quiz_angle: "the egg stage and comparison with the common stinkhorn"
+      quiz_angle: "the egg stage and comparison with the common stinkhorn",
+      region: "Very rare; mainly on Baltic coastal dunes, only sporadically inland.",
+      habitat: "Sandy, dry dunes, above all on the coast."
     },
     "czarka-austriacka": {
       name: "Scarlet elf cup",
@@ -735,7 +757,9 @@
     "dzbankowka-kulista": {
       name: "Globe-shaped witches' cauldron",
       hook: "A dark barrel-shaped fungus that resembles a small leathery cup or jar.",
-      quiz_angle: "rare cup fungi and natural, humid forest habitats"
+      quiz_angle: "rare cup fungi and natural, humid forest habitats",
+      region: "All 13 sites reported in the Polish scientific literature up to 2020 are historical records.",
+      habitat: "Moist spruce forests with a thick carpet of moss, often along streams."
     },
     "czareczka-dlugotrzonkowa": {
       name: "Long-stalked scarlet cup",
@@ -780,7 +804,8 @@
     "swiecznica-rozgaleziona": {
       name: "Crown coral fungus",
       hook: "Coral-like branches end in tiny crown shapes, like little candlesticks.",
-      quiz_angle: "the crown-like tips of the branches"
+      quiz_angle: "the crown-like tips of the branches",
+      habitat: "A wood-inhabiting fungus: decaying trunks and stumps, e.g. of aspen and birch, less often of conifers."
     },
     "koralowka-groniasta": {
       name: "Clustered coral fungus",
@@ -815,7 +840,10 @@
     "plomyczek-galaretowaty": {
       name: "Apricot jelly fungus",
       hook: "A salmon-pink jelly flame rising from soil or decaying substrate.",
-      quiz_angle: "color and the soft funnel-like form"
+      quiz_angle: "color and the soft funnel-like form",
+      region: "Rare; mainly in the mountains (including the Tatras).",
+      habitat: "Mostly buried, decaying spruce or fir wood, less often other trees; in the mountains, on calcareous soils.",
+      occurrence: "It seems to grow from the soil because the wood it grows on is often covered by earth."
     },
     "promieniak-wilgociomierz": {
       name: "Barometer earthstar",
@@ -825,12 +853,14 @@
     "gwiazda-wieloporowa": {
       name: "Many-holed earthstar",
       hook: "An earthstar with several openings, like a small mechanical model from another planet.",
-      quiz_angle: "multiple openings and the star-shaped body"
+      quiz_angle: "multiple openings and the star-shaped body",
+      region: "Very rare; by 2020 the Polish literature listed 5 current, 8 historical and 1 doubtful site."
     },
     "gwiazdosz-wzniesiony": {
       name: "Arched earthstar",
       hook: "The fruiting body seems to stand on its own star-shaped supports.",
-      quiz_angle: "different earthstar shapes and how they are built"
+      quiz_angle: "different earthstar shapes and how they are built",
+      habitat: "Nitrogen-rich thickets, e.g. with lilac, hawthorn, elder and black locust."
     },
     "gwiazdosz-czteropromienny": {
       name: "Rayed earthstar",
@@ -840,7 +870,9 @@
     "berloweczka-zimowa": {
       name: "Winter stalkball",
       hook: "A tiny lollipop with a spore sac on a thin stem.",
-      quiz_angle: "fungi of sandy grasslands and dry habitats"
+      quiz_angle: "fungi of sandy grasslands and dry habitats",
+      region: "Rare; listed as R on the Polish Red List.",
+      habitat: "Warm grasslands among grasses and mosses, on dry sandy or calcareous soils."
     },
     "kubek-prazkowany": {
       name: "Fluted bird's nest",
@@ -870,7 +902,9 @@
     "zylkowiec-rozowawy": {
       name: "Wrinkled peach",
       hook: "A pinkish cap with a network of veins, like an anatomical drawing.",
-      quiz_angle: "veined cap surface and wood-growing habit"
+      quiz_angle: "veined cap surface and wood-growing habit",
+      region: "Rare; rediscovered after more than a century in the Białowieża Forest, where it is spreading (6 sites in 2020).",
+      habitat: "Dead wood in deciduous forests, above all elm wood."
     },
     "szyszkowiec-luskowaty": {
       name: "Old man of the woods",
@@ -885,7 +919,8 @@
     "wilgotnica-czerniejaca": {
       name: "Blackening waxcap",
       hook: "A bright fungus that clearly darkens with age or damage.",
-      quiz_angle: "color change over time as a recognition feature"
+      quiz_angle: "color change over time as a recognition feature",
+      safety_note: "Mildly poisonous; educational material only."
     },
     "lakowka-ametystowa": {
       name: "Amethyst deceiver",
@@ -895,7 +930,10 @@
     "chlorowka-drobna": {
       name: "Green elfcup",
       hook: "It stains wood blue-green; sometimes the colored wood is easier to find than the fruiting bodies.",
-      quiz_angle: "a fungus recognized by its effect on wood"
+      quiz_angle: "a fungus recognized by its effect on wood",
+      region: "Woodland with dead, rotting broadleaf wood.",
+      habitat: "Rotting, bark-free logs and branches, especially oak.",
+      occurrence: "The fruiting bodies are only 2–5 mm across, so the blue-green stained wood is seen more often than the fungus itself."
     },
     "grzybowka-krwista": {
       name: "Bleeding fairy helmet",
@@ -935,12 +973,14 @@
     "gestoporek-cynobrowy": {
       name: "Cinnabar bracket",
       hook: "An intensely cinnabar-red wood fungus: small but very photogenic.",
-      quiz_angle: "bright bracket fungi on dead wood"
+      quiz_angle: "bright bracket fungi on dead wood",
+      region: "Rare; listed as R on the Polish Red List."
     },
     "maczuznik-bojowy": {
       name: "Scarlet caterpillarclub",
       hook: "Orange clubs rising from insect larvae, like a natural-history documentary scene.",
-      quiz_angle: "fungi that parasitize insects"
+      quiz_angle: "fungi that parasitize insects",
+      region: "Rare; listed as R on the Polish Red List."
     },
     "maczuznik-nasiezrzalowy": {
       name: "Snaketongue truffleclub",
@@ -985,7 +1025,8 @@
     "miekusz-rabarbarowy": {
       name: "Cinnamon bracket",
       hook: "A modest cinnamon bracket hides a laboratory secret: alkali turns it purple.",
-      quiz_angle: "the KOH or ammonia reaction that stains the flesh purple"
+      quiz_angle: "the KOH or ammonia reaction that stains the flesh purple",
+      region: "Fairly rare in Poland; it grows on dead broadleaf wood."
     },
     "krasnoborowik-ceglastopory": {
       name: "Scarletina bolete",
@@ -1059,7 +1100,7 @@
       name: "Bee-fly",
       hook: "A flying ball of fluff with a long proboscis, more odd than dangerous.",
       quiz_angle: "fuzzy body, hovering at flowers and flicking eggs into wild bee nests",
-      safety_note: "Harmless to people; do not destroy wild bee nests.",
+      safety_note: "Harmless to people, it does not sting; observe without catching it.",
       region: "Found in warm sandy places across many regions.",
       habitat: "Sunny woodland edges, sandy roads, grasslands and gardens.",
       occurrence: "Most visible in spring, especially in April and May.",
@@ -1127,9 +1168,9 @@
     },
     "biegacz-skorzasty": {
       name: "Great ground beetle",
-      hook: "Poland's largest ground beetle: dark, heavy and armed with chemical defense.",
+      hook: "Europe's second-largest ground beetle: dark, heavy and armed with chemical defense.",
       quiz_angle: "large size, wrinkled wing cases and a foul defensive spray",
-      safety_note: "Do not handle; it can bite and release irritating fluid.",
+      safety_note: "Partially protected; do not handle, it can bite and release irritating fluid.",
       region: "Found in many Polish regions, especially forests.",
       habitat: "Deciduous and mixed forests, shaded gardens and damp hideouts.",
       occurrence: "An active ground predator, often nocturnal.",
@@ -1207,8 +1248,8 @@
     },
     "gasienica-zawisaka-borowca": {
       name: "Pine hawkmoth caterpillar",
-      hook: "A green pine caterpillar can glow bluish-green under UV light.",
-      quiz_angle: "link with pines, camouflage on needles and UV fluorescence",
+      hook: "A green pine caterpillar is so well camouflaged on the needles that it is easy to miss by day.",
+      quiz_angle: "link with pines, camouflage on needles and the night-flying moth",
       safety_note: "Do not pull it from twigs; observe briefly and gently.",
       region: "Linked with pine forests and pine plantings.",
       habitat: "Pine woods, forest edges, young stands and gardens with pines.",
@@ -1287,9 +1328,9 @@
     },
     "jelonek-rogacz": {
       name: "Stag beetle",
-      hook: "Poland's largest beetle, with males carrying antler-like jaws.",
+      hook: "One of the largest beetles in Poland, with males carrying antler-like jaws.",
       quiz_angle: "huge male jaws, old oaks and dusk flight",
-      safety_note: "Protected species; do not collect or move without need.",
+      safety_note: "Partially protected since 2014; do not collect or move without need.",
       region: "Rare and local, mainly in warmer regions with ancient oaks.",
       habitat: "Old deciduous forests, parks, avenues and places with decaying oak wood.",
       occurrence: "Its presence depends on old trees and dead wood.",
@@ -1299,7 +1340,7 @@
       name: "Great capricorn beetle",
       hook: "A large black beetle with antennae longer than its body, tied to old oaks.",
       quiz_angle: "very long antennae, tar-black body and old oak habitats",
-      safety_note: "Protected species; do not collect or damage inhabited oaks.",
+      safety_note: "Strictly protected species that requires active conservation; do not collect it or damage inhabited oaks.",
       region: "Rare and point-local, linked with refuges of old oaks.",
       habitat: "Old sunlit oaks in forests, parks, avenues and open landscapes.",
       occurrence: "A symbol of habitat continuity with very old trees.",
@@ -1324,7 +1365,7 @@
       name: "Sundew",
       hook: "A small rosette with sticky dew-like drops that turn leaves into insect traps.",
       quiz_angle: "red glandular hairs, sticky mucilage and slow leaf movement around prey",
-      safety_note: "Protected species; do not pick them or trample bog habitats."
+      safety_note: "All four native sundews are strictly protected; do not pick them or trample bog habitats."
     },
     "tlustosz": {
       name: "Butterwort",
@@ -1336,13 +1377,14 @@
       name: "Lords-and-ladies",
       hook: "Its inflorescence can warm itself and release a rotting smell to lure flies into a temporary trap.",
       quiz_angle: "thermogenesis, spadix, spathe and a short-lived pollinator prison",
-      safety_note: "Poisonous and protected; do not touch the berries or dig up plants."
+      safety_note: "Poisonous and protected; do not touch the berries or dig up plants.",
+      region: "Fairly rare; in Poland it grows in Western Pomerania."
     },
     "obrazki-alpejskie": {
       name: "Alpine arum",
       hook: "A woodland arum with the same strange aura of scent, warmth and specialized fly pollination.",
       quiz_angle: "arum-like spadix, spathe and the attraction of small flies",
-      safety_note: "Protected species; do not pick it or damage its sites."
+      safety_note: "Partially protected (listed in the regulation as Arum alpinum); do not pick it or damage its sites."
     },
     "swietlik-mszysty": {
       name: "Goblin's gold",
@@ -1378,7 +1420,7 @@
       name: "Bee orchid",
       hook: "An orchid whose flower imitates an insect so well that it looks like evolutionary deception in bloom.",
       quiz_angle: "bee-like lip, sexual mimicry and very rare sites",
-      safety_note: "Protected and very rare orchid; do not pick, dig up or publicize precise sites."
+      safety_note: "Critically endangered (CR) orchid, known in Poland from only a few sites; do not pick, dig up or publicize precise sites."
     },
     "obuwik-pospolity": {
       name: "Lady's-slipper orchid",
@@ -1390,13 +1432,13 @@
       name: "Lesser butterfly-orchid",
       hook: "White flowers become more scented in the evening, calling long-tongued night moths.",
       quiz_angle: "night scent, long spurs and moth pollination",
-      safety_note: "Protected orchid; do not pick or transplant it from meadows or woods."
+      safety_note: "Partially protected orchid; do not pick or transplant it from meadows or woods."
     },
     "podkolan-zielonawy": {
       name: "Greater butterfly-orchid",
       hook: "A greenish orchid whose pollination depends on precise contact with nocturnal insects.",
       quiz_angle: "greenish flowers, spurs and anther arrangement separating it from the lesser butterfly-orchid",
-      safety_note: "Protected orchid; observe without damaging plants or forest floor."
+      safety_note: "Partially protected orchid; observe without damaging plants or forest floor."
     },
     "kukuczka-kapturkowata": {
       name: "Hooded orchid",
@@ -1420,13 +1462,13 @@
       name: "Yellow broomrape",
       hook: "A yellowish parasite without chlorophyll, choosing a host connection instead of photosynthesis.",
       quiz_angle: "non-green shoot, parasitism and dependence on host plants",
-      safety_note: "Rare plant; do not pick it or damage its sites."
+      safety_note: "Rare and partially protected plant; do not pick it or damage its sites."
     },
     "gnidosz-rozeslany": {
       name: "Lousewort",
       hook: "A low hemiparasitic plant that looks delicate but taps resources from neighbors underground.",
       quiz_angle: "hemiparasitism, pink flowers and wet-meadow habitats",
-      safety_note: "Rare and habitat-sensitive; do not drain or damage wet meadows."
+      safety_note: "Rare and partially protected; do not drain or damage wet meadows."
     },
     "pszeniec-gajowy": {
       name: "Wood cow-wheat",
@@ -1444,7 +1486,7 @@
       name: "Mezereon",
       hook: "Pink flowers appear very early, often before the leaves, while later red berries are highly poisonous.",
       quiz_angle: "flowering before leaves, strong scent and toxic red berries",
-      safety_note: "Highly poisonous; do not touch berries or pick twigs."
+      safety_note: "Highly poisonous and partially protected; do not touch berries or pick twigs."
     },
     "kopytnik-pospolity": {
       name: "European wild ginger",
@@ -1508,7 +1550,7 @@
       name: "European grayling",
       hook: "A fish of clean rivers with a sail-like dorsal fin and a delicate herbal scent.",
       quiz_angle: "scented mucus, the male's large dorsal fin and dependence on cold oxygen-rich water",
-      safety_note: "Sensitive and locally regulated; observe without disturbing spawning grounds.",
+      safety_note: "Sensitive, but not covered by species protection law; the atlas does not replace local rules. Observe without disturbing spawning grounds.",
       level: "river aristocrat"
     },
     "kur-diabel": {
@@ -1520,17 +1562,10 @@
     },
     piskorz: {
       name: "Weatherfish",
-      hook: "A mud-loving fish that can breathe through its gut and squeak when air is forced out.",
+      hook: "A mud-loving fish that breathes through its gut; taken out of water it can squeak faintly as air escapes from the gut, hence its Polish name.",
       quiz_angle: "intestinal breathing, burrowing in mud and sensitivity to pressure changes",
-      safety_note: "Protected and habitat-sensitive; do not collect it or damage oxbows and muddy ponds.",
+      safety_note: "Partially protected and habitat-sensitive; do not collect it or damage oxbows and muddy ponds.",
       level: "living barometer"
-    },
-    "murowy-swiecik": {
-      name: "Pearlside",
-      hook: "A small deep-water fish with photophores that help erase its silhouette with light.",
-      quiz_angle: "belly photophores, counter-illumination and rare Baltic appearances",
-      safety_note: "A rare marine visitor; treat it as natural-history context, not a field target.",
-      level: "light visitor"
     },
     tasza: {
       name: "Lumpfish",
@@ -1543,7 +1578,7 @@
       name: "Common seasnail",
       hook: "A soft scaleless bottom fish that looks more like a gelatinous shadow than a classic swimmer.",
       quiz_angle: "soft body, bottom life and links with cold marine waters",
-      safety_note: "Associated with sensitive seabed habitats; do not disturb bottom environments.",
+      safety_note: "Partially protected and tied to sensitive seabed habitats; do not disturb bottom environments.",
       level: "soft benthos"
     },
     stornia: {
@@ -1557,21 +1592,21 @@
       name: "Straightnose pipefish",
       hook: "A thread-thin seagrass mimic related to seahorses, with a tail used for anchoring in vegetation.",
       quiz_angle: "loss of tail fin, elongated body and camouflage in underwater meadows",
-      safety_note: "Do not uproot marine vegetation; it is the shelter that makes this fish possible.",
+      safety_note: "Partially protected; do not uproot marine vegetation, it is the shelter that makes this fish possible.",
       level: "grass with eyes"
     },
     iglicznia: {
       name: "Broadnosed pipefish",
       hook: "A stiff marine needle with a tube snout and a male that carries young in a brood pouch.",
       quiz_angle: "tube-shaped snout, stick-like body and male incubation of eggs",
-      safety_note: "Protect underwater vegetation and do not collect pipefish out of curiosity.",
+      safety_note: "Partially protected; protect underwater vegetation and do not collect pipefish out of curiosity.",
       level: "marine needle"
     },
     koza: {
       name: "Spined loach",
       hook: "A tiny fish of sandy shallows with a hidden sharp spine beneath the eye.",
       quiz_angle: "suborbital spine, mottled pattern and burrowing in sand",
-      safety_note: "Protected species; do not collect it or sieve the bottom for fun.",
+      safety_note: "Partially protected; do not collect it or sieve the bottom for fun.",
       level: "hidden spine"
     },
     jazgarz: {
@@ -1592,12 +1627,12 @@
       name: "Bitterling",
       hook: "A tiny fish that needs living freshwater mussels and places its eggs inside them.",
       quiz_angle: "female ovipositor, bright male breeding colors and dependence on mussels",
-      safety_note: "Protect mussels and clean water; without them the bitterling loses its nursery.",
+      safety_note: "Partially protected; protect mussels and clean water, without them the bitterling loses its nursery.",
       level: "mussel tenant"
     },
     mietus: {
       name: "Burbot",
-      hook: "Poland's freshwater cod relative becomes most active when cold slows many other fish down.",
+      hook: "The only fully freshwater member of the cod order, most active when cold slows many other fish down.",
       quiz_angle: "cold-loving life, chin barbel and spawning in the coldest part of the year",
       safety_note: "Locally regulated species; the atlas does not replace current fishing rules.",
       level: "winter cod"
@@ -1606,7 +1641,7 @@
       name: "European eel",
       hook: "A migrant whose life cycle links Polish waters with a long oceanic journey toward the Sargasso Sea.",
       quiz_angle: "catadromy, snake-like body, glass eels and distant spawning migration",
-      safety_note: "Threatened species; do not treat the atlas as encouragement to catch or buy it.",
+      safety_note: "Threatened species; raw eel blood is toxic (ichthyotoxin). Do not treat the atlas as encouragement to catch or buy it.",
       level: "ocean migrant"
     },
     ciernik: {
@@ -1679,13 +1714,6 @@
       safety_note: "Rare visitor, often in poor condition; leave reports to services and specialists.",
       level: "swimming head"
     },
-    "lis-morski": {
-      name: "Common thresher",
-      hook: "A shark with a tail so long it can use it like a whip to stun schooling fish.",
-      quiz_angle: "long upper tail lobe, oceanic shark and very rare northern appearances",
-      safety_note: "Oceanic visitor, not a search target; unusual records should be handled by experts.",
-      level: "whip tail"
-    },
     "zebacz-smugowy": {
       name: "Atlantic wolffish",
       hook: "A marine predator with massive teeth for crushing hard shells and armored prey.",
@@ -1726,7 +1754,7 @@
   const birdText = {
     bielik: {
       name: "White-tailed Eagle",
-      hook: "Poland's largest breeding bird patrols lakes and river valleys on broad, board-like wings.",
+      hook: "The largest eagle breeding in Poland patrols lakes and river valleys on broad, board-like wings.",
       quiz_angle: "huge wingspan, pale adult tail and apex-predator role",
       level: "sky monarch"
     },
@@ -1774,15 +1802,17 @@
     },
     "slonka-zwyczajna": {
       name: "Eurasian Woodcock",
-      hook: "A leaf-colored forest bird whose white feather patches can act like natural reflectors at dusk.",
-      quiz_angle: "camouflage, roding flights and unusually reflective white feathers",
-      level: "forest reflector"
+      hook: "A leaf-colored forest bird whose eyes, set far back on the head, give it all-round 360° vision.",
+      quiz_angle: "camouflage, roding flights and all-round vision",
+      level: "camouflage master"
     },
     uszatka: {
       name: "Long-eared Owl",
-      hook: "A slim owl whose fresh feathers can glow pinkish under ultraviolet light.",
-      quiz_angle: "ear tufts, orange eyes, winter roosts and feather porphyrins",
-      level: "UV glow"
+      hook: "A slim owl whose 'ears' are only movable tufts of feathers.",
+      quiz_angle: "long ear tufts, orange eyes, shared winter roosts and old crow nests",
+      safety_note: "Do not disturb owls at their roosts; keep night observations short and quiet.",
+      habitat: "Dense trees for roosting and open land with rodents.",
+      level: "feather ears"
     },
     "puszczyk-zwyczajny": {
       name: "Tawny Owl",
@@ -1792,9 +1822,9 @@
     },
     pustulka: {
       name: "Common Kestrel",
-      hook: "A hovering falcon that can use ultraviolet clues when searching for vole activity.",
-      quiz_angle: "hovering, rusty back, long tail and UV-assisted hunting",
-      level: "UV detector"
+      hook: "A hovering falcon that, according to a debated hypothesis, may use ultraviolet clues to track vole activity.",
+      quiz_angle: "hovering, rusty back, long tail and the debated UV-hunting hypothesis",
+      level: "hovering hunter"
     },
     dudek: {
       name: "Eurasian Hoopoe",
@@ -1925,7 +1955,7 @@
     heflikit: { name: "Heflikite" },
     skandiowinchit: { name: "Scandio-winchite" },
     "berylokordieryt-na": { name: "Beryllocordierite-Na" },
-    "berylosachanbinskiit-na": { name: "Beryllosachanbińskiite-Na" },
+    "berylosachanbinskiit-na": { name: "Sachanbińskiite" },
     magnesiodutrowit: { name: "Magnesio-dutrowite" },
     "krzemien-pasiasty": { name: "Striped flint" },
     "bursztyn-baltycki": { name: "Baltic amber" },
@@ -1935,10 +1965,10 @@
     "baryt-machow": { name: "Baryte from Machów" },
     "aragonit-machow": { name: "Aragonite from Machów" },
     "kalcyt-siarkowy": { name: "Calcite from sulfur deposits" },
-    "halit-wieliczka": { name: "Halite from the Crystal Caves" },
+    "halit-wieliczka": { name: "Halite from the Crystal Caves", safety_note: "The Crystal Caves reserve is not open to mass tourism, because visitors could change its microclimate and corrode the crystals; access is possible only for scientific and educational purposes." },
     "gips-wtorny-jeziorko": { name: "Secondary gypsum from sulfur zones" },
     "stroncjanit-tarnobrzeg": { name: "Strontianite from the sulfur assemblage" },
-    "agat-gwiazdzisty-nowy-kosciol": { name: "Star-like agate from Nowy Kościół" },
+    "agat-gwiazdzisty-nowy-kosciol": { name: "Agates from Nowy Kościół", occurrence: "Agates from around Nowy Kościół can show, among other patterns, a star-like design." },
     "kwarc-dymny-strzegom": { name: "Smoky quartz from Strzegom" },
     "topaz-strzegom": { name: "Topaz from Strzegom pegmatites" },
     "beryl-strzegom": { name: "Beryl from Strzegom" },
@@ -1982,7 +2012,6 @@
     przadki: { name: "Prządki rocks" },
     "skamieniale-miasto": { name: "Petrified City" },
     "diable-skaly-bukowiec": { name: "Devil's Rocks in Bukowiec" },
-    "zezow-czarne-dzialy": { name: "Zęzów and Czarne Działy" },
     "skalki-pieklo-nieklan": { name: "Piekło Rocks near Niekłań" },
     kadzielnia: { name: "Kadzielnia" },
     krzemionki: { name: "Krzemionki" },
@@ -1999,16 +2028,15 @@
     "karbonskie-lasy-weglowe": { name: "Carboniferous coal forests" },
     "smok-wawelski-lisowice": { name: "Smok wawelski" },
     "lisowicia-bojani": { name: "Lisowicia bojani" },
-    "proterochersis-robusta": { name: "Proterochersis robusta" },
-    "tholodus-schmidi": { name: "Tholodus schmidi" },
+    "proterochersis-robusta": { name: "Proterochersis porebensis" },
     "encrinus-liliiformis": { name: "Encrinus liliiformis" },
     "tropy-dinozaurow-gor-swietokrzyskich": { name: "Dinosaur tracks of the Świętokrzyskie Mountains" },
     "tropy-dinozaurow-baltow": { name: "Dinosaur tracks from Bałtów" },
     "tropy-dinozaurow-borkowice": { name: "Dinosaur tracks from Borkowice" },
-    "pliozaury-z-krzyzanowic": { name: "Pliosaurs from Krzyżanowice near Iłża" },
+    "pliozaury-z-krzyzanowic": { name: "Marine reptiles from Krzyżanowice near Iłża" },
     "plezjozaury-annopola": { name: "Plesiosaurs of Annopol" },
     "krokodylomorfy-owadowa": { name: "Crocodylomorphs from Owadów-Brzezinki" },
-    "limulus-darwini-owadow": { name: "Limulus darwini from Owadów-Brzezinki" },
+    "limulus-darwini-owadow": { name: "Crenatolimulus darwini from Owadów-Brzezinki" },
     "ctenochasma-owadow": { name: "Pterosaurs from Owadów-Brzezinki" },
     "laguna-owadow-brzezinki": { name: "Owadów-Brzezinki lagoon" },
     "amonity-jurajskie-polski": { name: "Jurassic ammonites of Poland" },
@@ -2017,7 +2045,7 @@
     "inkluzje-owadow-w-bursztynie": { name: "Insect inclusions in amber" },
     "ptasznik-w-bursztynie-baltyckim": { name: "Spider in Baltic amber" },
     "chwytowka-w-bursztynie": { name: "Grasping insect in amber" },
-    "jantarogekko-balticus": { name: "Jantarogekko balticus" },
+    "jantarogekko-balticus": { name: "Yantarogekko balticus" },
     "oligocenskie-ptaki-polski": { name: "Oligocene birds of Poland" },
     "skamieniale-drewna-roztocza": { name: "Petrified woods of Roztocze" },
     "mamuty-z-okolic-konina": { name: "Mammoths from the Konin area" },
@@ -2032,9 +2060,9 @@
     "ryjowka-srednia": { name: "Laxmann's shrew" },
     "ryjowka-gorska": { name: "Alpine shrew" },
     "rzesorek-rzeczek": { name: "Eurasian water shrew" },
-    "rzesorek-mniejszy": { name: "Mediterranean water shrew" },
-    "kret-europejski": { name: "European mole" },
-    "nocek-duzy": { name: "Greater mouse-eared bat" },
+    "rzesorek-mniejszy": { name: "Miller's water shrew" },
+    "kret-europejski": { name: "European mole", safety_note: "Partially protected, except for animals in gardens, horticultural crops, forest nurseries, grass airfields, earthen hydraulic structures and sports grounds; observe it through its traces rather than by digging." },
+    "nocek-duzy": { name: "Greater mouse-eared bat", safety_note: "Photographing, filming or observing in ways that may scare or disturb these bats is prohibited; do not enter roosts off public routes or shine lights on hibernating bats." },
     "nocek-rudy": { name: "Daubenton's bat" },
     "nocek-lydkowlosy": { name: "Pond bat" },
     "nocek-bechsteina": { name: "Bechstein's bat" },
@@ -2045,16 +2073,16 @@
     "popielica-szara": { name: "Edible dormouse" },
     orzesznica: { name: "Hazel dormouse" },
     "koszatka-lesna": { name: "Forest dormouse" },
-    "zolednica-europejska": { name: "Garden dormouse" },
+    "zolednica-europejska": { name: "Garden dormouse", hook: "A small masked acrobat of the night, with no reliable record in Poland since 1961.", region: "In Poland it is now considered extinct; the last reliable record dates from 1961, from the Babia Góra area.", occurrence: "A reminder that a species can quietly disappear from a country: the law still gives it strict protection with a protection zone." },
     "swistak-tatrzanski": { name: "Tatra marmot" },
     "bobr-europejski": { name: "Eurasian beaver" },
     pizmak: { name: "Muskrat" },
     "zubr-europejski": { name: "European bison" },
     "kozica-tatrzanska": { name: "Tatra chamois" },
-    jenot: { name: "Raccoon dog" },
+    jenot: { name: "Raccoon dog", safety_note: "Invasive alien species, no longer a game species in Poland since 1 April 2022; do not feed or tame wild predators and report sightings to local nature services." },
     "norka-amerykanska": { name: "American mink" },
     "szop-pracz": { name: "Raccoon" },
-    "szakal-zlocisty": { name: "Golden jackal" },
+    "szakal-zlocisty": { name: "Golden jackal", occurrence: "Since 2017 it has been listed as a game species in Poland, among the predators." },
     lasica: { name: "Least weasel" },
     gronostaj: { name: "Stoat" },
     "zajac-bielak": { name: "Mountain hare" },
@@ -2076,22 +2104,22 @@
     "ropucha-paskowka": { name: "Natterjack toad" },
     "ropucha-zielona": { name: "European green toad" },
     "rzekotka-drzewna": { name: "European tree frog" },
-    "rzekotka-wschodnia": { name: "Eastern tree frog" },
+    "rzekotka-wschodnia": { name: "Eastern tree frog", occurrence: "It is not listed under its own name in the Polish species protection regulation (it was split from the European tree frog)." },
     "zaba-trawna": { name: "Common frog" },
     "zaba-zwinka": { name: "Agile frog" },
-    "zaba-jeziorkowa": { name: "Pool frog" },
+    "zaba-jeziorkowa": { name: "Pool frog", occurrence: "Green frogs are hard to tell apart in the field: a reliable identification needs specialists and, according to some, even karyotype analysis." },
     "zaba-wodna": { name: "Edible frog" },
     "zaba-smieszka": { name: "Marsh frog" },
     "zolw-blotny": { name: "European pond turtle" },
-    "zolw-ozdobny": { name: "Pond slider" },
+    "zolw-ozdobny": { name: "Pond slider", safety_note: "On the EU list of invasive alien species since 2016 (trade and breeding banned); never release pet turtles into the wild and report alien turtles to local services." },
     "padalec-zwyczajny": { name: "Slow worm" },
-    "padalec-kolchidzki": { name: "Eastern slow worm" },
+    "padalec-kolchidzki": { name: "Eastern slow worm", occurrence: "It is not listed under its own name in the Polish species protection regulation (it was split from the slow worm)." },
     "jaszczurka-zwinka": { name: "Sand lizard" },
     "jaszczurka-zyworodna": { name: "Viviparous lizard" },
     "zaskroniec-zwyczajny": { name: "Grass snake" },
-    "zaskroniec-rybolow": { name: "Dice snake" },
+    "zaskroniec-rybolow": { name: "Dice snake", occurrence: "The first modern record in Poland dates from July 2009; later observations point to a stable, breeding population." },
     "gniewosz-plamisty": { name: "Smooth snake" },
-    "waz-eskulapa": { name: "Aesculapian snake" },
+    "waz-eskulapa": { name: "Aesculapian snake", safety_note: "Strictly protected, with a protection zone; non-venomous. Do not reveal sites, move logs or approach breeding places: the population is extremely sensitive." },
     "zmija-zygzakowata": { name: "Common European adder" }
   };
 
@@ -2124,8 +2152,10 @@
     bohoniki: { name: "Tatar mosque in Bohoniki" },
     "kraina-otwartych-okiennic": { name: "Land of Open Shutters" },
     "domy-podcieniowe-zulawy": { name: "Żuławy arcaded houses" },
-    "dwor-z-drogini": { name: "Manor house from Droginia" },
-    "chata-na-wysokosci": { name: "Chata na Wysokości" }
+    "dwor-z-drogini": {
+      name: "Manor house from Droginia",
+      region: "Park Etnograficzny Krakowiaków Zachodnich, the open-air museum in Wygiełzów (called Nadwiślański Park Etnograficzny until 2023), Lesser Poland; moved here from Droginia."
+    }
   };
 
   const atmosphereAstronomyText = {
@@ -2143,7 +2173,7 @@
     "biale-noce-zeglarskie": { name: "Nautical white nights" },
     "obloki-srebrzyste": { name: "Noctilucent clouds" },
     "izerski-park-ciemnego-nieba": { name: "Izera Dark-Sky Park" },
-    "bieszczadzki-park-gwiezdnego-nieba": { name: "Bieszczady Starry-Sky Park" },
+    "bieszczadzki-park-gwiezdnego-nieba": { name: "“Bieszczady” Starry Sky Park" },
     "sopotnia-wielka-ciemne-niebo": { name: "Sopotnia Wielka and smart dark-sky lighting" },
     "droga-mleczna-nad-polska": { name: "The Milky Way over Poland" },
     "zorze-polarne-nad-polska": { name: "Auroras over Poland" },
@@ -2153,12 +2183,18 @@
     "fata-morgana-latajace-statki": { name: "Fata Morgana and flying ships" },
     "baltycki-efekt-morza": { name: "Baltic sea-effect snow" },
     "tatry-z-wyzyny-lubelskiej": { name: "The Tatras seen from the Lublin Upland" },
-    "rekord-godziszow-zadni-gerlach": { name: "Godziszów and Zadni Gerlach" },
+    "rekord-godziszow-zadni-gerlach": {
+      name: "Godziszów and Zadni Gerlach",
+      occurrence: "The record photo was taken on 30 January 2025 from a distance of 246.1 km."
+    },
     "atmosfera-jako-soczewka": { name: "The atmosphere as a lens" },
     "hala-izerska-mala-syberia": { name: "Hala Izerska, the little Siberia" },
     "litworowy-kociol": { name: "Litworowy Kocioł" },
     "puscizna-rekowianska": { name: "Puścizna Rękowiańska" },
-    "siedlce-rekord-mrozu": { name: "Siedlce and the official cold record" },
+    "siedlce-rekord-mrozu": {
+      name: "Siedlce and the cold record",
+      occurrence: "The −41 °C reading from Siedlce (11 January 1940) is questioned by meteorologists. A lower temperature, −41.1 °C, was recorded on 17 February 2025 in Litworowy Kocioł, in the specific conditions of a high-mountain basin."
+    },
     "pyl-saharyjski-nad-polska": { name: "Saharan dust over Poland" },
     "brudny-deszcz": { name: "Dust rain" },
     "czerwony-snieg-w-gorach": { name: "Red snow in the mountains" }
@@ -2172,8 +2208,9 @@
     },
     "zamek-krzyztopor": {
       name: "Krzyżtopór Castle",
-      hook: "A palace-fortress whose calendar symbolism turned architecture into a legend of numbers.",
-      quiz_angle: "recognize the bastions, ruined residence and the famous story of towers, rooms and windows"
+      hook: "A palace-fortress wrapped in a legend of numbers: towers, halls, rooms and windows said to match the calendar.",
+      quiz_angle: "recognize the bastions, ruined residence and the famous story of towers, rooms and windows",
+      occurrence: "According to a tradition first written down only in the 1830s by Klementyna Hoffmanowa (née Tańska), the castle had as many towers as quarters, as many great halls as months, as many rooms as weeks and as many windows as days in the year. It is a legend, not a fact: the number of windows does not match."
     },
     "zamek-malbork": {
       name: "Malbork Castle",
@@ -2196,7 +2233,7 @@
       quiz_angle: "remember the Eagles' Nests, limestone outcrops and the ruin growing out of the rock"
     },
     "zamek-moszna": {
-      name: "Moszna Castle",
+      name: "Moszna Palace",
       hook: "An eclectic residence whose towers make it look like architectural fantasy made solid.",
       quiz_angle: "recognize the towered silhouette, eclectic form and theatrical palace character"
     },
@@ -2306,9 +2343,9 @@
       quiz_angle: "remember the military transit depot, guardhouses and memorial landscape"
     },
     "wiadukty-stanczyki": {
-      name: "Stańczyki Viaducts",
-      hook: "Monumental railway arches often compared to northern aqueducts, though trains no longer use them.",
-      quiz_angle: "recognize the unused railway line, paired arches and scale in the Romincka Forest landscape"
+      name: "Stańczyki Bridges",
+      hook: "Two railway bridges nicknamed the aqueducts of the Romincka Forest for their resemblance to Roman structures, although track was laid on only one of them.",
+      quiz_angle: "recognize the twin bridges, the track laid on only one of them, the unused line and the Romincka Forest landscape"
     },
     "wiadukty-kiepojcie": {
       name: "Kiepojcie Viaducts",
@@ -2328,7 +2365,8 @@
     "zamek-lapalice": {
       name: "Łapalice Castle",
       hook: "Not a historic castle, but a modern unfinished structure that became a local legend.",
-      quiz_angle: "recognize the contemporary unfinished building, private-access caution and unusual status"
+      quiz_angle: "recognize the contemporary unfinished building, private-access caution and unusual status",
+      safety_note: "Entry to the site is prohibited; the unfinished, unsecured building built without a valid permit is not a tourist attraction."
     }
   };
 
@@ -2454,7 +2492,7 @@
       quiz_angle: "recognize the uprising symbol, rubble origin, anchor sign and Warsaw's postwar landscape"
     },
     "westerplatte-cmentarz": {
-      name: "Westerplatte Defenders' Cemetery",
+      name: "Westerplatte — Military Cemetery of Polish Army Soldiers",
       hook: "A military cemetery on the peninsula associated with the opening of the Second World War.",
       quiz_angle: "remember Westerplatte, the Military Transit Depot, defenders' graves and coastal memorial landscape"
     },
@@ -2471,12 +2509,14 @@
     "kopiec-krakusa": {
       name: "Krakus Mound",
       hook: "An ancient-looking mound where archaeology, legend and Kraków's skyline meet.",
-      quiz_angle: "recognize the legendary ruler, mound form, Kraków panorama and uncertain chronology"
+      quiz_angle: "recognize the legendary ruler, mound form, Kraków panorama and uncertain chronology",
+      occurrence: "The fewer certain answers there are, the stronger the mound works as a place of the city's memory and imagination. That it covers a ruler's grave remains a hypothesis."
     },
     "kopiec-wandy": {
       name: "Wanda Mound",
       hook: "A Kraków mound tied to legend, landscape memory and questions that archaeology cannot fully close.",
-      quiz_angle: "remember the Wanda legend, Nowa Huta setting, mound silhouette and uncertain origins"
+      quiz_angle: "remember the Wanda legend, Nowa Huta setting, mound silhouette and uncertain origins",
+      occurrence: "Old legends meet the modern surroundings of Nowa Huta. Wanda's grave belongs to legend, and the origin of the mound is uncertain."
     },
     "stary-cmentarz-zydowski-wroclaw": {
       name: "Old Jewish Cemetery in Wrocław",
@@ -2528,9 +2568,9 @@
         learnNote: "Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.",
         quizEyebrow: "Quiz",
         quizTitle: "10 pytań na spokojnie",
-        quizNote: "Pytania są generowane z opisów i nazw aktywnej kolekcji.",
+        quizNote: "Pytania powstają z opisów, nazw i ciekawostek aktywnej kolekcji, także jako „prawda czy fałsz”.",
         sourcesEyebrow: "Źródła i licencje",
-        sourcesTitle: "Atrybucja zdjęć",
+        sourcesTitle: "Źródła ciekawostek i zdjęć",
         sourcePanelTitle: "Zasada projektu",
         sourcePanelCopy: "Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.",
         sourceChecklistTitle: "Checklist zdjęcia",
@@ -2575,6 +2615,42 @@
         restart: "Restart",
         quizHookPrompt: "Który wpis pasuje do opisu: „{hook}”?",
         quizLatinPrompt: "Jaką nazwę w atlasie ma: {latin}?",
+        quizTrueFalseEyebrow: "Prawda czy fałsz?",
+        quizTrueFalsePrompt: "Czy ta ciekawostka dotyczy wpisu „{name}”?",
+        quizTrue: "Prawda",
+        quizFalse: "Fałsz",
+        quizFactOwner: "Ta ciekawostka dotyczy wpisu „{name}”.",
+        factsTitle: "Ciekawostki",
+        factsTitleCalm: "Warto wiedzieć",
+        factsSummary: "{title} ({count})",
+        factSource: "źródło",
+        factNoIcon: "Ciekawostka",
+        notesTitle: "Uwaga w terenie",
+        badgesLabel: "Status",
+        badgeStrict: "Ochrona ścisła",
+        badgePartial: "Ochrona częściowa",
+        badgeProtectionHint: "Ochrona gatunkowa w Polsce",
+        badgeToxic: "Gatunek trujący",
+        badgeToxicMild: "Gatunek lekko trujący",
+        synonymsLabel: "Dawniej w atlasie",
+        dailyFactEyebrow: "Ciekawostka dnia",
+        dailyFactLoading: "Wczytuję ciekawostkę dnia…",
+        dailyFactOpen: "Zobacz kartę: {name}",
+        dailyFactCollection: "Kolekcja: {collection}",
+        share: "Udostępnij",
+        cardLink: "Link do karty",
+        shareText: "{name} — Atlas Osobliwości Polski",
+        linkCopied: "Skopiowano link do karty.",
+        linkCopyManual: "Skopiuj link: {url}",
+        factSourcesTitle: "Źródła ciekawostek",
+        factSourcesMethod: "Ciekawostki: sprawdzone {date} na tekście wskazanego źródła; sporne przez wyszukiwanie.",
+        factSourcesTotal: "{count} z linkami do źródeł w tej kolekcji.",
+        factStatusChecked: "potwierdzone wyszukiwaniem w niezależnym źródle",
+        factStatusVerified: "zgodne ze wskazanym źródłem",
+        factStatusCorrected: "z brzmieniem poprawionym według źródeł",
+        factSourcesDomains: "Domeny źródeł (liczba ciekawostek)",
+        factSourcesEmpty: "Ta kolekcja nie ma jeszcze ciekawostek ze źródłami.",
+        factCountForms: { one: "{count} ciekawostka", few: "{count} ciekawostki", many: "{count} ciekawostek", other: "{count} ciekawostki" },
         creditSpecies: "Wpis",
         creditFile: "Plik",
         creditAuthor: "Autor",
@@ -2619,9 +2695,9 @@
         learnNote: "First read the clue, then reveal the answer.",
         quizEyebrow: "Quiz",
         quizTitle: "10 calm questions",
-        quizNote: "Questions are generated from descriptions and names in the active collection.",
+        quizNote: "Questions come from descriptions, names and fun facts of the active collection, including true-or-false ones.",
         sourcesEyebrow: "Sources and licenses",
-        sourcesTitle: "Photo attribution",
+        sourcesTitle: "Fact sources and photo credits",
         sourcePanelTitle: "Project rule",
         sourcePanelCopy: "We do not copy descriptions from other atlases. We write short original educational notes and use only images with clear licenses.",
         sourceChecklistTitle: "Photo checklist",
@@ -2666,6 +2742,42 @@
         restart: "Restart",
         quizHookPrompt: "Which entry matches this description: \"{hook}\"?",
         quizLatinPrompt: "Which atlas entry is described as {latin}?",
+        quizTrueFalseEyebrow: "True or false?",
+        quizTrueFalsePrompt: "Is this fact about \"{name}\"?",
+        quizTrue: "True",
+        quizFalse: "False",
+        quizFactOwner: "This fact is about \"{name}\".",
+        factsTitle: "Fun facts",
+        factsTitleCalm: "Worth knowing",
+        factsSummary: "{title} ({count})",
+        factSource: "source",
+        factNoIcon: "Fact",
+        notesTitle: "Field note",
+        badgesLabel: "Status",
+        badgeStrict: "Strictly protected",
+        badgePartial: "Partially protected",
+        badgeProtectionHint: "Species protection in Poland",
+        badgeToxic: "Poisonous species",
+        badgeToxicMild: "Mildly poisonous species",
+        synonymsLabel: "Formerly in this atlas",
+        dailyFactEyebrow: "Fact of the day",
+        dailyFactLoading: "Loading the fact of the day…",
+        dailyFactOpen: "Open the card: {name}",
+        dailyFactCollection: "Collection: {collection}",
+        share: "Share",
+        cardLink: "Card link",
+        shareText: "{name} — Atlas of Polish Curiosities",
+        linkCopied: "Card link copied.",
+        linkCopyManual: "Copy the link: {url}",
+        factSourcesTitle: "Sources of the fun facts",
+        factSourcesMethod: "Fun facts: checked on {date} against the text of the cited source; disputed ones by search.",
+        factSourcesTotal: "{count} with source links in this collection.",
+        factStatusChecked: "confirmed by search in an independent source",
+        factStatusVerified: "consistent with the cited source",
+        factStatusCorrected: "reworded to match the sources",
+        factSourcesDomains: "Source domains (number of facts)",
+        factSourcesEmpty: "This collection has no sourced fun facts yet.",
+        factCountForms: { one: "{count} fun fact", other: "{count} fun facts" },
         creditSpecies: "Entry",
         creditFile: "File",
         creditAuthor: "Author",
@@ -2686,7 +2798,7 @@
           safety_notice: "Educational prototype. Do not use the atlas to decide whether a fungus is edible, protected or safe to collect.",
           source_note: "Photos are added only when the license is clear. Wikimedia Commons packages include author, source and license.",
           categories: mushroomCategories,
-          items: makeItemMap("grzyby", mushroomText)
+          get items() { return lazyItemMap("grzyby", mushroomText); }
         },
         owady: {
           title: "Insects",
@@ -2697,7 +2809,7 @@
           safety_notice: "Educational prototype. Observe insects without catching, harming or moving them from their habitat.",
           source_note: "Descriptions start from the working species list. Photos and attribution are added gradually from legal sources.",
           categories: insectCategories,
-          items: makeItemMap("owady", insectText)
+          get items() { return lazyItemMap("owady", insectText); }
         },
         kwiaty: {
           title: "Flowers",
@@ -2708,18 +2820,18 @@
           safety_notice: "Educational prototype. Many plants are protected, rare, toxic or habitat-sensitive: observe without picking or moving them.",
           source_note: "Descriptions start from the working list of unusual Polish plants. Photos and attribution will be added later from legal sources.",
           categories: flowerCategories,
-          items: makeItemMap("kwiaty", flowerText)
+          get items() { return lazyItemMap("kwiaty", flowerText); }
         },
         ryby: {
           title: "Fish",
           heading: "Unusual Fish of Polish Waters",
-          subtitle: "32 fish curiosities of Polish waters and their marine edge: scents, sounds, suction discs, migrations, camouflage and invasive species.",
-          count_label: "32 curiosities",
+          subtitle: "30 fish curiosities of Polish waters and their marine edge: scents, sounds, suction discs, migrations, camouflage and invasive species.",
+          count_label: "30 curiosities",
           search_placeholder: "e.g. smelt, lumpfish, bitterling...",
           safety_notice: "Educational prototype. Fish may be protected, locally regulated or invasive: observe without collecting and always check current rules.",
           source_note: "Descriptions start from the working list of unusual fish of Poland. Photos come from Wikimedia Commons with full attribution.",
           categories: fishCategories,
-          items: makeItemMap("ryby", fishText)
+          get items() { return lazyItemMap("ryby", fishText); }
         },
         ptaki: {
           title: "Birds",
@@ -2730,7 +2842,7 @@
           safety_notice: "Educational prototype. Birds may be protected, sensitive to disturbance and tied to nests or leks: observe from a distance, do not reveal rare sites and do not interfere with habitats.",
           source_note: "Descriptions start from two working lists of unusual Polish avifauna. Photos come from Wikimedia Commons with full attribution.",
           categories: birdCategories,
-          items: makeItemMap("ptaki", birdText)
+          get items() { return lazyItemMap("ptaki", birdText); }
         },
         ssaki: {
           title: "Mammals",
@@ -2741,7 +2853,7 @@
           safety_notice: "Educational prototype. Observe mammals from a distance: do not handle small animals, disturb bat winter roosts, approach large mammals or seals, or reveal sensitive sites.",
           source_note: "Descriptions start from the supplied working material on unusual Polish mammals. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mammalCategories,
-          items: makeItemMap("ssaki", mammalText)
+          get items() { return lazyItemMap("ssaki", mammalText); }
         },
         "plazy-gady": {
           title: "Amphibians and Reptiles",
@@ -2752,7 +2864,7 @@
           safety_notice: "Educational prototype. Observe amphibians and reptiles without handling, moving or damaging habitats; many are protected, sensitive to disturbance or risky when approached carelessly. Never release terrarium animals into the wild.",
           source_note: "Descriptions start from the supplied working material on Polish herpetofauna curiosities. Photos come from Wikimedia Commons with full attribution; representative frames are labelled as such.",
           categories: amphibianReptileCategories,
-          items: makeItemMap("plazy-gady", amphibianReptileText)
+          get items() { return lazyItemMap("plazy-gady", amphibianReptileText); }
         },
         drzewa: {
           title: "Trees",
@@ -2763,7 +2875,7 @@
           safety_notice: "Educational prototype. Veteran trees, old trunks and memorial sites should be observed from a distance: do not climb roots, remove bark, disturb supports or leave marked paths.",
           source_note: "Descriptions start from the working list of dendrological curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: treeCategories,
-          items: makeItemMap("drzewa", {})
+          get items() { return lazyItemMap("drzewa", {}); }
         },
         mineraly: {
           title: "Minerals",
@@ -2774,29 +2886,29 @@
           safety_notice: "Educational prototype. Observe minerals without damaging sites: do not enter abandoned mines, break protected rocks, collect toxic or radioactive ores, or run home chemistry experiments.",
           source_note: "Descriptions start from the working list of mineralogical curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mineralCategories,
-          items: makeItemMap("mineraly", mineralText)
+          get items() { return lazyItemMap("mineraly", mineralText); }
         },
         "formacje-skalne": {
           title: "Rock Formations",
           heading: "Unusual Rock Formations of Poland",
-          subtitle: "33 Polish rock-form curiosities: Karkonosze granite tors, volcanic organs, sandstone labyrinths, Jurassic gates, Carpathian outcrops and glacial boulders.",
-          count_label: "33 curiosities",
+          subtitle: "32 Polish rock-form curiosities: Karkonosze granite tors, volcanic organs, sandstone labyrinths, Jurassic gates, Carpathian outcrops and glacial boulders.",
+          count_label: "32 curiosities",
           search_placeholder: "e.g. Błędne Skały, Hercules' Club, Giewont...",
           safety_notice: "Educational prototype. Observe rock formations without damaging sites: stay on marked trails, do not chip or mark rock, enter caves only on official routes and respect protected areas.",
           source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: rockFormationCategories,
-          items: makeItemMap("formacje-skalne", rockFormationText)
+          get items() { return lazyItemMap("formacje-skalne", rockFormationText); }
         },
         "architektura-drewniana": {
           title: "Wooden Architecture",
           heading: "Architectural Curiosities: Wood",
-          subtitle: "30 wooden curiosities of Poland: Peace Churches, log-built Gothic churches, Carpathian tserkvas, Zakopane style, Tatar mosques and living wooden villages.",
-          count_label: "30 curiosities",
+          subtitle: "29 wooden curiosities of Poland: Peace Churches, log-built Gothic churches, Carpathian tserkvas, Zakopane style, Tatar mosques and living wooden villages.",
+          count_label: "29 curiosities",
           search_placeholder: "e.g. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
           safety_notice: "Educational prototype. Visit wooden monuments respectfully: do not touch polychrome, icons, carved wood or construction elements, do not enter private property without permission and check current visiting rules.",
           source_note: "Descriptions start from the supplied working material on Polish wooden architecture. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: woodenArchitectureCategories,
-          items: makeItemMap("architektura-drewniana", woodenArchitectureText)
+          get items() { return lazyItemMap("architektura-drewniana", woodenArchitectureText); }
         },
         podziemia: {
           title: "Undergrounds",
@@ -2807,7 +2919,7 @@
           safety_notice: "Educational prototype. Visit underground sites only on official routes: do not enter abandoned adits, shelters or cellars, do not touch safety structures, and keep a calm historical tone around wartime places.",
           source_note: "Descriptions start from the supplied working material on Polish underground curiosities. Photos come from Wikimedia Commons with full attribution; diagrams and representative frames are labelled honestly.",
           categories: undergroundCategories,
-          items: makeItemMap("podziemia", {})
+          get items() { return lazyItemMap("podziemia", {}); }
         },
         "cuda-inzynierii": {
           title: "Engineering Wonders",
@@ -2818,7 +2930,7 @@
           safety_notice: "Educational prototype. View technical sites only from legal public areas: do not enter dams, tracks, quays, bridge structures, industrial grounds or active infrastructure without permission.",
           source_note: "Descriptions start from the supplied working material on Polish technical and architectural curiosities. Technical figures and source references should be verified before final publication.",
           categories: engineeringWonderCategories,
-          items: makeItemMap("cuda-inzynierii", {})
+          get items() { return lazyItemMap("cuda-inzynierii", {}); }
         },
         "twierdze-ruiny": {
           title: "Fortresses and Ruins",
@@ -2829,7 +2941,7 @@
           safety_notice: "Educational prototype. Visit castles, fortresses and ruins legally and carefully: do not enter abandoned, private or closed sites, do not climb walls and treat memorial places with calm historical language.",
           source_note: "Descriptions start from the supplied working material on Polish castles, fortresses, ruins and forgotten structures. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: fortressRuinCategories,
-          items: makeItemMap("twierdze-ruiny", fortressRuinText)
+          get items() { return lazyItemMap("twierdze-ruiny", fortressRuinText); }
         },
         "memento-mori": {
           title: "Memento Mori",
@@ -2840,18 +2952,18 @@
           safety_notice: "Educational prototype. This collection includes memorial places and difficult history; read and visit respectfully, without sensational framing, posing at graves or entering closed or fragile areas.",
           source_note: "Descriptions start from the supplied working material on Polish memorial and burial-culture places. Photos come from Wikimedia Commons with full attribution; difficult-history sites use calm educational language.",
           categories: mementoMoriCategories,
-          items: makeItemMap("memento-mori", mementoMoriText)
+          get items() { return lazyItemMap("memento-mori", mementoMoriText); }
         },
         skamienialosci: {
           title: "Fossils",
           heading: "Unusual Fossils of Poland",
-          subtitle: "33 paleontological curiosities of Poland: trilobites, Devonian reefs, Zachełmie, Triassic giants, dinosaur tracks, Jurassic seas, amber and Ice Age megafauna.",
-          count_label: "33 curiosities",
+          subtitle: "32 paleontological curiosities of Poland: trilobites, Devonian reefs, Zachełmie, Triassic giants, dinosaur tracks, Jurassic seas, amber and Ice Age megafauna.",
+          count_label: "32 curiosities",
           search_placeholder: "e.g. Zachełmie, Smok, ammonites, amber...",
           safety_notice: "Educational prototype. Observe fossils without damaging sites: do not chip specimens from reserves, enter quarries without permission, dig fossil sites or remove rare finds from their context.",
           source_note: "Descriptions start from the working list of unusual Polish fossils. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: fossilCategories,
-          items: makeItemMap("skamienialosci", fossilText)
+          get items() { return lazyItemMap("skamienialosci", fossilText); }
         },
         "atmosfera-astronomia": {
           title: "Atmosphere and Astronomy",
@@ -2862,7 +2974,7 @@
           safety_notice: "Educational prototype. Sky and weather phenomena are not forecasts or invitations to take risks: do not chase storms, stand on ridges during electrical activity, ignore cold or use the atlas as safety guidance.",
           source_note: "Descriptions start from the working list of Polish atmospheric and astronomical phenomena. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: atmosphereAstronomyCategories,
-          items: makeItemMap("atmosfera-astronomia", atmosphereAstronomyText)
+          get items() { return lazyItemMap("atmosfera-astronomia", atmosphereAstronomyText); }
         },
         "rekordy-krajobrazu": {
           title: "Landscape Records",
@@ -2873,7 +2985,7 @@
           safety_notice: "Educational prototype. Treat this as landscape context, not route guidance: follow park and reserve rules, do not damage rocks, dunes, peatlands or plants, and check current access before visiting.",
           source_note: "Descriptions start from the supplied working material on Polish landscape records and curiosities. Photos come from Wikimedia Commons with full attribution; contextual and representative frames are labelled honestly.",
           categories: landscapeRecordCategories,
-          items: makeItemMap("rekordy-krajobrazu", {})
+          get items() { return lazyItemMap("rekordy-krajobrazu", {}); }
         }
       }
     },
@@ -2905,6 +3017,22 @@
           label: "People & culture",
           description: "Architecture, technology and memory — human traces in the Polish landscape."
         }
+      }
+    },
+    // English versions of the short safety notes shipped with the fun facts, keyed by the Polish
+    // text, so a changed note falls back to Polish instead of showing an outdated translation.
+    factNotes: {
+      en: {
+        "Zimą (zwykle od października do kwietnia) obowiązują ograniczenia zwiedzania, żeby nie budzić nietoperzy.": "In winter (usually from October to April) visits are restricted so that hibernating bats are not woken.",
+        "Nurkowanie tylko z uprawnieniami. Zatopione pnie to przeszkody, w których można się zaplątać.": "Dive only with the proper certification. The submerged trunks are obstacles you can get entangled in.",
+        "Less łatwo się osypuje. Nie wspinaj się po ścianach wąwozu i nie podkopuj korzeni.": "Loess crumbles easily. Do not climb the gully walls or dig under the roots.",
+        "Kąpiel tylko w wyznaczonych miejscach. Dawne wyrobiska mają strome, głębokie ściany pod wodą.": "Swim only in designated areas. The former quarry pits have steep, deep walls under water.",
+        "CO₂ jest cięższy od powietrza. Nie pochylaj się nisko nad wypływami.": "CO₂ is heavier than air. Do not bend down low over the vents.",
+        "Po gołoborzach się nie chodzi: są chronione w Świętokrzyskim PN, a bloki są niestabilne.": "Do not walk on the block fields: they are protected in Świętokrzyski National Park and the boulders are unstable.",
+        "To zwykle drogi publiczne. Nie zatrzymuj się na jezdni, żeby „testować” zjawisko.": "These are usually public roads. Do not stop on the roadway to “test” the effect.",
+        "Silne szczęki: nie dotykać!": "Strong jaws: do not touch!",
+        "Nie wchodź do zniszczonych schronów poza wyznaczoną trasą.": "Do not enter the damaged bunkers off the marked route.",
+        "To niedokończony, niezabezpieczony obiekt i teren prywatny. Wejście jest niebezpieczne i niedozwolone.": "This is an unfinished, unsecured structure on private land. Entering is dangerous and not allowed."
       }
     }
   };

@@ -171,7 +171,7 @@
       hook: "Nad Bałtykiem około czerwca horyzont morski może pozostawać czytelny niemal przez całą dobę.",
       quiz_angle: "nawigacyjny zmierzch, widoczna linia horyzontu i północ Polski",
       safety_note: "jasny horyzont nie zastępuje świateł nawigacyjnych ani prognozy pogody na wodzie",
-      region_pl: "Wybrzeże Bałtyku, zwłaszcza okolice Rozewia, Władysławowa i Helu.",
+      region_pl: "Wybrzeże Bałtyku, zwłaszcza klify Jastrzębiej Góry.",
       habitat_pl: "Otwarte północne niebo, morze i płytko schowane Słońce w okolicach przesilenia letniego.",
       occurrence_note: "Nazwa jest praktyczna: dawniej taki półmrok był istotny dla orientacji na morzu.",
       level: "jasny horyzont"
@@ -204,8 +204,9 @@
     }),
     entry({
       id: "bieszczadzki-park-gwiezdnego-nieba",
-      name_pl: "Bieszczadzki Park Gwiezdnego Nieba",
+      name_pl: "Park Gwiezdnego Nieba „Bieszczady”",
       name_lat: "Bieszczady Starry-Sky Park",
+      synonyms: ["Bieszczadzki Park Gwiezdnego Nieba"],
       category: "niebo-nocne-i-kosmos",
       hook: "Bieszczady należą do najlepszych miejsc w Polsce do oglądania struktury Drogi Mlecznej gołym okiem.",
       quiz_angle: "mała łuna miejska, rozległe ciemne niebo i astroturystyka",
@@ -342,7 +343,7 @@
       safety_note: "traktować rekordy jako dokumentację obserwacyjną, nie gwarancję powtarzalności przy każdej przejrzystej pogodzie",
       region_pl: "Godziszów i okolice Roztocza w kierunku Tatr Słowackich.",
       habitat_pl: "Punkty widokowe z długą osią obserwacji i powietrzem o wyjątkowo małej zawartości aerozoli.",
-      occurrence_note: "Karta opiera się na materiale źródłowym o dalekich obserwacjach, bez rozstrzygania bieżących rekordów po dacie pliku.",
+      occurrence_note: "Rekordowe zdjęcie wykonano 30 stycznia 2025 r. z odległości 246,1 km.",
       level: "rekord widoczności"
     }),
     entry({
@@ -399,15 +400,16 @@
     }),
     entry({
       id: "siedlce-rekord-mrozu",
-      name_pl: "Siedlce i oficjalny rekord mrozu",
-      name_lat: "Official low-temperature record",
+      name_pl: "Siedlce i rekord mrozu",
+      name_lat: "Lowland low-temperature record",
+      synonyms: ["Siedlce i oficjalny rekord mrozu"],
       category: "mroz-pyl-osady",
       hook: "Historyczne rekordy zimna pokazują, jak silne mogą być napływy mroźnego powietrza i lokalne warunki radiacyjne.",
-      quiz_angle: "oficjalna stacja, ekstremalna temperatura i kontekst historycznej fali mrozu",
+      quiz_angle: "nizinny rekord z 1940 r., wątpliwości wokół pomiaru i kontekst historycznej fali mrozu",
       safety_note: "rekordy traktować jako kontekst edukacyjny; bieżące zagrożenia zawsze sprawdzać w aktualnych komunikatach pogodowych",
       region_pl: "Siedlce i nizinne punkty pomiarowe w Polsce.",
       habitat_pl: "Stacje meteorologiczne i otwarte tereny, gdzie standard pomiaru pozwala porównywać dane.",
-      occurrence_note: "Karta odróżnia rekord sieci pomiarowej od lokalnych mrozowisk, które bywają zimniejsze, ale mierzone inną metodą.",
+      occurrence_note: "Pomiar −41 °C z Siedlec (11 stycznia 1940 r.) budzi wątpliwości meteorologów. Niższą temperaturę, −41,1 °C, zanotowano 17 lutego 2025 r. w Litworowym Kotle, w specyficznych warunkach wysokogórskiej kotliny.",
       level: "liczba w historii"
     }),
     entry({

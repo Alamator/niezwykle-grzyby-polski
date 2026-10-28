@@ -73,7 +73,7 @@
     ),
     "berylosachanbinskiit-na": photo(
       "Beryl-23651.jpg",
-      "Kadr reprezentatywny: beryl w pegmatycie jako kontekst dla berylosachanbińskiitu-Na",
+      "Kadr reprezentatywny: beryl w pegmatycie jako kontekst dla sachanbińskiitu",
       robLavinsky,
       "CC BY-SA 3.0",
       ccBySa30

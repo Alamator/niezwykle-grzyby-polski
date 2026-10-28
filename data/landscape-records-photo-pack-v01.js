@@ -54,7 +54,7 @@
     ),
     "sosna-na-szczudlach-welcz": photo(
       "Sosna na szczudłach - Pine on Stilts - Wełecz 20230501 09.jpg",
-      "Sosna na Szczudłach w Wełeczu z odsłoniętymi korzeniami",
+      "Sosna na Szczudłach w Wełczu z odsłoniętymi korzeniami",
       "Dwxn",
       "CC BY-SA 4.0",
       ccBySa40
@@ -376,7 +376,7 @@
     ),
     "raczki-elblaskie": photo(
       "Poland Raczki Elblaskie - depression sign.jpg",
-      "Znak najniższego punktu Polski w Raczkach Elbląskich",
+      "Znak depresji w Raczkach Elbląskich, do 2022 r. uznawanej za najniższy punkt Polski",
       "Merlin",
       "CC BY-SA 3.0",
       ccBySa30

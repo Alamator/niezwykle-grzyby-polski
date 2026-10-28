@@ -51,14 +51,6 @@
       "Public domain",
       "https://creativecommons.org/publicdomain/mark/1.0/"
     ),
-    "murowy-swiecik": photo(
-      "Maurolicus muelleri ventral.jpg",
-      "Murowy świecik (Maurolicus muelleri), mała srebrzysta ryba z widoczną stroną brzuszną",
-      "HulloThere",
-      "https://commons.wikimedia.org/wiki/File:Maurolicus_muelleri_ventral.jpg",
-      "CC BY-SA 4.0",
-      "https://creativecommons.org/licenses/by-sa/4.0/"
-    ),
     tasza: photo(
       "Cyclopterus lumpus female.jpg",
       "Tasza (Cyclopterus lumpus), krępa morska ryba o guzowatej sylwetce",
@@ -227,17 +219,9 @@
       "CC BY-SA 3.0",
       "https://creativecommons.org/licenses/by-sa/3.0/"
     ),
-    "lis-morski": photo(
-      "Alopias vulpinus noaa2.jpg",
-      "Lis morski (Alopias vulpinus), rekin z bardzo wydłużoną górną częścią ogona",
-      "NOAA/PIER",
-      "https://commons.wikimedia.org/wiki/File:Alopias_vulpinus_noaa2.jpg",
-      "Public domain",
-      "https://creativecommons.org/publicdomain/mark/1.0/"
-    ),
     "zebacz-smugowy": photo(
       "Anarhichas-lupus-Atlanterhavsparken.jpg",
-      "Zębacz smugowy (Anarhichas lupus), morska ryba o masywnej głowie",
+      "Zębacz pasiasty (Anarhichas lupus), morska ryba o masywnej głowie",
       "Bjørn Christian Tørrissen",
       "https://commons.wikimedia.org/wiki/File:Anarhichas-lupus-Atlanterhavsparken.jpg",
       "CC BY-SA 4.0",
@@ -245,7 +229,7 @@
     ),
     lamna: photo(
       "Lamna nasus csiro-nfc.jpg",
-      "Lamna (Lamna nasus), rekin śledziowy o torpedowatej sylwetce",
+      "Lamna śledziowa (Lamna nasus), rekin o torpedowatej sylwetce",
       "CSIRO National Fish Collection",
       "https://commons.wikimedia.org/wiki/File:Lamna_nasus_csiro-nfc.jpg",
       "CC BY 3.0",
@@ -269,7 +253,7 @@
     ),
     "babka-bycza": photo(
       "Neogobius melanostomus, Serhiivka.jpg",
-      "Babka bycza (Neogobius melanostomus), ryba denna na jasnym tle",
+      "Babka śniadogłowa (Neogobius melanostomus), ryba denna na jasnym tle",
       "Yuriy Kvach",
       "https://commons.wikimedia.org/wiki/File:Neogobius_melanostomus,_Serhiivka.jpg",
       "CC BY-SA 4.0",

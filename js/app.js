@@ -14,6 +14,15 @@
   const languageIds = Object.keys(i18n.languages || { pl: { label: "PL" } });
   const defaultLanguage = i18n.defaultLanguage || languageIds[0] || "pl";
 
+  // Karta 2.0: a card shows at most this many verified fun facts.
+  const FACTS_LIMIT = 4;
+  const FACT_ICON_FALLBACK = "💡";
+  // Collections where the facts section uses a calmer heading than "Fun facts".
+  const CALM_COLLECTIONS = new Set(["memento-mori"]);
+  // Holocaust and martyrdom sites stay out of the playful formats (fact of the day, true or false).
+  const SOLEMN_CATEGORIES = new Set(["miejsca-zaglady", "miejsca-martyrologii"]);
+  const TRUE_FALSE_SHARE = 0.3;
+
   function storedLanguage() {
     try {
       return window.localStorage.getItem("atlasLanguage");
@@ -31,6 +40,14 @@
     flashIndex: 0,
     flashRevealed: false,
     quiz: null
+  };
+
+  const dailyFact = {
+    status: "loading",
+    parts: null,
+    collectionId: null,
+    itemId: null,
+    factId: null
   };
 
   function escapeHtml(value) {
@@ -59,6 +76,18 @@
     return Array.isArray(value) ? value : [];
   }
 
+  function tPlural(key, count) {
+    const forms = uiValue(key);
+    if (!forms || typeof forms !== "object") return String(count);
+    let rule = "other";
+    try {
+      rule = new Intl.PluralRules(state.language).select(count);
+    } catch {
+      rule = count === 1 ? "one" : "other";
+    }
+    return format(forms[rule] ?? forms.other ?? "", { count });
+  }
+
   function randomIndex(length) {
     return Math.floor(Math.random() * length);
   }
@@ -80,6 +109,10 @@
     return app.collections.find((collection) => collection.id === state.collectionId) || app.collections[0];
   }
 
+  function collectionById(id) {
+    return app.collections.find((collection) => collection.id === id);
+  }
+
   function normalizedPath(path = window.location.pathname) {
     const clean = path.replace(/\/+$/, "");
     return clean || "/";
@@ -98,6 +131,15 @@
     if (!window.history?.pushState) return;
     if (normalizedPath(window.location.pathname) === normalizedPath(path)) return;
     window.history.pushState(stateData, "", path);
+  }
+
+  // A single card is addressable as /atlas/<collection>#item=<card id>.
+  function cardPath(collection, item) {
+    return `${routeForCollection(collection)}#item=${encodeURIComponent(item.id)}`;
+  }
+
+  function cardUrl(collection, item) {
+    return new URL(cardPath(collection, item), window.location.origin).href;
   }
 
   function collectionTranslation(collection = activeCollection()) {
@@ -141,21 +183,21 @@
     return translated[field] || category[field] || "";
   }
 
-  function itemTranslation(item) {
-    return collectionTranslation().items?.[item.id] || {};
+  function itemTranslation(item, collection = activeCollection()) {
+    return collectionTranslation(collection).items?.[item.id] || {};
   }
 
-  function itemField(item, field, fallbackField = field) {
-    const translated = itemTranslation(item);
+  function itemField(item, field, fallbackField = field, collection = activeCollection()) {
+    const translated = itemTranslation(item, collection);
     return translated[field] || item[fallbackField] || item[field] || "";
   }
 
-  function itemName(item) {
-    return itemField(item, "name", "name_pl") || item.name_lat;
+  function itemName(item, collection = activeCollection()) {
+    return itemField(item, "name", "name_pl", collection) || item.name_lat;
   }
 
-  function itemHook(item) {
-    return itemField(item, "hook", "hook");
+  function itemHook(item, collection = activeCollection()) {
+    return itemField(item, "hook", "hook", collection);
   }
 
   function itemQuizAngle(item) {
@@ -190,6 +232,152 @@
     return categoryText(categoryById(item.category), "short") || item.category_short || item.category_label || "";
   }
 
+  function itemSynonyms(item) {
+    return Array.isArray(item.synonyms) ? item.synonyms : [];
+  }
+
+  // ----- Karta 2.0: verified fun facts -----
+
+  function factsEntry(item, collection = activeCollection()) {
+    return collection.facts?.[item.id] || null;
+  }
+
+  function itemFacts(item, collection = activeCollection()) {
+    return (factsEntry(item, collection)?.facts || []).slice(0, FACTS_LIMIT);
+  }
+
+  function itemNotes(item, collection = activeCollection()) {
+    const notes = factsEntry(item, collection)?.notes || [];
+    if (state.language === defaultLanguage) return notes;
+    return notes.map((note) => i18n.factNotes?.[state.language]?.[note] || note);
+  }
+
+  function factText(fact) {
+    return fact[state.language] || fact.pl || "";
+  }
+
+  function factsTitle(collection = activeCollection()) {
+    return t(CALM_COLLECTIONS.has(collection.id) ? "factsTitleCalm" : "factsTitle");
+  }
+
+  // Markdown light used in the facts: **bold**, *italic* (Latin names) and ***both***.
+  // The text is escaped first, so only <strong> and <em> can come out of it.
+  function markdownLight(value) {
+    const open = [];
+    let html = "";
+    const closeTag = (tag) => {
+      const index = open.lastIndexOf(tag);
+      const above = open.splice(index + 1);
+      open.pop();
+      for (const inner of [...above].reverse()) html += `</${inner}>`;
+      html += `</${tag}>`;
+      for (const inner of above) {
+        html += `<${inner}>`;
+        open.push(inner);
+      }
+    };
+    for (const part of escapeHtml(value).split(/(\*{1,3})/)) {
+      if (!/^\*+$/.test(part)) {
+        html += part;
+        continue;
+      }
+      const tags = part.length === 3 ? ["strong", "em"] : part.length === 2 ? ["strong"] : ["em"];
+      const toClose = tags
+        .filter((tag) => open.includes(tag))
+        .sort((a, b) => open.lastIndexOf(b) - open.lastIndexOf(a));
+      toClose.forEach(closeTag);
+      for (const tag of tags) {
+        if (toClose.includes(tag)) continue;
+        open.push(tag);
+        html += `<${tag}>`;
+      }
+    }
+    for (const tag of [...open].reverse()) html += `</${tag}>`;
+    return html;
+  }
+
+  function hostOf(url) {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return "";
+    }
+  }
+
+  function factSourcesHtml(fact) {
+    const links = (fact.sources || [])
+      .filter((source) => /^https?:\/\//.test(source?.url || ""))
+      .map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label || hostOf(source.url))}</a>`);
+    if (!links.length) return "";
+    return `<span class="fact__source">${escapeHtml(t("factSource"))}: ${links.join(", ")}</span>`;
+  }
+
+  function factHtml(fact) {
+    return `
+      <li class="fact">
+        <span class="fact__icon" aria-hidden="true">${escapeHtml(fact.icon || FACT_ICON_FALLBACK)}</span>
+        <div class="fact__body">
+          <p class="fact__text">${markdownLight(factText(fact))}</p>
+          ${factSourcesHtml(fact)}
+        </div>
+      </li>`;
+  }
+
+  function factsSectionHtml(item, { compact = false } = {}) {
+    const facts = itemFacts(item);
+    if (!facts.length) return "";
+    const title = factsTitle();
+    const list = `<ul class="facts__list">${facts.map(factHtml).join("")}</ul>`;
+    if (compact) {
+      return `
+        <details class="facts facts--card">
+          <summary><span aria-hidden="true">${FACT_ICON_FALLBACK}</span> ${escapeHtml(t("factsSummary", { title, count: facts.length }))}</summary>
+          ${list}
+        </details>`;
+    }
+    return `
+      <section class="facts facts--dialog" aria-labelledby="dialogFactsTitle">
+        <h3 id="dialogFactsTitle">${escapeHtml(title)}</h3>
+        ${list}
+      </section>`;
+  }
+
+  function notesHtml(item) {
+    const notes = itemNotes(item);
+    if (!notes.length) return "";
+    return `
+      <ul class="field-notes" aria-label="${escapeHtml(t("notesTitle"))}">
+        ${notes.map((note) => `<li><span class="field-notes__icon" aria-hidden="true">⚠️</span><span>${escapeHtml(note)}</span></li>`).join("")}
+      </ul>`;
+  }
+
+  // Badges always pair an icon with text; colour is only a secondary cue.
+  function badgesHtml(item) {
+    const badges = [];
+    if (item.protection === "strict" || item.protection === "partial") {
+      badges.push({
+        kind: `protection-${item.protection}`,
+        icon: "🛡️",
+        label: t(item.protection === "strict" ? "badgeStrict" : "badgePartial"),
+        title: t("badgeProtectionHint")
+      });
+    }
+    if (item.toxic) {
+      badges.push({ kind: "toxic", icon: "☠️", label: t(item.toxic === "mild" ? "badgeToxicMild" : "badgeToxic") });
+    }
+    if (!badges.length) return "";
+    return `
+      <ul class="badges" aria-label="${escapeHtml(t("badgesLabel"))}">
+        ${badges.map((badge) => `<li class="badge badge--${badge.kind}"${badge.title ? ` title="${escapeHtml(badge.title)}"` : ""}><span class="badge__icon" aria-hidden="true">${badge.icon}</span><span>${escapeHtml(badge.label)}</span></li>`).join("")}
+      </ul>`;
+  }
+
+  function synonymsHtml(item) {
+    const names = itemSynonyms(item);
+    if (!names.length) return "";
+    return `<p class="synonyms"><strong>${escapeHtml(t("synonymsLabel"))}:</strong> ${escapeHtml(names.join(", "))}</p>`;
+  }
+
   function setText(selector, key, params = {}) {
     const node = $(selector);
     if (node) node.textContent = t(key, params);
@@ -214,6 +402,7 @@
     setText("#heroTitle", "heroTitle");
     setText("#heroLead", "heroLead");
     setText("#chooseCollectionHero", "chooseCollection");
+    setText("#dailyFactTitle", "dailyFactEyebrow");
     setText("#aboutEyebrow", "aboutEyebrow");
     setText("#about-title", "aboutTitle");
     setText("#aboutLeadBody", "aboutLeadBody");
@@ -247,6 +436,7 @@
     $("#heroActions")?.setAttribute("aria-label", t("quickActions"));
     $("#languageToggle")?.setAttribute("aria-label", t("languageLabel"));
     $("#appNav")?.setAttribute("aria-label", t("appNavLabel"));
+    $(".dialog-close")?.setAttribute("aria-label", t("close"));
 
     $("#sourceChecklist").innerHTML = tList("sourceChecklistItems")
       .map((item) => `<li>${escapeHtml(item)}</li>`)
@@ -267,6 +457,7 @@
 
     updateActiveCollectionLabels();
     renderCollections();
+    renderDailyFact();
   }
 
   function collectionCardHtml(collection) {
@@ -355,12 +546,15 @@
         <div class="m-card__body">
           <h3>${escapeHtml(itemName(item))}</h3>
           <div class="latin">${escapeHtml(item.name_lat)}</div>
+          ${badgesHtml(item)}
           <p class="hook">${escapeHtml(itemHook(item))}</p>
           ${region ? `<p class="occurrence-snippet"><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
+          ${notesHtml(item)}
           <div class="meta-line">
             <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryShort(item))}</span>
             <span class="pill">${escapeHtml(itemLevel(item) || "atlas")}</span>
           </div>
+          ${factsSectionHtml(item, { compact: true })}
         </div>
         <div class="card-actions">
           <button class="secondary" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(t("details"))}</button>
@@ -377,13 +571,24 @@
     ].join("");
   }
 
+  // Search ignores Polish diacritics, so "zolw" finds "żółw" and a former spelling still matches.
+  function searchKey(value, locale) {
+    return String(value || "")
+      .toLocaleLowerCase(locale)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/ł/g, "l");
+  }
+
   function filteredItems() {
     const locale = state.language === "en" ? "en" : "pl";
-    const phrase = state.search.trim().toLocaleLowerCase(locale);
+    const phrase = searchKey(state.search.trim(), locale);
     return items().filter((item) => {
       const matchesCategory = state.category === "all" || item.category === state.category;
       const haystack = [
         itemName(item),
+        item.name_pl,
+        ...itemSynonyms(item),
         item.name_lat,
         itemHook(item),
         itemQuizAngle(item),
@@ -391,8 +596,8 @@
         itemCategoryShort(item),
         itemRegion(item),
         itemHabitat(item)
-      ].join(" ").toLocaleLowerCase(locale);
-      const matchesSearch = !phrase || haystack.includes(phrase);
+      ].join(" ");
+      const matchesSearch = !phrase || searchKey(haystack, locale).includes(phrase);
       return matchesCategory && matchesSearch;
     });
   }
@@ -445,10 +650,21 @@
       </div>`;
   }
 
+  function cardToolsHtml(collection, item) {
+    return `
+      <div class="card-tools">
+        <button class="secondary card-tools__share" type="button" data-action="share-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}"><span aria-hidden="true">🔗</span> ${escapeHtml(t("share"))}</button>
+        <a class="card-tools__link" href="${escapeHtml(cardPath(collection, item))}" data-action="copy-card-link" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}">${escapeHtml(t("cardLink"))}</a>
+      </div>
+      <p class="share-status" role="status" aria-live="polite"></p>`;
+  }
+
   function renderDialogContent(item) {
+    const collection = activeCollection();
     const region = itemRegion(item);
     const habitat = itemHabitat(item);
     const occurrence = itemOccurrence(item);
+    const notes = itemNotes(item);
     $("#dialogContent").innerHTML = `
       <div class="dialog-body">
         ${visualHtml(item, true)}
@@ -458,6 +674,9 @@
         </div>
         <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(itemName(item))}</h2>
         <p class="latin">${escapeHtml(item.name_lat)}</p>
+        ${synonymsHtml(item)}
+        ${badgesHtml(item)}
+        ${cardToolsHtml(collection, item)}
         <p class="hook">${escapeHtml(itemHook(item))}</p>
         ${region ? `
           <div class="occurrence-box">
@@ -466,9 +685,13 @@
             ${habitat ? `<p><strong>${escapeHtml(t("habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : ""}
             ${occurrence ? `<p>${escapeHtml(occurrence)}</p>` : ""}
           </div>` : ""}
+        ${factsSectionHtml(item)}
         <h3>${escapeHtml(t("quizAngleTitle"))}</h3>
         <p>${escapeHtml(itemQuizAngle(item))}</p>
-        <div class="safety"><strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}</div>
+        <div class="safety">
+          <strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}
+          ${notes.length ? `<ul class="safety__notes">${notes.map((note) => `<li><span aria-hidden="true">⚠️</span> ${escapeHtml(note)}</li>`).join("")}</ul>` : ""}
+        </div>
         ${dialogCreditsHtml(item)}
         <div class="row-actions">
           <button class="primary" data-action="learn-item" data-id="${escapeHtml(item.id)}">${escapeHtml(t("learnSpecies"))}</button>
@@ -528,6 +751,200 @@
     else dialog.setAttribute("open", "");
   }
 
+  // ----- Sharing a single card -----
+
+  let toastTimer = null;
+
+  function announce(message, { long = false } = {}) {
+    const dialog = $("#itemDialog");
+    // A modal dialog makes the rest of the page inert, so inside it the dialog's own status line is used.
+    const node = dialog?.open ? $(".share-status", dialog) : $("#toast");
+    if (!node) return;
+    node.textContent = message;
+    node.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => node.classList.remove("is-visible"), long ? 12000 : 4000);
+  }
+
+  async function copyText(text) {
+    try {
+      if (window.isSecureContext && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch {
+      // Fall back to a temporary text field below.
+    }
+    try {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      ($("#itemDialog")?.open ? $("#itemDialog") : document.body).appendChild(area);
+      area.select();
+      const copied = document.execCommand("copy");
+      area.remove();
+      return copied;
+    } catch {
+      return false;
+    }
+  }
+
+  async function copyCardLink(url) {
+    const copied = await copyText(url);
+    if (copied) announce(t("linkCopied"));
+    else announce(t("linkCopyManual", { url }), { long: true });
+  }
+
+  async function shareCard(collectionId, itemId) {
+    const collection = collectionById(collectionId);
+    const item = collection?.items.find((entry) => entry.id === itemId);
+    if (!item) return;
+    const url = cardUrl(collection, item);
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: t("shareText", { name: itemName(item, collection) }), url });
+        return;
+      } catch (error) {
+        if (error?.name === "AbortError") return;
+      }
+    }
+    await copyCardLink(url);
+  }
+
+  async function openCard(collectionId, itemId) {
+    const collection = collectionById(collectionId);
+    if (!collection) return;
+    const path = `${routeForCollection(collection)}#item=${encodeURIComponent(itemId)}`;
+    if (window.history?.pushState) window.history.pushState({ collectionId }, "", path);
+    else window.location.hash = `item=${encodeURIComponent(itemId)}`;
+    await selectCollection(collectionId, { updateRoute: false });
+    $("#appNav")?.scrollIntoView({ block: "start" });
+  }
+
+  // ----- Fact of the day -----
+
+  function localDateParts(date = new Date()) {
+    return { y: date.getFullYear(), m: date.getMonth() + 1, d: date.getDate() };
+  }
+
+  function isoDate(parts) {
+    return `${parts.y}-${String(parts.m).padStart(2, "0")}-${String(parts.d).padStart(2, "0")}`;
+  }
+
+  function formatDate(parts, { numeric = false } = {}) {
+    const options = numeric
+      ? { day: "2-digit", month: "2-digit", year: "numeric" }
+      : { day: "numeric", month: "long", year: "numeric" };
+    try {
+      return new Date(parts.y, parts.m - 1, parts.d).toLocaleDateString(state.language === "en" ? "en-GB" : "pl-PL", options);
+    } catch {
+      return isoDate(parts);
+    }
+  }
+
+  function partsFromIso(value) {
+    const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    return match ? { y: Number(match[1]), m: Number(match[2]), d: Number(match[3]) } : null;
+  }
+
+  function hashString(value) {
+    let hash = 2166136261;
+    for (const char of value) {
+      hash ^= char.codePointAt(0);
+      hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+  }
+
+  function factTextCounts(collection) {
+    const counts = new Map();
+    for (const entry of Object.values(collection.facts || {})) {
+      for (const fact of entry.facts || []) counts.set(fact.pl, (counts.get(fact.pl) || 0) + 1);
+    }
+    return counts;
+  }
+
+  function dailyPool(collection) {
+    const counts = factTextCounts(collection);
+    const pool = [];
+    for (const item of collection.items || []) {
+      if (SOLEMN_CATEGORIES.has(item.category)) continue;
+      for (const fact of itemFacts(item, collection)) {
+        // Skip short and repeated legal-status lines; the daily fact should tell a story.
+        if (counts.get(fact.pl) > 1 || fact.pl.length < 60) continue;
+        pool.push({ item, fact });
+      }
+    }
+    return pool;
+  }
+
+  // Deterministic by the local date: the collections take turns day by day, and the date
+  // hash picks one fact from that collection, so everybody sees the same fact on a given day.
+  async function loadDailyFact() {
+    const parts = localDateParts();
+    const dayNumber = Math.floor(Date.UTC(parts.y, parts.m - 1, parts.d) / 86400000);
+    const collection = app.collections[dayNumber % app.collections.length];
+    try {
+      if (typeof app.loadCollection === "function") await app.loadCollection(collection.id);
+    } catch {
+      dailyFact.status = "failed";
+      renderDailyFact();
+      return;
+    }
+    const pool = dailyPool(collection);
+    if (!pool.length) {
+      dailyFact.status = "failed";
+      renderDailyFact();
+      return;
+    }
+    const pick = pool[hashString(`${isoDate(parts)}:${collection.id}`) % pool.length];
+    Object.assign(dailyFact, { status: "ready", parts, collectionId: collection.id, itemId: pick.item.id, factId: pick.fact.id });
+    renderDailyFact();
+  }
+
+  function renderDailyFact() {
+    const section = $("#dailyFact");
+    const body = $("#dailyFactBody");
+    if (!section || !body) return;
+    if (dailyFact.status === "failed") {
+      section.classList.add("is-hidden");
+      return;
+    }
+    if (dailyFact.status !== "ready") {
+      body.innerHTML = `<p class="daily-fact__loading">${escapeHtml(t("dailyFactLoading"))}</p>`;
+      return;
+    }
+    const collection = collectionById(dailyFact.collectionId);
+    const item = collection?.items.find((entry) => entry.id === dailyFact.itemId);
+    const fact = item && itemFacts(item, collection).find((entry) => entry.id === dailyFact.factId);
+    if (!fact) {
+      section.classList.add("is-hidden");
+      return;
+    }
+    const name = itemName(item, collection);
+    body.innerHTML = `
+      <p class="daily-fact__meta">${escapeHtml(formatDate(dailyFact.parts))} · ${escapeHtml(t("dailyFactCollection", { collection: collectionText(collection, "title") }))}</p>
+      <div class="daily-fact__fact">
+        <span class="fact__icon" aria-hidden="true">${escapeHtml(fact.icon || FACT_ICON_FALLBACK)}</span>
+        <div class="fact__body">
+          <p class="daily-fact__text">${markdownLight(factText(fact))}</p>
+          ${factSourcesHtml(fact)}
+        </div>
+      </div>
+      <div class="row-actions daily-fact__actions">
+        <a class="primary" href="${escapeHtml(cardPath(collection, item))}" data-action="open-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}">${escapeHtml(t("dailyFactOpen", { name }))}</a>
+        <button class="secondary" type="button" data-action="share-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}"><span aria-hidden="true">🔗</span> ${escapeHtml(t("share"))}</button>
+      </div>`;
+  }
+
+  function scheduleDailyFact() {
+    const start = () => { loadDailyFact(); };
+    if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 2000 });
+    else window.setTimeout(start, 300);
+  }
+
   function renderFlashcard() {
     const list = items();
     const item = list[state.flashIndex] || list[0];
@@ -548,6 +965,7 @@
             <div class="reveal-box">
               <h3>${escapeHtml(itemName(item))}</h3>
               <p class="latin">${escapeHtml(item.name_lat)}</p>
+              ${badgesHtml(item)}
               ${region ? `<p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
               <p><strong>${escapeHtml(t("rememberLabel"))}:</strong> ${escapeHtml(itemQuizAngle(item))}</p>
               <p><strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}</p>
@@ -560,15 +978,87 @@
       </div>`;
   }
 
-  function buildQuestion(correct) {
+  // ----- Quiz -----
+
+  // Name stems used to tell whether a fact names a given card ("smardz jadalny" -> "smard").
+  function nameStems(item) {
+    const stems = new Set();
+    const names = [item.name_pl, itemName(item), ...itemSynonyms(item)];
+    for (const name of names) {
+      for (const word of String(name || "").split(/[\s/—–,()„”"-]+/)) {
+        if (word.length < 5) continue;
+        stems.add(word.slice(0, Math.max(4, word.length - 2)).toLocaleLowerCase("pl"));
+      }
+    }
+    const genus = String(item.name_lat || "").split(/[\s,•]+/)[0];
+    if (/^[A-Z][a-z]{3,}$/.test(genus)) stems.add(genus.toLowerCase());
+    return [...stems];
+  }
+
+  function factMentions(fact, item) {
+    const text = `${fact.pl || ""} ${fact.en || ""}`.toLocaleLowerCase("pl");
+    return nameStems(item).some((stem) => text.includes(stem));
+  }
+
+  function lineageKey(item) {
+    return String(item.name_lat || item.id).split(/[\s,•]+/)[0].toLowerCase();
+  }
+
+  function quizFactsFor(item, counts) {
+    if (SOLEMN_CATEGORIES.has(item.category)) return [];
+    // Legal-status lines and texts repeated on several cards would make the answer ambiguous.
+    return itemFacts(item).filter((fact) => fact.icon !== "🛡️" && (counts.get(fact.pl) || 0) < 2 && factText(fact).length >= 40);
+  }
+
+  // True or false: "is this fact about <card>?". A false statement is always a real fact of another
+  // card in the same collection, never an edited one. It must name its own card, must not name the
+  // asked card and must come from another genus, so it cannot accidentally be true.
+  function buildTrueFalseQuestion(selected, counts) {
+    const own = quizFactsFor(selected, counts);
+    if (!own.length) return null;
+    let fact = own[randomIndex(own.length)];
+    let owner = selected;
+    if (Math.random() < 0.5) {
+      const selectedTexts = new Set((factsEntry(selected)?.facts || []).map((entry) => entry.pl));
+      const decoys = items()
+        .filter((item) => item.id !== selected.id && lineageKey(item) !== lineageKey(selected))
+        .flatMap((item) => quizFactsFor(item, counts)
+          .filter((candidate) => !selectedTexts.has(candidate.pl) && factMentions(candidate, item) && !factMentions(candidate, selected))
+          .map((candidate) => ({ item, fact: candidate })));
+      if (decoys.length) {
+        const decoy = decoys[randomIndex(decoys.length)];
+        fact = decoy.fact;
+        owner = decoy.item;
+      }
+    }
+    const isTrue = owner.id === selected.id;
+    return {
+      type: "truefalse",
+      correctId: isTrue ? "true" : "false",
+      correctName: t(isTrue ? "quizTrue" : "quizFalse"),
+      prompt: t("quizTrueFalsePrompt", { name: itemName(selected) }),
+      fact,
+      ownerName: itemName(owner),
+      options: [{ id: "true", label: t("quizTrue") }, { id: "false", label: t("quizFalse") }]
+    };
+  }
+
+  function buildQuestion(correct, counts = factTextCounts(activeCollection())) {
     const list = items();
     const selected = correct || sample(list, 1)[0];
-    const mode = Math.random() > 0.45 ? "hook" : "latin";
+    if (Math.random() < TRUE_FALSE_SHARE) {
+      const trueFalse = buildTrueFalseQuestion(selected, counts);
+      if (trueFalse) return trueFalse;
+    }
+    // A Latin name shared by several cards (e.g. many "Quercus robur" trees) would have more than one right answer.
+    const latinIsUnique = list.filter((item) => item.name_lat === selected.name_lat).length === 1;
+    const mode = Math.random() > 0.45 || !latinIsUnique ? "hook" : "latin";
     const prompt = mode === "hook"
       ? t("quizHookPrompt", { hook: itemHook(selected) })
       : t("quizLatinPrompt", { latin: selected.name_lat });
-    const wrong = sample(list.filter((item) => item.id !== selected.id), 3);
+    const wrong = sample(list.filter((item) => item.id !== selected.id && itemHook(item) !== itemHook(selected)), 3);
     return {
+      type: "choice",
       correctId: selected.id,
       correctName: itemName(selected),
       prompt,
@@ -578,7 +1068,8 @@
   }
 
   function buildQuestions() {
-    return sample(items(), Math.min(10, items().length)).map((item) => buildQuestion(item));
+    const counts = factTextCounts(activeCollection());
+    return sample(items(), Math.min(10, items().length)).map((item) => buildQuestion(item, counts));
   }
 
   function initQuiz() {
@@ -593,6 +1084,25 @@
       finished: false
     };
     renderQuiz();
+  }
+
+  function answerButtonHtml(option, q, quiz) {
+    const isCorrect = option.id === q.correctId;
+    const isPicked = option.id === quiz.selectedId;
+    const klass = !quiz.answered ? "" : isCorrect ? "is-correct" : isPicked ? "is-wrong" : "";
+    const marker = !quiz.answered ? "" : isCorrect ? "✓ " : isPicked ? "✗ " : "";
+    return `<button class="answer-btn ${klass}" data-action="answer-quiz" data-id="${escapeHtml(option.id)}" ${quiz.answered ? "disabled" : ""}>${marker ? `<span aria-hidden="true">${marker}</span>` : ""}${escapeHtml(option.label)}</button>`;
+  }
+
+  function quizFeedbackHtml(q) {
+    if (q.type === "truefalse") {
+      return `
+        <div class="feedback">
+          <strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(t("quizFactOwner", { name: q.ownerName }))}
+          ${factSourcesHtml(q.fact)}
+        </div>`;
+    }
+    return `<div class="feedback"><strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(q.detail)}</div>`;
   }
 
   function renderQuiz() {
@@ -613,22 +1123,61 @@
       return;
     }
     const q = quiz.questions[quiz.index];
+    const isTrueFalse = q.type === "truefalse";
     box.innerHTML = `
       <div class="quiz-progress"><span>${escapeHtml(t("questionCounter", { current: quiz.index + 1, total: quiz.questions.length }))}</span><span>${escapeHtml(t("scoreLabel", { score: quiz.score }))}</span></div>
-      <div class="question-card">
+      <div class="question-card${isTrueFalse ? " question-card--tf" : ""}">
+        ${isTrueFalse ? `<p class="eyebrow">${escapeHtml(t("quizTrueFalseEyebrow"))}</p>` : ""}
         <h3>${escapeHtml(q.prompt)}</h3>
-        <div class="answers">
-          ${q.options.map((option) => {
-            const klass = !quiz.answered ? "" : option.id === q.correctId ? "is-correct" : option.id === quiz.selectedId ? "is-wrong" : "";
-            return `<button class="answer-btn ${klass}" data-action="answer-quiz" data-id="${escapeHtml(option.id)}" ${quiz.answered ? "disabled" : ""}>${escapeHtml(option.label)}</button>`;
-          }).join("")}
+        ${isTrueFalse ? `
+          <blockquote class="tf-fact">
+            <span class="fact__icon" aria-hidden="true">${escapeHtml(q.fact.icon || FACT_ICON_FALLBACK)}</span>
+            <span>${markdownLight(factText(q.fact))}</span>
+          </blockquote>` : ""}
+        <div class="answers${isTrueFalse ? " answers--tf" : ""}">
+          ${q.options.map((option) => answerButtonHtml(option, q, quiz)).join("")}
         </div>
-        ${quiz.answered ? `<div class="feedback"><strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(q.detail)}</div>` : ""}
+        ${quiz.answered ? quizFeedbackHtml(q) : ""}
         <div class="row-actions">
           ${quiz.answered ? `<button class="primary" data-action="next-quiz">${escapeHtml(quiz.index + 1 === quiz.questions.length ? t("finishQuiz") : t("nextQuestion"))}</button>` : ""}
           <button class="ghost" data-action="restart-quiz">${escapeHtml(t("restart"))}</button>
         </div>
       </div>`;
+  }
+
+  // ----- Sources -----
+
+  function renderFactSources() {
+    const node = $("#factSources");
+    if (!node) return;
+    const collection = activeCollection();
+    const facts = items().flatMap((item) => itemFacts(item));
+    if (!facts.length) {
+      node.innerHTML = `<h3>${escapeHtml(t("factSourcesTitle"))}</h3><p>${escapeHtml(t("factSourcesEmpty"))}</p>`;
+      return;
+    }
+    const statuses = { checked: 0, verified: 0, corrected: 0 };
+    const domains = new Map();
+    for (const fact of facts) {
+      if (fact.status in statuses) statuses[fact.status] += 1;
+      const hosts = new Set((fact.sources || []).map((source) => hostOf(source.url)).filter(Boolean));
+      for (const host of hosts) domains.set(host, (domains.get(host) || 0) + 1);
+    }
+    const sorted = [...domains].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const checkedOn = partsFromIso(collection.facts_checked);
+    node.innerHTML = `
+      <h3>${escapeHtml(t("factSourcesTitle"))}</h3>
+      ${checkedOn ? `<p class="fact-sources__method">${escapeHtml(t("factSourcesMethod", { date: formatDate(checkedOn, { numeric: true }) }))}</p>` : ""}
+      <p>${escapeHtml(t("factSourcesTotal", { count: tPlural("factCountForms", facts.length) }))}</p>
+      <ul class="fact-status-list">
+        <li>${escapeHtml(t("factStatusChecked"))}: <strong>${statuses.checked}</strong></li>
+        <li>${escapeHtml(t("factStatusVerified"))}: <strong>${statuses.verified}</strong></li>
+        <li>${escapeHtml(t("factStatusCorrected"))}: <strong>${statuses.corrected}</strong></li>
+      </ul>
+      <h4>${escapeHtml(t("factSourcesDomains"))}</h4>
+      <ul class="domain-list">
+        ${sorted.map(([host, count]) => `<li><span class="domain-list__host">${escapeHtml(host)}</span> <span class="domain-list__count">${count}</span></li>`).join("")}
+      </ul>`;
   }
 
   function renderCredits() {
@@ -655,7 +1204,10 @@
     if (view === "atlas") renderAtlas();
     if (view === "learn") renderFlashcard();
     if (view === "quiz") renderQuiz();
-    if (view === "sources") renderCredits();
+    if (view === "sources") {
+      renderFactSources();
+      renderCredits();
+    }
   }
 
   let selectionSerial = 0;
@@ -736,6 +1288,9 @@
     if (action === "select-collection") selectCollection(target.dataset.collection);
     if (action === "show-collections") showCollections();
     if (action === "details") showDialog(id);
+    if (action === "open-card") openCard(target.dataset.collection, id);
+    if (action === "share-card") shareCard(target.dataset.collection, id);
+    if (action === "copy-card-link") copyCardLink(target.href);
     if (action === "learn-item") {
       const index = items().findIndex((item) => item.id === id);
       state.flashIndex = index >= 0 ? index : state.flashIndex;
@@ -764,6 +1319,10 @@
     }
   }
 
+  function isPlainClick(event) {
+    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+  }
+
   function bindEvents() {
     document.addEventListener("click", (event) => {
       const go = event.target.closest("[data-go]");
@@ -776,7 +1335,14 @@
       if (chip) { state.category = chip.dataset.category; renderAtlas(); }
 
       const action = event.target.closest("[data-action]");
-      if (action) handleAction(action.dataset.action, action);
+      if (action) {
+        // Links keep their href for new tabs and copying; a plain click is handled in the app.
+        if (action.tagName === "A") {
+          if (!isPlainClick(event)) return;
+          event.preventDefault();
+        }
+        handleAction(action.dataset.action, action);
+      }
 
       if (event.target.matches(".dialog-close")) $("#itemDialog").close?.();
     });
@@ -817,4 +1383,5 @@
   bindEvents();
   renderChrome();
   restoreRoute();
+  scheduleDailyFact();
 })();

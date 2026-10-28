@@ -26,10 +26,10 @@
       name_pl: "Słonecznik",
       name_lat: "granit karboński, cios blokowy",
       category: "granitowe-karkonosze",
-      hook: "Granitowa skałka nad Karpaczem była dawniej terenowym znakiem południa, bo słońce ustawiało się nad nią jak naturalny zegar.",
-      quiz_angle: "rozpoznaj karkonoski granit, pionowe spękania i legendę skalnego zegara nad Karpaczem",
+      hook: "Granitowa skałka na zboczu Smogorni była dawniej terenowym znakiem południa: dla mieszkańców Podgórzyna, Przesieki i Borowic słońce nad nią wskazywało południe.",
+      quiz_angle: "rozpoznaj karkonoski granit, pionowe spękania i skalny zegar mieszkańców Podgórzyna, Przesieki i Borowic",
       safety_note: "trzymać się znakowanych szlaków i nie wchodzić na oblodzone lub mokre bloki; granitowe płyty są zdradliwie śliskie",
-      region_pl: "Karkonosze, rejon grzbietu nad Karpaczem.",
+      region_pl: "Karkonosze, północne zbocze Smogorni (gmina Podgórzyn), nad Karpaczem Górnym.",
       habitat_pl: "Odsłonięcia granitu karkonoskiego modelowane przez mróz, wodę i długie wietrzenie.",
       occurrence_note: "To klasyczna karkonoska skałka: prosta w bryle, ale mocno wpisana w krajobraz i lokalne opowieści.",
       level: "skalny zegar"
@@ -55,7 +55,7 @@
       hook: "Niewielkie okno w granicie działa jak gotowa lekcja selektywnego wietrzenia: część skały przetrwała, część zniknęła.",
       quiz_angle: "otwór skalny, zaklinowane bloki i wietrzenie granitu na stokach Karkonoszy",
       safety_note: "nie przeciskać się przez szczeliny i nie zrzucać kamieni; małe formy są łatwe do uszkodzenia",
-      region_pl: "Karkonosze, okolice karkonoskich szlaków i granitowych grup skalnych.",
+      region_pl: "Karkonosze, nad rzeką Podgórną, na granicy Podgórzyna Górnego i Przesieki (ok. 470 m n.p.m.).",
       habitat_pl: "Spękany granit, w którym mróz i woda poszerzają słabsze fragmenty skały.",
       occurrence_note: "To karta detalu: nie każda osobliwość musi być ogromna, czasem wystarczy jedno precyzyjne okno.",
       level: "skalna dziurka"
@@ -373,19 +373,6 @@
       level: "leśne czarty"
     }),
     entry({
-      id: "zezow-czarne-dzialy",
-      name_pl: "Zęzów i Czarne Działy",
-      name_lat: "piaskowce i zlepieńce fliszowe",
-      category: "karpaty-flisz-tatry",
-      hook: "W Beskidzie Wyspowym osobliwość bywa mniej pocztówkowa: liczy się ukryty układ grzbietów, progów i wychodni w lesie.",
-      quiz_angle: "flisz Beskidu Wyspowego, lokalne wychodnie skalne i nazwy grzbietów zapamiętywane przez teren",
-      safety_note: "nie schodzić z leśnych ścieżek na strome, osuwiskowe zbocza i nie naruszać małych wychodni",
-      region_pl: "Beskid Wyspowy, okolice Tymbarku i Limanowej.",
-      habitat_pl: "Leśne grzbiety fliszowe, piaskowce, zlepieńce i drobne formy skalne w terenie osuwiskowym.",
-      occurrence_note: "W atlasie ta karta zostawia miejsce dla mniej oczywistych osobliwości: nie każda wymaga wielkiej ściany, czasem ważny jest charakter całego grzbietu.",
-      level: "ukryty flisz"
-    }),
-    entry({
       id: "skalki-pieklo-nieklan",
       name_pl: "Skałki Piekło pod Niekłaniem",
       name_lat: "jurajskie piaskowce i ostańce",
@@ -453,7 +440,7 @@
   ];
 
   window.ROCK_FORMATION_APP_DATA = {
-    subtitle: "33 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
+    subtitle: "32 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
     safety_notice: "To prototyp edukacyjny. Formacje skalne oglądaj bez niszczenia stanowisk: nie schodź ze szlaków, nie odłupuj skał, nie rysuj po ścianach, nie wchodź do jaskiń lub wyrobisk poza trasami udostępnionymi i traktuj miejsca chronione z dużą ostrożnością.",
     categories,
     formations

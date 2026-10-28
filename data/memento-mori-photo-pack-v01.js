@@ -201,7 +201,7 @@
     ),
     "westerplatte-cmentarz": photo(
       "01 Cmentarz Polskich Żołnierzy Poległych Obrońców Westerplatte.jpg",
-      "Cmentarz Obrońców Westerplatte",
+      "Cmentarz na Westerplatte",
       "Kancelaria Sejmu",
       "CC BY 2.0",
       ccBy20

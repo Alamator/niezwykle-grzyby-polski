@@ -69,7 +69,7 @@
       safety_note: "poruszać się wyznaczoną trasą; nie wchodzić na kruche mury ani do miejsc zamkniętych",
       region_pl: "Ujazd, Świętokrzyskie.",
       habitat_pl: "Mechanizm: reprezentacyjny pałac wpisano w układ bastionowy, łącząc prestiż rodu z ideą obrony.",
-      occurrence_note: "Krzyżtopór zapamiętuje się nie jako zwykły zamek, lecz jako program ambicji opowiedziany architekturą i legendą liczb.",
+      occurrence_note: "Według tradycji spisanej dopiero w latach 30. XIX w. przez Klementynę z Tańskich Hoffmanową zamek miał mieć tyle baszt, ile kwartałów, tyle wielkich sal, ile miesięcy, tyle pokoi, ile tygodni, i tyle okien, ile dni w roku. To legenda, nie fakt: liczba okien się nie zgadza.",
       level: "kalendarz w kamieniu"
     }),
     base({
@@ -126,8 +126,9 @@
     }),
     base({
       id: "zamek-moszna",
-      name_pl: "Zamek w Mosznej",
+      name_pl: "Pałac w Mosznej",
       name_lat: "Opolskie • fantazyjna rezydencja",
+      synonyms: ["Zamek w Mosznej"],
       category: "zamki-rezydencje",
       hook: "Pałac, który wygląda jak sen architekta bez ograniczeń.",
       quiz_angle: "wieże, eklektyzm, teatralna sylweta i pałacowa legenda stu wież",
@@ -412,16 +413,17 @@
     }),
     base({
       id: "wiadukty-stanczyki",
-      name_pl: "Wiadukty w Stańczykach",
-      name_lat: "Warmińsko-Mazurskie • północne akwedukty",
+      name_pl: "Mosty w Stańczykach",
+      name_lat: "Warmińsko-Mazurskie • dwa mosty kolejowe",
+      synonyms: ["Wiadukty w Stańczykach"],
       category: "zapomniane-konstrukcje",
-      hook: "Północne akwedukty, po których nie jeżdżą pociągi.",
-      quiz_angle: "nieczynna linia kolejowa, podwójne arkady, wielka skala i krajobraz Puszczy Rominckiej",
+      hook: "Dwa mosty kolejowe, które przez podobieństwo do rzymskich budowli nazywa się akweduktami Puszczy Rominckiej.",
+      quiz_angle: "dwa mosty obok siebie, tor położony tylko na jednym, nieczynna linia i krajobraz Puszczy Rominckiej",
       safety_note: "korzystać tylko z udostępnionych miejsc; nie przechodzić przez barierki ani nie wchodzić na niepewne elementy",
       region_pl: "Stańczyki, Warmińsko-Mazurskie.",
-      habitat_pl: "Mechanizm: wysokie żelbetowe arkady przenosiły kolej nad doliną, a po zaniku ruchu stały się monumentalną pamiątką infrastruktury.",
+      habitat_pl: "Mechanizm: wysokie żelbetowe arkady dwóch równoległych mostów miały przenosić kolej nad doliną; tor położono tylko na jednym, a po rozebraniu linii oba stały się monumentalną pamiątką infrastruktury.",
       occurrence_note: "Osobliwością jest kontrast: konstrukcja ma rozmach wielkiej magistrali, ale dziś działa głównie jako milczący znak dawnej linii.",
-      level: "akwedukty kolei"
+      level: "dwa mosty, jeden tor"
     }),
     base({
       id: "wiadukty-kiepojcie",
@@ -469,9 +471,9 @@
       category: "zapomniane-konstrukcje",
       hook: "Nie zabytek, ale osobliwość: zamek, którego nigdy nie skończono.",
       quiz_angle: "współczesna niedokończona budowla, prywatny teren, lokalna legenda i granice fascynacji ruiną",
-      safety_note: "nie wchodzić na teren ani do konstrukcji bez zgody; niedokończony obiekt nie jest bezpieczną atrakcją turystyczną",
+      safety_note: "na teren obiektu obowiązuje zakaz wstępu; niedokończona, niezabezpieczona budowla nie jest atrakcją turystyczną",
       region_pl: "Łapalice, Pomorskie.",
-      habitat_pl: "Mechanizm: współczesna, niedokończona konstrukcja zamkowa stała się obiektem opowieści właśnie przez brak ukończenia i niejasny status.",
+      habitat_pl: "Mechanizm: współczesna konstrukcja zamkowa, wzniesiona jako samowola budowlana i nigdy nieukończona, stała się obiektem lokalnych opowieści.",
       occurrence_note: "Łapalice zamykają kolekcję innym typem osobliwości: to nie historyczny zabytek, lecz nowa ruina wytwarzająca lokalną legendę.",
       level: "niedokończony zamek"
     })

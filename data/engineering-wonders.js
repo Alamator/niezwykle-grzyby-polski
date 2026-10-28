@@ -161,7 +161,7 @@
       quiz_angle: "przeprawa przez Wisłę, konstrukcja kratownicowa, kolej i rola komunikacyjna Pomorza",
       safety_note: "oglądać z udostępnionych tras i punktów; nie wchodzić na zamknięte części konstrukcji ani tory",
       region_pl: "Tczew / Lisewo, Pomorskie.",
-      habitat_pl: "Mechanizm: stalowe przęsła przenoszą obciążenia nad szeroką rzeką, tworząc trwałą przeprawę kolejowo-drogową.",
+      habitat_pl: "Mechanizm: kratownicowe przęsła przenoszą obciążenia nad szeroką rzeką. Most z 1857 r. był drogowo-kolejowy, a dziś jest drogowy; kolej biegnie osobnym mostem z lat 1888–1891, ok. 40 m obok.",
       occurrence_note: "Osobliwością jest rola mostu jako infrastruktury państwa: technika, transport i historia skupione w jednym przejściu przez Wisłę.",
       level: "brama Wisły"
     }),
@@ -324,7 +324,7 @@
     base({
       id: "modernizm-gdyni",
       name_pl: "Modernizm Gdyni",
-      name_lat: "Gdynia • architektura miasta-portu",
+      name_lat: "Gdynia • modernistyczne centrum UNESCO",
       category: "przemyslowe-miasta",
       hook: "Polska wizja nowoczesności nad morzem.",
       quiz_angle: "urbanistyka, białe fasady, zaokrąglenia, rytm portowego miasta i architektura międzywojnia",

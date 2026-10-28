@@ -23,7 +23,8 @@
         "/data/photo-pack-v05.js",
         "/data/photo-pack-v06.js",
         "/data/region-pack-v07.js",
-        "/data/photo-pack-v08.js"
+        "/data/photo-pack-v08.js",
+        "/data/facts/grzyby.facts.js"
       ],
       build: () => {
         const data = window.MUSHROOM_APP_DATA;
@@ -42,7 +43,7 @@
       accent: "rose",
       search_placeholder: "np. aldrowanda, storczyk, dyptam...",
       source_note: "Opisy startują z listy roboczej o osobliwych roślinach Polski. Zdjęcia i atrybucje dodamy później z legalnych źródeł.",
-      scripts: ["/data/flowers.js", "/data/flower-photo-pack-v01.js"],
+      scripts: ["/data/flowers.js", "/data/flower-photo-pack-v01.js", "/data/facts/kwiaty.facts.js"],
       build: () => {
         const data = window.FLOWER_APP_DATA;
         if (!data) return null;
@@ -60,7 +61,7 @@
       accent: "leaf",
       search_placeholder: "np. sosna, dąb, cis, platan...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwościach dendrologicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/trees.js", "/data/tree-photo-pack-v01.js"],
+      scripts: ["/data/trees.js", "/data/tree-photo-pack-v01.js", "/data/facts/drzewa.facts.js"],
       build: () => {
         const data = window.TREE_APP_DATA;
         if (!data) return null;
@@ -78,7 +79,7 @@
       accent: "amber",
       search_placeholder: "np. oleica, świetlik, jelonek...",
       source_note: "Opisy startują z listy roboczej. Zdjęcia i atrybucje będziemy uzupełniać stopniowo z legalnych źródeł.",
-      scripts: ["/data/insects.js"],
+      scripts: ["/data/insects.js", "/data/facts/owady.facts.js"],
       build: () => {
         const data = window.INSECT_APP_DATA;
         if (!data) return null;
@@ -90,13 +91,13 @@
       group: "przyroda-zywa",
       title: "Ryby",
       heading: "Osobliwe ryby polskich wód",
-      subtitle: "32 rybie osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
-      count_label: "32 osobliwości",
+      subtitle: "30 rybich osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
+      count_label: "30 osobliwości",
       icon: "R",
       accent: "aqua",
       search_placeholder: "np. stynka, tasza, różanka...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwych rybach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
-      scripts: ["/data/fish.js", "/data/fish-photo-pack-v01.js"],
+      scripts: ["/data/fish.js", "/data/fish-photo-pack-v01.js", "/data/facts/ryby.facts.js"],
       build: () => {
         const data = window.FISH_APP_DATA;
         if (!data) return null;
@@ -114,7 +115,7 @@
       accent: "herp",
       search_placeholder: "np. żaba moczarowa, kumak, żółw, żmija...",
       source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach herpetofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/amphibians-reptiles.js", "/data/amphibian-reptile-photo-pack-v01.js"],
+      scripts: ["/data/amphibians-reptiles.js", "/data/amphibian-reptile-photo-pack-v01.js", "/data/facts/plazy-gady.facts.js"],
       build: () => {
         const data = window.AMPHIBIAN_REPTILE_APP_DATA;
         if (!data) return null;
@@ -132,7 +133,7 @@
       accent: "sky",
       search_placeholder: "np. dudek, jerzyk, pomurnik...",
       source_note: "Opisy powstały na bazie dwóch list roboczych o osobliwej awifaunie Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
-      scripts: ["/data/birds.js", "/data/bird-photo-pack-v01.js"],
+      scripts: ["/data/birds.js", "/data/bird-photo-pack-v01.js", "/data/facts/ptaki.facts.js"],
       build: () => {
         const data = window.BIRD_APP_DATA;
         if (!data) return null;
@@ -150,7 +151,7 @@
       accent: "fur",
       search_placeholder: "np. ryjówka, nocek, żubr, morświn...",
       source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach teriofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/mammals.js", "/data/mammal-photo-pack-v01.js"],
+      scripts: ["/data/mammals.js", "/data/mammal-photo-pack-v01.js", "/data/facts/ssaki.facts.js"],
       build: () => {
         const data = window.MAMMAL_APP_DATA;
         if (!data) return null;
@@ -168,7 +169,7 @@
       accent: "stone",
       search_placeholder: "np. krzemień, siarka, halit, agat...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwościach mineralogicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/minerals.js", "/data/mineral-photo-pack-v01.js"],
+      scripts: ["/data/minerals.js", "/data/mineral-photo-pack-v01.js", "/data/facts/mineraly.facts.js"],
       build: () => {
         const data = window.MINERAL_APP_DATA;
         if (!data) return null;
@@ -180,13 +181,13 @@
       group: "ziemia-niebo",
       title: "Formacje skalne",
       heading: "Osobliwe formacje skalne Polski",
-      subtitle: "33 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
-      count_label: "33 osobliwości",
+      subtitle: "32 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
+      count_label: "32 osobliwości",
       icon: "F",
       accent: "cliff",
       search_placeholder: "np. Błędne Skały, Maczuga, Giewont...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwych formacjach skalnych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/rock-formations.js", "/data/rock-formation-photo-pack-v01.js"],
+      scripts: ["/data/rock-formations.js", "/data/rock-formation-photo-pack-v01.js", "/data/facts/formacje-skalne.facts.js"],
       build: () => {
         const data = window.ROCK_FORMATION_APP_DATA;
         if (!data) return null;
@@ -198,14 +199,14 @@
       group: "czlowiek-kultura",
       title: "Architektura drewniana",
       heading: "Architektoniczne osobliwości: drewno",
-      subtitle: "30 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
-      count_label: "30 osobliwości",
+      subtitle: "29 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
+      count_label: "29 osobliwości",
       icon: "AD",
       accent: "wood",
       route: "/atlas/architektura-drewniana",
       search_placeholder: "np. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
       source_note: "Opisy powstały na bazie wskazanego materiału o drewnianej architekturze Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/wooden-architecture.js", "/data/wooden-architecture-photo-pack-v01.js"],
+      scripts: ["/data/wooden-architecture.js", "/data/wooden-architecture-photo-pack-v01.js", "/data/facts/architektura-drewniana.facts.js"],
       build: () => {
         const data = window.WOODEN_ARCHITECTURE_APP_DATA;
         if (!data) return null;
@@ -224,7 +225,7 @@
       route: "/atlas/podziemia",
       search_placeholder: "np. Wieliczka, Riese, MRU, Sandomierz, Chełm...",
       source_note: "Opisy powstały na bazie wskazanego materiału o podziemnych osobliwościach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; schematy i kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/underground.js", "/data/underground-photo-pack-v01.js"],
+      scripts: ["/data/underground.js", "/data/underground-photo-pack-v01.js", "/data/facts/podziemia.facts.js"],
       build: () => {
         const data = window.UNDERGROUND_APP_DATA;
         if (!data) return null;
@@ -243,7 +244,7 @@
       route: "/atlas/cuda-inzynierii",
       search_placeholder: "np. Kanał Elbląski, tężnie, Radiostacja Gliwicka, Solina, Gdynia...",
       source_note: "Opisy powstały na bazie wskazanego materiału o techniczno-architektonicznych osobliwościach Polski. Źródła i dane liczbowe należy weryfikować przed publikacją finalnych kart.",
-      scripts: ["/data/engineering-wonders.js", "/data/engineering-wonders-photo-pack-v01.js"],
+      scripts: ["/data/engineering-wonders.js", "/data/engineering-wonders-photo-pack-v01.js", "/data/facts/cuda-inzynierii.facts.js"],
       build: () => {
         const data = window.ENGINEERING_WONDER_APP_DATA;
         if (!data) return null;
@@ -262,7 +263,7 @@
       route: "/atlas/twierdze-ruiny",
       search_placeholder: "np. Zamość, Krzyżtopór, Malbork, Modlin, Stańczyki...",
       source_note: "Opisy powstały na bazie wskazanego materiału o zamkach, twierdzach, ruinach i zapomnianych konstrukcjach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/fortresses-ruins.js", "/data/fortresses-ruins-photo-pack-v01.js"],
+      scripts: ["/data/fortresses-ruins.js", "/data/fortresses-ruins-photo-pack-v01.js", "/data/facts/twierdze-ruiny.facts.js"],
       build: () => {
         const data = window.FORTRESS_RUIN_APP_DATA;
         if (!data) return null;
@@ -281,7 +282,7 @@
       route: "/atlas/memento-mori",
       search_placeholder: "np. Czermna, Powązki, mizar, Treblinka, kopiec...",
       source_note: "Opisy powstały na bazie wskazanego materiału o miejscach pamięci i przemijania w Polsce. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; przy miejscach trudnej historii zachowujemy spokojny, edukacyjny ton.",
-      scripts: ["/data/memento-mori.js", "/data/memento-mori-photo-pack-v01.js"],
+      scripts: ["/data/memento-mori.js", "/data/memento-mori-photo-pack-v01.js", "/data/facts/memento-mori.facts.js"],
       build: () => {
         const data = window.MEMENTO_MORI_APP_DATA;
         if (!data) return null;
@@ -293,13 +294,13 @@
       group: "ziemia-niebo",
       title: "Skamieniałości",
       heading: "Osobliwe skamieniałości Polski",
-      subtitle: "33 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
-      count_label: "33 osobliwości",
+      subtitle: "32 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
+      count_label: "32 osobliwości",
       icon: "S",
       accent: "fossil",
       search_placeholder: "np. Zachełmie, Smok, amonity, bursztyn...",
       source_note: "Opisy powstały na bazie listy roboczej o polskich skamieniałościach i wskazanego zakresu tropów oraz amonitów. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/fossils.js", "/data/fossil-photo-pack-v01.js"],
+      scripts: ["/data/fossils.js", "/data/fossil-photo-pack-v01.js", "/data/facts/skamienialosci.facts.js"],
       build: () => {
         const data = window.FOSSIL_APP_DATA;
         if (!data) return null;
@@ -317,7 +318,7 @@
       accent: "skyfire",
       search_placeholder: "np. Brockenu, zorza, Bałtyk, mrozowisko...",
       source_note: "Opisy powstały na bazie listy roboczej o polskich zjawiskach atmosferycznych i astronomicznych. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/atmosphere-astronomy.js", "/data/atmosphere-astronomy-photo-pack-v01.js"],
+      scripts: ["/data/atmosphere-astronomy.js", "/data/atmosphere-astronomy-photo-pack-v01.js", "/data/facts/atmosfera-astronomia.facts.js"],
       build: () => {
         const data = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
         if (!data) return null;
@@ -336,7 +337,7 @@
       route: "/atlas/rekordy-krajobrazu",
       search_placeholder: "np. pustynia, wydmy, Hańcza, mofeta, Rysy...",
       source_note: "Opisy powstały na bazie wskazanego materiału o rekordach i osobliwościach krajobrazowych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry kontekstowe są oznaczone uczciwie.",
-      scripts: ["/data/landscape-records.js", "/data/landscape-records-photo-pack-v01.js"],
+      scripts: ["/data/landscape-records.js", "/data/landscape-records-photo-pack-v01.js", "/data/facts/rekordy-krajobrazu.facts.js"],
       build: () => {
         const data = window.LANDSCAPE_RECORD_APP_DATA;
         if (!data) return null;
@@ -388,10 +389,46 @@
     safety_notice: "",
     categories: [],
     items: [],
+    facts: {},
+    facts_checked: "",
     _builder: builder,
     _loaded: false,
     _loadPromise: null
   }));
+
+  // Editorial review of 28.10.2026: what is not confirmed well enough stays out of the atlas.
+  // The withdrawn cards were removed from the collection data. data/facts/*.facts.js is generated
+  // outside the repo, so withdrawn facts are filtered here; the reasons are kept for the next run.
+  const WITHDRAWN = {
+    cards: {
+      "ryby/murowy-swiecik": "Mauryk: brak potwierdzonej obserwacji w Bałtyku (C064).",
+      "ryby/lis-morski": "Kosogon: brak potwierdzonej obserwacji w Bałtyku (C065).",
+      "formacje-skalne/zezow-czarne-dzialy": "Zęzów i Czarne Działy: nie wiadomo, o które miejsce chodzi; potwierdzona jest tylko wysokość Zęzowa (C111).",
+      "skamienialosci/tholodus-schmidi": "Tholodus schmidi: brak publikacji o znaleziskach z Polski (C127).",
+      "architektura-drewniana/chata-na-wysokosci": "Chata na Wysokości: prywatna kwatera, historia tylko według właścicieli, bez ciekawostek i bez zdjęcia obiektu (C144)."
+    },
+    facts: {
+      F0032: "Piestrzenica: czas obróbki termicznej to wskazówka kulinarna.",
+      F0037: "Smardz: „dokładna obróbka termiczna zmniejsza ryzyko” to porada kulinarna.",
+      F0073: "Galaretek kolczasty: „odradza się jeść na surowo” sugeruje jedzenie po obróbce.",
+      F0143: "Żółciak: „surowe lub niedogotowane” sugeruje jadalność po ugotowaniu.",
+      F0170: "Opieńka: „surowa lub niedogotowana” sugeruje jadalność po ugotowaniu.",
+      F0985: "Ctenochasma: rodzaj niepotwierdzony w Owadowie-Brzezinkach, fakt nie dotyczy karty (C121).",
+      F1073: "Siedlce: „najniższa oficjalna temperatura” przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929)."
+    }
+  };
+
+  // Verified fun facts live in data/facts/<collection>.facts.js (generated outside the repo) and set
+  // window.ATLAS_FACTS[<collection>] = { checked, items: { <card id>: { facts, notes } } }.
+  // Only the facts of cards present in the collection are attached, without the withdrawn ones.
+  function attachFacts(collection) {
+    const facts = window.ATLAS_FACTS?.[collection.id];
+    const cardIds = new Set((collection.items || []).map((item) => item.id));
+    collection.facts = Object.fromEntries(Object.entries(facts?.items || {})
+      .filter(([cardId]) => cardIds.has(cardId))
+      .map(([cardId, entry]) => [cardId, { ...entry, facts: (entry.facts || []).filter((fact) => !WITHDRAWN.facts[fact.id]) }]));
+    collection.facts_checked = facts?.checked || "";
+  }
 
   const scriptCache = new Map();
 
@@ -424,6 +461,7 @@
       const built = collection._builder.build();
       if (built) {
         Object.assign(collection, built);
+        attachFacts(collection);
         collection._loaded = true;
       }
       return collection;
@@ -444,6 +482,7 @@
     const built = collection._builder.build();
     if (built) {
       Object.assign(collection, built);
+      attachFacts(collection);
       collection._loaded = true;
     }
   }
@@ -455,6 +494,7 @@
     views,
     groups,
     collections,
+    withdrawn: WITHDRAWN,
     loadCollection
   };
 })();

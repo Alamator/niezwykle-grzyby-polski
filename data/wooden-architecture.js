@@ -38,7 +38,7 @@
     base({
       id: "kosciol-pokoju-swidnica",
       name_pl: "Kościół Pokoju w Świdnicy",
-      name_lat: "Świdnica • szachulec UNESCO",
+      name_lat: "Świdnica • szachulec • UNESCO",
       category: "koscioly-pokoju",
       hook: "Ogromna drewniana świątynia szkieletowa kryje barokowe wnętrze, które powstało pod presją bardzo surowych ograniczeń budowlanych.",
       quiz_angle: "szachulec, empory, historia tolerancji i skala wnętrza ukryta w drewnianej konstrukcji",
@@ -51,7 +51,7 @@
     base({
       id: "kosciol-pokoju-jawor",
       name_pl: "Kościół Pokoju w Jaworze",
-      name_lat: "Jawor • szachulec UNESCO",
+      name_lat: "Jawor • szachulec • UNESCO",
       category: "koscioly-pokoju",
       hook: "Z zewnątrz skromny, wewnątrz działa jak drewniany teatr pamięci: empory, malowidła i szachulec opowiadają o kompromisie po wojnie trzydziestoletniej.",
       quiz_angle: "drewniany szkielet, protestancka historia, empory i monumentalna przestrzeń bez kamiennej fasady",
@@ -64,7 +64,7 @@
     base({
       id: "debno-podhalanskie",
       name_pl: "Kościół św. Michała Archanioła w Dębnie Podhalańskim",
-      name_lat: "Dębno Podhalańskie • gotyk zrębowy",
+      name_lat: "Dębno Podhalańskie • gotyk zrębowy • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Mała bryła z modrzewiowego drewna przechowuje niezwykły świat polichromii, w którym geometryczne wzory układają się w pamięć średniowiecza.",
       quiz_angle: "gotycka konstrukcja zrębowa, polichromia patronowa i wyjątkowo dobrze zachowane wnętrze",
@@ -77,7 +77,7 @@
     base({
       id: "binarowa",
       name_pl: "Kościół św. Michała Archanioła w Binarowej",
-      name_lat: "Binarowa • gotyk zrębowy",
+      name_lat: "Binarowa • gotyk zrębowy • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Wnętrze tej świątyni działa jak drewniana księga obrazów: późnogotycka konstrukcja spotyka tu malarstwo, barok i lokalną pamięć.",
       quiz_angle: "zrębowa bryła, rozbudowane polichromie i warstwy stylów widoczne w jednym drewnianym kościele",
@@ -90,7 +90,7 @@
     base({
       id: "sekowa",
       name_pl: "Kościół św. Filipa i św. Jakuba w Sękowej",
-      name_lat: "Sękowa • dach i soboty",
+      name_lat: "Sękowa • dach i soboty • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Sękowa jest pamiętana przez niezwykłą sylwetkę: wielki, opadający dach i soboty sprawiają, że drewno wygląda tu jak ochronny płaszcz.",
       quiz_angle: "smukła gotycka bryła, bardzo wysoki dach, soboty i wrażenie drewnianej osłony",
@@ -103,7 +103,7 @@
     base({
       id: "lipnica-murowana",
       name_pl: "Kościół św. Leonarda w Lipnicy Murowanej",
-      name_lat: "Lipnica Murowana • cmentarz i drewno",
+      name_lat: "Lipnica Murowana • cmentarz i drewno • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Niewielka świątynia stoi przy starym cmentarzu jak kapsuła czasu: prostota zrębu wzmacnia wagę malowanych i rzeźbionych detali.",
       quiz_angle: "mała skala, gotycki zrąb, cmentarne otoczenie i wyjątkowo cenne wyposażenie",
@@ -116,7 +116,7 @@
     base({
       id: "haczow",
       name_pl: "Kościół Wniebowzięcia NMP i św. Michała Archanioła w Haczowie",
-      name_lat: "Haczów • wielki zrąb",
+      name_lat: "Haczów • wielki zrąb • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Haczów pokazuje, że drewno potrafi budować monumentalnie: długa, zrębowa bryła należy do najważniejszych średniowiecznych świątyń drewnianych w Polsce.",
       quiz_angle: "duża skala kościoła zrębowego, gotycka metryka i polichromie zachowane w drewnianej strukturze",
@@ -129,7 +129,7 @@
     expanded({
       id: "blizne",
       name_pl: "Kościół Wszystkich Świętych w Bliznem",
-      name_lat: "Blizne • warowny krajobraz wsi",
+      name_lat: "Blizne • warowny krajobraz wsi • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Drewniany kościół w Bliznem zachował nie tylko bryłę i polichromie, lecz także poczucie dawnego zespołu kościelnego w krajobrazie podkarpackiej wsi.",
       quiz_angle: "gotycki zrąb, malowane wnętrze i czytelny zespół sakralny wokół świątyni",
@@ -142,7 +142,7 @@
     base({
       id: "kwiaton",
       name_pl: "Cerkiew św. Paraskewii w Kwiatoniu",
-      name_lat: "Kwiatoń • łemkowska cerkiew UNESCO",
+      name_lat: "Kwiatoń • łemkowska cerkiew • UNESCO",
       category: "cerkwie-karpat",
       hook: "Smukła sylwetka i harmonijne banie sprawiają, że cerkiew w Kwiatoniu bywa pokazywana jako modelowy przykład drewnianej architektury łemkowskiej.",
       quiz_angle: "trójdzielna bryła, wieże, banie i łemkowski typ drewnianej cerkwi karpackiej",
@@ -155,7 +155,7 @@
     base({
       id: "powroznik",
       name_pl: "Cerkiew św. Jakuba w Powroźniku",
-      name_lat: "Powroźnik • najstarsze warstwy cerkiewne",
+      name_lat: "Powroźnik • najstarsze warstwy cerkiewne • UNESCO",
       category: "cerkwie-karpat",
       hook: "Powroźnik przypomina, że cerkwie drewniane bywają palimpsestem: przekształcenia, przeniesienia i zachowane malowidła składają się tu na jedną historię.",
       quiz_angle: "karpacka cerkiew drewniana, zachowane malowidła i skomplikowana historia przekształceń",
@@ -168,7 +168,7 @@
     base({
       id: "owczary",
       name_pl: "Cerkiew Opieki Bogurodzicy w Owczarach",
-      name_lat: "Owczary • cerkiew łemkowska",
+      name_lat: "Owczary • cerkiew łemkowska • UNESCO",
       category: "cerkwie-karpat",
       hook: "W Owczarach drewno, gont i smukła wieża tworzą zabytek, który pozwala czytać historię Łemkowszczyzny bez wielkich kamiennych gestów.",
       quiz_angle: "łemkowski układ cerkwi, wieża, gont i delikatna skala karpackiej architektury drewnianej",
@@ -181,7 +181,7 @@
     expanded({
       id: "brunary-wyzne",
       name_pl: "Cerkiew św. Michała Archanioła w Brunarach Wyżnych",
-      name_lat: "Brunary Wyżne • cerkiew karpacka",
+      name_lat: "Brunary Wyżne • cerkiew karpacka • UNESCO",
       category: "cerkwie-karpat",
       hook: "Rozbudowana bryła cerkwi w Brunarach pokazuje, jak drewniana architektura potrafiła przyjmować kolejne warstwy historii bez utraty lokalnego rytmu.",
       quiz_angle: "cerkiew karpacka, przekształcenia bryły, gontowe dachy i bogate wnętrze",
@@ -194,7 +194,7 @@
     expanded({
       id: "chotyniec",
       name_pl: "Cerkiew Narodzenia Przenajświętszej Bogurodzicy w Chotyńcu",
-      name_lat: "Chotyniec • tradycja pogranicza",
+      name_lat: "Chotyniec • tradycja pogranicza • UNESCO",
       category: "cerkwie-karpat",
       hook: "Chotyniec wnosi do atlasu wątek wschodniego pogranicza: drewniana cerkiew zachowuje odmienny rytm przestrzeni, galerii i liturgicznej pamięci.",
       quiz_angle: "cerkiew pogranicza, drewniana konstrukcja, arkadowe galerie i wpis UNESCO",
@@ -207,7 +207,7 @@
     expanded({
       id: "radruz",
       name_pl: "Cerkiew św. Paraskewy w Radrużu",
-      name_lat: "Radruż • zespół cerkiewny UNESCO",
+      name_lat: "Radruż • zespół cerkiewny • UNESCO",
       category: "cerkwie-karpat",
       hook: "Radruż działa jak kompletny drewniany mikrokrajobraz: cerkiew, dzwonnica, ogrodzenie i otoczenie składają się na rzadko spójny zespół.",
       quiz_angle: "zespół cerkiewny, drewniana architektura obronna i pełny kontekst miejsca",
@@ -220,7 +220,7 @@
     expanded({
       id: "smolnik",
       name_pl: "Cerkiew św. Michała Archanioła w Smolniku",
-      name_lat: "Smolnik • bojkowska sylweta",
+      name_lat: "Smolnik • bojkowska sylweta • UNESCO",
       category: "cerkwie-karpat",
       hook: "Trójdzielna, bojkowska sylweta cerkwi w Smolniku przypomina, że Karpaty nie mają jednego wzoru drewna, lecz wiele lokalnych dialektów.",
       quiz_angle: "bojkowski typ cerkwi, trójdzielna bryła i gontowe dachy w bieszczadzkim krajobrazie",
@@ -233,7 +233,7 @@
     expanded({
       id: "turzansk",
       name_pl: "Cerkiew św. Michała Archanioła w Turzańsku",
-      name_lat: "Turzańsk • cerkiew w dolinie Osławy",
+      name_lat: "Turzańsk • cerkiew w dolinie Osławy • UNESCO",
       category: "cerkwie-karpat",
       hook: "Cerkiew w Turzańsku ma mocną, rytmiczną sylwetkę z wieżami i baniami, dzięki której drewno staje się znakiem kultury doliny Osławy.",
       quiz_angle: "wschodniołemkowska tradycja, rozbudowana sylweta i gontowe zwieńczenia",
@@ -407,28 +407,15 @@
       hook: "Przeniesiony do skansenu dwór z Drogini pokazuje szlacheckie drewno w wydaniu innym niż wiejska chata: bardziej reprezentacyjnym, ale nadal ciesielskim.",
       quiz_angle: "drewniany dwór, modrzewiowa konstrukcja, translokacja do skansenu i ziemiański model domu",
       safety_note: "zwiedzać jak obiekt muzealny; nie dotykać wyposażenia, polichromii ani elementów konstrukcji",
-      region_pl: "Nadwiślański Park Etnograficzny w Wygiełzowie, Małopolska; obiekt przeniesiony z Drogini.",
+      region_pl: "Park Etnograficzny Krakowiaków Zachodnich w Wygiełzowie (do 2023 r. Nadwiślański Park Etnograficzny), Małopolska; obiekt przeniesiony z Drogini.",
       habitat_pl: "Drewniany dwór szlachecki w ekspozycji skansenowskiej, zachowujący układ domu reprezentacyjnego.",
       occurrence_note: "W atlasie uzupełnia obraz drewna o warstwę dworską, często pomijaną między kościołami i chałupami.",
       level: "dwór z modrzewia"
-    }),
-    base({
-      id: "chata-na-wysokosci",
-      name_pl: "Chata na Wysokości",
-      name_lat: "Zalesie • świeckie budownictwo góralskie",
-      category: "styl-zakopianski-i-gorale",
-      hook: "Ta karta pokazuje mniej pomnikowy wymiar drewna gór: dom mieszkalny, w którym konstrukcja, klimat i codzienność są ważniejsze niż efekt reprezentacyjny.",
-      quiz_angle: "góralska chata z bali, świecka funkcja, adaptacja do górskiego klimatu i skala codziennego domu",
-      safety_note: "jeśli obiekt jest prywatny lub użytkowany, oglądać tylko z miejsc dostępnych publicznie i nie wchodzić bez zgody",
-      region_pl: "Zalesie, górska część południowej Polski.",
-      habitat_pl: "Drewniana chata związana z budownictwem góralskim i lokalną tradycją ciesielską.",
-      occurrence_note: "Zdjęcie w paczce jest oznaczone jako reprezentatywne, bo nie użyto wolnego kadru dokładnego obiektu.",
-      level: "drewno gór"
     })
   ];
 
   window.WOODEN_ARCHITECTURE_APP_DATA = {
-    subtitle: "30 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
+    subtitle: "29 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
     safety_notice: "To prototyp edukacyjny. Drewniane zabytki oglądaj z szacunkiem: nie dotykaj polichromii, ikon, snycerki ani konstrukcji, nie wchodź na prywatne posesje bez zgody i sprawdzaj aktualne zasady zwiedzania.",
     categories,
     woodenArchitecture

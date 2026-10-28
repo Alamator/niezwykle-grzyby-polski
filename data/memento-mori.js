@@ -362,14 +362,15 @@
     }),
     base({
       id: "westerplatte-cmentarz",
-      name_pl: "Westerplatte — Cmentarz Obrońców Wybrzeża",
+      name_pl: "Westerplatte — Cmentarz Wojskowy Żołnierzy Wojska Polskiego",
       name_lat: "Gdańsk • cmentarz symbolicznej obrony",
+      synonyms: ["Westerplatte — Cmentarz Obrońców Wybrzeża"],
       category: "cmentarze-wojenne",
       hook: "Mała placówka, wielki symbol.",
       quiz_angle: "obrona Westerplatte, wrzesień 1939, cmentarz, pomnik i pamięć początku wojny",
       safety_note: "zachować powagę przy grobach i odróżniać część cmentarną od szerszej trasy historycznej Westerplatte",
       region_pl: "Gdańsk, Pomorskie.",
-      habitat_pl: "Mechanizm pamięci: cmentarz łączy konkretne groby obrońców z szeroką symboliką pierwszych dni II wojny światowej.",
+      habitat_pl: "Mechanizm pamięci: Cmentarz Wojskowy Żołnierzy Wojska Polskiego, otwarty w 2022 r., łączy konkretne groby obrońców z szeroką symboliką pierwszych dni II wojny światowej.",
       occurrence_note: "Westerplatte jest osobliwe przez różnicę skali: niewielki teren niesie znaczenie wykraczające daleko poza sam półwysep.",
       level: "cmentarz wojenny"
     }),
@@ -409,7 +410,7 @@
       safety_note: "nie rozkopywać stoków ani nie niszczyć roślinności; traktować kopiec jako chroniony zabytek krajobrazu",
       region_pl: "Kraków, Małopolskie.",
       habitat_pl: "Mechanizm pamięci: ziemna forma bez jednoznacznej odpowiedzi łączy archeologię, legendę założycielską i obserwację krajobrazu.",
-      occurrence_note: "Kopiec Krakusa jest osobliwy, bo im mniej pewnych odpowiedzi, tym silniej działa jako punkt pamięci i wyobraźni miasta.",
+      occurrence_note: "Kopiec Krakusa jest osobliwy, bo im mniej pewnych odpowiedzi, tym silniej działa jako punkt pamięci i wyobraźni miasta. To, że kryje grób władcy, pozostaje hipotezą.",
       level: "legendarny kopiec"
     }),
     base({
@@ -422,7 +423,7 @@
       safety_note: "chronić stok i otoczenie kopca; nie traktować legendy jako pewnego opisu historycznego pochówku",
       region_pl: "Kraków-Mogiła, Małopolskie.",
       habitat_pl: "Mechanizm pamięci: kopiec działa jak znak w krajobrazie, którego sens budują opowieść, położenie i długie trwanie formy.",
-      occurrence_note: "Kopiec Wandy jest osobliwy przez zderzenie dawnych legend z nowoczesnym otoczeniem Nowej Huty.",
+      occurrence_note: "Kopiec Wandy jest osobliwy przez zderzenie dawnych legend z nowoczesnym otoczeniem Nowej Huty. Grób legendarnej Wandy to podanie, a pochodzenie kopca nie jest pewne.",
       level: "legendarny kopiec"
     }),
     base({

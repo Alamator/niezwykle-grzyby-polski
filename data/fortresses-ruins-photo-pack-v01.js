@@ -74,7 +74,7 @@
     ),
     "zamek-moszna": photo(
       "20180812 Zamek w Mosznej 1006 8605 DxO.jpg",
-      "Zamek w Mosznej",
+      "Pałac w Mosznej",
       "Jakub Hałun",
       "CC BY-SA 4.0",
       ccBySa40
@@ -228,7 +228,7 @@
     ),
     "wiadukty-stanczyki": photo(
       "Stanczyki viaduct.jpg",
-      "Wiadukt w Stańczykach",
+      "Mosty w Stańczykach",
       "Joost van Os",
       "CC BY-SA 4.0",
       ccBySa40

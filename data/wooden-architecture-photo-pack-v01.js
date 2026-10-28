@@ -228,17 +228,10 @@
     ),
     "dwor-z-drogini": photo(
       "DWÓR Z DROGINI W NADWIŚLAŃSKIM PARKU ETNOGRAFICZNYM W WYGIEŁZOWIE, fot. M. Klag (MIK, 2006) (4526328444).jpg",
-      "Dwór z Drogini w Nadwiślańskim Parku Etnograficznym w Wygiełzowie",
+      "Dwór z Drogini w skansenie w Wygiełzowie (zdjęcie z czasów, gdy skansen nosił nazwę Nadwiślański Park Etnograficzny)",
       "M. Klag / Małopolski Instytut Kultury",
       "CC BY-SA 2.0",
       ccBySa20
-    ),
-    "chata-na-wysokosci": photo(
-      "Zakopane - chata goralska. 1937-1939 (74197676).jpg",
-      "Kadr reprezentatywny: historyczna góralska chata drewniana z bali, użyta dla karty Chata na Wysokości",
-      "autor nieznany; Polona / Biblioteka Narodowa",
-      "Public domain",
-      publicDomain
     )
   };
 

@@ -95,13 +95,6 @@
       "CC BY-SA 3.0",
       ccBySa30
     ),
-    "tholodus-schmidi": photo(
-      "Ichthyosaur fossil.jpg",
-      "Kadr reprezentatywny: skamieniałość ichtiozaura, użyta jako morski kontekst dla triasowego Tholodus",
-      "soebe",
-      "CC BY-SA 3.0",
-      ccBySa30
-    ),
     "encrinus-liliiformis": photo(
       "Encrinus liliiformis.JPG",
       "Skamieniała lilia morska Encrinus liliiformis z widoczną strukturą ramion i kielicha",
@@ -130,13 +123,6 @@
       "CC BY-SA 4.0",
       ccBySa40
     ),
-    "pliozaury-z-krzyzanowic": photo(
-      "Pliosaurus rossicus cast.jpg",
-      "Kadr reprezentatywny: odlew czaszki pliozaura, pokazujący potężną głowę morskiego drapieżnika",
-      "Kenneth Carpenter",
-      "CC BY-SA 4.0",
-      ccBySa40
-    ),
     "plezjozaury-annopola": photo(
       "Denti di plesiosauro.jpg",
       "Kadr reprezentatywny: zęby plezjozaura jako kontekst dla morskich gadów z Annopola",
@@ -153,7 +139,7 @@
     ),
     "limulus-darwini-owadow": photo(
       "L polyphemus L darwini.png",
-      "Porównanie współczesnego Limulus polyphemus i jurajskiego Limulus darwini z kamieniołomu Owadów-Brzezinki",
+      "Porównanie współczesnego Limulus polyphemus i jurajskiego skrzypłocza opisanego jako Limulus darwini (dziś Crenatolimulus darwini) z kamieniołomu Owadów-Brzezinki",
       "Adrian Kin and Błażej Błażejowski",
       "CC BY 4.0",
       ccBy40
@@ -167,7 +153,7 @@
     ),
     "laguna-owadow-brzezinki": photo(
       "L polyphemus L darwini.png",
-      "Figura z jurajskim Limulus darwini z Owadowa-Brzezinek, pokazująca wyjątkowe zachowanie skamieniałości laguny",
+      "Figura z jurajskim skrzypłoczem Crenatolimulus darwini (opisanym jako Limulus darwini) z Owadowa-Brzezinek, pokazująca wyjątkowe zachowanie skamieniałości laguny",
       "Adrian Kin and Błażej Błażejowski",
       "CC BY 4.0",
       ccBy40

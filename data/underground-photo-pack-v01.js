@@ -200,7 +200,7 @@
     ),
     "podziemia-rynku-krakow": photo(
       "Rynek Underground, 2010.jpg",
-      "Podziemia Rynku w Krakowie",
+      "Rynek Podziemny, oddział Muzeum Krakowa pod Rynkiem Głównym",
       "Robin",
       "CC BY 2.0",
       ccBy20
