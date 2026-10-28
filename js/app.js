@@ -530,6 +530,28 @@
     return `<a class="m-card__credit" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(aria)}">${escapeHtml(label)}</a>`;
   }
 
+  // A representative photo shows a similar specimen, individual or place, and a context photo shows the
+  // surroundings; the data marks both at the start of the Polish description.
+  const PHOTO_LABEL = /^(Kadr reprezentatywny|Kadr kontekstowy|Diagram reprezentatywny|Schemat reprezentatywny)\b/;
+  const PHOTO_LABEL_KEYS = {
+    "Kadr reprezentatywny": "photoRepresentative",
+    "Kadr kontekstowy": "photoContext",
+    "Diagram reprezentatywny": "photoDiagram",
+    "Schemat reprezentatywny": "photoDiagram"
+  };
+
+  // Shown under the photo. Cards and flashcards get only the label, because the description could give away
+  // the answer in Nauka; the card dialog gets the whole description.
+  function photoCaptionHtml(item, full = false) {
+    const label = item.image ? PHOTO_LABEL.exec(item.image_alt || "")?.[1] : "";
+    if (!label) return "";
+    const polish = state.language === defaultLanguage;
+    const key = PHOTO_LABEL_KEYS[label];
+    const text = polish ? (full ? item.image_alt : label) : t(full ? `${key}Note` : key);
+    // The Polish alt text starts with the same words, so screen readers do not need the caption there.
+    return `<p class="photo-caption"${polish ? ' aria-hidden="true"' : ""}>${escapeHtml(text)}</p>`;
+  }
+
   function visualHtml(item, large = false) {
     const name = itemName(item);
     if (item.image) {
@@ -552,6 +574,7 @@
     return `
       <article class="m-card" data-id="${escapeHtml(item.id)}">
         ${visualHtml(item)}
+        ${photoCaptionHtml(item)}
         <div class="m-card__body">
           <h3>${escapeHtml(itemName(item))}</h3>
           <div class="latin">${escapeHtml(itemLatin(item))}</div>
@@ -679,6 +702,7 @@
     $("#dialogContent").innerHTML = `
       <div class="dialog-body">
         ${visualHtml(item, true)}
+        ${photoCaptionHtml(item, true)}
         <div class="meta-line" style="margin-top:1rem">
           <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryLabel(item))}</span>
           <span class="pill">${escapeHtml(t("levelLabel"))}: ${escapeHtml(itemLevel(item) || "atlas")}</span>
@@ -966,7 +990,10 @@
     const region = itemRegion(item);
     $("#flashcard").innerHTML = `
       <div class="flash-inner">
-        ${visualHtml(item, true)}
+        <div class="flash-visual">
+          ${visualHtml(item, true)}
+          ${photoCaptionHtml(item)}
+        </div>
         <div class="flash-content">
           <p class="eyebrow">${escapeHtml(t("flashCounter", { current: state.flashIndex + 1, total: list.length }))}</p>
           <div class="big-icon" aria-hidden="true">${escapeHtml(item.category_icon || activeCollection().icon || "?")}</div>

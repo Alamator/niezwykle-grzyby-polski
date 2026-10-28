@@ -409,6 +409,7 @@ assert.equal(
 
 // Every photo shown in any collection needs confirmed credits checked on Commons.
 const unconfirmedCredit = /do weryfikacji|do uzupełnienia/i;
+const photoLabel = /^(Kadr reprezentatywny|Kadr kontekstowy|Diagram reprezentatywny|Schemat reprezentatywny)\b/;
 for (const collection of collections) {
   for (const item of collection.items.filter((entry) => entry.image)) {
     const where = `${collection.id}/${item.id}`;
@@ -419,7 +420,14 @@ for (const collection of collections) {
     }
     assert(/^https:\/\/(creativecommons\.org|commons\.wikimedia\.org\/wiki\/(Commons|Template):)/.test(item.license_url), `${where} license link should point to the license, not to the file`);
     assert.notEqual(item.image_status, "commons_candidate", `${where} photo should be checked on Commons before it is shown`);
+    // The app shows this label under representative and context photos, so the description must start with it.
+    if (/reprezent|kontekst/i.test(item.image_alt)) {
+      assert(photoLabel.test(item.image_alt), `${where} representative or context photo should start its description with a photo label`);
+    }
   }
+}
+for (const key of ["photoRepresentative", "photoContext", "photoDiagram"]) {
+  assert(i18n.ui.en[key] && i18n.ui.en[`${key}Note`], `English UI should name the ${key} label and explain it`);
 }
 
 for (const collection of collections) {
