@@ -17,6 +17,6 @@ Statusy w `data/facts/*.facts.js`:
 
 12 faktów bez potwierdzenia nie trafiło na stronę.
 
-**Ograniczenie, które znamy:** w ślepym audycie 40 losowych faktów „verified” wyszukiwanie doprecyzowało 13, a 1 nie znalazło potwierdzenia. Zgodność z hasłem Wikipedii nie gwarantuje więc pełnej precyzji. Fakty z liczbami i datami (ok. 770) zostaną sprawdzone wyszukiwaniem w kolejnym kroku.
+**Ograniczenie, które znamy:** w ślepym audycie 40 losowych faktów „verified” wyszukiwanie doprecyzowało 13, a 1 nie znalazło potwierdzenia. Zgodność z hasłem Wikipedii nie gwarantuje więc pełnej precyzji. Dlatego 707 faktów z liczbami i datami sprawdzono wyszukiwaniem w niezależnych źródłach (28.10.2026): 352 potwierdzone, 113 do poprawki, 242 bez potwierdzenia. Szczegóły: [weryfikacja-liczb-2026-10.md](weryfikacja-liczb-2026-10.md). Fakty do poprawki i bez potwierdzenia strona ukrywa, dopóki generator nie wprowadzi zmian z [zmiany-dla-generatora-2026-10.json](zmiany-dla-generatora-2026-10.json).
 
 `docs/content/poprawki-2026-10.json` to potwierdzone poprawki do obecnej treści kart: nazwy, statusy ochrony, siedliska, rekordy. Wprowadzi je sesja, która robi interfejs.

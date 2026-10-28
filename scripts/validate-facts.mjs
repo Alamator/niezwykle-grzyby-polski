@@ -51,9 +51,11 @@ vm.runInContext(collectionsJs, context, { filename: "data/collections.js" });
 const app = context.window.ATLAS_APP_DATA;
 const allFacts = context.window.ATLAS_FACTS || {};
 assert(app?.collections?.length, "ATLAS_APP_DATA should expose collections");
-const withdrawn = app.withdrawn || { cards: {}, facts: {} };
+const withdrawn = { cards: {}, facts: {}, numbers: [], ...app.withdrawn };
+const hiddenFacts = new Set([...Object.keys(withdrawn.facts), ...withdrawn.numbers]);
 
 const seenFactIds = new Map();
+const factTexts = new Map();
 const stats = { cards: 0, facts: 0, notes: 0, statuses: {}, withdrawnCardFacts: 0 };
 
 function markdownBalanced(text) {
@@ -84,12 +86,12 @@ for (const collection of app.collections) {
     const isWithdrawn = Boolean(withdrawn.cards[where]);
     if (isWithdrawn) stats.withdrawnCardFacts += Array.isArray(entry.facts) ? entry.facts.length : 0;
     else if (!cardIds.has(cardId)) fail(`${where}: card id does not exist in the collection data`);
-    // The interface gets the facts of existing cards only, without the withdrawn facts.
+    // The interface gets the facts of existing cards only, without the hidden facts.
     const expected = cardIds.has(cardId) && Array.isArray(entry.facts)
-      ? entry.facts.filter((fact) => !withdrawn.facts[fact?.id]).map((fact) => fact?.id)
+      ? entry.facts.filter((fact) => !hiddenFacts.has(fact?.id)).map((fact) => fact?.id)
       : null;
     const attached = collection.facts?.[cardId]?.facts?.map((fact) => fact.id) ?? null;
-    if (JSON.stringify(expected) !== JSON.stringify(attached)) fail(`${where}: collections.js should attach the card's facts without the withdrawn ones`);
+    if (JSON.stringify(expected) !== JSON.stringify(attached)) fail(`${where}: collections.js should attach the card's facts without the hidden ones`);
     if (!Array.isArray(entry.facts)) {
       fail(`${where}: "facts" should be an array`);
       continue;
@@ -107,7 +109,10 @@ for (const collection of app.collections) {
       stats.facts += 1;
       if (!fact.id) fail(`${where}: fact without id`);
       else if (seenFactIds.has(fact.id)) fail(`${label}: duplicate fact id (also in ${seenFactIds.get(fact.id)})`);
-      else seenFactIds.set(fact.id, where);
+      else {
+        seenFactIds.set(fact.id, where);
+        factTexts.set(fact.id, fact.pl);
+      }
 
       if (typeof fact.pl !== "string" || !fact.pl.trim()) fail(`${label}: missing "pl" text`);
       if (fact.en !== undefined && typeof fact.en !== "string") fail(`${label}: "en" should be a string`);
@@ -177,6 +182,36 @@ for (const key of Object.keys(withdrawn.cards)) {
 for (const id of Object.keys(withdrawn.facts)) {
   if (!seenFactIds.has(id)) warn(`withdrawn fact ${id} no longer exists in data/facts`);
 }
+if (!Array.isArray(withdrawn.numbers)) fail("WITHDRAWN.numbers should be an array of fact ids");
+for (const id of new Set(withdrawn.numbers)) {
+  if (withdrawn.numbers.indexOf(id) !== withdrawn.numbers.lastIndexOf(id)) fail(`WITHDRAWN.numbers lists ${id} twice`);
+  if (withdrawn.facts[id]) fail(`${id} is both in WITHDRAWN.facts and WITHDRAWN.numbers`);
+  if (!seenFactIds.has(id)) warn(`hidden fact ${id} (numbers check) no longer exists in data/facts`);
+}
+
+// The generator handoff lists every hidden fact with its reason and, where possible, the corrected
+// wording. A hidden fact that already has the corrected wording can be shown again.
+const HANDOFF = "docs/content/zmiany-dla-generatora-2026-10.json";
+const handoff = JSON.parse(fs.readFileSync(HANDOFF, "utf8"));
+const handoffEntries = new Map([...handoff.skip_facts, ...handoff.replace_facts].map((entry) => [entry.id, entry]));
+const handoffCards = new Set(handoff.skip_cards.map((entry) => `${entry.collection}/${entry.card}`));
+for (const key of Object.keys(withdrawn.cards)) {
+  if (!handoffCards.has(key)) fail(`withdrawn card ${key} is missing from skip_cards in ${HANDOFF}`);
+}
+for (const id of hiddenFacts) {
+  if (!handoffEntries.has(id)) fail(`hidden fact ${id} is missing from skip_facts/replace_facts in ${HANDOFF}`);
+}
+for (const [id, entry] of handoffEntries) {
+  if (!seenFactIds.has(id)) continue;
+  const updated = entry.pl_old !== undefined && factTexts.get(id) === entry.pl;
+  if (updated && hiddenFacts.has(id)) warn(`${id} already has the corrected wording from ${HANDOFF}; remove it from WITHDRAWN to show it again`);
+  if (!updated && !hiddenFacts.has(id)) fail(`${id} is listed in ${HANDOFF} but data/collections.js does not hide it`);
+}
+const numbersCheck = handoff.number_check || {};
+for (const entry of handoff.confirm_facts) {
+  if (!seenFactIds.has(entry.id)) warn(`confirmed fact ${entry.id} from ${HANDOFF} no longer exists in data/facts`);
+  if (hiddenFacts.has(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden in data/collections.js`);
+}
 
 for (const message of warnings) console.warn(`warning: ${message}`);
 if (errors.length) {
@@ -186,4 +221,5 @@ if (errors.length) {
 }
 const statusSummary = Object.entries(stats.statuses).map(([status, count]) => `${status} ${count}`).join(", ");
 const withdrawnSummary = `withdrawn: ${Object.keys(withdrawn.cards).length} cards (${stats.withdrawnCardFacts} of their facts) and ${Object.keys(withdrawn.facts).length} facts`;
-console.log(`validate-facts: ${stats.facts} facts on ${stats.cards} cards (${statusSummary}), ${stats.notes} notes; ${withdrawnSummary}; ${warnings.length} warning(s)`);
+const numbersSummary = `numbers check: ${numbersCheck.checked} of ${numbersCheck.to_check} checked, ${withdrawn.numbers.length} hidden`;
+console.log(`validate-facts: ${stats.facts} facts on ${stats.cards} cards (${statusSummary}), ${stats.notes} notes; ${withdrawnSummary}; ${numbersSummary}; ${warnings.length} warning(s)`);
