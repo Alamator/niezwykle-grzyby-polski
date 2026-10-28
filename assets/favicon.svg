@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#2e6b45"/>
-  <rect x="3.25" y="3.25" width="57.5" height="57.5" rx="11" fill="none" stroke="#d99d36" stroke-width="1.4"/>
-  <text x="32" y="44" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-weight="900" font-size="36" fill="#f6f0e5">A</text>
+  <rect width="64" height="64" rx="13" fill="#0c110f"/>
+  <path fill="#e9a43b" transform="translate(22.6 52) scale(0.05479 -0.05479)" d="M-62 0Q-74 0 -74 10Q-74 19 -58 23L-42 26Q-22 30 -7.5 45.5Q7 61 20 89L319 714Q324 724 329.0 727.0Q334 730 338 730Q343 730 346.5 727.0Q350 724 350 714L361 80Q362 52 368.0 41.5Q374 31 393 26L406 23Q418 20 418 11Q418 0 401 0H236Q223 0 223 10Q223 21 243 23L263 25Q280 27 286.5 36.0Q293 45 293 67L291 222Q291 248 264 248H157Q131 248 118 222L53 88Q26 31 71 25L85 23Q100 21 100 11Q100 0 83 0ZM161 278H273Q290 278 290 295L288 568H283L152 295Q148 288 151.0 283.0Q154 278 161 278Z"/>
 </svg>

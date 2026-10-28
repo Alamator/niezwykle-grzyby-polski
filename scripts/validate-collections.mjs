@@ -644,3 +644,28 @@ for (const collection of collections) {
     assert(categoryIds.has(item.category), `${collection.id} item ${item.id} should reference an existing category`);
   }
 }
+
+// Start page: the cabinet of curiosities, the drawer photos and the numbers under the hero are copies of
+// the cards in data/start-page.js, made by scripts/build-start-page.mjs. They have to match the cards.
+const { buildStartPage } = await import("./build-start-page.mjs");
+vm.runInContext(fs.readFileSync("data/start-page.js", "utf8"), context, { filename: "data/start-page.js" });
+const startPage = JSON.parse(JSON.stringify(context.window.ATLAS_START || null));
+assert(startPage, "data/start-page.js should set window.ATLAS_START");
+assert.deepEqual(startPage, JSON.parse(JSON.stringify(buildStartPage(context.window))), "data/start-page.js no longer matches the cards: run npm run build:start-page");
+assert(htmlScripts.indexOf("./data/start-page.js") !== -1 && htmlScripts.indexOf("./data/start-page.js") < htmlScripts.indexOf("./js/app.js"), "index.html should load data/start-page.js before js/app.js");
+const startPhotos = [...startPage.specimens.map((entry) => entry.photo), ...Object.values(startPage.covers).map((entry) => entry.photo)];
+assert.equal(new Set(startPhotos.map((photo) => photo.image)).size, startPhotos.length, "every photo on the start page should be different");
+for (const photo of startPhotos) {
+  // The start page shows no photo labels, so it only uses photos of the card's own subject.
+  assert(!photoLabel.test(photo.alt), `${photo.source}: the start page should not use a representative or context photo`);
+}
+for (const collection of collections) {
+  assert(startPage.covers[collection.id], `${collection.id} should have a drawer photo in scripts/build-start-page.mjs`);
+  assert(collection.teaser, `${collection.id} should have a short teaser for its drawer`);
+  assert(i18n.collections.en[collection.id].teaser, `${collection.id} should have an English drawer teaser`);
+}
+// The drawer heading spells the number of collections out.
+const numberWords = { 18: ["Osiemnaście", "Eighteen"] };
+assert(numberWords[collections.length], `add the number words for ${collections.length} collections here and to collectionsTitle in data/i18n.js`);
+assert(i18n.ui.pl.collectionsTitle.startsWith(numberWords[collections.length][0]), "the Polish drawer heading should name the number of collections");
+assert(i18n.ui.en.collectionsTitle.startsWith(numberWords[collections.length][1]), "the English drawer heading should name the number of collections");

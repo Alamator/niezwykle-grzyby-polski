@@ -3,6 +3,8 @@
 
   const app = window.ATLAS_APP_DATA;
   const i18n = window.ATLAS_I18N || {};
+  // Copies of card names, hooks and photos for the start page, made by scripts/build-start-page.mjs.
+  const start = window.ATLAS_START || { stats: null, specimens: [], covers: {} };
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
@@ -392,11 +394,92 @@
   function updateActiveCollectionLabels() {
     if (!state.collectionId) return;
     const collection = activeCollection();
-    $("#collectionEyebrow").textContent = collectionText(collection, "count_label");
+    $("#collectionEyebrow").textContent = (collection.group && groupText(collection.group, "label")) || t("activeCollection");
     $("#collectionTitle").textContent = collectionText(collection, "heading") || collectionText(collection, "title");
+    $("#collectionLead").textContent = collectionText(collection, "subtitle");
     $("#safetyNotice").textContent = collectionText(collection, "safety_notice");
     $("#sourceNote").textContent = collectionText(collection, "source_note");
     $("#searchInput").placeholder = collectionText(collection, "search_placeholder") || t("searchFallback");
+    renderCollectionPhoto(collection);
+  }
+
+  // ----- Start page: photos copied from the cards -----
+
+  // Commons scales a photo to the requested width; srcset lets the browser take the larger one on sharp screens.
+  function commonsSrc(photo, width) {
+    return `${photo.image}?width=${width}`;
+  }
+
+  function commonsSrcset(photo) {
+    return `${commonsSrc(photo, 500)} 500w, ${commonsSrc(photo, 960)} 960w`;
+  }
+
+  function localized(value) {
+    return value?.[state.language] || value?.[defaultLanguage] || "";
+  }
+
+  // The visible credit is author and license; screen readers also hear what the photo shows.
+  function photoCreditHtml(photo, name, className) {
+    return `<a class="photo-credit ${className}" href="${escapeHtml(photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(t("photoCreditPrefix", { name }))}</span>${escapeHtml(`${photo.author} · ${photo.license}`)}</a>`;
+  }
+
+  // The banner of an opened collection shows the photo of its drawer.
+  function renderCollectionPhoto(collection) {
+    const node = $("#collectionPhoto");
+    if (!node || (node.dataset.collection === collection.id && node.dataset.language === state.language)) return;
+    node.dataset.collection = collection.id;
+    node.dataset.language = state.language;
+    const cover = start.covers?.[collection.id];
+    node.innerHTML = cover ? `
+      <img src="${escapeHtml(commonsSrc(cover.photo, 960))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="100vw" alt="" decoding="async" onerror="this.remove()" />
+      ${photoCreditHtml(cover.photo, localized(cover.name), "collection-bar__credit")}` : "";
+  }
+
+  function renderHeroStats() {
+    const list = $("#heroStats");
+    if (!list) return;
+    const stats = start.stats;
+    const entries = stats ? [["cards", "statCardsForms"], ["places", "statPlacesForms"], ["photos", "statPhotosForms"]] : [];
+    list.innerHTML = entries
+      .map(([key, forms]) => `<li><strong>${escapeHtml(stats[key].toLocaleString(state.language))}</strong> <span>${escapeHtml(tPlural(forms, stats[key]))}</span></li>`)
+      .join("");
+  }
+
+  // Five curiosities in the hero. Each opens its card; the first is the large tile and loads first.
+  function renderCabinet() {
+    const cabinet = $("#cabinet");
+    if (!cabinet) return;
+    cabinet.innerHTML = (start.specimens || []).map((specimen, index) => {
+      const collection = collectionById(specimen.collection);
+      if (!collection) return "";
+      const name = localized(specimen.name);
+      const alt = state.language === defaultLanguage ? specimen.photo.alt : name;
+      return `
+        <li class="specimen specimen--${index + 1}">
+          <img src="${escapeHtml(commonsSrc(specimen.photo, index === 0 ? 960 : 500))}" srcset="${escapeHtml(commonsSrcset(specimen.photo))}" sizes="(max-width: 560px) 80vw, (max-width: 900px) 50vw, 30vw" alt="${escapeHtml(alt)}" decoding="async"${index === 0 ? ' fetchpriority="high"' : ' loading="lazy"'} onerror="this.closest('.specimen').classList.add('is-broken'); this.remove();" />
+          <div class="specimen__caption">
+            <span class="specimen__cat">${escapeHtml(collectionText(collection, "title"))}</span>
+            <a class="specimen__name" href="${escapeHtml(cardPath(collection, { id: specimen.id }))}" data-action="open-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(specimen.id)}" aria-label="${escapeHtml(t("openCardLabel", { name }))}">${escapeHtml(name)}</a>
+            <span class="specimen__note">${escapeHtml(localized(specimen.hook))}</span>
+          </div>
+          ${photoCreditHtml(specimen.photo, name, "specimen__credit")}
+        </li>`;
+    }).join("");
+  }
+
+  function renderStartCredits() {
+    const list = $("#startCreditsList");
+    if (!list) return;
+    const entries = [
+      ...(start.specimens || []),
+      ...app.collections.map((collection) => start.covers?.[collection.id]).filter(Boolean)
+    ];
+    list.innerHTML = entries.map(({ name, photo }) => `
+      <li>
+        <strong>${escapeHtml(localized(name))}</strong>: ${escapeHtml(photo.author)},
+        ${escapeHtml(t("startCreditsLicense"))} <a href="${escapeHtml(photo.license_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(photo.license)}</a>,
+        <a href="${escapeHtml(photo.source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("startCreditsFile"))}</a>
+      </li>`).join("");
   }
 
   function renderChrome() {
@@ -404,10 +487,13 @@
     document.title = t("documentTitle");
 
     setText("#skipLink", "skipLink");
-    setText("#heroEyebrow", "heroEyebrow");
-    setText("#heroTitle", "heroTitle");
+    setText("#heroEyebrow", "heroEyebrow", { collections: tPlural("collectionCountForms", app.collections.length) });
+    $("#heroTitle").innerHTML = markdownLight(t("heroTitle"));
     setText("#heroLead", "heroLead");
-    setText("#chooseCollectionHero", "chooseCollection");
+    setText("#chooseCollectionHero", "heroStart");
+    setText("#surpriseButton", "heroSurprise");
+    setText("#startCreditsTitle", "startCreditsTitle");
+    setText("#startCreditsNote", "startCreditsNote");
     setText("#dailyFactTitle", "dailyFactEyebrow");
     setText("#aboutEyebrow", "aboutEyebrow");
     setText("#about-title", "aboutTitle");
@@ -420,7 +506,7 @@
     setText("#aboutCard3Title", "aboutCard3Title");
     setText("#aboutCard3Body", "aboutCard3Body");
     setText("#collectionsEyebrow", "collectionsEyebrow");
-    setText("#collections-title", "collectionsTitle");
+    $("#collections-title").innerHTML = markdownLight(t("collectionsTitle"));
     setText("#collectionsNote", "collectionsNote");
     setText("#changeCollectionButton", "changeCollection");
     setText("#noticePrefix", "noticePrefix");
@@ -443,6 +529,9 @@
     setText("#sourceChecklistTitle", "sourceChecklistTitle");
 
     $("#heroActions")?.setAttribute("aria-label", t("quickActions"));
+    $("#heroStats")?.setAttribute("aria-label", t("heroStatsLabel"));
+    $("#cabinet")?.setAttribute("aria-label", t("cabinetLabel"));
+    $("#wordmark")?.setAttribute("aria-label", t("homeLabel"));
     $("#languageToggle")?.setAttribute("aria-label", t("languageLabel"));
     $("#appNav")?.setAttribute("aria-label", t("appNavLabel"));
     $(".dialog-close")?.setAttribute("aria-label", t("close"));
@@ -465,22 +554,34 @@
     });
 
     updateActiveCollectionLabels();
+    renderHeroStats();
+    renderCabinet();
     renderCollections();
+    renderStartCredits();
     renderDailyFact();
   }
 
-  function collectionCardHtml(collection) {
+  // A drawer of the cabinet: the photo of one of its cards, the count and a short teaser. The whole tile
+  // opens the collection; the photo credit stays a separate link above it.
+  function drawerHtml(collection) {
     const title = collectionText(collection, "title");
+    const cover = start.covers?.[collection.id];
     return `
-      <article class="collection-card collection-card--${escapeHtml(collection.accent || "default")}">
-        <div class="collection-card__icon" aria-hidden="true">${escapeHtml(collection.icon || title.slice(0, 1))}</div>
-        <div>
-          <p class="eyebrow">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
-          <h3>${escapeHtml(title)}</h3>
-          <p>${escapeHtml(collectionText(collection, "subtitle"))}</p>
-        </div>
-        <button class="primary" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(t("collectionCardButton"))}</button>
-      </article>`;
+      <li class="drawer${cover ? "" : " drawer--plain"}">
+        ${cover ? `<img class="drawer__img" src="${escapeHtml(commonsSrc(cover.photo, 500))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="(max-width: 1000px) 50vw, 25vw" alt="" loading="lazy" decoding="async" onerror="this.remove()" />` : ""}
+        <p class="drawer__count">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
+        <h4 class="drawer__name"><button class="drawer__open" type="button" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(title)}</button></h4>
+        <p class="drawer__teaser">${escapeHtml(collectionText(collection, "teaser"))}</p>
+        ${cover ? photoCreditHtml(cover.photo, localized(cover.name), "drawer__credit") : ""}
+      </li>`;
+  }
+
+  // Columns that fill whole rows: a shelf of 8 drawers gets 4 columns, a shelf of 5 gets 5.
+  function shelfColumns(count) {
+    if (count % 4 === 0) return 4;
+    if (count % 5 === 0) return 5;
+    if (count % 3 === 0) return 3;
+    return Math.min(count, 4);
   }
 
   function renderCollections() {
@@ -496,23 +597,23 @@
 
     if (!orderedGroups.length) {
       grid.classList.remove("is-grouped");
-      grid.innerHTML = app.collections.map(collectionCardHtml).join("");
+      grid.innerHTML = `<ul class="shelf__drawers" style="--cols: ${shelfColumns(app.collections.length)}">${app.collections.map(drawerHtml).join("")}</ul>`;
       return;
     }
 
+    // The groups are the shelves of the cabinet.
     grid.classList.add("is-grouped");
     grid.innerHTML = orderedGroups.map((group) => {
-      const label = groupText(group.id, "label");
+      const shelf = byGroup.get(group.id);
       const description = groupText(group.id, "description");
-      const cards = byGroup.get(group.id).map(collectionCardHtml).join("");
       return `
-        <section class="collection-group" data-group="${escapeHtml(group.id)}">
-          <header class="collection-group__head">
-            <p class="eyebrow">${escapeHtml(t("groupEyebrow"))}</p>
-            <h3>${escapeHtml(label)}</h3>
-            ${description ? `<p class="collection-group__lead">${escapeHtml(description)}</p>` : ""}
+        <section class="shelf" data-group="${escapeHtml(group.id)}" aria-labelledby="shelf-${escapeHtml(group.id)}">
+          <header class="shelf__head">
+            <h3 id="shelf-${escapeHtml(group.id)}">${escapeHtml(groupText(group.id, "label"))}</h3>
+            <p class="shelf__count">${escapeHtml(tPlural("drawerCountForms", shelf.length))}</p>
+            ${description ? `<p class="shelf__lead">${escapeHtml(description)}</p>` : ""}
           </header>
-          <div class="collection-group__grid">${cards}</div>
+          <ul class="shelf__drawers${shelf.length % 2 ? " shelf__drawers--odd" : ""}" style="--cols: ${shelfColumns(shelf.length)}">${shelf.map(drawerHtml).join("")}</ul>
         </section>`;
     }).join("");
   }
@@ -855,7 +956,30 @@
     if (window.history?.pushState) window.history.pushState({ collectionId }, "", path);
     else window.location.hash = `item=${encodeURIComponent(itemId)}`;
     await selectCollection(collectionId, { updateRoute: false });
-    $("#appNav")?.scrollIntoView({ block: "start" });
+  }
+
+  // "Zaskocz mnie": a random card of a random collection. Like the fact of the day, it never lands on a
+  // Holocaust or martyrdom site.
+  async function surprise(button) {
+    if (button.getAttribute("aria-busy") === "true") return;
+    const collection = app.collections[randomIndex(app.collections.length)];
+    button.setAttribute("aria-busy", "true");
+    button.textContent = t("surpriseLoading");
+    try {
+      if (typeof app.loadCollection === "function") await app.loadCollection(collection.id);
+    } catch {
+      announce(t("surpriseError"));
+      return;
+    } finally {
+      button.removeAttribute("aria-busy");
+      button.textContent = t("heroSurprise");
+    }
+    const pool = (collection.items || []).filter((item) => !SOLEMN_CATEGORIES.has(item.category));
+    if (!pool.length) {
+      announce(t("surpriseError"));
+      return;
+    }
+    await openCard(collection.id, pool[randomIndex(pool.length)].id);
   }
 
   // ----- Fact of the day -----
@@ -1237,8 +1361,9 @@
   // ----- Map of places -----
 
   // MapLibre GL 4.7.1 (not 5.x, which breaks iOS < 13.4) is vendored and loaded only when the map opens.
+  // The dark OpenFreeMap style matches the page; the points are lit in the page's amber.
   const MAPLIBRE_BASE = "/vendor/maplibre-gl-4.7.1/";
-  const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+  const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/dark";
   const POLAND_BOUNDS = [[14.07, 48.99], [24.15, 54.84]];
   const MAP_LINKS = {
     wikidata: ["Wikidata", "https://www.wikidata.org/"],
@@ -1478,14 +1603,14 @@
         id: "places-dot",
         type: "circle",
         source: "places",
-        paint: { "circle-radius": 7, "circle-color": "#c8562d", "circle-stroke-color": "#fffaf0", "circle-stroke-width": 2 }
+        paint: { "circle-radius": 7, "circle-color": "#e9a43b", "circle-stroke-color": "#0c110f", "circle-stroke-width": 2 }
       });
       map.addLayer({
         id: "places-selected",
         type: "circle",
         source: "places",
         filter: ["in", ["get", "id"], ["literal", []]],
-        paint: { "circle-radius": 10, "circle-color": "#102018", "circle-stroke-color": "#fffaf0", "circle-stroke-width": 3 }
+        paint: { "circle-radius": 10, "circle-color": "#ece6d8", "circle-stroke-color": "#e9a43b", "circle-stroke-width": 3 }
       });
       map.on("click", onMapClick);
       map.on("mouseenter", "places-dot", () => { map.getCanvas().style.cursor = "pointer"; });
@@ -1563,9 +1688,11 @@
     state.flashRevealed = false;
     state.quiz = null;
     $("#searchInput").value = "";
-    $("#collectionPicker").classList.add("is-hidden");
+    // The start page gives way to the opened collection, which starts at the top of the page.
+    $("#startPage").classList.add("is-hidden");
     $(".app-nav").classList.remove("is-hidden");
     $("#main").classList.remove("is-hidden");
+    window.scrollTo(0, 0);
     updateActiveCollectionLabels();
 
     const needsLoad = !collection._loaded && typeof app.loadCollection === "function";
@@ -1596,12 +1723,14 @@
     syncDialogFromHash();
   }
 
+  // Back to the start page: the wordmark goes to its top, every other way leads to the drawers.
   function showCollections(options = {}) {
     state.collectionId = null;
-    $("#collectionPicker").classList.remove("is-hidden");
+    $("#startPage").classList.remove("is-hidden");
     $(".app-nav").classList.add("is-hidden");
     $("#main").classList.add("is-hidden");
-    $("#collectionPicker").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (options.top) window.scrollTo({ top: 0, behavior: "smooth" });
+    else $("#collectionPicker").scrollIntoView({ behavior: "smooth", block: "start" });
     if (options.updateRoute !== false) pushRoute("/", { collectionId: null });
   }
 
@@ -1630,6 +1759,8 @@
     if (action === "set-language") setLanguage(target.dataset.language);
     if (action === "select-collection") selectCollection(target.dataset.collection);
     if (action === "show-collections") showCollections();
+    if (action === "go-home") showCollections({ top: true });
+    if (action === "surprise") surprise(target);
     if (action === "details") showDialog(id);
     if (action === "open-card") openCard(target.dataset.collection, id);
     if (action === "share-card") shareCard(target.dataset.collection, id);
@@ -1678,7 +1809,12 @@
       if (go) activateView(go.dataset.go);
 
       const nav = event.target.closest(".nav-btn[data-view]");
-      if (nav) activateView(nav.dataset.view);
+      if (nav) {
+        activateView(nav.dataset.view);
+        // From the stuck navigation the new view starts at its top, right under the navigation.
+        const navTop = $(".app-main__body").getBoundingClientRect().top + window.scrollY - $("#appNav").offsetHeight;
+        if (window.scrollY > navTop) window.scrollTo(0, navTop);
+      }
 
       const chip = event.target.closest(".chip[data-category]");
       if (chip) { state.category = chip.dataset.category; renderAtlas(); }

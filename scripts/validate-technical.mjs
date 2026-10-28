@@ -27,6 +27,21 @@ assert(
   "versioned vendor files should be cached as immutable"
 );
 
+// Fonts are self-hosted (SIL Open Font License, licenses next to the files); no request goes to Google Fonts.
+const stylesCss = fs.readFileSync("css/styles.css", "utf8");
+assert.doesNotMatch(indexHtml, /fonts\.(googleapis|gstatic)\.com/, "index.html should not load Google Fonts");
+const fontFiles = [...stylesCss.matchAll(/url\("\/fonts\/([^"]+\.woff2)"\)/g)].map((match) => match[1]);
+assert(fontFiles.length > 0, "css/styles.css should declare the self-hosted fonts");
+for (const file of fontFiles) assert(fs.existsSync(`fonts/${file}`), `fonts/${file} is declared in css/styles.css but missing`);
+for (const file of fs.readdirSync("fonts").filter((name) => name.endsWith(".woff2"))) {
+  assert(fontFiles.includes(file), `fonts/${file} is not used by css/styles.css`);
+  const family = file.replace(/-latin(-ext)?-\d{3}-(normal|italic)\.woff2$/, "");
+  assert(fs.existsSync(`fonts/OFL-${family}.txt`), `fonts/${file} needs its license in fonts/OFL-${family}.txt`);
+}
+for (const [, href] of indexHtml.matchAll(/rel="preload" href="([^"]+)"/g)) {
+  assert(fs.existsSync(`.${href}`), `index.html preloads ${href}, which does not exist`);
+}
+
 assert.equal(
   packageJson.scripts?.dev,
   "node scripts/dev-server.mjs",
