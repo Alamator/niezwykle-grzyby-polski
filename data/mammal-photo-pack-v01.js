@@ -36,14 +36,14 @@
   const photos = {
     "ryjowka-malutka": photo(
       "Sorex minutus.jpg",
-      "Ryjówka malutka, kadr reprezentatywny pokazujący miniaturowego owadożernego ssaka",
+      "Kadr reprezentatywny: ryjówka malutka, miniaturowy owadożerny ssak",
       "Polandeze; imported to Commons by Salix",
       "CC BY 2.0",
       ccBy20
     ),
     "ryjowka-aksamitna": photo(
       "Sorex araneus eating a worm in Norway.jpg",
-      "Ryjówka aksamitna z bezkręgowcem, kadr reprezentatywny dla wysokiego tempa żerowania",
+      "Kadr reprezentatywny: ryjówka aksamitna z bezkręgowcem, przykład wysokiego tempa żerowania",
       "Emily Chebul",
       "CC BY-SA 4.0",
       ccBySa40
@@ -85,42 +85,42 @@
     ),
     "nocek-duzy": photo(
       "Bat-Myotis-myotis.jpg",
-      "Nocek duży zimujący w podziemiu, kadr reprezentatywny dla hibernujących nietoperzy",
+      "Kadr reprezentatywny: nocek duży zimujący w podziemiu",
       "Petr Vodička",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "nocek-rudy": photo(
       "Myotis daubentoni01.jpg",
-      "Nocek rudy trzymany przez badacza, kadr reprezentatywny do cech diagnostycznych",
+      "Kadr reprezentatywny: nocek rudy trzymany przez badacza",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-lydkowlosy": photo(
       "Myotis dasycneme.jpg",
-      "Nocek łydkowłosy, kadr reprezentatywny rzadkiego nietoperza związanego z wodami",
+      "Kadr reprezentatywny: nocek łydkowłosy, rzadki nietoperz związany z wodami",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-bechsteina": photo(
       "Myotis bechsteini.jpg",
-      "Nocek Bechsteina, kadr reprezentatywny gatunku starych lasów liściastych",
+      "Kadr reprezentatywny: nocek Bechsteina, gatunek starych lasów liściastych",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-natterera": photo(
       "Myotis nattereri (2862347369).jpg",
-      "Nocek Natterera, kadr reprezentatywny gatunku zbierającego ofiary z powierzchni",
+      "Kadr reprezentatywny: nocek Natterera, gatunek zbierający ofiary z powierzchni",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-wasatek": photo(
       "Whiskered bat (Myotis mystacinus) Rochovce.jpg",
-      "Nocek wąsatek, kadr reprezentatywny małego nietoperza szczelinowego",
+      "Kadr reprezentatywny: nocek wąsatek, mały nietoperz szczelinowy",
       "Charles J. Sharp",
       "CC BY-SA 4.0",
       ccBySa40
@@ -141,7 +141,7 @@
     ),
     "popielica-szara": photo(
       "Edible dormouse - Relmuis - Glis glis.jpg",
-      "Popielica szara, kadr reprezentatywny nadrzewnego pilcha",
+      "Kadr reprezentatywny: popielica szara, nadrzewny pilch",
       "Bouke ten Cate",
       "CC BY-SA 4.0",
       ccBySa40
@@ -155,14 +155,14 @@
     ),
     "koszatka-lesna": photo(
       "Dryomys nitedula.jpg",
-      "Koszatka leśna, kadr reprezentatywny pilcha z maską na pysku",
+      "Kadr reprezentatywny: koszatka leśna, pilch z maską na pysku",
       "Dodoni",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "zolednica-europejska": photo(
       "Eliomys quercinus01.jpg",
-      "Żołędnica europejska, kadr reprezentatywny rzadkiego pilcha w masce",
+      "Kadr reprezentatywny: żołędnica europejska, rzadki pilch w masce",
       "Arno Laurent",
       "CC BY-SA 3.0",
       ccBySa30
@@ -204,14 +204,14 @@
     ),
     jenot: photo(
       "Nyctereutes procyonoides - Raccoon Dog - Jenot.png",
-      "Jenot azjatycki sfotografowany w Polsce, kadr reprezentujący ekspansywnego obcego psowatego",
+      "Jenot azjatycki sfotografowany w Polsce, ekspansywny obcy psowaty",
       "ShootGun180",
       "CC BY 3.0",
       ccBy30
     ),
     "norka-amerykanska": photo(
       "Norka amerykańska (neovison vison).jpg",
-      "Wizon amerykański, kadr reprezentatywny inwazyjnego drapieżnika półwodnego",
+      "Kadr reprezentatywny: wizon amerykański, inwazyjny drapieżnik półwodny",
       "Wojciech Uszak",
       "CC BY-SA 4.0",
       ccBySa40

@@ -137,7 +137,7 @@
     ),
     "riese-sobon-jugowice-gontowa": photo(
       "Complex Soboń.svg",
-      "Schemat kompleksu Soboń, użyty reprezentatywnie dla karty Soboń / Jugowice / Gontowa",
+      "Schemat reprezentatywny: kompleks Soboń, jeden z trzech kompleksów z tej karty",
       "Les7007",
       "CC BY-SA 4.0",
       ccBySa40

@@ -292,7 +292,7 @@
     ),
     "dolina-pradnika-maczuga-herkulesa": photo(
       "20190525 Maczuga Herkulesa Pieskowa Skała 0827 2500 DxO.jpg",
-      "Maczuga Herkulesa w Dolinie Prądnika, kadr reprezentujący krajobraz Ojcowa",
+      "Maczuga Herkulesa w Dolinie Prądnika, wapienny ostaniec w krajobrazie okolic Ojcowa",
       "Jakub Hałun",
       "CC BY-SA 4.0",
       ccBySa40

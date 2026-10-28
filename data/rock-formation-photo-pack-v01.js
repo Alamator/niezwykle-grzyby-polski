@@ -59,7 +59,7 @@
     ),
     chojnik: photo(
       "Zamek Chojnik.jpg",
-      "Zamek Chojnik na granitowym wzgórzu, kadr reprezentujący skalną podstawę Chojnika",
+      "Kadr kontekstowy: dziedziniec zamku Chojnik na granitowym wzgórzu",
       "FxJ",
       "Public domain",
       publicDomain

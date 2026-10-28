@@ -40,7 +40,7 @@
     ),
     "milorzab-dwuklapowy": photo(
       "A ginkgo biloba fruit on dark rocky background.png",
-      "Reprezentatywny owoc miłorzębu dwuklapowego, część odpowiedzialna za charakterystyczny zapach",
+      "Kadr reprezentatywny: owoc miłorzębu dwuklapowego, część odpowiedzialna za charakterystyczny zapach",
       "Leo219",
       "CC BY-SA 4.0",
       "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -54,7 +54,7 @@
     ),
     "opienka-na-martwym-drewnie": photo(
       "Armillaria mellea 2011 G1.jpg",
-      "Opieńka miodowa na drewnie; kadr reprezentuje grzyba związanego z nocnym świeceniem próchna",
+      "Kadr reprezentatywny: opieńka miodowa na drewnie, grzyb związany z nocnym świeceniem próchna",
       "George Chernilevsky",
       "Public domain",
       publicDomain
@@ -222,7 +222,7 @@
     ),
     "jodla-balsamiczna": photo(
       "Abies balsamea.jpg",
-      "Jodła balsamiczna z szyszkami, kadr reprezentujący aromatyczny gatunek iglasty",
+      "Kadr reprezentatywny: jodła balsamiczna z szyszkami, aromatyczny gatunek iglasty",
       "U.S. Fish and Wildlife Service",
       "Public domain",
       publicDomain

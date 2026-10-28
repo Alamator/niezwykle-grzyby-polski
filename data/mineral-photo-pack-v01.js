@@ -101,7 +101,7 @@
     ),
     "siarka-rodzima-tarnobrzeg": photo(
       "Sulphur-Celestine-162785.jpg",
-      "Siarka rodzima z celestynem, kadr reprezentujący paragenezę siarkową rejonu Tarnobrzega",
+      "Siarka rodzima z celestynem z kopalni Machów koło Tarnobrzega",
       robLavinsky,
       "CC BY-SA 3.0",
       ccBySa30
@@ -115,21 +115,21 @@
     ),
     "celestyn-machow": photo(
       "Sulphur-Celestine-162785.jpg",
-      "Celestyn z siarką, kadr reprezentujący siarczany strontu w tarnobrzeskiej paragenezie",
+      "Celestyn z siarką z kopalni Machów koło Tarnobrzega",
       robLavinsky,
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "baryt-machow": photo(
       "Barite-lw69a.jpg",
-      "Kadr reprezentatywny: kryształy barytu, użyte dla barytu z paragenezy siarkowej Machowa",
+      "Kryształy barytu z kopalni Machów koło Tarnobrzega",
       robLavinsky,
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "aragonit-machow": photo(
       "Baryte-Aragonite-Sulphur-171538.jpg",
-      "Aragonit z barytem i siarką, kadr reprezentujący asocjacje z Machowa",
+      "Aragonit z barytem i siarką z kopalni Machów koło Tarnobrzega",
       robLavinsky,
       "CC BY-SA 3.0",
       ccBySa30
