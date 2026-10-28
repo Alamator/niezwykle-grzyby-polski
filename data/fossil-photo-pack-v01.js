@@ -25,7 +25,6 @@
   const ccBy20 = "https://creativecommons.org/licenses/by/2.0/";
   const ccBy30 = "https://creativecommons.org/licenses/by/3.0/";
   const ccBy40 = "https://creativecommons.org/licenses/by/4.0/";
-  const ccBySa20 = "https://creativecommons.org/licenses/by-sa/2.0/";
   const ccBySa30 = "https://creativecommons.org/licenses/by-sa/3.0/";
   const ccBySa30Pl = "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en";
   const ccBySa40 = "https://creativecommons.org/licenses/by-sa/4.0/";
@@ -113,8 +112,8 @@
       "Dinosaur tracks (19482706481).jpg",
       "Kadr reprezentatywny: odciski stóp dinozaurów na powierzchni skalnej",
       "Sandy Horvath-Dori",
-      "CC BY-SA 2.0",
-      ccBySa20
+      "CC BY 2.0",
+      ccBy20
     ),
     "tropy-dinozaurow-borkowice": photo(
       "An Corran dinosaur tracks.jpg",
@@ -197,8 +196,8 @@
       "Baltic amber inclusions - Cockroach (Pterygota, Neoptera, Dictyoptera, Blattodea).JPG",
       "Kadr reprezentatywny: karaczan zachowany w bursztynie bałtyckim jako kontekst dla inkluzji owadzich",
       "Anders L. Damgaard",
-      "CC BY-SA 3.0",
-      ccBySa30
+      "CC BY-SA 4.0",
+      ccBySa40
     ),
     "jantarogekko-balticus": photo(
       "Bursztyn, jaszczurka, Gdańsk.jpg",

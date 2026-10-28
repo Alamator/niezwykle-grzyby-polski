@@ -89,11 +89,11 @@
     "grzybowka-krwista": {
       image_status: "commons_verified",
       image: commonsImage("Mycena haematopus.jpg"),
-      image_alt: "Grzybówka krwista (Mycena haematopus), drobne owocniki z ciemnoczerwonym sokiem po uszkodzeniu",
-      image_author: "Archenzo",
+      image_alt: "Grzybówka krwista (Mycena haematopus), grupa drobnych różowobrązowych owocników na drewnie",
+      image_author: "Roberto Petruzzo",
       image_source: "https://commons.wikimedia.org/wiki/File:Mycena_haematopus.jpg",
-      image_license: "CC BY-SA 3.0 / GFDL",
-      license_url: "https://creativecommons.org/licenses/by-sa/3.0/",
+      image_license: "Public domain",
+      license_url: "https://creativecommons.org/publicdomain/mark/1.0/",
       image_modifications: embeddedFromCommons,
       tags: ["krwisty sok", "drobna", "martwe drewno"]
     },

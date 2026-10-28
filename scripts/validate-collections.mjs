@@ -403,9 +403,24 @@ assert(
 );
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
-  29,
-  "insect collection should include 29 Commons images with attribution; Phausis splendidula remains without a verified photo"
+  30,
+  "insect collection should include 30 Commons images with attribution"
 );
+
+// Every photo shown in any collection needs confirmed credits checked on Commons.
+const unconfirmedCredit = /do weryfikacji|do uzupełnienia/i;
+for (const collection of collections) {
+  for (const item of collection.items.filter((entry) => entry.image)) {
+    const where = `${collection.id}/${item.id}`;
+    assert(item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/"), `${where} photo should be embedded from Wikimedia Commons`);
+    assert(item.image_source?.startsWith("https://commons.wikimedia.org/wiki/File:"), `${where} photo source should be its Commons file page`);
+    for (const field of ["image_alt", "image_author", "image_license", "license_url", "image_modifications"]) {
+      assert(item[field] && !unconfirmedCredit.test(item[field]), `${where} photo needs a confirmed ${field}`);
+    }
+    assert(/^https:\/\/(creativecommons\.org|commons\.wikimedia\.org\/wiki\/(Commons|Template):)/.test(item.license_url), `${where} license link should point to the license, not to the file`);
+    assert.notEqual(item.image_status, "commons_candidate", `${where} photo should be checked on Commons before it is shown`);
+  }
+}
 
 for (const collection of collections) {
   const translatedCollection = i18n.collections.en[collection.id];

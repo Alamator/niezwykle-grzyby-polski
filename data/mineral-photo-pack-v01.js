@@ -95,7 +95,7 @@
     "bursztyn-baltycki": photo(
       "A piece of raw Baltic amber 1.jpg",
       "Surowa bryłka bursztynu bałtyckiego o miodowej barwie",
-      "Ann-Sophie Qvarnström",
+      "W.carter",
       "CC BY-SA 4.0",
       ccBySa40
     ),
