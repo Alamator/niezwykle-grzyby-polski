@@ -106,6 +106,7 @@
 
   <nav id="appNav" class="app-nav shell is-hidden" aria-label="Nawigacja aplikacji">
     <button class="nav-btn is-active" data-view="atlas">Atlas</button>
+    <button class="nav-btn is-hidden" data-view="map">Mapa</button>
     <button class="nav-btn" data-view="learn">Nauka</button>
     <button class="nav-btn" data-view="quiz">Quiz</button>
     <button class="nav-btn" data-view="sources">Źródła</button>
@@ -144,6 +145,20 @@
 
       <div class="stats-grid" id="statsGrid"></div>
       <div id="atlasGrid" class="card-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="map" class="view" aria-labelledby="map-title">
+      <div class="section-head">
+        <div>
+          <p id="mapEyebrow" class="eyebrow">Mapa</p>
+          <h2 id="map-title">Mapa miejsc</h2>
+        </div>
+        <p id="mapNote" class="section-note">Kliknij punkt, żeby zobaczyć nazwę i otworzyć kartę.</p>
+      </div>
+      <div id="placeMap" class="place-map" role="region" aria-label="Mapa miejsc"></div>
+      <p id="mapStatus" class="map-status" role="status" aria-live="polite"></p>
+      <div id="placeList" class="source-panel place-list"></div>
+      <p id="mapSourceNote" class="map-source-note"></p>
     </section>
 
     <section id="learn" class="view" aria-labelledby="learn-title">

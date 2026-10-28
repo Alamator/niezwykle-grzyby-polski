@@ -1236,3 +1236,111 @@ a.secondary {
   .daily-fact__actions .secondary { width: 100%; }
   .tf-fact { padding: .75rem .8rem; font-size: 1rem; }
 }
+
+/* Map of places (MapLibre GL 4.7.1, loaded with the map view) */
+.place-map {
+  position: relative;
+  /* Room for the sticky navigation when the app scrolls the map into view. */
+  scroll-margin-top: 5.5rem;
+  height: min(62vh, 560px);
+  min-height: 320px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: #e8ecea;
+  box-shadow: var(--shadow);
+}
+.map-status {
+  display: none;
+  margin: .75rem 0 0;
+  color: var(--muted);
+  font-weight: 750;
+}
+.map-status.is-visible { display: block; }
+.place-list { margin-top: 1rem; padding: 1.2rem; }
+.place-list h3 { margin: 0 0 .35rem; }
+.place-list__count { margin: 0 0 .8rem; color: var(--muted); }
+.place-list__items {
+  display: grid;
+  gap: .2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.place-list__items li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem .75rem;
+  padding: .35rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.place-list__items li:last-child { border-bottom: 0; }
+.place-list__text { display: grid; min-width: 0; }
+.place-list__text .latin { font-size: .88rem; overflow-wrap: anywhere; }
+.place-list__name {
+  min-height: 44px;
+  padding: .35rem 0;
+  border: 0;
+  color: var(--accent-2);
+  background: none;
+  font-weight: 800;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.place-list__card {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: .5rem .85rem;
+  font-size: .9rem;
+}
+.map-source-note {
+  margin: .75rem 0 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
+.map-source-note a { color: var(--accent-2); }
+.place-map .maplibregl-popup-content {
+  padding: .8rem 1rem;
+  border-radius: 14px;
+  font-family: inherit;
+  box-shadow: 0 12px 30px rgba(28, 40, 31, 0.18);
+}
+.place-map .maplibregl-popup-close-button {
+  width: 32px;
+  height: 32px;
+  font-size: 1.25rem;
+}
+.map-popup {
+  display: grid;
+  gap: .3rem;
+  padding-right: 1.2rem;
+  color: var(--ink);
+}
+.map-popup__name { font-size: 1rem; line-height: 1.3; }
+.map-popup .latin { font-size: .86rem; }
+.map-popup__open {
+  justify-self: start;
+  min-height: 40px;
+  margin-top: .35rem;
+  padding: .5rem .9rem;
+  font-size: .9rem;
+}
+.map-popup__list { margin: 0; padding-left: 1.1rem; }
+.map-popup__list button {
+  min-height: 40px;
+  padding: .3rem 0;
+  border: 0;
+  color: var(--accent-2);
+  background: none;
+  font-weight: 800;
+  text-align: left;
+  text-decoration: underline;
+}
+
+@media (max-width: 620px) {
+  .place-map { height: 58vh; border-radius: 20px; scroll-margin-top: 4.5rem; }
+  .place-list { padding: 1rem; }
+  .place-list__card { padding-inline: .7rem; }
+}

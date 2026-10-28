@@ -74,6 +74,24 @@ Najprostsza ścieżka:
 5. Dodaj skrypt danych do `index.html` przed `data/collections.js`.
 6. Uruchom oba testy.
 
+## Mapa miejsc
+
+- **Biblioteka:** MapLibre GL JS **4.7.1** (nie 5.x, bo 5.x psuje iOS < 13.4).
+  - Leży w `vendor/maplibre-gl-4.7.1/` jako niezmieniona kopia z pakietu npm; pochodzenie i sumy kontrolne opisuje `README.md` w tym katalogu.
+  - Strona wczytuje ją dopiero po otwarciu widoku „Mapa”.
+- **Podkład:** OpenFreeMap (styl `positron`, dane © współtwórcy OpenStreetMap), bez klucza i rejestracji.
+- **Punkty:** `data/places/<kolekcja>.places.js`, ładowane razem z kolekcją, przed plikiem ciekawostek:
+
+  ```js
+  window.ATLAS_PLACES["podziemia"] = { checked: "RRRR-MM-DD", items: { "<id karty>": { lat, lng, wikidata: "Q…" } } };
+  ```
+
+  - Współrzędne pochodzą z Wikidaty (CC0) i są sprawdzone z gminą i województwem z karty.
+  - Karty bez pewnego punktu albo obejmujące kilka miejsc nie trafiają na mapę.
+  - Opis sprawdzania i lista kart bez punktu, z powodami: `docs/content/mapa-punkty-2026-10.md`.
+- **Bez stanowisk gatunków:** kolekcje gatunków nie mają mapy. Na mapę nie trafia też karta, której uwaga prosi, żeby nie ujawniać miejsca. Pilnuje tego `npm run test:collections`.
+- Zakładka „Mapa” pokazuje się tylko w kolekcjach, które mają punkty.
+
 ## Zasady treści
 
 - Projekt edukacyjny, nie narzędzie do pewnego oznaczania gatunków w terenie.
