@@ -415,18 +415,28 @@
       F0170: "Opieńka: „surowa lub niedogotowana” sugeruje jadalność po ugotowaniu.",
       F0985: "Ctenochasma: rodzaj niepotwierdzony w Owadowie-Brzezinkach, fakt nie dotyczy karty (C121).",
       F1073: "Siedlce: „najniższa oficjalna temperatura” przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929)."
-    }
+    },
+    // Numbers and dates checked by search in independent sources (10.2026): in these facts a source
+    // contradicts a number or date, or none confirms it. The reasons and the corrected wording for the
+    // generator are in docs/content/zmiany-dla-generatora-2026-10.json.
+    numbers: [
+      "F0001", "F0002", "F0205", "F0207", "F0214", "F0295", "F0296", "F0298", "F0300", "F0303",
+      "F0304", "F0338", "F0601", "F0606", "F0612", "F0623", "F0802", "F0806", "F0807", "F1195",
+      "F1309", "F1312", "F1314", "F1322", "F1325", "F1387", "F1388", "F1390", "F1445", "F1448",
+      "F1451", "F1453", "F1456", "F1457"
+    ]
   };
+  const HIDDEN_FACTS = new Set([...Object.keys(WITHDRAWN.facts), ...WITHDRAWN.numbers]);
 
   // Verified fun facts live in data/facts/<collection>.facts.js (generated outside the repo) and set
   // window.ATLAS_FACTS[<collection>] = { checked, items: { <card id>: { facts, notes } } }.
-  // Only the facts of cards present in the collection are attached, without the withdrawn ones.
+  // Only the facts of cards present in the collection are attached, without the hidden ones.
   function attachFacts(collection) {
     const facts = window.ATLAS_FACTS?.[collection.id];
     const cardIds = new Set((collection.items || []).map((item) => item.id));
     collection.facts = Object.fromEntries(Object.entries(facts?.items || {})
       .filter(([cardId]) => cardIds.has(cardId))
-      .map(([cardId, entry]) => [cardId, { ...entry, facts: (entry.facts || []).filter((fact) => !WITHDRAWN.facts[fact.id]) }]));
+      .map(([cardId, entry]) => [cardId, { ...entry, facts: (entry.facts || []).filter((fact) => !HIDDEN_FACTS.has(fact.id)) }]));
     collection.facts_checked = facts?.checked || "";
   }
 
