@@ -96,7 +96,7 @@
       category: glowingCategory.id,
       hook: "Nie tyle kapelusze, co grzybnia i ciemne ryzomorfy opieniek mogą dawać zielonkawą poświatę w zupełnej ciemności.",
       quiz_angle: "bioluminescencja: własne światło grzybni i ryzomorfów, zwykle nie świecą same owocniki",
-      safety_note: "nie używać świecenia do identyfikacji ani zbioru; opieńki wymagają ostrożnego oznaczania i obróbki, a strona jest edukacyjna",
+      safety_note: "nie używać świecenia do identyfikacji ani zbioru; opieńki wymagają ostrożnego oznaczania, a strona jest edukacyjna",
       image_status: "commons_candidate",
       ordinal: nextOrdinal,
       category_label: glowingCategory.label,

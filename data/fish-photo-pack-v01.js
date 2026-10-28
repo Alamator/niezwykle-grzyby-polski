@@ -51,14 +51,6 @@
       "Public domain",
       "https://creativecommons.org/publicdomain/mark/1.0/"
     ),
-    "murowy-swiecik": photo(
-      "Maurolicus muelleri ventral.jpg",
-      "Mauryk (Maurolicus muelleri), mała srebrzysta ryba z widoczną stroną brzuszną",
-      "HulloThere",
-      "https://commons.wikimedia.org/wiki/File:Maurolicus_muelleri_ventral.jpg",
-      "CC BY-SA 4.0",
-      "https://creativecommons.org/licenses/by-sa/4.0/"
-    ),
     tasza: photo(
       "Cyclopterus lumpus female.jpg",
       "Tasza (Cyclopterus lumpus), krępa morska ryba o guzowatej sylwetce",
@@ -226,14 +218,6 @@
       "https://commons.wikimedia.org/wiki/File:Mola_mola_ocean_sunfish_Monterey_Bay_Aquarium_1.jpg",
       "CC BY-SA 3.0",
       "https://creativecommons.org/licenses/by-sa/3.0/"
-    ),
-    "lis-morski": photo(
-      "Alopias vulpinus noaa2.jpg",
-      "Kosogon (Alopias vulpinus), rekin z bardzo wydłużoną górną częścią ogona",
-      "NOAA/PIER",
-      "https://commons.wikimedia.org/wiki/File:Alopias_vulpinus_noaa2.jpg",
-      "Public domain",
-      "https://creativecommons.org/publicdomain/mark/1.0/"
     ),
     "zebacz-smugowy": photo(
       "Anarhichas-lupus-Atlanterhavsparken.jpg",

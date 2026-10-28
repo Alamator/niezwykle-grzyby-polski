@@ -153,14 +153,14 @@
       name_pl: "Uszatka",
       name_lat: "Asio otus",
       category: "swiatlo-i-zmysly",
-      hook: "Smukła sowa z pęczkami piór, której świeże pióra mogą fluorescencyjnie świecić w świetle UV.",
-      quiz_angle: "długie pęczki piór, pomarańczowe oczy, zimowe zgrupowania i porfiryny w piórach",
-      safety_note: "nie świecić lampą UV na dzikie ptaki dla zabawy; nocne obserwacje powinny być krótkie i spokojne",
+      hook: "Smukła sowa, której „uszy” to tylko ruchome kępki piór.",
+      quiz_angle: "długie pęczki piór, pomarańczowe oczy, wspólne zimowe noclegowiska i cudze gniazda krukowatych",
+      safety_note: "nie płoszyć sów na noclegowiskach; nocne obserwacje powinny być krótkie i spokojne",
       protection: "strict",
       region_pl: "Lasy, zadrzewienia śródpolne, parki, cmentarze i zimowe noclegowiska w miastach.",
       habitat_pl: "Gęste drzewa do odpoczynku oraz otwarte tereny z gryzoniami.",
-      occurrence_note: "W atlasie pokazuje świat niewidoczny dla człowieka: pióra mogą nieść informacje poza naszym wzrokiem.",
-      level: "różowy blask UV"
+      occurrence_note: "W atlasie pokazuje sowę, która nie buduje własnych gniazd, a zimą chętnie nocuje w grupie.",
+      level: "uszy z piór"
     }),
     entry({
       id: "puszczyk-zwyczajny",

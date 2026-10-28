@@ -218,13 +218,6 @@
       "CC BY-SA 4.0",
       ccBySa40
     ),
-    "zezow-czarne-dzialy": photo(
-      "Tymbark panorama.jpg",
-      "Kadr reprezentatywny: panorama okolic Tymbarku i Beskidu Wyspowego dla Zęzowa i Czarnych Działów",
-      "Jerzy Opioła",
-      "CC BY-SA 4.0",
-      ccBySa40
-    ),
     "skalki-pieklo-nieklan": photo(
       "2025 Skałki Piekło pod Niekłaniem 12.jpg",
       "Skałki Piekło pod Niekłaniem, fantazyjne piaskowcowe formy w lesie",

@@ -300,10 +300,10 @@
     entry({
       id: "lipa-stronie-slaskie",
       name_pl: "Lipa w Stroniu Śląskim",
-      name_lat: "Tilia platyphyllos",
+      name_lat: "Tilia sp.",
       category: "kataklizmy-i-przetrwanie",
       hook: "Lipa przy Morawce stała się symbolem przetrwania, gdy powódź 15 września 2024 r. zniszczyła otoczenie, a drzewo pozostało na miejscu.",
-      quiz_angle: "stary pień, położenie przy wodzie i opływowy kształt, który mógł pomóc przetrwać falę",
+      quiz_angle: "stary pień, położenie nad Morawką i przetrwanie powodzi z 2024 r., która uszkodziła pobliską kaplicę",
       safety_note: "po powodziach nie podchodzić do podmytych drzew i skarp; stabilność gruntu wymaga oceny specjalistów",
       region_pl: "Stronie Śląskie, województwo dolnośląskie.",
       habitat_pl: "Dolina Morawki, teren przy historycznej zabudowie i kaplicy św. Onufrego.",

@@ -1567,13 +1567,6 @@
       safety_note: "Partially protected and habitat-sensitive; do not collect it or damage oxbows and muddy ponds.",
       level: "living barometer"
     },
-    "murowy-swiecik": {
-      name: "Pearlside",
-      hook: "A small deep-water fish with photophores that help erase its silhouette with light.",
-      quiz_angle: "belly photophores, counter-illumination and rare Baltic appearances",
-      safety_note: "A rare marine visitor; treat it as natural-history context, not a field target.",
-      level: "light visitor"
-    },
     tasza: {
       name: "Lumpfish",
       hook: "A stout marine fish with a belly suction disc that lets it cling to rocks in waves.",
@@ -1721,13 +1714,6 @@
       safety_note: "Rare visitor, often in poor condition; leave reports to services and specialists.",
       level: "swimming head"
     },
-    "lis-morski": {
-      name: "Common thresher",
-      hook: "A shark with a tail so long it can use it like a whip to stun schooling fish.",
-      quiz_angle: "long upper tail lobe, oceanic shark and very rare northern appearances",
-      safety_note: "Oceanic visitor, not a search target; unusual records should be handled by experts.",
-      level: "whip tail"
-    },
     "zebacz-smugowy": {
       name: "Atlantic wolffish",
       hook: "A marine predator with massive teeth for crushing hard shells and armored prey.",
@@ -1822,9 +1808,11 @@
     },
     uszatka: {
       name: "Long-eared Owl",
-      hook: "A slim owl whose fresh feathers can glow pinkish under ultraviolet light.",
-      quiz_angle: "ear tufts, orange eyes, winter roosts and feather porphyrins",
-      level: "UV glow"
+      hook: "A slim owl whose 'ears' are only movable tufts of feathers.",
+      quiz_angle: "long ear tufts, orange eyes, shared winter roosts and old crow nests",
+      safety_note: "Do not disturb owls at their roosts; keep night observations short and quiet.",
+      habitat: "Dense trees for roosting and open land with rodents.",
+      level: "feather ears"
     },
     "puszczyk-zwyczajny": {
       name: "Tawny Owl",
@@ -2024,7 +2012,6 @@
     przadki: { name: "Prządki rocks" },
     "skamieniale-miasto": { name: "Petrified City" },
     "diable-skaly-bukowiec": { name: "Devil's Rocks in Bukowiec" },
-    "zezow-czarne-dzialy": { name: "Zęzów and Czarne Działy" },
     "skalki-pieklo-nieklan": { name: "Piekło Rocks near Niekłań" },
     kadzielnia: { name: "Kadzielnia" },
     krzemionki: { name: "Krzemionki" },
@@ -2042,7 +2029,6 @@
     "smok-wawelski-lisowice": { name: "Smok wawelski" },
     "lisowicia-bojani": { name: "Lisowicia bojani" },
     "proterochersis-robusta": { name: "Proterochersis porebensis" },
-    "tholodus-schmidi": { name: "Tholodus schmidi" },
     "encrinus-liliiformis": { name: "Encrinus liliiformis" },
     "tropy-dinozaurow-gor-swietokrzyskich": { name: "Dinosaur tracks of the Świętokrzyskie Mountains" },
     "tropy-dinozaurow-baltow": { name: "Dinosaur tracks from Bałtów" },
@@ -2087,7 +2073,7 @@
     "popielica-szara": { name: "Edible dormouse" },
     orzesznica: { name: "Hazel dormouse" },
     "koszatka-lesna": { name: "Forest dormouse" },
-    "zolednica-europejska": { name: "Garden dormouse" },
+    "zolednica-europejska": { name: "Garden dormouse", hook: "A small masked acrobat of the night, with no reliable record in Poland since 1961.", region: "In Poland it is now considered extinct; the last reliable record dates from 1961, from the Babia Góra area.", occurrence: "A reminder that a species can quietly disappear from a country: the law still gives it strict protection with a protection zone." },
     "swistak-tatrzanski": { name: "Tatra marmot" },
     "bobr-europejski": { name: "Eurasian beaver" },
     pizmak: { name: "Muskrat" },
@@ -2169,11 +2155,6 @@
     "dwor-z-drogini": {
       name: "Manor house from Droginia",
       region: "Park Etnograficzny Krakowiaków Zachodnich, the open-air museum in Wygiełzów (called Nadwiślański Park Etnograficzny until 2023), Lesser Poland; moved here from Droginia."
-    },
-    "chata-na-wysokosci": {
-      name: "Chata na Wysokości",
-      region: "Zalesie (Kamienica commune, Limanowa county), below Mogielica in the Island Beskids, about 800 m above sea level.",
-      occurrence: "A private guesthouse. According to the owners the cottage dates from 1933, and the log house beside it, from the turn of the 20th century, was moved here in 2024. The photo is representative, as there is no free photo of this building."
     }
   };
 
@@ -2844,8 +2825,8 @@
         ryby: {
           title: "Fish",
           heading: "Unusual Fish of Polish Waters",
-          subtitle: "32 fish curiosities of Polish waters and their marine edge: scents, sounds, suction discs, migrations, camouflage and invasive species.",
-          count_label: "32 curiosities",
+          subtitle: "30 fish curiosities of Polish waters and their marine edge: scents, sounds, suction discs, migrations, camouflage and invasive species.",
+          count_label: "30 curiosities",
           search_placeholder: "e.g. smelt, lumpfish, bitterling...",
           safety_notice: "Educational prototype. Fish may be protected, locally regulated or invasive: observe without collecting and always check current rules.",
           source_note: "Descriptions start from the working list of unusual fish of Poland. Photos come from Wikimedia Commons with full attribution.",
@@ -2910,8 +2891,8 @@
         "formacje-skalne": {
           title: "Rock Formations",
           heading: "Unusual Rock Formations of Poland",
-          subtitle: "33 Polish rock-form curiosities: Karkonosze granite tors, volcanic organs, sandstone labyrinths, Jurassic gates, Carpathian outcrops and glacial boulders.",
-          count_label: "33 curiosities",
+          subtitle: "32 Polish rock-form curiosities: Karkonosze granite tors, volcanic organs, sandstone labyrinths, Jurassic gates, Carpathian outcrops and glacial boulders.",
+          count_label: "32 curiosities",
           search_placeholder: "e.g. Błędne Skały, Hercules' Club, Giewont...",
           safety_notice: "Educational prototype. Observe rock formations without damaging sites: stay on marked trails, do not chip or mark rock, enter caves only on official routes and respect protected areas.",
           source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
@@ -2921,8 +2902,8 @@
         "architektura-drewniana": {
           title: "Wooden Architecture",
           heading: "Architectural Curiosities: Wood",
-          subtitle: "30 wooden curiosities of Poland: Peace Churches, log-built Gothic churches, Carpathian tserkvas, Zakopane style, Tatar mosques and living wooden villages.",
-          count_label: "30 curiosities",
+          subtitle: "29 wooden curiosities of Poland: Peace Churches, log-built Gothic churches, Carpathian tserkvas, Zakopane style, Tatar mosques and living wooden villages.",
+          count_label: "29 curiosities",
           search_placeholder: "e.g. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
           safety_notice: "Educational prototype. Visit wooden monuments respectfully: do not touch polychrome, icons, carved wood or construction elements, do not enter private property without permission and check current visiting rules.",
           source_note: "Descriptions start from the supplied working material on Polish wooden architecture. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
@@ -2976,8 +2957,8 @@
         skamienialosci: {
           title: "Fossils",
           heading: "Unusual Fossils of Poland",
-          subtitle: "33 paleontological curiosities of Poland: trilobites, Devonian reefs, Zachełmie, Triassic giants, dinosaur tracks, Jurassic seas, amber and Ice Age megafauna.",
-          count_label: "33 curiosities",
+          subtitle: "32 paleontological curiosities of Poland: trilobites, Devonian reefs, Zachełmie, Triassic giants, dinosaur tracks, Jurassic seas, amber and Ice Age megafauna.",
+          count_label: "32 curiosities",
           search_placeholder: "e.g. Zachełmie, Smok, ammonites, amber...",
           safety_notice: "Educational prototype. Observe fossils without damaging sites: do not chip specimens from reserves, enter quarries without permission, dig fossil sites or remove rare finds from their context.",
           source_note: "Descriptions start from the working list of unusual Polish fossils. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",

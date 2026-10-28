@@ -1,6 +1,7 @@
 // Validates the Karta 2.0 data: verified fun facts in data/facts/*.facts.js and the card fields
 // that the interface reads next to them (protection / toxic badges, synonyms).
-// The facts files are generated outside the repo, so this script only reads them.
+// The facts files are generated outside the repo, so this script only reads them. Cards and facts
+// withdrawn after editorial review are listed in data/collections.js and must stay out of the UI.
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
@@ -50,9 +51,10 @@ vm.runInContext(collectionsJs, context, { filename: "data/collections.js" });
 const app = context.window.ATLAS_APP_DATA;
 const allFacts = context.window.ATLAS_FACTS || {};
 assert(app?.collections?.length, "ATLAS_APP_DATA should expose collections");
+const withdrawn = app.withdrawn || { cards: {}, facts: {} };
 
 const seenFactIds = new Map();
-const stats = { cards: 0, facts: 0, notes: 0, statuses: {} };
+const stats = { cards: 0, facts: 0, notes: 0, statuses: {}, withdrawnCardFacts: 0 };
 
 function markdownBalanced(text) {
   // Markdown light: **bold**, *italic* and ***both***. Every run of asterisks has to close.
@@ -73,12 +75,21 @@ for (const collection of app.collections) {
     continue;
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(data.checked || "")) fail(`${collection.id}: "checked" should be a YYYY-MM-DD date`);
-  if (collection.facts !== data.items) fail(`${collection.id}: collections.js should attach ATLAS_FACTS items as collection.facts`);
-
   const cardIds = new Set(collection.items.map((item) => item.id));
+  for (const cardId of Object.keys(collection.facts || {})) {
+    if (!cardIds.has(cardId)) fail(`${collection.id}/${cardId}: collections.js attached facts of a card that is not in the collection`);
+  }
   for (const [cardId, entry] of Object.entries(data.items || {})) {
     const where = `${collection.id}/${cardId}`;
-    if (!cardIds.has(cardId)) fail(`${where}: card id does not exist in the collection data`);
+    const isWithdrawn = Boolean(withdrawn.cards[where]);
+    if (isWithdrawn) stats.withdrawnCardFacts += Array.isArray(entry.facts) ? entry.facts.length : 0;
+    else if (!cardIds.has(cardId)) fail(`${where}: card id does not exist in the collection data`);
+    // The interface gets the facts of existing cards only, without the withdrawn facts.
+    const expected = cardIds.has(cardId) && Array.isArray(entry.facts)
+      ? entry.facts.filter((fact) => !withdrawn.facts[fact?.id]).map((fact) => fact?.id)
+      : null;
+    const attached = collection.facts?.[cardId]?.facts?.map((fact) => fact.id) ?? null;
+    if (JSON.stringify(expected) !== JSON.stringify(attached)) fail(`${where}: collections.js should attach the card's facts without the withdrawn ones`);
     if (!Array.isArray(entry.facts)) {
       fail(`${where}: "facts" should be an array`);
       continue;
@@ -155,6 +166,18 @@ for (const collection of app.collections) {
   }
 }
 
+// The withdrawn registry has to stay in sync with the data: withdrawn cards are gone from the
+// collections, withdrawn facts still exist in the generated files (a stale entry is a warning).
+for (const key of Object.keys(withdrawn.cards)) {
+  const [collectionId, cardId] = key.split("/");
+  const collection = app.collections.find((entry) => entry.id === collectionId);
+  if (!collection) fail(`withdrawn card ${key}: unknown collection`);
+  else if (collection.items.some((item) => item.id === cardId)) fail(`withdrawn card ${key} still exists in the collection data`);
+}
+for (const id of Object.keys(withdrawn.facts)) {
+  if (!seenFactIds.has(id)) warn(`withdrawn fact ${id} no longer exists in data/facts`);
+}
+
 for (const message of warnings) console.warn(`warning: ${message}`);
 if (errors.length) {
   for (const message of errors) console.error(`error: ${message}`);
@@ -162,4 +185,5 @@ if (errors.length) {
   process.exit(1);
 }
 const statusSummary = Object.entries(stats.statuses).map(([status, count]) => `${status} ${count}`).join(", ");
-console.log(`validate-facts: ${stats.facts} facts on ${stats.cards} cards (${statusSummary}), ${stats.notes} notes, ${warnings.length} warning(s)`);
+const withdrawnSummary = `withdrawn: ${Object.keys(withdrawn.cards).length} cards (${stats.withdrawnCardFacts} of their facts) and ${Object.keys(withdrawn.facts).length} facts`;
+console.log(`validate-facts: ${stats.facts} facts on ${stats.cards} cards (${statusSummary}), ${stats.notes} notes; ${withdrawnSummary}; ${warnings.length} warning(s)`);

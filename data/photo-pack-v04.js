@@ -34,7 +34,7 @@
     "gwiazda-wieloporowa": {
       image_status: "commons_verified",
       image: commonsImage("Myriostoma coliforme.jpg"),
-      image_alt: "Gwiazda wieloporowa (Myriostoma coliforme), gwiazdowaty owocnik z wieloma otworami na główce",
+      image_alt: "Gwiazda wieloporowata (Myriostoma coliforme), gwiazdowaty owocnik z wieloma otworami na główce",
       image_author: "Diana Marcela Rocabado Reyes",
       image_source: "https://commons.wikimedia.org/wiki/File:Myriostoma_coliforme.jpg",
       image_license: "CC BY-SA 3.0",

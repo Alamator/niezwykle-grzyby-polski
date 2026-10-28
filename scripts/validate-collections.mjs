@@ -184,16 +184,16 @@ assert(landscapeRecords, "landscape records collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
-assert.equal(fish.items.length, 32, "fish collection should contain 32 fish curiosities");
+assert.equal(fish.items.length, 30, "fish collection should contain 30 fish curiosities (Mauryk and Kosogon withdrawn: no confirmed Baltic record)");
 assert.equal(birds.items.length, 32, "bird collection should contain 32 bird curiosities");
 assert.equal(trees.items.length, 30, "tree collection should contain 30 dendrological curiosities");
 assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mineralogical curiosities");
-assert.equal(rockFormations.items.length, 33, "rock formation collection should contain 33 geological curiosities");
-assert.equal(fossils.items.length, 33, "fossil collection should contain 33 paleontological curiosities");
+assert.equal(rockFormations.items.length, 32, "rock formation collection should contain 32 geological curiosities (Zęzów i Czarne Działy withdrawn)");
+assert.equal(fossils.items.length, 32, "fossil collection should contain 32 paleontological curiosities (Tholodus schmidi withdrawn: no published Polish record)");
 assert.equal(skyPhenomena.items.length, 33, "atmosphere and astronomy collection should contain 33 sky and weather curiosities");
 assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mammal curiosities");
 assert.equal(amphibiansReptiles.items.length, 30, "amphibian and reptile collection should contain 30 well-documented herpetofauna curiosities");
-assert.equal(woodenArchitecture.items.length, 30, "wooden architecture collection should contain 30 prepared architectural curiosities");
+assert.equal(woodenArchitecture.items.length, 29, "wooden architecture collection should contain 29 prepared architectural curiosities (Chata na Wysokości withdrawn)");
 assert.equal(woodenArchitecture.route, "/atlas/architektura-drewniana", "wooden architecture collection should expose the requested route");
 assert.equal(underground.items.length, 30, "underground collection should contain 30 prepared subterranean curiosities");
 assert.equal(underground.route, "/atlas/podziemia", "underground collection should expose the requested route");
@@ -220,7 +220,7 @@ assert(
 const fishImages = fish.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(fishImages.length, 32, "fish collection should include 32 curated images with attribution");
+assert.equal(fishImages.length, 30, "fish collection should include 30 curated images with attribution");
 assert(
   fish.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "fish images should use Wikimedia Commons Special:Redirect links"
@@ -268,7 +268,7 @@ assert(
 const rockFormationImages = rockFormations.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(rockFormationImages.length, 33, "rock formation collection should include 33 curated images with attribution");
+assert.equal(rockFormationImages.length, 32, "rock formation collection should include 32 curated images with attribution");
 assert(
   rockFormations.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "rock formation images should use Wikimedia Commons Special:Redirect links"
@@ -280,13 +280,17 @@ assert(
 const fossilImages = fossils.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(fossilImages.length, 33, "fossil collection should include 33 curated images with attribution");
+assert.equal(fossilImages.length, 31, "fossil collection should include 31 curated images with attribution; the Krzyżanowice marine-reptile card has no fitting free photo");
 assert(
-  fossils.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
+  fossils.items.filter((item) => !item.image).every((item) => item.id === "pliozaury-z-krzyzanowic"),
+  "only the Krzyżanowice marine-reptile card should be without a photo"
+);
+assert(
+  fossils.items.filter((item) => item.image).every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "fossil images should use Wikimedia Commons Special:Redirect links"
 );
 assert(
-  fossils.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
+  fossils.items.filter((item) => item.image).every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "fossil image sources should link to Wikimedia Commons file pages"
 );
 const skyPhenomenonImages = skyPhenomena.items.filter(
@@ -328,7 +332,7 @@ assert(
 const woodenArchitectureImages = woodenArchitecture.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(woodenArchitectureImages.length, 30, "wooden architecture collection should include 30 curated images with attribution");
+assert.equal(woodenArchitectureImages.length, 29, "wooden architecture collection should include 29 curated images with attribution");
 assert(
   woodenArchitecture.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "wooden architecture images should use Wikimedia Commons Special:Redirect links"
@@ -430,7 +434,7 @@ assert(insects.categories.some((category) => category.short === "Kształty"), "i
 assert(flowers.subtitle.includes("dziko rosnące"), "flower subtitle should describe the wild/naturalized scope");
 assert(flowers.categories.some((category) => category.label === "Łowcy i pułapki"), "flower categories should use Polish diacritics");
 assert(flowers.items.some((item) => item.name_pl === "Świetlanka długoszowata" && item.synonyms?.includes("Świetlik mszysty")), "flower collection should include the moss curiosity under its corrected name, with the former atlas name kept as a synonym");
-assert(fish.subtitle.includes("rybie osobliwości"), "fish subtitle should describe fish curiosities");
+assert(fish.subtitle.includes("rybich osobliwości"), "fish subtitle should describe fish curiosities");
 assert(fish.categories.some((category) => category.label === "Dźwięk i światło"), "fish categories should use Polish diacritics");
 assert(fish.items.some((item) => item.name_pl === "Różanka"), "fish collection should include the bitterling curiosity from the source file");
 assert(birds.subtitle.includes("ptasie osobliwości"), "bird subtitle should describe bird curiosities");

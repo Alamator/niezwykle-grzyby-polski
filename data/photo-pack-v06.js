@@ -102,7 +102,7 @@
     "gestoporek-cynobrowy": {
       image_status: "commons_candidate",
       image: commonsImage("Zinnober-Tramete Pycnoporus cinnabarinus.jpg"),
-      image_alt: "Gęstoporek cynobrowy (Pycnoporus cinnabarinus), intensywnie pomarańczowo-czerwony owocnik na martwym drewnie",
+      image_alt: "Wrośniak cynobrowy (Trametes cinnabarina), intensywnie pomarańczowo-czerwony owocnik na martwym drewnie",
       image_author: "Holger Krisp",
       image_source: "https://commons.wikimedia.org/wiki/File:Zinnober-Tramete_Pycnoporus_cinnabarinus.jpg",
       image_license: "CC BY 3.0",

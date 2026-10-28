@@ -95,13 +95,6 @@
       "CC BY-SA 3.0",
       ccBySa30
     ),
-    "tholodus-schmidi": photo(
-      "Ichthyosaur fossil.jpg",
-      "Kadr reprezentatywny: skamieniałość ichtiozaura, użyta jako morski kontekst dla triasowego Tholodus",
-      "soebe",
-      "CC BY-SA 3.0",
-      ccBySa30
-    ),
     "encrinus-liliiformis": photo(
       "Encrinus liliiformis.JPG",
       "Skamieniała lilia morska Encrinus liliiformis z widoczną strukturą ramion i kielicha",
@@ -127,13 +120,6 @@
       "An Corran dinosaur tracks.jpg",
       "Kadr reprezentatywny: wyraźne tropy dinozaurów użyte jako kontekst dla stanowiska w Borkowicach",
       "Neil Clark",
-      "CC BY-SA 4.0",
-      ccBySa40
-    ),
-    "pliozaury-z-krzyzanowic": photo(
-      "Pliosaurus rossicus cast.jpg",
-      "Kadr reprezentatywny: odlew czaszki pliozaura, pokazujący potężną głowę morskiego drapieżnika",
-      "Kenneth Carpenter",
       "CC BY-SA 4.0",
       ccBySa40
     ),

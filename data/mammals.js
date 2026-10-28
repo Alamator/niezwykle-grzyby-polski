@@ -280,13 +280,13 @@
       name_pl: "Żołędnica europejska",
       name_lat: "Eliomys quercinus",
       category: "gryzonie-relikty-inzynierowie",
-      hook: "Żołędnica wygląda jak mały nocny akrobata w masce, ale w Polsce jest tak rzadka, że każdy pewny ślad ma dużą wartość faunistyczną.",
-      quiz_angle: "maskowate ubarwienie, nadrzewność, rzadkość i status jednej z najbardziej tajemniczych pilchowatych",
+      hook: "Żołędnica wygląda jak mały nocny akrobata w masce, ale w Polsce nie ma jej wiarygodnej obserwacji od 1961 r.",
+      quiz_angle: "czarna „maska”, kita na końcu ogona i gatunek uznawany w Polsce za wymarły",
       safety_note: "nie nagłaśniać dokładnych stanowisk rzadkich pilchowatych i nie penetrować dziupli",
       protection: "strict",
-      region_pl: "W Polsce skrajnie rzadka i punktowa, znana z nielicznych, ostrożnie dokumentowanych stanowisk.",
+      region_pl: "W Polsce uznawana obecnie za gatunek wymarły; ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry.",
       habitat_pl: "Ciepłe lasy liściaste, zadrzewienia, sady i strukturalnie bogate miejsca z kryjówkami.",
-      occurrence_note: "W atlasie jest przykładem ostrożności: lepiej pokazać rzadkość bez obiecywania łatwej obserwacji.",
+      occurrence_note: "W atlasie przypomina, że gatunek może po cichu zniknąć z kraju: prawo nadal obejmuje żołędnicę ochroną ścisłą ze strefą ochrony.",
       level: "pilch z legendy"
     }),
     entry({

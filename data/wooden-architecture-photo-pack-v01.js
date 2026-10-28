@@ -232,13 +232,6 @@
       "M. Klag / Małopolski Instytut Kultury",
       "CC BY-SA 2.0",
       ccBySa20
-    ),
-    "chata-na-wysokosci": photo(
-      "Zakopane - chata goralska. 1937-1939 (74197676).jpg",
-      "Kadr reprezentatywny: historyczna góralska chata drewniana z bali, użyta dla karty Chata na Wysokości",
-      "autor nieznany; Polona / Biblioteka Narodowa",
-      "Public domain",
-      publicDomain
     )
   };
 

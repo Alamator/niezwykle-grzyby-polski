@@ -373,19 +373,6 @@
       level: "leśne czarty"
     }),
     entry({
-      id: "zezow-czarne-dzialy",
-      name_pl: "Zęzów i Czarne Działy",
-      name_lat: "piaskowce i zlepieńce fliszowe",
-      category: "karpaty-flisz-tatry",
-      hook: "W Beskidzie Wyspowym osobliwość bywa mniej pocztówkowa: liczy się ukryty układ grzbietów, progów i wychodni w lesie.",
-      quiz_angle: "flisz Beskidu Wyspowego, lokalne wychodnie skalne i nazwy grzbietów zapamiętywane przez teren",
-      safety_note: "nie schodzić z leśnych ścieżek na strome, osuwiskowe zbocza i nie naruszać małych wychodni",
-      region_pl: "Beskid Wyspowy, okolice Tymbarku i Limanowej.",
-      habitat_pl: "Leśne grzbiety fliszowe, piaskowce, zlepieńce i drobne formy skalne w terenie osuwiskowym.",
-      occurrence_note: "W atlasie ta karta zostawia miejsce dla mniej oczywistych osobliwości: nie każda wymaga wielkiej ściany, czasem ważny jest charakter całego grzbietu.",
-      level: "ukryty flisz"
-    }),
-    entry({
       id: "skalki-pieklo-nieklan",
       name_pl: "Skałki Piekło pod Niekłaniem",
       name_lat: "jurajskie piaskowce i ostańce",
@@ -453,7 +440,7 @@
   ];
 
   window.ROCK_FORMATION_APP_DATA = {
-    subtitle: "33 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
+    subtitle: "32 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
     safety_notice: "To prototyp edukacyjny. Formacje skalne oglądaj bez niszczenia stanowisk: nie schodź ze szlaków, nie odłupuj skał, nie rysuj po ścianach, nie wchodź do jaskiń lub wyrobisk poza trasami udostępnionymi i traktuj miejsca chronione z dużą ostrożnością.",
     categories,
     formations

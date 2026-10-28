@@ -76,20 +76,6 @@
       level: "żywy barometr"
     }),
     entry({
-      id: "murowy-swiecik",
-      name_pl: "Mauryk",
-      name_lat: "Maurolicus muelleri",
-      synonyms: ["Murowy świecik"],
-      category: "dzwiek-i-swiatlo",
-      hook: "Głębinowa drobnica z fotoforami, która może maskować sylwetkę własnym światłem.",
-      quiz_angle: "fotofory na brzuchu, kamuflaż świetlny i rzadkie bałtyckie pojawy",
-      safety_note: "rzadki morski gość; informacje traktować jako ciekawostkę przyrodniczą, nie cel obserwacji terenowej",
-      region_pl: "Wyjątkowo notowany w południowym Bałtyku, zwykle kojarzony z głębszymi, bardziej słonymi wodami.",
-      habitat_pl: "Otwarte, głębsze wody morskie; w Bałtyku pojawia się raczej okazjonalnie.",
-      occurrence_note: "Pasuje do atlasu przez kontrast: w płytkim, słonawym Bałtyku ryba z narządami świetlnymi brzmi niemal oceanicznie.",
-      level: "świetlny gość"
-    }),
-    entry({
       id: "tasza",
       name_pl: "Tasza",
       name_lat: "Cyclopterus lumpus",
@@ -368,20 +354,6 @@
       level: "pływająca głowa"
     }),
     entry({
-      id: "lis-morski",
-      name_pl: "Kosogon",
-      name_lat: "Alopias vulpinus",
-      synonyms: ["Lis morski"],
-      category: "oceaniczni-goscie",
-      hook: "Rekin z ogonem tak długim, że używa go jak bicza do ogłuszania ryb w ławicy.",
-      quiz_angle: "wydłużony górny płat ogona, rekin oceaniczny i bardzo rzadkie północne pojawy",
-      safety_note: "oceaniczny gość, nie obiekt samodzielnych poszukiwań; obserwacje wymagają zgłoszenia ekspertom",
-      region_pl: "Skrajnie rzadki kontekst Bałtyku i północnych mórz, bardziej ciekawostka niż stały mieszkaniec.",
-      habitat_pl: "Otwarte morza i oceany, zwykle poza codziennym obrazem polskich wód.",
-      occurrence_note: "W atlasie reprezentuje ryby znane z polskiego nazewnictwa i wyjątkowych pojawów, ale biologicznie oceaniczne.",
-      level: "ogon jak bicz"
-    }),
-    entry({
       id: "zebacz-smugowy",
       name_pl: "Zębacz pasiasty",
       name_lat: "Anarhichas lupus",
@@ -452,7 +424,7 @@
   ];
 
   window.FISH_APP_DATA = {
-    subtitle: "32 rybie osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
+    subtitle: "30 rybich osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
     safety_notice: "To prototyp edukacyjny. Ryby bywają chronione, objęte lokalnymi regulacjami albo inwazyjne: obserwuj bez odławiania i zawsze sprawdzaj aktualne przepisy.",
     categories,
     fish

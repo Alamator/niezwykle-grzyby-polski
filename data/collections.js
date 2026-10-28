@@ -91,8 +91,8 @@
       group: "przyroda-zywa",
       title: "Ryby",
       heading: "Osobliwe ryby polskich wód",
-      subtitle: "32 rybie osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
-      count_label: "32 osobliwości",
+      subtitle: "30 rybich osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
+      count_label: "30 osobliwości",
       icon: "R",
       accent: "aqua",
       search_placeholder: "np. stynka, tasza, różanka...",
@@ -181,8 +181,8 @@
       group: "ziemia-niebo",
       title: "Formacje skalne",
       heading: "Osobliwe formacje skalne Polski",
-      subtitle: "33 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
-      count_label: "33 osobliwości",
+      subtitle: "32 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
+      count_label: "32 osobliwości",
       icon: "F",
       accent: "cliff",
       search_placeholder: "np. Błędne Skały, Maczuga, Giewont...",
@@ -199,8 +199,8 @@
       group: "czlowiek-kultura",
       title: "Architektura drewniana",
       heading: "Architektoniczne osobliwości: drewno",
-      subtitle: "30 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
-      count_label: "30 osobliwości",
+      subtitle: "29 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
+      count_label: "29 osobliwości",
       icon: "AD",
       accent: "wood",
       route: "/atlas/architektura-drewniana",
@@ -294,8 +294,8 @@
       group: "ziemia-niebo",
       title: "Skamieniałości",
       heading: "Osobliwe skamieniałości Polski",
-      subtitle: "33 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
-      count_label: "33 osobliwości",
+      subtitle: "32 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
+      count_label: "32 osobliwości",
       icon: "S",
       accent: "fossil",
       search_placeholder: "np. Zachełmie, Smok, amonity, bursztyn...",
@@ -396,11 +396,37 @@
     _loadPromise: null
   }));
 
+  // Editorial review of 28.10.2026: what is not confirmed well enough stays out of the atlas.
+  // The withdrawn cards were removed from the collection data. data/facts/*.facts.js is generated
+  // outside the repo, so withdrawn facts are filtered here; the reasons are kept for the next run.
+  const WITHDRAWN = {
+    cards: {
+      "ryby/murowy-swiecik": "Mauryk: brak potwierdzonej obserwacji w Bałtyku (C064).",
+      "ryby/lis-morski": "Kosogon: brak potwierdzonej obserwacji w Bałtyku (C065).",
+      "formacje-skalne/zezow-czarne-dzialy": "Zęzów i Czarne Działy: nie wiadomo, o które miejsce chodzi; potwierdzona jest tylko wysokość Zęzowa (C111).",
+      "skamienialosci/tholodus-schmidi": "Tholodus schmidi: brak publikacji o znaleziskach z Polski (C127).",
+      "architektura-drewniana/chata-na-wysokosci": "Chata na Wysokości: prywatna kwatera, historia tylko według właścicieli, bez ciekawostek i bez zdjęcia obiektu (C144)."
+    },
+    facts: {
+      F0032: "Piestrzenica: czas obróbki termicznej to wskazówka kulinarna.",
+      F0037: "Smardz: „dokładna obróbka termiczna zmniejsza ryzyko” to porada kulinarna.",
+      F0073: "Galaretek kolczasty: „odradza się jeść na surowo” sugeruje jedzenie po obróbce.",
+      F0143: "Żółciak: „surowe lub niedogotowane” sugeruje jadalność po ugotowaniu.",
+      F0170: "Opieńka: „surowa lub niedogotowana” sugeruje jadalność po ugotowaniu.",
+      F0985: "Ctenochasma: rodzaj niepotwierdzony w Owadowie-Brzezinkach, fakt nie dotyczy karty (C121).",
+      F1073: "Siedlce: „najniższa oficjalna temperatura” przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929)."
+    }
+  };
+
   // Verified fun facts live in data/facts/<collection>.facts.js (generated outside the repo) and set
   // window.ATLAS_FACTS[<collection>] = { checked, items: { <card id>: { facts, notes } } }.
+  // Only the facts of cards present in the collection are attached, without the withdrawn ones.
   function attachFacts(collection) {
     const facts = window.ATLAS_FACTS?.[collection.id];
-    collection.facts = facts?.items || {};
+    const cardIds = new Set((collection.items || []).map((item) => item.id));
+    collection.facts = Object.fromEntries(Object.entries(facts?.items || {})
+      .filter(([cardId]) => cardIds.has(cardId))
+      .map(([cardId, entry]) => [cardId, { ...entry, facts: (entry.facts || []).filter((fact) => !WITHDRAWN.facts[fact.id]) }]));
     collection.facts_checked = facts?.checked || "";
   }
 
@@ -468,6 +494,7 @@
     views,
     groups,
     collections,
+    withdrawn: WITHDRAWN,
     loadCollection
   };
 })();

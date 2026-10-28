@@ -411,24 +411,11 @@
       habitat_pl: "Drewniany dwór szlachecki w ekspozycji skansenowskiej, zachowujący układ domu reprezentacyjnego.",
       occurrence_note: "W atlasie uzupełnia obraz drewna o warstwę dworską, często pomijaną między kościołami i chałupami.",
       level: "dwór z modrzewia"
-    }),
-    base({
-      id: "chata-na-wysokosci",
-      name_pl: "Chata na Wysokości",
-      name_lat: "Zalesie pod Mogielicą • świeckie budownictwo góralskie",
-      category: "styl-zakopianski-i-gorale",
-      hook: "Wyremontowana wiejska chata pod Mogielicą pokazuje mniej pomnikowy wymiar drewna gór: codzienny dom, w którym konstrukcja i klimat są ważniejsze niż efekt reprezentacyjny.",
-      quiz_angle: "góralska chata z bali, świecka funkcja, adaptacja do górskiego klimatu i skala codziennego domu",
-      safety_note: "to prywatny obiekt; oglądać tylko z miejsc dostępnych publicznie i nie wchodzić bez zgody właścicieli",
-      region_pl: "Zalesie (gm. Kamienica, pow. limanowski), pod Mogielicą w Beskidzie Wyspowym, ok. 800 m n.p.m.",
-      habitat_pl: "Drewniana chata związana z budownictwem góralskim i lokalną tradycją ciesielską.",
-      occurrence_note: "To prywatny obiekt noclegowy. Według właścicieli chata pochodzi z 1933 r., a stojący obok dom z bali z przełomu XIX i XX w. przeniesiono tu w 2024 r. Zdjęcie jest reprezentatywne, bo nie ma wolnego kadru tego obiektu.",
-      level: "drewno gór"
     })
   ];
 
   window.WOODEN_ARCHITECTURE_APP_DATA = {
-    subtitle: "30 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
+    subtitle: "29 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
     safety_notice: "To prototyp edukacyjny. Drewniane zabytki oglądaj z szacunkiem: nie dotykaj polichromii, ikon, snycerki ani konstrukcji, nie wchodź na prywatne posesje bez zgody i sprawdzaj aktualne zasady zwiedzania.",
     categories,
     woodenArchitecture

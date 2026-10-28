@@ -139,19 +139,6 @@
       level: "pancerz z triasu"
     }),
     entry({
-      id: "tholodus-schmidi",
-      name_pl: "Tholodus schmidi",
-      name_lat: "Tholodus schmidi",
-      category: "tropy-i-lad-triasu",
-      hook: "Ten rzadki gad morski jest znany z fragmentów, zwłaszcza zębów przystosowanych do miażdżenia twardych muszli.",
-      quiz_angle: "środkowotriasowy gad morski, durofagia i zęby do kruszenia skorup",
-      safety_note: "fragmentaryczne zęby i kości bywają kluczowe diagnostycznie; nie czyścić ich agresywnie ani nie wyrywać z matrycy",
-      region_pl: "Śląsk i osady wapienia muszlowego związane ze środkowym triasem.",
-      habitat_pl: "Płytkie morze epikontynentalne z małżami, ramienionogami i drapieżnikami wyspecjalizowanymi w twardym pokarmie.",
-      occurrence_note: "To karta o tym, że czasem kilka zębów wystarczy, by odtworzyć całą strategię żywieniową.",
-      level: "kruszacz muszli"
-    }),
-    entry({
       id: "encrinus-liliiformis",
       name_pl: "Encrinus liliiformis",
       name_lat: "Encrinus liliiformis",
@@ -456,7 +443,7 @@
   ];
 
   window.FOSSIL_APP_DATA = {
-    subtitle: "33 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
+    subtitle: "32 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
     safety_notice: "To prototyp edukacyjny. Skamieniałości oglądaj bez niszczenia stanowisk: nie odkuwaj okazów z rezerwatów, nie wchodź do kamieniołomów bez zgody, nie rozkopuj stanowisk i zgłaszaj rzadkie znaleziska specjalistom.",
     categories,
     fossils
