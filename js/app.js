@@ -196,6 +196,12 @@
     return itemField(item, "name", "name_pl", collection) || item.name_lat;
   }
 
+  // name_lat is a scientific name for species, but a short Polish descriptor for places
+  // ("Wieliczka • solne miasto UNESCO"); the English card text may translate the descriptor.
+  function itemLatin(item, collection = activeCollection()) {
+    return itemTranslation(item, collection).latin || item.name_lat || "";
+  }
+
   function itemHook(item, collection = activeCollection()) {
     return itemField(item, "hook", "hook", collection);
   }
@@ -545,7 +551,7 @@
         ${visualHtml(item)}
         <div class="m-card__body">
           <h3>${escapeHtml(itemName(item))}</h3>
-          <div class="latin">${escapeHtml(item.name_lat)}</div>
+          <div class="latin">${escapeHtml(itemLatin(item))}</div>
           ${badgesHtml(item)}
           <p class="hook">${escapeHtml(itemHook(item))}</p>
           ${region ? `<p class="occurrence-snippet"><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
@@ -590,6 +596,7 @@
         item.name_pl,
         ...itemSynonyms(item),
         item.name_lat,
+        itemLatin(item),
         itemHook(item),
         itemQuizAngle(item),
         itemCategoryLabel(item),
@@ -673,7 +680,7 @@
           <span class="pill">${escapeHtml(t("levelLabel"))}: ${escapeHtml(itemLevel(item) || "atlas")}</span>
         </div>
         <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(itemName(item))}</h2>
-        <p class="latin">${escapeHtml(item.name_lat)}</p>
+        <p class="latin">${escapeHtml(itemLatin(item))}</p>
         ${synonymsHtml(item)}
         ${badgesHtml(item)}
         ${cardToolsHtml(collection, item)}
@@ -964,7 +971,7 @@
           ${state.flashRevealed ? `
             <div class="reveal-box">
               <h3>${escapeHtml(itemName(item))}</h3>
-              <p class="latin">${escapeHtml(item.name_lat)}</p>
+              <p class="latin">${escapeHtml(itemLatin(item))}</p>
               ${badgesHtml(item)}
               ${region ? `<p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
               <p><strong>${escapeHtml(t("rememberLabel"))}:</strong> ${escapeHtml(itemQuizAngle(item))}</p>
@@ -1055,7 +1062,7 @@
     const mode = Math.random() > 0.45 || !latinIsUnique ? "hook" : "latin";
     const prompt = mode === "hook"
       ? t("quizHookPrompt", { hook: itemHook(selected) })
-      : t("quizLatinPrompt", { latin: selected.name_lat });
+      : t("quizLatinPrompt", { latin: itemLatin(selected) });
     const wrong = sample(list.filter((item) => item.id !== selected.id && itemHook(item) !== itemHook(selected)), 3);
     return {
       type: "choice",
@@ -1183,7 +1190,7 @@
   function renderCredits() {
     const rows = items().map((item) => `
       <tr>
-        <td><strong>${escapeHtml(itemName(item))}</strong><br><span class="latin">${escapeHtml(item.name_lat)}</span></td>
+        <td><strong>${escapeHtml(itemName(item))}</strong><br><span class="latin">${escapeHtml(itemLatin(item))}</span></td>
         <td>${item.image ? `<a href="${escapeHtml(item.image)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("preview"))}</a>` : escapeHtml(t("missing"))}</td>
         <td>${item.image_author ? escapeHtml(item.image_author) : escapeHtml(t("missing"))}</td>
         <td>${item.image_license ? escapeHtml(item.image_license) : escapeHtml(t("missing"))}</td>

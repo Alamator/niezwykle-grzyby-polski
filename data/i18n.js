@@ -662,11 +662,14 @@
 
   function makeItemMap(collectionId, overrides) {
     const collection = collectionById(collectionId);
+    // Full English card texts of some collections live in data/i18n/<collection>.en.js, loaded
+    // with the collection; the curated entries above take precedence field by field.
+    const loaded = window.ATLAS_ITEM_TEXT_EN?.[collectionId] || {};
     return Object.fromEntries((collection.items || []).map((item) => {
-      const entry = overrides[item.id] || {};
+      const entry = { ...loaded[item.id], ...overrides[item.id] };
       // Cards without any English text keep their Polish name: their name_lat is often shared
       // (several "Quercus robur" trees) or a place descriptor rather than a name.
-      const untranslated = !overrides[item.id] && !item.name_en;
+      const untranslated = !Object.keys(entry).length && !item.name_en;
       const name = entry.name || item.name_en || (untranslated ? item.name_pl : item.name_lat) || item.name_pl;
       const defaultHook = collectionId === "architektura-drewniana"
         ? `${name} is included here for its unusual wooden structure, craft or cultural story.`
@@ -702,7 +705,8 @@
         region: entry.region || item.region_en || defaultRegion(collectionId),
         habitat: entry.habitat || item.habitat_en || defaultHabitats[collectionId]?.[item.category] || "specialized habitats in Poland",
         occurrence: entry.occurrence || item.occurrence_en || defaultOccurrence(collectionId),
-        level: entry.level || levels[item.level] || item.level || "atlas note"
+        level: entry.level || levels[item.level] || item.level || "atlas note",
+        latin: entry.latin || ""
       }];
     }));
   }

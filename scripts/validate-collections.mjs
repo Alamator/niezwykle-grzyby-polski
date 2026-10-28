@@ -428,6 +428,34 @@ for (const collection of collections) {
     assert(translatedItem.safety_note, `${collection.id}/${item.id} should have an English safety note`);
   }
 }
+// Full English card texts of ten collections live in data/i18n/<collection>.en.js, loaded with the
+// collection. Every card needs every field, and the files must not keep Polish sentences by mistake.
+const itemTextEn = context.window.ATLAS_ITEM_TEXT_EN || {};
+const englishFields = ["name", "hook", "quiz_angle", "safety_note", "region", "habitat", "occurrence", "level"];
+const polishWords = /(^|[^\p{L}])(się|jest|oraz|który|która|które|również|można|dlatego|gdzie)(?![\p{L}])/iu;
+for (const file of fs.existsSync("data/i18n") ? fs.readdirSync("data/i18n") : []) {
+  const collectionId = file.replace(/\.en\.js$/, "");
+  const collection = collections.find((entry) => entry.id === collectionId);
+  assert(collection, `data/i18n/${file} does not belong to any collection`);
+  assert(manifestScripts.some((scripts) => scripts.includes(`/data/i18n/${file}`)), `data/i18n/${file} should be loaded with its collection`);
+  const texts = itemTextEn[collectionId];
+  assert(texts, `data/i18n/${file} should set window.ATLAS_ITEM_TEXT_EN["${collectionId}"]`);
+  const cardIds = new Set(collection.items.map((item) => item.id));
+  for (const id of Object.keys(texts)) assert(cardIds.has(id), `data/i18n/${file}: ${id} is not a card of ${collectionId}`);
+  for (const item of collection.items) {
+    const entry = texts[item.id];
+    assert(entry, `data/i18n/${file} should have English text for ${item.id}`);
+    for (const field of englishFields) {
+      assert(typeof entry[field] === "string" && entry[field].trim(), `${collectionId}/${item.id}: English ${field} is missing`);
+      assert(!polishWords.test(entry[field]), `${collectionId}/${item.id}: English ${field} looks Polish: ${entry[field]}`);
+    }
+    if (entry.latin !== undefined) assert(typeof entry.latin === "string" && entry.latin.trim(), `${collectionId}/${item.id}: English latin line should be a non-empty string`);
+    // The interface shows the full text, not the generic template.
+    const shown = i18n.collections.en[collectionId].items[item.id];
+    assert(!/is included here/.test(shown.hook), `${collectionId}/${item.id}: the English hook is still the generic template`);
+  }
+}
+
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");
