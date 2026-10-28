@@ -571,9 +571,18 @@
     ].join("");
   }
 
+  // Search ignores Polish diacritics, so "zolw" finds "żółw" and a former spelling still matches.
+  function searchKey(value, locale) {
+    return String(value || "")
+      .toLocaleLowerCase(locale)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/ł/g, "l");
+  }
+
   function filteredItems() {
     const locale = state.language === "en" ? "en" : "pl";
-    const phrase = state.search.trim().toLocaleLowerCase(locale);
+    const phrase = searchKey(state.search.trim(), locale);
     return items().filter((item) => {
       const matchesCategory = state.category === "all" || item.category === state.category;
       const haystack = [
@@ -587,8 +596,8 @@
         itemCategoryShort(item),
         itemRegion(item),
         itemHabitat(item)
-      ].join(" ").toLocaleLowerCase(locale);
-      const matchesSearch = !phrase || haystack.includes(phrase);
+      ].join(" ");
+      const matchesSearch = !phrase || searchKey(haystack, locale).includes(phrase);
       return matchesCategory && matchesSearch;
     });
   }
@@ -1041,11 +1050,13 @@
       const trueFalse = buildTrueFalseQuestion(selected, counts);
       if (trueFalse) return trueFalse;
     }
-    const mode = Math.random() > 0.45 ? "hook" : "latin";
+    // A Latin name shared by several cards (e.g. many "Quercus robur" trees) would have more than one right answer.
+    const latinIsUnique = list.filter((item) => item.name_lat === selected.name_lat).length === 1;
+    const mode = Math.random() > 0.45 || !latinIsUnique ? "hook" : "latin";
     const prompt = mode === "hook"
       ? t("quizHookPrompt", { hook: itemHook(selected) })
       : t("quizLatinPrompt", { latin: selected.name_lat });
-    const wrong = sample(list.filter((item) => item.id !== selected.id), 3);
+    const wrong = sample(list.filter((item) => item.id !== selected.id && itemHook(item) !== itemHook(selected)), 3);
     return {
       type: "choice",
       correctId: selected.id,
