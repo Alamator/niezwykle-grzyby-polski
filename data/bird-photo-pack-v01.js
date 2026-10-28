@@ -253,7 +253,7 @@
     ),
     "czajka-stepowa": photo(
       "Vanellus gregarius.jpg",
-      "Czajka stepowa (Vanellus gregarius), siewkowiec stojący na otwartym terenie",
+      "Czajka towarzyska (Vanellus gregarius), siewkowiec stojący na otwartym terenie",
       "Lip Kee",
       "https://commons.wikimedia.org/wiki/File:Vanellus_gregarius.jpg",
       "CC BY-SA 2.0",

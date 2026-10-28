@@ -228,7 +228,7 @@
     ),
     "dwor-z-drogini": photo(
       "DWÓR Z DROGINI W NADWIŚLAŃSKIM PARKU ETNOGRAFICZNYM W WYGIEŁZOWIE, fot. M. Klag (MIK, 2006) (4526328444).jpg",
-      "Dwór z Drogini w Nadwiślańskim Parku Etnograficznym w Wygiełzowie",
+      "Dwór z Drogini w skansenie w Wygiełzowie (zdjęcie z czasów, gdy skansen nosił nazwę Nadwiślański Park Etnograficzny)",
       "M. Klag / Małopolski Instytut Kultury",
       "CC BY-SA 2.0",
       ccBySa20

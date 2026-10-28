@@ -148,7 +148,7 @@
     ),
     orzesznica: photo(
       "Haselmaus.jpg",
-      "Orzesznica wśród gałęzi, kadr pokazujący nadrzewny tryb życia",
+      "Orzesznica leszczynowa wśród gałęzi, kadr pokazujący nadrzewny tryb życia",
       "Danielle Schwarz",
       "CC BY-SA 3.0",
       ccBySa30
@@ -183,7 +183,7 @@
     ),
     pizmak: photo(
       "Ondatra zibethicus FWS.jpg",
-      "Kadr reprezentatywny: piżmak, obcy gryzoń wodny",
+      "Kadr reprezentatywny: piżmak amerykański, obcy gryzoń wodny",
       "David Menke, U.S. Fish and Wildlife Service",
       "Public domain",
       publicDomain
@@ -204,14 +204,14 @@
     ),
     jenot: photo(
       "Nyctereutes procyonoides - Raccoon Dog - Jenot.png",
-      "Jenot sfotografowany w Polsce, kadr reprezentujący ekspansywnego obcego psowatego",
+      "Jenot azjatycki sfotografowany w Polsce, kadr reprezentujący ekspansywnego obcego psowatego",
       "ShootGun180",
       "CC BY 3.0",
       ccBy30
     ),
     "norka-amerykanska": photo(
       "Norka amerykańska (neovison vison).jpg",
-      "Norka amerykańska, kadr reprezentatywny inwazyjnego drapieżnika półwodnego",
+      "Wizon amerykański, kadr reprezentatywny inwazyjnego drapieżnika półwodnego",
       "Wojciech Uszak",
       "CC BY-SA 4.0",
       ccBySa40

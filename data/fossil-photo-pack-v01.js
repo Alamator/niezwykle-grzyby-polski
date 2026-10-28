@@ -153,7 +153,7 @@
     ),
     "limulus-darwini-owadow": photo(
       "L polyphemus L darwini.png",
-      "Porównanie współczesnego Limulus polyphemus i jurajskiego Limulus darwini z kamieniołomu Owadów-Brzezinki",
+      "Porównanie współczesnego Limulus polyphemus i jurajskiego skrzypłocza opisanego jako Limulus darwini (dziś Crenatolimulus darwini) z kamieniołomu Owadów-Brzezinki",
       "Adrian Kin and Błażej Błażejowski",
       "CC BY 4.0",
       ccBy40
@@ -167,7 +167,7 @@
     ),
     "laguna-owadow-brzezinki": photo(
       "L polyphemus L darwini.png",
-      "Figura z jurajskim Limulus darwini z Owadowa-Brzezinek, pokazująca wyjątkowe zachowanie skamieniałości laguny",
+      "Figura z jurajskim skrzypłoczem Crenatolimulus darwini (opisanym jako Limulus darwini) z Owadowa-Brzezinek, pokazująca wyjątkowe zachowanie skamieniałości laguny",
       "Adrian Kin and Błażej Błażejowski",
       "CC BY 4.0",
       ccBy40

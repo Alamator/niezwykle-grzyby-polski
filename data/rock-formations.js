@@ -26,10 +26,10 @@
       name_pl: "Słonecznik",
       name_lat: "granit karboński, cios blokowy",
       category: "granitowe-karkonosze",
-      hook: "Granitowa skałka nad Karpaczem była dawniej terenowym znakiem południa, bo słońce ustawiało się nad nią jak naturalny zegar.",
-      quiz_angle: "rozpoznaj karkonoski granit, pionowe spękania i legendę skalnego zegara nad Karpaczem",
+      hook: "Granitowa skałka na zboczu Smogorni była dawniej terenowym znakiem południa: dla mieszkańców Podgórzyna, Przesieki i Borowic słońce nad nią wskazywało południe.",
+      quiz_angle: "rozpoznaj karkonoski granit, pionowe spękania i skalny zegar mieszkańców Podgórzyna, Przesieki i Borowic",
       safety_note: "trzymać się znakowanych szlaków i nie wchodzić na oblodzone lub mokre bloki; granitowe płyty są zdradliwie śliskie",
-      region_pl: "Karkonosze, rejon grzbietu nad Karpaczem.",
+      region_pl: "Karkonosze, północne zbocze Smogorni (gmina Podgórzyn), nad Karpaczem Górnym.",
       habitat_pl: "Odsłonięcia granitu karkonoskiego modelowane przez mróz, wodę i długie wietrzenie.",
       occurrence_note: "To klasyczna karkonoska skałka: prosta w bryle, ale mocno wpisana w krajobraz i lokalne opowieści.",
       level: "skalny zegar"
@@ -55,7 +55,7 @@
       hook: "Niewielkie okno w granicie działa jak gotowa lekcja selektywnego wietrzenia: część skały przetrwała, część zniknęła.",
       quiz_angle: "otwór skalny, zaklinowane bloki i wietrzenie granitu na stokach Karkonoszy",
       safety_note: "nie przeciskać się przez szczeliny i nie zrzucać kamieni; małe formy są łatwe do uszkodzenia",
-      region_pl: "Karkonosze, okolice karkonoskich szlaków i granitowych grup skalnych.",
+      region_pl: "Karkonosze, nad rzeką Podgórną, na granicy Podgórzyna Górnego i Przesieki (ok. 470 m n.p.m.).",
       habitat_pl: "Spękany granit, w którym mróz i woda poszerzają słabsze fragmenty skały.",
       occurrence_note: "To karta detalu: nie każda osobliwość musi być ogromna, czasem wystarczy jedno precyzyjne okno.",
       level: "skalna dziurka"

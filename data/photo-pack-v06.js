@@ -69,7 +69,7 @@
     "lakownica-lsniaca": {
       image_status: "commons_candidate",
       image: commonsImage("Ganoderma lucidum.jpg"),
-      image_alt: "Lakownica lśniąca (Ganoderma lucidum), błyszczący lakierowany owocnik nadrzewny",
+      image_alt: "Lakownica żółtawa (Ganoderma lucidum), błyszczący lakierowany owocnik nadrzewny",
       image_author: "do weryfikacji w Wikimedia Commons",
       image_source: "https://commons.wikimedia.org/wiki/File:Ganoderma_lucidum.jpg",
       image_license: "do weryfikacji",

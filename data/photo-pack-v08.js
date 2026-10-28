@@ -141,7 +141,7 @@
       category_icon: specialEffectsCategory.icon,
       tags: ["reakcja chemiczna", "fiolet", "trujący"],
       level: "ciekawostka chemiczna",
-      region_pl: "Cała Polska; gatunek częsty na odpowiednim martwym drewnie liściastym.",
+      region_pl: "W Polsce dość rzadki; rośnie na martwym drewnie liściastym.",
       habitat_pl: "Martwe gałęzie i drewno drzew liściastych, m.in. dębu, brzozy, buka, grabu i leszczyny.",
       occurrence_note: "W atlasie warto pokazać go jako przykład, że najbardziej niezwykła cecha nie zawsze jest widoczna od razu.",
       image: commonsImage("Hapalopilus rutilans 9134008.jpg"),

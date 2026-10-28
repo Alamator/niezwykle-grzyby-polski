@@ -429,7 +429,7 @@ assert(insects.categories.some((category) => category.label === "Nocne i świec�
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");
 assert(flowers.subtitle.includes("dziko rosnące"), "flower subtitle should describe the wild/naturalized scope");
 assert(flowers.categories.some((category) => category.label === "Łowcy i pułapki"), "flower categories should use Polish diacritics");
-assert(flowers.items.some((item) => item.name_pl === "Świetlik mszysty"), "flower collection should include the moss curiosity from the source file");
+assert(flowers.items.some((item) => item.name_pl === "Świetlanka długoszowata" && item.synonyms?.includes("Świetlik mszysty")), "flower collection should include the moss curiosity under its corrected name, with the former atlas name kept as a synonym");
 assert(fish.subtitle.includes("rybie osobliwości"), "fish subtitle should describe fish curiosities");
 assert(fish.categories.some((category) => category.label === "Dźwięk i światło"), "fish categories should use Polish diacritics");
 assert(fish.items.some((item) => item.name_pl === "Różanka"), "fish collection should include the bitterling curiosity from the source file");
@@ -502,7 +502,7 @@ assert(fortressesRuins.categories.some((category) => category.label === "Zapomni
 assert(fortressesRuins.items.some((item) => item.name_pl === "Zamość"), "fortresses and ruins collection should include Zamość");
 assert(fortressesRuins.items.some((item) => item.name_pl === "Zamek Krzyżtopór"), "fortresses and ruins collection should include Krzyżtopór Castle");
 assert(fortressesRuins.items.some((item) => item.name_pl === "Twierdza Srebrna Góra"), "fortresses and ruins collection should include Srebrna Góra Fortress");
-assert(fortressesRuins.items.some((item) => item.name_pl === "Wiadukty w Stańczykach"), "fortresses and ruins collection should include Stańczyki viaducts");
+assert(fortressesRuins.items.some((item) => item.name_pl === "Mosty w Stańczykach" && item.synonyms?.includes("Wiadukty w Stańczykach")), "fortresses and ruins collection should include the Stańczyki bridges under their official name, with the former atlas name kept as a synonym");
 assert(fortressesRuins.items.some((item) => item.name_pl === "Zamek w Łapalicach"), "fortresses and ruins collection should include the unfinished Łapalice castle");
 assert(fortressesRuins.items.every((item) => item.scienceNote && item.quizFacts?.length >= 3 && item.sourceHints?.length >= 3), "fortresses and ruins entries should include science notes, quiz facts and source hints");
 assert(mementoMori.subtitle.includes("miejsc pamięci i przemijania"), "memento mori subtitle should describe memorial and transience places");
@@ -529,9 +529,9 @@ assert(landscapeRecords.items.every((item) => item.scienceNote && item.quizFacts
 const requiredPolishInsectText = {
   "oleica-krowka": "Oleica krówka",
   "zmierzchnica-trupia-glowka": "Zmierzchnica trupia główka",
-  "zyrytwa-pluskwowata": "Żyrytwa pluskwowata",
+  "zyrytwa-pluskwowata": "Płoszczyca szara",
   "paz-krolowej": "Paź królowej",
-  "kozog-debowy": "Kozóg dębowy"
+  "kozog-debowy": "Kozioróg dębosz"
 };
 
 for (const [id, expectedName] of Object.entries(requiredPolishInsectText)) {

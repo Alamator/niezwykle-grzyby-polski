@@ -28,7 +28,7 @@
       name_pl: "Bielik",
       name_lat: "Haliaeetus albicilla",
       category: "rekordy-i-skala",
-      hook: "Największy lęgowy ptak Polski, z szerokimi skrzydłami jak deski i sylwetką patrolującą jeziora oraz doliny rzek.",
+      hook: "Największy orzeł gniazdujący w Polsce, z szerokimi skrzydłami jak deski i sylwetką patrolującą jeziora oraz doliny rzek.",
       quiz_angle: "ogromna rozpiętość, jasny ogon dorosłych ptaków i rola drapieżnika szczytowego",
       safety_note: "gatunek chroniony; obserwować z dystansu i nie zbliżać się do rewirów lęgowych",
       protection: "strict",
@@ -140,13 +140,13 @@
       name_pl: "Słonka zwyczajna",
       name_lat: "Scolopax rusticola",
       category: "swiatlo-i-zmysly",
-      hook: "Leśny mistrz kamuflażu z białymi partiami piór, które w półmroku działają jak naturalne odblaski.",
-      quiz_angle: "liściasty kamuflaż, wieczorne ciągi i wyjątkowo silne odbijanie światła przez białe pióra",
+      hook: "Leśny mistrz kamuflażu, którego oczy osadzone daleko z tyłu głowy dają widzenie dookoła, w 360°.",
+      quiz_angle: "liściasty kamuflaż, wieczorne ciągi i widzenie dookoła głowy",
       safety_note: "obserwować bez płoszenia; nie podchodzić do miejsc toków i odpoczynku",
       region_pl: "Wilgotne lasy, obrzeża bagien, młodniki i mozaika zarośli w wielu regionach Polski.",
       habitat_pl: "Lasy z miękką, wilgotną glebą, podszytem i miejscami do żerowania w ściółce.",
-      occurrence_note: "W atlasie łączy sprzeczności: za dnia niemal znika, o zmierzchu może błysnąć jak leśny sygnał.",
-      level: "leśny reflektor"
+      occurrence_note: "W atlasie łączy sprzeczności: za dnia niemal znika w ściółce, a wiosną o zmierzchu samce zdradzają się lotami godowymi, czyli ciągami.",
+      level: "mistrz kamuflażu"
     }),
     entry({
       id: "uszatka",
@@ -181,14 +181,14 @@
       name_pl: "Pustułka",
       name_lat: "Falco tinnunculus",
       category: "swiatlo-i-zmysly",
-      hook: "Sokół zawisający nad łąką jak zawieszony na sznurku, korzystający z widzenia UV przy szukaniu gryzoni.",
-      quiz_angle: "zawis w powietrzu, rdzawy grzbiet, długi ogon i wykorzystywanie śladów gryzoni",
+      hook: "Sokół zawisający nad łąką jak zawieszony na sznurku; według dyskutowanej hipotezy może korzystać z widzenia UV przy szukaniu śladów gryzoni.",
+      quiz_angle: "zawis w powietrzu, rdzawy grzbiet, długi ogon i dyskutowana hipoteza o śladach gryzoni widocznych w UV",
       safety_note: "nie płoszyć przy gniazdach na budynkach i wieżach; pomagać można przez bezpieczne skrzynki lęgowe",
       protection: "strict",
       region_pl: "Krajobraz rolniczy, miasta, wysokie budynki, wieże, skraje pól i łąk.",
       habitat_pl: "Otwarte tereny z niską roślinnością, gryzoniami i wysokimi punktami obserwacyjnymi.",
-      occurrence_note: "W atlasie działa jak żywy detektor: widzi wskazówki, które dla człowieka są ukryte.",
-      level: "detektor UV"
+      occurrence_note: "W atlasie pokazuje, jak sprawdza się hipotezy: pomysł, że pustułka śledzi w UV ślady moczu norników, jest dyskutowany, a nowsze badania go podważają.",
+      level: "łowca z zawisu"
     }),
     entry({
       id: "dudek",
@@ -430,8 +430,9 @@
     }),
     entry({
       id: "czajka-stepowa",
-      name_pl: "Czajka stepowa",
+      name_pl: "Czajka towarzyska",
       name_lat: "Vanellus gregarius",
+      synonyms: ["Czajka stepowa"],
       category: "rzadkie-goscie",
       hook: "Skrajnie rzadki gość ze wschodu, którego pojawienie się potrafi poruszyć całą społeczność obserwatorów.",
       quiz_angle: "siewkowiec o stepowym rodowodzie, jasna brew i status wielkiej rzadkości w Polsce",

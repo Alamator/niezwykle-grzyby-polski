@@ -12,7 +12,7 @@
     "kolczakowka-galaretowata": {
       image_status: "commons_verified",
       image: commonsImage("Pseudohydnum gelatinosum (37516414602).jpg"),
-      image_alt: "Kolczakówka galaretowata (Pseudohydnum gelatinosum), jasny galaretowaty owocnik z kolczastym spodem",
+      image_alt: "Galaretek kolczasty (Pseudohydnum gelatinosum), jasny galaretowaty owocnik z kolczastym spodem",
       image_author: "Björn S...",
       image_source: "https://commons.wikimedia.org/wiki/File:Pseudohydnum_gelatinosum_(37516414602).jpg",
       image_license: "CC BY-SA 2.0",
@@ -23,7 +23,7 @@
     "plomyczek-galaretowaty": {
       image_status: "commons_verified",
       image: commonsImage("Guepinia helvelloides 47030.jpg"),
-      image_alt: "Płomyczek galaretowaty (Guepinia helvelloides), różowopomarańczowy galaretowaty owocnik",
+      image_alt: "Płomyczka galaretowata (Guepinia helvelloides), różowopomarańczowy galaretowaty owocnik",
       image_author: "Daryl Thompson (woobs)",
       image_source: "https://commons.wikimedia.org/wiki/File:Guepinia_helvelloides_47030.jpg",
       image_license: "CC BY-SA 3.0",
@@ -89,7 +89,7 @@
     "gniazdniczka-kulista": {
       image_status: "commons_verified",
       image: commonsImage("Crucibulum laeve 432072338.jpg"),
-      image_alt: "Gniazdniczka kulista (Crucibulum laeve), drobne ptasie gniazda z perydiolkami",
+      image_alt: "Kubecznik pospolity (Crucibulum laeve), drobne ptasie gniazda z perydiolkami",
       image_author: "Matej Frančeškin",
       image_source: "https://commons.wikimedia.org/wiki/File:Crucibulum_laeve_432072338.jpg",
       image_license: "CC BY 4.0",
@@ -100,7 +100,7 @@
     "kolczakowka-niebieska": {
       image_status: "commons_verified",
       image: commonsImage("Hydnellum caeruleum 93507.jpg"),
-      image_alt: "Kolczakówka niebieska (Hydnellum caeruleum), niebieskawy owocnik z kolczastym hymenoforem",
+      image_alt: "Kolczakówka niebieskawa (Hydnellum caeruleum), niebieskawy owocnik z kolczastym hymenoforem",
       image_author: "Steve Nelsen (sfnelsen)",
       image_source: "https://commons.wikimedia.org/wiki/File:Hydnellum_caeruleum_93507.jpg",
       image_license: "CC BY-SA 3.0",

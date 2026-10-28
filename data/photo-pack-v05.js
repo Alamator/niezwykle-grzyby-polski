@@ -23,7 +23,7 @@
     "koralowka-groniasta": {
       image_status: "commons_verified",
       image: commonsImage("Ramaria botrytis 299869.jpg"),
-      image_alt: "Koralówka groniasta (Ramaria botrytis), rozgałęziony koralowy owocnik z różowawymi końcówkami",
+      image_alt: "Koralówka czerwonowierzchołkowa (Ramaria botrytis), rozgałęziony koralowy owocnik z różowawymi końcówkami",
       image_author: "John Kirkpatrick (natashadak)",
       image_source: "https://commons.wikimedia.org/wiki/File:Ramaria_botrytis_299869.jpg",
       image_license: "CC BY-SA 3.0",

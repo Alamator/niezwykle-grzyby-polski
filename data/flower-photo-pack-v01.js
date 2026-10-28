@@ -69,7 +69,7 @@
     ),
     "swietlik-mszysty": photo(
       "Schistostega pennata s2 zoom.JPG",
-      "Świetlik mszysty (Schistostega pennata), zielony połysk splątka w wilgotnym mikrosiedlisku",
+      "Świetlanka długoszowata (Schistostega pennata), zielony połysk splątka w wilgotnym mikrosiedlisku",
       "Alpsdake",
       "https://commons.wikimedia.org/wiki/File:Schistostega_pennata_s2_zoom.JPG",
       "CC BY-SA 4.0",
@@ -85,7 +85,7 @@
     ),
     "bniec-bialy": photo(
       "Silene latifolia kz06.jpg",
-      "Bniec biały (Silene latifolia), białe kwiaty na smukłych pędach",
+      "Lepnica biała (Silene latifolia), białe kwiaty na smukłych pędach",
       "Krzysztof Ziarnek, Kenraiz",
       "https://commons.wikimedia.org/wiki/File:Silene_latifolia_kz06.jpg",
       "CC BY-SA 4.0",
@@ -141,7 +141,7 @@
     ),
     "kukuczka-kapturkowata": photo(
       "Neottianthe cucullata (flower).JPG",
-      "Kukuczka kapturkowata (Neottianthe cucullata), różowawy kwiat storczyka z kapturkowatą budową",
+      "Kukuczka kapturkowata (Hemipilia cucullata, dawniej Neottianthe cucullata), różowawy kwiat storczyka z kapturkowatą budową",
       "Alpsdake",
       "https://commons.wikimedia.org/wiki/File:Neottianthe_cucullata_(flower).JPG",
       "CC BY-SA 4.0",

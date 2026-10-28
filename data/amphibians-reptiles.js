@@ -182,7 +182,7 @@
       category: "gody-i-metamorfozy",
       hook: "Mozaika zielonych plam dobrze pasuje do miejskich obrzeży, ruin i suchych terenów, gdzie ten ciepłolubny gatunek zaskakująco dobrze sobie radzi.",
       quiz_angle: "zielone plamy, pionierskie siedliska, głos godowy i tolerancja suchszych miejsc",
-      safety_note: "nie przenosić z placów budów ani nie usuwać z małych zbiorników bez konsultacji; to gatunek chroniony",
+      safety_note: "nie przenosić z placów budów ani nie usuwać z małych zbiorników bez konsultacji; to gatunek pod ochroną ścisłą",
       protection: "strict",
       region_pl: "Rozproszona w Polsce, szczególnie w cieplejszych nizinnych i miejskich krajobrazach z małymi wodami.",
       habitat_pl: "Otwarte tereny, piaskownie, obrzeża miast, ogrody, place budów i płytkie zbiorniki rozrodcze.",
@@ -213,7 +213,7 @@
       safety_note: "nie odławiać do potwierdzania identyfikacji; rozpoznanie gatunków bliźniaczych wymaga danych i specjalistów",
       region_pl: "Wschodnia i południowo-wschodnia Polska w zasięgu kontaktu blisko spokrewnionych rzekotek.",
       habitat_pl: "Ciepłe stawy, zarośla, doliny rzeczne i roślinność przywodna podobna do siedlisk rzekotki drzewnej.",
-      occurrence_note: "W atlasie jest lekcją pokory: nie wszystkie osobliwości widać gołym okiem na pierwszym zdjęciu.",
+      occurrence_note: "W rozporządzeniu o ochronie gatunkowej nie występuje pod własną nazwą (wyodrębniono ją z rzekotki drzewnej). W atlasie jest lekcją pokory: nie wszystkie osobliwości widać gołym okiem na pierwszym zdjęciu.",
       level: "bliźniacza rzekotka"
     }),
     entry({
@@ -255,7 +255,7 @@
       protection: "partial",
       region_pl: "Szeroko, ale nierówno rozproszona w Polsce w odpowiednich małych wodach nizinnych.",
       habitat_pl: "Ciepłe stawy, torfianki, oczka, rowy, starorzecza i wody z obfitą roślinnością.",
-      occurrence_note: "W atlasie reprezentuje trudniejszą grupę zielonych żab, gdzie pewność rozpoznania rośnie z zestawem cech, nie z jedną fotografią.",
+      occurrence_note: "Żaby zielone trudno odróżnić w terenie: pewne oznaczenie wymaga badania przez specjalistów, a według niektórych opinii nawet analizy kariotypu. W atlasie reprezentuje tę trudniejszą grupę.",
       level: "mała zielona"
     }),
     entry({
@@ -307,7 +307,7 @@
       category: "zolwie-i-inwazje",
       hook: "Kolorowy żółw z handlu terrarystycznego bywa widywany w parkowych stawach, ale ta osobliwość jest ostrzeżeniem przed wypuszczaniem zwierząt.",
       quiz_angle: "obcy żółw, czerwony lub żółty pasek za okiem, parkowe stawy i skutek porzuconych pupili",
-      safety_note: "nigdy nie wypuszczać żółwi domowych do środowiska; znalezienie obcego żółwia warto zgłosić lokalnym służbom",
+      safety_note: "gatunek z unijnej listy inwazyjnych gatunków obcych od 2016 r. (zakaz handlu i rozmnażania); nigdy nie wypuszczać żółwi domowych do środowiska; znalezienie obcego żółwia warto zgłosić lokalnym służbom",
       region_pl: "Punktowo w całej Polsce, głównie w stawach miejskich, parkowych i innych wodach związanych z wypuszczeniami.",
       habitat_pl: "Stawy, kanały, oczka wodne i brzegi z miejscami do wygrzewania, zwykle w krajobrazie miejskim lub rekreacyjnym.",
       occurrence_note: "W atlasie jest kartą odpowiedzialności: nie każdy gad w polskiej wodzie jest częścią rodzimej przyrody.",
@@ -337,7 +337,7 @@
       safety_note: "nie odławiać do potwierdzania cech; dokumentacja fotograficzna i dane lokalizacyjne powinny być traktowane ostrożnie",
       region_pl: "W Polsce związany głównie ze wschodnią i południowo-wschodnią częścią kraju, zgodnie z nowszym rozpoznaniem zasięgu.",
       habitat_pl: "Lasy, zarośla, ogrody i wilgotne mozaiki siedlisk podobne do miejsc zajmowanych przez padalca zwyczajnego.",
-      occurrence_note: "W atlasie jest przykładem, że osobliwością może być nie wygląd, lecz zmiana w naukowym rozumieniu różnorodności.",
+      occurrence_note: "W rozporządzeniu o ochronie gatunkowej nie występuje pod własną nazwą (wyodrębniono go z padalca zwyczajnego). W atlasie jest przykładem, że osobliwością może być nie wygląd, lecz zmiana w naukowym rozumieniu różnorodności.",
       level: "ukryty bliźniak"
     }),
     entry({
@@ -393,7 +393,7 @@
       protection: "strict",
       region_pl: "Bardzo lokalnie w południowej Polsce, szczególnie w rejonie Śląska Cieszyńskiego i dolin rzecznych o odpowiednich warunkach.",
       habitat_pl: "Ciepłe brzegi rzek i zbiorników, kamieniste lub zarośnięte strefy przywodne oraz miejsca z dostępem do ryb.",
-      occurrence_note: "W atlasie to przykład dobrze udokumentowanej nowości faunistycznej, a nie luźnej legendy o egzotycznym wężu.",
+      occurrence_note: "Pierwszego współczesnego osobnika w Polsce stwierdzono w lipcu 2009 r. W atlasie to przykład dobrze udokumentowanej nowości faunistycznej, a nie luźnej legendy o egzotycznym wężu.",
       level: "nowy wąż"
     }),
     entry({
@@ -417,7 +417,7 @@
       category: "weze-jad-i-relikty",
       hook: "Najdłuższy polski wąż ma u nas reliktowy, karpacki charakter i stał się symbolem ochrony ciepłych dolin z drewnem, kamieniami i zaroślami.",
       quiz_angle: "najdłuższy krajowy wąż, reliktowe stanowiska w Bieszczadach i niejadowity dusiciel",
-      safety_note: "nie ujawniać stanowisk, nie przekładać kłód i nie podchodzić do miejsc rozrodu; populacja jest skrajnie wrażliwa",
+      safety_note: "gatunek pod ochroną ścisłą, ze strefą ochrony; niejadowity; nie ujawniać stanowisk, nie przekładać kłód i nie podchodzić do miejsc rozrodu, bo populacja jest skrajnie wrażliwa",
       protection: "strict",
       region_pl: "Bardzo lokalnie w Bieszczadach i okolicach doliny Sanu, w najważniejszym polskim obszarze występowania.",
       habitat_pl: "Ciepłe doliny, zarośla, skraje lasów, kamieniska, stare zabudowania, sterty drewna i miejsca składania jaj.",
