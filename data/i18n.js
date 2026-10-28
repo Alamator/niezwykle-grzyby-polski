@@ -553,15 +553,18 @@
     }
   };
 
+  // Collections of living organisms; the species-level fallbacks below only make sense there.
+  const livingCollections = new Set(["grzyby", "owady", "kwiaty", "ryby", "ptaki", "ssaki", "plazy-gady"]);
+
   function defaultSafety(item, collectionId) {
     const text = normalize(item.safety_note);
     if (collectionId === "grzyby" && (text.includes("truj") || text.includes("niebez") || text.includes("psycho"))) {
       return "Toxic or potentially dangerous species; educational material only, not advice for collecting or eating.";
     }
-    if (text.includes("chron") || text.includes("wrazliw")) {
+    if (livingCollections.has(collectionId) && (text.includes("chron") || text.includes("wrazliw"))) {
       return "Sensitive or protected species; observe only and do not collect or disturb wild specimens.";
     }
-    if (text.includes("nie chwyt") || text.includes("nie dotyk") || text.includes("nie brac")) {
+    if (livingCollections.has(collectionId) && (text.includes("nie chwyt") || text.includes("nie dotyk") || text.includes("nie brac"))) {
       return "Do not handle; observe calmly and leave the animal or specimen in place.";
     }
     if (collectionId === "grzyby") {
@@ -699,6 +702,19 @@
         level: entry.level || levels[item.level] || item.level || "atlas note"
       }];
     }));
+  }
+
+  // Collections load their data lazily, so the English item map is built on first access after the
+  // collection data arrived, and rebuilt if the number of items changes.
+  const itemMapCache = new Map();
+
+  function lazyItemMap(collectionId, overrides) {
+    const count = (collectionById(collectionId).items || []).length;
+    const cached = itemMapCache.get(collectionId);
+    if (cached && cached.count === count) return cached.map;
+    const map = makeItemMap(collectionId, overrides);
+    if (count) itemMapCache.set(collectionId, { count, map });
+    return map;
   }
 
   const mushroomText = {
@@ -2528,9 +2544,9 @@
         learnNote: "Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.",
         quizEyebrow: "Quiz",
         quizTitle: "10 pytań na spokojnie",
-        quizNote: "Pytania są generowane z opisów i nazw aktywnej kolekcji.",
+        quizNote: "Pytania powstają z opisów, nazw i ciekawostek aktywnej kolekcji, także jako „prawda czy fałsz”.",
         sourcesEyebrow: "Źródła i licencje",
-        sourcesTitle: "Atrybucja zdjęć",
+        sourcesTitle: "Źródła ciekawostek i zdjęć",
         sourcePanelTitle: "Zasada projektu",
         sourcePanelCopy: "Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.",
         sourceChecklistTitle: "Checklist zdjęcia",
@@ -2575,6 +2591,42 @@
         restart: "Restart",
         quizHookPrompt: "Który wpis pasuje do opisu: „{hook}”?",
         quizLatinPrompt: "Jaką nazwę w atlasie ma: {latin}?",
+        quizTrueFalseEyebrow: "Prawda czy fałsz?",
+        quizTrueFalsePrompt: "Czy ta ciekawostka dotyczy wpisu „{name}”?",
+        quizTrue: "Prawda",
+        quizFalse: "Fałsz",
+        quizFactOwner: "Ta ciekawostka dotyczy wpisu „{name}”.",
+        factsTitle: "Ciekawostki",
+        factsTitleCalm: "Warto wiedzieć",
+        factsSummary: "{title} ({count})",
+        factSource: "źródło",
+        factNoIcon: "Ciekawostka",
+        notesTitle: "Uwaga w terenie",
+        badgesLabel: "Status",
+        badgeStrict: "Ochrona ścisła",
+        badgePartial: "Ochrona częściowa",
+        badgeProtectionHint: "Ochrona gatunkowa w Polsce",
+        badgeToxic: "Gatunek trujący",
+        badgeToxicMild: "Gatunek lekko trujący",
+        synonymsLabel: "Inne nazwy",
+        dailyFactEyebrow: "Ciekawostka dnia",
+        dailyFactLoading: "Wczytuję ciekawostkę dnia…",
+        dailyFactOpen: "Zobacz kartę: {name}",
+        dailyFactCollection: "Kolekcja: {collection}",
+        share: "Udostępnij",
+        cardLink: "Link do karty",
+        shareText: "{name} — Atlas Osobliwości Polski",
+        linkCopied: "Skopiowano link do karty.",
+        linkCopyManual: "Skopiuj link: {url}",
+        factSourcesTitle: "Źródła ciekawostek",
+        factSourcesMethod: "Ciekawostki: sprawdzone {date} na tekście wskazanego źródła; sporne przez wyszukiwanie.",
+        factSourcesTotal: "{count} z linkami do źródeł w tej kolekcji.",
+        factStatusChecked: "potwierdzone wyszukiwaniem w niezależnym źródle",
+        factStatusVerified: "zgodne ze wskazanym źródłem",
+        factStatusCorrected: "z brzmieniem poprawionym według źródeł",
+        factSourcesDomains: "Domeny źródeł (liczba ciekawostek)",
+        factSourcesEmpty: "Ta kolekcja nie ma jeszcze ciekawostek ze źródłami.",
+        factCountForms: { one: "{count} ciekawostka", few: "{count} ciekawostki", many: "{count} ciekawostek", other: "{count} ciekawostki" },
         creditSpecies: "Wpis",
         creditFile: "Plik",
         creditAuthor: "Autor",
@@ -2619,9 +2671,9 @@
         learnNote: "First read the clue, then reveal the answer.",
         quizEyebrow: "Quiz",
         quizTitle: "10 calm questions",
-        quizNote: "Questions are generated from descriptions and names in the active collection.",
+        quizNote: "Questions come from descriptions, names and fun facts of the active collection, including true-or-false ones.",
         sourcesEyebrow: "Sources and licenses",
-        sourcesTitle: "Photo attribution",
+        sourcesTitle: "Fact sources and photo credits",
         sourcePanelTitle: "Project rule",
         sourcePanelCopy: "We do not copy descriptions from other atlases. We write short original educational notes and use only images with clear licenses.",
         sourceChecklistTitle: "Photo checklist",
@@ -2666,6 +2718,42 @@
         restart: "Restart",
         quizHookPrompt: "Which entry matches this description: \"{hook}\"?",
         quizLatinPrompt: "Which atlas entry is described as {latin}?",
+        quizTrueFalseEyebrow: "True or false?",
+        quizTrueFalsePrompt: "Is this fact about \"{name}\"?",
+        quizTrue: "True",
+        quizFalse: "False",
+        quizFactOwner: "This fact is about \"{name}\".",
+        factsTitle: "Fun facts",
+        factsTitleCalm: "Worth knowing",
+        factsSummary: "{title} ({count})",
+        factSource: "source",
+        factNoIcon: "Fact",
+        notesTitle: "Field note",
+        badgesLabel: "Status",
+        badgeStrict: "Strictly protected",
+        badgePartial: "Partially protected",
+        badgeProtectionHint: "Species protection in Poland",
+        badgeToxic: "Poisonous species",
+        badgeToxicMild: "Mildly poisonous species",
+        synonymsLabel: "Other Polish names",
+        dailyFactEyebrow: "Fact of the day",
+        dailyFactLoading: "Loading the fact of the day…",
+        dailyFactOpen: "Open the card: {name}",
+        dailyFactCollection: "Collection: {collection}",
+        share: "Share",
+        cardLink: "Card link",
+        shareText: "{name} — Atlas of Polish Curiosities",
+        linkCopied: "Card link copied.",
+        linkCopyManual: "Copy the link: {url}",
+        factSourcesTitle: "Sources of the fun facts",
+        factSourcesMethod: "Fun facts: checked on {date} against the text of the cited source; disputed ones by search.",
+        factSourcesTotal: "{count} with source links in this collection.",
+        factStatusChecked: "confirmed by search in an independent source",
+        factStatusVerified: "consistent with the cited source",
+        factStatusCorrected: "reworded to match the sources",
+        factSourcesDomains: "Source domains (number of facts)",
+        factSourcesEmpty: "This collection has no sourced fun facts yet.",
+        factCountForms: { one: "{count} fun fact", other: "{count} fun facts" },
         creditSpecies: "Entry",
         creditFile: "File",
         creditAuthor: "Author",
@@ -2686,7 +2774,7 @@
           safety_notice: "Educational prototype. Do not use the atlas to decide whether a fungus is edible, protected or safe to collect.",
           source_note: "Photos are added only when the license is clear. Wikimedia Commons packages include author, source and license.",
           categories: mushroomCategories,
-          items: makeItemMap("grzyby", mushroomText)
+          get items() { return lazyItemMap("grzyby", mushroomText); }
         },
         owady: {
           title: "Insects",
@@ -2697,7 +2785,7 @@
           safety_notice: "Educational prototype. Observe insects without catching, harming or moving them from their habitat.",
           source_note: "Descriptions start from the working species list. Photos and attribution are added gradually from legal sources.",
           categories: insectCategories,
-          items: makeItemMap("owady", insectText)
+          get items() { return lazyItemMap("owady", insectText); }
         },
         kwiaty: {
           title: "Flowers",
@@ -2708,7 +2796,7 @@
           safety_notice: "Educational prototype. Many plants are protected, rare, toxic or habitat-sensitive: observe without picking or moving them.",
           source_note: "Descriptions start from the working list of unusual Polish plants. Photos and attribution will be added later from legal sources.",
           categories: flowerCategories,
-          items: makeItemMap("kwiaty", flowerText)
+          get items() { return lazyItemMap("kwiaty", flowerText); }
         },
         ryby: {
           title: "Fish",
@@ -2719,7 +2807,7 @@
           safety_notice: "Educational prototype. Fish may be protected, locally regulated or invasive: observe without collecting and always check current rules.",
           source_note: "Descriptions start from the working list of unusual fish of Poland. Photos come from Wikimedia Commons with full attribution.",
           categories: fishCategories,
-          items: makeItemMap("ryby", fishText)
+          get items() { return lazyItemMap("ryby", fishText); }
         },
         ptaki: {
           title: "Birds",
@@ -2730,7 +2818,7 @@
           safety_notice: "Educational prototype. Birds may be protected, sensitive to disturbance and tied to nests or leks: observe from a distance, do not reveal rare sites and do not interfere with habitats.",
           source_note: "Descriptions start from two working lists of unusual Polish avifauna. Photos come from Wikimedia Commons with full attribution.",
           categories: birdCategories,
-          items: makeItemMap("ptaki", birdText)
+          get items() { return lazyItemMap("ptaki", birdText); }
         },
         ssaki: {
           title: "Mammals",
@@ -2741,7 +2829,7 @@
           safety_notice: "Educational prototype. Observe mammals from a distance: do not handle small animals, disturb bat winter roosts, approach large mammals or seals, or reveal sensitive sites.",
           source_note: "Descriptions start from the supplied working material on unusual Polish mammals. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mammalCategories,
-          items: makeItemMap("ssaki", mammalText)
+          get items() { return lazyItemMap("ssaki", mammalText); }
         },
         "plazy-gady": {
           title: "Amphibians and Reptiles",
@@ -2752,7 +2840,7 @@
           safety_notice: "Educational prototype. Observe amphibians and reptiles without handling, moving or damaging habitats; many are protected, sensitive to disturbance or risky when approached carelessly. Never release terrarium animals into the wild.",
           source_note: "Descriptions start from the supplied working material on Polish herpetofauna curiosities. Photos come from Wikimedia Commons with full attribution; representative frames are labelled as such.",
           categories: amphibianReptileCategories,
-          items: makeItemMap("plazy-gady", amphibianReptileText)
+          get items() { return lazyItemMap("plazy-gady", amphibianReptileText); }
         },
         drzewa: {
           title: "Trees",
@@ -2763,7 +2851,7 @@
           safety_notice: "Educational prototype. Veteran trees, old trunks and memorial sites should be observed from a distance: do not climb roots, remove bark, disturb supports or leave marked paths.",
           source_note: "Descriptions start from the working list of dendrological curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: treeCategories,
-          items: makeItemMap("drzewa", {})
+          get items() { return lazyItemMap("drzewa", {}); }
         },
         mineraly: {
           title: "Minerals",
@@ -2774,7 +2862,7 @@
           safety_notice: "Educational prototype. Observe minerals without damaging sites: do not enter abandoned mines, break protected rocks, collect toxic or radioactive ores, or run home chemistry experiments.",
           source_note: "Descriptions start from the working list of mineralogical curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mineralCategories,
-          items: makeItemMap("mineraly", mineralText)
+          get items() { return lazyItemMap("mineraly", mineralText); }
         },
         "formacje-skalne": {
           title: "Rock Formations",
@@ -2785,7 +2873,7 @@
           safety_notice: "Educational prototype. Observe rock formations without damaging sites: stay on marked trails, do not chip or mark rock, enter caves only on official routes and respect protected areas.",
           source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: rockFormationCategories,
-          items: makeItemMap("formacje-skalne", rockFormationText)
+          get items() { return lazyItemMap("formacje-skalne", rockFormationText); }
         },
         "architektura-drewniana": {
           title: "Wooden Architecture",
@@ -2796,7 +2884,7 @@
           safety_notice: "Educational prototype. Visit wooden monuments respectfully: do not touch polychrome, icons, carved wood or construction elements, do not enter private property without permission and check current visiting rules.",
           source_note: "Descriptions start from the supplied working material on Polish wooden architecture. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: woodenArchitectureCategories,
-          items: makeItemMap("architektura-drewniana", woodenArchitectureText)
+          get items() { return lazyItemMap("architektura-drewniana", woodenArchitectureText); }
         },
         podziemia: {
           title: "Undergrounds",
@@ -2807,7 +2895,7 @@
           safety_notice: "Educational prototype. Visit underground sites only on official routes: do not enter abandoned adits, shelters or cellars, do not touch safety structures, and keep a calm historical tone around wartime places.",
           source_note: "Descriptions start from the supplied working material on Polish underground curiosities. Photos come from Wikimedia Commons with full attribution; diagrams and representative frames are labelled honestly.",
           categories: undergroundCategories,
-          items: makeItemMap("podziemia", {})
+          get items() { return lazyItemMap("podziemia", {}); }
         },
         "cuda-inzynierii": {
           title: "Engineering Wonders",
@@ -2818,7 +2906,7 @@
           safety_notice: "Educational prototype. View technical sites only from legal public areas: do not enter dams, tracks, quays, bridge structures, industrial grounds or active infrastructure without permission.",
           source_note: "Descriptions start from the supplied working material on Polish technical and architectural curiosities. Technical figures and source references should be verified before final publication.",
           categories: engineeringWonderCategories,
-          items: makeItemMap("cuda-inzynierii", {})
+          get items() { return lazyItemMap("cuda-inzynierii", {}); }
         },
         "twierdze-ruiny": {
           title: "Fortresses and Ruins",
@@ -2829,7 +2917,7 @@
           safety_notice: "Educational prototype. Visit castles, fortresses and ruins legally and carefully: do not enter abandoned, private or closed sites, do not climb walls and treat memorial places with calm historical language.",
           source_note: "Descriptions start from the supplied working material on Polish castles, fortresses, ruins and forgotten structures. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: fortressRuinCategories,
-          items: makeItemMap("twierdze-ruiny", fortressRuinText)
+          get items() { return lazyItemMap("twierdze-ruiny", fortressRuinText); }
         },
         "memento-mori": {
           title: "Memento Mori",
@@ -2840,7 +2928,7 @@
           safety_notice: "Educational prototype. This collection includes memorial places and difficult history; read and visit respectfully, without sensational framing, posing at graves or entering closed or fragile areas.",
           source_note: "Descriptions start from the supplied working material on Polish memorial and burial-culture places. Photos come from Wikimedia Commons with full attribution; difficult-history sites use calm educational language.",
           categories: mementoMoriCategories,
-          items: makeItemMap("memento-mori", mementoMoriText)
+          get items() { return lazyItemMap("memento-mori", mementoMoriText); }
         },
         skamienialosci: {
           title: "Fossils",
@@ -2851,7 +2939,7 @@
           safety_notice: "Educational prototype. Observe fossils without damaging sites: do not chip specimens from reserves, enter quarries without permission, dig fossil sites or remove rare finds from their context.",
           source_note: "Descriptions start from the working list of unusual Polish fossils. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: fossilCategories,
-          items: makeItemMap("skamienialosci", fossilText)
+          get items() { return lazyItemMap("skamienialosci", fossilText); }
         },
         "atmosfera-astronomia": {
           title: "Atmosphere and Astronomy",
@@ -2862,7 +2950,7 @@
           safety_notice: "Educational prototype. Sky and weather phenomena are not forecasts or invitations to take risks: do not chase storms, stand on ridges during electrical activity, ignore cold or use the atlas as safety guidance.",
           source_note: "Descriptions start from the working list of Polish atmospheric and astronomical phenomena. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: atmosphereAstronomyCategories,
-          items: makeItemMap("atmosfera-astronomia", atmosphereAstronomyText)
+          get items() { return lazyItemMap("atmosfera-astronomia", atmosphereAstronomyText); }
         },
         "rekordy-krajobrazu": {
           title: "Landscape Records",
@@ -2873,7 +2961,7 @@
           safety_notice: "Educational prototype. Treat this as landscape context, not route guidance: follow park and reserve rules, do not damage rocks, dunes, peatlands or plants, and check current access before visiting.",
           source_note: "Descriptions start from the supplied working material on Polish landscape records and curiosities. Photos come from Wikimedia Commons with full attribution; contextual and representative frames are labelled honestly.",
           categories: landscapeRecordCategories,
-          items: makeItemMap("rekordy-krajobrazu", {})
+          get items() { return lazyItemMap("rekordy-krajobrazu", {}); }
         }
       }
     },
@@ -2905,6 +2993,22 @@
           label: "People & culture",
           description: "Architecture, technology and memory — human traces in the Polish landscape."
         }
+      }
+    },
+    // English versions of the short safety notes shipped with the fun facts, keyed by the Polish
+    // text, so a changed note falls back to Polish instead of showing an outdated translation.
+    factNotes: {
+      en: {
+        "Zimą (zwykle od października do kwietnia) obowiązują ograniczenia zwiedzania, żeby nie budzić nietoperzy.": "In winter (usually from October to April) visits are restricted so that hibernating bats are not woken.",
+        "Nurkowanie tylko z uprawnieniami. Zatopione pnie to przeszkody, w których można się zaplątać.": "Dive only with the proper certification. The submerged trunks are obstacles you can get entangled in.",
+        "Less łatwo się osypuje. Nie wspinaj się po ścianach wąwozu i nie podkopuj korzeni.": "Loess crumbles easily. Do not climb the gully walls or dig under the roots.",
+        "Kąpiel tylko w wyznaczonych miejscach. Dawne wyrobiska mają strome, głębokie ściany pod wodą.": "Swim only in designated areas. The former quarry pits have steep, deep walls under water.",
+        "CO₂ jest cięższy od powietrza. Nie pochylaj się nisko nad wypływami.": "CO₂ is heavier than air. Do not bend down low over the vents.",
+        "Po gołoborzach się nie chodzi: są chronione w Świętokrzyskim PN, a bloki są niestabilne.": "Do not walk on the block fields: they are protected in Świętokrzyski National Park and the boulders are unstable.",
+        "To zwykle drogi publiczne. Nie zatrzymuj się na jezdni, żeby „testować” zjawisko.": "These are usually public roads. Do not stop on the roadway to “test” the effect.",
+        "Silne szczęki: nie dotykać!": "Strong jaws: do not touch!",
+        "Nie wchodź do zniszczonych schronów poza wyznaczoną trasą.": "Do not enter the damaged bunkers off the marked route.",
+        "To niedokończony, niezabezpieczony obiekt i teren prywatny. Wejście jest niebezpieczne i niedozwolone.": "This is an unfinished, unsecured structure on private land. Entering is dangerous and not allowed."
       }
     }
   };

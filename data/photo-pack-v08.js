@@ -133,6 +133,7 @@
       hook: "Niepozorna, cynamonowa huba ma laboratoryjny sekret: w kontakcie z zasadą szybko robi się fioletowa.",
       quiz_angle: "chemiczna reakcja KOH lub amoniaku: miąższ przebarwia się na fioletowo",
       safety_note: "silnie trujący; opis dotyczy wyłącznie ciekawostki przyrodniczej i nie zachęca do eksperymentów terenowych",
+      toxic: true,
       image_status: "commons_candidate",
       ordinal: nextOrdinal + 4,
       category_label: specialEffectsCategory.label,

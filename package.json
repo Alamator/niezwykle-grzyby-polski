@@ -7,6 +7,7 @@
     "dev": "node scripts/dev-server.mjs",
     "test:data": "node scripts/validate-data.mjs",
     "test:collections": "node scripts/validate-collections.mjs",
+    "test:facts": "node scripts/validate-facts.mjs",
     "check:no-omttk": "node scripts/check-no-forbidden-names.mjs",
     "test:technical": "node scripts/validate-technical.mjs",
     "deploy:vercel": "vercel --prod"

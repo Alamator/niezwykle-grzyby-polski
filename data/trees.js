@@ -95,6 +95,8 @@
       hook: "Najstarsze znane drzewo Polski jest raczej żywym ocalałym fragmentem historii niż klasycznym, symetrycznym olbrzymem.",
       quiz_angle: "wiek liczony w ponad tysiącu lat, gatunek cisa i dramatycznie zmieniony, wciąż żywy pień",
       safety_note: "cis jest rośliną trującą i chronioną jako okaz pomnikowy; oglądać bez dotykania, zrywania igieł lub owoców",
+      protection: "partial",
+      toxic: true,
       region_pl: "Henryków Lubański, województwo dolnośląskie.",
       habitat_pl: "Stare siedlisko przy zabudowie, dziś wymagające stałej opieki i zabezpieczenia korzeni.",
       occurrence_note: "Jego osobliwość jest czasowa: biologicznie trwa od średniowiecza, ale współcześnie przeżył dzięki ratunkowym zabiegom ochronnym.",

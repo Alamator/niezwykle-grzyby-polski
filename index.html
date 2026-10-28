@@ -59,6 +59,15 @@
     </div>
   </header>
 
+  <section id="dailyFact" class="daily-fact shell" aria-labelledby="dailyFactTitle">
+    <div class="daily-fact__card">
+      <h2 id="dailyFactTitle" class="eyebrow daily-fact__title">Ciekawostka dnia</h2>
+      <div id="dailyFactBody" class="daily-fact__body">
+        <p class="daily-fact__loading">Wczytuję ciekawostkę dnia…</p>
+      </div>
+    </div>
+  </section>
+
   <section id="about" class="about shell" aria-labelledby="about-title">
     <div class="about__head">
       <p id="aboutEyebrow" class="eyebrow">O projekcie</p>
@@ -154,7 +163,7 @@
           <p id="quizEyebrow" class="eyebrow">Quiz</p>
           <h2 id="quiz-title">10 pytań na spokojnie</h2>
         </div>
-        <p id="quizNote" class="section-note">Pytania są generowane z opisów i nazw łacińskich aktywnej kolekcji.</p>
+        <p id="quizNote" class="section-note">Pytania powstają z opisów, nazw i ciekawostek aktywnej kolekcji, także jako „prawda czy fałsz”.</p>
       </div>
       <div id="quizBox" class="quiz-box"></div>
     </section>
@@ -163,10 +172,11 @@
       <div class="section-head">
         <div>
           <p id="sourcesEyebrow" class="eyebrow">Źródła i licencje</p>
-          <h2 id="sources-title">Atrybucja zdjęć</h2>
+          <h2 id="sources-title">Źródła ciekawostek i zdjęć</h2>
         </div>
         <p class="section-note" id="sourceNote">Zdjęcia uzupełniamy stopniowo z legalnych źródeł.</p>
       </div>
+      <div id="factSources" class="source-panel fact-sources"></div>
       <div id="sourcePanel" class="source-panel">
         <h3 id="sourcePanelTitle">Zasada projektu</h3>
         <p id="sourcePanelCopy">Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.</p>
@@ -187,6 +197,8 @@
     <button class="dialog-close" type="button" aria-label="Zamknij">×</button>
     <div id="dialogContent"></div>
   </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <footer class="site-footer shell">
     <img class="footer-logo" src="/assets/logo-oroloko-ai.svg" alt="The AI does not replace your experience. It amplifies it. You are still the expert. Made by Robert Oroloko" width="800" height="110" loading="lazy" />
