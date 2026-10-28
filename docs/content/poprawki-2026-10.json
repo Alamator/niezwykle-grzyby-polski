@@ -1,0 +1,1874 @@
+[
+ {
+  "id": "C000",
+  "collection": "grzyby",
+  "card_hint": "Ochrona ścisła:",
+  "text": "**Ochrona ścisła:** dzbankówka kulista, czareczka długotrzonkowa, krążkówka żyłkowana, soplówka jeżowata, promieniak wilgociomierz, gwiazda wieloporowa, gwiazdosz wzniesiony, kolczakówki: piekąca, niebieskawa i wonna, żyłkowiec różowawy, krwistoborowik szatański, pniarek lekarski.",
+  "new_text": "**Ochrona ścisła:** dzbankówka kulista, czareczka długotrzonowa, krążkówka żyłkowana, soplówka jeżowata, promieniak wilgociomierz, gwiazda wieloporowa, gwiazdosz wzniesiony, kolczakówki: piekąca, niebieskawa i wonna, żyłkowiec różowawy, krwistoborowik szatański (w rozporządzeniu jako borowik szatański), pniarek lekarski.",
+  "sources": [
+   "https://www.infor.pl/akt-prawny/DZU.2014.197.0001408,rozporzadzenie-ministra-srodowiska-w-sprawie-ochrony-gatunkowej-grzybow.html"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C001",
+  "collection": "grzyby",
+  "card_hint": "Ochrona częściowa:",
+  "text": "**Ochrona częściowa:** smardz jadalny i wyniosły (poza ogrodami, uprawami, szkółkami i terenami zieleni), soplówka bukowa, płomyczka galaretowata, gwiazdosz czteropromienny, szyszkowiec łuskowaty, ozorek dębowy, lakownica żółtawa, błyskoporek podkorowy.",
+  "new_text": "**Ochrona częściowa:** smardz jadalny i wyniosły (okazy rosnące poza ogrodami, uprawami ogrodniczymi, szkółkami leśnymi i terenami zieleni), soplówka bukowa, płomykowiec galaretowaty, gwiazdosz czteropromienny, szyszkowiec łuskowaty, ozorek dębowy, lakownica żółtawa, błyskoporek podkorowy.",
+  "sources": [
+   "https://www.infor.pl/akt-prawny/DZU.2014.197.0001408,rozporzadzenie-ministra-srodowiska-w-sprawie-ochrony-gatunkowej-grzybow.html"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C002",
+  "collection": "grzyby",
+  "card_hint": "ozorka dębowego",
+  "text": "Strona nie wspomina o ochronie u: **ozorka dębowego**, **lakownicy**, **soplówki bukowej**, **szyszkowca** (ma tylko „sprawdzić”) i **krążkówki** (ma „sprawdzić”, a jest pod ochroną ścisłą!).",
+  "new_text": "",
+  "sources": [
+   "https://www.infor.pl/akt-prawny/DZU.2014.197.0001408,rozporzadzenie-ministra-srodowiska-w-sprawie-ochrony-gatunkowej-grzybow.html"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C003",
+  "collection": "grzyby",
+  "card_hint": "Nie są chronione",
+  "text": "**Nie są chronione** (od 2014): siedzuń sosnowy, czasznica olbrzymia, mądziak psi, sromotnik fiołkowy, czarka austriacka, berłóweczka zimowa ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Siedzu%C5%84_sosnowy",
+   "https://pl.wikipedia.org/wiki/Siedzu%C5%84_sosnowy"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C004",
+  "collection": "grzyby",
+  "card_hint": "Chlorówka drobna:",
+  "text": "**Chlorówka drobna:** strona podaje „ciepłe murawy kserotermiczne”, a to **błąd**. Gatunek rośnie na spróchniałym, okorowanym drewnie, zwłaszcza dębu (,).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Chlor%C3%B3wka_drobna",
+   "https://en.wikipedia.org/wiki/Chlorociboria_aeruginascens",
+   "https://en.wikipedia.org/wiki/Chlorociboria_aeruginascens"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C005",
+  "collection": "grzyby",
+  "card_hint": "Berłóweczka zimowa:",
+  "text": "**Berłóweczka zimowa:** strona podaje „mchy, ściółka i gleba w lasach”. Według źródeł to ciepłe murawy i suche, piaszczyste lub wapienne gleby. W Polsce jest rzadka (status R), a nie „cała Polska” ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Ber%C5%82%C3%B3weczka_zimowa",
+   "https://pl.wikipedia.org/wiki/Ber%C5%82%C3%B3weczka_zimowa"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C006",
+  "collection": "grzyby",
+  "card_hint": "Sromotnik fiołkowy:",
+  "text": "**Sromotnik fiołkowy:** strona podaje „żyzne lasy liściaste, parki, południe i zachód”. Według źródeł to **nadmorskie wydmy** Bałtyku, a w głębi lądu sporadycznie. Tag „wydmy” na stronie jest zgodny z tym, ale opis już nie ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Sromotnik_fio%C5%82kowy",
+   "https://pl.wikipedia.org/wiki/Sromotnik_fio%C5%82kowy"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C007",
+  "collection": "grzyby",
+  "card_hint": "Świecznik rozgałęziony:",
+  "text": "**Świecznik rozgałęziony:** strona podaje „ściółka i mszyste miejsca, góry”. To grzyb **nadrzewny**, rosnący na butwiejących pniach osiki, brzozy i innych drzew ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/%C5%9Awiecznik_rozga%C5%82%C4%99ziony"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C008",
+  "collection": "grzyby",
+  "card_hint": "Płomyczka galaretowata:",
+  "text": "**Płomyczka galaretowata:** strona podaje „martwe drewno liściaste, cała Polska”. Według źródeł to (często zakopane) drewno **świerka lub jodły**, w górach, na wapieniu. Gatunek jest rzadki ().",
+  "new_text": "**Płomyczka galaretowata:** strona podaje „martwe drewno liściaste, cała Polska”. Według źródeł to głównie (często zakopane) drewno **świerka lub jodły**, rzadziej innych gatunków, w górach, na glebach wapiennych. W Polsce gatunek jest rzadki ([PL](https://pl.wikipedia.org/wiki/P%C5%82omyczka_galaretowata)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/P%C5%82omyczka_galaretowata",
+   "https://pl.wikipedia.org/wiki/P%C5%82omyczka_galaretowata"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C009",
+  "collection": "grzyby",
+  "card_hint": "Dzbankówka kulista:",
+  "text": "**Dzbankówka kulista:** strona podaje „głównie północno-wschodnia Polska” i „butwiejące drewno”. Według źródeł wszystkie 13 polskich stanowisk z literatury są **historyczne**, a gatunek rośnie w mszystych świerczynach nad strumieniami ().",
+  "new_text": "**Dzbankówka kulista:** strona podaje „głównie północno-wschodnia Polska” i „butwiejące drewno”. Według źródeł wszystkie 13 stanowisk podanych w polskim piśmiennictwie naukowym do 2020 r. są **historyczne**, a gatunek rośnie w wilgotnych świerczynach z grubym dywanem mchu, często wzdłuż strumieni ([PL](https://pl.wikipedia.org/wiki/Dzbank%C3%B3wka_kulista)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Dzbank%C3%B3wka_kulista",
+   "https://pl.wikipedia.org/wiki/Dzbank%C3%B3wka_kulista"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C010",
+  "collection": "grzyby",
+  "card_hint": "Żyłkowiec różowawy:",
+  "text": "**Żyłkowiec różowawy:** strona podaje „doliny rzeczne, stare parki”. W Polsce gatunek znany jest prawie wyłącznie z Puszczy Białowieskiej (6 stanowisk w 2020 r.) ().",
+  "new_text": "**Żyłkowiec różowawy:** strona podaje „doliny rzeczne, stare parki”, tymczasem to saprotrof lasów liściastych, rosnący na martwym drewnie, przede wszystkim wiązów. W Polsce jest rzadki: po ponad stu latach odnotowano go na jednym stanowisku w Puszczy Białowieskiej, gdzie wyraźnie się rozprzestrzenia, a w 2020 r. znano już 6 stanowisk ([PL](https://pl.wikipedia.org/wiki/%C5%BBy%C5%82kowiec_r%C3%B3%C5%BCowawy)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/%C5%BBy%C5%82kowiec_r%C3%B3%C5%BCowawy",
+   "https://pl.wikipedia.org/wiki/%C5%BBy%C5%82kowiec_r%C3%B3%C5%BCowawy"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C011",
+  "collection": "grzyby",
+  "card_hint": "Gwiazda wieloporowa:",
+  "text": "**Gwiazda wieloporowa:** strona podaje „rozproszona w całej Polsce”. W rzeczywistości jest bardzo rzadka (5 aktualnych stanowisk) ().",
+  "new_text": "**Gwiazda wieloporowata:** strona podaje „rozproszona w całej Polsce”. W rzeczywistości jest w Polsce bardzo rzadka: do 2020 r. w piśmiennictwie naukowym podano 5 aktualnych stanowisk, 8 historycznych i jedno wątpliwe ([PL](https://pl.wikipedia.org/wiki/Gwiazda_wieloporowata)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Gwiazda_wieloporowata",
+   "https://pl.wikipedia.org/wiki/Gwiazda_wieloporowata"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C012",
+  "collection": "grzyby",
+  "card_hint": "Gwiazdosz wzniesiony:",
+  "text": "**Gwiazdosz wzniesiony:** siedliska to zarośla bogate w azot (lilak, głóg, bez, robinia), a nie „ciepłe murawy” ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Gwiazdosz_wzniesiony",
+   "https://pl.wikipedia.org/wiki/Gwiazdosz_wzniesiony"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C013",
+  "collection": "grzyby",
+  "card_hint": "Częstość występowania:",
+  "text": "**Częstość występowania:** mądziak psi, gęstoporek cynobrowy i maczużnik bojowy są w Polsce **rzadkie** (Czerwona lista: V lub R), a strona sugeruje „cała Polska”. Miękusz rabarbarowy jest „dość rzadki”, a nie „częsty” (,,,).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/M%C4%85dziak_psi",
+   "https://pl.wikipedia.org/wiki/Wro%C5%9Bniak_cynobrowy",
+   "https://pl.wikipedia.org/wiki/Maczu%C5%BCnik_bojowy",
+   "https://pl.wikipedia.org/wiki/Mi%C4%99kusz_rabarbarowy",
+   "https://pl.wikipedia.org/wiki/M%C4%85dziak_psi"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C015",
+  "collection": "grzyby",
+  "card_hint": "„dzieżka pomarańczowa”",
+  "text": "*Aleuria aurantia*: zamiast „kustrzebka pomarańczowa” powinna być **„dzieżka pomarańczowa”**. Kustrzebka to rodzaj *Peziza* ().",
+  "new_text": "*Aleuria aurantia*: zamiast „kustrzebka pomarańczowa” powinna być **„dzieżka pomarańczowa”**. Gatunek opisano pierwotnie jako *Peziza aurantia*, ale w 1870 r. Leopold Fuckel przeniósł go do rodzaju *Aleuria* ([PL](https://pl.wikipedia.org/wiki/Dzie%C5%BCka_pomara%C5%84czowa)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Dzie%C5%BCka_pomara%C5%84czowa",
+   "https://pl.wikipedia.org/wiki/Dzie%C5%BCka_pomara%C5%84czowa"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C016",
+  "collection": "grzyby",
+  "card_hint": "„sromotnik smrodliwy”",
+  "text": "*Phallus impudicus*: zamiast „sromotnik bezwstydny” powinien być **„sromotnik smrodliwy”**. „Bezwstydny” to historyczny synonim. Nazwę „smrodliwy” stosuje też PTMyk (,).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Sromotnik_smrodliwy",
+   "https://www.ptmyk.pl/wp-content/uploads/2026/02/Rekomendacja-6_2025.pdf",
+   "https://pl.wikipedia.org/wiki/Sromotnik_smrodliwy"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C017",
+  "collection": "grzyby",
+  "card_hint": "mylący błąd",
+  "text": "*Pseudohydnum gelatinosum*: „kolczakówka galaretowata” to **mylący błąd**, bo kolczakówki to rodzaj *Hydnellum*. Poprawnie: **„galaretek kolczasty”** ().",
+  "new_text": "*Pseudohydnum gelatinosum*: „kolczakówka galaretowata” to **błąd**. Poprawnie: **„galaretek kolczasty”** ([PL](https://pl.wikipedia.org/wiki/Galaretek_kolczasty)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Galaretek_kolczasty",
+   "https://pl.wikipedia.org/wiki/Galaretek_kolczasty"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C018",
+  "collection": "grzyby",
+  "card_hint": "„płomyczka galaretowata”",
+  "text": "*Guepinia helvelloides*: zamiast „płomyczek galaretowaty” powinna być **„płomyczka galaretowata”** (rekomendacja KPNG 2021). W rozporządzeniu figuruje jako „płomykowiec galaretowaty” ().",
+  "new_text": "*Guepinia helvelloides*: zamiast „płomyczek galaretowaty” powinna być **„płomyczka galaretowata”** (rekomendacja KPNG 2021). W dotychczasowej literaturze mykologicznej (Wojewoda 2003) figurowała jako „płomykowiec galaretowaty” ([PTMyk 1/2021](https://www.ptmyk.pl/wp-content/uploads/2021/02/Rekomendacja-1_2021_z-dnia-20_02_2021-FINA%C5%81.pdf)).",
+  "sources": [
+   "https://www.ptmyk.pl/wp-content/uploads/2021/02/Rekomendacja-1_2021_z-dnia-20_02_2021-FINA%C5%81.pdf",
+   "https://www.ptmyk.pl/wp-content/uploads/2021/02/Rekomendacja-1_2021_z-dnia-20_02_2021-FINA%C5%81.pdf"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C019",
+  "collection": "grzyby",
+  "card_hint": "„kubecznik pospolity”",
+  "text": "*Crucibulum laeve*: zamiast „gniazdniczka kulista / kubek gładki” powinien być **„kubecznik pospolity”**. Gniazdniczka to inny rodzaj, *Nidularia* ().",
+  "new_text": "*Crucibulum laeve*: zamiast „gniazdniczka kulista / kubek gładki” powinien być **„kubecznik pospolity”** ([PL](https://pl.wikipedia.org/wiki/Kubecznik_pospolity)).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Kubecznik_pospolity",
+   "https://pl.wikipedia.org/wiki/Kubecznik_pospolity"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C020",
+  "collection": "grzyby",
+  "card_hint": "„pięknoróg największy”",
+  "text": "*Calocera viscosa*: zamiast „pięknoróg lepki” powinien być **„pięknoróg największy”** ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Pi%C4%99knor%C3%B3g_najwi%C4%99kszy"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C021",
+  "collection": "grzyby",
+  "card_hint": "„koralówka czerwonowierzchołkowa”",
+  "text": "*Ramaria botrytis*: zamiast „koralówka / gałęziak groniasty” powinna być **„koralówka czerwonowierzchołkowa”** ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Koral%C3%B3wka_czerwonowierzcho%C5%82kowa",
+   "https://pl.wikipedia.org/wiki/Koral%C3%B3wka_czerwonowierzcho%C5%82kowa"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C022",
+  "collection": "grzyby",
+  "card_hint": "„kolczakówka niebieskawa”",
+  "text": "*Hydnellum caeruleum*: zamiast „kolczakówka niebieska” powinna być **„kolczakówka niebieskawa”**. Taką nazwę ma też rozporządzenie ().",
+  "new_text": "",
+  "sources": [
+   "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C023",
+  "collection": "grzyby",
+  "card_hint": "„lakownica żółtawa”",
+  "text": "*Ganoderma lucidum*: zamiast „lakownica lśniąca” powinna być **„lakownica żółtawa”**. Tak nazywają ją rozporządzenie i Wikipedia ().",
+  "new_text": "*Ganoderma lucidum*: zamiast „lakownica lśniąca” powinna być **„lakownica żółtawa”**. Tak nazywa ją Wikipedia ([PL](https://pl.wikipedia.org/wiki/Lakownica_%C5%BC%C3%B3%C5%82tawa)), a „lakownica lśniąca” to jedna z nazw używanych też w polskim piśmiennictwie mykologicznym.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Lakownica_%C5%BC%C3%B3%C5%82tawa",
+   "https://pl.wikipedia.org/wiki/Lakownica_%C5%BC%C3%B3%C5%82tawa"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C024",
+  "collection": "grzyby",
+  "card_hint": "„świecznik rozgałęziony”",
+  "text": "*Artomyces pyxidatus*: z tą nazwą łacińską spójna jest polska nazwa **„świecznik rozgałęziony”**. „Świecznica” była używana dla *Clavicorona pyxidata* ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/%C5%9Awiecznik_rozga%C5%82%C4%99ziony"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C026",
+  "collection": "grzyby",
+  "card_hint": "",
+  "text": "*Pycnoporus cinnabarinus*: GBIF podaje jako przyjętą nazwę *Trametes cinnabarina*. Polska Wikipedia używa „wrośniak cynobrowy” ().",
+  "new_text": "",
+  "sources": [
+   "https://www.gbif.org/species/5246466",
+   "https://gbif.org/species/5246466"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C027",
+  "collection": "grzyby",
+  "card_hint": "",
+  "text": "*Fomitopsis officinalis*: dane DNA przemawiają za nazwą *Laricifomes officinalis* (). Rozporządzenie i GBIF nadal używają *Fomitopsis*, więc obecna nazwa nie jest błędem.",
+  "new_text": "*Fomitopsis officinalis* to nazwa, pod którą gatunek jest również znany, ale dane DNA wykazały jego odrębność genetyczną od rodzaju *Fomitopsis* i przemawiają za nazwą *Laricifomes officinalis* ([EN](https://en.wikipedia.org/wiki/Laricifomes_officinalis)).",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Laricifomes_officinalis",
+   "https://en.wikipedia.org/wiki/Laricifomes_officinalis"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C028",
+  "collection": "grzyby",
+  "card_hint": "",
+  "text": "Pozostałe 58 nazw łacińskich GBIF potwierdza jako przyjęte ✅.",
+  "new_text": "",
+  "sources": [
+   "https://www.gbif.org/taxon/4TJ9C"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C029",
+  "collection": "grzyby",
+  "card_hint": "Wilgotnica czerniejąca",
+  "text": "**Wilgotnica czerniejąca** ma na stronie tylko „materiał edukacyjny”, a źródła podają, że jest **lekko trująca** ().",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Wilgotnica_czerniej%C4%85ca",
+   "https://pl.wikipedia.org/wiki/Wilgotnica_czerniej%C4%85ca"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C030",
+  "collection": "grzyby",
+  "card_hint": "Muchomor czerwony:",
+  "text": "**Muchomor czerwony:** warto dodać informację o prawie z 2025 r. (muscymol i kwas ibotenowy na liście NSP) ().",
+  "new_text": "",
+  "sources": [
+   "https://www.gov.pl/web/chemikalia/zmiana-wykazu-substancji-psychotropowych-srodkow-odurzajacych-oraz-nowych-substancji-psychoaktywnych",
+   "https://www.gov.pl/web/chemikalia/zmiana-wykazu-substancji-psychotropowych-srodkow-odurzajacych-oraz-nowych-substancji-psychoaktywnych"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C031",
+  "collection": "kwiaty",
+  "card_hint": "Dwulistnik pszczeli.",
+  "text": "**Dwulistnik pszczeli.** Strona pisze: „storczyk chroniony”. Nie ma go w krajowym rozporządzeniu (Dz.U. 2014 poz. 1409), bo pierwszy raz znaleziono go w Polsce w 2010 r. Na 5 lat chroniło go prawo lokalne woj. śląskiego (2017). Proponuję: „krytycznie zagrożony (CR), w Polsce znane tylko pojedyncze stanowiska”.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Dwulistnik_pszczeli",
+   "https://pressto.amu.edu.pl/index.php/biorc/article/download/biorc-2020-0007/29483/72196",
+   "https://pressto.amu.edu.pl/index.php/biorc/article/download/biorc-2020-0007/29483/72196"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C032",
+  "collection": "kwiaty",
+  "card_hint": "Obrazki plamiste: region.",
+  "text": "**Obrazki plamiste: region.** Strona podaje „głównie południe i zachód Polski”, a Wikipedia mówi: „w Polsce jest dość rzadki, występuje na **Pomorzu Zachodnim**”. Na południu rosną raczej **obrazki alpejskie**. Proponuję: „Rzadkie, głównie Pomorze Zachodnie”.",
+  "new_text": "**Obrazki plamiste: region.** Strona podaje „głównie południe i zachód Polski”, a Wikipedia mówi: „w Polsce jest dość rzadki, występuje na **Pomorzu Zachodnim**”. Proponuję: „Dość rzadkie, występują na Pomorzu Zachodnim”.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Obrazki_plamiste",
+   "https://pl.wikipedia.org/wiki/Obrazki_plamiste"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C033",
+  "collection": "kwiaty",
+  "card_hint": "Obrazki alpejskie.",
+  "text": "**Obrazki alpejskie.** W rozporządzeniu figurują jako *Arum alpinum* i są pod ochroną **częściową**, a nie ścisłą. Warto dopisać synonim.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Obrazki_alpejskie",
+   "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C034",
+  "collection": "kwiaty",
+  "card_hint": " Nie znalazłem tej polskiej nazwy w źródłach. ⚠️ W publikacjach przyrodniczych pojawia się m.in. nazwa „świetlanka”, ale tego nie zweryfikowałem, więc warto to sprawdzić u briologa. Gatunku ",
+  "text": "**„Świetlik mszysty” (*Schistostega pennata*).** Nie znalazłem tej polskiej nazwy w źródłach. ⚠️ W publikacjach przyrodniczych pojawia się m.in. nazwa „świetlanka”, ale tego nie zweryfikowałem, więc warto to sprawdzić u briologa. Gatunku **nie ma** w rozporządzeniu o ochronie roślin (sprawdziłem listę mchów).",
+  "new_text": "Świetlanka długoszowata (Schistostega pennata). Gatunku nie ma w rozporządzeniu w sprawie ochrony gatunkowej roślin.",
+  "sources": [
+   "http://agro.icm.edu.pl/agro/element/bwmeta1.element.dl-catalog-2031e005-fcd2-4e0e-9b8b-bc461ff45d86"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C035",
+  "collection": "kwiaty",
+  "card_hint": "Bniec biały.",
+  "text": "**Bniec biały.** Aktualna nazwa to *lepnica biała* (*Silene latifolia*). „Bniec” to nazwa dawniejsza, którą można zostawić jako synonim.",
+  "new_text": "**Bniec biały.** Główna nazwa to *lepnica biała* (*Silene latifolia*). „Bniec biały” to nazwa równoległa, którą można zostawić jako synonim.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Lepnica_bia%C5%82a",
+   "https://pl.wikipedia.org/wiki/Lepnica_bia%C5%82a"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C036",
+  "collection": "kwiaty",
+  "card_hint": "Kurzyślad polny.",
+  "text": "**Kurzyślad polny.** Według nowszej systematyki to *Lysimachia arvensis*.",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Lysimachia_arvensis",
+   "https://en.wikipedia.org/wiki/Lysimachia_arvensis"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C037",
+  "collection": "kwiaty",
+  "card_hint": "Kukuczka kapturkowata.",
+  "text": "**Kukuczka kapturkowata.** Nowsza nazwa łacińska to *Hemipilia cucullata*. Region „NE i wschodnia Polska” jest OK. Strona dobrze robi, że nie podaje stanowisk.",
+  "new_text": "**Kukuczka kapturkowata.** Nowsza nazwa łacińska to *Hemipilia cucullata*. Strona dobrze robi, że nie podaje stanowisk.",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Hemipilia_cucullata",
+   "https://en.wikipedia.org/wiki/Hemipilia_cucullata"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C038",
+  "collection": "kwiaty",
+  "card_hint": "Rosiczka.",
+  "text": "**Rosiczka.** Strona pisze „gatunki chronione”. To prawda. Można doprecyzować, że **wszystkie cztery** krajowe rosiczki są pod ochroną **ścisłą**.",
+  "new_text": "",
+  "sources": [
+   "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C039",
+  "collection": "kwiaty",
+  "card_hint": "Wawrzynek, podkolany, gnidosz, zaraza żółta.",
+  "text": "**Wawrzynek, podkolany, gnidosz, zaraza żółta.** Wszystkie są pod ochroną **częściową**, a strona tego nie precyzuje. Kopytnik, łuskiewnik i pływacz zwyczajny **nie są** już chronione (od 2014 r.).",
+  "new_text": "**Wawrzynek wilczełyko, podkolan biały i zielonawy, gnidosz błotny i rozesłany, zaraza żółta.** Wszystkie są pod ochroną **częściową**, a strona tego nie precyzuje. Kopytnika, łuskiewnika i pływacza zwyczajnego **nie ma** w rozporządzeniu z 2014 r., więc nie są chronione.",
+  "sources": [
+   "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
+   "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C040",
+  "collection": "kwiaty",
+  "card_hint": "Kłokoczka.",
+  "text": "**Kłokoczka.** Notka o nasionach w różańcach jest OK jako kultura. Lepiej nie dodawać, że nasiona są jadalne (tak podaje Wikipedia), bo to gatunek chroniony.",
+  "new_text": "",
+  "sources": [
+   "https://www.infor.pl/akt-prawny/DZU.2014.197.0001409,metryka,rozporzadzenie-ministra-srodowiska-w-sprawie-ochrony-gatunkowej-roslin.html"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C041",
+  "collection": "drzewa",
+  "card_hint": "Lipa w Cielętnikach.",
+  "text": "**Lipa w Cielętnikach.** Strona opisuje ją jak żywe drzewo, a w opisie siedliska podaje „plac przykościelny z pomnikowym drzewem”. **Lipa została powalona przez orkan Ksawery w nocy 5/6 października 2017 r.** Można też uściślić gatunek na *Tilia cordata* (lipa drobnolistna, była najgrubszym drzewem Polski).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Ciel%C4%99tniki_%28wojew%C3%B3dztwo_%C5%9Bl%C4%85skie%29",
+   "https://pl.wikipedia.org/wiki/Lipa_drobnolistna",
+   "https://pl.wikipedia.org/wiki/Ciel%C4%99tniki_%28wojew%C3%B3dztwo_%C5%9Bl%C4%85skie%29"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C042",
+  "collection": "drzewa",
+  "card_hint": "Lipa Pokoju (Głuchołazy).",
+  "text": "**Lipa Pokoju (Głuchołazy).** Strona podaje *Tilia sp.*, a to **lipa szerokolistna (*Tilia platyphyllos*)**.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Lipa_szerokolistna_w_G%C5%82ucho%C5%82azach",
+   "https://pl.wikipedia.org/wiki/Lipa_szerokolistna_w_G%C5%82ucho%C5%82azach"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C043",
+  "collection": "drzewa",
+  "card_hint": "Lipa w Stroniu Śląskim.",
+  "text": "**Lipa w Stroniu Śląskim.** Strona podaje *Tilia platyphyllos*, a opis pomnika mówi o **lipie drobnolistnej**. ⚠️ To jedno źródło (blog z opisem pomników przyrody), więc warto sprawdzić w CRFOP. Dobrze byłoby dopisać datę powodzi: **15.09.2024**.",
+  "new_text": "",
+  "sources": [
+   "https://www.pomniki-przyrody.pl/?p=20018",
+   "https://www.pomniki-przyrody.pl/?p=20018"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C044",
+  "collection": "drzewa",
+  "card_hint": "Drzewo z kulą armatnią (Czarnca).",
+  "text": "**Drzewo z kulą armatnią (Czarnca).** Strona pisze „pień znaleziony podczas prac archeologicznych”. W rzeczywistości kulę znaleźli pracownicy zieleni miejskiej **podczas jesiennych prac porządkowych w parku (2025)**, a archeologów poproszono dopiero o zbadanie znaleziska. Zdanie „drzewo przez stulecia zabliźniło” to ⚠️ hipoteza, bo wiek i okoliczności nie są ustalone.",
+  "new_text": "Kulę armatnią w pniu bardzo starego drzewa w parku-arboretum w Czarncy znaleźli jesienią 2025 r. pracownicy miejskiego Referatu Zieleni podczas prac porządkowych. Gmina poprosiła potem archeologów o zbadanie znaleziska. Nie wiadomo, kiedy i w jakich okolicznościach kula trafiła w drzewo.",
+  "sources": [
+   "https://wloszczowa.pl/aktualnosci/jakie-tajemnice-kryje-jeszcze-historyczna-czarnca-w-starym-drzewie-w-parku-arboretum-pracownicy-miejskiej-zieleni-znalezli-najprawdopodobniej-kule-armatnia-z-xvi-lub-xvii-wieku.html",
+   "https://wloszczowa.pl/aktualnosci/jakie-tajemnice-kryje-jeszcze-historyczna-czarnca-w-starym-drzewie-w-parku-arboretum-pracownicy-miejskiej-zieleni-znalezli-najprawdopodobniej-kule-armatnia-z-xvi-lub-xvii-wieku.html"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C045",
+  "collection": "drzewa",
+  "card_hint": "Sosna Kandelabrowa.",
+  "text": "**Sosna Kandelabrowa.** ⚠️ Według relacji z 2023 r. drzewo **obumarło**. Warto to potwierdzić w Kampinoskim PN i dopisać do opisu.",
+  "new_text": "Sosna Kandelabrowa na Łużach w Kampinoskim Parku Narodowym obumarła, nie dożywszy stu lat. Jej śmierć opisano już pod koniec listopada 2018 r., a martwe drzewo stało jeszcze przy szlaku w 2019 r.",
+  "sources": [
+   "https://mazowszezsercem.blogspot.com/2023/04/krzywulce-w-podwarszawskiej-czesci.html",
+   "https://mazowszezsercem.blogspot.com/2018/11/sosna-kandelabrowa-w-sasiedztwie-wolki.html"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C046",
+  "collection": "drzewa",
+  "card_hint": "Jodła Lasumiła.",
+  "text": "**Jodła Lasumiła.** Hook o „tytule przechodnim” jest OK, ale warto doprecyzować, że to **najgrubsza** (519 cm), a nie najwyższa jodła w Polsce. Najwyższa jest „Niebolubna” (51,4 m). Lokalizacja: masyw Łopiennika, Nadleśnictwo Baligród.",
+  "new_text": "**Jodła Lasumiła.** Hook o „tytule przechodnim” jest OK, ale warto doprecyzować, że to **najgrubsza** jodła w Polsce (519 cm obwodu, 35 m wysokości). Lokalizacja: masyw Łopiennika, Nadleśnictwo Baligród.",
+  "sources": [
+   "https://www.lasy.gov.pl/pl/informacje/aktualnosci/juz-nam-szumi-201elasumila201d",
+   "https://www.lasy.gov.pl/pl/informacje/aktualnosci/juz-nam-szumi-201elasumila201d"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C047",
+  "collection": "drzewa",
+  "card_hint": "Dąb Bolko.",
+  "text": "**Dąb Bolko.** Hniszów leży w **gminie Ruda-Huta** (pow. chełmski). „Dolina Bugu” jest OK jako region. Wiek około 650 lat.",
+  "new_text": "**Dąb Bolko.** Hniszów leży w **gminie Ruda-Huta** (woj. lubelskie). Wiek około 650 lat.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/D%C4%85b_Bolko",
+   "https://pl.wikipedia.org/wiki/D%C4%85b_Bolko"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C048",
+  "collection": "drzewa",
+  "card_hint": "Dąb Gniewko.",
+  "text": "**Dąb Gniewko.** Bielino-Wirgnia leży w **gminie Słupno (pow. płocki)**. Warto to dopisać, bo „mazowieckie” to bardzo ogólna informacja.",
+  "new_text": "",
+  "sources": [
+   "https://www.pomniki-przyrody.pl/?p=20323"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C049",
+  "collection": "drzewa",
+  "card_hint": "Mamutowiec w Brwicach.",
+  "text": "**Mamutowiec w Brwicach.** Można dodać, że to **największy mamutowiec w Polsce**.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Mamutowiec_olbrzymi"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C050",
+  "collection": "drzewa",
+  "card_hint": "Bożodrzew.",
+  "text": "**Bożodrzew.** Ostrzeżenie „inwazyjny” jest dobre. Można dodać, że to **gatunek z unijnej listy IAS** (zakaz sprzedaży i rozmnażania).",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ailanthus_altissima",
+   "https://en.wikipedia.org/wiki/Ailanthus_altissima"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C051",
+  "collection": "drzewa",
+  "card_hint": "Cis Henrykowski.",
+  "text": "**Cis Henrykowski.** Strona pisze „chroniony jako okaz pomnikowy”. Warto dodać, że **cis pospolity jako gatunek** jest też pod ochroną częściową (Dz.U. 2014 poz. 1409).",
+  "new_text": "",
+  "sources": [
+   "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C052",
+  "collection": "owady",
+  "card_hint": "„Kozóg dębowy”",
+  "text": "**„Kozóg dębowy”** → prawidłowo **kozioróg dębosz** (*Cerambyx cerdo*). Warto dopisać, że ma **ochronę ścisłą i wymaga ochrony czynnej**.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Kozior%C3%B3g_d%C4%99bosz",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C053",
+  "collection": "owady",
+  "card_hint": "„Turkuc podjadek”",
+  "text": "**„Turkuc podjadek”** → **turkuć** podjadek.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Turku%C4%87_podjadek"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C054",
+  "collection": "owady",
+  "card_hint": "„Wojsilka”",
+  "text": "**„Wojsilka”** → **wojsiłka** pospolita.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Wojsi%C5%82ka_pospolita",
+   "https://pl.wikipedia.org/wiki/Wojsi%C5%82ka_pospolita"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C055",
+  "collection": "owady",
+  "card_hint": "„Żyrytwa pluskwowata”",
+  "text": "**„Żyrytwa pluskwowata”**: Wikipedia i literatura używają nazwy **płoszczyca szara** (*Nepa cinerea*).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/P%C5%82oszczyca_szara",
+   "https://pl.wikipedia.org/wiki/P%C5%82oszczyca_szara"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C056",
+  "collection": "owady",
+  "card_hint": "„Mieniak mżawiec”",
+  "text": "**„Mieniak mżawiec”** → **mieniak tęczowiec** (*Apatura iris*).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Mieniak_t%C4%99czowiec",
+   "https://pl.wikipedia.org/wiki/Mieniak_t%C4%99czowiec"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C057",
+  "collection": "owady",
+  "card_hint": ": polska nazwa rodzaju to ",
+  "text": "**„Pucółka” (*Cimbex*)**: polska nazwa rodzaju to **bryzgun**. ⚠️ Nazwy „pucółka” nie znalazłem w źródłach.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Bryzgun_brzozowiec",
+   "https://pl.wikipedia.org/wiki/Bryzgun_brzozowiec"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C058",
+  "collection": "owady",
+  "card_hint": "Jelonek rogacz",
+  "text": "**Jelonek rogacz**: hook „największy polski chrząszcz” jest w porządku (największy w Europie). Notka „gatunek chroniony” jest OK, ale lepiej precyzyjnie: **ochrona częściowa** od 2014 r.",
+  "new_text": "**Jelonek rogacz** to jeden z największych chrząszczy w Polsce. Zamiast ogólnego „gatunek chroniony” lepiej napisać precyzyjnie: od 2014 r. objęty jest **ochroną częściową**.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Jelonek_rogacz",
+   "https://pl.wikipedia.org/wiki/Jelonek_rogacz"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C059",
+  "collection": "owady",
+  "card_hint": "Biegacz skórzasty",
+  "text": "**Biegacz skórzasty**: hook mówi „największy polski biegacz”, a Wikipedia podaje „drugi co do wielkości biegacz Europy” (po biegaczu olbrzymim). ⚠️ Warto sprawdzić, czy biegacz olbrzymi występuje w Polsce, zanim zostawi się sformułowanie „największy polski”. Do notki warto dopisać **ochronę częściową**.",
+  "new_text": "**Biegacz skórzasty** to drugi co do wielkości biegacz Europy (większy jest tylko biegacz olbrzymi), a w Polsce jest objęty **ochroną częściową**.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Biegacz_sk%C3%B3rzasty",
+   "https://pl.wikipedia.org/wiki/Biegacz_sk%C3%B3rzasty"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C060",
+  "collection": "owady",
+  "card_hint": "Zawisak borowiec",
+  "text": "**Zawisak borowiec**: ⚠️ hook „żarzy się niebieskawo-zielono w świetle UV” jest **niepotwierdzony**. Brakuje źródła, więc proponuję usunąć albo podać źródło.",
+  "new_text": "",
+  "sources": [
+   "https://www.researchgate.net/publication/335025908_Caterpillar_hunting_with_a_UV_flashlight"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C061",
+  "collection": "owady",
+  "card_hint": "Paź królowej",
+  "text": "**Paź królowej**: nie jest obecnie chroniony (był w latach 1984–2001). Jeśli gdzieś na stronie jest sugestia ochrony, trzeba ją usunąć.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Pa%C5%BA_kr%C3%B3lowej",
+   "https://pl.wikipedia.org/wiki/Pa%C5%BA_kr%C3%B3lowej"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C062",
+  "collection": "owady",
+  "card_hint": "Strzyżak sarni w kategorii „Toksyczne i zapachowe”",
+  "text": "**Strzyżak sarni w kategorii „Toksyczne i zapachowe”**: to pasożyt, a nie owad toksyczny ani zapachowy. Lepiej pasowałby do „Dziwne kształty” albo do nowej kategorii, np. „Pasożyty”.",
+  "new_text": "",
+  "sources": [
+   "https://vetkompleksowo.pl/kategorie-tematyczne/inwazja-muchowek-z-rodzaju-lipoptena-jako-potencjalna-przyczyna-swiadu-i-stanu-zapalnego-skory-u-psow-przypadek-kliniczny/"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C063",
+  "collection": "owady",
+  "card_hint": "Bujanka",
+  "text": "**Bujanka**: notka „niegroźna dla ludzi” jest dobra, ale „nie niszczyć gniazd dzikich pszczół” może mylić. To bujanka jest pasożytem gniazd pszczół (jej larwy zjadają larwy pszczół).",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bombylius_major"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C064",
+  "collection": "ryby",
+  "card_hint": "„Murowy świecik”",
+  "text": "**„Murowy świecik”**: nazwy nie znalazłem w źródłach. Polska nazwa gatunku *Maurolicus muelleri* to **mauryk**. ⚠️ Dla Bałtyku to bardzo wątpliwy gość, więc warto podać źródło obserwacji.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Mauryk",
+   "https://pl.wikipedia.org/wiki/Mauryk"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C065",
+  "collection": "ryby",
+  "card_hint": "„Lis morski”",
+  "text": "**„Lis morski”** to synonim. Główna nazwa to **kosogon**. ⚠️ Warto podać źródło obserwacji w Bałtyku, bo ani PL, ani EN Wikipedia o nich nie wspominają.",
+  "new_text": "**„Lis morski”** to synonim. Główna nazwa to **kosogon**. Warto podać źródło obserwacji w Bałtyku, bo polska Wikipedia o nich nie wspomina.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Kosogon",
+   "https://pl.wikipedia.org/wiki/Kosogon"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C066",
+  "collection": "ryby",
+  "card_hint": "„Lamna”",
+  "text": "**„Lamna”** → pełna nazwa **lamna śledziowa** (żarłacz śledziowy).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Lamna_%C5%9Bledziowa"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C067",
+  "collection": "ryby",
+  "card_hint": "„Zębacz smugowy”",
+  "text": "**„Zębacz smugowy”** i **„babka bycza”** są poprawne jako synonimy, ale główne nazwy to **zębacz pasiasty** i **babka śniadogłowa**.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Z%C4%99bacz_pasiasty",
+   "https://pl.wikipedia.org/wiki/Babka_%C5%9Bniadog%C5%82owa",
+   "https://pl.wikipedia.org/wiki/Z%C4%99bacz_pasiasty"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C068",
+  "collection": "ryby",
+  "card_hint": "Brak informacji o ochronie",
+  "text": "**Brak informacji o ochronie**: **dennik, wężynka i iglicznia** są pod **ochroną częściową** (zał. 2), a strona tego nie podaje.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C069",
+  "collection": "ryby",
+  "card_hint": "Koza, piskorz, różanka",
+  "text": "**Koza, piskorz, różanka**: notka „gatunek chroniony” jest poprawna, ale lepiej napisać precyzyjnie **ochrona częściowa**.",
+  "new_text": "**Koza pospolita, piskorz, różanka**: notka „gatunek chroniony” jest poprawna, ale lepiej napisać precyzyjnie **ochrona częściowa**.",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C070",
+  "collection": "ryby",
+  "card_hint": "Lipień",
+  "text": "**Lipień**: notka „regulowany ochronnie” dotyczy przepisów rybackich, bo w rozporządzeniu o ochronie gatunkowej lipienia nie ma. Warto to rozróżnić.",
+  "new_text": "**Lipień**: w rozporządzeniu o ochronie gatunkowej zwierząt lipienia nie ma, więc notka „regulowany ochronnie” nie dotyczy ochrony gatunkowej. Warto to rozróżnić.",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C071",
+  "collection": "ryby",
+  "card_hint": "Węgorz",
+  "text": "**Węgorz**: brakuje ostrzeżenia, że **surowa krew jest trująca** (ichtiotoksyna).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/W%C4%99gorz_europejski",
+   "https://pl.wikipedia.org/wiki/W%C4%99gorz_europejski"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C072",
+  "collection": "ryby",
+  "card_hint": "Piskorz",
+  "text": "**Piskorz**: ⚠️ hook „może piszczeć” jest niepotwierdzony w źródłach, z których korzystałem. Pewna jest **oddychanie jelitowe**.",
+  "new_text": "Piskorz potrafi oddychać jelitowo: gdy w wodzie brakuje tlenu, połyka powietrze przy powierzchni i pobiera z niego tlen w ukrwionym jelicie. Wyjęty z wody i ściśnięty w dłoni wydaje cichy pisk, bo z jelita uchodzi wtedy powietrze. Od tego dźwięku pochodzi jego nazwa.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Piskorz",
+   "https://natura2000.gdos.gov.pl/files/artykuly/52961/1145_Piskorz.pdf"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C073",
+  "collection": "ryby",
+  "card_hint": "Miętus",
+  "text": "**Miętus**: hook „jedyny słodkowodny dorszowaty w Polsce” jest OK, a precyzyjnie to jedyny słodkowodny gatunek z całego rzędu dorszokształtnych **na świecie**.",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Burbot",
+   "https://en.wikipedia.org/wiki/Burbot"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C074",
+  "collection": "plazy-gady",
+  "card_hint": "Status ochrony",
+  "text": "**Status ochrony**: na stronie warto przy każdym gatunku podać, czy to **ochrona ścisła, czy częściowa**. Szczególnie trzeba dopisać **ochronę ścisłą** zaskrońca rybołowa, ropuchy zielonej, żaby zwinki, moczarowej, grzebiuszki i paskówki.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C075",
+  "collection": "plazy-gady",
+  "card_hint": "Zaskroniec rybołów",
+  "text": "**Zaskroniec rybołów**: hook jest OK. Warto dodać, że pierwsza obserwacja była w **2009 r.**, a gatunek jest pod **ochroną ścisłą**. Stanowisk nie podawać dokładniej niż region (Śląsk Cieszyński).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Zaskroniec_rybo%C5%82%C3%B3w",
+   "https://pl.wikipedia.org/wiki/Zaskroniec_rybo%C5%82%C3%B3w"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C076",
+  "collection": "plazy-gady",
+  "card_hint": "Ropucha zielona",
+  "text": "**Ropucha zielona**: na stronie jest *Bufotes viridis*, a w rozporządzeniu *Pseudepidalea viridis*. To ten sam gatunek, ale warto podać obie nazwy.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C077",
+  "collection": "plazy-gady",
+  "card_hint": "Rzekotka wschodnia i padalec kolchidzki",
+  "text": "**Rzekotka wschodnia i padalec kolchidzki**: ⚠️ nie występują w rozporządzeniu pod własnymi nazwami. Warto to zaznaczyć zamiast pisać „chroniony” bez komentarza.",
+  "new_text": "",
+  "sources": [
+   "https://www.inforlex.pl/dok/tresc,DZU.2022.325.0002380,ROZPORZADZENIE-MINISTRA-SRODOWISKA-z-dnia-16-grudnia-2016-r-w-sprawie-ochrony-gatunkowej-zwierzat.html"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C078",
+  "collection": "plazy-gady",
+  "card_hint": "Rzekotka wschodnia",
+  "text": "**Rzekotka wschodnia**: hook o „ukrytych granicach gatunków” jest dobry. Można dodać, że w Polsce stwierdzono ją **dopiero w 2012 r.**",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Rzekotka_wschodnia"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C079",
+  "collection": "plazy-gady",
+  "card_hint": "Żaba jeziorkowa",
+  "text": "**Żaba jeziorkowa**: „najmniejsza z zielonych żab” jest OK. ⚠️ Warto dopisać, że żaby zielone trudno oznaczyć w terenie (czasem potrzebne są badania kariotypu).",
+  "new_text": "**Żaba jeziorkowa** jest mniejsza od żaby wodnej i od śmieszki. Żaby zielone trudno odróżnić w terenie: do pewnego oznaczenia trzeba żabę schwytać i zbadać, a według niektórych opinii potrzebne są nawet badania kariotypu.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/%C5%BBaba_wodna",
+   "https://pl.wikipedia.org/wiki/%C5%BBaba_wodna"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C081",
+  "collection": "plazy-gady",
+  "card_hint": "Żółw ozdobny",
+  "text": "**Żółw ozdobny**: warto dopisać, że od 2016 r. jest na **unijnej liście IAS** (zakaz handlu i rozmnażania).",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pond_slider"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C082",
+  "collection": "plazy-gady",
+  "card_hint": "Wąż Eskulapa",
+  "text": "**Wąż Eskulapa**: hook „najdłuższy polski wąż” jest poprawny. Warto dodać **strefę ochrony** i to, że jest **niejadowity**.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/W%C4%85%C5%BC_Eskulapa",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C083",
+  "collection": "ptaki",
+  "card_hint": "Bielik, „największy lęgowy ptak Polski”",
+  "text": "**Bielik, „największy lęgowy ptak Polski”**: ⚠️ to wątpliwe, bo np. łabędź niemy jest cięższy. Bezpieczniej napisać: **największy ptak drapieżny / największy orzeł gniazdujący w Polsce**.",
+  "new_text": "**Bielik** jest największym orłem Europy i gniazduje w północnej i wschodniej Polsce, więc jest **największym orłem gniazdującym w Polsce**.",
+  "sources": [
+   "https://en.wikipedia.org/wiki/White-tailed_eagle",
+   "https://en.wikipedia.org/wiki/White-tailed_eagle"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C084",
+  "collection": "ptaki",
+  "card_hint": "„Czajka stepowa”",
+  "text": "**„Czajka stepowa”**: oficjalna polska nazwa to **czajka towarzyska**.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Czajka_towarzyska",
+   "https://pl.wikipedia.org/wiki/Czajka_towarzyska"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C085",
+  "collection": "ptaki",
+  "card_hint": "Słonka",
+  "text": "**Słonka**: warto dopisać, że **od 2.01.2026 nie jest gatunkiem łownym**.",
+  "new_text": "",
+  "sources": [
+   "https://www.gov.pl/web/klimat/glowienka-czernica-lyska-jarzabek-oraz-slonka-nie-sa-juz-gatunkami-lownymi-w-polsce",
+   "https://www.gov.pl/web/klimat/glowienka-czernica-lyska-jarzabek-oraz-slonka-nie-sa-juz-gatunkami-lownymi-w-polsce"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C086",
+  "collection": "ptaki",
+  "card_hint": "Uszatka",
+  "text": "**Uszatka**: ⚠️ hook „świeże pióra mogą fluorescencyjnie świecić w UV” nie jest potwierdzony w źródłach, z których korzystałem. Warto dodać źródło naukowe albo złagodzić.",
+  "new_text": "",
+  "sources": [
+   "https://www.projectowlnet.org/wp-content/uploads/2011/08/Ultraviolet-light-in-ageing-owls-Weidensaul-et-al-2011.pdf"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C087",
+  "collection": "ptaki",
+  "card_hint": "Pustułka",
+  "text": "**Pustułka**: ⚠️ hook „korzystająca z widzenia UV przy szukaniu gryzoni” jest popularną, ale **dyskutowaną** hipotezą (śledzenie śladów moczu gryzoni). Nie znalazłem jej w źródłach, z których korzystałem, więc lepiej dodać „prawdopodobnie”.",
+  "new_text": "Pustułka, która według dyskutowanej hipotezy może korzystać z widzenia UV przy szukaniu gryzoni (śledząc ślady moczu norników); nowsze badania podważają tę hipotezę.",
+  "sources": [
+   "https://journals.biologists.com/jeb/article/216/10/1819/11547/Ultraviolet-sensitivity-and-colour-vision-in"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C088",
+  "collection": "ptaki",
+  "card_hint": "Słonka",
+  "text": "**Słonka**: ⚠️ hook o „białych partiach piór działających jak odblaski” jest niepotwierdzony. Pewne jest 360-stopniowe pole widzenia.",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Eurasian_woodcock",
+   "https://en.wikipedia.org/wiki/Eurasian_woodcock"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C089",
+  "collection": "ptaki",
+  "card_hint": "Głuszec",
+  "text": "**Głuszec**: ⚠️ hook o „przysłowiowo głuchym” ptaku to znana tradycja łowiecka (podczas „szlifowania” ptak ma chwilowo słabiej słyszeć). Źródła, z których korzystałem, tego nie opisują, więc warto podać źródło.",
+  "new_text": "",
+  "sources": [
+   "https://www.lasy.gov.pl/pl/edukacja/lesnoteka-1/ptaki/gluszec"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C090",
+  "collection": "ptaki",
+  "card_hint": "Nazwy w rozporządzeniu",
+  "text": "**Nazwy w rozporządzeniu**: nawałnik duży jest tam jako *Oceanodroma leucorhoa*, a cyranka modroskrzydła jako *Anas discors*. Obie mają **ochronę ścisłą**.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C091",
+  "collection": "ptaki",
+  "card_hint": "Strefy ochrony",
+  "text": "**Strefy ochrony**: bielik, puchacz, sokół wędrowny, głuszec i puszczyk mszarny mają strefy ochrony gniazd lub tokowisk. Strona słusznie nie podaje stanowisk i niech tak zostanie.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C092",
+  "collection": "ptaki",
+  "card_hint": "Pomurnik",
+  "text": "**Pomurnik**: warto dopisać **CR** (krytycznie zagrożony w Polsce, 2020).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Pomurnik"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C093",
+  "collection": "ptaki",
+  "card_hint": "Wodniczka",
+  "text": "**Wodniczka**: hook jest trafny. Można dodać liczby: **około 29% światowej populacji** gniazduje w Polsce.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Wodniczka_%28ptak%29"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C094",
+  "collection": "ssaki",
+  "card_hint": "Rzęsorek mniejszy",
+  "text": "**Rzęsorek mniejszy**: ⚠️ zmiana taksonomii. Środkowoeuropejskie rzęsorki to dziś *Neomys milleri*, a *N. anomalus* oznacza rzęsorka iberyjskiego. Rozporządzenie wciąż używa nazwy *N. anomalus*.",
+  "new_text": "**Rzęsorek mniejszy**: zmiana taksonomii. Dawne podgatunki rozdzielono na dwa gatunki: rzęsorki występujące w Polsce to dziś *Neomys milleri*, a *N. anomalus* oznacza rzęsorka iberyjskiego z Francji, Portugalii i Hiszpanii.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Rz%C4%99sorek_mniejszy",
+   "https://en.wikipedia.org/wiki/Iberian_water_shrew",
+   "https://en.wikipedia.org/wiki/Iberian_water_shrew"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C095",
+  "collection": "ssaki",
+  "card_hint": "„Foka szara”",
+  "text": "**„Foka szara”**: poprawna nazwa potoczna, ale PL Wikipedia i nazewnictwo MiIZ PAN używają nazwy **szarytka morska**. Warto podać obie.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Szarytka_morska"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C096",
+  "collection": "ssaki",
+  "card_hint": "„Norka amerykańska”",
+  "text": "**„Norka amerykańska”**: aktualna nazwa to **wizon amerykański** (*Neogale vison*).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Wizon_ameryka%C5%84ski"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C097",
+  "collection": "ssaki",
+  "card_hint": "Nazwy MiIZ PAN 2015",
+  "text": "**Nazwy MiIZ PAN 2015**: orzesznica leszczynowa, koszatka leśna, żołędnica europejska, popielica szara, jenot azjatycki, piżmak amerykański. Strona używa części z nich, więc warto ujednolicić.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Orzesznica_leszczynowa"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C098",
+  "collection": "ssaki",
+  "card_hint": "Status ochrony",
+  "text": "**Status ochrony**: ryjówki, rzęsorki, kret, popielica, łasica, gronostaj i bóbr mają **ochronę częściową**. Nocki, suseł, chomik, orzesznica, koszatka, żołędnica, świstak, żubr, kozica, bielak, foka i morświn mają **ochronę ścisłą**. Warto to wypisać przy każdym gatunku.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C099",
+  "collection": "ssaki",
+  "card_hint": "Nietoperze",
+  "text": "**Nietoperze**: warto dopisać, że obowiązuje **zakaz fotografowania i obserwacji, które mogłyby je płoszyć**.",
+  "new_text": "**Nietoperze**: warto dopisać, że w przypadku **nocka dużego** obowiązuje **zakaz fotografowania, filmowania lub obserwacji, mogących powodować płoszenie lub niepokojenie**.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Nocek_du%C5%BCy",
+   "https://pl.wikipedia.org/wiki/Nocek_du%C5%BCy"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C100",
+  "collection": "ssaki",
+  "card_hint": "Szakal",
+  "text": "**Szakal**: warto dodać, że od 2019 r. jest **gatunkiem łownym**. ⚠️ Tę informację opieram na Wikipedii, więc trzeba ją sprawdzić w aktualnym rozporządzeniu o gatunkach łownych.",
+  "new_text": "Od 2017 r. szakal złocisty jest gatunkiem łownym. Rozporządzenie o liście gatunków zwierząt łownych zalicza go do drapieżników.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Szakal_z%C5%82ocisty",
+   "https://www.prawo.pl/akty/dz-u-2017-1484,18622567.html"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C101",
+  "collection": "ssaki",
+  "card_hint": "Jenot, szop, piżmak, wizon",
+  "text": "**Jenot, szop, piżmak, wizon**: ⚠️ ich status łowiecki zmieniał się w czasie, a źródła są **niespójne**. PL Wikipedia podaje, że jenot **od 1.04.2022 nie jest gatunkiem łownym** i jest na liście inwazyjnych gatunków obcych (IGO). Przed publikacją trzeba to sprawdzić w aktualnym rozporządzeniu.",
+  "new_text": "**Jenot**: w Polsce **od 1.04.2022 nie jest gatunkiem łownym** i znajduje się na liście inwazyjnych gatunków obcych (IGO).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Jenot_azjatycki",
+   "https://en.wikipedia.org/wiki/Raccoon",
+   "https://pl.wikipedia.org/wiki/Jenot_azjatycki"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C102",
+  "collection": "ssaki",
+  "card_hint": "Żołędnica",
+  "text": "**Żołędnica**: ma **strefę ochrony**. Strona nie powinna podawać dokładniejszej lokalizacji niż region.",
+  "new_text": "",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C103",
+  "collection": "ssaki",
+  "card_hint": "Kret",
+  "text": "**Kret**: ochrona częściowa **nie obejmuje** osobników w ogrodach, uprawach ogrodniczych, szkółkach leśnych, na trawiastych lotniskach, wałach (konstrukcjach hydrotechnicznych) i obiektach sportowych. Warto to doprecyzować, bo to częste pytanie.",
+  "new_text": "**Kret** jest objęty ochroną częściową, ale **nie obejmuje** ona osobników na terenie ogrodów, upraw ogrodniczych, szkółek leśnych, trawiastych lotnisk, ziemnych konstrukcji hydrotechnicznych oraz obiektów sportowych.",
+  "sources": [
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
+   "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C104",
+  "collection": "mineraly",
+  "card_hint": "Heflikit",
+  "text": "**Heflikit** – strona podaje „amfibol ze skandem”. To błąd: heflikit należy do **supergrupy epidotu** (Ca₂(Al₂Sc)(Si₂O₇)(SiO₄)O(OH)).",
+  "new_text": "",
+  "sources": [
+   "https://doi.org/10.1180/mgm.2023.98"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C105",
+  "collection": "mineraly",
+  "card_hint": "Nioboholtit",
+  "text": "**Nioboholtit** – strona podaje „krzemian niobu i tantalu” i ogólnie „środowiska pegmatytowe i metamorficzne”. Poprawnie: **borokrzemian Nb–Al z supergrupy dumortierytu**. Pochodzi z **pegmatytu w Szklarach** koło Ząbkowic Śląskich.",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Nioboholtite",
+   "https://en.wikipedia.org/wiki/Nioboholtite"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C106",
+  "collection": "mineraly",
+  "card_hint": "Żabińskiit",
+  "text": "**Żabińskiit** – warto dopisać grupę tytanitu i miejsce typowe: pegmatyt „Julianna” w Piławie Górnej.",
+  "new_text": "**Żabińskiit** – warto dopisać grupę tytanitu i miejsce typowe: pegmatyt w Piławie Górnej (blok Gór Sowich).",
+  "sources": [
+   "https://doi.org/10.1180/minmag.2016.080.110",
+   "https://doi.org/10.1180/minmag.2016.080.110"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C107",
+  "collection": "mineraly",
+  "card_hint": "Taliomelan",
+  "text": "**Taliomelan** – zamiast ogólnych „polskich stref kruszcowych” warto podać miejsce typowe: **Zalas koło Krakowa** (grupa koronadytu).",
+  "new_text": "",
+  "sources": [
+   "https://doi.org/10.2138/am-2021-7577",
+   "https://www.degruyterbrill.com/document/doi/10.2138/am-2021-7577/html"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C108",
+  "collection": "mineraly",
+  "card_hint": "Berylosachanbińskiit-Na",
+  "text": "**Berylosachanbińskiit-Na** – minerał został prawdopodobnie przedefiniowany jako **sachanbińskiit** (EJM 37/5, 2025). ⚠️ Sprawdzić na liście IMA.",
+  "new_text": "Berylosachanbińskiit-Na został w 2025 roku przedefiniowany przez Komisję IMA-CNMNC przy wprowadzaniu nowej klasyfikacji supergrupy berylu. Obecnie obowiązuje nazwa sachanbińskiit, a minerał należy do grupy kordierytu.",
+  "sources": [
+   "https://athena.unige.ch/minfich?id=BERYLLOSACHANBINSKIITE-Na",
+   "https://ejm.copernicus.org/articles/37/695/2025/"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C109",
+  "collection": "mineraly",
+  "card_hint": "Halit z Grot Kryształowych",
+  "text": "**Halit z Grot Kryształowych** – warto dodać, że rezerwat **nie jest udostępniony do zwiedzania**.",
+  "new_text": "**Halit z Grot Kryształowych** – warto dodać, że rezerwat **nie jest udostępniony do masowego zwiedzania** ze względu na ryzyko szkodliwych zmian mikroklimatu, mogących skutkować korozją kryształów; może być udostępniony do celów naukowych i edukacyjnych.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Groty_Kryszta%C5%82owe",
+   "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Groty_Kryszta%C5%82owe"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C110",
+  "collection": "mineraly",
+  "card_hint": "Niezweryfikowane:",
+  "text": "**Niezweryfikowane:** „złoża należały do największych na świecie” (siarka), „jedne z najbardziej imponujących okazów” (haueryt) i „agat gwiaździsty” jako typ z Nowego Kościoła. Nie znalazłem źródła. Zostawić łagodniej albo dodać źródło (np. PIG-PIB). ⚠️",
+  "new_text": "Odkrycie złóż siarki rodzimej koło Tarnobrzega szybko wprowadziło Polskę do światowej czołówki: pod koniec lat 80. XX wieku kraj był trzecim producentem siarki na świecie, po Stanach Zjednoczonych i Kanadzie. Z kopalń siarki w rejonie Tarnobrzega pochodzą kryształy hauerytu. W agatach z okolic Nowego Kościoła spotyka się między innymi gwiaździsty rysunek.",
+  "sources": [
+   "https://www.pgi.gov.pl/images/muzeum/wystawy/czasowe/odkrycia_zloz/siarka_1.pdf"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C111",
+  "collection": "formacje-skalne",
+  "card_hint": "Zęzów i Czarne Działy",
+  "text": "**Zęzów i Czarne Działy** – Czarne Działy z Wikipedii leżą w Beskidzie Małym (Pasmo Łysiny), a nie w Beskidzie Wyspowym koło Tymbarku. ⚠️ Sprawdzić, czy to pomyłka.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Czarne_Dzia%C5%82y",
+   "https://pl.wikipedia.org/wiki/Czarne_Dzia%C5%82y"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C112",
+  "collection": "formacje-skalne",
+  "card_hint": "Słonecznik",
+  "text": "**Słonecznik** – „nad Karpaczem” jest nieprecyzyjne. Skała leży na północnym zboczu Smogorni (gm. Podgórzyn). „Zegarem” była dla Podgórzyna, Przesieki i Borowic.",
+  "new_text": "**Słonecznik** leży na północnym zboczu Smogorni (gm. Podgórzyn) i góruje nad Karpaczem Górnym. „Zegarem” był dla mieszkańców Podgórzyna, Przesieki i Borowic, bo Słońce nad skałą wskazywało im południe.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/S%C5%82onecznik_(Karkonosze)",
+   "https://pl.wikipedia.org/wiki/S%C5%82onecznik_(Karkonosze)"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C113",
+  "collection": "formacje-skalne",
+  "card_hint": "Dziurawa Skała",
+  "text": "**Dziurawa Skała** – lokalizacja jest zbyt ogólna („okolice szlaków”). Grupa leży nisko (470 m) nad Podgórną, między Podgórzynem a Przesieką.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Dziurawa_Ska%C5%82a_(Karkonosze)"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C114",
+  "collection": "formacje-skalne",
+  "card_hint": "Przełom Białki",
+  "text": "**Przełom Białki** – jako nazwy skałki strona używa „Kramnica”. Wikipedia podaje w rezerwacie „Kramnicę”, a w haśle Obłazowej „Kramlicę”. Warto ujednolicić.",
+  "new_text": "**Przełom Białki** – jako nazwy skałki strona używa „Kramnica”. Samo hasło Wikipedii o Obłazowej Skałce podaje dwie formy: „Kramlica” przy opisie masywu skalnego i „Kramnica” w zdaniu o rezerwacie. Warto ujednolicić.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Ob%C5%82azowa_Ska%C5%82ka",
+   "https://pl.wikipedia.org/wiki/Ob%C5%82azowa_Ska%C5%82ka"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C117",
+  "collection": "skamienialosci",
+  "card_hint": "Proterochersis robusta",
+  "text": "**Proterochersis robusta** – polski materiał z Poręby to ***Proterochersis porebensis***. *P. robusta* pochodzi z Niemiec. Warto zmienić nazwę karty albo opis.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Proterochersis"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C118",
+  "collection": "skamienialosci",
+  "card_hint": "Jantarogekko balticus",
+  "text": "**Jantarogekko balticus** – poprawna pisownia to ***Yantarogekko balticus***. Jedyny okaz pochodzi z bursztynu z obwodu kaliningradzkiego, a nie z Gdańska.",
+  "new_text": "**Jantarogekko balticus** – poprawna pisownia nazwy rodzajowej to ***Yantarogekko***. Jedyny okaz pochodzi z bursztynu z obwodu kaliningradzkiego, a nie z Gdańska.",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Yantarogekko",
+   "https://en.wikipedia.org/wiki/Yantarogekko"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C119",
+  "collection": "skamienialosci",
+  "card_hint": "Limulus darwini",
+  "text": "**Limulus darwini** – nazwa jest nieaktualna, dziś to ***Crenatolimulus darwini***. Twierdzenie „najstarszy przedstawiciel rodzaju Limulus” zostało obalone.",
+  "new_text": "",
+  "sources": [
+   "https://doi.org/10.1002/spp2.1352",
+   "https://onlinelibrary.wiley.com/doi/abs/10.1002/spp2.1352"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C120",
+  "collection": "skamienialosci",
+  "card_hint": "Pliozaury z Krzyżanowic",
+  "text": "**Pliozaury z Krzyżanowic** – „gigantyczny pliozaur” po rewizji okazał się metriorynchidem, a jego pochodzenie jest niepewne. Karta wymaga przeredagowania.",
+  "new_text": "",
+  "sources": [
+   "https://doi.org/10.4202/app.00795.2020"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C121",
+  "collection": "skamienialosci",
+  "card_hint": "Pterozaury z Owadowa-Brzezinek",
+  "text": "**Pterozaury z Owadowa-Brzezinek** – nie ma opisanego *Ctenochasma elegans* z Owadowa. Znane są tylko pojedyncze zęby pterozaurów.",
+  "new_text": "W górnojurajskich (tytońskich) wapieniach z kamieniołomu Owadów-Brzezinki znaleziono również szczątki pterozaurów.",
+  "sources": [
+   "https://doi.org/10.7306/vj.21.5",
+   "https://geojournals.pgi.gov.pl/pg/article/view/27420"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C122",
+  "collection": "skamienialosci",
+  "card_hint": "Krokodylomorfy z Owadowa",
+  "text": "**Krokodylomorfy z Owadowa** – „Thalattosuchia” to interpretacja dyskusyjna. Czaszkę przypisano później atopozaurydowi (*Theriosuchus*?).",
+  "new_text": "Krokodylomorfy z Owadowa-Brzezinek to zarówno formy morskie (Thalattosuchia, w tym Metriorhynchidae), jak i lądowe atopozaurydy z rodzaju Theriosuchus.",
+  "sources": [
+   "https://doi.org/10.7306/vj.21.5",
+   "https://www.researchgate.net/publication/390387322_Krokodylomorfy_ichtiozaury_i_ryby_czyli_nowe_znaleziska_fauny_kregowcow_z_poznojurajskiej_laguny"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C123",
+  "collection": "skamienialosci",
+  "card_hint": "Tropy z Zachełmia",
+  "text": "**Tropy z Zachełmia** – warto dodać, że interpretacja jest dyskutowana (praca z 2015 r.).",
+  "new_text": "",
+  "sources": [
+   "https://doi.org/10.1080/10420940.2015.1063491",
+   "https://www.tandfonline.com/doi/abs/10.1080/10420940.2015.1063491"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C124",
+  "collection": "skamienialosci",
+  "card_hint": "Mamuty z okolic Konina",
+  "text": "**Mamuty z okolic Konina** – najsłynniejszy szkielet z Jóźwina to słoń leśny, nie mamut.",
+  "new_text": "**Mamuty z okolic Konina** – prawie kompletny szkielet z odkrywki Jóźwin, początkowo brany za mamuta, to w rzeczywistości słoń leśny.",
+  "sources": [
+   "https://muzeum.com.pl/slon-lesny/",
+   "https://muzeum.com.pl/slon-lesny/"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C125",
+  "collection": "skamienialosci",
+  "card_hint": "Nosorożec włochaty z Polski",
+  "text": "**Nosorożec włochaty z Polski** – słynny okaz ze Staruni pochodzi z dzisiejszej Ukrainy.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Starunia"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C127",
+  "collection": "skamienialosci",
+  "card_hint": "Tholodus schmidi – „Śląsk”",
+  "text": "**Tholodus schmidi – „Śląsk”** – źródła ogólne podają Niemcy, Włochy i być może Chiny. ⚠️ Polskie wystąpienie wymaga publikacji.",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Tholodus",
+   "https://en.wikipedia.org/wiki/Tholodus"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C128",
+  "collection": "skamienialosci",
+  "card_hint": "Trylobity – „eksperyment z oczami”",
+  "text": "**Trylobity – „eksperyment z oczami”** – ciekawy kontrast: wymieniony *Ellipsocephalus* był ślepy.",
+  "new_text": "",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ellipsocephalus"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C129",
+  "collection": "atmosfera-astronomia",
+  "card_hint": "Siedlce i oficjalny rekord mrozu / Litworowy Kocioł",
+  "text": "**Siedlce i oficjalny rekord mrozu / Litworowy Kocioł** – według Wikipedii 17.02.2025 w Litworowym Kotle zanotowano **−41,1 °C**, mniej niż w Siedlcach (−41 °C, 1940). Warto dodać, że rekord Siedlec jest „oficjalny IMGW”, ale kwestionowany, a Litworowy Kocioł ma niższy pomiar.",
+  "new_text": "**Siedlce i rekord mrozu / Litworowy Kocioł**: według Wikipedii 17.02.2025 w Litworowym Kotle zanotowano **−41,1 °C**, najniższą temperaturę w całej historii klimatu Polski, choć zmierzoną w specyficznych warunkach wysokogórskiej kotliny. Rekord nizinny ze stycznia 1940 roku z Siedlec budzi wątpliwości.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Rekordy_klimatyczne_w_Polsce",
+   "https://pl.wikipedia.org/wiki/Rekordy_klimatyczne_w_Polsce"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C130",
+  "collection": "atmosfera-astronomia",
+  "card_hint": "Bieszczadzki Park Gwiezdnego Nieba",
+  "text": "**Bieszczadzki Park Gwiezdnego Nieba** – oficjalna nazwa to **Park Gwiezdnego Nieba „Bieszczady”** (od 8.03.2013).",
+  "new_text": "",
+  "sources": [
+   "https://www.gwiezdnebieszczady.pl/o-inicjatywe/"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C131",
+  "collection": "atmosfera-astronomia",
+  "card_hint": "Geminidy",
+  "text": "**Geminidy** – warto dodać, że ich źródłem jest planetoida 3200 Phaethon, a nie kometa (ciekawostka zamiast błędu).",
+  "new_text": "**Geminidy** – warto dodać, że ich ciałem macierzystym jest planetoida (3200) Phaethon, choć według dzisiejszej wiedzy jest to najpewniej odewoluowane jądro starej komety (ciekawostka zamiast błędu).",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Geminidy",
+   "https://pl.wikipedia.org/wiki/Geminidy"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C132",
+  "collection": "atmosfera-astronomia",
+  "card_hint": "Białe noce żeglarskie",
+  "text": "**Białe noce żeglarskie** – strona wskazuje Rozewie, Władysławowo i Hel. Wikipedia jako najlepszy punkt podaje klify Jastrzębiej Góry. To drobiazg, ale warto ujednolicić.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce",
+   "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C133",
+  "collection": "atmosfera-astronomia",
+  "card_hint": "Godziszów i Zadni Gerlach",
+  "text": "**Godziszów i Zadni Gerlach** – warto podać datę (30.01.2025), autora (Kamil Gołąb) i odległość (~245,5 km).",
+  "new_text": "**Godziszów i Zadni Gerlach** – warto podać datę (30.01.2025) i odległość (246,1 km).",
+  "sources": [
+   "https://dalekiehoryzonty.pl/najdalsze-obserwacje-z-polski/",
+   "https://dalekiehoryzonty.pl/najdalsze-obserwacje-z-polski/"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C134",
+  "collection": "atmosfera-astronomia",
+  "card_hint": "Niebieskie strumienie",
+  "text": "**Niebieskie strumienie** – brak potwierdzonej obserwacji z Polski. Sformułowanie „możliwe” jest uczciwe, zostawić tak. ⚠️",
+  "new_text": "",
+  "sources": [
+   "https://geekweek.interia.pl/nauka/news-niebo-nagle-zrobilo-sie-niebieskie-tajemnicze-zjawisko-w-pol,nId,22454451"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C135",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Raczki Elbląskie — najniższy punkt Polski",
+  "text": "**Raczki Elbląskie — najniższy punkt Polski** – informacja nieaktualna. Od 2022 r. najniższy znany punkt to **Marzęcino (−2,2 m p.p.m.)**. Raczki to −1,8 m.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Raczki_Elbl%C4%85skie"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C136",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Bifurkacja Wągrowiecka",
+  "text": "**Bifurkacja Wągrowiecka** – to nie bifurkacja. To sztuczne skrzyżowanie rzek z XIX w. (melioracja, jaz). Proponuję tytuł „Skrzyżowanie Wełny i Nielby”.",
+  "new_text": "**Bifurkacja Wągrowiecka** – to nie bifurkacja. To sztuczne skrzyżowanie rzek z XIX w., powstałe w wyniku prac melioracyjnych. Proponuję tytuł „Skrzyżowanie Wełny i Nielby”.",
+  "sources": [
+   "https://wagrowiec.eu/pl/dla-turysty/ciekawe-miejsca/skrzyzowanie-rzek",
+   "https://wagrowiec.eu/pl/dla-turysty/ciekawe-miejsca/skrzyzowanie-rzek"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C137",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Tarnów — Polski Biegun Ciepła",
+  "text": "**Tarnów — Polski Biegun Ciepła** – według norm IMGW 1991–2020 Tarnów (9,4 °C) nie jest już najcieplejszy. Najcieplejszy jest Wrocław (9,7 °C). Tytuł warto opisać jako historyczny.",
+  "new_text": "**Tarnów — Polski Biegun Ciepła**: według norm klimatycznych IMGW 1991–2020 Tarnów (9,4 °C) nie jest najcieplejszą stacją w Polsce. Najwyższą średnią roczną temperaturę ma Wrocław (9,7 °C).",
+  "sources": [
+   "https://klimat.imgw.pl/pl/climate-normals/",
+   "https://klimat.imgw.pl/pl/climate-normals/"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C138",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Sosna na Szczudłach w Wełczu",
+  "text": "**Sosna na Szczudłach w Wełczu** – w polu lokalizacji jest „Wełcz koło Buska-Zdroju”. Mianownik to **Wełecz** („w Wełczu” to miejscownik).",
+  "new_text": "",
+  "sources": [
+   "https://www.pomniki-przyrody.pl/?p=19399",
+   "https://www.pomniki-przyrody.pl/?p=19399"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C139",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Delta Świny i Kraina 44 Wysp",
+  "text": "**Delta Świny i Kraina 44 Wysp** – „44 wyspy” to wyspy Świnoujścia (3 zamieszkane + 41). Warto to wyjaśnić na karcie.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/%C5%9Awinouj%C5%9Bcie"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C140",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Jezioro Hańcza",
+  "text": "**Jezioro Hańcza** – warto dodać, że 108,5 m to wartość „najczęściej podawana”, a pomiary różnią się (105,55–113 m).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Ha%C5%84cza_(jezioro)"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C141",
+  "collection": "rekordy-krajobrazu",
+  "card_hint": "Krzywy Las",
+  "text": "**Krzywy Las** – pochodzenie krzywizny jest nieznane. Teorię celowej hodowli warto podawać jako hipotezę.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Krzywy_Las_(pomnik_przyrody)",
+   "https://pl.wikipedia.org/wiki/Krzywy_Las_(pomnik_przyrody)"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C143",
+  "collection": "architektura-drewniana",
+  "card_hint": "Dwór z Drogini",
+  "text": "**Dwór z Drogini** – skansen zmienił nazwę 17.01.2023 na „Park Etnograficzny Krakowiaków Zachodnich w Wygiełzowie”. Strona używa dawnej nazwy.",
+  "new_text": "**Dwór z Drogini** – skansen nosi obecnie nazwę „Park Etnograficzny Krakowiaków Zachodnich w Wygiełzowie”; dawna nazwa „Nadwiślański Park Etnograficzny” obowiązywała do 17 stycznia 2023 r. Strona używa dawnej nazwy.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Park_Etnograficzny_Krakowiak%C3%B3w_Zachodnich",
+   "https://pl.wikipedia.org/wiki/Park_Etnograficzny_Krakowiak%C3%B3w_Zachodnich"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C144",
+  "collection": "architektura-drewniana",
+  "card_hint": "Chata na Wysokości (Zalesie)",
+  "text": "**Chata na Wysokości (Zalesie)** – lokalizacja zbyt ogólna, obiektu nie da się zweryfikować. ⚠️",
+  "new_text": "Chata na Wysokości w Zalesiu (gm. Kamienica, pow. limanowski), pod Mogielicą w Beskidzie Wyspowym, ok. 800 m n.p.m. – prywatny obiekt noclegowy. Według właścicieli to wyremontowana wiejska chata z 1933 r., a obok stoi dom z bali z przełomu XIX i XX w., przeniesiony tu w 2024 r.",
+  "sources": [
+   "https://www.chatanawysokosci.pl/"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C145",
+  "collection": "architektura-drewniana",
+  "card_hint": "Owczary, Powroźnik, Brunary Wyżne, Chotyniec, Smolnik, Turzańsk",
+  "text": "**Owczary, Powroźnik, Brunary Wyżne, Chotyniec, Smolnik, Turzańsk** – wszystkie są w UNESCO (2013). Strona zaznacza UNESCO tylko przy Kwiatoniu i Radrużu, więc warto dodać ten tag.",
+  "new_text": "",
+  "sources": [
+   "https://whc.unesco.org/en/list/1424"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C146",
+  "collection": "architektura-drewniana",
+  "card_hint": "Dębno, Binarowa, Sękowa, Lipnica, Haczów, Blizne",
+  "text": "**Dębno, Binarowa, Sękowa, Lipnica, Haczów, Blizne** – UNESCO od 2003 r. (Drewniane kościoły południowej Małopolski). Tag przy kartach warto ujednolicić.",
+  "new_text": "",
+  "sources": [
+   "https://whc.unesco.org/en/list/1053"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C148",
+  "collection": "architektura-drewniana",
+  "card_hint": "Lipnica Murowana, Łopuszna",
+  "text": "**Lipnica Murowana, Łopuszna** – starsze daty (1143/1203, 1240) to tradycja. Nie wolno ich podawać jako faktów.",
+  "new_text": "",
+  "sources": [
+   "http://www.drewniana.malopolska.pl/?page=obiekty&id=102"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C149",
+  "collection": "podziemia",
+  "card_hint": "Projekt Riese – opisy („podziemne miasto”, „wojenna machina”)",
+  "text": "**Projekt Riese – opisy („podziemne miasto”, „wojenna machina”)** – warto dodać, że funkcja kompleksów jest niepewna, a budowali je więźniowie i jeńcy. Ton powinien być rzeczowy, bez sensacji.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Riese",
+   "https://pl.wikipedia.org/wiki/Riese"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C150",
+  "collection": "podziemia",
+  "card_hint": "Kopalnia Soli Bochnia – „najstarsze solne podziemie”",
+  "text": "**Kopalnia Soli Bochnia – „najstarsze solne podziemie”** – UNESCO podaje wydobycie w obu kopalniach od XIII w. Superlatyw warto doprecyzować („jedna z najstarszych w Polsce”).",
+  "new_text": "**Kopalnia Soli Bochnia** – według UNESCO sól kamienną wydobywano w Bochni i Wieliczce równolegle i nieprzerwanie od XIII do końca XX w. Obie kopalnie razem należą do najwcześniejszych i najważniejszych przedsięwzięć przemysłowych w Europie.",
+  "sources": [
+   "https://whc.unesco.org/en/list/32",
+   "https://whc.unesco.org/en/list/32"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C152",
+  "collection": "podziemia",
+  "card_hint": "Twierdza Kłodzko",
+  "text": "**Twierdza Kłodzko** – nowość z 2022 r.: odkryto nieznane chodniki kontrminowe.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Twierdza_K%C5%82odzko"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C153",
+  "collection": "podziemia",
+  "card_hint": "Podziemia Rynku w Krakowie",
+  "text": "**Podziemia Rynku w Krakowie** – oficjalna nazwa oddziału Muzeum Krakowa to „Rynek Podziemny”.",
+  "new_text": "",
+  "sources": [
+   "https://muzeumkrakowa.pl/oddzialy/rynek-podziemny"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C155",
+  "collection": "cuda-inzynierii",
+  "card_hint": "Modernizm Gdyni",
+  "text": "**Modernizm Gdyni** – od 27.07.2026 jest na Liście UNESCO („Modernistyczne Centrum Gdyni”). Warto dodać tag UNESCO jak przy Hali Stulecia.",
+  "new_text": "**Modernizm Gdyni** – od 2026 r. jest na Liście UNESCO („Modernistyczne Centrum Gdyni”). Warto dodać tag UNESCO jak przy Hali Stulecia.",
+  "sources": [
+   "https://whc.unesco.org/en/list/1715/",
+   "https://whc.unesco.org/en/list/1715/"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C156",
+  "collection": "cuda-inzynierii",
+  "card_hint": "Mosty Tczewskie",
+  "text": "**Mosty Tczewskie** – mechanizm „stalowe przęsła… przeprawa kolejowo-drogowa” jest nieścisły. Most z 1857 r. był drogowo-kolejowy, a dziś jest drogowy. Kolej biegnie osobnym mostem z 1891 r. (najdłuższy kolejowy w Polsce, 1030 m).",
+  "new_text": "**Mosty Tczewskie** – mechanizm „stalowe przęsła… przeprawa kolejowo-drogowa” jest nieścisły. Most z 1857 r. był drogowo-kolejowy, a dziś jest drogowy. Kolej biegnie osobnym mostem z lat 1888–1891, położonym ok. 40 m obok.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Most_drogowy_w_Tczewie",
+   "https://pl.wikipedia.org/wiki/Most_drogowy_w_Tczewie"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C157",
+  "collection": "cuda-inzynierii",
+  "card_hint": "Śluza Paniewo",
+  "text": "**Śluza Paniewo** – w 2011 r. zamknięta z powodu stanu technicznego. Status warto zaktualizować. ⚠️",
+  "new_text": "W 2011 r. śluzę zamknięto z powodu bardzo złego stanu technicznego. Po remoncie zakończonym w 2012 r. znów działała, a w czerwcu 2021 r. Wody Polskie oddały ją do użytku po wymianie wszystkich trzech par wrót.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/%C5%9Aluza_Paniewo",
+   "https://www.radio.bialystok.pl/wiadomosci/index/id/201623"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C158",
+  "collection": "cuda-inzynierii",
+  "card_hint": "Radiostacja Gliwicka",
+  "text": "**Radiostacja Gliwicka** – warto dodać kontekst 31.08.1939 (prowokacja gliwicka), rzeczowo. Do tego rekord: 111 m, najwyższa drewniana wieża antenowa na świecie.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Radiostacja_gliwicka",
+   "https://pl.wikipedia.org/wiki/Radiostacja_gliwicka"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C159",
+  "collection": "cuda-inzynierii",
+  "card_hint": "Elektrownia Porąbka-Żar",
+  "text": "**Elektrownia Porąbka-Żar** – warto dodać, że to jedyna podziemna elektrownia w Polsce.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Elektrownia_Por%C4%85bka-%C5%BBar"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C162",
+  "collection": "twierdze-ruiny",
+  "card_hint": "Wiadukty w Stańczykach",
+  "text": "**Wiadukty w Stańczykach** – oficjalnie to „Mosty w Stańczykach”: dwa mosty, ale tor położono tylko na jednym. „Akwedukty” to tylko porównanie wizualne.",
+  "new_text": "**Mosty w Stańczykach** – to dwa mosty kolejowe, ale tor położono tylko na jednym. Nazwa „Akwedukty Puszczy Rominckiej” to tylko porównanie wizualne: architektura przypomina rzymskie akwedukty.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Mosty_w_Sta%C5%84czykach",
+   "https://pl.wikipedia.org/wiki/Mosty_w_Sta%C5%84czykach"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C164",
+  "collection": "twierdze-ruiny",
+  "card_hint": "Zamek w Mosznej",
+  "text": "**Zamek w Mosznej** – to formalnie **pałac** (Pałac w Mosznej).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Mosznej",
+   "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Mosznej"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C165",
+  "collection": "twierdze-ruiny",
+  "card_hint": "Zamek Krzyżtopór",
+  "text": "**Zamek Krzyżtopór** – „legenda liczb” powinna być wyraźnie oznaczona jako legenda.",
+  "new_text": "Według tradycji, spisanej dopiero w latach 30. XIX wieku przez Klementynę z Tańskich Hoffmanową, zamek miał mieć tyle baszt, ile kwartałów, tyle wielkich sal, ile miesięcy, tyle pokoi, ile tygodni, i tyle okien, ile dni w roku. To legenda, nie fakt, bo liczba okien w zamku się nie zgadza.",
+  "sources": [
+   "https://zabytek.pl/en/obiekty/ujazd-ujazd-ruiny-zamku-krzyztopor"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C166",
+  "collection": "twierdze-ruiny",
+  "card_hint": "Zamek Czocha",
+  "text": "**Zamek Czocha** – teza o szkole szyfrantów Abwehry nie ma dowodów. Karta tego nie twierdzi, ale warto to dopisać.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Zamek_Czocha"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C167",
+  "collection": "twierdze-ruiny",
+  "card_hint": "Zamek w Łapalicach",
+  "text": "**Zamek w Łapalicach** – warto dodać, że to samowola budowlana na terenie prywatnym, z informacją o zakazie wstępu.",
+  "new_text": "**Zamek w Łapalicach** – warto dodać, że to samowola budowlana, a na teren obiektu obowiązuje zakaz wstępu.",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Zamek_w_%C5%81apalicach",
+   "https://pl.wikipedia.org/wiki/Zamek_w_%C5%81apalicach"
+  ],
+  "verified": "P3: POPRAWIONE"
+ },
+ {
+  "id": "C168",
+  "collection": "memento-mori",
+  "card_hint": "Westerplatte — Cmentarz Obrońców Wybrzeża",
+  "text": "**Westerplatte — Cmentarz Obrońców Wybrzeża** – od 2022 r. na Westerplatte jest Cmentarz Wojskowy Żołnierzy Wojska Polskiego (pochówek 10 obrońców 4.11.2022). Nazwę i opis warto zaktualizować.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Westerplatte"
+  ],
+  "verified": "P2 (dwa modele na tekście źródła)"
+ },
+ {
+  "id": "C169",
+  "collection": "memento-mori",
+  "card_hint": "Sobibór, Bełżec, Kulmhof, Treblinka",
+  "text": "**Sobibór, Bełżec, Kulmhof, Treblinka** – przy liczbach ofiar warto podawać zakresy i źródło (np. Sobibór 130–300 tys., nowsze badania ok. 170–180 tys.).",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Sobiborze",
+   "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Sobiborze"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C170",
+  "collection": "memento-mori",
+  "card_hint": "Kaplica Czaszek",
+  "text": "**Kaplica Czaszek** – liczby (3000 na ścianach, ok. 21 000 w krypcie) różnią się między źródłami. Najlepiej podawać je jako przybliżone. ⚠️",
+  "new_text": "",
+  "sources": [
+   "https://www.czermna.pl/#!/kaplica/sanktuarium"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C171",
+  "collection": "memento-mori",
+  "card_hint": "Kopiec Krakusa / Kopiec Wandy",
+  "text": "**Kopiec Krakusa / Kopiec Wandy** – „grób władcy” to hipoteza. Warto to zaznaczyć.",
+  "new_text": "",
+  "sources": [
+   "https://podgorze.pl/kopiec-kraka-w-swietle-badan-archeologicznych-xx-wieku/"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ },
+ {
+  "id": "C172",
+  "collection": "memento-mori",
+  "card_hint": "Nowy Cmentarz Żydowski w Łodzi",
+  "text": "**Nowy Cmentarz Żydowski w Łodzi** – warto dodać rekordy: 42 ha, największa nekropolia żydowska w Europie, Mauzoleum Poznańskiego.",
+  "new_text": "",
+  "sources": [
+   "https://pl.wikipedia.org/wiki/Nowy_cmentarz_%C5%BCydowski_w_%C5%81odzi",
+   "https://pl.wikipedia.org/wiki/Nowy_cmentarz_%C5%BCydowski_w_%C5%81odzi"
+  ],
+  "verified": "P3: POTWIERDZONE"
+ }
+]
