@@ -61,7 +61,7 @@
       accent: "leaf",
       search_placeholder: "np. sosna, dąb, cis, platan...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwościach dendrologicznych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/trees.js", "/data/tree-photo-pack-v01.js", "/data/i18n/drzewa.en.js", "/data/facts/drzewa.facts.js"],
+      scripts: ["/data/trees.js", "/data/tree-photo-pack-v01.js", "/data/i18n/drzewa.en.js", "/data/places/drzewa.places.js", "/data/facts/drzewa.facts.js"],
       build: () => {
         const data = window.TREE_APP_DATA;
         if (!data) return null;
@@ -187,7 +187,7 @@
       accent: "cliff",
       search_placeholder: "np. Błędne Skały, Maczuga, Giewont...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwych formacjach skalnych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/rock-formations.js", "/data/rock-formation-photo-pack-v01.js", "/data/i18n/formacje-skalne.en.js", "/data/facts/formacje-skalne.facts.js"],
+      scripts: ["/data/rock-formations.js", "/data/rock-formation-photo-pack-v01.js", "/data/i18n/formacje-skalne.en.js", "/data/places/formacje-skalne.places.js", "/data/facts/formacje-skalne.facts.js"],
       build: () => {
         const data = window.ROCK_FORMATION_APP_DATA;
         if (!data) return null;
@@ -206,7 +206,7 @@
       route: "/atlas/architektura-drewniana",
       search_placeholder: "np. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
       source_note: "Opisy powstały na bazie wskazanego materiału o drewnianej architekturze Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/wooden-architecture.js", "/data/wooden-architecture-photo-pack-v01.js", "/data/i18n/architektura-drewniana.en.js", "/data/facts/architektura-drewniana.facts.js"],
+      scripts: ["/data/wooden-architecture.js", "/data/wooden-architecture-photo-pack-v01.js", "/data/i18n/architektura-drewniana.en.js", "/data/places/architektura-drewniana.places.js", "/data/facts/architektura-drewniana.facts.js"],
       build: () => {
         const data = window.WOODEN_ARCHITECTURE_APP_DATA;
         if (!data) return null;
@@ -225,7 +225,7 @@
       route: "/atlas/podziemia",
       search_placeholder: "np. Wieliczka, Riese, MRU, Sandomierz, Chełm...",
       source_note: "Opisy powstały na bazie wskazanego materiału o podziemnych osobliwościach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; schematy i kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/underground.js", "/data/underground-photo-pack-v01.js", "/data/i18n/podziemia.en.js", "/data/facts/podziemia.facts.js"],
+      scripts: ["/data/underground.js", "/data/underground-photo-pack-v01.js", "/data/i18n/podziemia.en.js", "/data/places/podziemia.places.js", "/data/facts/podziemia.facts.js"],
       build: () => {
         const data = window.UNDERGROUND_APP_DATA;
         if (!data) return null;
@@ -244,7 +244,7 @@
       route: "/atlas/cuda-inzynierii",
       search_placeholder: "np. Kanał Elbląski, tężnie, Radiostacja Gliwicka, Solina, Gdynia...",
       source_note: "Opisy powstały na bazie wskazanego materiału o techniczno-architektonicznych osobliwościach Polski. Źródła i dane liczbowe należy weryfikować przed publikacją finalnych kart.",
-      scripts: ["/data/engineering-wonders.js", "/data/engineering-wonders-photo-pack-v01.js", "/data/i18n/cuda-inzynierii.en.js", "/data/facts/cuda-inzynierii.facts.js"],
+      scripts: ["/data/engineering-wonders.js", "/data/engineering-wonders-photo-pack-v01.js", "/data/i18n/cuda-inzynierii.en.js", "/data/places/cuda-inzynierii.places.js", "/data/facts/cuda-inzynierii.facts.js"],
       build: () => {
         const data = window.ENGINEERING_WONDER_APP_DATA;
         if (!data) return null;
@@ -263,7 +263,7 @@
       route: "/atlas/twierdze-ruiny",
       search_placeholder: "np. Zamość, Krzyżtopór, Malbork, Modlin, Stańczyki...",
       source_note: "Opisy powstały na bazie wskazanego materiału o zamkach, twierdzach, ruinach i zapomnianych konstrukcjach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/fortresses-ruins.js", "/data/fortresses-ruins-photo-pack-v01.js", "/data/facts/twierdze-ruiny.facts.js"],
+      scripts: ["/data/fortresses-ruins.js", "/data/fortresses-ruins-photo-pack-v01.js", "/data/places/twierdze-ruiny.places.js", "/data/facts/twierdze-ruiny.facts.js"],
       build: () => {
         const data = window.FORTRESS_RUIN_APP_DATA;
         if (!data) return null;
@@ -282,7 +282,7 @@
       route: "/atlas/memento-mori",
       search_placeholder: "np. Czermna, Powązki, mizar, Treblinka, kopiec...",
       source_note: "Opisy powstały na bazie wskazanego materiału o miejscach pamięci i przemijania w Polsce. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; przy miejscach trudnej historii zachowujemy spokojny, edukacyjny ton.",
-      scripts: ["/data/memento-mori.js", "/data/memento-mori-photo-pack-v01.js", "/data/facts/memento-mori.facts.js"],
+      scripts: ["/data/memento-mori.js", "/data/memento-mori-photo-pack-v01.js", "/data/places/memento-mori.places.js", "/data/facts/memento-mori.facts.js"],
       build: () => {
         const data = window.MEMENTO_MORI_APP_DATA;
         if (!data) return null;
@@ -300,7 +300,7 @@
       accent: "fossil",
       search_placeholder: "np. Zachełmie, Smok, amonity, bursztyn...",
       source_note: "Opisy powstały na bazie listy roboczej o polskich skamieniałościach i wskazanego zakresu tropów oraz amonitów. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/fossils.js", "/data/fossil-photo-pack-v01.js", "/data/i18n/skamienialosci.en.js", "/data/facts/skamienialosci.facts.js"],
+      scripts: ["/data/fossils.js", "/data/fossil-photo-pack-v01.js", "/data/i18n/skamienialosci.en.js", "/data/places/skamienialosci.places.js", "/data/facts/skamienialosci.facts.js"],
       build: () => {
         const data = window.FOSSIL_APP_DATA;
         if (!data) return null;
@@ -318,7 +318,7 @@
       accent: "skyfire",
       search_placeholder: "np. Brockenu, zorza, Bałtyk, mrozowisko...",
       source_note: "Opisy powstały na bazie listy roboczej o polskich zjawiskach atmosferycznych i astronomicznych. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/atmosphere-astronomy.js", "/data/atmosphere-astronomy-photo-pack-v01.js", "/data/i18n/atmosfera-astronomia.en.js", "/data/facts/atmosfera-astronomia.facts.js"],
+      scripts: ["/data/atmosphere-astronomy.js", "/data/atmosphere-astronomy-photo-pack-v01.js", "/data/i18n/atmosfera-astronomia.en.js", "/data/places/atmosfera-astronomia.places.js", "/data/facts/atmosfera-astronomia.facts.js"],
       build: () => {
         const data = window.ATMOSPHERE_ASTRONOMY_APP_DATA;
         if (!data) return null;
@@ -337,7 +337,7 @@
       route: "/atlas/rekordy-krajobrazu",
       search_placeholder: "np. pustynia, wydmy, Hańcza, mofeta, Rysy...",
       source_note: "Opisy powstały na bazie wskazanego materiału o rekordach i osobliwościach krajobrazowych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry kontekstowe są oznaczone uczciwie.",
-      scripts: ["/data/landscape-records.js", "/data/landscape-records-photo-pack-v01.js", "/data/facts/rekordy-krajobrazu.facts.js"],
+      scripts: ["/data/landscape-records.js", "/data/landscape-records-photo-pack-v01.js", "/data/places/rekordy-krajobrazu.places.js", "/data/facts/rekordy-krajobrazu.facts.js"],
       build: () => {
         const data = window.LANDSCAPE_RECORD_APP_DATA;
         if (!data) return null;

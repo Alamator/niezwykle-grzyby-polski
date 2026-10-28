@@ -88,6 +88,7 @@ Najprostsza ścieżka:
 
   - Współrzędne pochodzą z Wikidaty (CC0) i są sprawdzone z gminą i województwem z karty.
   - Karty bez pewnego punktu albo obejmujące kilka miejsc nie trafiają na mapę.
+  - Opis sprawdzania i lista kart bez punktu, z powodami: `docs/content/mapa-punkty-2026-10.md`.
 - **Bez stanowisk gatunków:** kolekcje gatunków nie mają mapy. Na mapę nie trafia też karta, której uwaga prosi, żeby nie ujawniać miejsca. Pilnuje tego `npm run test:collections`.
 - Zakładka „Mapa” pokazuje się tylko w kolekcjach, które mają punkty.
 

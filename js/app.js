@@ -1438,6 +1438,14 @@
     map.touchZoomRotate.disableRotation();
     map.addControl(new lib.NavigationControl({ showCompass: false }), "top-right");
     map.on("load", () => {
+      // The base map mixes local, English and bilingual names; labels follow the atlas language instead,
+      // with the local name where the map has no translation.
+      map.getStyle().layers.forEach((layer) => {
+        const field = layer.layout?.["text-field"];
+        if (field && JSON.stringify(field).includes("name")) {
+          map.setLayoutProperty(layer.id, "text-field", ["coalesce", ["get", `name:${state.language}`], ["get", "name:latin"], ["get", "name"]]);
+        }
+      });
       map.addSource("places", { type: "geojson", data: placesGeoJson() });
       map.addLayer({
         id: "places-dot",
