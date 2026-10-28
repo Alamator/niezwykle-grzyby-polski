@@ -201,7 +201,7 @@
     ),
     "jantarogekko-balticus": photo(
       "Bursztyn, jaszczurka, Gdańsk.jpg",
-      "Jaszczurka w bursztynie bałtyckim z gdańskiej kolekcji, kadr reprezentujący kręgowce w bursztynie",
+      "Kadr reprezentatywny: jaszczurka w bursztynie bałtyckim z gdańskiej kolekcji, kontekst dla kręgowców w bursztynie",
       "Qkiel",
       "CC BY-SA 4.0",
       ccBySa40
@@ -229,14 +229,14 @@
     ),
     "nosorozec-wlochaty-polski": photo(
       "Coelodonta antiquitatis, skull.JPG",
-      "Czaszka nosorożca włochatego, kadr reprezentujący plejstoceńską megafaunę",
+      "Kadr reprezentatywny: czaszka nosorożca włochatego z muzeum Anthropos w Brnie, kontekst dla plejstoceńskiej megafauny",
       "HTO",
       "Public domain",
       publicDomain
     ),
     "krakow-spadzista-lowcy-mamutow": photo(
       "Mammuthus primigenius et al.jpg",
-      "Szkielet mamuta włochatego w muzeum, z kontekstem plejstoceńskiej megafauny",
+      "Kadr reprezentatywny: szkielet mamuta włochatego w Muzeum Geologicznym PIG w Warszawie, kontekst dla plejstoceńskiej megafauny",
       "Wikipek",
       "CC BY 3.0",
       ccBy30

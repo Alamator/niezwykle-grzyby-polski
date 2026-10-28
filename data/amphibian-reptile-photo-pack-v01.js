@@ -124,7 +124,7 @@
     ),
     "rzekotka-wschodnia": photo(
       "Oostelijke boomkikker - eastern tree frog - Hyla orientalis.jpg",
-      "Kadr reprezentatywny: rzekotka wschodnia, bliźniaczy gatunek rzekotki drzewnej",
+      "Rzekotka wschodnia na skraju Białowieskiego Parku Narodowego, bliźniaczy gatunek rzekotki drzewnej",
       "Bouke ten Cate",
       "CC BY 4.0",
       ccBy40

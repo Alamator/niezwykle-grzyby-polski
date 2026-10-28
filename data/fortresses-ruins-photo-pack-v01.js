@@ -151,7 +151,7 @@
     ),
     "zamki-mirow-bobolice": photo(
       "Bobolice i Mirów 2013-08-15 117.JPG",
-      "Ruiny zamku w Mirowie, kadr reprezentatywny dla pary Mirów i Bobolice",
+      "Kadr reprezentatywny: ruiny zamku w Mirowie, jednego z pary Mirów i Bobolice",
       "Hania Pydynowska",
       "CC BY-SA 3.0 PL",
       ccBySa30Pl
