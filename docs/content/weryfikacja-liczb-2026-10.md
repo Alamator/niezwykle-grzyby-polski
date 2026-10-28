@@ -2,7 +2,7 @@
 
 Krok zapowiedziany w [README-weryfikacja.md](README-weryfikacja.md): ciekawostki z liczbami i datami sprawdzone wyszukiwaniem w niezależnych źródłach. Zasada Roberta: **to, co niepewne albo niepotwierdzone, nie trafia do atlasu.**
 
-**Stan: sprawdzono 684 z 707 (97%).** Pozostałe 23 czekają na kolejne rundy wyszukiwania (limit narzędzia: 200 wyszukiwań na turę).
+**Sprawdzanie zakończone: wynik ma każda z 707 ciekawostek (28.10.2026).**
 
 ## Zakres
 
@@ -26,16 +26,37 @@ Krok zapowiedziany w [README-weryfikacja.md](README-weryfikacja.md): ciekawostki
 
 ## Co to zmienia w atlasie
 
-- Ciekawostki **do poprawki** i **niepotwierdzone** strona ukrywa od razu: lista `WITHDRAWN.numbers` w `data/collections.js` (346 ciekawostek).
+- Ciekawostki **do poprawki** i **niepotwierdzone** strona ukrywa od razu: lista `WITHDRAWN.numbers` w `data/collections.js` (355 ciekawostek).
 - Poprawione brzmienie trafia do generatora ciekawostek (poza repo) przez [`zmiany-dla-generatora-2026-10.json`](zmiany-dla-generatora-2026-10.json): `replace_facts` (nowa treść PL i EN, źródła), `skip_facts` (pominąć), `confirm_facts` (status `checked` i niezależne źródła). Po ponownym wygenerowaniu plików `data/facts/*.facts.js` ciekawostki wrócą w nowym brzmieniu, a `npm run test:facts` przypomni, które wpisy usunąć z `WITHDRAWN.numbers`.
 
 ## Wyniki
 
-Razem: 684 sprawdzonych, ✅ potwierdzona: 338, ✏️ do poprawki: 107, ❔ niepotwierdzona: 239.
+Razem: 707 sprawdzonych, ✅ potwierdzona: 352, ✏️ do poprawki: 113, ❔ niepotwierdzona: 242.
+
+| Kolekcja | Sprawdzone | ✅ | ✏️ | ❔ |
+| --- | --- | --- | --- | --- |
+| Grzyby | 79 | 26 | 10 | 43 |
+| Kwiaty | 26 | 9 | 1 | 16 |
+| Drzewa | 48 | 18 | 8 | 22 |
+| Owady | 20 | 9 | 3 | 8 |
+| Ryby | 22 | 6 | 8 | 8 |
+| Płazy i gady | 22 | 9 | 6 | 7 |
+| Ptaki | 35 | 18 | 2 | 15 |
+| Ssaki | 31 | 18 | 5 | 8 |
+| Minerały | 25 | 14 | 6 | 5 |
+| Formacje skalne | 44 | 13 | 4 | 27 |
+| Skamieniałości | 25 | 17 | 4 | 4 |
+| Atmosfera i astronomia | 24 | 13 | 2 | 9 |
+| Rekordy krajobrazu | 59 | 33 | 12 | 14 |
+| Architektura drewniana | 46 | 31 | 3 | 12 |
+| Podziemia | 43 | 28 | 3 | 12 |
+| Cuda inżynierii | 55 | 35 | 8 | 12 |
+| Twierdze i ruiny | 54 | 33 | 11 | 10 |
+| Memento mori | 49 | 22 | 17 | 10 |
 
 ### Grzyby
 
-Sprawdzone 73 z 79; ✅ potwierdzona: 24; ✏️ do poprawki: 8; ❔ niepotwierdzona: 41.
+Sprawdzone 79 z 79; ✅ potwierdzona: 26; ✏️ do poprawki: 10; ❔ niepotwierdzona: 43.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -85,12 +106,16 @@ Sprawdzone 73 z 79; ✅ potwierdzona: 24; ✏️ do poprawki: 8; ❔ niepotwierd
 | F0146 | Lakownica żółtawa | ❔ niepotwierdzona | Jest pod **ochroną częściową**, a pozyskiwanie jej wymaga zezwolenia (ręczny zbiór bez naruszania drewna). Do 2020 r. podano ok. 150 stanowisk. | ❔ do 2020 r. podano ok. 150 stanowisk<br>Liczby ok. 150 stanowisk do 2020 r. nie podaje żadne niezależne źródło; przy okazji: dokument Słowińskiego PN opisuje gatunek jako ściśle chroniony, a lista Lasów Państwowych z 2020 r. (Nadl. Przasnysz) zaznacza obie kolumny ochrony, więc status warto sprawdzić w rozporządzeniu z 2014 r. (Dz.U. 2014 poz. 1408). | Jest pod **ochroną częściową**, a pozyskiwanie jej wymaga zezwolenia (ręczny zbiór bez naruszania drewna). | — |
 | F0147 | Pniarek lekarski | ❔ niepotwierdzona | Owocniki są wieloletnie: żyją nawet do 80 lat, dorastają do 1 m i ważą do 10 kg. | ❔ owocniki żyją nawet do 80 lat<br>❔ dorastają do 1 m<br>❔ ważą do 10 kg<br>Wieku do 80 lat, wielkości do 1 m i masy do 10 kg nie podaje żadne znalezione niezależne źródło; trafiłem tylko na kopie Wikipedii z innymi wartościami (ok. 65 cm długości, do 9 kg). | Owocniki są wieloletnie. | — |
 | F0148 | Pniarek lekarski | ❔ niepotwierdzona | Najwięcej drzew z tym grzybem w Polsce notowano na Górze Chełmowej w Świętokrzyskim Parku Narodowym. Do 2020 r. podano 11 dawnych i 6 współczesnych stanowisk. | ❔ najwięcej drzew z tym grzybem w Polsce notowano na Górze Chełmowej<br>❔ do 2020 r. podano 11 dawnych i 6 współczesnych stanowisk<br>Artykuł naukowy z 2011 r. (agro.icm.edu.pl) potwierdza stanowisko na Chełmowej Górze w ŚPN (17 notowań w tabeli dla parku), ale nie znalazłem źródła na „najwięcej drzew w Polsce” ani na 11 dawnych i 6 współczesnych stanowisk do 2020 r. | W Polsce notowano go m.in. na Górze Chełmowej w Świętokrzyskim Parku Narodowym. | — |
+| F0160 | Maczużnik bojowy | ❔ niepotwierdzona | W Polsce notowany od 1902 r. Jest rzadki, z kategorią R na Czerwonej liście. | ❔ w Polsce notowany od 1902 r.<br>✅ kategoria R na Czerwonej liście<br>Kategorię R (rzadki, wg Wojewody i Ławrynowicz 2006) podaje praca M. Wilgi w „Przeglądzie Przyrodniczym” (2010), a roku 1902 jako początku notowań w Polsce nie podaje żadne znalezione niezależne źródło. | Jest rzadki, z kategorią R na Czerwonej liście. | [kp.org.pl](https://www.kp.org.pl/pdf/pp/pdf2/przeglad%204-2010_wilga.pdf) |
 | F0166 | Czasznica olbrzymia | ❔ niepotwierdzona | W Polsce częstsza jest na północy, a na południu rzadka. Do 2014 r. była ściśle chroniona. | ❔ do 2014 r. była ściśle chroniona<br>Wyszukiwanie potwierdza tylko, że rozporządzenie z 9 października 2014 r. (Dz.U. 2014 poz. 1408) zastąpiło akt z 2004 r., ale żadne dostępne źródło nie podaje statusu czasznicy olbrzymiej przed i po 2014 r. | W Polsce częstsza jest na północy, a na południu rzadka. | — |
 | F0167 | Opieńka miodowa sensu lato | ❔ niepotwierdzona | Rosnące ryzomorfy świecą w rytmie dobowym: maksimum ok. 17:30, minimum ok. 7:30. Najjaśniej przy pH 5,7–6. | ❔ maksimum świecenia ryzomorf ok. 17:30<br>❔ minimum świecenia ryzomorf ok. 7:30<br>❔ najjaśniej przy pH 5,7–6<br>Liczb 17:30, 7:30 i pH 5,7–6 nie znalazłem, a najbliższe prace się różnią: Berliner (1961, „Science”) podaje dla hodowli A. mellea minimum między 6 a 9 rano i maksimum między 18 a 21, Mihail i Bruhn (2007, „Mycologia”) rytmu dobowego nie potwierdzili, a Weitz i in. (2001) podają optimum świecenia A. mellea przy pH 3–3,5. | — (pominąć) | — |
 | F0168 | Opieńka miodowa sensu lato | ✏️ do poprawki | Rekordzistka w rodzinie: jej krewniaczka, opieńka ciemna (*A. ostoyae*) z Oregonu, zajmuje ok. 965 ha (ok. 9,7 km²). Uchodzi za jeden z największych organizmów na Ziemi (szac. wiek od ok. 2400 do ok. 8650 lat; szacunki różnią się). | ✅ opieńka ciemna z Oregonu zajmuje ok. 965 ha (ok. 9,7 km²)<br>✅ uchodzi za jeden z największych organizmów na Ziemi<br>❌ szacowany wiek od ok. 2400 do ok. 8650 lat<br>Praca Ferguson i in. (2003, „Canadian Journal of Forest Research”, US Forest Service) podaje dla genety o pow. 965 ha szacowany wiek 1900–8650 lat; popularne 2400 lat to pojedynczy szacunek mieszczący się w tym przedziale, więc dolną granicę warto poprawić na 1900. | Rekordzistka w rodzinie: jej krewniaczka, opieńka ciemna (*A. ostoyae*) z Oregonu, zajmuje ok. 965 ha (ok. 9,7 km²). Uchodzi za jeden z największych organizmów na Ziemi (szac. wiek od ok. 1900 do ok. 8650 lat; szacunki różnią się). | [webarchive.library.unt.edu](https://webarchive.library.unt.edu/eot2008/20081204184708/http://www.treesearch.fs.fed.us/pubs/20135), [discovery.com](https://discovery.com/nature/the-largest-living-thing-on-earth-is-a-3-5-square-mile-fungus) |
+| F0177 | Wrośniak różnobarwny | ✏️ do poprawki | Z jego owocników izoluje się polisacharyd K, stosowany w niektórych krajach jako adiuwant przeciwnowotworowy, a w 1973 r. wprowadzono na rynek otrzymywany z wrośniaka preparat krestin. | ❌ w 1973 r. wprowadzono na rynek preparat krestin<br>Przegląd w „Surgery Today” (Springer, 2011) podaje zatwierdzenie PSK w 1976 r. i początek stosowania klinicznego w Japonii w 1977 r., a encyclopedia.pub dopuszczenie do obrotu w 1977 r.; roku 1973 nie podaje żadne znalezione źródło. | Z jego owocników izoluje się polisacharyd K, stosowany w niektórych krajach jako adiuwant przeciwnowotworowy, a w 1977 r. wprowadzono na rynek otrzymywany z wrośniaka preparat krestin. | [link.springer.com](https://link.springer.com/doi/10.1007/s00595-011-0075-7) |
+| F0189 | Miękusz rabarbarowy | ❔ niepotwierdzona | Jest neurotoksyczny przez kwas poliporowy. Opisano zatrucie rodziny w Niemczech: objawy po ok. 12 h, a mocz ofiar był **fioletowy**. | ❔ objawy zatrucia po ok. 12 h<br>Zatrucie rodziny w Niemczech i fioletowy mocz opisuje artykuł w „Mykologische Mitteilungsblätter” 32 (1989, zobodat.at), a trzy zatrute osoby praca Krafta i in. (Archives of Toxicology 72, 1998), lecz czas ok. 12 h do objawów podają tylko serwisy wtórne. | Jest neurotoksyczny przez kwas poliporowy. Opisano zatrucie rodziny w Niemczech, a mocz ofiar był **fioletowy**. | — |
+| F0200 | Żagwiak łuskowaty | ✏️ do poprawki | Kapelusz ma 10–40 cm średnicy. Młode owocniki pojawiają się już w marcu, a stare trzymają się na pniu nawet do lutego. | ❌ kapelusz ma 10–40 cm średnicy<br>❌ młode owocniki pojawiają się już w marcu<br>❔ stare owocniki trzymają się na pniu nawet do lutego<br>Grzyby.pl podaje kapelusz 50–600 mm szerokości i owocniki od maja do października, a trzymania się starych owocników do lutego nie podaje żadne znalezione niezależne źródło. | Kapelusz ma 5–60 cm szerokości. Owocniki wyrastają od maja do października. | [grzyby.pl](https://grzyby.pl/gatunki/Polyporus_squamosus.htm) |
 
 <details>
-<summary>Potwierdzone (24)</summary>
+<summary>Potwierdzone (26)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -104,6 +129,7 @@ Sprawdzone 73 z 79; ✅ potwierdzona: 24; ✏️ do poprawki: 8; ❔ niepotwierd
 | F0045 | Soplówka bukowa / gałęzista | od 1983 r. była pod ochroną ścisłą; do 2014 r. ochrona ścisła, od 2014 r. ochrona częściowa; na Czerwonej liście ma status V | [cepl.sggw.edu.pl](https://cepl.sggw.edu.pl/wp-content/uploads/sites/75/2021/08/Domian.pdf), [fragmenta-naturae.wpt.uni.opole.pl](https://fragmenta-naturae.wpt.uni.opole.pl/wp-content/uploads/2026/05/FN59_2026_14-25.pdf), [pressto.amu.edu.pl](https://pressto.amu.edu.pl/index.php/bfb/article/download/24539/22724/50471) |
 | F0052 | Siedzuń sosnowy | od 1990 r. był pod ochroną ścisłą; 9.10.2014 r. wykreślono go z listy gatunków chronionych | [national-geographic.pl](https://www.national-geographic.pl/przyroda/wielu-uwaza-ze-to-najsmaczniejszy-grzyb-mozna-znalezc-go-w-polsce/), [eli.gov.pl](https://eli.gov.pl/api/acts/DU/2014/1408/text.html) |
 | F0060 | Pięknoróg największy | owocnik dorasta do ok. 8–10 cm | [mushroomexpert.com](https://mushroomexpert.com/fungionwood/club%20and%20coral/species%20pages/Calocera%20viscosa.htm) |
+| F0070 | Galaretnica mięsista | ma dwa „kostiumy” (postać płciową i bezpłciową, konidialną) | [mykoweb.com](https://www.mykoweb.com/CAF/species/Ascocoryne_sarcoides.html) |
 | F0074 | Płomyczka galaretowata | w latach 1995–2004 gatunek był pod ochroną częściową; w latach 2004–2014 był pod ochroną ścisłą; od 2014 r. jest znów pod ochroną częściową | [kp.org.pl](https://kp.org.pl/images/pp/artyku%C5%82y_od_2019/XXXI_1/PP_nr%201_2020_Notatka.pdf), [eli.gov.pl](https://eli.gov.pl/eli/DU/2004/1765/ogl/pol/pdf) |
 | F0090 | Gwiazdosz czteropromienny | od 2014 r. jest pod ochroną częściową; wcześniej (rozporządzenie z 2004 r.) wszystkie gwiazdosze były pod ochroną ścisłą | [grzyby.pl](https://www.grzyby.pl/gatunki/Geastrum_quadrifidum.htm), [miechow.pl:443](https://www.miechow.pl:443/download/rozporzadzenie_chronione_grzyby,13.pdf) |
 | F0093 | Berłóweczka zimowa | nie jest już chroniona, wykreślona w 2014 r.; na Czerwonej liście ma status R; trzy inne berłóweczki są dziś pod ochroną ścisłą | [kp.org.pl](https://kp.org.pl/pdf/pp/pdf2/PP_nr%203-2018_notatka_Stoklosa.pdf) |
@@ -118,10 +144,9 @@ Sprawdzone 73 z 79; ✅ potwierdzona: 24; ✏️ do poprawki: 8; ❔ niepotwierd
 | F0153 | Błyskoporek podkorowy | w badanych proszkach z czagi było od 2,8 do 14,2 g szczawianów na 100 g | [synapse.koreamed.org](https://synapse.koreamed.org/articles/1145982) |
 | F0163 | Maczużnik nasięźrzałowy | Rekomendacja nr 6 (2025) Komisji ds. Polskiego Nazewnictwa Grzybów PTMyk (potwierdza samo źródło faktu, strona instytucji) | [ptmyk.pl](https://www.ptmyk.pl/wp-content/uploads/2026/02/Rekomendacja-6_2025.pdf) |
 | F0165 | Czasznica olbrzymia | duży owocnik może zawierać kilka bilionów zarodników | [blog.mycology.cornell.edu](https://blog.mycology.cornell.edu/2006/10/26/giant-puffballs-calvatia-gigantea/) |
+| F0172 | Łycznik ochrowy | badania krzyżówkowe opisane w 1942 r.; świecenie warunkuje jedna para alleli, świecenie dominuje; późniejsze badania z 1992 r.; świecenie mogą wyłączać co najmniej trzy różne mutacje | [scilit.com](https://scilit.com/publications/0f18556dd7c89c24dcbcbc5d15830d30), [informahealthcare.com](https://informahealthcare.com/doi/abs/10.1080/00275514.1992.12026109) |
 
 </details>
-
-Czeka na sprawdzenie (6): F0070, F0160, F0172, F0177, F0189, F0200.
 
 ### Kwiaty
 
@@ -612,7 +637,7 @@ Sprawdzone 24 z 24; ✅ potwierdzona: 13; ✏️ do poprawki: 2; ❔ niepotwierd
 
 ### Rekordy krajobrazu
 
-Sprawdzone 42 z 59; ✅ potwierdzona: 21; ✏️ do poprawki: 8; ❔ niepotwierdzona: 13.
+Sprawdzone 59 z 59; ✅ potwierdzona: 33; ✏️ do poprawki: 12; ❔ niepotwierdzona: 14.
 
 | ID | Karta | Wynik | Było | Co się nie zgadza | Proponowane brzmienie | Źródła |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -634,12 +659,17 @@ Sprawdzone 42 z 59; ✅ potwierdzona: 21; ✏️ do poprawki: 8; ❔ niepotwierd
 | F1145 | Śnieżne Kotły | ❔ niepotwierdzona | W latach 1881–1930 działała tu stacja meteorologiczna (1492 m n.p.m.). | ❔ stacja meteorologiczna działała w latach 1881–1930<br>❔ stacja leżała na wysokości 1492 m n.p.m.<br>Opracowanie klimatu KPN z Uniwersytetu Wrocławskiego podaje stację „Śnieżne Kotły” na 1490 m z pomiarami w latach 1934–1938, a stary tekst z Jeleniogórskiej Biblioteki Cyfrowej wspomina tylko zamkniętą stację II rzędu przy Śnieżnych Kotłach, bez lat 1881–1930. | Działała tu kiedyś stacja meteorologiczna. | — |
 | F1148 | Szczeliniec Wielki | ❔ niepotwierdzona | Najwyższy szczyt Gór Stołowych (919 m n.p.m.). Z Karłowa prowadzi tam około 680 kamiennych stopni. Szlak schodowy powstał w 1814 r. i jest dziełem Franza Pabla, sołtysa Karłowa. | ✅ Szczeliniec Wielki ma 919 m n.p.m.<br>❔ z Karłowa prowadzi około 680 kamiennych stopni<br>❔ szlak schodowy powstał w 1814 r.<br>Wysokość 919 m podaje m.in. Interia (GeekWeek), ale liczbę stopni i rok 1814 podają tylko strony turystyczne (zwykle 665 stopni, 680 „według niektórych źródeł”), a cytowanej strony PNGS (pngs.gov.pl) nie dało się otworzyć. | Najwyższy szczyt Gór Stołowych (919 m n.p.m.). Z Karłowa prowadzą tam kamienne stopnie. Szlak schodowy jest dziełem Franza Pabla, sołtysa Karłowa. | [geekweek.interia.pl](https://geekweek.interia.pl/podroze/news-najbardziej-niezwykly-szczyt-w-polsce-labirynt-na-wysokosci,nId,23477254) |
 | F1149 | Szczeliniec Wielki | ❔ niepotwierdzona | Góry Stołowe to jedne z nielicznych w Europie gór płytowych. Wypiętrzyły się ok. 30 mln lat temu. | ❔ Góry Stołowe wypiętrzyły się ok. 30 mln lat temu<br>Wiek wypiętrzenia ok. 30 mln lat podają w wynikach tylko strony turystyczne i kopie Wikipedii; w źródłach naukowych i instytucjonalnych tej daty nie znalazłem (praca w BazTech potwierdza tylko płytową budowę). | Góry Stołowe to jedne z nielicznych w Europie gór płytowych. | — |
+| F1150 | Błędne Skały | ✏️ do poprawki | Labirynt na wysokości 853 m n.p.m. ma szczeliny szerokie miejscami na kilkadziesiąt centymetrów. | ❌ labirynt leży na wysokości 853 m n.p.m.<br>❔ szczeliny są miejscami szerokie na kilkadziesiąt centymetrów<br>Park Narodowy Gór Stołowych (FAQ na pngs.gov.pl) i regionalny portal dolnyslask.travel podają 852 m n.p.m., a szerokości szczelin w centymetrach nie podaje żadne niezależne źródło (strona gminy Lewin Kłodzki pisze tylko o wąskich szczelinach, przez które trzeba się przeciskać). | Labirynt na wysokości 852 m n.p.m. ma miejscami bardzo wąskie szczeliny. | [pngs.gov.pl](https://pngs.gov.pl/najczesciej-zadawane-pytania) |
 | F1151 | Skałki Piekło pod Niekłaniem | ❔ niepotwierdzona | Skałki ciągną się ok. 1 km i mają do 8 m wysokości. Rezerwat istnieje od 1959 r. | ❔ skałki ciągną się ok. 1 km<br>✅ skałki mają do 8 m wysokości<br>✅ rezerwat istnieje od 1959 r.<br>Rok 1959 potwierdza baza geostanowisk IOP PAN, a 8 m – National Geographic Polska (Radio Kielce pisze o 7 m); długość ok. 1 km podają tylko strony turystyczne (Komoot – kilkaset metrów). | Skałki mają do 8 m wysokości. Rezerwat istnieje od 1959 r. | [national-geographic.pl](https://www.national-geographic.pl/traveler/kierunki/polskie-pieklo-zachwyca-niezwyklymi-skalami-niektore-maja-8-metrow/), [iop.krakow.pl](https://www.iop.krakow.pl/geosites/home/single/176) |
 | F1152 | Dolina Prądnika i Maczuga Herkulesa | ❔ niepotwierdzona | Maczuga Herkulesa ma ok. 25 m. Stoi na skalnej terasie o wysokości 8–12 m. | ✅ Maczuga Herkulesa ma ok. 25 m<br>❔ skalna terasa ma 8–12 m wysokości<br>Ojcowski Park Narodowy podaje 25 m (malopolska.pl pisze o blisko 30 m, National Geographic o ok. 20 m), a wysokości terasy zwanej Fortepianem nie podaje żadne niezależne źródło. | Maczuga Herkulesa ma ok. 25 m. Stoi na skalnej terasie. | [ojcowskiparknarodowy.pl](https://www.ojcowskiparknarodowy.pl/main/legendy/printpage.html) |
+| F1159 | Połoniny Bieszczadzkie | ✏️ do poprawki | Na Połoninie Wetlińskiej stoi najwyżej położone schronisko Bieszczadów: „Chatka Puchatka” (1228 m). | ✅ Chatka Puchatka leży na wysokości 1228 m<br>❌ stoi tu (obecnie) najwyżej położone schronisko Bieszczadów<br>Regionalny portal wBieszczady podaje 1228 m i nazywa dawną Chatkę najwyżej położonym schroniskiem Bieszczadów, ale stary budynek rozebrano, a nowy jest według Strony Podróży i wBieszczady oficjalnie „Schronem Turystycznym Chatka Puchatka” Bieszczadzkiego Parku Narodowego bez noclegów (portale noclegowe podają też 1232 m). | Na Połoninie Wetlińskiej stoi „Chatka Puchatka” (1228 m), dawniej najwyżej położone schronisko Bieszczadów. Dziś to schron turystyczny bez noclegów. | [wbieszczady.pl](https://wbieszczady.pl/bieszczadzkie-dzieje/chatka-puchatka-i-jej-5-odslon-wedrowka-przez-siedem-dekad-historii-bieszczadzkiego-symbolu/PpzjtaThtmAoSFpM3H59), [stronapodrozy.pl](https://stronapodrozy.pl/chatka-puchatka-w-bieszczadach-jak-do-niej-dojsc-czy-mozna-tam-zjesc-i-przenocowac-sprawdz-aktualne-informacje/ar/c7-17943231) |
+| F1160 | Połoniny Bieszczadzkie | ❔ niepotwierdzona | Najwyższa kulminacja Połoniny Wetlińskiej to Roh (1255 m). | ❔ najwyższa kulminacja Połoniny Wetlińskiej to Roh (1255 m)<br>Roh (1255 m) jako najwyższy punkt połoniny podają tylko portale turystyczne i strona projektu „Góry bez granic” organizacji, której nazwy atlas nie używa (angielska Wikipedia ma 1253 m), a stron BdPN ani Encyklopedii PWN wyszukiwarka nie znalazła. | — (pominąć) | — |
+| F1163 | Głazowisko Bachanowo nad Czarną Hańczą | ✏️ do poprawki | Mały rezerwat (0,98 ha) w widłach Czarnej Hańczy i Kozikówki pokrywa mnóstwo głazów narzutowych. | ❌ rezerwat ma 0,98 ha<br>Zarządzenie RDOŚ w Białymstoku z 2024 r. (Dziennik Urzędowy Województwa Podlaskiego) podaje łączną powierzchnię rezerwatu 0,92 ha, a 0,98 ha podają strona Suwalskiego Parku Krajobrazowego i baza geostanowisk IOP PAN. | Mały rezerwat (0,92 ha) w widłach Czarnej Hańczy i Kozikówki pokrywa mnóstwo głazów narzutowych. | [edziennik.bialystok.uw.gov.pl](https://edziennik.bialystok.uw.gov.pl/WDU_B/2024/358/akt.pdf) |
 | F1165 | Góra Ślęża | ❔ niepotwierdzona | W 1149/1150 r. zapisano ją jako *ecclesia in monte Silentii*, a już w 1108 r. jako *in monte Silencii*, czyli „Góra Milczenia”. | ❔ w 1149/1150 r. zapisano ją jako ecclesia in monte Silentii<br>❔ już w 1108 r. zapisano ją jako in monte Silencii<br>Formę „Monte Silencii” potwierdza tytuł pracy naukowej (Kastek, Limisiewicz, Mruczek 2016), ale dat 1108 i 1149/1150 nie znalazłem poza kopiami Wikipedii; artykuł w „Rocznikach Humanistycznych” (TN KUL) pokazuje, że datowanie fundacji klasztoru na Ślęży (1090 lub 1108, konsekracja 1110) jest niepewne. | Zapisano ją m.in. jako *in monte Silencii*, czyli „Góra Milczenia”. | — |
+| F1168 | Góra św. Anny | ✏️ do poprawki | W nefelinitach tkwią bloki wapieni i piaskowców długie nawet do 80 m. Szczyt ma 408 m n.p.m. | ❔ bloki wapieni i piaskowców w nefelinitach mają nawet do 80 m długości<br>❌ szczyt ma 408 m n.p.m.<br>Zespół Opolskich Parków Krajobrazowych, PIG-PIB i regionalny portal VisitOpolskie podają 404 m n.p.m. (408 m nie ma w żadnym znalezionym źródle instytucjonalnym), a długości bloków do 80 m nie podaje żadne niezależne źródło. | W nefelinitach tkwią bloki wapieni i piaskowców. Szczyt ma 404 m n.p.m. | [visitopolskie.pl](https://www.visitopolskie.pl/strona/odkrywaj/553-gora-sw-anny-sanktuarium-i-park) |
 
 <details>
-<summary>Potwierdzone (21)</summary>
+<summary>Potwierdzone (33)</summary>
 
 | ID | Karta | Potwierdzone liczby i daty | Źródła |
 | --- | --- | --- | --- |
@@ -653,6 +683,7 @@ Sprawdzone 42 z 59; ✅ potwierdzona: 21; ✏️ do poprawki: 8; ❔ niepotwierd
 | F1098 | Mewia Łacha i ujście Wisły | rezerwat powstał w 1991 r.; rezerwat ma 150,46 ha | [parkmierzeja.pl](https://parkmierzeja.pl/files/site-pkmw/userfiles/artykuly/mewia%20lacha.pdf) |
 | F1100 | Jezioro Hańcza | Hańcza to najgłębsze jezioro Polski; to najgłębsze jezioro środkowej części Niżu Europejskiego; najczęściej podaje się 108,5 m; inne źródła i pomiary dają od około 105 m; inne źródła i pomiary dają do 113 m | [pap.pl](https://www.pap.pl/aktualnosci/zamarzla-hancza-najglebsze-jezioro-w-polsce-oznacza-ze-zima-jest-w-pelni), [informahealthcare.com](https://informahealthcare.com/doi/abs/10.1080/02626667.2021.1906429), [rcin.org.pl](https://rcin.org.pl//Content/79147/PDF/KR038_99086_r1968-t24-no1_ChPO-Glowacinski-20-30.pdf), [link.springer.com](https://link.springer.com/doi/10.1007/s00024-013-0683-9), [pap.pl](https://www.pap.pl/aktualnosci/od-lat-niespotykane-zjawisko-zamarzlo-najglebsze-jezioro-w-polsce) |
 | F1110 | Poleski Park Narodowy i Durne Bagno | park utworzono 1 maja 1990 r.; park ma ok. 9760 ha | [poleskipn.pl](https://www.poleskipn.pl/index.php/o-nas/108-historia-utworzenia-parku), [umwl.bip.lubelskie.pl](https://umwl.bip.lubelskie.pl/upload/pliki/1zalacznik.05.pdf) |
+| F1114 | Skrzyżowanie Wełny i Nielby | Nielba i Wełna krzyżują się pod kątem prostym; skrzyżowanie powstało w XIX w. przy melioracji | [gov.pl](https://www.gov.pl/web/kppsp-wagrowiec/charakterystyka-powiatu), [bazadata.pgi.gov.pl](https://bazadata.pgi.gov.pl/data/mgsp/txt/mgsp0395.pdf) |
 | F1117 | Niebieskie Źródła | obszar Natura 2000 „Niebieskie Źródła” ma kod PLH100005 | [eunis.eea.europa.eu](https://eunis.eea.europa.eu/sites/PLH100005) |
 | F1118 | Przełom Dunajca | przełom przez Pieniny Właściwe ma ok. 8 km, od Sromowiec Niżnych do Szczawnicy | [life.pieninypn.pl](https://life.pieninypn.pl/files/img/fck/8910195/pieninskipn/File/Pieniny%20Przyroda%20i%20Czlowiek%20t.9/s009-22.pdf) |
 | F1119 | Przełom Dunajca | ściany wznoszą się nad rzeką na wysokość do ok. 300 m | [life.pieninypn.pl](https://life.pieninypn.pl/en/1148/0/about-pieniny.html) |
@@ -664,10 +695,19 @@ Sprawdzone 42 z 59; ✅ potwierdzona: 21; ✏️ do poprawki: 8; ❔ niepotwierd
 | F1135 | Jezioro Afryka / Kopalnia Babina | zbiornik ma ponad 20 ha powierzchni; zbiornik ma do 24 m głębokości (potwierdza samo źródło faktu, strona instytucji) | [lipinki.zielonagora.lasy.gov.pl](https://lipinki.zielonagora.lasy.gov.pl/sciezka_geoturystyczna) |
 | F1137 | Mofeta im. prof. Henryka Świdzińskiego | dwa miejsca wypływu gazu mają nazwy „Bulgotka” i „Dychawka”; mofeta jest pomnikiem przyrody nieożywionej (od 1998 r.) | [almanachmuszyny.pl](https://www.almanachmuszyny.pl/spisy/2006/MUZYKA%20MOFETY.pdf), [geojournals.pgi.gov.pl](https://geojournals.pgi.gov.pl/pg/article/view/15870) |
 | F1157 | Torfowisko pod Zieleńcem | rezerwat utworzono w 1954 r.; rezerwat ma 231,88 ha | [eli.gov.pl](https://eli.gov.pl/eli/MP/1954/358/ogl/pol/pdf), [gov.pl](https://www.gov.pl/web/nadlesnictwo-zdroje/ochrona-przyrody) |
+| F1161 | Ostrzyca Proboszczowicka | Ostrzyca ma 501 m | [gazetawroclawska.pl](https://gazetawroclawska.pl/dolnoslaska-fudzijama-to-pozostalosc-po-wulkanie-bazaltowymi-schodami-wejdziemy-prosto-na-jego-szczyt/ar/c1-18587719) |
+| F1162 | Organy Wielisławskie | słupy ryolitu mają 20–30 cm średnicy | [polska.travel](https://www.polska.travel/rit/organy-wielislawskie/) |
+| F1164 | Głazowisko Bachanowo nad Czarną Hańczą | rezerwat utworzono 27 października 1972 r. | [edziennik.bialystok.uw.gov.pl](https://edziennik.bialystok.uw.gov.pl/WDU_B/2024/358/akt.pdf) |
+| F1167 | Góra św. Anny | ok. 27 mln lat temu (oligocen) istniał tu wulkan | [jednaziemia.pgi.gov.pl](https://jednaziemia.pgi.gov.pl/geoturystyka-planeta-ziemia/3817-geopark-gora-swietej-anny.html) |
+| F1169 | Jaskinia Mechowska / Groty Mechowskie | od 1955 r. jest pomnikiem przyrody | [geostanowiska.pgi.gov.pl](https://geostanowiska.pgi.gov.pl/gsapp_v2/pdf/142) |
+| F1172 | Raczki Elbląskie — dawny najniższy punkt Polski | według danych GUGiK depresja w Raczkach Elbląskich ma 1,8 m p.p.m.; do 2022 r. uznawano ją za najniższy punkt Polski | [wydarzenia.interia.pl](https://wydarzenia.interia.pl/kraj/news-marzecino-a-nie-raczki-elblaskie-najnizszy-punkt-w-polsce,nId,6328649) |
+| F1173 | Raczki Elbląskie — dawny najniższy punkt Polski | pomiary z 2013 r. wykazały, że niżej leży depresja w Marzęcinie; dane ze skaningu laserowego GUGiK z 2019 r.; według GUS depresja w Marzęcinie ma 2,2 m p.p.m.; dziś to ją uznaje się za najniższy punkt Polski | [dziennikbaltycki.pl](https://dziennikbaltycki.pl/nowy-rekord-depresji-w-polsce-na-zulawach-sa-miejsca-polozone-dwa-metry-ponizej-poziomu-morza/ar/785917), [wydarzenia.interia.pl](https://wydarzenia.interia.pl/kraj/news-marzecino-a-nie-raczki-elblaskie-najnizszy-punkt-w-polsce,nId,6328649), [geoforum.pl](https://geoforum.pl/news/32990/nowy-najnizszy-punkt-polski-oficjalnie-potwierdzony) |
+| F1179 | Sokołowsko — Dolnośląskie Davos | w 1854 r. dr Hermann Brehmer przejął uzdrowisko (rozpoczął działalność w Görbersdorfie); sanatorium uruchomione w latach 1854–1855: rok 1854; sanatorium uruchomione w latach 1854–1855: rok 1855; pierwsze takie sanatorium na świecie | [deutsche-biographie.de](https://www.deutsche-biographie.de/sfz42276.html), [ojs.pum.edu.pl](https://ojs.pum.edu.pl/pomjlifesci/article/download/229/176), [sokolowsko.org](https://sokolowsko.org/informacje-praktyczne/historia-sokolowska/) |
+| F1181 | Tarnów — Polski Biegun Ciepła | tytuł wywodzi się z analizy IMGW za lata 1971–2000; wieloletnia średnia roczna temperatura Tarnowa wyniosła wtedy 8,8 °C, najwyższa w Polsce; w normach IMGW 1991–2020 Tarnów ma 9,4 °C; w normach 1991–2020 najcieplejszy jest Wrocław z 9,7 °C (potwierdza samo źródło faktu, strona instytucji) | [it.tarnow.pl](https://www.it.tarnow.pl/en/worth-seeing/did-you-know-that/tarnow-the-warmest-place-in-poland/), [geekweek.interia.pl](https://geekweek.interia.pl/styl-zycia/news-ktore-miasto-w-polsce-jest-najcieplejsze-tu-upal-zawsze-jest,nId,22162128) |
+| F1182 | Tarnów — Polski Biegun Ciepła | w normach IMGW-PIB 1991–2020 Tarnów ma 9,4 °C; najcieplejszy jest Wrocław (9,7 °C); dalej w kolejności są m.in. Opole, Legnica i Słubice (potwierdza samo źródło faktu, strona instytucji) | [geekweek.interia.pl](https://geekweek.interia.pl/styl-zycia/news-ktore-miasto-w-polsce-jest-najcieplejsze-tu-upal-zawsze-jest,nId,22162128), [klimat.imgw.pl](https://klimat.imgw.pl/pl/climate-normals/) |
+| F1183 | Skit w Odrynkach | skit powstał w 2009 r. | [pravoslavie.ru](https://pravoslavie.ru/50341.html) |
 
 </details>
-
-Czeka na sprawdzenie (17): F1114, F1150, F1159, F1160, F1161, F1162, F1163, F1164, F1167, F1168, F1169, F1172, F1173, F1179, F1181, F1182, F1183.
 
 ### Architektura drewniana
 
