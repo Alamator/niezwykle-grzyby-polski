@@ -24,8 +24,12 @@
   // Holocaust and martyrdom sites stay out of the playful formats (fact of the day, true or false).
   const SOLEMN_CATEGORIES = new Set(["miejsca-zaglady", "miejsca-martyrologii"]);
   const TRUE_FALSE_SHARE = 0.3;
-  // The map of every place in the atlas has its own address (scripts/build-pages.mjs makes its page).
+  // The map of every place and the quiz of the whole atlas have their own addresses (scripts/build-pages.mjs
+  // makes their pages).
   const ALL_MAP_ROUTE = "/mapa";
+  const ALL_QUIZ_ROUTE = "/quiz";
+  // Where these pages were scrolled to, for coming back to them from a card.
+  const pageScroll = { map: 0, quiz: 0 };
 
   function storedLanguage() {
     try {
@@ -37,7 +41,7 @@
 
   const state = {
     language: languageIds.includes(storedLanguage()) ? storedLanguage() : defaultLanguage,
-    // "start", "collection" or "map" (the map of every place).
+    // "start", "collection", "map" (the map of every place) or "quiz" (the quiz of the whole atlas).
     page: "start",
     collectionId: null,
     view: "atlas",
@@ -94,21 +98,34 @@
     return format(forms[rule] ?? forms.other ?? "", { count });
   }
 
-  function randomIndex(length) {
-    return Math.floor(Math.random() * length);
+  // The random helpers take another source of randomness for the daily challenge, whose seed is the date.
+  function randomIndex(length, rng = Math.random) {
+    return Math.floor(rng() * length);
   }
 
-  function shuffle(items) {
+  function shuffle(items, rng = Math.random) {
     const copy = [...items];
     for (let i = copy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(rng() * (i + 1));
       [copy[i], copy[j]] = [copy[j], copy[i]];
     }
     return copy;
   }
 
-  function sample(items, count) {
-    return shuffle(items).slice(0, count);
+  function sample(items, count, rng = Math.random) {
+    return shuffle(items, rng).slice(0, count);
+  }
+
+  // mulberry32: the same seed gives the same numbers in every browser.
+  function seededRandom(seed) {
+    let a = seed >>> 0;
+    return () => {
+      a = (a + 0x6d2b79f5) >>> 0;
+      let t = a;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
   }
 
   function activeCollection() {
@@ -231,8 +248,8 @@
     return itemField(item, "hook", "hook", collection);
   }
 
-  function itemQuizAngle(item) {
-    return itemField(item, "quiz_angle", "quiz_angle");
+  function itemQuizAngle(item, collection = activeCollection()) {
+    return itemField(item, "quiz_angle", "quiz_angle", collection);
   }
 
   function itemSafety(item) {
@@ -547,6 +564,8 @@
     setText("#mapLink", "navMap");
     $("#mapLink")?.setAttribute("aria-label", t("navMapLabel"));
     renderAllMapChrome();
+    renderAtlasQuizChrome();
+    renderDailyQuizCard();
     setText("#learnEyebrow", "learnEyebrow");
     setText("#learn-title", "learnTitle");
     setText("#learnNote", "learnNote");
@@ -921,8 +940,8 @@
   // The tab title names the card and the collection, like the page made for that address.
   function updateDocumentTitle() {
     const base = t("documentTitle");
-    if (state.page === "map") {
-      document.title = `${t("allMapDocumentTitle")} – ${base}`;
+    if (state.page === "map" || state.page === "quiz") {
+      document.title = `${t(state.page === "map" ? "allMapDocumentTitle" : "atlasQuizDocumentTitle")} – ${base}`;
       return;
     }
     if (!state.collectionId) {
@@ -1368,9 +1387,10 @@
   // ----- Quiz -----
 
   // Name stems used to tell whether a fact names a given card ("smardz jadalny" -> "smard").
-  function nameStems(item) {
+  // Both languages' names, so a question is chosen the same way in Polish and in English.
+  function nameStems(item, collection = activeCollection()) {
     const stems = new Set();
-    const names = [item.name_pl, itemName(item), ...itemSynonyms(item)];
+    const names = [item.name_pl, i18n.collections?.en?.[collection.id]?.items?.[item.id]?.name, ...itemSynonyms(item)];
     for (const name of names) {
       for (const word of String(name || "").split(/[\s/—–,()„”"-]+/)) {
         if (word.length < 5) continue;
@@ -1382,38 +1402,39 @@
     return [...stems];
   }
 
-  function factMentions(fact, item) {
+  function factMentions(fact, item, collection = activeCollection()) {
     const text = `${fact.pl || ""} ${fact.en || ""}`.toLocaleLowerCase("pl");
-    return nameStems(item).some((stem) => text.includes(stem));
+    return nameStems(item, collection).some((stem) => text.includes(stem));
   }
 
   function lineageKey(item) {
     return String(item.name_lat || item.id).split(/[\s,•]+/)[0].toLowerCase();
   }
 
-  function quizFactsFor(item, counts) {
+  function quizFactsFor(item, counts, collection = activeCollection()) {
     if (SOLEMN_CATEGORIES.has(item.category)) return [];
     // Legal-status lines and texts repeated on several cards would make the answer ambiguous.
-    return itemFacts(item).filter((fact) => fact.icon !== "🛡️" && (counts.get(fact.pl) || 0) < 2 && factText(fact).length >= 40);
+    return itemFacts(item, collection).filter((fact) => fact.icon !== "🛡️" && (counts.get(fact.pl) || 0) < 2 && (fact.pl || "").length >= 40);
   }
 
   // True or false: "is this fact about <card>?". A false statement is always a real fact of another
   // card in the same collection, never an edited one. It must name its own card, must not name the
   // asked card and must come from another genus, so it cannot accidentally be true.
-  function buildTrueFalseQuestion(selected, counts) {
-    const own = quizFactsFor(selected, counts);
+  // Every choice here depends only on the cards and on rng, never on the language of the page.
+  function buildTrueFalseQuestion(selected, counts, { collection = activeCollection(), list = collection.items, rng = Math.random } = {}) {
+    const own = quizFactsFor(selected, counts, collection);
     if (!own.length) return null;
-    let fact = own[randomIndex(own.length)];
+    let fact = own[randomIndex(own.length, rng)];
     let owner = selected;
-    if (Math.random() < 0.5) {
-      const selectedTexts = new Set((factsEntry(selected)?.facts || []).map((entry) => entry.pl));
-      const decoys = items()
+    if (rng() < 0.5) {
+      const selectedTexts = new Set((factsEntry(selected, collection)?.facts || []).map((entry) => entry.pl));
+      const decoys = list
         .filter((item) => item.id !== selected.id && lineageKey(item) !== lineageKey(selected))
-        .flatMap((item) => quizFactsFor(item, counts)
-          .filter((candidate) => !selectedTexts.has(candidate.pl) && factMentions(candidate, item) && !factMentions(candidate, selected))
+        .flatMap((item) => quizFactsFor(item, counts, collection)
+          .filter((candidate) => !selectedTexts.has(candidate.pl) && factMentions(candidate, item, collection) && !factMentions(candidate, selected, collection))
           .map((candidate) => ({ item, fact: candidate })));
       if (decoys.length) {
-        const decoy = decoys[randomIndex(decoys.length)];
+        const decoy = decoys[randomIndex(decoys.length, rng)];
         fact = decoy.fact;
         owner = decoy.item;
       }
@@ -1423,34 +1444,34 @@
       type: "truefalse",
       correctId: isTrue ? "true" : "false",
       correctName: t(isTrue ? "quizTrue" : "quizFalse"),
-      prompt: t("quizTrueFalsePrompt", { name: itemName(selected) }),
+      prompt: t("quizTrueFalsePrompt", { name: itemName(selected, collection) }),
       fact,
-      ownerName: itemName(owner),
+      ownerName: itemName(owner, collection),
       options: [{ id: "true", label: t("quizTrue") }, { id: "false", label: t("quizFalse") }]
     };
   }
 
-  function buildQuestion(correct, counts = factTextCounts(activeCollection())) {
-    const list = items();
-    const selected = correct || sample(list, 1)[0];
-    if (Math.random() < TRUE_FALSE_SHARE) {
-      const trueFalse = buildTrueFalseQuestion(selected, counts);
+  // A question about `correct` (or a random card of `list`); the wrong answers come from `list` too.
+  function buildQuestion(correct, counts = factTextCounts(activeCollection()), { collection = activeCollection(), list = items(), rng = Math.random } = {}) {
+    const selected = correct || sample(list, 1, rng)[0];
+    if (rng() < TRUE_FALSE_SHARE) {
+      const trueFalse = buildTrueFalseQuestion(selected, counts, { collection, list, rng });
       if (trueFalse) return trueFalse;
     }
     // A Latin name shared by several cards (e.g. many "Quercus robur" trees) would have more than one right answer.
     const latinIsUnique = list.filter((item) => item.name_lat === selected.name_lat).length === 1;
-    const mode = Math.random() > 0.45 || !latinIsUnique ? "hook" : "latin";
+    const mode = rng() > 0.45 || !latinIsUnique ? "hook" : "latin";
     const prompt = mode === "hook"
-      ? t("quizHookPrompt", { hook: itemHook(selected) })
-      : t("quizLatinPrompt", { latin: itemLatin(selected) });
-    const wrong = sample(list.filter((item) => item.id !== selected.id && itemHook(item) !== itemHook(selected)), 3);
+      ? t("quizHookPrompt", { hook: itemHook(selected, collection) })
+      : t("quizLatinPrompt", { latin: itemLatin(selected, collection) });
+    const wrong = sample(list.filter((item) => item.id !== selected.id && item.hook !== selected.hook), 3, rng);
     return {
       type: "choice",
       correctId: selected.id,
-      correctName: itemName(selected),
+      correctName: itemName(selected, collection),
       prompt,
-      detail: itemQuizAngle(selected),
-      options: shuffle([selected, ...wrong]).map((item) => ({ id: item.id, label: itemName(item) }))
+      detail: itemQuizAngle(selected, collection),
+      options: shuffle([selected, ...wrong], rng).map((item) => ({ id: item.id, label: itemName(item, collection) }))
     };
   }
 
@@ -1473,23 +1494,58 @@
     renderQuiz();
   }
 
-  function answerButtonHtml(option, q, quiz) {
+  function answerButtonHtml(option, q, quiz, action = "answer-quiz") {
     const isCorrect = option.id === q.correctId;
     const isPicked = option.id === quiz.selectedId;
     const klass = !quiz.answered ? "" : isCorrect ? "is-correct" : isPicked ? "is-wrong" : "";
     const marker = !quiz.answered ? "" : isCorrect ? "✓ " : isPicked ? "✗ " : "";
-    return `<button class="answer-btn ${klass}" data-action="answer-quiz" data-id="${escapeHtml(option.id)}" ${quiz.answered ? "disabled" : ""}>${marker ? `<span aria-hidden="true">${marker}</span>` : ""}${escapeHtml(option.label)}</button>`;
+    return `<button class="answer-btn ${klass}" data-action="${action}" data-id="${escapeHtml(option.id)}" ${quiz.answered ? "disabled" : ""}>${marker ? `<span aria-hidden="true">${marker}</span>` : ""}${escapeHtml(option.label)}</button>`;
   }
 
-  function quizFeedbackHtml(q) {
+  function quizFeedbackHtml(q, extra = "") {
     if (q.type === "truefalse") {
       return `
         <div class="feedback">
           <strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(t("quizFactOwner", { name: q.ownerName }))}
           ${factSourcesHtml(q.fact)}
+          ${extra}
         </div>`;
     }
-    return `<div class="feedback"><strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(q.detail)}</div>`;
+    return `<div class="feedback"><strong>${escapeHtml(t("correctAnswer"))}:</strong> ${escapeHtml(q.correctName)}. ${escapeHtml(q.detail)}${extra}</div>`;
+  }
+
+  // The current question of a quiz: a collection's quiz, or the quiz of the whole atlas with its actions,
+  // the collection of the question above it and a link to the card under the answer.
+  function quizQuestionHtml(quiz, { answer = "answer-quiz", next = "next-quiz", restart = "restart-quiz", eyebrow = "", extra = "" } = {}) {
+    const q = quiz.questions[quiz.index];
+    const isTrueFalse = q.type === "truefalse";
+    const label = [eyebrow, isTrueFalse ? t("quizTrueFalseEyebrow") : ""].filter(Boolean).join(" · ");
+    return `
+      <div class="quiz-progress"><span>${escapeHtml(t("questionCounter", { current: quiz.index + 1, total: quiz.questions.length }))}</span><span>${escapeHtml(t("scoreLabel", { score: quiz.score }))}</span></div>
+      <div class="question-card${isTrueFalse ? " question-card--tf" : ""}">
+        ${label ? `<p class="eyebrow">${escapeHtml(label)}</p>` : ""}
+        <h3 tabindex="-1">${escapeHtml(q.prompt)}</h3>
+        ${isTrueFalse ? `
+          <blockquote class="tf-fact">
+            <span class="fact__icon" aria-hidden="true">${escapeHtml(q.fact.icon || FACT_ICON_FALLBACK)}</span>
+            <span>${markdownLight(factText(q.fact))}</span>
+          </blockquote>` : ""}
+        <div class="answers${isTrueFalse ? " answers--tf" : ""}">
+          ${q.options.map((option) => answerButtonHtml(option, q, quiz, answer)).join("")}
+        </div>
+        ${quiz.answered ? quizFeedbackHtml(q, extra) : ""}
+        <div class="row-actions">
+          ${quiz.answered ? `<button class="primary" data-action="${next}">${escapeHtml(quiz.index + 1 === quiz.questions.length ? t("finishQuiz") : t("nextQuestion"))}</button>` : ""}
+          <button class="ghost" data-action="${restart}">${escapeHtml(t("restart"))}</button>
+        </div>
+      </div>`;
+  }
+
+  // After an answer the focus goes to the button for the next question, after that to the new question,
+  // so keyboard and screen reader users stay with the quiz instead of starting over at the top.
+  function focusQuizStep(box, quiz) {
+    const target = quiz.answered && !quiz.finished ? $(".question-card .primary", box) : $(".question-card h3", box);
+    target?.focus();
   }
 
   function renderQuiz() {
@@ -1500,7 +1556,7 @@
       box.innerHTML = `
         <div class="question-card">
           <p class="eyebrow">${escapeHtml(t("quizResult"))}</p>
-          <h3>${quiz.score} / ${quiz.questions.length}</h3>
+          <h3 tabindex="-1">${quiz.score} / ${quiz.questions.length}</h3>
           <p>${escapeHtml(quiz.score >= 8 ? t("quizExcellent") : t("quizRetry"))}</p>
           <div class="row-actions">
             <button class="primary" data-action="restart-quiz">${escapeHtml(t("again"))}</button>
@@ -1509,27 +1565,249 @@
         </div>`;
       return;
     }
-    const q = quiz.questions[quiz.index];
-    const isTrueFalse = q.type === "truefalse";
-    box.innerHTML = `
-      <div class="quiz-progress"><span>${escapeHtml(t("questionCounter", { current: quiz.index + 1, total: quiz.questions.length }))}</span><span>${escapeHtml(t("scoreLabel", { score: quiz.score }))}</span></div>
-      <div class="question-card${isTrueFalse ? " question-card--tf" : ""}">
-        ${isTrueFalse ? `<p class="eyebrow">${escapeHtml(t("quizTrueFalseEyebrow"))}</p>` : ""}
-        <h3>${escapeHtml(q.prompt)}</h3>
-        ${isTrueFalse ? `
-          <blockquote class="tf-fact">
-            <span class="fact__icon" aria-hidden="true">${escapeHtml(q.fact.icon || FACT_ICON_FALLBACK)}</span>
-            <span>${markdownLight(factText(q.fact))}</span>
-          </blockquote>` : ""}
-        <div class="answers${isTrueFalse ? " answers--tf" : ""}">
-          ${q.options.map((option) => answerButtonHtml(option, q, quiz)).join("")}
-        </div>
-        ${quiz.answered ? quizFeedbackHtml(q) : ""}
+    box.innerHTML = quizQuestionHtml(quiz);
+  }
+
+  // ----- Quiz of the whole atlas (/quiz): the daily challenge and a random round -----
+
+  // Each question is made as in a collection's quiz, within its own collection, so the wrong answers are
+  // cards of the same kind. Holocaust and martyrdom sites stay out, as in the other playful formats.
+  // A round's collections, cards and answers come from its seed alone, so the daily challenge, seeded by
+  // the date, is the same for everybody and in both languages.
+  const DAILY_QUESTIONS = 5;
+  const MIX_QUESTIONS = 10;
+  const QUIZ_COLLECTIONS = 5;
+  const DAILY_KEY = "atlasDaily";
+  const atlasQuiz = {
+    mode: null, seed: 0, date: null, status: "idle", questions: [], language: null,
+    index: 0, score: 0, answered: false, selectedId: null, finished: false
+  };
+  let atlasQuizSerial = 0;
+
+  function isQuizRoute(path = window.location.pathname) {
+    return normalizedPath(path) === ALL_QUIZ_ROUTE;
+  }
+
+  function todayIso() {
+    return isoDate(localDateParts());
+  }
+
+  function dayNumber(iso) {
+    const parts = partsFromIso(iso);
+    return parts ? Math.floor(Date.UTC(parts.y, parts.m - 1, parts.d) / 86400000) : NaN;
+  }
+
+  // The scores of the daily challenge, only in this browser.
+  function readDailyResults() {
+    try {
+      const days = JSON.parse(window.localStorage.getItem(DAILY_KEY) || "null")?.days;
+      return days && typeof days === "object" ? days : {};
+    } catch {
+      return {};
+    }
+  }
+
+  // The first finished round of the day is the one that counts; later ones are for practice.
+  function saveDailyResult(date, score, total) {
+    const days = readDailyResults();
+    if (days[date]) return;
+    days[date] = { score, total };
+    const kept = Object.keys(days).sort().slice(-400);
+    try {
+      window.localStorage.setItem(DAILY_KEY, JSON.stringify({ v: 1, days: Object.fromEntries(kept.map((day) => [day, days[day]])) }));
+    } catch {
+      // The result still shows; this browser just does not keep it.
+    }
+  }
+
+  // Days in a row with a finished challenge, up to today, or up to yesterday while today is still to play.
+  function dailyStreak(days, today = todayIso()) {
+    const done = new Set(Object.keys(days).map(dayNumber));
+    let day = dayNumber(today);
+    if (!done.has(day)) day -= 1;
+    let streak = 0;
+    while (done.has(day)) {
+      streak += 1;
+      day -= 1;
+    }
+    return streak;
+  }
+
+  function dailyScoreText(days) {
+    const today = days[todayIso()];
+    if (!today) return "";
+    const streak = dailyStreak(days);
+    return [t("dailyQuizDone", today), streak > 1 ? t("dailyQuizStreak", { days: tPlural("dayCountForms", streak) }) : ""].filter(Boolean).join(" ");
+  }
+
+  function quizPool(collection) {
+    return collection.items.filter((item) => !SOLEMN_CATEGORIES.has(item.category));
+  }
+
+  // The first draws of a seed pick the collections, so they can load before the questions are made.
+  function quizCollections(rng) {
+    return sample(app.collections, QUIZ_COLLECTIONS, rng);
+  }
+
+  function buildAtlasQuestions() {
+    const rng = seededRandom(atlasQuiz.seed);
+    const perCollection = (atlasQuiz.mode === "daily" ? DAILY_QUESTIONS : MIX_QUESTIONS) / QUIZ_COLLECTIONS;
+    const questions = quizCollections(rng).flatMap((collection) => {
+      const pool = quizPool(collection);
+      const counts = factTextCounts(collection);
+      return sample(pool, perCollection, rng).map((item) => ({
+        ...buildQuestion(item, counts, { collection, list: pool, rng }),
+        collectionId: collection.id,
+        cardId: item.id
+      }));
+    });
+    atlasQuiz.questions = shuffle(questions, rng);
+    atlasQuiz.language = state.language;
+  }
+
+  async function startAtlasQuiz(mode) {
+    const serial = ++atlasQuizSerial;
+    const daily = mode === "daily";
+    const today = todayIso();
+    Object.assign(atlasQuiz, {
+      mode,
+      date: daily ? today : null,
+      seed: daily ? hashString(`daily:${today}`) : Math.floor(Math.random() * 2 ** 32),
+      status: "loading", questions: [], index: 0, score: 0, answered: false, selectedId: null, finished: false
+    });
+    renderAtlasQuiz();
+    try {
+      if (typeof app.loadCollection === "function") {
+        await Promise.all(quizCollections(seededRandom(atlasQuiz.seed)).map((collection) => app.loadCollection(collection.id)));
+      }
+    } catch {
+      if (serial === atlasQuizSerial) {
+        atlasQuiz.status = "error";
+        renderAtlasQuiz({ focus: true });
+      }
+      return;
+    }
+    if (serial !== atlasQuizSerial) return;
+    atlasQuiz.status = "ready";
+    buildAtlasQuestions();
+    renderAtlasQuiz({ focus: true });
+  }
+
+  function answerAtlasQuiz(id) {
+    if (atlasQuiz.status !== "ready" || atlasQuiz.answered || atlasQuiz.finished) return;
+    const q = atlasQuiz.questions[atlasQuiz.index];
+    atlasQuiz.answered = true;
+    atlasQuiz.selectedId = id;
+    if (id === q.correctId) atlasQuiz.score += 1;
+    renderAtlasQuiz({ focus: true });
+  }
+
+  function nextAtlasQuestion() {
+    if (!atlasQuiz.answered || atlasQuiz.finished) return;
+    if (atlasQuiz.index + 1 >= atlasQuiz.questions.length) {
+      atlasQuiz.finished = true;
+      if (atlasQuiz.mode === "daily") saveDailyResult(atlasQuiz.date, atlasQuiz.score, atlasQuiz.questions.length);
+      renderAtlasQuizChrome();
+      renderDailyQuizCard();
+    } else {
+      Object.assign(atlasQuiz, { index: atlasQuiz.index + 1, answered: false, selectedId: null });
+    }
+    renderAtlasQuiz({ focus: true });
+  }
+
+  async function shareDailyResult() {
+    const counted = readDailyResults()[atlasQuiz.date] || { score: atlasQuiz.score, total: atlasQuiz.questions.length };
+    const text = t("atlasQuizShareText", { date: formatDate(partsFromIso(atlasQuiz.date), { numeric: true }), score: counted.score, total: counted.total });
+    const url = new URL(ALL_QUIZ_ROUTE, window.location.origin).href;
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ text, url });
+        return;
+      } catch (error) {
+        if (error?.name === "AbortError") return;
+      }
+    }
+    const copied = await copyText(`${text} ${url}`);
+    announce(copied ? t("atlasQuizCopied") : t("atlasQuizCopyManual", { text: `${text} ${url}` }), { long: !copied });
+  }
+
+  function atlasQuizResultHtml() {
+    const total = atlasQuiz.questions.length;
+    const daily = atlasQuiz.mode === "daily";
+    const days = daily ? readDailyResults() : {};
+    const counted = days[atlasQuiz.date];
+    const streak = daily ? dailyStreak(days) : 0;
+    return `
+      <div class="question-card">
+        <p class="eyebrow">${escapeHtml(daily ? t("dailyQuizEyebrow", { date: formatDate(partsFromIso(atlasQuiz.date)) }) : t("mixQuizEyebrow"))}</p>
+        <h3 tabindex="-1">${escapeHtml(t("quizResult"))}: ${atlasQuiz.score} / ${total}</h3>
+        <p>${escapeHtml(atlasQuiz.score >= Math.ceil(total * 0.8) ? t("atlasQuizGood") : t("atlasQuizOk"))}</p>
+        ${counted && counted.score !== atlasQuiz.score ? `<p>${escapeHtml(t("dailyQuizCounted", counted))}</p>` : ""}
+        ${streak > 1 ? `<p>${escapeHtml(t("dailyQuizStreak", { days: tPlural("dayCountForms", streak) }))}</p>` : ""}
+        ${daily ? `<p class="quiz-result__note">${escapeHtml(t("dailyQuizTomorrow"))}</p>` : ""}
         <div class="row-actions">
-          ${quiz.answered ? `<button class="primary" data-action="next-quiz">${escapeHtml(quiz.index + 1 === quiz.questions.length ? t("finishQuiz") : t("nextQuestion"))}</button>` : ""}
-          <button class="ghost" data-action="restart-quiz">${escapeHtml(t("restart"))}</button>
+          ${daily ? `<button class="primary" type="button" data-action="atlas-quiz-share">${escapeHtml(t("atlasQuizShare"))}</button>` : ""}
+          <button class="${daily ? "secondary" : "primary"}" type="button" data-action="atlas-quiz-start" data-mode="mix">${escapeHtml(t(daily ? "mixQuizPlay" : "atlasQuizMixAgain"))}</button>
         </div>
       </div>`;
+  }
+
+  function renderAtlasQuiz({ focus = false } = {}) {
+    const box = $("#atlasQuizBox");
+    if (!box) return;
+    const quiz = atlasQuiz;
+    // The same seed makes the same questions, so a change of language keeps the round where it was.
+    if (quiz.status === "ready" && quiz.language !== state.language) buildAtlasQuestions();
+    if (quiz.status === "idle") box.innerHTML = "";
+    else if (quiz.status === "loading") box.innerHTML = `<div class="question-card"><p class="quiz-status" role="status">${escapeHtml(t("atlasQuizLoading"))}</p></div>`;
+    else if (quiz.status === "error") {
+      box.innerHTML = `
+        <div class="question-card">
+          <h3 tabindex="-1">${escapeHtml(t("atlasQuizError"))}</h3>
+          <div class="row-actions"><button class="primary" type="button" data-action="atlas-quiz-start" data-mode="${escapeHtml(quiz.mode)}">${escapeHtml(t("atlasQuizRetry"))}</button></div>
+        </div>`;
+    } else if (quiz.finished) box.innerHTML = atlasQuizResultHtml();
+    else {
+      const q = quiz.questions[quiz.index];
+      const collection = collectionById(q.collectionId);
+      const item = collection.items.find((entry) => entry.id === q.cardId);
+      const link = `<a class="quiz-card-link" href="${escapeHtml(cardPath(collection, item))}" data-action="open-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}">${escapeHtml(t("atlasQuizOpenCard", { name: itemName(item, collection) }))}</a>`;
+      box.innerHTML = quizQuestionHtml(quiz, {
+        answer: "atlas-quiz-answer",
+        next: "atlas-quiz-next",
+        restart: "atlas-quiz-restart",
+        eyebrow: collectionText(collection, "title"),
+        extra: link
+      });
+    }
+    if (focus) focusQuizStep(box, quiz);
+  }
+
+  function renderAtlasQuizChrome() {
+    const days = readDailyResults();
+    const done = dailyScoreText(days);
+    $("#atlasQuizEyebrow").textContent = t("atlasQuizEyebrow");
+    $("#atlasQuizTitle").innerHTML = markdownLight(t("atlasQuizTitle"));
+    setText("#atlasQuizLead", "atlasQuizLead");
+    $("#atlasQuizModes").setAttribute("aria-label", t("atlasQuizModesLabel"));
+    $("#dailyModeEyebrow").textContent = t("dailyQuizEyebrow", { date: formatDate(localDateParts()) });
+    $("#dailyModeTitle").textContent = t("dailyQuizTitle", { questions: tPlural("questionCountForms", DAILY_QUESTIONS) });
+    $("#dailyModeText").textContent = done ? `${done} ${t("dailyQuizTomorrow")}` : t("dailyQuizIntro");
+    $("#dailyModeButton").textContent = t(done ? "dailyQuizReplay" : "atlasQuizPlay");
+    $("#mixModeEyebrow").textContent = t("mixQuizEyebrow");
+    $("#mixModeTitle").textContent = t("mixQuizTitle", { questions: tPlural("questionCountForms", MIX_QUESTIONS) });
+    setText("#mixModeText", "mixQuizIntro");
+    setText("#mixModeButton", "atlasQuizPlay");
+    setText("#atlasQuizNote", "atlasQuizNote");
+    setText("#atlasQuizLink", "atlasQuizLink");
+  }
+
+  // The challenge on the start page, under the fact of the day.
+  function renderDailyQuizCard() {
+    const done = dailyScoreText(readDailyResults());
+    setText("#dailyQuizCardTitle", "dailyQuizName");
+    $("#dailyQuizCardText").textContent = done || t("startDailyQuizText", { questions: tPlural("questionCountForms", DAILY_QUESTIONS) });
+    setText("#dailyQuizCardLink", done ? "atlasQuizOpen" : "atlasQuizPlay");
   }
 
   // ----- Sources -----
@@ -1913,7 +2191,7 @@
   const NEAR_COUNT = 10;
   const allMap = {
     points: null, loading: null, map: null, language: null, ready: false, popup: null,
-    filter: "all", me: null, fitMe: false, locating: false, nearStatus: "", scrollY: 0, listLanguage: null
+    filter: "all", me: null, fitMe: false, locating: false, nearStatus: "", listLanguage: null
   };
 
   function isAllMapRoute(path = window.location.pathname) {
@@ -2350,14 +2628,15 @@
 
   // Which page shows: the start page, an opened collection or the map of every place.
   function showPage(page) {
-    // Back from a card returns to the same spot of the map page.
-    if (state.page === "map" && page !== "map") allMap.scrollY = window.scrollY;
+    // Back from a card returns to the same spot of the map or the quiz.
+    if (state.page in pageScroll && page !== state.page) pageScroll[state.page] = window.scrollY;
     state.page = page;
     $("#startPage").classList.toggle("is-hidden", page !== "start");
     $("#mapPage").classList.toggle("is-hidden", page !== "map");
+    $("#quizPage").classList.toggle("is-hidden", page !== "quiz");
     $("#main").classList.toggle("is-hidden", page !== "collection");
     $(".app-nav").classList.toggle("is-hidden", page !== "collection");
-    $("#skipLink").setAttribute("href", page === "map" ? "#mapPage" : "#main");
+    $("#skipLink").setAttribute("href", page === "map" ? "#mapPage" : page === "quiz" ? "#quizPage" : "#main");
     if (page === "map") $("#mapLink").setAttribute("aria-current", "page");
     else $("#mapLink").removeAttribute("aria-current");
   }
@@ -2383,10 +2662,25 @@
     showPage("map");
     if ($("#itemDialog").open) $("#itemDialog").close?.();
     updateDocumentTitle();
-    window.scrollTo(0, options.updateRoute === false ? allMap.scrollY : 0);
+    window.scrollTo(0, options.updateRoute === false ? pageScroll.map : 0);
     $("#mapPage").focus({ preventScroll: true });
     if (options.updateRoute !== false) pushRoute(ALL_MAP_ROUTE, { collectionId: null });
     renderAllMapPage();
+  }
+
+  // The quiz of the whole atlas, at /quiz; `start` begins a round right away ("Zagraj" on the start page).
+  function showQuizPage(options = {}) {
+    selectionSerial += 1;
+    state.collectionId = null;
+    showPage("quiz");
+    if ($("#itemDialog").open) $("#itemDialog").close?.();
+    updateDocumentTitle();
+    window.scrollTo(0, options.updateRoute === false ? pageScroll.quiz : 0);
+    $("#quizPage").focus({ preventScroll: true });
+    if (options.updateRoute !== false) pushRoute(ALL_QUIZ_ROUTE, { collectionId: null });
+    renderAtlasQuizChrome();
+    if (options.start) startAtlasQuiz(options.start);
+    else renderAtlasQuiz();
   }
 
   function setLanguage(language) {
@@ -2403,6 +2697,7 @@
       activateView(state.view);
     }
     if (state.page === "map") renderAllMapPage();
+    if (state.page === "quiz") renderAtlasQuiz();
     const dialog = $("#itemDialog");
     if (dialog?.open && dialog.dataset.itemId) {
       const item = byId(dialog.dataset.itemId);
@@ -2417,6 +2712,13 @@
     if (action === "show-collections") showCollections();
     if (action === "go-home") showCollections({ top: true });
     if (action === "go-map") showMapPage();
+    // "Zagraj" on the start page begins today's challenge, unless it is already done today.
+    if (action === "go-quiz") showQuizPage({ start: target.dataset.mode === "daily" && !readDailyResults()[todayIso()] ? "daily" : null });
+    if (action === "atlas-quiz-start") startAtlasQuiz(target.dataset.mode);
+    if (action === "atlas-quiz-restart") startAtlasQuiz(atlasQuiz.mode);
+    if (action === "atlas-quiz-answer") answerAtlasQuiz(id);
+    if (action === "atlas-quiz-next") nextAtlasQuestion();
+    if (action === "atlas-quiz-share") shareDailyResult();
     if (action === "all-map-filter") setAllMapFilter(target.dataset.collection);
     if (action === "all-map-focus") focusAllMapPlace(target);
     if (action === "near-me") locateMe(target);
@@ -2453,12 +2755,14 @@
       quiz.selectedId = id;
       if (id === q.correctId) quiz.score += 1;
       renderQuiz();
+      focusQuizStep($("#quizBox"), quiz);
     }
     if (action === "next-quiz") {
       const quiz = state.quiz;
       if (quiz.index + 1 >= quiz.questions.length) quiz.finished = true;
       else { quiz.index += 1; quiz.answered = false; quiz.selectedId = null; }
       renderQuiz();
+      focusQuizStep($("#quizBox"), quiz);
     }
   }
 
@@ -2514,10 +2818,15 @@
 
     // The drawer changed in another tab (or the site's data was cleared).
     window.addEventListener("storage", (event) => {
-      if (event.key !== null && event.key !== MY_DRAWER_KEY) return;
-      myDrawer = readMyDrawer();
-      renderMyDrawer();
-      updateKeepButtons();
+      if (event.key === null || event.key === MY_DRAWER_KEY) {
+        myDrawer = readMyDrawer();
+        renderMyDrawer();
+        updateKeepButtons();
+      }
+      if (event.key === null || event.key === DAILY_KEY) {
+        renderDailyQuizCard();
+        renderAtlasQuizChrome();
+      }
     });
 
     window.addEventListener("hashchange", () => {
@@ -2528,6 +2837,10 @@
     window.addEventListener("popstate", () => {
       if (isAllMapRoute()) {
         showMapPage({ updateRoute: false });
+        return;
+      }
+      if (isQuizRoute()) {
+        showQuizPage({ updateRoute: false });
         return;
       }
       const collection = collectionFromRoute();
@@ -2541,6 +2854,10 @@
   function restoreRoute() {
     if (isAllMapRoute()) {
       showMapPage({ updateRoute: false });
+      return;
+    }
+    if (isQuizRoute()) {
+      showQuizPage({ updateRoute: false });
       return;
     }
     const collection = collectionFromRoute();
