@@ -74,10 +74,10 @@ Atlas ma **617 kart**. Zdjęcie ma **616** z nich (601 różnych plików z Wikim
 
 ## Do decyzji Roberta
 
-- **Nazwa iskrzyka:**
+- **Nazwa iskrzyka (rozstrzygnięte 29.10.2026):**
   - Commons i polska baza biomap.pl używają nazwy *Lamprohiza splendidula*. Biomap podaje rodzaj *Phausis* jako synonim rodzaju *Lamprohiza*.
-  - Karta ma nazwę *Phausis splendidula*.
-  - Można dopisać synonim albo zmienić nazwę.
+  - Tak samo GBIF, ITIS i Fauna Europaea. Tylko Wikispecies stawia rodzaj *Phausis* na pierwszym miejscu.
+  - Decyzja Roberta: karta ma nazwę *Lamprohiza splendidula*, a *Phausis splendidula* zostaje na niej jako „Dawniej w atlasie” i działa w wyszukiwarce.
 - **Zdjęcia spoza Polski bez oznaczenia:** paczki zdjęć ssaków, płazów i gadów oznaczają zdjęcia gatunków sfotografowanych poza Polską jako kadry reprezentatywne, a paczki ryb, ptaków, kwiatów i owadów nie. Na przykład krąp jest na zdjęciu z Finlandii bez oznaczenia. To osobna decyzja: oznaczać jednolicie wszędzie albo nigdzie przy kartach gatunków.
 
 ## Pilnuje tego test
