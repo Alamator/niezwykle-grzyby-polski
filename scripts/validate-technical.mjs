@@ -129,6 +129,12 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
 }
 
+// "Moja szuflada" and the position for "Blisko mnie" stay in the browser, as the page says: the app's own
+// scripts send nothing anywhere (the map library fetches only the base map).
+for (const file of ["js/app.js", "js/cache-reset.js", "data/collections.js", "data/i18n.js"]) {
+  assert.doesNotMatch(fs.readFileSync(file, "utf8"), /\bfetch\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource/, `${file} should not send anything anywhere`);
+}
+
 assert.equal(
   packageJson.scripts?.dev,
   "node scripts/dev-server.mjs",

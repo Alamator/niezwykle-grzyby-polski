@@ -587,6 +587,7 @@
     updateActiveCollectionLabels();
     renderHeroStats();
     renderCabinet();
+    renderMyDrawer();
     renderCollections();
     renderStartCredits();
     renderDailyFact();
@@ -723,6 +724,7 @@
         <div class="card-actions">
           <button class="secondary" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(t("details"))}</button>
           <button class="ghost" data-action="learn-item" data-id="${escapeHtml(item.id)}">${escapeHtml(t("learnItem"))}</button>
+          ${keepButtonHtml(activeCollection(), item, { compact: true })}
         </div>
       </article>`;
   }
@@ -818,6 +820,7 @@
   function cardToolsHtml(collection, item) {
     return `
       <div class="card-tools">
+        ${keepButtonHtml(collection, item)}
         <button class="secondary card-tools__share" type="button" data-action="share-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}"><span aria-hidden="true">🔗</span> ${escapeHtml(t("share"))}</button>
         ${collectionPlaces(collection)[item.id] ? `<button class="secondary card-tools__map" type="button" data-action="show-on-map" data-id="${escapeHtml(item.id)}"><span aria-hidden="true">📍</span> ${escapeHtml(t("mapShowOnMap"))}</button>` : ""}
         <a class="card-tools__link" href="${escapeHtml(cardPath(collection, item))}" data-action="copy-card-link" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}">${escapeHtml(t("cardLink"))}</a>
@@ -1037,6 +1040,171 @@
       return;
     }
     await openCard(collection.id, pool[randomIndex(pool.length)].id);
+  }
+
+  // ----- Moja szuflada: cards kept in this browser -----
+
+  // Only this browser's localStorage holds the drawer; nothing is sent anywhere. Each entry keeps the card's
+  // names, so the start page can list it before its collection loads.
+  const MY_DRAWER_KEY = "atlasDrawer";
+  const STAR_SVG = '<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.9l2.75 5.86 6.42.78-4.73 4.42 1.22 6.36L12 17.2l-5.66 3.12 1.22-6.36-4.73-4.42 6.42-.78z"/></svg>';
+
+  function readMyDrawer() {
+    try {
+      const data = JSON.parse(window.localStorage.getItem(MY_DRAWER_KEY) || "null");
+      const seen = new Set();
+      return (Array.isArray(data?.cards) ? data.cards : []).filter((card) => {
+        const key = `${card?.c}/${card?.id}`;
+        if (typeof card?.c !== "string" || typeof card?.id !== "string" || seen.has(key) || !collectionById(card.c)) return false;
+        seen.add(key);
+        return true;
+      }).map((card) => ({ c: card.c, id: card.id, name: { pl: String(card.name?.pl || card.id), en: String(card.name?.en || card.name?.pl || card.id) } }));
+    } catch {
+      return [];
+    }
+  }
+
+  function writeMyDrawer(cards) {
+    try {
+      window.localStorage.setItem(MY_DRAWER_KEY, JSON.stringify({ v: 1, cards }));
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  let myDrawer = readMyDrawer();
+  // The start page shows the newest cards; the rest wait behind "Pokaż wszystkie", so the drawers stay near.
+  const MY_DRAWER_PREVIEW = 8;
+  let myDrawerExpanded = false;
+
+  function isKept(collectionId, id) {
+    return myDrawer.some((card) => card.c === collectionId && card.id === id);
+  }
+
+  function keptEntry(collection, item) {
+    const english = i18n.collections?.en?.[collection.id]?.items?.[item.id]?.name;
+    return { c: collection.id, id: item.id, name: { pl: item.name_pl, en: english || item.name_pl } };
+  }
+
+  // The card dialog has the button with words; a tile in the atlas has the star alone, named for screen readers.
+  function keepButtonHtml(collection, item, { compact = false } = {}) {
+    const kept = isKept(collection.id, item.id);
+    const data = `data-action="keep-toggle" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(item.id)}"`;
+    if (compact) {
+      const label = t(kept ? "drawerRemoveLabel" : "drawerSaveLabel", { name: itemName(item, collection) });
+      return `<button class="ghost keep-btn${kept ? " is-kept" : ""}" type="button" ${data} aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${STAR_SVG}</button>`;
+    }
+    return `<button class="secondary card-tools__keep${kept ? " is-kept" : ""}" type="button" ${data}>${STAR_SVG} <span class="keep-btn__text">${escapeHtml(t(kept ? "drawerRemove" : "drawerSave"))}</span></button>`;
+  }
+
+  // Buttons change in place, so the focus stays on the one just pressed.
+  function updateKeepButtons() {
+    $$('[data-action="keep-toggle"]').forEach((button) => {
+      const kept = isKept(button.dataset.collection, button.dataset.id);
+      button.classList.toggle("is-kept", kept);
+      const text = $(".keep-btn__text", button);
+      if (text) {
+        text.textContent = t(kept ? "drawerRemove" : "drawerSave");
+        return;
+      }
+      const collection = collectionById(button.dataset.collection);
+      const item = collection?.items.find((entry) => entry.id === button.dataset.id);
+      const label = t(kept ? "drawerRemoveLabel" : "drawerSaveLabel", { name: item ? itemName(item, collection) : "" });
+      button.setAttribute("aria-label", label);
+      button.title = label;
+    });
+  }
+
+  function saveMyDrawer(cards) {
+    if (!writeMyDrawer(cards)) {
+      announce(t("drawerStorageError"));
+      return false;
+    }
+    myDrawer = cards;
+    updateKeepButtons();
+    return true;
+  }
+
+  function toggleKept(button) {
+    const collection = collectionById(button.dataset.collection);
+    const item = collection?.items.find((entry) => entry.id === button.dataset.id);
+    if (!item) return;
+    const kept = isKept(collection.id, item.id);
+    const cards = kept
+      ? myDrawer.filter((card) => !(card.c === collection.id && card.id === item.id))
+      : [keptEntry(collection, item), ...myDrawer];
+    if (!saveMyDrawer(cards)) return;
+    renderMyDrawer();
+    announce(t(kept ? "drawerRemoved" : "drawerSaved"));
+  }
+
+  // From the list on the start page; the focus moves to the card that takes the place, or to the heading.
+  function removeKept(button) {
+    const row = button.closest("li");
+    const index = row ? [...row.parentElement.children].indexOf(row) : 0;
+    const { collection, id } = button.dataset;
+    if (!saveMyDrawer(myDrawer.filter((card) => !(card.c === collection && card.id === id)))) return;
+    renderMyDrawer({ keepEmpty: true });
+    const buttons = $$("#myDrawerList .my-drawer__remove");
+    (buttons[Math.min(index, buttons.length - 1)] || $("#myDrawerTitle")).focus();
+    announce(t("drawerRemoved"));
+  }
+
+  // The section shows only with cards in it; right after the last one leaves here, it stays to say so.
+  function renderMyDrawer({ keepEmpty = false } = {}) {
+    const section = $("#myDrawer");
+    if (!section) return;
+    const cards = myDrawer.filter((card) => collectionById(card.c));
+    section.classList.toggle("is-hidden", !cards.length && !(keepEmpty && !section.classList.contains("is-hidden")));
+    $("#myDrawerEyebrow").textContent = t("myDrawerEyebrow", { cards: tPlural("cardCountForms", cards.length) });
+    $("#myDrawerTitle").innerHTML = markdownLight(t("myDrawerTitle"));
+    setText("#myDrawerNote", "myDrawerNote");
+    setText("#myDrawerEmpty", "myDrawerEmpty");
+    $("#myDrawerEmpty").classList.toggle("is-hidden", cards.length > 0);
+    $("#myDrawerList").setAttribute("aria-label", t("myDrawerLabel"));
+    const shown = myDrawerExpanded ? cards : cards.slice(0, MY_DRAWER_PREVIEW);
+    $("#myDrawerMore").classList.toggle("is-hidden", shown.length === cards.length);
+    $("#myDrawerMore").textContent = t("myDrawerShowAll", { cards: tPlural("cardCountForms", cards.length) });
+    $("#myDrawerList").innerHTML = shown.map((card) => {
+      const collection = collectionById(card.c);
+      const name = localized(card.name);
+      return `
+        <li class="my-drawer__item">
+          <span class="my-drawer__collection">${escapeHtml(collectionText(collection, "title"))}</span>
+          <a class="my-drawer__name" href="${escapeHtml(cardPath(collection, card))}" data-action="open-card" data-collection="${escapeHtml(card.c)}" data-id="${escapeHtml(card.id)}">${escapeHtml(name)}</a>
+          <button class="my-drawer__remove" type="button" data-action="keep-remove" data-collection="${escapeHtml(card.c)}" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t("drawerRemoveLabel", { name }))}" title="${escapeHtml(t("drawerRemove"))}"><span aria-hidden="true">×</span></button>
+        </li>`;
+    }).join("");
+  }
+
+  function showAllKept() {
+    myDrawerExpanded = true;
+    renderMyDrawer();
+    // The focus goes to the first card that was hidden.
+    $$("#myDrawerList .my-drawer__name")[MY_DRAWER_PREVIEW]?.focus();
+  }
+
+  // Once a collection loads, its cards in the drawer take the current names, and a card that has left the
+  // atlas leaves the drawer.
+  function syncMyDrawer(collection) {
+    let changed = false;
+    const cards = myDrawer.flatMap((card) => {
+      if (card.c !== collection.id) return [card];
+      const item = collection.items.find((entry) => entry.id === card.id);
+      if (!item) {
+        changed = true;
+        return [];
+      }
+      const { name } = keptEntry(collection, item);
+      if (name.pl === card.name.pl && name.en === card.name.en) return [card];
+      changed = true;
+      return [{ ...card, name }];
+    });
+    if (!changed) return;
+    myDrawer = cards;
+    writeMyDrawer(cards);
+    renderMyDrawer();
   }
 
   // ----- Fact of the day -----
@@ -2172,6 +2340,7 @@
     }
 
     state.flashIndex = randomIndex(collection.items.length);
+    syncMyDrawer(collection);
     updateActiveCollectionLabels();
     updateMapNav();
     activateView("atlas");
@@ -2199,6 +2368,7 @@
     selectionSerial += 1;
     state.collectionId = null;
     showPage("start");
+    renderMyDrawer();
     if ($("#itemDialog").open) $("#itemDialog").close?.();
     updateDocumentTitle();
     if (options.top) window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2250,6 +2420,9 @@
     if (action === "all-map-filter") setAllMapFilter(target.dataset.collection);
     if (action === "all-map-focus") focusAllMapPlace(target);
     if (action === "near-me") locateMe(target);
+    if (action === "keep-toggle") toggleKept(target);
+    if (action === "keep-remove") removeKept(target);
+    if (action === "keep-show-all") showAllKept();
     if (action === "surprise") surprise(target);
     if (action === "details") showDialog(id);
     if (action === "open-card") openCard(target.dataset.collection, id);
@@ -2337,6 +2510,14 @@
     $("#itemDialog").addEventListener("close", () => {
       clearItemRoute();
       updateDocumentTitle();
+    });
+
+    // The drawer changed in another tab (or the site's data was cleared).
+    window.addEventListener("storage", (event) => {
+      if (event.key !== null && event.key !== MY_DRAWER_KEY) return;
+      myDrawer = readMyDrawer();
+      renderMyDrawer();
+      updateKeepButtons();
     });
 
     window.addEventListener("hashchange", () => {

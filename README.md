@@ -111,6 +111,15 @@ Najprostsza ścieżka:
   - Liczy to przeglądarka. Położenie nie jest nigdzie zapisywane ani wysyłane, co strona mówi przy przycisku.
   - Mapa pobiera z OpenFreeMap podkład oglądanego obszaru, więc po „Blisko mnie” także okolicy, w której jest użytkownik.
 
+## Moja szuflada
+
+- Przycisk „☆ Zachowaj w szufladzie” jest na karcie, a gwiazdka na jej kafelku w atlasie. Zachowane karty pokazuje strona główna pod tytułem, w sekcji „Moja szuflada”: najnowsze najpierw, osiem na początek i przycisk „Pokaż wszystkie”.
+- Lista jest tylko w przeglądarce (`localStorage`, klucz `atlasDrawer`). Wpis to kolekcja, id karty i nazwy karty po polsku i angielsku, żeby strona główna pokazała listę bez wczytywania kolekcji.
+  - Gdy kolekcja się wczyta, jej karty w szufladzie dostają aktualne nazwy, a karta, której nie ma już w atlasie, wypada z szuflady.
+  - Atlas niczego nie wysyła. `npm run test:technical` pilnuje, żeby skrypty strony nie miały `fetch`, `XMLHttpRequest`, `sendBeacon`, `WebSocket` ani `EventSource`.
+  - Gdy przeglądarka nie pozwala zapisywać, na przykład w niektórych oknach prywatnych, strona o tym mówi.
+  - Zmianę w jednej karcie przeglądarki widać od razu w pozostałych.
+
 ## Wygląd: gabinet osobliwości
 
 - **Styl:** ciemne tło, bursztynowy akcent, cienkie linie; kolekcje to szuflady gabinetu ułożone na trzech półkach (grupach).
