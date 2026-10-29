@@ -139,7 +139,7 @@ def main() -> int:
     x = draw_text(draw, (80, 548), "Atlas ", mark, INK)
     x = draw_text(draw, (x, 548), "Osobliwości", mark_italic, AMBER)
     draw_text(draw, (x, 548), " Polski", mark, INK)
-    draw_text(draw, (80, 584), "niezwykle-grzyby-polski.vercel.app", small, MUTED, tracking=0.5)
+    draw_text(draw, (80, 584), "atlas-osobliwosci.vercel.app", small, MUTED, tracking=0.5)
     caption = f"{len(points)} {polish_plural(len(points), 'miejsce', 'miejsca', 'miejsc')} z atlasu · Wikidata · Natural Earth"
     right = 1140 - sum(small[part_of(c)].getlength(c) + 0.5 for c in caption)
     draw_text(draw, (right, 584), caption, small, MUTED, tracking=0.5)

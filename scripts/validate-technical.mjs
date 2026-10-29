@@ -42,6 +42,18 @@ for (const [, href] of indexHtml.matchAll(/rel="preload" href="([^"]+)"/g)) {
   assert(fs.existsSync(`.${href}`), `index.html preloads ${href}, which does not exist`);
 }
 
+// The site lives at one address: the canonical link, the share metadata and the share image name the same one.
+const canonical = indexHtml.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+assert(canonical, "index.html should name its canonical address");
+const origin = new URL(canonical).origin;
+for (const [, name, value] of indexHtml.matchAll(/<meta (?:property|name)="((?:og|twitter):(?:url|image))" content="([^"]+)"/g)) {
+  assert(value.startsWith(origin), `${name} should use the canonical address ${origin}, not ${value}`);
+}
+assert(
+  fs.readFileSync("scripts/generate-og-image.py", "utf8").includes(`"${new URL(canonical).host}"`),
+  "the share image should show the canonical address; update scripts/generate-og-image.py and run it"
+);
+
 assert.equal(
   packageJson.scripts?.dev,
   "node scripts/dev-server.mjs",
