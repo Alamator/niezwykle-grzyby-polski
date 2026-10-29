@@ -29,7 +29,6 @@
   const ccBySa20 = "https://creativecommons.org/licenses/by-sa/2.0/";
   const ccBySa25 = "https://creativecommons.org/licenses/by-sa/2.5/";
   const ccBySa30 = "https://creativecommons.org/licenses/by-sa/3.0/";
-  const ccBySa30At = "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en";
   const ccBySa40 = "https://creativecommons.org/licenses/by-sa/4.0/";
   const publicDomain = "https://creativecommons.org/publicdomain/mark/1.0/";
 
@@ -69,9 +68,11 @@
       "CC BY-SA 4.0",
       ccBySa40
     ),
+    // Photographed in Innsbruck and filed under the former broad name Neomys anomalus; outside Iberia
+    // the species is now Neomys milleri, the one on the card.
     "rzesorek-mniejszy": photo(
       "Neomys anomalus.jpg",
-      "Kadr reprezentatywny: rzęsorek mniejszy, bliski krewny rzęsorka rzeczka",
+      "Rzęsorek mniejszy, bliski krewny rzęsorka rzeczka",
       "Mnolf",
       "CC BY-SA 3.0",
       ccBySa30
@@ -168,11 +169,11 @@
       ccBySa30
     ),
     "swistak-tatrzanski": photo(
-      "Alpenmurmeltier Marmota marmota of Rätikon 5.JPG",
-      "Kadr reprezentatywny: świstak alpejski, bliski odpowiednik tatrzańskiego reliktu wysokogórskiego",
-      "Böhringer Friedrich",
-      "CC BY-SA 3.0 AT",
-      ccBySa30At
+      "M.marmota latirostris in Kozia Dolina (Tatra Mountains) 1.jpg",
+      "Dwa świstaki tatrzańskie na skałach w Koziej Dolince w Tatrach",
+      "Tomasz Mielcarek [tmc]",
+      "CC BY-SA 3.0",
+      ccBySa30
     ),
     "bobr-europejski": photo(
       "Castor fiber vistulanus2.jpg",

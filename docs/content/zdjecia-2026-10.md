@@ -82,10 +82,11 @@ Atlas ma **617 kart**. Zdjęcie ma **616** z nich (601 różnych plików z Wikim
   - Paczki zdjęć ssaków, płazów i gadów oznaczały je jako kadry reprezentatywne, a paczki ryb, ptaków, kwiatów i owadów nie. Na przykład krąp jest na zdjęciu z Finlandii.
   - Decyzja Roberta: karta gatunku opisuje gatunek, więc zdjęcie tego gatunku zrobione za granicą nie dostaje oznaczenia.
   - Oznaczenie zdjęto z 48 zdjęć: 24 płazów i gadów, 22 ssaków i 2 drzew (miłorząb dwuklapowy, jodła balsamiczna).
-  - Oznaczenie zostaje, gdy zdjęcie pokazuje inny takson albo nie da się potwierdzić, że ten sam:
-    - świstak tatrzański: na zdjęciu świstak alpejski, inny podgatunek;
-    - rzęsorek mniejszy: plik w Commons nosi starszą nazwę *Neomys anomalus*, a karta podaje *Neomys milleri*;
-    - zaskroniec zwyczajny: zdjęcie z Holandii, gdzie może żyć zaskroniec helwecki (*Natrix helvetica*), od 2017 roku osobny gatunek.
+  - Oznaczenie zostaje, gdy zdjęcie pokazuje inny takson albo nie da się potwierdzić, że ten sam.
+  - Trzy takie zdjęcia rozwiązano tego samego dnia:
+    - świstak tatrzański: zamiast świstaka alpejskiego z Alp jest zdjęcie świstaków z Koziej Dolinki w Tatrach (Tomasz Mielcarek, CC BY-SA 3.0);
+    - zaskroniec zwyczajny: zamiast zdjęcia z Holandii, gdzie może żyć zaskroniec helwecki (*Natrix helvetica*), jest zdjęcie z Kamieńca koło Szczecina (Krzysztof Ziarnek, Kenraiz, CC BY-SA 4.0);
+    - rzęsorek mniejszy: zdjęcie zostaje. Pochodzi z Innsbrucka i nosi dawną szeroką nazwę *Neomys anomalus*. Według Igea i in. (2015) oraz Querejety i Castresany (2018) *N. anomalus* w wąskim sensie żyje tylko na Półwyspie Iberyjskim, a poza nim to *Neomys milleri*, czyli gatunek z karty. Oznaczenie zdjęto.
   - Zostają też oznaczenia przy kartach konkretnych drzew i miejsc, gdy zdjęcie pokazuje inny okaz, oraz przy opieńce na martwym drewnie, bo zdjęcie nie pokazuje samego świecenia.
 
 ## Pilnuje tego test

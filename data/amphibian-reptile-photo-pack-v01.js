@@ -207,11 +207,11 @@
       ccBySa40
     ),
     "zaskroniec-zwyczajny": photo(
-      "A Grass Snake at Warnsborn pond, Schaarsbergen, Netherlands.jpg",
-      "Kadr reprezentatywny: zaskroniec zwyczajny z żółtymi plamami za głową",
-      "Henk Monster",
-      "CC BY 3.0",
-      ccBy30
+      "Natrix natrix kz01.jpg",
+      "Zaskroniec zwyczajny z jasnymi plamami za głową, Kamieniec koło Szczecina",
+      "Krzysztof Ziarnek, Kenraiz",
+      "CC BY-SA 4.0",
+      ccBySa40
     ),
     "zaskroniec-rybolow": photo(
       "2017-05-21 Würfelnatter at Nahe River shore BME WiTi 08.jpg",
