@@ -74,6 +74,8 @@ assert(
 // (npm run build, run by Vercel) and stay out of git.
 assert.equal(packageJson.scripts?.build, "node scripts/build-pages.mjs", "npm run build should make the collection and card pages");
 assert.equal(vercelConfig.buildCommand, "npm run build", "Vercel should build the collection and card pages on each deployment");
+// With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
+assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
 assert(/^\/atlas\/$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore), ".gitignore should keep the built pages and sitemap out of git");
 assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");

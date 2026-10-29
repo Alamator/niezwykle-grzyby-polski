@@ -136,7 +136,7 @@ Najprostsza ścieżka:
 
 ## Publikacja na Vercel
 
-Framework: **Other** albo brak frameworka. Build Command: `npm run build`, ustawione w `vercel.json`. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
+Framework: **Other** albo brak frameworka. Build Command `npm run build` i Output Directory `.` (główny katalog projektu) są ustawione w `vercel.json`.
 
 ## Wyszukiwarki i podgląd linków
 
