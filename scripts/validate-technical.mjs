@@ -49,16 +49,25 @@ const origin = new URL(canonical).origin;
 for (const [, name, value] of indexHtml.matchAll(/<meta (?:property|name)="((?:og|twitter):(?:url|image))" content="([^"]+)"/g)) {
   assert(value.startsWith(origin), `${name} should use the canonical address ${origin}, not ${value}`);
 }
+// The share image may drop the "www." people do not type.
+const shownHost = new URL(canonical).host.replace(/^www\./, "");
 assert(
-  fs.readFileSync("scripts/generate-og-image.py", "utf8").includes(`"${new URL(canonical).host}"`),
+  fs.readFileSync("scripts/generate-og-image.py", "utf8").includes(`"${shownHost}"`),
   "the share image should show the canonical address; update scripts/generate-og-image.py and run it"
 );
-// The former address sends every page to the same page at the canonical address, for good (308).
-const formerHost = "niezwykle-grzyby-polski.vercel.app";
+// The former addresses send every page to the same page at the canonical address, for good (308).
+// The bare atlas-osobliwosci.pl is sent to www by the domain settings in Vercel, not here.
+for (const formerHost of ["niezwykle-grzyby-polski.vercel.app", "atlas-osobliwosci.vercel.app"]) {
+  assert(
+    vercelConfig.redirects?.some((rule) => rule.source === "/:path*" && rule.permanent === true &&
+      rule.destination === `${origin}/:path*` && rule.has?.some((condition) => condition.type === "host" && condition.value === formerHost)),
+    `vercel.json should redirect ${formerHost} permanently to ${origin}, keeping the path`
+  );
+}
+// Vercel already redirects the bare domain to www; a rule back from www would loop.
 assert(
-  vercelConfig.redirects?.some((rule) => rule.source === "/:path*" && rule.permanent === true &&
-    rule.destination === `${origin}/:path*` && rule.has?.some((condition) => condition.type === "host" && condition.value === formerHost)),
-  `vercel.json should redirect ${formerHost} permanently to ${origin}, keeping the path`
+  !vercelConfig.redirects?.some((rule) => rule.has?.some((condition) => condition.type === "host" && condition.value === new URL(canonical).host)),
+  "vercel.json must not redirect the canonical address itself"
 );
 
 assert.equal(
