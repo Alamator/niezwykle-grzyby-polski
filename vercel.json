@@ -1,5 +1,18 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "niezwykle-grzyby-polski.vercel.app"
+        }
+      ],
+      "destination": "https://atlas-osobliwosci.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/atlas/:path*",

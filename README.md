@@ -135,6 +135,9 @@ Najprostsza ścieżka:
 
 Framework: **Other** albo brak frameworka. Build command pusty. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
 
+- **Adres strony:** https://atlas-osobliwosci.vercel.app (adres kanoniczny w `index.html`).
+- **Dawny adres:** `niezwykle-grzyby-polski.vercel.app` przekierowuje na stałe (308) na nowy, z zachowaniem podstrony, np. `/atlas/grzyby`. Przekierowanie jest w `vercel.json`.
+
 ## Stopka
 
 W stopce jest znak **Made by Oroloko** oraz informacja o asyście AI. Na ciemnej stronie leży na jasnej tabliczce, bo znak ma ciemny napis na przezroczystym tle.
