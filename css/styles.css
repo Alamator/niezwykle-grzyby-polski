@@ -280,6 +280,7 @@ h1 em, h2 em { color: var(--amber); }
   font: 400 23px/1.1 var(--serif);
   letter-spacing: 0.005em;
   text-decoration: none;
+  white-space: nowrap;
 }
 .wordmark em { color: var(--amber); }
 .wordmark:hover { color: var(--ink); }
@@ -307,6 +308,34 @@ h1 em, h2 em { color: var(--amber); }
   text-underline-offset: 7px;
 }
 .language-toggle__sep { opacity: 0.6; }
+/* The link to the map of every place sits with the language switch, a hairline between them. */
+.topbar__tools { display: flex; align-items: center; gap: 0.5rem; }
+.topbar__tools .language-toggle::before {
+  content: "";
+  width: 1px;
+  height: 18px;
+  margin-right: 0.5rem;
+  background: var(--line-2);
+}
+.topbar__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  color: var(--muted);
+  font: 500 12px/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.topbar__link:hover { color: var(--ink); }
+.topbar__link[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline 1px var(--amber);
+  text-underline-offset: 7px;
+}
 
 /* ---------- Start page: hero and the cabinet of five curiosities ---------- */
 
@@ -345,6 +374,10 @@ h1 em, h2 em { color: var(--amber); }
   font: 400 36px/1 var(--serif);
   letter-spacing: 0;
 }
+/* The places lead to the map of all of them. */
+.hero__stat-link { display: block; color: inherit; text-decoration: none; }
+.hero__stat-link span { text-decoration: underline 1px rgba(233, 164, 59, 0.55); text-underline-offset: 4px; }
+.hero__stat-link:hover, .hero__stat-link:hover strong { color: var(--amber-2); }
 
 .cabinet {
   display: grid;
@@ -1364,6 +1397,38 @@ tbody tr:last-child td { border-bottom: 0; }
   text-align: left;
   text-decoration: underline;
 }
+.map-all-link { margin: 0.75rem 0 0; }
+
+/* ---------- Map of every place (/mapa) ---------- */
+
+.map-page__head { padding: clamp(32px, 5vw, 64px) 0 clamp(20px, 3vw, 32px); }
+.map-page__head h1 { margin: 0.4rem 0 1rem; font-size: clamp(40px, 5.6vw, 76px); }
+.map-page__near { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
+.map-page__near .map-source-note { flex: 1 1 260px; max-width: 44em; margin: 0; }
+.map-page__filters { margin: 1.25rem 0 1rem; }
+/* The map is the page here, so it is taller than a collection's map; on a phone that leaves room for a
+   popup above its place, clear of the zoom buttons. */
+.map-page .place-map { height: min(72vh, 720px); }
+.place-list__title { margin: 0 0 0.35rem; font-size: 26px; }
+.place-list__meta { color: var(--muted); font: 400 12.5px/1.4 var(--mono); letter-spacing: 0.04em; }
+.place-group { border-top: 1px solid var(--line); }
+.place-group summary {
+  min-height: 48px;
+  padding: 0.7rem 0;
+  color: var(--ink);
+  font: 400 22px/1.3 var(--serif);
+  cursor: pointer;
+}
+.place-group summary::marker { color: var(--amber); }
+.place-group__count { margin-left: 0.4rem; color: var(--muted); font: 400 12.5px/1 var(--mono); letter-spacing: 0.04em; }
+.place-group .place-list__items { margin-bottom: 0.75rem; }
+.map-popup__collection { color: var(--amber); font: 400 11.5px/1.3 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; }
+/* Up to four cards fit; a crowded spot zooms in first (onAllMapClick). */
+.map-popup__cards { max-height: 15rem; margin: 0.15rem 0 0; padding: 0; overflow-y: auto; list-style: none; }
+.map-popup__cards li { padding: 0.4rem 0; border-top: 1px solid var(--line); }
+.map-popup__cards li:first-child { border-top: 0; }
+.map-popup__cards a { font: 600 15px/1.3 var(--sans); }
+.map-popup__cards .map-popup__collection { display: block; margin-top: 0.15rem; }
 
 /* ---------- Toast and footer ---------- */
 
@@ -1450,6 +1515,16 @@ tbody tr:last-child td { border-bottom: 0; }
   .flash-visual { border-right: 0; border-bottom: 1px solid var(--line); }
 }
 
+/* On phones the top bar is full: smaller gaps, and below 360 px the map link and the language switch
+   move under the wordmark. */
+@media (max-width: 420px) {
+  .topbar__inner { gap: 0 0.5rem; }
+}
+@media (max-width: 359px) {
+  .topbar__inner { flex-wrap: wrap; gap: 0 1rem; padding-top: 0.4rem; }
+  .topbar__tools { margin-left: auto; }
+}
+
 @media (max-width: 620px) {
   .topbar__inner { min-height: 58px; }
   .wordmark { font-size: 20px; }
@@ -1480,6 +1555,7 @@ tbody tr:last-child td { border-bottom: 0; }
   th, td { padding: 0.65rem; font-size: 14px; }
   .credits-table table { min-width: 640px; }
   .place-map { height: 58vh; }
+  .map-page .place-map { height: 70vh; }
   .about-card { padding: 1.25rem; }
   .site-footer { padding-block: 2rem 2.5rem; }
   .site-footer__plaque { padding: 0.7rem 0.9rem; }

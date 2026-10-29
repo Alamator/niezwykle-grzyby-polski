@@ -669,3 +669,15 @@ const numberWords = { 18: ["Osiemnaście", "Eighteen"] };
 assert(numberWords[collections.length], `add the number words for ${collections.length} collections here and to collectionsTitle in data/i18n.js`);
 assert(i18n.ui.pl.collectionsTitle.startsWith(numberWords[collections.length][0]), "the Polish drawer heading should name the number of collections");
 assert(i18n.ui.en.collectionsTitle.startsWith(numberWords[collections.length][1]), "the English drawer heading should name the number of collections");
+
+// The map of every place (/mapa) shows the places before any collection loads, from copies of the map
+// points and card names in data/map-points.js, made by scripts/build-map-points.mjs. Only that page loads it.
+const { buildMapPoints } = await import("./build-map-points.mjs");
+vm.runInContext(fs.readFileSync("data/map-points.js", "utf8"), context, { filename: "data/map-points.js" });
+const mapPoints = JSON.parse(JSON.stringify(context.window.ATLAS_MAP_POINTS || null));
+assert(mapPoints, "data/map-points.js should set window.ATLAS_MAP_POINTS");
+assert.deepEqual(mapPoints, JSON.parse(JSON.stringify(buildMapPoints(context.window))), "data/map-points.js no longer matches the map points and cards: run npm run build:map-points");
+assert.equal(mapPoints.places.length, startPage.stats.places, "the map of every place should show as many places as the start page counts");
+assert.equal(new Set(mapPoints.places.map((place) => place.q)).size, mapPoints.places.length, "every place should be on the map once");
+assert(!htmlScripts.includes("./data/map-points.js"), "index.html should not load data/map-points.js up front; the map page loads it");
+assert(appJs.includes('loadScript("/data/map-points.js", "ATLAS_MAP_POINTS")'), "the map page should load data/map-points.js");

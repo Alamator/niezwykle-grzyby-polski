@@ -77,16 +77,16 @@ assert.equal(vercelConfig.buildCommand, "npm run build", "Vercel should build th
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
-assert(/^\/atlas\/$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore) && /^\/404\.html$/m.test(gitignore), ".gitignore should keep the built pages, sitemap and 404 page out of git");
+assert(/^\/atlas\/$/m.test(gitignore) && /^\/mapa\.html$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore) && /^\/404\.html$/m.test(gitignore), ".gitignore should keep the built pages, sitemap and 404 page out of git");
 assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");
 {
-  const { buildPages } = await import("./build-pages.mjs");
+  const { buildPages, cardSlug } = await import("./build-pages.mjs");
   const { loadAtlas } = await import("./build-start-page.mjs");
   const win = loadAtlas();
   const { pages, sitemap } = buildPages(win, indexHtml);
   const collections = win.ATLAS_APP_DATA.collections;
   const cardCount = collections.reduce((sum, collection) => sum + collection.items.length, 0);
-  assert.equal(pages.length, collections.length + cardCount, "every collection and every card should get a page");
+  assert.equal(pages.length, 1 + collections.length + cardCount, "the map, every collection and every card should get a page");
   assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length + 1, "the sitemap should list the start page and every page");
   assert.equal(new Set(pages.map((page) => page.route)).size, pages.length, "every page should have its own address");
   const card = pages.find((page) => page.route === "/atlas/grzyby/okratek-australijski");
@@ -99,6 +99,23 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
   }
+  // The map of every place: its own title and address, opened on the map, with every placed card linked
+  // for readers without scripts. js/app.js opens the same address.
+  const { MAP_ROUTE } = await import("./build-pages.mjs");
+  assert.equal(MAP_ROUTE, "/mapa");
+  assert(appJs.includes(`const ALL_MAP_ROUTE = "${MAP_ROUTE}";`), "js/app.js should open the map of every place at the address of its page");
+  const mapPage = pages.find((page) => page.route === MAP_ROUTE);
+  assert.equal(mapPage?.file, "mapa.html", "the map of every place should be built as mapa.html, served at /mapa");
+  assert.match(mapPage.html, /<title>Mapa atlasu – Atlas Osobliwości Polski<\/title>/);
+  assert(mapPage.html.includes(`<link rel="canonical" href="${origin}${MAP_ROUTE}" />`), "the map page should name itself as canonical");
+  assert(mapPage.html.includes('<div id="startPage" class="start-page is-hidden">'), "the map page should not open on the start page");
+  assert(mapPage.html.includes('<div id="mapPage" class="map-page" tabindex="-1">'), "the map page should open on the map");
+  assert(mapPage.html.includes('<main id="main" class="app-main is-hidden" tabindex="-1">'), "the map page should keep the collection view hidden");
+  const placedCards = collections.flatMap((collection) => collection.items.filter((item) => collection.places?.[item.id]).map((item) => `/atlas/${collection.id}/${cardSlug(item.id)}`));
+  for (const route of placedCards) {
+    assert(mapPage.html.includes(`href="${route}"`), `the map page should link to ${route} for readers without scripts`);
+  }
+  assert(sitemap.includes(`<loc>${origin}${MAP_ROUTE}</loc>`), "the sitemap should list the map page");
   // 404.html: out of search results, with a way home and a link to every collection.
   const { notFoundHtml } = await import("./build-pages.mjs");
   const notFound = notFoundHtml(win);
@@ -180,6 +197,10 @@ try {
     /Atlas Osobliwości Polski/,
     "nested atlas route should fall back to index.html"
   );
+
+  const mapResponse = await fetch(`http://127.0.0.1:${port}/mapa`);
+  assert.equal(mapResponse.status, 200, "local dev server should serve the map of every place");
+  assert.match(await mapResponse.text(), /id="mapPage"/, "the map address should open the app");
 
   const missingResponse = await fetch(`http://127.0.0.1:${port}/not-a-real-file.js`);
   assert.equal(missingResponse.status, 404, "local dev server should keep non-atlas missing files as 404");

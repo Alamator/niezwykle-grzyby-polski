@@ -46,10 +46,13 @@
   <header class="topbar">
     <div class="topbar__inner shell">
       <a id="wordmark" class="wordmark" href="/" data-action="go-home" aria-label="Atlas Osobliwości Polski, strona główna">Atlas <em>Osobliwości</em> Polski</a>
-      <div id="languageToggle" class="language-toggle" role="group" aria-label="Wybór języka">
-        <button class="language-btn is-active" data-action="set-language" data-language="pl" type="button">PL</button>
-        <span class="language-toggle__sep" aria-hidden="true">/</span>
-        <button class="language-btn" data-action="set-language" data-language="en" type="button">EN</button>
+      <div class="topbar__tools">
+        <a id="mapLink" class="topbar__link" href="/mapa" data-action="go-map" aria-label="Mapa wszystkich miejsc atlasu">Mapa</a>
+        <div id="languageToggle" class="language-toggle" role="group" aria-label="Wybór języka">
+          <button class="language-btn is-active" data-action="set-language" data-language="pl" type="button">PL</button>
+          <span class="language-toggle__sep" aria-hidden="true">/</span>
+          <button class="language-btn" data-action="set-language" data-language="en" type="button">EN</button>
+        </div>
       </div>
     </div>
   </header>
@@ -126,6 +129,27 @@
     </section>
   </div>
 
+  <div id="mapPage" class="map-page is-hidden" tabindex="-1">
+    <section class="map-page__head shell" aria-labelledby="allMapTitle">
+      <p id="allMapEyebrow" class="eyebrow">Mapa atlasu</p>
+      <h1 id="allMapTitle">Wszystkie miejsca <em>na jednej</em> mapie</h1>
+      <p id="allMapLead" class="lead">Kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne miejsca z kart atlasu. Kliknij punkt, żeby otworzyć kartę, albo sprawdź, co jest najbliżej Ciebie.</p>
+    </section>
+    <div class="map-page__body shell">
+      <div class="map-page__near">
+        <button id="nearMeButton" class="primary" data-action="near-me" type="button">Blisko mnie</button>
+        <p id="nearMePrivacy" class="map-source-note">Blisko mnie: położenie zostaje w Twojej przeglądarce, atlas go nie zapisuje i nikomu nie wysyła. Mapa pobiera z OpenFreeMap tylko podkład oglądanego obszaru.</p>
+      </div>
+      <p id="nearMeStatus" class="map-status" role="status" aria-live="polite"></p>
+      <div id="allMapFilters" class="chips map-page__filters" role="group" aria-label="Kolekcje na mapie"></div>
+      <div id="allMap" class="place-map" role="region" aria-label="Mapa wszystkich miejsc atlasu"></div>
+      <p id="allMapStatus" class="map-status" role="status" aria-live="polite"></p>
+      <div id="nearList" class="source-panel place-list is-hidden"></div>
+      <div id="allPlaceList" class="source-panel place-list"></div>
+      <p id="allMapSourceNote" class="map-source-note"></p>
+    </div>
+  </div>
+
   <main id="main" class="app-main is-hidden" tabindex="-1">
     <section class="collection-bar" aria-labelledby="collectionTitle">
       <div id="collectionPhoto" class="collection-bar__photo"></div>
@@ -186,6 +210,7 @@
         </div>
         <div id="placeMap" class="place-map" role="region" aria-label="Mapa miejsc"></div>
         <p id="mapStatus" class="map-status" role="status" aria-live="polite"></p>
+        <p class="map-all-link"><a id="mapAllLink" href="/mapa" data-action="go-map">Wszystkie miejsca atlasu na jednej mapie</a></p>
         <div id="placeList" class="source-panel place-list"></div>
         <p id="mapSourceNote" class="map-source-note"></p>
       </section>
