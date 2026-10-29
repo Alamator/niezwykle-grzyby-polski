@@ -53,12 +53,18 @@ assert(
   fs.readFileSync("scripts/generate-og-image.py", "utf8").includes(`"${new URL(canonical).host}"`),
   "the share image should show the canonical address; update scripts/generate-og-image.py and run it"
 );
-// The former address sends every page to the same page at the canonical address, for good (308).
-const formerHost = "niezwykle-grzyby-polski.vercel.app";
+// The former addresses and the www variant send every page to the same page at the canonical address,
+// for good (308).
+for (const formerHost of ["niezwykle-grzyby-polski.vercel.app", "atlas-osobliwosci.vercel.app", "www.atlas-osobliwosci.pl"]) {
+  assert(
+    vercelConfig.redirects?.some((rule) => rule.source === "/:path*" && rule.permanent === true &&
+      rule.destination === `${origin}/:path*` && rule.has?.some((condition) => condition.type === "host" && condition.value === formerHost)),
+    `vercel.json should redirect ${formerHost} permanently to ${origin}, keeping the path`
+  );
+}
 assert(
-  vercelConfig.redirects?.some((rule) => rule.source === "/:path*" && rule.permanent === true &&
-    rule.destination === `${origin}/:path*` && rule.has?.some((condition) => condition.type === "host" && condition.value === formerHost)),
-  `vercel.json should redirect ${formerHost} permanently to ${origin}, keeping the path`
+  !vercelConfig.redirects?.some((rule) => rule.has?.some((condition) => condition.type === "host" && condition.value === new URL(canonical).host)),
+  "vercel.json must not redirect the canonical address itself"
 );
 
 assert.equal(

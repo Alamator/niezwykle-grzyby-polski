@@ -50,7 +50,7 @@ Zrób commit, np.: `Load photo pack v05`.
 
 Po deployu otwórz:
 
-`https://atlas-osobliwosci.vercel.app/data/photo-pack-v05.js`
+`https://atlas-osobliwosci.pl/data/photo-pack-v05.js`
 
 Jeśli widzisz kod JavaScript, plik jest na produkcji.
 

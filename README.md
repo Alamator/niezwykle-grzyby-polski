@@ -136,8 +136,8 @@ Najprostsza ścieżka:
 
 Framework: **Other** albo brak frameworka. Build command pusty. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
 
-- **Adres strony:** https://atlas-osobliwosci.vercel.app (adres kanoniczny w `index.html`).
-- **Dawny adres:** `niezwykle-grzyby-polski.vercel.app` przekierowuje na stałe (308) na nowy, z zachowaniem podstrony, np. `/atlas/grzyby`. Przekierowanie jest w `vercel.json`.
+- **Adres strony:** https://atlas-osobliwosci.pl (bez `www`; adres kanoniczny w `index.html`).
+- **Pozostałe adresy:** `www.atlas-osobliwosci.pl` oraz dawne `atlas-osobliwosci.vercel.app` i `niezwykle-grzyby-polski.vercel.app` przekierowują na stałe (308) na główny, z zachowaniem podstrony, np. `/atlas/grzyby`. Przekierowania są w `vercel.json`.
 
 ## Stopka
 
