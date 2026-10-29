@@ -136,8 +136,10 @@ Najprostsza ścieżka:
 
 Framework: **Other** albo brak frameworka. Build command pusty. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
 
-- **Adres strony:** https://atlas-osobliwosci.pl (bez `www`; adres kanoniczny w `index.html`).
-- **Pozostałe adresy:** `www.atlas-osobliwosci.pl` oraz dawne `atlas-osobliwosci.vercel.app` i `niezwykle-grzyby-polski.vercel.app` przekierowują na stałe (308) na główny, z zachowaniem podstrony, np. `/atlas/grzyby`. Przekierowania są w `vercel.json`.
+- **Adres strony:** https://www.atlas-osobliwosci.pl (adres kanoniczny w `index.html`).
+- **Adres bez `www`:** `atlas-osobliwosci.pl` przekierowuje na stałe (308) na `www`. To ustawienie domeny w Vercel (Domains), nie w kodzie.
+- **Dawne adresy:** `atlas-osobliwosci.vercel.app` i `niezwykle-grzyby-polski.vercel.app` przekierowują na stałe (308) na główny, z zachowaniem podstrony, np. `/atlas/grzyby`. Przekierowania są w `vercel.json`.
+- **Uwaga:** w `vercel.json` nie może być przekierowania z `www` na adres bez `www`, bo z ustawieniem domeny dałoby pętlę. Pilnuje tego `npm run test:technical`.
 
 ## Stopka
 

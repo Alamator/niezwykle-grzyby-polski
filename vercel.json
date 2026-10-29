@@ -9,7 +9,7 @@
           "value": "niezwykle-grzyby-polski.vercel.app"
         }
       ],
-      "destination": "https://atlas-osobliwosci.pl/:path*",
+      "destination": "https://www.atlas-osobliwosci.pl/:path*",
       "permanent": true
     },
     {
@@ -20,18 +20,7 @@
           "value": "atlas-osobliwosci.vercel.app"
         }
       ],
-      "destination": "https://atlas-osobliwosci.pl/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.atlas-osobliwosci.pl"
-        }
-      ],
-      "destination": "https://atlas-osobliwosci.pl/:path*",
+      "destination": "https://www.atlas-osobliwosci.pl/:path*",
       "permanent": true
     }
   ],
