@@ -275,7 +275,9 @@ window.INSECT_APP_DATA = {
     {
       id: "iskrzyk",
       name_pl: "Iskrzyk",
-      name_lat: "Phausis splendidula",
+      // GBIF, ITIS, Fauna Europaea and baza.biomap.pl use Lamprohiza; the atlas used Phausis until 10.2026.
+      name_lat: "Lamprohiza splendidula",
+      synonyms: ["Phausis splendidula"],
       category: "nocne-i-swiecace",
       hook: "Mniejszy krewny świetlika, u którego świecące samce mogą wyglądać jak zielone iskry.",
       quiz_angle: "drobne latarenki samców i rojenie w ciemnym lesie",

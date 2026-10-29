@@ -36,28 +36,28 @@
   const photos = {
     "ryjowka-malutka": photo(
       "Sorex minutus.jpg",
-      "Kadr reprezentatywny: ryjówka malutka, miniaturowy owadożerny ssak",
+      "Ryjówka malutka, miniaturowy owadożerny ssak",
       "Polandeze; imported to Commons by Salix",
       "CC BY 2.0",
       ccBy20
     ),
     "ryjowka-aksamitna": photo(
       "Sorex araneus eating a worm in Norway.jpg",
-      "Kadr reprezentatywny: ryjówka aksamitna z bezkręgowcem, przykład wysokiego tempa żerowania",
+      "Ryjówka aksamitna z bezkręgowcem, przykład wysokiego tempa żerowania",
       "Emily Chebul",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "ryjowka-srednia": photo(
       "Lappnäbbmus 140621.jpg",
-      "Kadr reprezentatywny: ryjówka średnia, trudny terenowo mikrossak chłodnych lasów",
+      "Ryjówka średnia, trudny terenowo mikrossak chłodnych lasów",
       "Deryni",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "ryjowka-gorska": photo(
       "Sorex alpinus - Martin Scheuch.jpeg",
-      "Kadr reprezentatywny: ryjówka górska w wilgotnym siedlisku alpejskim",
+      "Ryjówka górska w wilgotnym siedlisku alpejskim",
       "Martin Scheuch (iNaturalist user ma_sche)",
       "CC BY 4.0",
       ccBy40
@@ -85,42 +85,42 @@
     ),
     "nocek-duzy": photo(
       "Bat-Myotis-myotis.jpg",
-      "Kadr reprezentatywny: nocek duży zimujący w podziemiu",
+      "Nocek duży zimujący w podziemiu",
       "Petr Vodička",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "nocek-rudy": photo(
       "Myotis daubentoni01.jpg",
-      "Kadr reprezentatywny: nocek rudy trzymany przez badacza",
+      "Nocek rudy trzymany przez badacza",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-lydkowlosy": photo(
       "Myotis dasycneme.jpg",
-      "Kadr reprezentatywny: nocek łydkowłosy, rzadki nietoperz związany z wodami",
+      "Nocek łydkowłosy, rzadki nietoperz związany z wodami",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-bechsteina": photo(
       "Myotis bechsteini.jpg",
-      "Kadr reprezentatywny: nocek Bechsteina, gatunek starych lasów liściastych",
+      "Nocek Bechsteina, gatunek starych lasów liściastych",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-natterera": photo(
       "Myotis nattereri (2862347369).jpg",
-      "Kadr reprezentatywny: nocek Natterera, gatunek zbierający ofiary z powierzchni",
+      "Nocek Natterera, gatunek zbierający ofiary z powierzchni",
       "Gilles San Martin",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     "nocek-wasatek": photo(
       "Whiskered bat (Myotis mystacinus) Rochovce.jpg",
-      "Kadr reprezentatywny: nocek wąsatek, mały nietoperz szczelinowy",
+      "Nocek wąsatek, mały nietoperz szczelinowy",
       "Charles J. Sharp",
       "CC BY-SA 4.0",
       ccBySa40
@@ -134,14 +134,14 @@
     ),
     "chomik-europejski": photo(
       "European hamster (Cricetus cricetus) Meidling 2.jpg",
-      "Kadr reprezentatywny: chomik europejski, duży gryzoń pól i mozaik rolniczych",
+      "Chomik europejski, duży gryzoń pól i mozaik rolniczych",
       "Charles J. Sharp",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "popielica-szara": photo(
       "Edible dormouse - Relmuis - Glis glis.jpg",
-      "Kadr reprezentatywny: popielica szara, nadrzewny pilch",
+      "Popielica szara, nadrzewny pilch",
       "Bouke ten Cate",
       "CC BY-SA 4.0",
       ccBySa40
@@ -155,14 +155,14 @@
     ),
     "koszatka-lesna": photo(
       "Dryomys nitedula.jpg",
-      "Kadr reprezentatywny: koszatka leśna, pilch z maską na pysku",
+      "Koszatka leśna, pilch z maską na pysku",
       "Dodoni",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "zolednica-europejska": photo(
       "Eliomys quercinus01.jpg",
-      "Kadr reprezentatywny: żołędnica europejska, rzadki pilch w masce",
+      "Żołędnica europejska, rzadki pilch w masce",
       "Arno Laurent",
       "CC BY-SA 3.0",
       ccBySa30
@@ -183,7 +183,7 @@
     ),
     pizmak: photo(
       "Ondatra zibethicus FWS.jpg",
-      "Kadr reprezentatywny: piżmak amerykański, obcy gryzoń wodny",
+      "Piżmak amerykański, obcy gryzoń wodny",
       "David Menke, U.S. Fish and Wildlife Service",
       "Public domain",
       publicDomain
@@ -211,42 +211,42 @@
     ),
     "norka-amerykanska": photo(
       "Norka amerykańska (neovison vison).jpg",
-      "Kadr reprezentatywny: wizon amerykański, inwazyjny drapieżnik półwodny",
+      "Wizon amerykański, inwazyjny drapieżnik półwodny",
       "Wojciech Uszak",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "szop-pracz": photo(
       "Raccoon in Central Park (35264).jpg",
-      "Kadr reprezentatywny: szop pracz, obcy gatunek o zręcznych dłoniach",
+      "Szop pracz, obcy gatunek o zręcznych dłoniach",
       "Rhododendrites",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "szakal-zlocisty": photo(
       "Golden jackal (Canis aureus moreotica).jpg",
-      "Kadr reprezentatywny: szakal złocisty, mezodrapieżnik rozszerzający zasięg w Europie",
+      "Szakal złocisty, mezodrapieżnik rozszerzający zasięg w Europie",
       "Charles J. Sharp",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     lasica: photo(
       "Mustela nivalis -British Wildlife Centre-4.jpg",
-      "Kadr reprezentatywny: łasica, drobny drapieżnik o wydłużonym ciele",
+      "Łasica, drobny drapieżnik o wydłużonym ciele",
       "Keven Law",
       "CC BY-SA 2.0",
       ccBySa20
     ),
     gronostaj: photo(
       "035 Stoat in winter coat in Parc naturel régional Jura vaudois Photo by Giles Laurent.jpg",
-      "Kadr reprezentatywny: gronostaj w białej szacie zimowej",
+      "Gronostaj w białej szacie zimowej",
       "Giles Laurent",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "zajac-bielak": photo(
       "Mountain hare (Lepus timidus) Oppdal.jpg",
-      "Kadr reprezentatywny: zając bielak w chłodnym, górskim krajobrazie",
+      "Zając bielak w chłodnym, górskim krajobrazie",
       "Charles J. Sharp",
       "CC BY-SA 4.0",
       ccBySa40
@@ -260,7 +260,7 @@
     ),
     "morswin-zwyczajny": photo(
       "Marsvin (Phocoena phocoena).jpg",
-      "Kadr reprezentatywny: morświn zwyczajny, niewielki waleń Bałtyku",
+      "Morświn zwyczajny, niewielki waleń Bałtyku",
       "Malene Thyssen",
       "CC BY-SA 3.0",
       ccBySa30

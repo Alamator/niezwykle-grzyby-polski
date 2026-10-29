@@ -129,6 +129,7 @@ Najprostsza ścieżka:
   - „Kadr kontekstowy: …”, gdy pokazuje otoczenie;
   - „Diagram reprezentatywny: …” albo „Schemat reprezentatywny: …”, gdy to rysunek.
   - Strona pokazuje to oznaczenie pod zdjęciem. Opis, który wspomina o kadrze reprezentatywnym albo kontekstowym bez oznaczenia na początku, zatrzymuje `npm run test:collections`.
+  - Karta gatunku opisuje gatunek, więc zdjęcie tego gatunku zrobione za granicą nie dostaje oznaczenia. Dostaje je zdjęcie innego gatunku albo podgatunku, także wtedy, gdy nie da się potwierdzić, że to ten sam takson.
 - Przy gatunkach chronionych, toksycznych lub wrażliwych dodawać komunikat o obserwacji bez niepokojenia.
 
 ## Publikacja na Vercel

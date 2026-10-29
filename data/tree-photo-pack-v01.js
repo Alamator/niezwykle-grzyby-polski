@@ -40,7 +40,7 @@
     ),
     "milorzab-dwuklapowy": photo(
       "A ginkgo biloba fruit on dark rocky background.png",
-      "Kadr reprezentatywny: owoc miłorzębu dwuklapowego, część odpowiedzialna za charakterystyczny zapach",
+      "Owoc miłorzębu dwuklapowego, część odpowiedzialna za charakterystyczny zapach",
       "Leo219",
       "CC BY-SA 4.0",
       "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -222,7 +222,7 @@
     ),
     "jodla-balsamiczna": photo(
       "Abies balsamea.jpg",
-      "Kadr reprezentatywny: jodła balsamiczna z szyszkami, aromatyczny gatunek iglasty",
+      "Jodła balsamiczna z szyszkami, aromatyczny gatunek iglasty",
       "U.S. Fish and Wildlife Service",
       "Public domain",
       publicDomain
