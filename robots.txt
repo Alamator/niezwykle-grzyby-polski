@@ -1,0 +1,7 @@
+# Atlas Osobliwości Polski: everything a reader sees may be indexed; repository notes and scripts may not.
+User-agent: *
+Disallow: /docs/
+Disallow: /scripts/
+Disallow: /*.md$
+
+Sitemap: https://www.atlas-osobliwosci.pl/sitemap.xml

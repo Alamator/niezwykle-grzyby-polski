@@ -1,0 +1,147 @@
+// Builds a page for every collection and every card, and sitemap.xml, on each deployment: npm run build,
+// which Vercel runs (vercel.json). Each page is index.html with its own title, description, canonical
+// address and link preview, already opened on its collection, so search engines and link previews see
+// the collection or card itself. In the browser the app takes over as on any other address.
+// The output (atlas/ and sitemap.xml) is not committed; see .gitignore.
+import fs from "node:fs";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
+import { loadAtlas } from "./build-start-page.mjs";
+
+const SITE_NAME = "Atlas Osobliwości Polski";
+
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
+})[char]);
+
+const sentence = (text) => (/[.!?…]$/.test(String(text).trim()) ? String(text).trim() : `${String(text).trim()}.`);
+
+// Card addresses use the card id without Polish letters, as js/app.js does (cardSlug).
+export function cardSlug(id) {
+  return String(id).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L");
+}
+
+export function routeForCollection(collection) {
+  return collection.route || `/atlas/${collection.id}`;
+}
+
+export function cardRoute(collection, item) {
+  return `${routeForCollection(collection)}/${cardSlug(item.id)}`;
+}
+
+// Every change must hit exactly one place in index.html, so a changed page fails the build instead of
+// shipping a page with the start-page title.
+function replaceOnce(html, pattern, replacement, what) {
+  const matches = typeof pattern === "string" ? html.split(pattern).length - 1 : (html.match(new RegExp(pattern, "g")) || []).length;
+  if (matches !== 1) throw new Error(`index.html: expected one ${what}, found ${matches}`);
+  return html.replace(pattern, () => replacement);
+}
+
+function setMeta(html, attribute, name, value) {
+  return replaceOnce(html, new RegExp(`<meta ${attribute}="${name}" content="[^"]*" />`), `<meta ${attribute}="${name}" content="${escapeHtml(value)}" />`, `${name} meta tag`);
+}
+
+export function canonicalOrigin(indexHtml) {
+  const href = indexHtml.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+  if (!href) throw new Error("index.html: no canonical link");
+  return new URL(href).origin;
+}
+
+function pageHtml(indexHtml, origin, page) {
+  let html = indexHtml;
+  const url = `${origin}${page.route}`;
+  html = replaceOnce(html, `<title>${SITE_NAME}</title>`, `<title>${escapeHtml(page.title)}</title>`, "title");
+  html = setMeta(html, "name", "description", page.description);
+  html = replaceOnce(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${escapeHtml(url)}" />`, "canonical link");
+  html = setMeta(html, "property", "og:url", url);
+  html = setMeta(html, "property", "og:title", page.shareTitle);
+  html = setMeta(html, "property", "og:description", page.description);
+  html = setMeta(html, "name", "twitter:title", page.shareTitle);
+  html = setMeta(html, "name", "twitter:description", page.description);
+
+  // Opened on the collection, as the app shows it, so the start page does not flash first.
+  html = replaceOnce(html, '<div id="startPage" class="start-page">', '<div id="startPage" class="start-page is-hidden">', "start page");
+  html = replaceOnce(html, '<main id="main" class="app-main is-hidden" tabindex="-1">', '<main id="main" class="app-main" tabindex="-1">', "main");
+  html = replaceOnce(html, '<nav id="appNav" class="app-nav is-hidden"', '<nav id="appNav" class="app-nav"', "navigation");
+  if (page.hasMap) {
+    html = replaceOnce(html, '<button class="nav-btn is-hidden" data-view="map" type="button">', '<button class="nav-btn" data-view="map" type="button">', "map tab");
+  }
+  html = replaceOnce(html, '<p class="eyebrow" id="collectionEyebrow">Aktywna kolekcja</p>', `<p class="eyebrow" id="collectionEyebrow">${escapeHtml(page.group)}</p>`, "collection eyebrow");
+  html = replaceOnce(html, '<h1 id="collectionTitle">Atlas</h1>', `<h1 id="collectionTitle">${escapeHtml(page.heading)}</h1>`, "collection title");
+  html = replaceOnce(html, '<p id="collectionLead" class="collection-bar__lead"></p>', `<p id="collectionLead" class="collection-bar__lead">${escapeHtml(page.lead)}</p>`, "collection lead");
+  html = replaceOnce(html, '<span id="safetyNotice">To jest prototyp edukacyjny.</span>', `<span id="safetyNotice">${escapeHtml(page.safety)}</span>`, "safety notice");
+  // The text of the page for readers and crawlers that do not run scripts.
+  html = replaceOnce(html, '<div class="app-main__body shell">', `<div class="app-main__body shell">\n      <noscript>${page.noscript}</noscript>`, "main body");
+  return html;
+}
+
+export function buildPages(win, indexHtml) {
+  const app = win.ATLAS_APP_DATA;
+  const origin = canonicalOrigin(indexHtml);
+  const pages = [];
+  for (const collection of app.collections) {
+    const route = routeForCollection(collection);
+    const group = (app.groups || []).find((entry) => entry.id === collection.group)?.label || "";
+    const base = {
+      group,
+      heading: collection.heading || collection.title,
+      lead: collection.subtitle,
+      safety: collection.safety_notice,
+      hasMap: Object.keys(collection.places || {}).length > 0
+    };
+    const slugs = new Set();
+    for (const item of collection.items) {
+      const slug = cardSlug(item.id);
+      if (!/^[a-z0-9-]+$/.test(slug)) throw new Error(`${collection.id}/${item.id}: the card address "${slug}" needs plain letters`);
+      if (slugs.has(slug)) throw new Error(`${collection.id}: two cards share the address ${slug}`);
+      slugs.add(slug);
+    }
+    pages.push({
+      ...base,
+      route,
+      file: `${route.slice(1)}.html`,
+      title: `${collection.title} – ${SITE_NAME}`,
+      shareTitle: collection.heading || collection.title,
+      description: collection.subtitle,
+      noscript: `<ul class="static-list">${collection.items.map((item) => `<li><a href="${escapeHtml(cardRoute(collection, item))}">${escapeHtml(item.name_pl)}</a>: ${escapeHtml(item.hook)}</li>`).join("")}</ul>`
+    });
+    for (const item of collection.items) {
+      const itemRoute = cardRoute(collection, item);
+      pages.push({
+        ...base,
+        route: itemRoute,
+        file: `${itemRoute.slice(1)}.html`,
+        title: `${item.name_pl} – ${collection.title} – ${SITE_NAME}`,
+        shareTitle: item.name_pl,
+        description: `${sentence(item.hook)} Karta z kolekcji ${collection.title} w Atlasie Osobliwości Polski.`,
+        noscript: `<article class="static-card"><p class="eyebrow">${escapeHtml(collection.title)}</p><h2>${escapeHtml(item.name_pl)}</h2>` +
+          `<p class="latin">${escapeHtml(item.name_lat)}</p><p>${escapeHtml(item.hook)}</p>` +
+          (item.region_pl ? `<p><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>` : "") +
+          `<p><a href="${escapeHtml(route)}">${escapeHtml(collection.title)}: wszystkie karty</a></p></article>`
+      });
+    }
+  }
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    ["/", ...pages.map((page) => page.route)].map((route) => `  <url><loc>${escapeHtml(`${origin}${route}`)}</loc></url>`).join("\n") +
+    "\n</urlset>\n";
+  return { pages: pages.map((page) => ({ file: page.file, route: page.route, html: pageHtml(indexHtml, origin, page) })), sitemap };
+}
+
+export function writePages(outDir = ".") {
+  const indexHtml = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
+  const { pages, sitemap } = buildPages(loadAtlas(), indexHtml);
+  // atlas/ holds only these generated pages.
+  fs.rmSync(path.join(outDir, "atlas"), { recursive: true, force: true });
+  for (const page of pages) {
+    const target = path.join(outDir, page.file);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, page.html);
+  }
+  fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemap);
+  return { pages: pages.length, urls: pages.length + 1 };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const { pages, urls } = writePages(".");
+  console.log(`build-pages: ${pages} pages in atlas/, ${urls} addresses in sitemap.xml`);
+}

@@ -529,13 +529,10 @@ h1 em, h2 em { color: var(--amber); }
 }
 .drawer__name { margin: 0; padding: 0 1rem; font-size: 31px; line-height: 1; }
 .drawer__open {
-  padding: 0;
-  border: 0;
   color: var(--ink);
-  background: none;
-  font: inherit;
-  text-align: left;
+  text-decoration: none;
 }
+.drawer__open:hover { color: var(--ink); }
 /* The whole drawer opens the collection; the photo credit stays clickable above it. */
 .drawer__open::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .drawer__open:focus-visible { outline: none; }
@@ -887,6 +884,11 @@ h1 em, h2 em { color: var(--amber); }
 }
 .m-card__body { flex: 1; padding: 1rem 1.1rem 0.5rem; }
 .m-card__body h3 { margin: 0 0 0.25rem; font-size: 27px; line-height: 1.05; }
+.m-card__title { color: inherit; text-decoration: none; }
+.m-card__title:hover { color: var(--amber-2); }
+/* What readers without scripts see on the page of a collection or card. */
+.static-card, .static-list { margin: 1.5rem 0; color: var(--ink-2); }
+.static-list li { margin: 0.4rem 0; }
 .latin {
   color: var(--muted);
   font: italic 400 17px/1.3 var(--serif);
