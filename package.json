@@ -10,6 +10,7 @@
     "test:facts": "node scripts/validate-facts.mjs",
     "check:no-omttk": "node scripts/check-no-forbidden-names.mjs",
     "test:technical": "node scripts/validate-technical.mjs",
+    "build": "node scripts/build-pages.mjs",
     "build:start-page": "node scripts/build-start-page.mjs",
     "deploy:vercel": "vercel --prod"
   },

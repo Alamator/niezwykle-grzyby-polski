@@ -70,6 +70,39 @@ assert(
   "vercel.json must not redirect the canonical address itself"
 );
 
+// Pages of collections and cards with their own titles, and the sitemap, are built on each deployment
+// (npm run build, run by Vercel) and stay out of git.
+assert.equal(packageJson.scripts?.build, "node scripts/build-pages.mjs", "npm run build should make the collection and card pages");
+assert.equal(vercelConfig.buildCommand, "npm run build", "Vercel should build the collection and card pages on each deployment");
+// With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
+assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
+const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
+assert(/^\/atlas\/$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore), ".gitignore should keep the built pages and sitemap out of git");
+assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");
+{
+  const { buildPages } = await import("./build-pages.mjs");
+  const { loadAtlas } = await import("./build-start-page.mjs");
+  const win = loadAtlas();
+  const { pages, sitemap } = buildPages(win, indexHtml);
+  const collections = win.ATLAS_APP_DATA.collections;
+  const cardCount = collections.reduce((sum, collection) => sum + collection.items.length, 0);
+  assert.equal(pages.length, collections.length + cardCount, "every collection and every card should get a page");
+  assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length + 1, "the sitemap should list the start page and every page");
+  assert.equal(new Set(pages.map((page) => page.route)).size, pages.length, "every page should have its own address");
+  const card = pages.find((page) => page.route === "/atlas/grzyby/okratek-australijski");
+  assert(card, "the Okratek card should have a page at /atlas/grzyby/okratek-australijski");
+  assert.match(card.html, /<title>Okratek australijski – Grzyby – Atlas Osobliwości Polski<\/title>/);
+  assert(card.html.includes(`<link rel="canonical" href="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should name itself as canonical");
+  assert(card.html.includes(`<meta property="og:url" content="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should share its own address");
+  assert(card.html.includes('<div id="startPage" class="start-page is-hidden">'), "a card page should open on its collection, not the start page");
+  assert(pages.find((page) => page.route === "/atlas/rekordy-krajobrazu/mofeta-swidzinskiego"), "card addresses should drop Polish letters");
+  for (const page of pages) {
+    assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
+  }
+  // js/app.js builds the same card addresses as scripts/build-pages.mjs.
+  assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
+}
+
 assert.equal(
   packageJson.scripts?.dev,
   "node scripts/dev-server.mjs",

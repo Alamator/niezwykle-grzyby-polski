@@ -58,6 +58,8 @@ Lokalny serwer obsługuje też bezpośrednie wejścia w podstrony atlasu, np.:
 http://localhost:5173/atlas/rekordy-krajobrazu
 ```
 
+Strony kolekcji i kart z własnymi tytułami powstają po `npm run build`. Bez tego lokalny serwer pokazuje te adresy przez `index.html`, a aplikacja i tak otwiera właściwą kartę.
+
 ## Testy
 
 ```bash
@@ -134,7 +136,20 @@ Najprostsza ścieżka:
 
 ## Publikacja na Vercel
 
-Framework: **Other** albo brak frameworka. Build command pusty. Output directory: `.` albo puste, jeśli Vercel sam wykryje statyczną stronę.
+Framework: **Other** albo brak frameworka. Build Command `npm run build` i Output Directory `.` (główny katalog projektu) są ustawione w `vercel.json`.
+
+## Wyszukiwarki i podgląd linków
+
+- **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`.
+  - Adres karty to jej id bez polskich liter.
+  - Stare linki `/atlas/<kolekcja>#item=<karta>` dalej otwierają kartę i przechodzą na jej adres.
+- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty oraz `sitemap.xml`.
+  - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, a bez skryptów pokazuje tekst karty albo listę kart.
+  - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
+  - Wyniki (`atlas/`, `sitemap.xml`) nie trafiają do repozytorium (`.gitignore`).
+  - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
+- **`robots.txt`:** wskazuje mapę strony i nie wpuszcza wyszukiwarek do `docs/`, `scripts/` i plików `.md`.
+- **Google Search Console:** właściwość domeny `atlas-osobliwosci.pl` potwierdza się wpisem TXT w strefie DNS w OVH. Mapa strony: `https://www.atlas-osobliwosci.pl/sitemap.xml`.
 
 - **Adres strony:** https://www.atlas-osobliwosci.pl (adres kanoniczny w `index.html`).
 - **Adres bez `www`:** `atlas-osobliwosci.pl` przekierowuje na stałe (308) na `www`. To ustawienie domeny w Vercel (Domains), nie w kodzie.

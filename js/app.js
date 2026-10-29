@@ -124,9 +124,24 @@
     return collection.route || `/atlas/${collection.id}`;
   }
 
-  function collectionFromRoute(path = window.location.pathname) {
+  // A collection lives at /atlas/<collection>, a card at /atlas/<collection>/<card>. Each has its own page
+  // with its title and link preview, made by scripts/build-pages.mjs; older /atlas/<collection>#item=<card>
+  // links still open the card.
+  function routeFromPath(path = window.location.pathname) {
     const target = normalizedPath(path);
-    return app.collections.find((collection) => normalizedPath(routeForCollection(collection)) === target);
+    for (const collection of app.collections) {
+      const base = normalizedPath(routeForCollection(collection));
+      if (target === base) return { collection, slug: null };
+      const rest = target.startsWith(`${base}/`) ? target.slice(base.length + 1) : "";
+      if (rest && !rest.includes("/")) {
+        try { return { collection, slug: decodeURIComponent(rest) }; } catch { return { collection, slug: null }; }
+      }
+    }
+    return null;
+  }
+
+  function collectionFromRoute(path = window.location.pathname) {
+    return routeFromPath(path)?.collection;
   }
 
   function pushRoute(path, stateData = {}) {
@@ -135,9 +150,13 @@
     window.history.pushState(stateData, "", path);
   }
 
-  // A single card is addressable as /atlas/<collection>#item=<card id>.
+  // Card addresses drop Polish letters from the card id (scripts/build-pages.mjs does the same).
+  function cardSlug(id) {
+    return String(id).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L");
+  }
+
   function cardPath(collection, item) {
-    return `${routeForCollection(collection)}#item=${encodeURIComponent(item.id)}`;
+    return `${routeForCollection(collection)}/${encodeURIComponent(cardSlug(item.id))}`;
   }
 
   function cardUrl(collection, item) {
@@ -445,10 +464,12 @@
       .join("");
   }
 
-  // Five curiosities in the hero. Each opens its card; the first is the large tile and loads first.
+  // Five curiosities in the hero. Each opens its card; the first is the large tile and loads first, unless
+  // the page opened on a collection and the start page is hidden.
   function renderCabinet() {
     const cabinet = $("#cabinet");
     if (!cabinet) return;
+    const startVisible = !$("#startPage")?.classList.contains("is-hidden");
     cabinet.innerHTML = (start.specimens || []).map((specimen, index) => {
       const collection = collectionById(specimen.collection);
       if (!collection) return "";
@@ -456,7 +477,7 @@
       const alt = state.language === defaultLanguage ? specimen.photo.alt : name;
       return `
         <li class="specimen specimen--${index + 1}">
-          <img src="${escapeHtml(commonsSrc(specimen.photo, index === 0 ? 960 : 500))}" srcset="${escapeHtml(commonsSrcset(specimen.photo))}" sizes="(max-width: 560px) 80vw, (max-width: 900px) 50vw, 30vw" alt="${escapeHtml(alt)}" decoding="async"${index === 0 ? ' fetchpriority="high"' : ' loading="lazy"'} onerror="this.closest('.specimen').classList.add('is-broken'); this.remove();" />
+          <img src="${escapeHtml(commonsSrc(specimen.photo, index === 0 ? 960 : 500))}" srcset="${escapeHtml(commonsSrcset(specimen.photo))}" sizes="(max-width: 560px) 80vw, (max-width: 900px) 50vw, 30vw" alt="${escapeHtml(alt)}" decoding="async"${index === 0 && startVisible ? ' fetchpriority="high"' : ' loading="lazy"'} onerror="this.closest('.specimen').classList.add('is-broken'); this.remove();" />
           <div class="specimen__caption">
             <span class="specimen__cat">${escapeHtml(collectionText(collection, "title"))}</span>
             <a class="specimen__name" href="${escapeHtml(cardPath(collection, { id: specimen.id }))}" data-action="open-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(specimen.id)}" aria-label="${escapeHtml(t("openCardLabel", { name }))}">${escapeHtml(name)}</a>
@@ -484,7 +505,7 @@
 
   function renderChrome() {
     document.documentElement.lang = state.language;
-    document.title = t("documentTitle");
+    updateDocumentTitle();
 
     setText("#skipLink", "skipLink");
     setText("#heroEyebrow", "heroEyebrow", { collections: tPlural("collectionCountForms", app.collections.length) });
@@ -570,7 +591,7 @@
       <li class="drawer${cover ? "" : " drawer--plain"}">
         ${cover ? `<img class="drawer__img" src="${escapeHtml(commonsSrc(cover.photo, 500))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="(max-width: 1000px) 50vw, 25vw" alt="" loading="lazy" decoding="async" onerror="this.remove()" />` : ""}
         <p class="drawer__count">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
-        <h4 class="drawer__name"><button class="drawer__open" type="button" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(title)}</button></h4>
+        <h4 class="drawer__name"><a class="drawer__open" href="${escapeHtml(routeForCollection(collection))}" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(title)}</a></h4>
         <p class="drawer__teaser">${escapeHtml(collectionText(collection, "teaser"))}</p>
         ${cover ? photoCreditHtml(cover.photo, localized(cover.name), "drawer__credit") : ""}
       </li>`;
@@ -677,7 +698,7 @@
         ${visualHtml(item)}
         ${photoCaptionHtml(item)}
         <div class="m-card__body">
-          <h3>${escapeHtml(itemName(item))}</h3>
+          <h3><a class="m-card__title" href="${escapeHtml(cardPath(activeCollection(), item))}" data-action="details" data-id="${escapeHtml(item.id)}">${escapeHtml(itemName(item))}</a></h3>
           <div class="latin">${escapeHtml(itemLatin(item))}</div>
           ${badgesHtml(item)}
           <p class="hook">${escapeHtml(itemHook(item))}</p>
@@ -842,38 +863,59 @@
     try { return decodeURIComponent(match[1]); } catch { return null; }
   }
 
-  function currentRouteWithoutHash() {
-    return window.location.pathname + window.location.search;
+  // The card the address points at: its own path, or the #item= of an older link.
+  function itemFromLocation() {
+    const slug = routeFromPath()?.slug;
+    if (slug) return items().find((item) => cardSlug(item.id) === slug) || null;
+    const hashId = itemIdFromHash();
+    return hashId ? byId(hashId) || null : null;
   }
 
-  function setItemHash(id) {
-    if (!window.history?.pushState) return;
-    const target = `${currentRouteWithoutHash()}#item=${encodeURIComponent(id)}`;
-    const current = `${currentRouteWithoutHash()}${window.location.hash}`;
-    if (current === target) return;
+  function addressNamesCard() {
+    return Boolean(routeFromPath()?.slug || itemIdFromHash());
+  }
+
+  function setItemRoute(id) {
+    if (!window.history?.pushState || !state.collectionId) return;
+    const target = cardPath(activeCollection(), { id });
+    if (normalizedPath() === normalizedPath(target) && !window.location.hash) return;
     window.history.pushState(window.history.state || {}, "", target);
   }
 
-  function clearItemHash() {
-    if (!window.location.hash) return;
-    if (!window.history?.replaceState) return;
-    window.history.replaceState(window.history.state || {}, "", currentRouteWithoutHash());
+  function clearItemRoute() {
+    if (!window.history?.replaceState || !state.collectionId) return;
+    const target = routeForCollection(activeCollection());
+    if (normalizedPath() === normalizedPath(target) && !window.location.hash) return;
+    window.history.replaceState(window.history.state || {}, "", target);
   }
 
-  function syncDialogFromHash() {
+  function syncDialogFromRoute() {
     const dialog = $("#itemDialog");
-    const hashId = itemIdFromHash();
-    if (hashId) {
-      const item = byId(hashId);
-      if (item && (!dialog.open || dialog.dataset.itemId !== hashId)) {
-        showDialog(hashId, { skipRoute: true });
-      } else if (!item) {
-        clearItemHash();
-        if (dialog.open) dialog.close?.();
+    const item = itemFromLocation();
+    if (item) {
+      // An older #item= link moves to the card's own address.
+      if (window.location.hash && window.history?.replaceState) {
+        window.history.replaceState(window.history.state || {}, "", cardPath(activeCollection(), item));
       }
-    } else if (dialog.open) {
-      dialog.close?.();
+      if (!dialog.open || dialog.dataset.itemId !== item.id) showDialog(item.id, { skipRoute: true });
+    } else {
+      if (addressNamesCard()) clearItemRoute();
+      if (dialog.open) dialog.close?.();
     }
+    updateDocumentTitle();
+  }
+
+  // The tab title names the card and the collection, like the page made for that address.
+  function updateDocumentTitle() {
+    const base = t("documentTitle");
+    if (!state.collectionId) {
+      document.title = base;
+      return;
+    }
+    const collection = activeCollection();
+    const dialog = $("#itemDialog");
+    const item = dialog?.open ? byId(dialog.dataset.itemId) : null;
+    document.title = [item && itemName(item), collectionText(collection, "title"), base].filter(Boolean).join(" – ");
   }
 
   function showDialog(id, options = {}) {
@@ -882,9 +924,10 @@
     const dialog = $("#itemDialog");
     dialog.dataset.itemId = id;
     renderDialogContent(item);
-    if (!options.skipRoute) setItemHash(id);
+    if (!options.skipRoute) setItemRoute(id);
     if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
     else dialog.setAttribute("open", "");
+    updateDocumentTitle();
   }
 
   // ----- Sharing a single card -----
@@ -952,7 +995,7 @@
   async function openCard(collectionId, itemId) {
     const collection = collectionById(collectionId);
     if (!collection) return;
-    const path = `${routeForCollection(collection)}#item=${encodeURIComponent(itemId)}`;
+    const path = cardPath(collection, { id: itemId });
     if (window.history?.pushState) window.history.pushState({ collectionId }, "", path);
     else window.location.hash = `item=${encodeURIComponent(itemId)}`;
     await selectCollection(collectionId, { updateRoute: false });
@@ -1720,12 +1763,14 @@
     updateMapNav();
     activateView("atlas");
     if (options.updateRoute !== false) pushRoute(routeForCollection(collection), { collectionId: collection.id });
-    syncDialogFromHash();
+    syncDialogFromRoute();
   }
 
   // Back to the start page: the wordmark goes to its top, every other way leads to the drawers.
   function showCollections(options = {}) {
     state.collectionId = null;
+    if ($("#itemDialog").open) $("#itemDialog").close?.();
+    updateDocumentTitle();
     $("#startPage").classList.remove("is-hidden");
     $(".app-nav").classList.add("is-hidden");
     $("#main").classList.add("is-hidden");
@@ -1845,18 +1890,21 @@
     });
 
     $("#itemDialog").addEventListener("close", () => {
-      clearItemHash();
+      clearItemRoute();
+      updateDocumentTitle();
     });
 
     window.addEventListener("hashchange", () => {
       if (!state.collectionId) return;
-      syncDialogFromHash();
+      syncDialogFromRoute();
     });
 
     window.addEventListener("popstate", () => {
       const collection = collectionFromRoute();
-      if (collection) selectCollection(collection.id, { updateRoute: false });
-      else showCollections({ updateRoute: false });
+      if (!collection) showCollections({ updateRoute: false });
+      // Within the open collection only the card changes; filters and the current view stay.
+      else if (collection.id === state.collectionId && collection._loaded) syncDialogFromRoute();
+      else selectCollection(collection.id, { updateRoute: false });
     });
   }
 
