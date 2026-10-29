@@ -2,7 +2,8 @@
 // which Vercel runs (vercel.json). Each page is index.html with its own title, description, canonical
 // address and link preview, already opened on its collection, so search engines and link previews see
 // the collection or card itself. In the browser the app takes over as on any other address.
-// The output (atlas/ and sitemap.xml) is not committed; see .gitignore.
+// It also writes 404.html, which Vercel shows for an address that leads nowhere.
+// The output (atlas/, sitemap.xml and 404.html) is not committed; see .gitignore.
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -127,9 +128,60 @@ export function buildPages(win, indexHtml) {
   return { pages: pages.map((page) => ({ file: page.file, route: page.route, html: pageHtml(indexHtml, origin, page) })), sitemap };
 }
 
+// The page for an address that leads nowhere: no scripts, a way home and every collection.
+export function notFoundHtml(win) {
+  const collections = win.ATLAS_APP_DATA.collections;
+  const drawers = collections.map((collection) =>
+    `<li><a href="${escapeHtml(routeForCollection(collection))}">${escapeHtml(collection.title)}</a> <span>${escapeHtml(collection.count_label || "")}</span></li>`).join("\n          ");
+  return `<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0c110f" />
+  <meta name="color-scheme" content="dark" />
+  <title>Nie ma takiej strony – ${SITE_NAME}</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32x32.png" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner shell">
+      <a class="wordmark" href="/">Atlas <em>Osobliwości</em> Polski</a>
+    </div>
+  </header>
+  <main class="not-found shell">
+    <p class="eyebrow">Błąd 404 · nie ma takiej strony</p>
+    <h1>Tej szuflady <em>nie ma</em> w gabinecie.</h1>
+    <p class="lead">Ten adres nie prowadzi do żadnej strony atlasu. Może w linku jest literówka albo strona zmieniła adres.</p>
+    <p class="not-found__en" lang="en">This page is not in the atlas.</p>
+    <div class="hero__actions">
+      <a class="primary" href="/">Strona główna</a>
+      <a class="secondary" href="/#collectionPicker">Wszystkie kolekcje</a>
+    </div>
+    <nav class="not-found__drawers" aria-labelledby="notFoundDrawers">
+      <h2 id="notFoundDrawers" class="eyebrow">Albo otwórz którąś z szuflad</h2>
+      <ul>
+          ${drawers}
+      </ul>
+    </nav>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__plaque">
+      <img class="footer-logo" src="/assets/logo-oroloko-ai.svg" alt="The AI does not replace your experience. It amplifies it. You are still the expert. Made by Robert Oroloko" width="800" height="110" loading="lazy" />
+    </div>
+  </footer>
+</body>
+</html>
+`;
+}
+
 export function writePages(outDir = ".") {
   const indexHtml = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
-  const { pages, sitemap } = buildPages(loadAtlas(), indexHtml);
+  const win = loadAtlas();
+  const { pages, sitemap } = buildPages(win, indexHtml);
   // atlas/ holds only these generated pages.
   fs.rmSync(path.join(outDir, "atlas"), { recursive: true, force: true });
   for (const page of pages) {
@@ -138,10 +190,11 @@ export function writePages(outDir = ".") {
     fs.writeFileSync(target, page.html);
   }
   fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemap);
+  fs.writeFileSync(path.join(outDir, "404.html"), notFoundHtml(win));
   return { pages: pages.length, urls: pages.length + 1 };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { pages, urls } = writePages(".");
-  console.log(`build-pages: ${pages} pages in atlas/, ${urls} addresses in sitemap.xml`);
+  console.log(`build-pages: ${pages} pages in atlas/, ${urls} addresses in sitemap.xml, 404.html`);
 }

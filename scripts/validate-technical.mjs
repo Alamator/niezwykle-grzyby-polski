@@ -77,7 +77,7 @@ assert.equal(vercelConfig.buildCommand, "npm run build", "Vercel should build th
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
-assert(/^\/atlas\/$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore), ".gitignore should keep the built pages and sitemap out of git");
+assert(/^\/atlas\/$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore) && /^\/404\.html$/m.test(gitignore), ".gitignore should keep the built pages, sitemap and 404 page out of git");
 assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");
 {
   const { buildPages } = await import("./build-pages.mjs");
@@ -99,6 +99,15 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
   }
+  // 404.html: out of search results, with a way home and a link to every collection.
+  const { notFoundHtml } = await import("./build-pages.mjs");
+  const notFound = notFoundHtml(win);
+  assert(notFound.includes('<meta name="robots" content="noindex" />'), "404.html should stay out of search results");
+  assert(notFound.includes('<a class="primary" href="/">'), "404.html should lead back to the start page");
+  for (const collection of collections) {
+    assert(notFound.includes(`href="${collection.route || `/atlas/${collection.id}`}"`), `404.html should link to ${collection.id}`);
+  }
+  assert(notFound.includes("/assets/logo-oroloko-ai.svg"), "404.html should keep the Made by Oroloko footer");
   // js/app.js builds the same card addresses as scripts/build-pages.mjs.
   assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
 }
