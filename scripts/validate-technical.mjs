@@ -53,6 +53,13 @@ assert(
   fs.readFileSync("scripts/generate-og-image.py", "utf8").includes(`"${new URL(canonical).host}"`),
   "the share image should show the canonical address; update scripts/generate-og-image.py and run it"
 );
+// The former address sends every page to the same page at the canonical address, for good (308).
+const formerHost = "niezwykle-grzyby-polski.vercel.app";
+assert(
+  vercelConfig.redirects?.some((rule) => rule.source === "/:path*" && rule.permanent === true &&
+    rule.destination === `${origin}/:path*` && rule.has?.some((condition) => condition.type === "host" && condition.value === formerHost)),
+  `vercel.json should redirect ${formerHost} permanently to ${origin}, keeping the path`
+);
 
 assert.equal(
   packageJson.scripts?.dev,
