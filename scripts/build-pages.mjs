@@ -2,14 +2,16 @@
 // which Vercel runs (vercel.json). Each page is index.html with its own title, description, canonical
 // address and link preview, already opened on its collection, so search engines and link previews see
 // the collection or card itself. In the browser the app takes over as on any other address.
-// It also writes 404.html, which Vercel shows for an address that leads nowhere.
-// The output (atlas/, sitemap.xml and 404.html) is not committed; see .gitignore.
+// It also writes mapa.html, the map of every place, and 404.html, which Vercel shows for an address that
+// leads nowhere. The output (atlas/, mapa.html, sitemap.xml and 404.html) is not committed; see .gitignore.
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { buildMapPoints } from "./build-map-points.mjs";
 import { loadAtlas } from "./build-start-page.mjs";
 
 const SITE_NAME = "Atlas Osobliwości Polski";
+export const MAP_ROUTE = "/mapa";
 
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
@@ -48,7 +50,8 @@ export function canonicalOrigin(indexHtml) {
   return new URL(href).origin;
 }
 
-function pageHtml(indexHtml, origin, page) {
+// Title, description, canonical address and link preview of a page.
+function headHtml(indexHtml, origin, page) {
   let html = indexHtml;
   const url = `${origin}${page.route}`;
   html = replaceOnce(html, `<title>${SITE_NAME}</title>`, `<title>${escapeHtml(page.title)}</title>`, "title");
@@ -59,9 +62,12 @@ function pageHtml(indexHtml, origin, page) {
   html = setMeta(html, "property", "og:description", page.description);
   html = setMeta(html, "name", "twitter:title", page.shareTitle);
   html = setMeta(html, "name", "twitter:description", page.description);
+  // Opened on its own page, as the app shows it, so the start page does not flash first.
+  return replaceOnce(html, '<div id="startPage" class="start-page">', '<div id="startPage" class="start-page is-hidden">', "start page");
+}
 
-  // Opened on the collection, as the app shows it, so the start page does not flash first.
-  html = replaceOnce(html, '<div id="startPage" class="start-page">', '<div id="startPage" class="start-page is-hidden">', "start page");
+function pageHtml(indexHtml, origin, page) {
+  let html = headHtml(indexHtml, origin, page);
   html = replaceOnce(html, '<main id="main" class="app-main is-hidden" tabindex="-1">', '<main id="main" class="app-main" tabindex="-1">', "main");
   html = replaceOnce(html, '<nav id="appNav" class="app-nav is-hidden"', '<nav id="appNav" class="app-nav"', "navigation");
   if (page.hasMap) {
@@ -122,10 +128,44 @@ export function buildPages(win, indexHtml) {
       });
     }
   }
+  const built = pages.map((page) => ({ file: page.file, route: page.route, html: pageHtml(indexHtml, origin, page) }));
+  const map = mapPage(win, indexHtml, origin);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    ["/", ...pages.map((page) => page.route)].map((route) => `  <url><loc>${escapeHtml(`${origin}${route}`)}</loc></url>`).join("\n") +
+    ["/", map.route, ...built.map((page) => page.route)].map((route) => `  <url><loc>${escapeHtml(`${origin}${route}`)}</loc></url>`).join("\n") +
     "\n</urlset>\n";
-  return { pages: pages.map((page) => ({ file: page.file, route: page.route, html: pageHtml(indexHtml, origin, page) })), sitemap };
+  return { pages: [map, ...built], sitemap };
+}
+
+// The Polish plural form, as the app picks it (tPlural in js/app.js).
+function plural(forms, count) {
+  return (forms[new Intl.PluralRules("pl").select(count)] ?? forms.other).replace("{count}", count);
+}
+
+// The map of every place, opened on the map page, with the places by collection for readers and
+// crawlers that do not run scripts.
+function mapPage(win, indexHtml, origin) {
+  const ui = win.ATLAS_I18N.ui.pl;
+  const { places } = buildMapPoints(win);
+  const count = plural(ui.placeCountForms, places.length);
+  const page = {
+    route: MAP_ROUTE,
+    title: `${ui.allMapDocumentTitle} – ${SITE_NAME}`,
+    shareTitle: "Mapa Atlasu Osobliwości Polski",
+    description: `${count} z kart Atlasu Osobliwości Polski na jednej mapie: kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne. Sprawdź, co jest najbliżej Ciebie.`
+  };
+  const collections = win.ATLAS_APP_DATA.collections.filter((collection) => places.some((place) => place.cards.some((card) => card.collection === collection.id)));
+  const noscript = collections.map((collection) => {
+    const cards = places.flatMap((place) => place.cards.filter((card) => card.collection === collection.id))
+      .sort((a, b) => a.name.pl.localeCompare(b.name.pl, "pl"));
+    return `<h2>${escapeHtml(collection.title)}</h2><ul class="static-list">${cards.map((card) =>
+      `<li><a href="${escapeHtml(cardRoute(collection, card))}">${escapeHtml(card.name.pl)}</a></li>`).join("")}</ul>`;
+  }).join("");
+  let html = headHtml(indexHtml, origin, page);
+  html = replaceOnce(html, '<a id="mapLink" class="topbar__link" href="/mapa"', '<a id="mapLink" class="topbar__link" href="/mapa" aria-current="page"', "map link");
+  html = replaceOnce(html, '<div id="mapPage" class="map-page is-hidden" tabindex="-1">', '<div id="mapPage" class="map-page" tabindex="-1">', "map page");
+  html = replaceOnce(html, `<p id="allMapEyebrow" class="eyebrow">${ui.allMapDocumentTitle}</p>`, `<p id="allMapEyebrow" class="eyebrow">${escapeHtml(ui.allMapEyebrow.replace("{places}", count))}</p>`, "map page eyebrow");
+  html = replaceOnce(html, '<div id="allPlaceList" class="source-panel place-list"></div>', `<div id="allPlaceList" class="source-panel place-list"><noscript>${noscript}</noscript></div>`, "map page list");
+  return { file: "mapa.html", route: MAP_ROUTE, html };
 }
 
 // The page for an address that leads nowhere: no scripts, a way home and every collection.
@@ -196,5 +236,5 @@ export function writePages(outDir = ".") {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { pages, urls } = writePages(".");
-  console.log(`build-pages: ${pages} pages in atlas/, ${urls} addresses in sitemap.xml, 404.html`);
+  console.log(`build-pages: ${pages} pages (atlas/ and mapa.html), ${urls} addresses in sitemap.xml, 404.html`);
 }

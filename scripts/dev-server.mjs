@@ -47,7 +47,8 @@ export async function resolveRequestFile(requestUrl, rootDir = projectRoot) {
   // Like cleanUrls on Vercel: /atlas/grzyby is atlas/grzyby.html once npm run build has made it.
   if (candidate && await isFile(`${candidate}.html`)) return `${candidate}.html`;
 
-  if (pathname.startsWith("/atlas/")) {
+  // Before a build the app itself opens these addresses: a collection, a card or the map of every place.
+  if (pathname.startsWith("/atlas/") || pathname.replace(/\/+$/, "") === "/mapa") {
     return path.join(rootDir, "index.html");
   }
 

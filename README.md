@@ -27,6 +27,7 @@ data/bird-photo-pack-v01.js
 data/collections.js
 data/i18n.js
 data/start-page.js
+data/map-points.js
 data/photo-pack-*.js
 data/region-pack-v07.js
 fonts/
@@ -99,6 +100,17 @@ Najprostsza ścieżka:
 - **Bez stanowisk gatunków:** kolekcje gatunków nie mają mapy. Na mapę nie trafia też karta, której uwaga prosi, żeby nie ujawniać miejsca. Pilnuje tego `npm run test:collections`.
 - Zakładka „Mapa” pokazuje się tylko w kolekcjach, które mają punkty.
 
+### Mapa wszystkich miejsc (`/mapa`)
+
+- Wszystkie miejsca atlasu na jednej mapie, z wyborem kolekcji i listą kart pod mapą. Karta otwiera się w swojej kolekcji, a „wstecz” wraca na mapę tam, gdzie była.
+- Wejścia: link „Mapa” w górnym pasku, liczba miejsc pod tytułem strony startowej i link pod mapą kolekcji.
+- Strona nie wczytuje danych kolekcji. Punkty i nazwy kart są kopiami w `data/map-points.js`, jeden wpis na obiekt Wikidaty, z kartami, które go opisują.
+  - Plik tworzy `npm run build:map-points`. Po zmianie punktu albo nazwy karty `npm run test:collections` zatrzymuje się, dopóki plik nie zostanie odtworzony.
+  - Liczba miejsc musi się zgadzać z liczbą pod tytułem strony startowej.
+- **„Blisko mnie”:** po zgodzie przeglądarki na położenie strona liczy odległość w linii prostej i pokazuje 10 najbliższych kart, w wybranej kolekcji albo we wszystkich.
+  - Liczy to przeglądarka. Położenie nie jest nigdzie zapisywane ani wysyłane, co strona mówi przy przycisku.
+  - Mapa pobiera z OpenFreeMap podkład oglądanego obszaru, więc po „Blisko mnie” także okolicy, w której jest użytkownik.
+
 ## Wygląd: gabinet osobliwości
 
 - **Styl:** ciemne tło, bursztynowy akcent, cienkie linie; kolekcje to szuflady gabinetu ułożone na trzech półkach (grupach).
@@ -140,13 +152,13 @@ Framework: **Other** albo brak frameworka. Build Command `npm run build` i Outpu
 
 ## Wyszukiwarki i podgląd linków
 
-- **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`.
+- **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`.
   - Adres karty to jej id bez polskich liter.
   - Stare linki `/atlas/<kolekcja>#item=<karta>` dalej otwierają kartę i przechodzą na jej adres.
-- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty oraz `sitemap.xml`.
-  - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, a bez skryptów pokazuje tekst karty albo listę kart.
+- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), `sitemap.xml` i stronę błędu `404.html`.
+  - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji albo na mapie, a bez skryptów pokazuje tekst karty albo listę kart.
   - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
-  - Wyniki (`atlas/`, `sitemap.xml`) nie trafiają do repozytorium (`.gitignore`).
+  - Wyniki (`atlas/`, `mapa.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
 - **`robots.txt`:** wskazuje mapę strony i nie wpuszcza wyszukiwarek do `docs/`, `scripts/` i plików `.md`.
 - **Google Search Console:** właściwość domeny `atlas-osobliwosci.pl` potwierdza się wpisem TXT w strefie DNS w OVH. Mapa strony: `https://www.atlas-osobliwosci.pl/sitemap.xml`.
