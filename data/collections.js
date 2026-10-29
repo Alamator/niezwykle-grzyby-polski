@@ -121,7 +121,7 @@
       accent: "herp",
       search_placeholder: "np. żaba moczarowa, kumak, żółw, żmija...",
       source_note: "Opisy powstały na bazie wskazanego materiału o osobliwościach herpetofauny Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; część kadrów jest uczciwie oznaczona jako reprezentatywna.",
-      scripts: ["/data/amphibians-reptiles.js", "/data/amphibian-reptile-photo-pack-v01.js", "/data/i18n/plazy-gady.en.js", "/data/facts/plazy-gady.facts.js"],
+      scripts: ["/data/amphibians-reptiles.js", "/data/amphibian-reptile-photo-pack-v01.js", "/data/i18n/plazy-gady.en.js", "/data/sounds/plazy-gady.sounds.js", "/data/facts/plazy-gady.facts.js"],
       build: () => {
         const data = window.AMPHIBIAN_REPTILE_APP_DATA;
         if (!data) return null;
@@ -140,7 +140,7 @@
       accent: "sky",
       search_placeholder: "np. dudek, jerzyk, pomurnik...",
       source_note: "Opisy powstały na bazie dwóch list roboczych o osobliwej awifaunie Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
-      scripts: ["/data/birds.js", "/data/bird-photo-pack-v01.js", "/data/facts/ptaki.facts.js"],
+      scripts: ["/data/birds.js", "/data/bird-photo-pack-v01.js", "/data/sounds/ptaki.sounds.js", "/data/facts/ptaki.facts.js"],
       build: () => {
         const data = window.BIRD_APP_DATA;
         if (!data) return null;
@@ -502,6 +502,16 @@
     collection.places_checked = places?.checked || "";
   }
 
+  // Voice recordings live in data/sounds/<collection>.sounds.js (birds, frogs and toads), loaded with the
+  // collection, and set window.ATLAS_SOUNDS[<collection>] = { checked, items: { <card id>: { src, ... } } }.
+  function attachSounds(collection) {
+    const sounds = window.ATLAS_SOUNDS?.[collection.id];
+    const cardIds = new Set((collection.items || []).map((item) => item.id));
+    collection.sounds = Object.fromEntries(Object.entries(sounds?.items || {})
+      .filter(([cardId]) => cardIds.has(cardId)));
+    collection.sounds_checked = sounds?.checked || "";
+  }
+
   const scriptCache = new Map();
 
   function loadScriptOnce(src) {
@@ -535,6 +545,7 @@
         Object.assign(collection, built);
         attachFacts(collection);
         attachPlaces(collection);
+        attachSounds(collection);
         collection._loaded = true;
       }
       return collection;
@@ -557,6 +568,7 @@
       Object.assign(collection, built);
       attachFacts(collection);
       attachPlaces(collection);
+      attachSounds(collection);
       collection._loaded = true;
     }
   }

@@ -2779,6 +2779,13 @@
         atlasQuizCopyManual: "Skopiuj wynik: {text}",
         atlasQuizNote: "Wyniki wyzwań dnia są tylko w tej przeglądarce: atlas nigdzie ich nie wysyła.",
         atlasQuizLink: "Quiz z całego atlasu i wyzwanie dnia",
+        // Voice recordings of birds, frogs and toads from Wikimedia Commons.
+        soundTitle: "Posłuchaj",
+        soundLabel: "Nagranie głosu: {name}",
+        soundCredit: "Nagranie",
+        soundError: "Nie udało się odtworzyć nagrania. Można je odsłuchać na stronie pliku w Wikimedia Commons.",
+        soundBadge: "nagranie głosu",
+        soundCreditsTitle: "Nagrania głosów",
         preview: "podgląd",
         missing: "do uzupełnienia"
       },
@@ -3026,6 +3033,12 @@
         atlasQuizCopyManual: "Copy the score: {text}",
         atlasQuizNote: "The daily challenge scores stay in this browser only: the atlas sends them nowhere.",
         atlasQuizLink: "Quiz of the whole atlas and the daily challenge",
+        soundTitle: "Listen",
+        soundLabel: "Voice recording: {name}",
+        soundCredit: "Recording",
+        soundError: "The recording could not be played. You can listen to it on its file page on Wikimedia Commons.",
+        soundBadge: "voice recording",
+        soundCreditsTitle: "Voice recordings",
         preview: "preview",
         missing: "to be added"
       }

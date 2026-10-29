@@ -1135,6 +1135,23 @@ h1 em, h2 em { color: var(--amber); }
 }
 .share-status.is-visible { display: block; }
 
+/* The voice of a bird, frog or toad in its card. */
+.card-sound {
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-3);
+}
+.card-sound h3 { margin-bottom: 0.7rem; font-size: 24px; }
+.card-sound__length { color: var(--muted); font: 400 13px/1 var(--mono); letter-spacing: 0.06em; }
+.card-sound__player { display: block; width: 100%; height: 44px; color-scheme: dark; }
+.card-sound__error { display: none; margin: 0.6rem 0 0; color: var(--warn); }
+.card-sound.is-broken .card-sound__player { display: none; }
+.card-sound.is-broken .card-sound__error { display: block; }
+.card-sound__credit { margin: 0.6rem 0 0; color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.credits-table__title { margin: 1.75rem 0 0.75rem; font-size: 26px; }
+
 /* ---------- Card dialog ---------- */
 
 .mushroom-dialog {

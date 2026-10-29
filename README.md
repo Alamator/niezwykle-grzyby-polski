@@ -132,6 +132,22 @@ Najprostsza ścieżka:
 - Wejścia: „Wyzwanie dnia” pod ciekawostką dnia na stronie głównej i link pod quizem każdej kolekcji.
 - Liczby pytań są w `js/app.js` (`DAILY_QUESTIONS`, `MIX_QUESTIONS`). `index.html` podaje je w tekstach, zanim ruszy skrypt, a `npm run test:technical` pilnuje, żeby się zgadzały.
 
+## Nagrania głosów
+
+- Karty ptaków, żab i ropuch mogą mieć nagranie głosu z Wikimedia Commons:
+  - „Posłuchaj” w karcie, z długością nagrania i podpisem (autor, licencja z linkiem, strona pliku);
+  - znaczek „🔊 nagranie głosu” na kafelku w atlasie;
+  - tabela „Nagrania głosów” w „Źródłach” kolekcji.
+- Dane: `data/sounds/<kolekcja>.sounds.js`, ładowane razem z kolekcją: plik, adres MP3, długość, autor, licencja z linkiem i strona pliku.
+- Zasady wyboru (sprawdzone 29.10.2026):
+  - nagranie jest gatunku z karty według strony pliku;
+  - pochodzi z xeno-canto, z British Library albo ze zbioru płazów Baudewijna Odé, albo od autora, który podaje gatunek i miejsce nagrania;
+  - odpadają nagrania, w których woła inny gatunek, nagrania wymowy nazw, pliki bez autora i licencje inne niż CC0, CC BY i CC BY-SA;
+  - pierwszeństwo mają nagrania z Polski, potem z Europy.
+- Nagranie ma 33 karty: 23 ptaki i 10 płazów. Pozostałe go nie mają, bo Commons nie ma pliku spełniającego te zasady, np. bielik, sokół wędrowny i kumak górski.
+- Odtwarzacz nic nie pobiera, dopóki nie naciśnie się „odtwórz”. Plik gra jako MP3: oryginał albo MP3, które Commons robi z pliku Ogg lub WAV.
+- `npm run test:collections` sprawdza każde nagranie: kartę, adres MP3 na upload.wikimedia.org, stronę pliku, autora, licencję z pasującym linkiem i długość.
+
 ## Wygląd: gabinet osobliwości
 
 - **Styl:** ciemne tło, bursztynowy akcent, cienkie linie; kolekcje to szuflady gabinetu ułożone na trzech półkach (grupach).

@@ -513,6 +513,42 @@ for (const scripts of manifestScripts) {
   if (placesFile) assert(fs.existsSync(placesFile.slice(1)), `${placesFile} is listed in collections.js but missing`);
 }
 
+// Voice recordings live in data/sounds/<collection>.sounds.js: only birds, frogs and toads, from Wikimedia
+// Commons, each with its author, license and file page, played as MP3 (which every browser plays).
+const soundCollections = new Set(["ptaki", "plazy-gady"]);
+const soundData = context.window.ATLAS_SOUNDS || {};
+const soundLicenses = {
+  "CC0": /^https:\/\/creativecommons\.org\/publicdomain\/zero\/1\.0\/?$/,
+  "CC BY": /^https:\/\/creativecommons\.org\/licenses\/by\/(2\.0|2\.5|3\.0|4\.0)\/?$/,
+  "CC BY-SA": /^https:\/\/creativecommons\.org\/licenses\/by-sa\/(2\.0|2\.5|3\.0|4\.0)\/?$/
+};
+for (const file of fs.existsSync("data/sounds") ? fs.readdirSync("data/sounds") : []) {
+  const collectionId = file.replace(/\.sounds\.js$/, "");
+  const collection = collections.find((entry) => entry.id === collectionId);
+  assert(collection && soundCollections.has(collectionId), `data/sounds/${file}: only birds, frogs and toads get voice recordings`);
+  assert(manifestScripts.some((scripts) => scripts.includes(`/data/sounds/${file}`)), `data/sounds/${file} should be loaded with its collection`);
+  const sounds = soundData[collectionId];
+  assert(sounds?.items, `data/sounds/${file} should set window.ATLAS_SOUNDS["${collectionId}"].items`);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(sounds.checked || ""), `data/sounds/${file} should give the date the recordings were checked`);
+  for (const [id, sound] of Object.entries(sounds.items)) {
+    const where = `${collectionId}/${id}`;
+    assert(collection.items.some((item) => item.id === id), `data/sounds/${file}: ${id} is not a card of ${collectionId}`);
+    assert(sound.file && /\.(mp3|ogg|oga|flac|wav|opus)$/i.test(sound.file), `${where}: the recording should name its Commons file`);
+    assert(/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/\S+\.mp3$/.test(sound.src), `${where}: the recording should play as an MP3 from upload.wikimedia.org`);
+    assert(sound.source?.startsWith("https://commons.wikimedia.org/wiki/File:"), `${where}: the source should be the Commons file page`);
+    assert(sound.author && !/^(unknown|anonymous|nieznany)/i.test(sound.author), `${where}: the recording should name its author`);
+    const family = Object.keys(soundLicenses).find((name) => sound.license === name || sound.license?.startsWith(`${name} `));
+    assert(family && (family === "CC0" ? sound.license === "CC0" : /^CC BY(-SA)? (2\.0|2\.5|3\.0|4\.0)$/.test(sound.license)), `${where}: ${sound.license} is not a license the atlas uses`);
+    assert(soundLicenses[family].test(sound.license_url) && (family === "CC0" || sound.license_url.includes(sound.license.split(" ").pop())), `${where}: the license link should match ${sound.license}`);
+    assert(Number.isFinite(sound.duration) && sound.duration > 0 && sound.duration <= 600, `${where}: the recording should give its length`);
+  }
+  assert.equal(Object.keys(collection.sounds || {}).length, Object.keys(sounds.items).length, `${collectionId}: every recording should reach the collection`);
+}
+for (const scripts of manifestScripts) {
+  const soundsFile = scripts.find((src) => src.startsWith("/data/sounds/"));
+  if (soundsFile) assert(fs.existsSync(soundsFile.slice(1)), `${soundsFile} is listed in collections.js but missing`);
+}
+
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");

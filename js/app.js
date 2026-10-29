@@ -737,6 +737,7 @@
           <div class="meta-line">
             <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryShort(item))}</span>
             <span class="pill">${escapeHtml(itemLevel(item) || "atlas")}</span>
+            ${activeCollection().sounds?.[item.id] ? `<span class="pill"><span aria-hidden="true">🔊</span> ${escapeHtml(t("soundBadge"))}</span>` : ""}
           </div>
           ${factsSectionHtml(item, { compact: true })}
         </div>
@@ -836,6 +837,27 @@
       </div>`;
   }
 
+  // The player knows the length only once the file loads, so the card gives it from the data.
+  function soundLength(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const rest = seconds % 60;
+    return minutes ? `${minutes} min${rest ? ` ${rest} s` : ""}` : `${rest} s`;
+  }
+
+  // The voice of a bird, frog or toad, from Wikimedia Commons. Nothing loads before "play"; if the file
+  // cannot play, the card says so and the file page stays a link away.
+  function soundHtml(collection, item) {
+    const sound = collection.sounds?.[item.id];
+    if (!sound) return "";
+    return `
+      <section class="card-sound" aria-labelledby="cardSoundTitle">
+        <h3 id="cardSoundTitle">${escapeHtml(t("soundTitle"))} <span class="card-sound__length">· ${escapeHtml(soundLength(sound.duration))}</span></h3>
+        <audio class="card-sound__player" controls preload="none" src="${escapeHtml(sound.src)}" aria-label="${escapeHtml(t("soundLabel", { name: itemName(item, collection) }))}" onerror="this.closest('.card-sound').classList.add('is-broken')"></audio>
+        <p class="card-sound__error" role="status">${escapeHtml(t("soundError"))}</p>
+        <p class="card-sound__credit">${escapeHtml(t("soundCredit"))}: ${escapeHtml(sound.author)} · <a href="${escapeHtml(sound.license_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(sound.license)}</a> · <a href="${escapeHtml(sound.source)}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a></p>
+      </section>`;
+  }
+
   function cardToolsHtml(collection, item) {
     return `
       <div class="card-tools">
@@ -867,6 +889,7 @@
         ${badgesHtml(item)}
         ${cardToolsHtml(collection, item)}
         <p class="hook">${escapeHtml(itemHook(item))}</p>
+        ${soundHtml(collection, item)}
         ${region ? `
           <div class="occurrence-box">
             <h3>${escapeHtml(t("occurrenceTitle"))}</h3>
@@ -1854,11 +1877,30 @@
         <td>${item.image_license ? escapeHtml(item.image_license) : escapeHtml(t("missing"))}</td>
         <td>${item.image_source ? `<a href="${escapeHtml(item.image_source)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("creditSource").toLowerCase())}</a>` : escapeHtml(t("missing"))}</td>
       </tr>`).join("");
+    // The recordings of the collection, credited like the photos.
+    const sounds = items().filter((item) => activeCollection().sounds?.[item.id]);
+    const soundRows = sounds.map((item) => {
+      const sound = activeCollection().sounds[item.id];
+      return `
+      <tr>
+        <td><strong>${escapeHtml(itemName(item))}</strong><br><span class="latin">${escapeHtml(itemLatin(item))}</span></td>
+        <td>${escapeHtml(sound.file)}</td>
+        <td>${escapeHtml(sound.author)}</td>
+        <td><a href="${escapeHtml(sound.license_url)}" rel="noopener noreferrer" target="_blank">${escapeHtml(sound.license)}</a></td>
+        <td><a href="${escapeHtml(sound.source)}" rel="noopener noreferrer" target="_blank">${escapeHtml(t("creditSource").toLowerCase())}</a></td>
+      </tr>`;
+    }).join("");
     $("#creditsTable").innerHTML = `
       <table>
         <thead><tr><th>${escapeHtml(t("creditSpecies"))}</th><th>${escapeHtml(t("creditFile"))}</th><th>${escapeHtml(t("creditAuthor"))}</th><th>${escapeHtml(t("creditLicense"))}</th><th>${escapeHtml(t("creditSource"))}</th></tr></thead>
         <tbody>${rows}</tbody>
-      </table>`;
+      </table>
+      ${sounds.length ? `
+      <h3 class="credits-table__title">${escapeHtml(t("soundCreditsTitle"))}</h3>
+      <table>
+        <thead><tr><th>${escapeHtml(t("creditSpecies"))}</th><th>${escapeHtml(t("creditFile"))}</th><th>${escapeHtml(t("creditAuthor"))}</th><th>${escapeHtml(t("creditLicense"))}</th><th>${escapeHtml(t("creditSource"))}</th></tr></thead>
+        <tbody>${soundRows}</tbody>
+      </table>` : ""}`;
   }
 
   // ----- Map of places -----
