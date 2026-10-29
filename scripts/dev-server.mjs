@@ -64,6 +64,14 @@ export function createStaticServer({ rootDir = projectRoot } = {}) {
 
     const filePath = await resolveRequestFile(request.url || "/", rootDir);
     if (!filePath) {
+      // Like Vercel: the built 404.html when there is one.
+      const notFound = path.join(rootDir, "404.html");
+      if (await isFile(notFound)) {
+        response.writeHead(404, { "Cache-Control": "no-store", "Content-Type": mimeTypes[".html"] });
+        if (request.method === "HEAD") response.end();
+        else createReadStream(notFound).pipe(response);
+        return;
+      }
       response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
       response.end("Not found");
       return;
