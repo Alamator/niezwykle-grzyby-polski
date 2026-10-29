@@ -2,8 +2,9 @@
 // which Vercel runs (vercel.json). Each page is index.html with its own title, description, canonical
 // address and link preview, already opened on its collection, so search engines and link previews see
 // the collection or card itself. In the browser the app takes over as on any other address.
-// It also writes mapa.html, the map of every place, and 404.html, which Vercel shows for an address that
-// leads nowhere. The output (atlas/, mapa.html, sitemap.xml and 404.html) is not committed; see .gitignore.
+// It also writes mapa.html, the map of every place, quiz.html, the quiz of the whole atlas, and 404.html,
+// which Vercel shows for an address that leads nowhere. The output (atlas/, mapa.html, quiz.html,
+// sitemap.xml and 404.html) is not committed; see .gitignore.
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -12,6 +13,7 @@ import { loadAtlas } from "./build-start-page.mjs";
 
 const SITE_NAME = "Atlas Osobliwości Polski";
 export const MAP_ROUTE = "/mapa";
+export const QUIZ_ROUTE = "/quiz";
 
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
@@ -130,10 +132,11 @@ export function buildPages(win, indexHtml) {
   }
   const built = pages.map((page) => ({ file: page.file, route: page.route, html: pageHtml(indexHtml, origin, page) }));
   const map = mapPage(win, indexHtml, origin);
+  const quiz = quizPage(win, indexHtml, origin);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    ["/", map.route, ...built.map((page) => page.route)].map((route) => `  <url><loc>${escapeHtml(`${origin}${route}`)}</loc></url>`).join("\n") +
+    ["/", map.route, quiz.route, ...built.map((page) => page.route)].map((route) => `  <url><loc>${escapeHtml(`${origin}${route}`)}</loc></url>`).join("\n") +
     "\n</urlset>\n";
-  return { pages: [map, ...built], sitemap };
+  return { pages: [map, quiz, ...built], sitemap };
 }
 
 // The Polish plural form, as the app picks it (tPlural in js/app.js).
@@ -166,6 +169,25 @@ function mapPage(win, indexHtml, origin) {
   html = replaceOnce(html, `<p id="allMapEyebrow" class="eyebrow">${ui.allMapDocumentTitle}</p>`, `<p id="allMapEyebrow" class="eyebrow">${escapeHtml(ui.allMapEyebrow.replace("{places}", count))}</p>`, "map page eyebrow");
   html = replaceOnce(html, '<div id="allPlaceList" class="source-panel place-list"></div>', `<div id="allPlaceList" class="source-panel place-list"><noscript>${noscript}</noscript></div>`, "map page list");
   return { file: "mapa.html", route: MAP_ROUTE, html };
+}
+
+// The quiz of the whole atlas, opened on its page. A quiz needs scripts, so without them the page says so
+// and leads to the collections.
+function quizPage(win, indexHtml, origin) {
+  const ui = win.ATLAS_I18N.ui.pl;
+  const page = {
+    route: QUIZ_ROUTE,
+    title: `${ui.atlasQuizDocumentTitle} – ${SITE_NAME}`,
+    shareTitle: "Quiz Atlasu Osobliwości Polski",
+    description: "Wyzwanie dnia, dziś takie samo dla wszystkich, i losowy quiz z pytaniami z różnych kolekcji Atlasu Osobliwości Polski: opisy, nazwy i ciekawostki ze źródłami."
+  };
+  const collections = win.ATLAS_APP_DATA.collections.map((collection) =>
+    `<li><a href="${escapeHtml(routeForCollection(collection))}">${escapeHtml(collection.title)}</a></li>`).join("");
+  let html = headHtml(indexHtml, origin, page);
+  html = replaceOnce(html, '<div id="quizPage" class="quiz-page is-hidden" tabindex="-1">', '<div id="quizPage" class="quiz-page" tabindex="-1">', "quiz page");
+  html = replaceOnce(html, '<div id="atlasQuizBox" class="quiz-box atlas-quiz"></div>',
+    `<div id="atlasQuizBox" class="quiz-box atlas-quiz"><noscript><p>Quiz działa w przeglądarce z włączonym JavaScriptem. Karty, z których powstają pytania, są w kolekcjach:</p><ul class="static-list">${collections}</ul></noscript></div>`, "quiz box");
+  return { file: "quiz.html", route: QUIZ_ROUTE, html };
 }
 
 // The page for an address that leads nowhere: no scripts, a way home and every collection.
@@ -236,5 +258,5 @@ export function writePages(outDir = ".") {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { pages, urls } = writePages(".");
-  console.log(`build-pages: ${pages} pages (atlas/ and mapa.html), ${urls} addresses in sitemap.xml, 404.html`);
+  console.log(`build-pages: ${pages} pages (atlas/, mapa.html, quiz.html), ${urls} addresses in sitemap.xml, 404.html`);
 }

@@ -103,6 +103,13 @@
           <p class="daily-fact__loading">Wczytuję ciekawostkę dnia…</p>
         </div>
       </div>
+      <div class="daily-quiz">
+        <div class="daily-quiz__text">
+          <h2 id="dailyQuizCardTitle" class="eyebrow">Wyzwanie dnia</h2>
+          <p id="dailyQuizCardText">5 pytań z całego atlasu, dziś te same dla wszystkich.</p>
+        </div>
+        <a id="dailyQuizCardLink" class="primary" href="/quiz" data-action="go-quiz" data-mode="daily">Zagraj</a>
+      </div>
     </section>
 
     <section id="about" class="about shell" aria-labelledby="about-title">
@@ -160,6 +167,32 @@
       <div id="nearList" class="source-panel place-list is-hidden"></div>
       <div id="allPlaceList" class="source-panel place-list"></div>
       <p id="allMapSourceNote" class="map-source-note"></p>
+    </div>
+  </div>
+
+  <div id="quizPage" class="quiz-page is-hidden" tabindex="-1">
+    <section class="quiz-page__head shell" aria-labelledby="atlasQuizTitle">
+      <p id="atlasQuizEyebrow" class="eyebrow">Quiz atlasu</p>
+      <h1 id="atlasQuizTitle">Sprawdź się na <em>całym</em> atlasie</h1>
+      <p id="atlasQuizLead" class="lead">Pytania z różnych kolekcji: opisy, nazwy i ciekawostki ze źródłami. Wyzwanie dnia jest dziś takie samo dla wszystkich, a losowy quiz za każdym razem jest inny.</p>
+    </section>
+    <div class="quiz-page__body shell">
+      <div id="atlasQuizModes" class="quiz-modes" role="group" aria-label="Wybierz quiz">
+        <article class="quiz-mode quiz-mode--daily">
+          <p id="dailyModeEyebrow" class="eyebrow">Wyzwanie dnia</p>
+          <h2 id="dailyModeTitle">5 pytań, dziś te same dla wszystkich</h2>
+          <p id="dailyModeText" class="quiz-mode__text">Każde pytanie z innej kolekcji. Jutro będą nowe.</p>
+          <button id="dailyModeButton" class="primary" type="button" data-action="atlas-quiz-start" data-mode="daily">Zagraj</button>
+        </article>
+        <article class="quiz-mode">
+          <p id="mixModeEyebrow" class="eyebrow">Losowy quiz</p>
+          <h2 id="mixModeTitle">10 pytań z całego atlasu</h2>
+          <p id="mixModeText" class="quiz-mode__text">Za każdym razem inne kolekcje i pytania.</p>
+          <button id="mixModeButton" class="secondary" type="button" data-action="atlas-quiz-start" data-mode="mix">Zagraj</button>
+        </article>
+      </div>
+      <div id="atlasQuizBox" class="quiz-box atlas-quiz"></div>
+      <p id="atlasQuizNote" class="map-source-note">Wyniki wyzwań dnia są tylko w tej przeglądarce: atlas nigdzie ich nie wysyła.</p>
     </div>
   </div>
 
@@ -248,6 +281,7 @@
           <p id="quizNote" class="section-note">Pytania powstają z opisów, nazw i ciekawostek aktywnej kolekcji, także jako „prawda czy fałsz”.</p>
         </div>
         <div id="quizBox" class="quiz-box"></div>
+        <p class="map-all-link"><a id="atlasQuizLink" href="/quiz" data-action="go-quiz">Quiz z całego atlasu i wyzwanie dnia</a></p>
       </section>
 
       <section id="sources" class="view" aria-labelledby="sources-title">

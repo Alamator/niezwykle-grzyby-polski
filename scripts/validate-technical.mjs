@@ -77,7 +77,7 @@ assert.equal(vercelConfig.buildCommand, "npm run build", "Vercel should build th
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
-assert(/^\/atlas\/$/m.test(gitignore) && /^\/mapa\.html$/m.test(gitignore) && /^\/sitemap\.xml$/m.test(gitignore) && /^\/404\.html$/m.test(gitignore), ".gitignore should keep the built pages, sitemap and 404 page out of git");
+assert(["/atlas/", "/mapa.html", "/quiz.html", "/sitemap.xml", "/404.html"].every((entry) => gitignore.split("\n").includes(entry)), ".gitignore should keep the built pages, sitemap and 404 page out of git");
 assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");
 {
   const { buildPages, cardSlug } = await import("./build-pages.mjs");
@@ -86,7 +86,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   const { pages, sitemap } = buildPages(win, indexHtml);
   const collections = win.ATLAS_APP_DATA.collections;
   const cardCount = collections.reduce((sum, collection) => sum + collection.items.length, 0);
-  assert.equal(pages.length, 1 + collections.length + cardCount, "the map, every collection and every card should get a page");
+  assert.equal(pages.length, 2 + collections.length + cardCount, "the map, the quiz, every collection and every card should get a page");
   assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length + 1, "the sitemap should list the start page and every page");
   assert.equal(new Set(pages.map((page) => page.route)).size, pages.length, "every page should have its own address");
   const card = pages.find((page) => page.route === "/atlas/grzyby/okratek-australijski");
@@ -116,6 +116,23 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     assert(mapPage.html.includes(`href="${route}"`), `the map page should link to ${route} for readers without scripts`);
   }
   assert(sitemap.includes(`<loc>${origin}${MAP_ROUTE}</loc>`), "the sitemap should list the map page");
+  // The quiz of the whole atlas: its own title and address, opened on the quiz; js/app.js opens the same address.
+  const { QUIZ_ROUTE } = await import("./build-pages.mjs");
+  assert.equal(QUIZ_ROUTE, "/quiz");
+  assert(appJs.includes(`const ALL_QUIZ_ROUTE = "${QUIZ_ROUTE}";`), "js/app.js should open the quiz of the whole atlas at the address of its page");
+  const quizPage = pages.find((page) => page.route === QUIZ_ROUTE);
+  assert.equal(quizPage?.file, "quiz.html", "the quiz should be built as quiz.html, served at /quiz");
+  assert.match(quizPage.html, /<title>Quiz atlasu – Atlas Osobliwości Polski<\/title>/);
+  assert(quizPage.html.includes(`<link rel="canonical" href="${origin}${QUIZ_ROUTE}" />`), "the quiz page should name itself as canonical");
+  assert(quizPage.html.includes('<div id="startPage" class="start-page is-hidden">'), "the quiz page should not open on the start page");
+  assert(quizPage.html.includes('<div id="quizPage" class="quiz-page" tabindex="-1">'), "the quiz page should open on the quiz");
+  assert(sitemap.includes(`<loc>${origin}${QUIZ_ROUTE}</loc>`), "the sitemap should list the quiz page");
+  // The page names the numbers of questions before the app runs; they have to be the app's.
+  const dailyQuestions = appJs.match(/const DAILY_QUESTIONS = (\d+);/)?.[1];
+  const mixQuestions = appJs.match(/const MIX_QUESTIONS = (\d+);/)?.[1];
+  assert(dailyQuestions && mixQuestions, "js/app.js should set the numbers of questions of the atlas quiz");
+  assert(indexHtml.includes(`<h2 id="dailyModeTitle">${dailyQuestions} pytań,`) && indexHtml.includes(`<p id="dailyQuizCardText">${dailyQuestions} pytań z całego atlasu`), "index.html should give the number of questions of the daily challenge");
+  assert(indexHtml.includes(`<h2 id="mixModeTitle">${mixQuestions} pytań z całego atlasu</h2>`), "index.html should give the number of questions of the random quiz");
   // 404.html: out of search results, with a way home and a link to every collection.
   const { notFoundHtml } = await import("./build-pages.mjs");
   const notFound = notFoundHtml(win);
@@ -203,6 +220,10 @@ try {
     /Atlas Osobliwości Polski/,
     "nested atlas route should fall back to index.html"
   );
+
+  const quizResponse = await fetch(`http://127.0.0.1:${port}/quiz`);
+  assert.equal(quizResponse.status, 200, "local dev server should serve the quiz of the whole atlas");
+  assert.match(await quizResponse.text(), /id="quizPage"/, "the quiz address should open the app");
 
   const mapResponse = await fetch(`http://127.0.0.1:${port}/mapa`);
   assert.equal(mapResponse.status, 200, "local dev server should serve the map of every place");

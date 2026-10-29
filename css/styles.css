@@ -1251,7 +1251,7 @@ h1 em, h2 em { color: var(--amber); }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.question-card h3 { font-size: clamp(25px, 3vw, 37px); line-height: 1.15; }
+.question-card h3 { font-size: clamp(25px, 3vw, 37px); line-height: 1.15; scroll-margin-top: 5rem; }
 .question-card > p { color: var(--ink-2); }
 .answers {
   display: grid;
@@ -1296,6 +1296,53 @@ h1 em, h2 em { color: var(--amber); }
   background: var(--bg-3);
   font-size: 16.5px;
 }
+
+/* ---------- Quiz of the whole atlas (/quiz) and the daily challenge ---------- */
+
+.quiz-page__head { padding: clamp(32px, 5vw, 64px) 0 clamp(20px, 3vw, 32px); }
+.quiz-page__head h1 { margin: 0.4rem 0 1rem; font-size: clamp(40px, 5.6vw, 76px); }
+.quiz-modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+.quiz-mode {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.5rem;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-2);
+}
+.quiz-mode--daily { background: linear-gradient(135deg, rgba(233, 164, 59, 0.08), transparent 60%), var(--bg-2); border-color: var(--line-2); }
+.quiz-mode .eyebrow { margin: 0; }
+.quiz-mode h2 { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.1; }
+.quiz-mode__text { margin: 0 0 0.5rem; color: var(--ink-2); }
+.atlas-quiz:empty { display: none; }
+.quiz-status { margin: 0; color: var(--muted); font-weight: 600; }
+.quiz-card-link { display: inline-block; margin-top: 0.5rem; font-weight: 600; }
+.feedback .quiz-card-link { display: block; }
+.quiz-result__note { color: var(--muted); }
+
+/* The challenge on the start page, under the fact of the day. */
+.daily-quiz {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-top: 10px;
+  padding: clamp(1rem, 2.5vw, 1.4rem) clamp(1.4rem, 3.5vw, 2.6rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-2);
+}
+.daily-quiz__text { min-width: 0; }
+.daily-quiz__text .eyebrow { margin: 0 0 0.3rem; }
+.daily-quiz__text p { margin: 0; color: var(--ink-2); }
 
 /* ---------- Sources ---------- */
 
@@ -1616,6 +1663,8 @@ tbody tr:last-child td { border-bottom: 0; }
 /* Phones: the cabinet becomes a row of tiles to swipe through. */
 @media (max-width: 560px) {
   .my-drawer__item { min-height: 0; }
+  .quiz-modes { grid-template-columns: 1fr; }
+  .daily-quiz .primary { flex: 1 1 auto; }
   .cabinet {
     display: flex;
     gap: 10px;

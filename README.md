@@ -120,6 +120,18 @@ Najprostsza ścieżka:
   - Gdy przeglądarka nie pozwala zapisywać, na przykład w niektórych oknach prywatnych, strona o tym mówi.
   - Zmianę w jednej karcie przeglądarki widać od razu w pozostałych.
 
+## Quiz atlasu (`/quiz`)
+
+- Pytania z całego atlasu, z tych samych kart i tak samo jak w quizie kolekcji. Każde pytanie powstaje w swojej kolekcji, więc złe odpowiedzi to karty tego samego rodzaju.
+- Miejsca Zagłady i martyrologii nie trafiają ani do pytań, ani do odpowiedzi, tak jak w ciekawostce dnia i w „Zaskocz mnie”.
+- **Wyzwanie dnia:** 5 pytań z 5 kolekcji. Kolekcje, karty i odpowiedzi zależą tylko od daty, więc tego samego dnia każdy dostaje te same pytania, po polsku i po angielsku.
+  - Liczy się pierwszy wynik dnia. Wynik i serię dni z rzędu zna tylko przeglądarka (`localStorage`, klucz `atlasDaily`).
+  - „Udostępnij wynik” udostępnia albo kopiuje zdanie z wynikiem i adres quizu.
+- **Losowy quiz:** 10 pytań z 5 losowych kolekcji, za każdym razem innych.
+- Strona wczytuje dane tylko tych kolekcji, z których są pytania.
+- Wejścia: „Wyzwanie dnia” pod ciekawostką dnia na stronie głównej i link pod quizem każdej kolekcji.
+- Liczby pytań są w `js/app.js` (`DAILY_QUESTIONS`, `MIX_QUESTIONS`). `index.html` podaje je w tekstach, zanim ruszy skrypt, a `npm run test:technical` pilnuje, żeby się zgadzały.
+
 ## Wygląd: gabinet osobliwości
 
 - **Styl:** ciemne tło, bursztynowy akcent, cienkie linie; kolekcje to szuflady gabinetu ułożone na trzech półkach (grupach).
@@ -161,13 +173,13 @@ Framework: **Other** albo brak frameworka. Build Command `npm run build` i Outpu
 
 ## Wyszukiwarki i podgląd linków
 
-- **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`.
+- **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`, a quiz atlasu `/quiz`.
   - Adres karty to jej id bez polskich liter.
   - Stare linki `/atlas/<kolekcja>#item=<karta>` dalej otwierają kartę i przechodzą na jej adres.
-- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), `sitemap.xml` i stronę błędu `404.html`.
-  - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji albo na mapie, a bez skryptów pokazuje tekst karty albo listę kart.
+- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), stronę quizu atlasu (`quiz.html`), `sitemap.xml` i stronę błędu `404.html`.
+  - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, na mapie albo na quizie, a bez skryptów pokazuje tekst karty albo listę kart.
   - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
-  - Wyniki (`atlas/`, `mapa.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
+  - Wyniki (`atlas/`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
 - **`robots.txt`:** wskazuje mapę strony i nie wpuszcza wyszukiwarek do `docs/`, `scripts/` i plików `.md`.
 - **Google Search Console:** właściwość domeny `atlas-osobliwosci.pl` potwierdza się wpisem TXT w strefie DNS w OVH. Mapa strony: `https://www.atlas-osobliwosci.pl/sitemap.xml`.
