@@ -141,6 +141,9 @@ assert.equal(JSON.stringify(app.views.map((view) => view.id)), JSON.stringify(["
 assert.equal(i18n.defaultLanguage, "pl", "Polish should remain the default language");
 assert.equal(i18n.languages.en.label, "EN", "English language metadata should exist");
 assert.equal(i18n.ui.en.chooseCollection, "Choose a collection", "English UI copy should exist");
+for (const key of Object.keys(i18n.ui.pl)) {
+  assert(key in i18n.ui.en, `the English interface should have a text for ${key}`);
+}
 
 const collections = app.collections || [];
 assert.equal(collections.length, 18, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, memento mori, landscape records, fossils and sky phenomena");
