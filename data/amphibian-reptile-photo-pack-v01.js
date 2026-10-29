@@ -33,77 +33,77 @@
   const photos = {
     "zaba-moczarowa": photo(
       "RanaArvalisBlueMaleGroup.jpg",
-      "Kadr reprezentatywny: błękitne samce żaby moczarowej w krótkim okresie godowym",
+      "Błękitne samce żaby moczarowej w krótkim okresie godowym",
       "Christian Fischer",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "grzebiuszka-ziemna": photo(
       "Knoflookpad - common spadefoot - Pelobates fuscus 2.jpg",
-      "Kadr reprezentatywny: grzebiuszka ziemna, płaz kopiący o czosnkowej obronie",
+      "Grzebiuszka ziemna, płaz kopiący o czosnkowej obronie",
       "Bouke ten Cate",
       "CC BY 4.0",
       ccBy40
     ),
     "kumak-nizinny": photo(
       "Benny Trapp Bombina bombina Rotbauchunke.jpg",
-      "Kadr reprezentatywny: kumak nizinny z widocznym ostrzegawczym ubarwieniem brzucha",
+      "Kumak nizinny z widocznym ostrzegawczym ubarwieniem brzucha",
       "Benny Trapp",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "kumak-gorski": photo(
       "Geelbuikvuurpad - yellow bellied toad - Bombina variegata 2.tif",
-      "Kadr reprezentatywny: kumak górski z żółtym ostrzegawczym rysunkiem brzucha",
+      "Kumak górski z żółtym ostrzegawczym rysunkiem brzucha",
       "Bouke ten Cate",
       "CC BY 4.0",
       ccBy40
     ),
     "salamandra-plamista": photo(
       "Fire salamander (Salamandra Salamandra).jpg",
-      "Kadr reprezentatywny: salamandra plamista z kontrastowym czarno-żółtym ubarwieniem",
+      "Salamandra plamista z kontrastowym czarno-żółtym ubarwieniem",
       "Petar Milošević",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "ropucha-szara": photo(
       "Bufo bufo 2015 G3.jpg",
-      "Kadr reprezentatywny: ropucha szara, krępy płaz z wyraźnymi gruczołami przyusznymi",
+      "Ropucha szara, krępy płaz z wyraźnymi gruczołami przyusznymi",
       "George Chernilevsky",
       "Public domain",
       publicDomain
     ),
     "traszka-grzebieniasta": photo(
       "Kamsalamander - great crested newt - Triturus cristatus 2.jpg",
-      "Kadr reprezentatywny: traszka grzebieniasta z efektowną szatą godową",
+      "Traszka grzebieniasta z efektowną szatą godową",
       "Bouke ten Cate",
       "CC BY 4.0",
       ccBy40
     ),
     "traszka-zwyczajna": photo(
       "Ludwag Steinbruch Teichmolch-20170521-RM-173509.jpg",
-      "Kadr reprezentatywny: traszka zwyczajna w wodnej fazie sezonu rozrodczego",
+      "Traszka zwyczajna w wodnej fazie sezonu rozrodczego",
       "Ermell",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "traszka-karpacka": photo(
       "Lissotriton montandoni01.jpg",
-      "Kadr reprezentatywny: traszka karpacka, regionalna osobliwość chłodnych małych wód",
+      "Traszka karpacka, regionalna osobliwość chłodnych małych wód",
       "Maciej Pabijan",
       "CC BY-SA 2.5",
       ccBySa25
     ),
     "traszka-gorska": photo(
       "Ichthyosaura alpestris Bergmolch.jpg",
-      "Kadr reprezentatywny: traszka górska z pomarańczowym brzuchem",
+      "Traszka górska z pomarańczowym brzuchem",
       "Holger Krisp",
       "CC BY 3.0",
       ccBy30
     ),
     "ropucha-paskowka": photo(
       "Bufo calamita (Marek Szczepanek).jpg",
-      "Kadr reprezentatywny: ropucha paskówka z jasnym paskiem grzbietowym",
+      "Ropucha paskówka z jasnym paskiem grzbietowym",
       "Marek Szczepanek",
       "CC BY-SA 3.0",
       ccBySa30
@@ -117,7 +117,7 @@
     ),
     "rzekotka-drzewna": photo(
       "European tree frog (Hyla arborea) (2).jpg",
-      "Kadr reprezentatywny: rzekotka drzewna, zielony płaz z przylgami na palcach",
+      "Rzekotka drzewna, zielony płaz z przylgami na palcach",
       "Stijn99",
       "CC BY-SA 4.0",
       ccBySa40
@@ -131,42 +131,42 @@
     ),
     "zaba-trawna": photo(
       "20171104 Frog in Leeuwenhorstbos - Rana temporaria .jpg",
-      "Kadr reprezentatywny: żaba trawna w brunatnym, maskującym ubarwieniu",
+      "Żaba trawna w brunatnym, maskującym ubarwieniu",
       "Rudolphous",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "zaba-zwinka": photo(
       "Agile frog (Rana dalmatina).jpg",
-      "Kadr reprezentatywny: żaba zwinka, smukły gatunek o długich tylnych nogach",
+      "Żaba zwinka, smukły gatunek o długich tylnych nogach",
       "Petar Milošević",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "zaba-jeziorkowa": photo(
       "Bochum - Botanischer Garten - Pelophylax lessonae 01 ies.jpg",
-      "Kadr reprezentatywny: żaba jeziorkowa z grupy zielonych żab wodnych",
+      "Żaba jeziorkowa z grupy zielonych żab wodnych",
       "Frank Vincentz",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "zaba-wodna": photo(
       "2018.05.11.-24-Kirschgartshaeuser Schlaege Mannheim--Teichfrosch-Maennchen.jpg",
-      "Kadr reprezentatywny: żaba wodna, hybrydowy przedstawiciel zielonych żab",
+      "Żaba wodna, hybrydowy przedstawiciel zielonych żab",
       "Andreas Eichler",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "zaba-smieszka": photo(
       "-Pelophylax ridibundus.jpg",
-      "Kadr reprezentatywny: żaba śmieszka, duża zielona żaba związana z wodą",
+      "Żaba śmieszka, duża zielona żaba związana z wodą",
       "LOISEAU Samuel",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "zolw-blotny": photo(
       "Cistude d'Europe (Emys orbicularis).jpg",
-      "Kadr reprezentatywny: żółw błotny, rodzimy żółw Europy związany z cichymi mokradłami",
+      "Żółw błotny, rodzimy żółw Europy związany z cichymi mokradłami",
       "DEFI-Écologique",
       "CC BY-SA 4.0",
       ccBySa40
@@ -180,7 +180,7 @@
     ),
     "padalec-zwyczajny": photo(
       "Anguis fragilis autotomie (dkrb)-1.jpg",
-      "Kadr reprezentatywny: padalec zwyczajny, beznoga jaszczurka po autotomii ogona",
+      "Padalec zwyczajny, beznoga jaszczurka po autotomii ogona",
       "Drahkrub. Attribution must include the URL https://de.wikipedia.org/wiki/Benutzer:Drahkrub.",
       "CC BY-SA 4.0",
       ccBySa40
@@ -194,14 +194,14 @@
     ),
     "jaszczurka-zwinka": photo(
       "Lacerta agilis 1 (Marek Szczepanek).jpg",
-      "Kadr reprezentatywny: jaszczurka zwinka, samiec z zielonkawym ubarwieniem boków",
+      "Jaszczurka zwinka, samiec z zielonkawym ubarwieniem boków",
       "Marek Szczepanek",
       "CC BY-SA 3.0",
       ccBySa30
     ),
     "jaszczurka-zyworodna": photo(
       "Common (viviparous) lizard (zootoca vivipara).jpg",
-      "Kadr reprezentatywny: jaszczurka żyworodna, gad chłodniejszych i wilgotniejszych siedlisk",
+      "Jaszczurka żyworodna, gad chłodniejszych i wilgotniejszych siedlisk",
       "Charles J. Sharp",
       "CC BY-SA 4.0",
       ccBySa40
@@ -215,21 +215,21 @@
     ),
     "zaskroniec-rybolow": photo(
       "2017-05-21 Würfelnatter at Nahe River shore BME WiTi 08.jpg",
-      "Kadr reprezentatywny: zaskroniec rybołów przy brzegu rzeki, gatunek związany z wodą i rybami",
+      "Zaskroniec rybołów przy brzegu rzeki, gatunek związany z wodą i rybami",
       "Wild Tibbi",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "gniewosz-plamisty": photo(
       "Coronella austriaca (Laurenti, 1768).jpg",
-      "Kadr reprezentatywny: gniewosz plamisty, niejadowity wąż często mylony ze żmiją",
+      "Gniewosz plamisty, niejadowity wąż często mylony ze żmiją",
       "Ivan Medenica",
       "CC BY-SA 4.0",
       ccBySa40
     ),
     "waz-eskulapa": photo(
       "Aesculapean Snake (Zamenis longissimus) (42801938540).jpg",
-      "Kadr reprezentatywny: wąż Eskulapa, najdłuższy polski wąż i niejadowity dusiciel",
+      "Wąż Eskulapa, najdłuższy polski wąż i niejadowity dusiciel",
       "Bernard DUPONT from FRANCE",
       "CC BY-SA 2.0",
       ccBySa20
