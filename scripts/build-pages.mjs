@@ -9,7 +9,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { buildMapPoints } from "./build-map-points.mjs";
-import { loadAtlas } from "./build-start-page.mjs";
+import { buildStartPage, loadAtlas } from "./build-start-page.mjs";
 
 const SITE_NAME = "Atlas Osobliwości Polski";
 export const MAP_ROUTE = "/mapa";
@@ -81,6 +81,7 @@ function pageHtml(indexHtml, origin, page) {
   html = replaceOnce(html, '<p class="eyebrow" id="collectionEyebrow">Aktywna kolekcja</p>', `<p class="eyebrow" id="collectionEyebrow">${escapeHtml(page.group)}</p>`, "collection eyebrow");
   html = replaceOnce(html, '<h1 id="collectionTitle">Atlas</h1>', `<h1 id="collectionTitle">${escapeHtml(page.heading)}</h1>`, "collection title");
   html = replaceOnce(html, '<p id="collectionLead" class="collection-bar__lead"></p>', `<p id="collectionLead" class="collection-bar__lead">${escapeHtml(page.lead)}</p>`, "collection lead");
+  html = replaceOnce(html, '<div id="collectionPhoto" class="collection-bar__photo"></div>', page.photo, "collection photo");
   // The app keeps this text while the collection's data loads (updateActiveCollectionLabels in js/app.js).
   html = replaceOnce(html, '<span id="safetyNotice">To jest prototyp edukacyjny.</span>', `<span id="safetyNotice" data-collection="${escapeHtml(page.collectionId)}">${escapeHtml(page.safety)}</span>`, "safety notice");
   // The text of the page for readers and crawlers that do not run scripts.
@@ -88,10 +89,24 @@ function pageHtml(indexHtml, origin, page) {
   return html;
 }
 
+// The photo at the top of a collection, as js/app.js draws it in Polish (renderCollectionPhoto), marked
+// with the collection and language so the app keeps it. It is the largest thing on the first screen, and
+// here the browser fetches it while reading the page instead of after the app and the collection data.
+// npm run test:technical checks that the two copies match.
+function collectionPhotoHtml(collection, cover, ui) {
+  const src = (width) => `${cover.photo.image}?width=${width}`;
+  const credit = fill(ui.photoCreditPrefix, { name: cover.name.pl });
+  return `<div id="collectionPhoto" class="collection-bar__photo" data-collection="${escapeHtml(collection.id)}" data-language="pl">\n` +
+    `          <picture><source media="(max-width: 620px)" srcset="${escapeHtml(src(500))}" /><img src="${escapeHtml(src(960))}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>\n` +
+    `          <a class="photo-credit collection-bar__credit" href="${escapeHtml(cover.photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(credit)}</span>${escapeHtml(`${cover.photo.author} · ${cover.photo.license}`)}</a>\n` +
+    "        </div>";
+}
+
 export function buildPages(win, indexHtml) {
   const app = win.ATLAS_APP_DATA;
   const ui = win.ATLAS_I18N.ui.pl;
   const origin = canonicalOrigin(indexHtml);
+  const { covers } = buildStartPage(win);
   const pages = [];
   for (const collection of app.collections) {
     const route = routeForCollection(collection);
@@ -102,6 +117,7 @@ export function buildPages(win, indexHtml) {
       group,
       heading: collection.heading || collection.title,
       lead: collection.subtitle,
+      photo: collectionPhotoHtml(collection, covers[collection.id], ui),
       safety: collection.safety_notice,
       hasMap: Object.keys(collection.places || {}).length > 0
     };

@@ -227,6 +227,29 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybuty `onerror` w HTML, a mapa (MapLibre) potrzebuje `blob:`. To osobny krok.
 
+### Zdjęcia: rozmiar i kolejność
+
+- Commons podaje zdjęcia w stałych szerokościach (250, 330, 500, 960, 1280 px), a każdą inną zaokrągla w górę. Gdy oryginał jest węższy, podaje oryginał.
+- Zdjęcie karty ma `srcset` 330, 500 i 960 px. Przeglądarka bierze najmniejsze dość ostre dla ekranu:
+  - na komputerze z gęstością pikseli 1 zwykle 500 px;
+  - na telefonie z gęstością 2–3 nadal 960 px.
+- Szerokości zdjęć na stronie (`CARD_PHOTO_SIZES` i `LARGE_PHOTO_SIZES` w `js/app.js`) są zmierzone z `css/styles.css`. Po zmianie układu siatki kart, okna karty albo fiszki trzeba je poprawić.
+- Zdjęcie szersze niż jego ramka (np. panorama) jest rysowane szerzej niż ramka, bo wypełnia jej wysokość.
+  - Po wczytaniu `fitWidePhoto` w `js/app.js` pobiera obok większą wersję, w rozmiarze, w jakim zdjęcie jest naprawdę rysowane.
+  - Podmienia ją dopiero, gdy się wczyta. Jeśli się nie wczyta, zostaje pierwsze zdjęcie.
+- Zdjęcie w nagłówku kolekcji jest największe na pierwszym ekranie.
+  - `npm run build` wpisuje je do strony kolekcji i karty z `fetchpriority="high"`, więc przeglądarka pobiera je już przy czytaniu strony, a nie dopiero po wczytaniu aplikacji i danych kolekcji.
+  - Na telefonie (do 620 px) leży przyciemnione pod tytułem, więc wystarcza wersja 500 px (`<picture>`).
+    - Wygląda praktycznie tak samo jak 960 px, a waży od jednej trzeciej do połowy tego.
+    - Mniej też zabiera łącza skryptom i danym kolekcji.
+  - Aplikacja rozpoznaje je po `data-collection` i `data-language` i nie rysuje go drugi raz.
+  - Znaczniki tego zdjęcia są w dwóch miejscach: `renderCollectionPhoto` i `photoCreditHtml` w `js/app.js` oraz `collectionPhotoHtml` w `scripts/build-pages.mjs`. Zmienia się je razem.
+- Duże zdjęcie w oknie karty i na fiszce ma pierwszeństwo. Karty w siatce wczytują się, gdy zbliżają się do ekranu.
+- `npm run test:technical` pilnuje trzech rzeczy:
+  - karty mają tylko szerokości, które podaje Commons;
+  - każda strona kolekcji i karty ma zdjęcie nagłówka z autorem, licencją i źródłem;
+  - zdjęcie nagłówka w `js/app.js` wygląda tak, jak to wpisane do stron. Zmiana tylko po jednej stronie zatrzymuje test.
+
 ## Wyszukiwarki i podgląd linków
 
 - **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`, a quiz atlasu `/quiz`.
