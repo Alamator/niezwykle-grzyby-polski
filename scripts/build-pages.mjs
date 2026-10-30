@@ -75,6 +75,7 @@ export function languageTexts(win, language) {
       (app.groups || []).find((entry) => entry.id === collection.group)?.label || "",
     name: (collection, item) => card(collection, item).name || item.name_pl,
     hook: (collection, item) => card(collection, item).hook || item.hook,
+    latin: (collection, item) => card(collection, item).latin || item.name_lat || "",
     region: (collection, item) => (language === "en" ? card(collection, item).region : item.region_pl) || "",
     plural: (forms, count) => (forms[new Intl.PluralRules(language).select(count)] ?? forms.other).replace("{count}", count),
     address: (route) => addressFor(route, language)
@@ -205,7 +206,20 @@ function englishHtml(html, texts) {
   html = replaceOnce(html, /<p class="daily-fact__loading">[^<]*<\/p>/, `<p class="daily-fact__loading">${escapeHtml(ui.dailyFactLoading)}</p>`, "fact of the day loading");
   html = replaceOnce(html, /(<ul id="sourceChecklist">)[\s\S]*?(<\/ul>)/, (_, open, close) => `${open}${ui.sourceChecklistItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}${close}`, "source checklist");
   const questions = (count) => texts.plural(ui.questionCountForms, count);
+  const noCards = texts.plural(ui.cardCountForms, 0);
+  html = replaceOnce(html, /(<a id="drawerLink"[^>]*? aria-label=")[^"]*("[^>]*>)[^<]*(<\/a>)/, (_, start, end, close) => `${start}${escapeHtml(fill(ui.drawerLinkLabel, { cards: noCards }))}${end}${escapeHtml(ui.drawerLinkText)}${close}`, "drawer link");
+  html = replaceOnce(html, /(<input id="searchInput"[^>]*? placeholder=")[^"]*"/, (_, start) => `${start}${escapeHtml(ui.searchFallback)}"`, "search hint");
+  html = replaceOnce(html, /(<div id="placeMap"[^>]*? aria-label=")[^"]*"/, (_, start) => `${start}${escapeHtml(ui.mapCanvas)}"`, "collection map name");
+  // Without a collection the app leaves the heading and notes of the collection view as they are; here they
+  // wait empty.
+  html = replaceOnce(html, /<h2 id="atlas-title">[^<]*<\/h2>/, '<h2 id="atlas-title"></h2>', "atlas title");
+  html = replaceOnce(html, /<span id="safetyNotice">[^<]*<\/span>/, '<span id="safetyNotice"></span>', "safety notice");
+  html = replaceOnce(html, /<p class="section-note" id="sourceNote">[^<]*<\/p>/, '<p class="section-note" id="sourceNote"></p>', "source note");
   for (const [id, text] of [
+    ["collectionEyebrow", ui.activeCollection],
+    ["allMapEyebrow", ui.allMapDocumentTitle],
+    ["myDrawerEyebrow", fill(ui.myDrawerEyebrow, { cards: noCards })],
+    ["myDrawerMore", fill(ui.myDrawerShowAll, { cards: noCards })],
     ["heroEyebrow", fill(ui.heroEyebrow, { collections: texts.plural(ui.collectionCountForms, texts.collections) })],
     ["dailyQuizCardText", fill(ui.startDailyQuizText, { questions: questions(DAILY_QUESTIONS) })],
     ["dailyQuizCardLink", ui.atlasQuizPlay],
@@ -215,7 +229,7 @@ function englishHtml(html, texts) {
     ["dailyModeButton", ui.atlasQuizPlay],
     ["mixModeTitle", fill(ui.mixQuizTitle, { questions: questions(MIX_QUESTIONS) })]
   ]) {
-    html = replaceOnce(html, new RegExp(`(<(\\w+) id="${id}"[^>]*>)[^<]*(</\\2>)`), (_, open, tag, close) => `${open}${escapeHtml(text)}${close}`, `${id} text`);
+    html = replaceOnce(html, new RegExp(`(<(\\w+)\\b[^>]*? id="${id}"[^>]*>)[^<]*(</\\2>)`), (_, open, tag, close) => `${open}${escapeHtml(text)}${close}`, `${id} text`);
   }
   return html;
 }
@@ -227,14 +241,15 @@ function pageHtml(indexHtml, origin, page, texts) {
   if (page.hasMap) {
     html = replaceOnce(html, '<button class="nav-btn is-hidden" data-view="map" type="button"', '<button class="nav-btn" data-view="map" type="button"', "map tab");
   }
-  html = replaceOnce(html, '<p class="eyebrow" id="collectionEyebrow">Aktywna kolekcja</p>', `<p class="eyebrow" id="collectionEyebrow">${escapeHtml(page.group)}</p>`, "collection eyebrow");
+  html = replaceOnce(html, /<p class="eyebrow" id="collectionEyebrow">[^<]*<\/p>/, `<p class="eyebrow" id="collectionEyebrow">${escapeHtml(page.group)}</p>`, "collection eyebrow");
   html = replaceOnce(html, '<h1 id="collectionTitle">Atlas</h1>', `<h1 id="collectionTitle">${escapeHtml(page.heading)}</h1>`, "collection title");
   html = replaceOnce(html, '<p id="collectionLead" class="collection-bar__lead"></p>', `<p id="collectionLead" class="collection-bar__lead">${escapeHtml(page.lead)}</p>`, "collection lead");
   html = replaceOnce(html, '<div id="collectionPhoto" class="collection-bar__photo"></div>', page.photo, "collection photo");
-  html = replaceOnce(html, '<h2 id="atlas-title">Osobliwości</h2>', `<h2 id="atlas-title">${escapeHtml(page.atlasTitle)}</h2>`, "atlas title");
+  html = replaceOnce(html, /<h2 id="atlas-title">[^<]*<\/h2>/, `<h2 id="atlas-title">${escapeHtml(page.atlasTitle)}</h2>`, "atlas title");
   html = replaceOnce(html, /<p class="section-note" id="sourceNote">[^<]*<\/p>/, `<p class="section-note" id="sourceNote">${escapeHtml(page.sourceNote)}</p>`, "source note");
   // The app keeps this text while the collection's data loads (updateActiveCollectionLabels in js/app.js).
-  html = replaceOnce(html, '<span id="safetyNotice">To jest prototyp edukacyjny.</span>', `<span id="safetyNotice" data-collection="${escapeHtml(page.collectionId)}">${escapeHtml(page.safety)}</span>`, "safety notice");
+  html = replaceOnce(html, /<span id="safetyNotice">[^<]*<\/span>/, `<span id="safetyNotice" data-collection="${escapeHtml(page.collectionId)}">${escapeHtml(page.safety)}</span>`, "safety notice");
+  html = replaceOnce(html, /(<input id="searchInput"[^>]*? placeholder=")[^"]*"/, (_, start) => `${start}${escapeHtml(page.searchHint)}"`, "search hint");
   // The text of the page for readers and crawlers that do not run scripts.
   html = replaceOnce(html, '<div class="app-main__body shell">', `<div class="app-main__body shell">\n        <noscript>${page.noscript}</noscript>`, "main body");
   return html;
@@ -300,6 +315,7 @@ function collectionPages(win, indexHtml, origin, texts) {
       // As the app writes them (renderStats and updateActiveCollectionLabels in js/app.js).
       atlasTitle: `${texts.collection(collection, "count_label")} - ${title}`,
       sourceNote: texts.collection(collection, "source_note"),
+      searchHint: texts.collection(collection, "search_placeholder") || ui.searchFallback,
       hasMap: Object.keys(collection.places || {}).length > 0
     };
     const slugs = new Set();
@@ -328,7 +344,7 @@ function collectionPages(win, indexHtml, origin, texts) {
         shareTitle: name,
         description: fill(ui.metaCardDescription, { hook: sentence(texts.hook(collection, item)), collection: title }),
         noscript: `<article class="static-card"><p class="eyebrow">${escapeHtml(title)}</p><h2>${escapeHtml(name)}</h2>` +
-          `<p class="latin">${escapeHtml(item.name_lat)}</p><p>${escapeHtml(texts.hook(collection, item))}</p>` +
+          `<p class="latin">${escapeHtml(texts.latin(collection, item))}</p><p>${escapeHtml(texts.hook(collection, item))}</p>` +
           (region ? `<p><strong>Region:</strong> ${escapeHtml(region)}</p>` : "") +
           `<p><a href="${escapeHtml(texts.address(route))}">${escapeHtml(title)}: ${words.allCards}</a></p></article>`
       };
@@ -362,7 +378,7 @@ function mapPage(win, indexHtml, origin, texts) {
   let html = headHtml(indexHtml, origin, page, texts);
   html = replaceOnce(html, /<a id="mapLink" class="topbar__link" href="[^"]*"/, (tag) => `${tag} aria-current="page"`, "map link");
   html = replaceOnce(html, '<div id="mapPage" class="map-page is-hidden" tabindex="-1">', '<div id="mapPage" class="map-page" tabindex="-1">', "map page");
-  html = replaceOnce(html, `<p id="allMapEyebrow" class="eyebrow">${win.ATLAS_I18N.ui.pl.allMapDocumentTitle}</p>`, `<p id="allMapEyebrow" class="eyebrow">${escapeHtml(fill(ui.allMapEyebrow, { places: count }))}</p>`, "map page eyebrow");
+  html = replaceOnce(html, /<p id="allMapEyebrow" class="eyebrow">[^<]*<\/p>/, `<p id="allMapEyebrow" class="eyebrow">${escapeHtml(fill(ui.allMapEyebrow, { places: count }))}</p>`, "map page eyebrow");
   html = replaceOnce(html, '<div id="allPlaceList" class="source-panel place-list"></div>', `<div id="allPlaceList" class="source-panel place-list"><noscript>${noscript}</noscript></div>`, "map page list");
   return built(page, texts, html);
 }

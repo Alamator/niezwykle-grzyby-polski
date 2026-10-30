@@ -221,6 +221,18 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   for (const name of ["addressFor", "markdownLight"]) {
     assert(bodyOf(appJs, name) && bodyOf(appJs, name) === bodyOf(buildPagesJs, name), `${name} should be the same in js/app.js and scripts/build-pages.mjs`);
   }
+  // The texts index.html marks with a key are written by the app alone when the reader switches language or
+  // goes back across a switch.
+  const chromeBody = bodyOf(appJs, "renderChrome");
+  for (const line of [
+    '$$("[data-i18n]").forEach((node) => { node.textContent = t(node.dataset.i18n); });',
+    '$$("[data-i18n-html]").forEach((node) => { node.innerHTML = markdownLight(t(node.dataset.i18nHtml)); });',
+    '$$("[data-i18n-label]").forEach((node) => node.setAttribute("aria-label", t(node.dataset.i18nLabel)));',
+    '$$("[data-i18n-placeholder]").forEach((node) => node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder)));'
+  ]) {
+    assert(chromeBody?.includes(line), `renderChrome in js/app.js should write every keyed text in the reader's language; missing: ${line}`);
+  }
+  assert(bodyOf(appJs, "applyLanguage")?.includes("renderChrome();"), "a change of language should write the keyed texts again");
   const english = (route) => addressFor(route, "en");
   assert.equal(english("/"), "/en");
   assert.equal(english("/mapa"), "/en/mapa");
@@ -243,7 +255,8 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   }
   assert(sitemap.includes(`<loc>${origin}${ENGLISH_PREFIX}</loc>`), "the sitemap should list the English start page");
   // Every text the app writes by its key reads as data/i18n.js gives it: in Polish in index.html, in
-  // English on the English pages, so nothing changes language when the app starts.
+  // English on the English pages, so nothing changes language when the app starts. Every page keeps every
+  // key, so the app can write the page in the other language too.
   const i18nUi = win.ATLAS_I18N.ui;
   const keyed = (html) => [
     ...[...html.matchAll(/<(\w+)\b[^>]*\sdata-i18n="(\w+)"[^>]*>([^<]*)<\/\1>/g)].map(([, , key, text]) => ({ key, text, expect: (ui) => esc(ui[key]) })),
@@ -251,16 +264,49 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     ...[...html.matchAll(/<\w+\b[^>]*\sdata-i18n-label="(\w+)"[^>]*>/g)].map(([tag, key]) => ({ key, text: tag.match(/ aria-label="([^"]*)"/)?.[1], expect: (ui) => esc(ui[key]) })),
     ...[...html.matchAll(/<\w+\b[^>]*\sdata-i18n-placeholder="(\w+)"[^>]*>/g)].map(([tag, key]) => ({ key, text: tag.match(/ placeholder="([^"]*)"/)?.[1], expect: (ui) => esc(ui[key]) }))
   ];
+  const keyCount = (html) => (html.match(/\sdata-i18n(-html|-label|-placeholder)?="/g) || []).length;
+  // As the browser reads it: entities decoded, runs of spaces and line breaks as one space.
+  const asRead = (html) => String(html ?? "").replace(/&(amp|lt|gt|quot|#039);/g, (_, entity) => ({ amp: "&", lt: "<", gt: ">", quot: '"', "#039": "'" })[entity]).replace(/\s+/g, " ").trim();
   const { markdownLight: markdownLightOf } = await import("./build-pages.mjs");
   const keyedInIndex = keyed(indexHtml);
-  assert.equal(keyedInIndex.length, (indexHtml.match(/\sdata-i18n(-html|-label|-placeholder)?="/g) || []).length, "every element with a data-i18n key should hold plain text (or *emphasis* for data-i18n-html)");
-  for (const { key, text, expect } of keyedInIndex) {
-    assert.equal(text, expect(i18nUi.pl), `index.html should read as data/i18n.js gives ${key} in Polish`);
+  assert(keyedInIndex.length > 0 && keyedInIndex.length === keyCount(indexHtml), "every element with a data-i18n key should hold plain text (or *emphasis* for data-i18n-html)");
+  for (const page of pages) {
+    assert.equal(keyCount(page.html), keyedInIndex.length, `${page.route} should keep every data-i18n key of index.html, so the app can write it in the other language`);
   }
-  for (const route of [ENGLISH_PREFIX, english("/atlas/grzyby/okratek-australijski"), english(MAP_ROUTE), english(QUIZ_ROUTE)]) {
-    for (const { key, text, expect } of keyed(byRoute.get(route).html)) {
-      assert.equal(text, expect(i18nUi.en), `${route} should read as data/i18n.js gives ${key} in English`);
+  const testedRoutes = ["/atlas/grzyby/okratek-australijski", MAP_ROUTE, QUIZ_ROUTE];
+  for (const [where, html, language] of [
+    ["index.html", indexHtml, "pl"],
+    ...testedRoutes.map((route) => [route, byRoute.get(route).html, "pl"]),
+    ...[ENGLISH_PREFIX, ...testedRoutes.map(english)].map((route) => [route, byRoute.get(route).html, "en"])
+  ]) {
+    const found = keyed(html);
+    assert.equal(found.length, keyedInIndex.length, `${where}: every element with a data-i18n key should hold plain text (or *emphasis* for data-i18n-html)`);
+    for (const { key, text, expect } of found) {
+      assert.equal(asRead(text), asRead(expect(i18nUi[language])), `${where} should read as data/i18n.js gives ${key} in ${language === "en" ? "English" : "Polish"}`);
     }
+  }
+  // No Polish stays on an English page, keyed or not: nothing a reader sees or hears there (text, name or hint,
+  // outside the head and the copy for readers without scripts) is the same as in index.html or on the page's
+  // Polish twin. The wordmark keeps the Polish brand; photo credits and words written alike stay too.
+  const shown = (html) => {
+    const body = html.slice(html.indexOf("<body"))
+      .replace(/<(noscript|script|style|svg)\b[\s\S]*?<\/\1>/g, "")
+      .replace(/(<a id="wordmark"[^>]*>)[\s\S]*?(<\/a>)/, "$1$2")
+      .replace(/(<a class="photo-credit[^>]*>(?:<span[^>]*>[^<]*<\/span>)?)[^<]*/g, "$1");
+    const texts = body.split(/<[^>]*>/);
+    const names = [...body.matchAll(/<[^>]*>/g)].filter(([tag]) => !/\slang="en"/.test(tag))
+      .flatMap(([tag]) => [...tag.matchAll(/\s(?:aria-label|placeholder|title|alt)="([^"]*)"/g)].map((match) => match[1]));
+    return new Set([...texts, ...names].map(asRead).filter((value) => /\p{L}/u.test(value)));
+  };
+  const writtenAlike = new Set(["Atlas", "Quiz", "PL", "EN", "— Robert Oroloko"]);
+  const shownInIndex = shown(indexHtml);
+  const englishPages = pages.filter((page) => page.route === ENGLISH_PREFIX || page.route.startsWith(`${ENGLISH_PREFIX}/`));
+  assert.equal(englishPages.length, (pages.length + 1) / 2, "every Polish page and the start page should have an English twin");
+  for (const page of englishPages) {
+    const twin = byRoute.get(page.route.slice(ENGLISH_PREFIX.length));
+    const polish = twin ? shown(twin.html) : new Set();
+    const left = [...shown(page.html)].filter((value) => (shownInIndex.has(value) || polish.has(value)) && !writtenAlike.has(value));
+    assert(!left.length, `${page.route} should not keep Polish texts: ${left.join(" | ")}`);
   }
   // The English card says what the app would: names, descriptions and texts from data/i18n.
   const okratekEn = win.ATLAS_I18N.collections.en.grzyby;
@@ -269,6 +315,9 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(enCard.html.includes(`<title>${okratekEn.items["okratek-australijski"].name} – ${okratekEn.title} – ${i18nUi.en.documentTitle}</title>`), "the English card should have the app's title");
   assert(enCard.html.includes(`<meta name="description" content="${esc(i18nUi.en.metaCardDescription.replace("{hook}", /[.!?…]$/.test(enHook) ? enHook : `${enHook}.`).replace("{collection}", okratekEn.title))}" />`), "the English card should describe itself as the app does");
   assert(enCard.html.includes(`<span id="safetyNotice" data-collection="grzyby">${esc(okratekEn.safety_notice)}</span>`), "the English card should give the English safety notice");
+  // The search field asks for what the app asks for in the collection (updateActiveCollectionLabels).
+  const grzyby = collections.find((entry) => entry.id === "grzyby");
+  assert(card.html.includes(`<input id="searchInput" type="search" placeholder="${esc(grzyby.search_placeholder)}"`) && enCard.html.includes(`<input id="searchInput" type="search" placeholder="${esc(okratekEn.search_placeholder)}"`), "a card page's search field should ask what the app asks in its collection");
   assert(enCard.html.includes(`data-collection="grzyby" data-language="en">`), "the English card's collection photo should be marked as English, so the app keeps it");
   assert(enCard.html.includes(`<a id="wordmark" class="wordmark" href="${ENGLISH_PREFIX}"`) && enCard.html.includes(`<a id="mapLink" class="topbar__link" href="${english(MAP_ROUTE)}"`), "the English pages should lead to English pages");
   assert(enCard.html.includes('<button class="language-btn is-active" data-action="set-language" data-language="en" type="button">'), "the English pages should show English as chosen");
@@ -425,10 +474,18 @@ try {
   assert.equal(mapResponse.status, 200, "local dev server should serve the map of every place");
   assert.match(await mapResponse.text(), /id="mapPage"/, "the map address should open the app");
 
+  // Once npm run build has made the English pages, every English address opens an English page; an
+  // unknown card opens the English start page, as on Vercel.
+  const englishBuilt = fs.existsSync("en.html");
   for (const address of ["/en", "/en/", "/en/atlas/grzyby", "/en/atlas/grzyby/okratek-australijski", "/en/mapa", "/en/quiz", "/en/atlas/grzyby/no-such-card"]) {
     const response = await fetch(`http://127.0.0.1:${port}${address}`);
     assert.equal(response.status, 200, `local dev server should serve ${address}`);
-    assert.match(await response.text(), /id="startPage"/, `${address} should open the app`);
+    const html = await response.text();
+    assert.match(html, /id="startPage"/, `${address} should open the app`);
+    if (englishBuilt) assert(html.includes('<html lang="en">'), `${address} should open an English page`);
+    if (englishBuilt && address.endsWith("/no-such-card")) {
+      assert(html.includes(`<link rel="canonical" href="${origin}/en" />`), `${address} should open the English start page`);
+    }
   }
 
   const missingResponse = await fetch(`http://127.0.0.1:${port}/not-a-real-file.js`);

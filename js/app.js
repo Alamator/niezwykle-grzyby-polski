@@ -2973,14 +2973,16 @@
   }
 
   // The switch moves to the same page at the other language's address, before the page and its head are
-  // written again. The choice is kept for the start page (bootLanguage).
+  // written again. The choice is kept for the start page (bootLanguage), also when it is the language shown:
+  // on a Polish address a reader who once chose English can choose Polish again.
   function setLanguage(language) {
-    if (!languageIds.includes(language) || language === state.language) return;
+    if (!languageIds.includes(language)) return;
     try {
       window.localStorage.setItem("atlasLanguage", language);
     } catch {
       // Local storage is optional; the switch still works for the current page.
     }
+    if (language === state.language) return;
     window.history?.pushState?.(window.history.state || {}, "", `${addressFor(routePath(), language)}${window.location.hash}`);
     applyLanguage(language);
   }

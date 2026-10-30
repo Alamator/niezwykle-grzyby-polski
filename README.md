@@ -288,8 +288,10 @@ Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybut
 - **`npm run test:technical` pilnuje:**
   - par stron i `hreflang`;
   - adresów kanonicznych, języka i mapy strony;
-  - tekstów z kluczami w obu językach;
-  - zgodności `js/app.js` z generatorem stron co do adresów i wyróżnień w tekstach.
+  - tekstów z kluczami w obu językach. Każda strona ma wszystkie klucze, a `js/app.js` wpisuje z nich teksty przy zmianie języka;
+  - tego, że na stronie angielskiej nie zostaje polski tekst, nazwa ani podpowiedź. Wyjątki: nazwa atlasu w logo, podpisy zdjęć i to, co po angielsku pisze się tak samo (np. „Atlas”, „Quiz”);
+  - zgodności `js/app.js` z generatorem stron co do adresów i wyróżnień w tekstach;
+  - tego, że `npm run dev` po zbudowaniu stron otwiera pod `/en` strony angielskie.
 - **Google Search Console:** właściwość domeny `atlas-osobliwosci.pl` potwierdza się wpisem TXT w strefie DNS w OVH. Mapa strony: `https://www.atlas-osobliwosci.pl/sitemap.xml`.
 
 - **Adres strony:** https://www.atlas-osobliwosci.pl (adres kanoniczny w `index.html`).

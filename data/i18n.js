@@ -376,6 +376,8 @@
         // The map of every place in the atlas, at /mapa.
         navMap: "Mapa",
         navMapLabel: "Mapa wszystkich miejsc atlasu",
+        filtersLabel: "Filtry atlasu",
+        categoriesLabel: "Kategorie",
         // The tabs of an opened collection.
         tabAtlas: "Atlas",
         tabMap: "Mapa",
@@ -660,6 +662,8 @@
         mapAllLink: "All places of the atlas on one map",
         navMap: "Map",
         navMapLabel: "Map of all places in the atlas",
+        filtersLabel: "Atlas filters",
+        categoriesLabel: "Categories",
         tabAtlas: "Atlas",
         tabMap: "Map",
         tabLearn: "Learn",
