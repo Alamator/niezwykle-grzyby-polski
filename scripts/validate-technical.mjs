@@ -146,6 +146,15 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
 }
 
+// Contact and error reports go to the atlas's mailbox. The address is put together by js/app.js, never
+// written out in the pages, where address-harvesting bots would find it.
+{
+  const domain = ["atlas-osobliwosci", "pl"].join(".");
+  assert(appJs.includes(`const CONTACT_EMAIL = ["kontakt", "${domain}"].join("@");`), "js/app.js should put the contact address together");
+  assert(!indexHtml.includes(`@${domain}`) && !indexHtml.includes(`mailto:`), "index.html should not spell out the contact address");
+  assert(/cardReportHtml\(collection, item\)/.test(appJs) && appJs.includes('$("#footerContact")'), "cards and the footer should lead to the contact address");
+}
+
 // "Moja szuflada" and the position for "Blisko mnie" stay in the browser, as the page says: the app's own
 // scripts send nothing anywhere (the map library fetches only the base map).
 for (const file of ["js/app.js", "js/cache-reset.js", "data/collections.js", "data/i18n.js"]) {

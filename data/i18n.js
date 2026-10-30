@@ -2779,6 +2779,11 @@
         atlasQuizCopyManual: "Skopiuj wynik: {text}",
         atlasQuizNote: "Wyniki wyzwań dnia są tylko w tej przeglądarce: atlas nigdzie ich nie wysyła.",
         atlasQuizLink: "Quiz z całego atlasu i wyzwanie dnia",
+        // Reports of errors, to the atlas's mailbox.
+        reportPrompt: "Coś się nie zgadza? Zgłoś błąd w tej karcie:",
+        reportSubject: "Błąd w karcie: {name} ({collection})",
+        reportBody: "Karta: {url}\n\nCo jest nie tak (najlepiej ze źródłem):\n",
+        footerContact: "Kontakt i zgłoszenia błędów:",
         preview: "podgląd",
         missing: "do uzupełnienia"
       },
@@ -3026,6 +3031,10 @@
         atlasQuizCopyManual: "Copy the score: {text}",
         atlasQuizNote: "The daily challenge scores stay in this browser only: the atlas sends them nowhere.",
         atlasQuizLink: "Quiz of the whole atlas and the daily challenge",
+        reportPrompt: "Something wrong? Report an error on this card:",
+        reportSubject: "Error on a card: {name} ({collection})",
+        reportBody: "Card: {url}\n\nWhat is wrong (ideally with a source):\n",
+        footerContact: "Contact and error reports:",
         preview: "preview",
         missing: "to be added"
       }

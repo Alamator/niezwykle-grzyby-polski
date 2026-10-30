@@ -30,6 +30,9 @@
   const ALL_QUIZ_ROUTE = "/quiz";
   // Where these pages were scrolled to, for coming back to them from a card.
   const pageScroll = { map: 0, quiz: 0 };
+  // The atlas's mailbox for contact and error reports. The script puts it together, so it is not written
+  // in the pages for address-harvesting bots to find.
+  const CONTACT_EMAIL = ["kontakt", "atlas-osobliwosci.pl"].join("@");
 
   function storedLanguage() {
     try {
@@ -578,6 +581,9 @@
     setText("#sourcePanelCopy", "sourcePanelCopy");
     setText("#sourceChecklistTitle", "sourceChecklistTitle");
 
+    const footerContact = $("#footerContact");
+    if (footerContact) footerContact.innerHTML = `${escapeHtml(t("footerContact"))} <a href="${escapeHtml(contactMailto(t("documentTitle")))}">${escapeHtml(CONTACT_EMAIL)}</a>`;
+
     $("#heroActions")?.setAttribute("aria-label", t("quickActions"));
     $("#heroStats")?.setAttribute("aria-label", t("heroStatsLabel"));
     $("#cabinet")?.setAttribute("aria-label", t("cabinetLabel"));
@@ -836,6 +842,19 @@
       </div>`;
   }
 
+  function contactMailto(subject, body = "") {
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}${body ? `&body=${encodeURIComponent(body)}` : ""}`;
+  }
+
+  // A report names the card and its address in the subject and the first line, so it says what it is about.
+  function cardReportHtml(collection, item) {
+    const mailto = contactMailto(
+      t("reportSubject", { name: itemName(item, collection), collection: collectionText(collection, "title") }),
+      t("reportBody", { url: cardUrl(collection, item) })
+    );
+    return `<p class="card-report">${escapeHtml(t("reportPrompt"))} <a href="${escapeHtml(mailto)}">${escapeHtml(CONTACT_EMAIL)}</a></p>`;
+  }
+
   function cardToolsHtml(collection, item) {
     return `
       <div class="card-tools">
@@ -882,6 +901,7 @@
           ${notes.length ? `<ul class="safety__notes">${notes.map((note) => `<li><span aria-hidden="true">⚠️</span> ${escapeHtml(note)}</li>`).join("")}</ul>` : ""}
         </div>
         ${dialogCreditsHtml(item)}
+        ${cardReportHtml(collection, item)}
         <div class="row-actions">
           <button class="primary" data-action="learn-item" data-id="${escapeHtml(item.id)}">${escapeHtml(t("learnSpecies"))}</button>
           <button class="secondary" data-action="close-dialog">${escapeHtml(t("close"))}</button>
