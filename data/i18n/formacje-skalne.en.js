@@ -1,6 +1,6 @@
 // English card texts of the "Formacje skalne" collection, translated from the Polish card fields.
-// Loaded with the collection (data/collections.js); data/i18n.js merges them into the English
-// item map. Keep them in step with the Polish texts when a card changes.
+// Loaded with the collection (data/collections.js) and read by data/i18n.js; a card without English
+// text shows the Polish one. Keep them in step with the Polish texts when a card changes.
 window.ATLAS_ITEM_TEXT_EN = window.ATLAS_ITEM_TEXT_EN || {};
 window.ATLAS_ITEM_TEXT_EN["formacje-skalne"] = {
   "slonecznik": {
@@ -114,7 +114,7 @@ window.ATLAS_ITEM_TEXT_EN["formacje-skalne"] = {
     "latin": "sandstone labyrinth"
   },
   "biale-skaly": {
-    "name": "Białe Skały rocks",
+    "name": "Białe Skały",
     "hook": "The pale sandstone walls look like a brightened-up piece of the Table Mountains: calmer than Błędne Skały, but just as easy to read geologically.",
     "quiz_angle": "pale sandstones, walls and corridors formed as cracks widened",
     "safety_note": "Do not write on the rock and do not trample the mosses and lichens on the sandstone ledges.",
@@ -147,7 +147,7 @@ window.ATLAS_ITEM_TEXT_EN["formacje-skalne"] = {
     "latin": "sandstone erosional remnants of the Zawory"
   },
   "skalna-czaszka": {
-    "name": "Skalna Czaszka rock",
+    "name": "Skalna Czaszka",
     "hook": "A single rock was enough for the imagination to see a skull, and the park had to set up a legal way to reach this sensation.",
     "quiz_angle": "recognize the anthropomorphic shape, Table Mountains sandstone and the importance of staying on paths open to visitors",
     "safety_note": "Use only the route that is legally open to visitors and do not take shortcuts in the national park.",
@@ -235,7 +235,7 @@ window.ATLAS_ITEM_TEXT_EN["formacje-skalne"] = {
     "latin": "limestone erosional remnant by the Warta"
   },
   "gora-zborow": {
-    "name": "Zborów Hill",
+    "name": "Góra Zborów",
     "hook": "Zborów Hill is a Jura gallery of white rocks: erosional remnants, crevices and ridges clustered on a single hill.",
     "quiz_angle": "a group of limestone erosional remnants, a nature reserve and the climbing landscape of the Jura",
     "safety_note": "Keep to the marked paths of the reserve and respect temporary climbing restrictions.",
@@ -312,7 +312,7 @@ window.ATLAS_ITEM_TEXT_EN["formacje-skalne"] = {
     "latin": "Jurassic sandstones and erosional remnants"
   },
   "kadzielnia": {
-    "name": "Kadzielnia quarry",
+    "name": "Kadzielnia",
     "hook": "In the middle of Kielce, a former quarry has become an amphitheater of geology: limestones, caves and a nature reserve in a single frame.",
     "quiz_angle": "Devonian limestones, karst, former quarrying and a nature reserve in an urban setting",
     "safety_note": "Do not enter caves or go onto ledges outside the routes open to visitors; the quarry walls may be crumbly.",
@@ -323,7 +323,7 @@ window.ATLAS_ITEM_TEXT_EN["formacje-skalne"] = {
     "latin": "Devonian limestones and urban karst"
   },
   "krzemionki": {
-    "name": "Krzemionki flint mines",
+    "name": "Krzemionki",
     "hook": "This is a place where geology turns into archaeology: striped flint nodules became the raw material of Neolithic mines.",
     "quiz_angle": "striped flint, Neolithic mines and the link between rock and ancient technology",
     "safety_note": "Visit only along the route open to visitors and do not collect flint from the heritage area.",

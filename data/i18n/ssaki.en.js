@@ -1,6 +1,6 @@
 // English card texts of the "Ssaki" collection, translated from the Polish card fields.
-// Loaded with the collection (data/collections.js); data/i18n.js merges them into the English
-// item map. Keep them in step with the Polish texts when a card changes.
+// Loaded with the collection (data/collections.js) and read by data/i18n.js; a card without English
+// text shows the Polish one. Keep them in step with the Polish texts when a card changes.
 window.ATLAS_ITEM_TEXT_EN = window.ATLAS_ITEM_TEXT_EN || {};
 window.ATLAS_ITEM_TEXT_EN["ssaki"] = {
   "ryjowka-malutka": {
@@ -247,7 +247,7 @@ window.ATLAS_ITEM_TEXT_EN["ssaki"] = {
     "name": "Raccoon dog",
     "hook": "The Asian raccoon dog has become a European neighbor of wetlands and forests, a reminder that the history of wildlife also has a chapter of unplanned expansions.",
     "quiz_angle": "alien canid, expansion across Europe, omnivory and pressure on local ecosystems",
-    "safety_note": "Invasive alien species, no longer a game species in Poland since April 1, 2022; do not feed or tame wild predators, and report sightings to local nature conservation services.",
+    "safety_note": "Invasive alien species, no longer a game species in Poland since 1 April 2022; do not feed or tame wild predators and report sightings to local nature services.",
     "region": "Widespread in Poland, especially in forest-and-water and mosaic landscapes.",
     "habitat": "Forests, reed beds, river valleys, field edges and places with easy access to varied food.",
     "occurrence": "In the atlas the raccoon dog is an example of a species that became a curiosity because humans shifted its range.",

@@ -1,6 +1,6 @@
 // English card texts of the "Minerały" collection, translated from the Polish card fields.
-// Loaded with the collection (data/collections.js); data/i18n.js merges them into the English
-// item map. Keep them in step with the Polish texts when a card changes.
+// Loaded with the collection (data/collections.js) and read by data/i18n.js; a card without English
+// text shows the Polish one. Keep them in step with the Polish texts when a card changes.
 window.ATLAS_ITEM_TEXT_EN = window.ATLAS_ITEM_TEXT_EN || {};
 window.ATLAS_ITEM_TEXT_EN["mineraly"] = {
   "nioboholtit": {

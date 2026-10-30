@@ -1,6 +1,6 @@
 // English card texts of the "Atmosfera i astronomia" collection, translated from the Polish card fields.
-// Loaded with the collection (data/collections.js); data/i18n.js merges them into the English
-// item map. Keep them in step with the Polish texts when a card changes.
+// Loaded with the collection (data/collections.js) and read by data/i18n.js; a card without English
+// text shows the Polish one. Keep them in step with the Polish texts when a card changes.
 window.ATLAS_ITEM_TEXT_EN = window.ATLAS_ITEM_TEXT_EN || {};
 window.ATLAS_ITEM_TEXT_EN["atmosfera-astronomia"] = {
   "widmo-brockenu": {
@@ -250,7 +250,7 @@ window.ATLAS_ITEM_TEXT_EN["atmosfera-astronomia"] = {
     "safety_note": "Treat records as observational documentation, not as a guarantee that they can be repeated in every spell of clear weather.",
     "region": "Godziszów and the Roztocze area, in the direction of the Slovak Tatras.",
     "habitat": "Viewpoints with a long line of sight and air with an exceptionally low aerosol content.",
-    "occurrence": "The record photo was taken on January 30, 2025, from a distance of 246.1 km.",
+    "occurrence": "The record photo was taken on 30 January 2025 from a distance of 246.1 km.",
     "level": "visibility record"
   },
   "atmosfera-jako-soczewka": {
@@ -274,7 +274,7 @@ window.ATLAS_ITEM_TEXT_EN["atmosfera-astronomia"] = {
     "level": "frost basin"
   },
   "litworowy-kociol": {
-    "name": "Litworowy Kocioł cirque",
+    "name": "Litworowy Kocioł",
     "hook": "In this Tatra cirque, cold air can reach extreme minimum temperatures in calm, cloudless weather.",
     "quiz_angle": "a high-mountain frost hollow, a night of radiative cooling and the pooling of cold air",
     "safety_note": "Extreme frost in mountain cirques is a danger to equipment and people; do not go in without winter preparation.",
@@ -284,7 +284,7 @@ window.ATLAS_ITEM_TEXT_EN["atmosfera-astronomia"] = {
     "level": "cold cauldron"
   },
   "puscizna-rekowianska": {
-    "name": "Puścizna Rękowiańska peat bog",
+    "name": "Puścizna Rękowiańska",
     "hook": "This Orawa peat bog works like a cold bowl: moisture, openness and the drainage of cold air favor very low temperatures.",
     "quiz_angle": "a peat bog, radiative heat loss and the stable lingering of cold air",
     "safety_note": "Peat bogs are sensitive; do not leave the legal paths and do not damage vegetation to observe frost.",
@@ -300,7 +300,7 @@ window.ATLAS_ITEM_TEXT_EN["atmosfera-astronomia"] = {
     "safety_note": "Treat records as educational context; always check current hazards in up-to-date weather bulletins.",
     "region": "Siedlce and lowland measurement sites in Poland.",
     "habitat": "Weather stations and open terrain where the measurement standard allows data to be compared.",
-    "occurrence": "The −41 °C reading from Siedlce (January 11, 1940) is questioned by meteorologists. A lower temperature, −41.1 °C, was recorded on February 17, 2025, in Litworowy Kocioł, in the specific conditions of a high-mountain basin.",
+    "occurrence": "The −41 °C reading from Siedlce (11 January 1940) is questioned by meteorologists. A lower temperature, −41.1 °C, was recorded on 17 February 2025 in Litworowy Kocioł, in the specific conditions of a high-mountain basin.",
     "level": "number in history"
   },
   "pyl-saharyjski-nad-polska": {
