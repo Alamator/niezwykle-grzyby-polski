@@ -531,7 +531,7 @@
 
   function renderChrome() {
     document.documentElement.lang = state.language;
-    updateDocumentTitle();
+    updateHead();
 
     setText("#skipLink", "skipLink");
     setText("#heroEyebrow", "heroEyebrow", { collections: tPlural("collectionCountForms", app.collections.length) });
@@ -954,24 +954,58 @@
       if (addressNamesCard()) clearItemRoute();
       if (dialog.open) dialog.close?.();
     }
-    updateDocumentTitle();
+    updateHead();
   }
 
-  // The tab title names the card and the collection, like the page made for that address.
-  function updateDocumentTitle() {
+  // The head of the page shown, as scripts/build-pages.mjs writes it into the page for its address: tab
+  // title, description, canonical address and link preview. Addresses are on the canonical domain.
+  const CANONICAL_ORIGIN = new URL($('link[rel="canonical"]')?.href || window.location.href).origin;
+
+  function sentence(text) {
+    const value = String(text || "").trim();
+    return /[.!?…]$/.test(value) ? value : `${value}.`;
+  }
+
+  function pageHead() {
     const base = t("documentTitle");
-    if (state.page === "map" || state.page === "quiz") {
-      document.title = `${t(state.page === "map" ? "allMapDocumentTitle" : "atlasQuizDocumentTitle")} – ${base}`;
-      return;
+    const at = (path) => `${CANONICAL_ORIGIN}${path}`;
+    if (state.page === "map") {
+      return { url: at(ALL_MAP_ROUTE), title: `${t("allMapDocumentTitle")} – ${base}`, shareTitle: t("metaMapTitle"),
+        description: t("metaMapDescription", { places: tPlural("placeCountForms", start.stats?.places || 0) }) };
+    }
+    if (state.page === "quiz") {
+      return { url: at(ALL_QUIZ_ROUTE), title: `${t("atlasQuizDocumentTitle")} – ${base}`, shareTitle: t("metaQuizTitle"), description: t("metaQuizDescription") };
     }
     if (!state.collectionId) {
-      document.title = base;
-      return;
+      return { url: at("/"), title: base, shareTitle: base, description: t("metaStartDescription"), share: t("metaStartShare") };
     }
     const collection = activeCollection();
+    if (!collection._loaded) return null;
     const dialog = $("#itemDialog");
     const item = dialog?.open ? byId(dialog.dataset.itemId) : null;
-    document.title = [item && itemName(item), collectionText(collection, "title"), base].filter(Boolean).join(" – ");
+    const title = collectionText(collection, "title");
+    if (item) {
+      return { url: at(cardPath(collection, item)), title: [itemName(item), title, base].join(" – "), shareTitle: itemName(item),
+        description: t("metaCardDescription", { hook: sentence(itemHook(item)), collection: title }) };
+    }
+    return { url: at(routeForCollection(collection)), title: `${title} – ${base}`,
+      shareTitle: collectionText(collection, "heading") || title, description: collectionText(collection, "subtitle") };
+  }
+
+  // Until the page of the address shows (a collection still loading, say), the head the page came with stays,
+  // so a search engine never reads the start page's description on a card's address.
+  function updateHead() {
+    const head = pageHead();
+    if (!head || normalizedPath(new URL(head.url).pathname) !== normalizedPath()) return;
+    document.title = head.title;
+    const set = (selector, value) => $(selector)?.setAttribute("content", value);
+    $('link[rel="canonical"]')?.setAttribute("href", head.url);
+    set('meta[name="description"]', head.description);
+    set('meta[property="og:url"]', head.url);
+    set('meta[property="og:title"]', head.shareTitle);
+    set('meta[property="og:description"]', head.share || head.description);
+    set('meta[name="twitter:title"]', head.shareTitle);
+    set('meta[name="twitter:description"]', head.share || head.description);
   }
 
   function showDialog(id, options = {}) {
@@ -983,7 +1017,7 @@
     if (!options.skipRoute) setItemRoute(id);
     if (typeof dialog.showModal === "function" && !dialog.open) dialog.showModal();
     else dialog.setAttribute("open", "");
-    updateDocumentTitle();
+    updateHead();
   }
 
   // ----- Sharing a single card -----
@@ -2656,7 +2690,7 @@
     $("#quizPage").classList.toggle("is-hidden", page !== "quiz");
     $("#main").classList.toggle("is-hidden", page !== "collection");
     $(".app-nav").classList.toggle("is-hidden", page !== "collection");
-    $("#skipLink").setAttribute("href", page === "map" ? "#mapPage" : page === "quiz" ? "#quizPage" : "#main");
+    $("#skipLink").setAttribute("href", { start: "#startPage", map: "#mapPage", quiz: "#quizPage" }[page] || "#main");
     if (page === "map") $("#mapLink").setAttribute("aria-current", "page");
     else $("#mapLink").removeAttribute("aria-current");
   }
@@ -2669,10 +2703,11 @@
     showPage("start");
     renderMyDrawer();
     if ($("#itemDialog").open) $("#itemDialog").close?.();
-    updateDocumentTitle();
     if (options.top) window.scrollTo({ top: 0, behavior: "smooth" });
     else $("#collectionPicker").scrollIntoView({ behavior: "smooth", block: "start" });
     if (options.updateRoute !== false) pushRoute("/", { collectionId: null });
+    // After the address changes, as the head follows the address.
+    updateHead();
   }
 
   // The map of every place, at /mapa. A link opens it at the top; back in history, where it was left.
@@ -2681,10 +2716,10 @@
     state.collectionId = null;
     showPage("map");
     if ($("#itemDialog").open) $("#itemDialog").close?.();
-    updateDocumentTitle();
     window.scrollTo(0, options.updateRoute === false ? pageScroll.map : 0);
     $("#mapPage").focus({ preventScroll: true });
     if (options.updateRoute !== false) pushRoute(ALL_MAP_ROUTE, { collectionId: null });
+    updateHead();
     renderAllMapPage();
   }
 
@@ -2694,10 +2729,10 @@
     state.collectionId = null;
     showPage("quiz");
     if ($("#itemDialog").open) $("#itemDialog").close?.();
-    updateDocumentTitle();
     window.scrollTo(0, options.updateRoute === false ? pageScroll.quiz : 0);
     $("#quizPage").focus({ preventScroll: true });
     if (options.updateRoute !== false) pushRoute(ALL_QUIZ_ROUTE, { collectionId: null });
+    updateHead();
     renderAtlasQuizChrome();
     if (options.start) startAtlasQuiz(options.start);
     else renderAtlasQuiz();
@@ -2791,6 +2826,14 @@
   }
 
   function bindEvents() {
+    // "Przejdź do treści" moves the focus to the page shown, without a #fragment in the address.
+    $("#skipLink").addEventListener("click", (event) => {
+      const target = $(event.currentTarget.getAttribute("href"));
+      if (!target) return;
+      event.preventDefault();
+      target.focus();
+    });
+
     document.addEventListener("click", (event) => {
       const go = event.target.closest("[data-go]");
       if (go) activateView(go.dataset.go);
@@ -2833,7 +2876,7 @@
 
     $("#itemDialog").addEventListener("close", () => {
       clearItemRoute();
-      updateDocumentTitle();
+      updateHead();
     });
 
     // The drawer changed in another tab (or the site's data was cleared).

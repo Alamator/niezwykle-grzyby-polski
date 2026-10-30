@@ -2784,6 +2784,15 @@
         reportSubject: "Błąd w karcie: {name} ({collection})",
         reportBody: "Karta: {url}\n\nCo jest nie tak (najlepiej ze źródłem):\n",
         footerContact: "Kontakt i zgłoszenia błędów:",
+        // What a page says about itself to search engines and link previews. scripts/build-pages.mjs uses the
+        // Polish ones for the pages it makes; the app sets them while the reader moves around the atlas.
+        metaStartDescription: "Atlas Osobliwości Polski: grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architektura drewniana, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, rekordy krajobrazu oraz kolejne niezwykłe zjawiska w atlasie, fiszkach, quizie i źródłach.",
+        metaStartShare: "Zapraszamy w podróż po kraju dziwów: 18 kolekcji osobliwości polskiej przyrody i kultury, z atlasem, fiszkami, quizem, mapą i źródłami.",
+        metaCardDescription: "{hook} Karta z kolekcji {collection} w Atlasie Osobliwości Polski.",
+        metaMapTitle: "Mapa Atlasu Osobliwości Polski",
+        metaMapDescription: "{places} z kart Atlasu Osobliwości Polski na jednej mapie: kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne. Sprawdź, co jest najbliżej Ciebie.",
+        metaQuizTitle: "Quiz Atlasu Osobliwości Polski",
+        metaQuizDescription: "Wyzwanie dnia, dziś takie samo dla wszystkich, i losowy quiz z pytaniami z różnych kolekcji Atlasu Osobliwości Polski: opisy, nazwy i ciekawostki ze źródłami.",
         preview: "podgląd",
         missing: "do uzupełnienia"
       },
@@ -3035,6 +3044,13 @@
         reportSubject: "Error on a card: {name} ({collection})",
         reportBody: "Card: {url}\n\nWhat is wrong (ideally with a source):\n",
         footerContact: "Contact and error reports:",
+        metaStartDescription: "Atlas of Polish Curiosities: fungi, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, undergrounds, engineering wonders, fortresses and ruins, Memento Mori, landscape records and more unusual phenomena, in an atlas, flashcards, a quiz and sources.",
+        metaStartShare: "Come on a journey through a land of wonders: 18 collections of curiosities of Polish nature and culture, with an atlas, flashcards, a quiz, a map and sources.",
+        metaCardDescription: "{hook} A card from the {collection} collection in the Atlas of Polish Curiosities.",
+        metaMapTitle: "Map of the Atlas of Polish Curiosities",
+        metaMapDescription: "{places} from the cards of the Atlas of Polish Curiosities on one map: mines, castles, wooden tserkvas, rocks, lakes and more. See what is nearest to you.",
+        metaQuizTitle: "Quiz of the Atlas of Polish Curiosities",
+        metaQuizDescription: "The daily challenge, the same for everyone today, and a random quiz with questions from different collections of the Atlas of Polish Curiosities: descriptions, names and fun facts with sources.",
         preview: "preview",
         missing: "to be added"
       }
