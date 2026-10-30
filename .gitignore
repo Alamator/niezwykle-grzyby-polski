@@ -1,5 +1,7 @@
 # Made by npm run build (scripts/build-pages.mjs) on every deployment.
 /atlas/
+/en/
+/en.html
 /mapa.html
 /quiz.html
 /sitemap.xml

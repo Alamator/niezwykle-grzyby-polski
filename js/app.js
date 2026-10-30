@@ -28,6 +28,9 @@
   // makes their pages).
   const ALL_MAP_ROUTE = "/mapa";
   const ALL_QUIZ_ROUTE = "/quiz";
+  // English pages have the same addresses under /en: /en, /en/atlas/<collection>/<card>, /en/mapa, /en/quiz.
+  // The address decides the language; Polish addresses have no prefix.
+  const ENGLISH_PREFIX = "/en";
   // Where these pages were scrolled to, for coming back to them from a card.
   const pageScroll = { start: 0, map: 0, quiz: 0 };
   // The atlas's mailbox for contact and error reports. The script puts it together, so it is not written
@@ -42,8 +45,19 @@
     }
   }
 
+  // The language of the address. Only the Polish start page takes a reader who chose English before to the
+  // English one; the installed app opens there too.
+  function bootLanguage() {
+    if (languageOfPath() === "en") return "en";
+    if (normalizedPath() === "/" && storedLanguage() === "en" && window.history?.replaceState) {
+      window.history.replaceState(window.history.state, "", `${ENGLISH_PREFIX}${window.location.search}${window.location.hash}`);
+      return "en";
+    }
+    return defaultLanguage;
+  }
+
   const state = {
-    language: languageIds.includes(storedLanguage()) ? storedLanguage() : defaultLanguage,
+    language: bootLanguage(),
     // "start", "collection", "map" (the map of every place) or "quiz" (the quiz of the whole atlas).
     page: "start",
     collectionId: null,
@@ -144,6 +158,22 @@
     return clean || "/";
   }
 
+  function languageOfPath(path = window.location.pathname) {
+    return path === ENGLISH_PREFIX || path.startsWith(`${ENGLISH_PREFIX}/`) ? "en" : defaultLanguage;
+  }
+
+  // The routes below are written without the language prefix: routePath takes it off an address, addressFor
+  // puts it on ("/" is "/en" in English, "/mapa" is "/en/mapa").
+  function routePath(path = window.location.pathname) {
+    return languageOfPath(path) === "en" ? path.slice(ENGLISH_PREFIX.length) || "/" : path;
+  }
+
+  function addressFor(route, language = state.language) {
+    if (language !== "en") return route;
+    const [path, hash] = route.split("#");
+    return `${path === "/" ? ENGLISH_PREFIX : `${ENGLISH_PREFIX}${path}`}${hash ? `#${hash}` : ""}`;
+  }
+
   function routeForCollection(collection) {
     return collection.route || `/atlas/${collection.id}`;
   }
@@ -152,7 +182,7 @@
   // with its title and link preview, made by scripts/build-pages.mjs; older /atlas/<collection>#item=<card>
   // links still open the card.
   function routeFromPath(path = window.location.pathname) {
-    const target = normalizedPath(path);
+    const target = normalizedPath(routePath(path));
     for (const collection of app.collections) {
       const base = normalizedPath(routeForCollection(collection));
       if (target === base) return { collection, slug: null };
@@ -168,8 +198,9 @@
     return routeFromPath(path)?.collection;
   }
 
-  function pushRoute(path, stateData = {}) {
+  function pushRoute(route, stateData = {}) {
     if (!window.history?.pushState) return;
+    const path = addressFor(route);
     if (normalizedPath(window.location.pathname) === normalizedPath(path)) return;
     window.history.pushState(stateData, "", path);
   }
@@ -179,8 +210,9 @@
     return String(id).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L");
   }
 
+  // The card's address in the reader's language.
   function cardPath(collection, item) {
-    return `${routeForCollection(collection)}/${encodeURIComponent(cardSlug(item.id))}`;
+    return addressFor(`${routeForCollection(collection)}/${encodeURIComponent(cardSlug(item.id))}`);
   }
 
   function cardUrl(collection, item) {
@@ -521,7 +553,7 @@
     list.innerHTML = entries.map(([key, forms]) => {
       const stat = `<strong>${escapeHtml(stats[key].toLocaleString(state.language))}</strong> <span>${escapeHtml(tPlural(forms, stats[key]))}</span>`;
       // The places lead to the map of all of them.
-      return `<li>${key === "places" ? `<a class="hero__stat-link" href="${ALL_MAP_ROUTE}" data-action="go-map">${stat}</a>` : stat}</li>`;
+      return `<li>${key === "places" ? `<a class="hero__stat-link" href="${addressFor(ALL_MAP_ROUTE)}" data-action="go-map">${stat}</a>` : stat}</li>`;
     }).join("");
   }
 
@@ -567,65 +599,25 @@
   function renderChrome() {
     document.documentElement.lang = state.language;
     updateHead();
-
-    setText("#skipLink", "skipLink");
+    // Links written in the page lead to the pages in the reader's language.
+    for (const [selector, route] of [["#wordmark", "/"], ["#drawerLink", "/#myDrawer"], ["#mapLink", ALL_MAP_ROUTE],
+      ["#mapAllLink", ALL_MAP_ROUTE], ["#dailyQuizCardLink", ALL_QUIZ_ROUTE], ["#atlasQuizLink", ALL_QUIZ_ROUTE]]) {
+      $(selector)?.setAttribute("href", addressFor(route));
+    }
+    // Texts of the page by their key in data/i18n.js, written on the element (scripts/build-pages.mjs writes
+    // the English pages the same way): text, text with *emphasis*, the name read by screen readers and the
+    // hint in a field.
+    $$("[data-i18n]").forEach((node) => { node.textContent = t(node.dataset.i18n); });
+    $$("[data-i18n-html]").forEach((node) => { node.innerHTML = markdownLight(t(node.dataset.i18nHtml)); });
+    $$("[data-i18n-label]").forEach((node) => node.setAttribute("aria-label", t(node.dataset.i18nLabel)));
+    $$("[data-i18n-placeholder]").forEach((node) => node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder)));
     setText("#heroEyebrow", "heroEyebrow", { collections: tPlural("collectionCountForms", app.collections.length) });
-    $("#heroTitle").innerHTML = markdownLight(t("heroTitle"));
-    setText("#heroLead", "heroLead");
-    setText("#chooseCollectionHero", "heroStart");
-    setText("#surpriseButton", "heroSurprise");
-    setText("#startCreditsTitle", "startCreditsTitle");
-    setText("#startCreditsNote", "startCreditsNote");
-    setText("#dailyFactTitle", "dailyFactEyebrow");
-    setText("#aboutEyebrow", "aboutEyebrow");
-    setText("#about-title", "aboutTitle");
-    setText("#aboutLeadBody", "aboutLeadBody");
-    setText("#aboutLeadSignature", "aboutLeadSignature");
-    setText("#aboutCard1Title", "aboutCard1Title");
-    setText("#aboutCard1Body", "aboutCard1Body");
-    setText("#aboutCard2Title", "aboutCard2Title");
-    setText("#aboutCard2Body", "aboutCard2Body");
-    setText("#aboutCard3Title", "aboutCard3Title");
-    setText("#aboutCard3Body", "aboutCard3Body");
-    setText("#collectionsEyebrow", "collectionsEyebrow");
-    $("#collections-title").innerHTML = markdownLight(t("collectionsTitle"));
-    setText("#collectionsNote", "collectionsNote");
-    setText("#changeCollectionButton", "changeCollection");
-    setText("#noticePrefix", "noticePrefix");
-    setText("#atlasEyebrow", "atlasEyebrow");
-    setText("#atlasNote", "atlasNote");
-    setText("#searchLabel", "searchLabel");
-    setText("#mapEyebrow", "mapEyebrow");
-    setText("#map-title", "mapTitle");
-    setText("#mapNote", "mapNote");
-    setText("#mapAllLink", "mapAllLink");
-    setText("#mapLink", "navMap");
-    $("#mapLink")?.setAttribute("aria-label", t("navMapLabel"));
     renderAllMapChrome();
     renderAtlasQuizChrome();
     renderDailyQuizCard();
-    setText("#learnEyebrow", "learnEyebrow");
-    setText("#learn-title", "learnTitle");
-    setText("#learnNote", "learnNote");
-    setText("#quizEyebrow", "quizEyebrow");
-    setText("#quiz-title", "quizTitle");
-    setText("#quizNote", "quizNote");
-    setText("#sourcesEyebrow", "sourcesEyebrow");
-    setText("#sources-title", "sourcesTitle");
-    setText("#sourcePanelTitle", "sourcePanelTitle");
-    setText("#sourcePanelCopy", "sourcePanelCopy");
-    setText("#sourceChecklistTitle", "sourceChecklistTitle");
 
     const footerContact = $("#footerContact");
     if (footerContact) footerContact.innerHTML = `${escapeHtml(t("footerContact"))} <a href="${escapeHtml(contactMailto(t("documentTitle")))}">${escapeHtml(CONTACT_EMAIL)}</a>`;
-
-    $("#heroActions")?.setAttribute("aria-label", t("quickActions"));
-    $("#heroStats")?.setAttribute("aria-label", t("heroStatsLabel"));
-    $("#cabinet")?.setAttribute("aria-label", t("cabinetLabel"));
-    $("#wordmark")?.setAttribute("aria-label", t("homeLabel"));
-    $("#languageToggle")?.setAttribute("aria-label", t("languageLabel"));
-    $("#appNav")?.setAttribute("aria-label", t("appNavLabel"));
-    $(".dialog-close")?.setAttribute("aria-label", t("close"));
 
     $("#sourceChecklist").innerHTML = tList("sourceChecklistItems")
       .map((item) => `<li>${escapeHtml(item)}</li>`)
@@ -634,14 +626,6 @@
     $$(".language-btn").forEach((button) => {
       button.classList.toggle("is-active", button.dataset.language === state.language);
       button.setAttribute("aria-pressed", String(button.dataset.language === state.language));
-    });
-
-    const navLabels = {
-      pl: { atlas: "Atlas", map: "Mapa", learn: "Nauka", quiz: "Quiz", sources: "Źródła" },
-      en: { atlas: "Atlas", map: "Map", learn: "Learn", quiz: "Quiz", sources: "Sources" }
-    };
-    $$(".nav-btn[data-view]").forEach((button) => {
-      button.textContent = navLabels[state.language]?.[button.dataset.view] || navLabels.pl[button.dataset.view] || button.dataset.view;
     });
 
     updateActiveCollectionLabels();
@@ -663,7 +647,7 @@
       <li class="drawer${cover ? "" : " drawer--plain"}">
         ${cover ? `<img class="drawer__img" src="${escapeHtml(commonsSrc(cover.photo, 500))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="(max-width: 1000px) 50vw, 25vw" alt="" loading="lazy" decoding="async" onerror="this.remove()" />` : ""}
         <p class="drawer__count">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
-        <h4 class="drawer__name"><a class="drawer__open" href="${escapeHtml(routeForCollection(collection))}" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(title)}</a></h4>
+        <h4 class="drawer__name"><a class="drawer__open" href="${escapeHtml(addressFor(routeForCollection(collection)))}" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(title)}</a></h4>
         <p class="drawer__teaser">${escapeHtml(collectionText(collection, "teaser"))}</p>
         ${cover ? photoCreditHtml(cover.photo, localized(cover.name), "drawer__credit") : ""}
       </li>`;
@@ -1026,7 +1010,7 @@
 
   function clearItemRoute() {
     if (!window.history?.replaceState || !state.collectionId) return;
-    const target = routeForCollection(activeCollection());
+    const target = addressFor(routeForCollection(activeCollection()));
     if (normalizedPath() === normalizedPath(target) && !window.location.hash) return;
     window.history.replaceState(window.history.state || {}, "", target);
   }
@@ -1058,7 +1042,7 @@
 
   function pageHead() {
     const base = t("documentTitle");
-    const at = (path) => `${CANONICAL_ORIGIN}${path}`;
+    const at = (route) => `${CANONICAL_ORIGIN}${addressFor(route)}`;
     if (state.page === "map") {
       return { url: at(ALL_MAP_ROUTE), title: `${t("allMapDocumentTitle")} – ${base}`, shareTitle: t("metaMapTitle"),
         description: t("metaMapDescription", { places: tPlural("placeCountForms", start.stats?.places || 0) }) };
@@ -1075,7 +1059,7 @@
     const item = dialog?.open ? byId(dialog.dataset.itemId) : null;
     const title = collectionText(collection, "title");
     if (item) {
-      return { url: at(cardPath(collection, item)), title: [itemName(item), title, base].join(" – "), shareTitle: itemName(item),
+      return { url: `${CANONICAL_ORIGIN}${cardPath(collection, item)}`, title: [itemName(item), title, base].join(" – "), shareTitle: itemName(item),
         description: t("metaCardDescription", { hook: sentence(itemHook(item)), collection: title }) };
     }
     return { url: at(routeForCollection(collection)), title: `${title} – ${base}`,
@@ -1096,6 +1080,12 @@
     set('meta[property="og:description"]', head.share || head.description);
     set('meta[name="twitter:title"]', head.shareTitle);
     set('meta[name="twitter:description"]', head.share || head.description);
+    // The same page in the other language, as the pages give it to search engines; Polish is the default.
+    const route = routePath(new URL(head.url).pathname);
+    $('link[rel="alternate"][hreflang="pl"]')?.setAttribute("href", `${CANONICAL_ORIGIN}${addressFor(route, "pl")}`);
+    $('link[rel="alternate"][hreflang="en"]')?.setAttribute("href", `${CANONICAL_ORIGIN}${addressFor(route, "en")}`);
+    $('link[rel="alternate"][hreflang="x-default"]')?.setAttribute("href", `${CANONICAL_ORIGIN}${addressFor(route, "pl")}`);
+    set('meta[property="og:locale"]', state.language === "en" ? "en_US" : "pl_PL");
   }
 
   function showDialog(id, options = {}) {
@@ -1336,11 +1326,7 @@
     const cards = myDrawer.filter((card) => collectionById(card.c));
     section.classList.toggle("is-hidden", !cards.length && !(keepEmpty && !section.classList.contains("is-hidden")));
     $("#myDrawerEyebrow").textContent = t("myDrawerEyebrow", { cards: tPlural("cardCountForms", cards.length) });
-    $("#myDrawerTitle").innerHTML = markdownLight(t("myDrawerTitle"));
-    setText("#myDrawerNote", "myDrawerNote");
-    setText("#myDrawerEmpty", "myDrawerEmpty");
     $("#myDrawerEmpty").classList.toggle("is-hidden", cards.length > 0);
-    $("#myDrawerList").setAttribute("aria-label", t("myDrawerLabel"));
     const shown = myDrawerExpanded ? cards : cards.slice(0, MY_DRAWER_PREVIEW);
     $("#myDrawerMore").classList.toggle("is-hidden", shown.length === cards.length);
     $("#myDrawerMore").textContent = t("myDrawerShowAll", { cards: tPlural("cardCountForms", cards.length) });
@@ -1489,8 +1475,6 @@
   }
 
   function renderAtlasSearchChrome() {
-    setText("#atlasSearchLabel", "atlasSearchLabel");
-    $("#atlasSearchInput")?.setAttribute("placeholder", t("atlasSearchPlaceholder"));
     renderAtlasSearch();
   }
 
@@ -1895,7 +1879,7 @@
   let atlasQuizSerial = 0;
 
   function isQuizRoute(path = window.location.pathname) {
-    return normalizedPath(path) === ALL_QUIZ_ROUTE;
+    return normalizedPath(routePath(path)) === ALL_QUIZ_ROUTE;
   }
 
   function todayIso() {
@@ -2028,7 +2012,7 @@
   async function shareDailyResult() {
     const counted = readDailyResults()[atlasQuiz.date] || { score: atlasQuiz.score, total: atlasQuiz.questions.length };
     const text = t("atlasQuizShareText", { date: formatDate(partsFromIso(atlasQuiz.date), { numeric: true }), score: counted.score, total: counted.total });
-    const url = new URL(ALL_QUIZ_ROUTE, window.location.origin).href;
+    const url = new URL(addressFor(ALL_QUIZ_ROUTE), window.location.origin).href;
     if (typeof navigator.share === "function") {
       try {
         await navigator.share({ text, url });
@@ -2096,26 +2080,16 @@
   function renderAtlasQuizChrome() {
     const days = readDailyResults();
     const done = dailyScoreText(days);
-    $("#atlasQuizEyebrow").textContent = t("atlasQuizEyebrow");
-    $("#atlasQuizTitle").innerHTML = markdownLight(t("atlasQuizTitle"));
-    setText("#atlasQuizLead", "atlasQuizLead");
-    $("#atlasQuizModes").setAttribute("aria-label", t("atlasQuizModesLabel"));
     $("#dailyModeEyebrow").textContent = t("dailyQuizEyebrow", { date: formatDate(localDateParts()) });
     $("#dailyModeTitle").textContent = t("dailyQuizTitle", { questions: tPlural("questionCountForms", DAILY_QUESTIONS) });
     $("#dailyModeText").textContent = done ? `${done} ${t("dailyQuizTomorrow")}` : t("dailyQuizIntro");
     $("#dailyModeButton").textContent = t(done ? "dailyQuizReplay" : "atlasQuizPlay");
-    $("#mixModeEyebrow").textContent = t("mixQuizEyebrow");
     $("#mixModeTitle").textContent = t("mixQuizTitle", { questions: tPlural("questionCountForms", MIX_QUESTIONS) });
-    setText("#mixModeText", "mixQuizIntro");
-    setText("#mixModeButton", "atlasQuizPlay");
-    setText("#atlasQuizNote", "atlasQuizNote");
-    setText("#atlasQuizLink", "atlasQuizLink");
   }
 
   // The challenge on the start page, under the fact of the day.
   function renderDailyQuizCard() {
     const done = dailyScoreText(readDailyResults());
-    setText("#dailyQuizCardTitle", "dailyQuizName");
     $("#dailyQuizCardText").textContent = done || t("startDailyQuizText", { questions: tPlural("questionCountForms", DAILY_QUESTIONS) });
     setText("#dailyQuizCardLink", done ? "atlasQuizOpen" : "atlasQuizPlay");
   }
@@ -2505,7 +2479,7 @@
   };
 
   function isAllMapRoute(path = window.location.pathname) {
-    return normalizedPath(path) === ALL_MAP_ROUTE;
+    return normalizedPath(routePath(path)) === ALL_MAP_ROUTE;
   }
 
   function loadMapPoints() {
@@ -2822,12 +2796,6 @@
   function renderAllMapChrome() {
     const places = start.stats?.places;
     $("#allMapEyebrow").textContent = places ? t("allMapEyebrow", { places: tPlural("placeCountForms", places) }) : t("allMapDocumentTitle");
-    $("#allMapTitle").innerHTML = markdownLight(t("allMapTitle"));
-    setText("#allMapLead", "allMapLead");
-    setText("#nearMeButton", "nearMe");
-    setText("#nearMePrivacy", "nearMePrivacy");
-    $("#allMapFilters").setAttribute("aria-label", t("allMapFiltersLabel"));
-    $("#allMap").setAttribute("aria-label", t("allMapLabel"));
     $("#allMapSourceNote").innerHTML = mapSourceNoteHtml();
   }
 
@@ -3004,14 +2972,24 @@
     else renderAtlasQuiz();
   }
 
+  // The switch moves to the same page at the other language's address, before the page and its head are
+  // written again. The choice is kept for the start page (bootLanguage), also when it is the language shown:
+  // on a Polish address a reader who once chose English can choose Polish again.
   function setLanguage(language) {
     if (!languageIds.includes(language)) return;
-    state.language = language;
     try {
       window.localStorage.setItem("atlasLanguage", language);
     } catch {
       // Local storage is optional; the switch still works for the current page.
     }
+    if (language === state.language) return;
+    window.history?.pushState?.(window.history.state || {}, "", `${addressFor(routePath(), language)}${window.location.hash}`);
+    applyLanguage(language);
+  }
+
+  // The page shown, drawn again in a language: after the switch, or Back and Forward across it.
+  function applyLanguage(language) {
+    state.language = language;
     state.quiz = null;
     renderChrome();
     if (state.collectionId) {
@@ -3178,6 +3156,7 @@
     });
 
     window.addEventListener("popstate", () => {
+      if (languageOfPath() !== state.language) applyLanguage(languageOfPath());
       if (isAllMapRoute()) {
         showMapPage({ updateRoute: false });
         return;

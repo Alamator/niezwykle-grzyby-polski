@@ -49,9 +49,14 @@ export async function resolveRequestFile(requestUrl, rootDir = projectRoot) {
   if (candidate && await isFile(`${candidate}.html`)) return `${candidate}.html`;
 
   // Before a build the app itself opens these addresses: a collection, a card, the map of every place or
-  // the quiz of the whole atlas.
-  if (pathname.startsWith("/atlas/") || ["/mapa", "/quiz"].includes(pathname.replace(/\/+$/, ""))) {
-    return path.join(rootDir, "index.html");
+  // the quiz of the whole atlas, in Polish or under /en. An English address that leads nowhere opens the
+  // English start page once the build has made it, as on Vercel (vercel.json).
+  const route = pathname.replace(/\/+$/, "");
+  const english = route === "/en" || route.startsWith("/en/");
+  const appRoute = english ? route.slice(3) || "/" : route;
+  if (appRoute === "/" || appRoute.startsWith("/atlas/") || ["/mapa", "/quiz"].includes(appRoute)) {
+    const englishStart = path.join(rootDir, "en.html");
+    return english && await isFile(englishStart) ? englishStart : path.join(rootDir, "index.html");
   }
 
   return null;
