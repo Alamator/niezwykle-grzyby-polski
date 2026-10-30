@@ -8,9 +8,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "It looks like a red octopus or starfish rising out of the forest litter.",
     "quiz_angle": "recognizing it by the shape of its arms and the slimy gleba",
     "safety_note": "Do not treat it as an edible fungus; this is educational material.",
-    "region": "Scattered throughout Poland, more often in warmer cities and in the west of the country.",
-    "habitat": "Wood chips, compost, gardens, parks and mulched flower beds.",
-    "occurrence": "An alien species which in Poland is most easily found in places transformed by humans.",
+    "region": "Most sites are in southern Poland; the species is spreading.",
+    "habitat": "Mostly forests, usually fertile broadleaved ones, their edges and forest roads; also meadows, grasslands, orchards, gardens and tree belts among fields.",
+    "occurrence": "An alien species from Australia and New Zealand. Until 1990 about 10 sites were known in Poland, by 2012 more than 90.",
     "level": "easy start"
   },
   "sromotnik-bezwstydny": {
@@ -18,9 +18,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A woodland 'stinker' whose smell attracts the flies that spread its spores.",
     "quiz_angle": "smell, shape and the role of insects in spreading spores",
     "safety_note": "Do not promote collecting; this is educational material.",
-    "region": "Throughout Poland.",
-    "habitat": "Deciduous and mixed forests, parks, gardens, fertile soils and litter.",
-    "occurrence": "Fruiting bodies appear locally, but the species is widespread.",
+    "region": "Throughout Poland; common except in the higher mountains.",
+    "habitat": "Forests, thickets and parks; it grows on the ground, singly or in groups.",
+    "occurrence": "In 1983 it was one of the first 20 fungus species protected in Poland. The protection was lifted in 2004 because the species is widespread.",
     "level": "easy start"
   },
   "madziak-psi": {
@@ -29,8 +29,8 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "quiz_angle": "telling the dog stinkhorn apart from the Phallus stinkhorns",
     "safety_note": "Educational material; not for the basket.",
     "region": "Rare; listed as V (vulnerable) on the Polish Red List.",
-    "habitat": "Forests, thickets, parks and moister litter.",
-    "occurrence": "It is easiest to look for where there is plenty of humus and dead plant remains.",
+    "habitat": "Mostly damp, shady broadleaved forests on fertile soils.",
+    "occurrence": "The fruit bodies appear in summer and autumn, usually in groups. Until 2014 the species was strictly protected in Poland.",
     "level": "easy start"
   },
   "sromotnik-fiolkowy": {
@@ -40,7 +40,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "safety_note": "Educational material; not for the basket.",
     "region": "Very rare; mainly on Baltic coastal dunes, only sporadically inland.",
     "habitat": "Sandy, dry dunes, above all on the coast.",
-    "occurrence": "In the atlas it is best treated as a rare field curiosity.",
+    "occurrence": "The fruit bodies appear in summer and autumn. Listed as V (vulnerable) on the Polish Red List.",
     "level": "easy start"
   },
   "czarka-austriacka": {
@@ -48,9 +48,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "An intensely red cup that appears when most people do not expect fungi.",
     "quiz_angle": "late-winter and early-spring fungi",
     "safety_note": "Educational material; it can be confused with other scarlet elf cups.",
-    "region": "Southern Poland, the foothills and the mountains; elsewhere locally.",
-    "habitat": "Damp thickets, riparian woods, twigs covered with litter, stream banks.",
-    "occurrence": "The red cups catch the eye most often in early spring.",
+    "region": "Known from at least 170 sites in Poland.",
+    "habitat": "Twigs of broadleaved trees, most often willows, alders and maples, in damp forests, mainly riparian ones.",
+    "occurrence": "The fruit bodies appear in early spring, from February to May, sometimes already in snowless winters. Until 2014 the species was strictly protected in Poland.",
     "level": "easy start"
   },
   "kustrzebka-pomaranczowa": {
@@ -58,9 +58,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "It looks like a discarded piece of orange peel lying on the ground.",
     "quiz_angle": "recognizing unusual ascomycetes without a cap or stem",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland.",
-    "habitat": "Bare soil, embankments, forest road verges, ditches and exposed soils.",
-    "occurrence": "It likes disturbed places with exposed mineral ground.",
+    "region": "Recorded in various parts of Poland, including the Sudetes, Poznań and the Białowieża Forest.",
+    "habitat": "On the ground, mainly in open, sunny places: on forest roads and their verges, in ditches, on burnt ground; also in parks and gardens.",
+    "occurrence": "The fruit bodies appear from late summer to autumn, usually in groups, often in large numbers.",
     "level": "easy start"
   },
   "dzbankowka-kulista": {
@@ -70,7 +70,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "safety_note": "Strictly protected species; for educational purposes only, do not collect.",
     "region": "All 13 sites reported in the Polish scientific literature up to 2020 are historical records.",
     "habitat": "Moist spruce forests with a thick carpet of moss, often along streams.",
-    "occurrence": "This is a species to describe with caution: encounters are exceptional and isolated.",
+    "occurrence": "The fruit bodies appear from winter to early summer. Listed as E (endangered) on the Polish Red List.",
     "level": "easy start"
   },
   "czareczka-dlugotrzonkowa": {
@@ -78,9 +78,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A tiny red cup on a long stalk, like a miniature chalice.",
     "quiz_angle": "micro-details: the cup, the stalk and wood in the substrate",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Scattered; more often in southern and eastern Poland.",
-    "habitat": "Moist deciduous forests, rotting twigs and small pieces of wood.",
-    "occurrence": "Its small size makes it easy to overlook despite its intense color.",
+    "region": "Very rare: by 2018, 7 sites were known in Poland, 4 of them historical.",
+    "habitat": "Fertile broadleaved forests; it grows by decaying wood of broadleaved trees buried in the soil.",
+    "occurrence": "The fruit bodies appear in early spring. The authors of a 2018 review propose treating it as critically endangered in Poland.",
     "level": "easy start"
   },
   "krazkowka-zylkowana": {
@@ -88,9 +88,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A wrinkled bowl with distinct veins, often associated with morel habitats.",
     "quiz_angle": "comparison with morels and false morels",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Throughout Poland, locally.",
-    "habitat": "Fertile deciduous forests, parks, forest verges and humus-rich soil.",
-    "occurrence": "It is often given away by its bowl-like shape and veined center.",
+    "region": "Rare: by 2020, 6 historical and 27 new sites had been reported in Poland.",
+    "habitat": "On the ground in broadleaved forests and parks, preferably on limestone.",
+    "occurrence": "The fruit bodies appear in April and May. Strictly protected in Poland since 1983.",
     "level": "easy start"
   },
   "piestrzenica-kasztanowata": {
@@ -98,9 +98,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "It looks like a brown brain: an ideal species for a lesson about dangerous mix-ups.",
     "quiz_angle": "telling it apart from morels, and toxicological warnings",
     "safety_note": "Poisonous / dangerous; do not promote eating it.",
-    "region": "Throughout Poland, especially in pine forests.",
-    "habitat": "Sandy coniferous forests, forest road verges, clear-cuts and young stands.",
-    "occurrence": "Do not use it as a culinary hint: the species is toxic and misleading.",
+    "region": "Throughout Poland except the higher mountains; fairly common.",
+    "habitat": "Pine forests, often clearings and sandy soils; also places where the soil has been disturbed.",
+    "occurrence": "The fruit bodies appear from March to May.",
     "level": "easy start"
   },
   "smardz-jadalny": {
@@ -108,9 +108,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A honeycomb-like fruiting body: one of the most recognizable spring fungi.",
     "quiz_angle": "honeycomb pits versus the folded brain-like surface of false morels",
     "safety_note": "Partially protected (specimens growing outside gardens, horticultural crops, forest nurseries and green areas); for educational purposes only.",
-    "region": "Throughout Poland, but in scattered spots; river valleys, parks and gardens.",
-    "habitat": "Fertile soils, orchards, riparian woods, old gardens, places where there has been ash or mulch.",
-    "occurrence": "Morels are covered by protection restrictions; the description is educational.",
+    "region": "Throughout Poland, but rare: by 2020 about 260 sites had been reported.",
+    "habitat": "Broadleaved and mixed forests, meadows and riparian woods, often under ash trees; fertilised soils.",
+    "occurrence": "The fruit bodies appear in April and May. Older records need checking, because the taxonomy of morels has changed in recent years.",
     "level": "easy start"
   },
   "smardz-wyniosly": {
@@ -118,9 +118,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A tall, conical morel with a graphic, latticed structure.",
     "quiz_angle": "differences between morel types and similar-looking fungi",
     "safety_note": "Partially protected (specimens growing outside gardens, horticultural crops, forest nurseries and green areas); for educational purposes only.",
-    "region": "Throughout Poland, most often locally in cities, parks and river valleys.",
-    "habitat": "Wood chips, flower beds, gardens, parks, soils rich in organic matter.",
-    "occurrence": "In recent years it has also been found in urban habitats.",
+    "region": "By 2020 about 50 sites had been reported in Poland; all of them need checking after the changes in morel taxonomy.",
+    "habitat": "Forests and their edges, tall herb vegetation in sunny places outside forests; usually poor, sandy soils.",
+    "occurrence": "From 1983 to 2014 it was strictly protected.",
     "level": "easy start"
   },
   "soplowka-jezowata": {
@@ -128,9 +128,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A white ball with long hanging spines: it looks like a lion's mane or a sea creature.",
     "quiz_angle": "wood-growing fungi without a classic cap",
     "safety_note": "Strictly protected species; for educational purposes only, do not collect wild specimens.",
-    "region": "Scattered; more often in old deciduous forests of the south, east and northeast.",
-    "habitat": "Old beeches and other deciduous trees, dead or weakened wood.",
-    "occurrence": "It needs old trees, so it fits well into a story about forest continuity.",
+    "region": "Rare: by 2021, 3 historical and 55 recent sites had been reported in Poland.",
+    "habitat": "Broadleaved forests with old trees; trunks of older, weakened or dead trees, mainly beeches and oaks.",
+    "occurrence": "The fruit bodies usually grow on the lower part of the trunk, up to a few metres high. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "soplowka-bukowa": {
@@ -138,9 +138,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Branching white spines resembling an icy coral on dead wood.",
     "quiz_angle": "comparing different Hericium species",
     "safety_note": "Partially protected species; do not destroy the fruiting bodies on wood.",
-    "region": "Throughout Poland, but locally, where there are old deciduous forests.",
-    "habitat": "Dead wood of beeches and other deciduous trees.",
-    "occurrence": "The best field association: moist, mature beech forests.",
+    "region": "Throughout Poland, mainly in the south and north of the country, within the range of beech forests.",
+    "habitat": "Damp broadleaved forests; dead, fallen or broken trunks, mainly of beech, less often of birch and aspen.",
+    "occurrence": "By 2020 about 300 sites had been reported in Poland. Listed as V (vulnerable) on the Polish Red List.",
     "level": "intermediate"
   },
   "siedzun-sosnowy": {
@@ -148,9 +148,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A woodland cauliflower or noodle-like tangle growing near a pine trunk.",
     "quiz_angle": "recognizing it by its large, folded, cream-colored structure",
     "safety_note": "For education; do not encourage collecting without field knowledge.",
-    "region": "Throughout Poland, especially in regions of pine forests.",
-    "habitat": "At the roots of pines, in pine forests and at the edges of coniferous stands.",
-    "occurrence": "The fruiting body often looks like a pale, wavy sponge at the base of a tree.",
+    "region": "Fairly common in Poland, although listed as R (rare) on the Polish Red List.",
+    "habitat": "Coniferous and mixed forests; on the roots of conifers, most often pine, at the base of the trunk.",
+    "occurrence": "On an infected tree, fruit bodies keep appearing from time to time over the following years. From 1990 to 2014 the species was strictly protected.",
     "level": "intermediate"
   },
   "swiecznica-rozgaleziona": {
@@ -158,9 +158,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Coral-like branches ending in small crowns, like candlesticks.",
     "quiz_angle": "the detail of the branch tips: crown-like ends",
     "safety_note": "Educational material.",
-    "region": "Mountains and foothills, especially the Carpathians and the Sudetes; less often elsewhere.",
-    "habitat": "A wood-inhabiting fungus: decaying trunks and stumps, e.g. of aspen and birch, less often of conifers.",
-    "occurrence": "The delicate fruiting bodies are best treated as an indicator of a moist microclimate.",
+    "region": "Fairly rare; listed as V (vulnerable) on the Polish Red List.",
+    "habitat": "Decaying trunks and stumps in forests: of broadleaved trees, including downy birch and aspen, and also of conifers (pine, spruce).",
+    "occurrence": "The fruit bodies appear from June to October.",
     "level": "intermediate"
   },
   "koralowka-groniasta": {
@@ -168,9 +168,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A fungus that looks like a bouquet of pinkish coral.",
     "quiz_angle": "caution with coral fungi: many similar species",
     "safety_note": "Do not encourage collecting; a difficult group to identify.",
-    "region": "Throughout Poland, locally in deciduous and mixed forests.",
-    "habitat": "Litter, humus-rich soil, beech forests and oak-hornbeam forests.",
-    "occurrence": "Coral-like forms are striking, but many similar species call for caution.",
+    "region": "Rare; listed as E (endangered) on the Polish Red List.",
+    "habitat": "On the ground among fallen leaves in broadleaved forests; it forms mycorrhiza with broadleaved trees, especially beech.",
+    "occurrence": "There are several similar coral fungi; telling them apart sometimes needs a microscope.",
     "level": "intermediate"
   },
   "pieknorog-lepki": {
@@ -178,9 +178,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Yellow-orange horns rising from dead conifer wood.",
     "quiz_angle": "horn shape and a substrate of conifer wood",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland.",
-    "habitat": "Dead conifer wood, stumps, logs and moist coniferous forests.",
-    "occurrence": "One of the easier yellow, jelly-like accents on wood.",
+    "region": "Throughout Poland; very common.",
+    "habitat": "Dead wood of conifers in coniferous and mixed forests.",
+    "occurrence": "The fruit bodies appear from June to November.",
     "level": "intermediate"
   },
   "trzesak-pomaranczowozolty": {
@@ -188,9 +188,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A yellow jelly on branches, like a woodland helping of fruit jelly.",
     "quiz_angle": "jelly fungi and their dependence on moisture",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland.",
-    "habitat": "Dead branches of deciduous trees, often after rain.",
-    "occurrence": "When it dries out it shrinks, and with moisture it regains its jelly-like look.",
+    "region": "Common in Poland.",
+    "habitat": "Fallen branches of broadleaved trees, especially beech, oak, ash and hazel.",
+    "occurrence": "The fruit bodies can be found all year round, most often in late autumn, winter and spring.",
     "level": "intermediate"
   },
   "uszak-bzowy": {
@@ -198,9 +198,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A jelly fungus resembling an ear, often on elder.",
     "quiz_angle": "ear shape, texture and substrate",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland, especially where elder grows.",
-    "habitat": "Dead and weakened branches of elder and other deciduous trees.",
-    "occurrence": "The simplest field clue is an old elder thicket after rain.",
+    "region": "Common in Poland, most often on elder.",
+    "habitat": "Weakened or dead wood, most often of elder, also of maples, alders and other broadleaved trees; in forests, thickets, parks and gardens.",
+    "occurrence": "It grows all year round, also in mild winters. In long spells of wet weather it forms whole clusters of fruit bodies.",
     "level": "intermediate"
   },
   "galaretnica-miesista": {
@@ -208,9 +208,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Violet-pink jelly-like clusters on dead wood.",
     "quiz_angle": "color, texture and microhabitat",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland, locally.",
-    "habitat": "Dead deciduous wood, moist stumps and logs.",
-    "occurrence": "It is easiest to spot when humidity is high.",
+    "region": "Recorded in various parts of Poland, including Pomerania, Poznań and the Białowieża Forest.",
+    "habitat": "Decaying wood of broadleaved trees, most often beech and oak, especially the cut surfaces of trunks and stumps; occasionally conifers.",
+    "occurrence": "The fruit bodies appear mainly in summer in wet weather, in late autumn and in mild winters.",
     "level": "intermediate"
   },
   "kolczakowka-galaretowata": {
@@ -218,9 +218,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A translucent whitish fungus with a spiny underside and a jelly-like texture.",
     "quiz_angle": "spines underneath instead of gills or tubes",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland, more often in coniferous forests and woods with plenty of conifer wood.",
-    "habitat": "Rotting conifer stumps and logs.",
-    "occurrence": "Its soft, jelly-like structure sets it apart from many other fungi with a spiny underside.",
+    "region": "Common in Poland.",
+    "habitat": "Dead wood of conifers, usually spruce and pine, in coniferous and mixed forests.",
+    "occurrence": "In Poland it appears from summer to autumn, sometimes also in spring and winter.",
     "level": "intermediate"
   },
   "plomyczek-galaretowaty": {
@@ -228,7 +228,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A salmon-pink, jelly-like flame rising from soil or a decaying substrate.",
     "quiz_angle": "color and the soft, funnel-like form",
     "safety_note": "Partially protected species; for educational purposes only.",
-    "region": "Rare; mainly in the mountains (including the Tatras).",
+    "region": "Rare: by 2020, 81 sites had been reported in Poland, including in the Tatra Mountains.",
     "habitat": "Mostly buried, decaying spruce or fir wood, less often other trees; in the mountains, on calcareous soils.",
     "occurrence": "It seems to grow from the soil because the wood it grows on is often covered by earth.",
     "level": "intermediate"
@@ -238,9 +238,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A little star that responds to moisture by opening and curling its arms.",
     "quiz_angle": "hygroscopic movement and comparison with earthstars",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Throughout Poland, in scattered spots in dry, warm places.",
-    "habitat": "Grasslands, sandy forest edges, dry slopes and inland dunes.",
-    "occurrence": "It responds to moisture, so the region matters less than a dry, open habitat.",
+    "region": "By 2020, 12 old, 12 recent and 15 doubtful sites had been reported in Poland.",
+    "habitat": "Dry, sunny places: sandy roadsides, edges of broadleaved forests, open pine forests, oak woods, thermophilous scrub.",
+    "occurrence": "The fruit bodies usually appear from July to September and can last up to a year. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "gwiazda-wieloporowa": {
@@ -249,8 +249,8 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "quiz_angle": "the number of openings and the star shape",
     "safety_note": "Strictly protected species; for educational purposes only.",
     "region": "Very rare; by 2020 the Polish literature listed 5 current, 8 historical and 1 doubtful site.",
-    "habitat": "Grasslands, forest edges, thickets and sandy or calcareous soils.",
-    "occurrence": "This is a local species: good for identifying by habitat and shape.",
+    "habitat": "Pine and spruce forests, also broadleaved forests and thermophilous scrub; most often sandy and calcareous soils.",
+    "occurrence": "In Europe it fruits from September to November. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "gwiazdosz-wzniesiony": {
@@ -258,9 +258,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "The fruiting body looks as if it stood on its own star-shaped supports.",
     "quiz_angle": "different types of earthstars and their structure",
     "safety_note": "Strictly protected species; do not destroy its sites.",
-    "region": "Scattered; more often in southern and central Poland.",
+    "region": "Rare: by 2020, 3 historical and 11 recent sites were known in Poland.",
     "habitat": "Nitrogen-rich thickets, e.g. with lilac, hawthorn, elder and black locust.",
-    "occurrence": "The star-shaped fruiting bodies can persist for a long time after drying.",
+    "occurrence": "The fruit bodies appear from August to November. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "gwiazdosz-czteropromienny": {
@@ -268,9 +268,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A small, precise star with a round spore sac in the middle.",
     "quiz_angle": "recognizing it by the number and arrangement of its arms",
     "safety_note": "Partially protected species; for educational purposes only.",
-    "region": "Rare, scattered; mainly coniferous and mixed forests.",
-    "habitat": "Litter, mosses and humus in coniferous forests and old stands.",
-    "occurrence": "It is best described as a species of isolated sites, dependent on its microhabitat.",
+    "region": "Rare; listed as R on the Polish Red List.",
+    "habitat": "Forests and thickets, often under spruces, preferably on limestone.",
+    "occurrence": "The fruit bodies appear from August to October; dry ones can still be found in snowless winters and even in spring.",
     "level": "intermediate"
   },
   "berloweczka-zimowa": {
@@ -280,7 +280,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "safety_note": "Educational material; take care around dry and rare habitats.",
     "region": "Rare; listed as R on the Polish Red List.",
     "habitat": "Warm grasslands among grasses and mosses, on dry sandy or calcareous soils.",
-    "occurrence": "Its winter fruiting season helps to remember it.",
+    "occurrence": "Despite the name, the fruit bodies appear mainly in autumn. Until 2014 the species was strictly protected in Poland.",
     "level": "intermediate"
   },
   "kubek-prazkowany": {
@@ -288,9 +288,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A miniature bird's nest with 'eggs' containing spores.",
     "quiz_angle": "the mechanism of spores being splashed out by raindrops",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland.",
-    "habitat": "Dead twigs, plant debris, litter and damp bits of wood.",
-    "occurrence": "The small cups are often visible only on a close look.",
+    "region": "Common in Poland.",
+    "habitat": "Wood debris of broadleaved and coniferous trees, leaves and other plant remains; most often in damp thickets and forests.",
+    "occurrence": "The fruit bodies grow in summer and autumn, singly or in groups.",
     "level": "intermediate"
   },
   "gniazdniczka-kulista": {
@@ -298,9 +298,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A second type of 'bird's nest': great for comparisons in the quiz.",
     "quiz_angle": "differences between the common bird's nest and the fluted bird's nest",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland.",
-    "habitat": "Humus, litter, small twigs, wood chips and dead plant remains.",
-    "occurrence": "The tiny 'nests' like places rich in decaying matter.",
+    "region": "Common in Poland.",
+    "habitat": "Wood debris and fallen twigs; in forests and thickets, by streams, along roads, in parks.",
+    "occurrence": "The fruit bodies appear from summer to autumn.",
     "level": "intermediate"
   },
   "kolczakowka-piekaca": {
@@ -308,9 +308,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "The famous 'bleeding tooth': a pale fruiting body with red droplets.",
     "quiz_angle": "guttation droplets and the toothed hymenophore",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Scattered; mainly pine forests of the north and east, and in places the mountains.",
-    "habitat": "Acidic, poor coniferous and mixed forests, often with pine.",
-    "occurrence": "The red-droplet effect depends on the age of the fruiting body and on humidity.",
+    "region": "By 2020, 16 sites had been reported in Poland.",
+    "habitat": "Coniferous forests, including mountain ones; it grows on the ground, sometimes on fallen cones, in mycorrhiza mainly with pine and spruce.",
+    "occurrence": "The fruit bodies appear from summer to autumn. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "kolczakowka-niebieska": {
@@ -318,9 +318,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Bluish shades in the world of fungi make a great visual impression.",
     "quiz_angle": "fruiting-body color and the spiny underside",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Scattered; pine forests, northern Poland and mountain areas.",
-    "habitat": "Acidic coniferous forests, mosses and poor pine-forest habitats.",
-    "occurrence": "The color is strongest in young fruiting bodies.",
+    "region": "By 2020, 2 historical, 7 recent and 1 doubtful site had been reported in Poland.",
+    "habitat": "Coniferous, less often mixed forests, under spruces, pines and beeches; more often in the mountains, especially on calcareous soils.",
+    "occurrence": "The fruit bodies appear from June to October. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "kolczakowka-wonna": {
@@ -328,9 +328,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A fungus interesting not only for its looks but also for its smell: a good subject for a sensory flashcard.",
     "quiz_angle": "features other than color: smell and spines",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Scattered; cooler coniferous forests of the north and the mountains.",
-    "habitat": "Coniferous and mixed forests, acidic litter, mosses.",
-    "occurrence": "The smell and bluish tones matter more than the exact region.",
+    "region": "By 2020, 20 historical and 14 recent sites had been reported in Poland.",
+    "habitat": "Coniferous forests, more often in the mountains; a mycorrhizal fungus.",
+    "occurrence": "The fruit bodies appear from July to October. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "zylkowiec-rozowawy": {
@@ -338,9 +338,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A pinkish cap with a network of veins: it looks like an anatomical drawing.",
     "quiz_angle": "the veined cap surface and wood-growing habit",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Rare; rediscovered after more than a century in the Białowieża Forest, where it is spreading (6 sites in 2020).",
+    "region": "Rare; found again after more than a hundred years in the Białowieża Forest, where it is spreading. In 2020, 6 sites were known in Poland.",
     "habitat": "Dead wood in deciduous forests, above all elm wood.",
-    "occurrence": "Its occurrence is closely tied to the availability of old wood.",
+    "occurrence": "In Europe the fruit bodies appear mainly from August to November. Listed as E (endangered) on the Polish Red List.",
     "level": "intermediate"
   },
   "szyszkowiec-luskowaty": {
@@ -348,9 +348,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A black, scaly bolete that looks like a fungus from a fairy-tale forest.",
     "quiz_angle": "scales on the cap and the bolete structure",
     "safety_note": "Partially protected species; for educational purposes only.",
-    "region": "Mountains and foothills, locally also older coniferous forests outside the mountains.",
-    "habitat": "Spruce and mixed forests, soil near conifers.",
-    "occurrence": "Its scaly look fits well with cooler, mountain habitats.",
+    "region": "Rare; more often in the mountains of southern Poland.",
+    "habitat": "Coniferous, broadleaved and mixed forests; mycorrhiza with beech, and in the mountains with spruce and fir.",
+    "occurrence": "The fruit bodies appear from summer to autumn. Listed as R on the Polish Red List.",
     "level": "intermediate"
   },
   "krwistoborowik-szatanski": {
@@ -358,9 +358,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A pale cap, red pores and a dramatic name: a strong species for a safety quiz.",
     "quiz_angle": "red pores, the stem and the risk of wrong associations",
     "safety_note": "Poisonous and strictly protected; for educational purposes only, do not collect.",
-    "region": "Warm regions of southern and western Poland; rare.",
-    "habitat": "Warm beech and oak forests, usually on calcareous soils.",
-    "occurrence": "A striking but toxic species; the description is educational only.",
+    "region": "Very rare; the sites described in the literature are in the Kaczawskie Mountains and on the Kraków-Częstochowa Upland.",
+    "habitat": "Warm broadleaved forests, especially under oaks and beeches; most often on calcareous soils.",
+    "occurrence": "The fruit bodies appear from July to September. Listed as E (endangered) on the Polish Red List.",
     "level": "harder"
   },
   "wilgotnica-czerniejaca": {
@@ -368,9 +368,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A brightly colored fungus that clearly turns black over time.",
     "quiz_angle": "color change over time as a recognition feature",
     "safety_note": "Mildly poisonous; educational material.",
-    "region": "Scattered; meadows and grasslands in the mountains, foothills and lake districts.",
-    "habitat": "Unfertilized meadows, grasslands, pastures and poor lawns.",
-    "occurrence": "It is tied to traditionally used, little-fertilized meadows.",
+    "region": "Common in Poland.",
+    "habitat": "Damp meadows and pastures.",
+    "occurrence": "The fruit bodies appear from June to October.",
     "level": "harder"
   },
   "lakowka-ametystowa": {
@@ -378,8 +378,8 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "An intensely violet fungus: a simple visual hit for beginners.",
     "quiz_angle": "the color of the gills and cap, and its variation with age",
     "safety_note": "For education; do not encourage collecting without a certain identification.",
-    "region": "Throughout Poland.",
-    "habitat": "Deciduous, coniferous and mixed forests; litter, mosses and moist soils.",
+    "region": "Common in Poland.",
+    "habitat": "Forests, gardens and parks; on the ground or on rotten wood, under broadleaved and coniferous trees, most often under trees of the beech order (e.g. beech, oak, birch).",
     "occurrence": "The color depends on humidity and can fade.",
     "level": "harder"
   },
@@ -388,9 +388,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "It stains wood blue-green; sometimes the colored wood is easier to find than the fruiting bodies.",
     "quiz_angle": "a fungus visible through its effect on wood",
     "safety_note": "Educational material.",
-    "region": "Woodland with dead, rotting broadleaf wood.",
-    "habitat": "Rotting, bark-free logs and branches, especially oak.",
-    "occurrence": "The fruiting bodies are only 2–5 mm across, so the blue-green stained wood is seen more often than the fungus itself.",
+    "region": "Recorded in Poland, including the Biebrza National Park.",
+    "habitat": "Well-rotted, bark-free logs and branches of broadleaved and coniferous trees.",
+    "occurrence": "The fruit bodies (2–5 mm) appear fairly rarely; more often only wood stained green by the mycelium can be seen.",
     "level": "harder"
   },
   "grzybowka-krwista": {
@@ -398,9 +398,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "When damaged it releases a dark red juice: a great curiosity, but no experiments in the field.",
     "quiz_angle": "features after damage and growth on dead wood",
     "safety_note": "For educational purposes only; do not encourage damaging the fruiting bodies.",
-    "region": "Throughout Poland, locally.",
-    "habitat": "Dead deciduous wood, especially beech, and damp logs.",
-    "occurrence": "The blood-red juice is best seen in fresh, young fruiting bodies.",
+    "region": "Very common in Poland.",
+    "habitat": "Dead wood of broadleaved trees: trunks, stumps and fallen branches; rarely on conifers.",
+    "occurrence": "The fruit bodies appear from April to October.",
     "level": "harder"
   },
   "muchomor-czerwony": {
@@ -408,9 +408,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "The most iconic fungus in culture: a red cap, white spots, instant recognition.",
     "quiz_angle": "mythology, pop culture and real toxicological warnings",
     "safety_note": "Poisonous/psychoactive; do not promote eating it or experiments.",
-    "region": "Throughout Poland.",
-    "habitat": "Pine forests, birch woods, mixed forests; mycorrhiza with birch, pine and spruce, among others.",
-    "occurrence": "An iconic forest species, but it is not an edible fungus.",
+    "region": "Very common in Poland.",
+    "habitat": "Broadleaved, coniferous and mixed forests, especially often under birch; mycorrhiza with, among others, birch, pine, spruce, fir, aspen and oak.",
+    "occurrence": "The fruit bodies appear from June to November.",
     "level": "harder"
   },
   "ozorek-debowy": {
@@ -418,9 +418,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "It resembles a piece of raw meat attached to an oak trunk.",
     "quiz_angle": "shape, color and its link with oaks",
     "safety_note": "Partially protected species; educational material.",
-    "region": "Throughout Poland, more often in regions with ancient oaks.",
-    "habitat": "Old oaks, trunks, hollows and living or dead deciduous wood.",
-    "occurrence": "A good habitat is a park, an avenue or an old forest with large oaks.",
+    "region": "By 2020 about 250 sites had been reported in Poland; listed as R on the Polish Red List.",
+    "habitat": "Roots, trunks, stumps and uprooted trunks of oaks, also oak timber.",
+    "occurrence": "It causes brown rot of the wood; the decay is slow and can take several decades.",
     "level": "harder"
   },
   "zolciak-siarkowy": {
@@ -428,9 +428,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Bright yellow shelves on a tree, visible from afar.",
     "quiz_angle": "bracket fungi, shelf-like fruiting bodies and parasitism on trees",
     "safety_note": "For education; the atlas gives no culinary advice.",
-    "region": "Throughout Poland.",
-    "habitat": "Trunks and boughs of deciduous trees, parks, orchards, riparian woods and forests.",
-    "occurrence": "In season, the yellow shelves on a tree are visible from afar.",
+    "region": "Common in Poland.",
+    "habitat": "Mainly broadleaved trees, most often oaks, birches, willows and fruit trees; usually in parks, along roads, in orchards and gardens, less often in forests.",
+    "occurrence": "The fruit bodies appear from April to October, mainly in spring.",
     "level": "harder"
   },
   "lakownica-lsniaca": {
@@ -438,9 +438,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A glossy, varnished fruiting body that looks like a wooden carving.",
     "quiz_angle": "bracket fungi with a shiny surface and the myth of 'medicinal mushrooms'",
     "safety_note": "Partially protected species; make no health promises.",
-    "region": "Throughout Poland, locally.",
-    "habitat": "Stumps and dead deciduous wood, especially in warmer and damp places.",
-    "occurrence": "The shiny crust is a good visual clue.",
+    "region": "By 2020 about 150 sites had been reported in Poland; listed as R on the Polish Red List.",
+    "habitat": "Roots, stumps and the lower parts of trunks, mainly of dead broadleaved trees; in forests, parks and gardens.",
+    "occurrence": "Fresh fruit bodies appear in summer and autumn; older ones can be found all year round.",
     "level": "harder"
   },
   "pniarek-lekarski": {
@@ -448,9 +448,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A fungus historically known from old medicine, interesting today as a relic of natural forests.",
     "quiz_angle": "the history of its use and the protection of old stands",
     "safety_note": "Strictly protected species; for educational purposes only.",
-    "region": "Very rare; mainly mountain areas with larch.",
-    "habitat": "Old larches and dead larch wood.",
-    "occurrence": "In Poland it is a species to describe as an exceptional rarity tied to its host tree.",
+    "region": "Very rare: by 2020 it had been recorded at 11 old and 6 recent sites.",
+    "habitat": "Very old larches in near-natural forests; rarely other conifers.",
+    "occurrence": "It is considered an indicator of old-growth forest. Listed as E (endangered) on the Polish Red List.",
     "level": "harder"
   },
   "blyskoporek-podkorowy": {
@@ -458,9 +458,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A black growth on birch known as chaga: it looks more like a charred lump than a classic fungus.",
     "quiz_angle": "the difference between the sterile growth and the fruiting body",
     "safety_note": "Partially protected species; make no health promises.",
-    "region": "Throughout Poland, especially forests and tree stands with birch.",
-    "habitat": "Trunks of living and dead birches, under the bark and on wounds.",
-    "occurrence": "Known as chaga; the atlas does not encourage harvesting it.",
+    "region": "Rare, although many sites in Poland have been reported in the literature; listed as R on the Polish Red List.",
+    "habitat": "Trunks of broadleaved trees, in Poland mainly birches; in various types of forest, less often in parks. It enters the tree through wounds.",
+    "occurrence": "A parasite causing white rot of the wood; it develops over many years and usually kills the tree.",
     "level": "harder"
   },
   "gestoporek-cynobrowy": {
@@ -469,8 +469,8 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "quiz_angle": "colorful bracket fungi on dead wood",
     "safety_note": "Educational material.",
     "region": "Rare; listed as R on the Polish Red List.",
-    "habitat": "Dead deciduous wood, branches and stumps in moist forests.",
-    "occurrence": "The intense cinnabar is best seen on fresh fruiting bodies.",
+    "habitat": "Dead wood of broadleaved trees (trunks, stumps, branches) in well-lit places; more often in riverside woods, on alders, willows and birches.",
+    "occurrence": "It appears more often in hot summers.",
     "level": "harder"
   },
   "maczuznik-bojowy": {
@@ -479,8 +479,8 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "quiz_angle": "fungi that parasitize insects",
     "safety_note": "For education; do not promote collecting or experiments.",
     "region": "Rare; listed as R on the Polish Red List.",
-    "habitat": "Litter, mosses and places where insect larvae or pupae lie in the substrate.",
-    "occurrence": "The fruiting bodies are small, so you are more likely to find it by looking carefully at the litter.",
+    "habitat": "Open forests and their edges; it grows from insect larvae and pupae in the ground, mainly of moths.",
+    "occurrence": "In Poland its sites were first reported in 1902; it has been recorded many times since.",
     "level": "harder"
   },
   "maczuznik-nasiezrzalowy": {
@@ -488,9 +488,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A dark club growing out of underground fungi: a fungus that parasitizes another fungus sounds like a ready-made quiz topic.",
     "quiz_angle": "relationships between fungi: parasitism on underground fruiting bodies",
     "safety_note": "Educational material.",
-    "region": "Throughout Poland, but rarely and in scattered spots.",
-    "habitat": "Forests with the underground fungi it parasitizes; litter and humus.",
-    "occurrence": "What makes it unusual is that it parasitizes other fungi hidden underground.",
+    "region": "Rare; listed as R on the Polish Red List.",
+    "habitat": "On the underground fruit bodies of false truffles (Elaphomyces), which it parasitises.",
+    "occurrence": "The fruit body is up to 10 cm tall; the head of young fruit bodies is yellow and turns black with time.",
     "level": "harder"
   },
   "czasznica-olbrzymia": {
@@ -498,9 +498,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A huge white sphere that looks more like a ball than a fungus.",
     "quiz_angle": "comparing young round fungi, and caution in identification",
     "safety_note": "For education; do not promote collecting without a certain identification.",
-    "region": "Throughout Poland.",
-    "habitat": "Meadows, pastures, parks, field edges and fertile lawns.",
-    "occurrence": "The large white balls are easiest to spot in open grassland.",
+    "region": "More common in northern Poland, rarely seen in the south.",
+    "habitat": "Meadows, pastures, parks and gardens; fertile, nitrogen-rich soils, but also acidic ones.",
+    "occurrence": "Until 2014 the species was strictly protected in Poland.",
     "level": "harder"
   },
   "opienka-miodowa-bioluminescencja": {
@@ -508,9 +508,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Not so much the caps as the mycelium and dark rhizomorphs of honey fungi can give off a greenish glow in complete darkness.",
     "quiz_angle": "bioluminescence: the mycelium and rhizomorphs give their own light; the fruiting bodies themselves usually do not glow",
     "safety_note": "Do not use the glow for identification or collecting; honey fungi need careful identification, and this site is educational.",
-    "region": "Throughout Poland; as a group, honey fungi are very common, especially in autumn.",
-    "habitat": "Dead wood, stumps, roots and weakened deciduous and coniferous trees.",
-    "occurrence": "The greenish glow concerns mainly the mycelium and rhizomorphs under bark or in rotten wood, not the typical look of the fruiting bodies.",
+    "region": "Common in Poland.",
+    "habitat": "Wood of various broadleaved trees: trunks, stumps, branches and roots; in forests, gardens, parks and orchards.",
+    "occurrence": "Light is emitted by growing rhizomorphs (cords of mycelium). When they stop growing and become covered with a dark layer, the glow fades.",
     "level": "night curiosity"
   },
   "lycznik-ochrowy-bioluminescencja": {
@@ -518,9 +518,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Small ochre caps grow in groups on dead wood; the glow story is real, but European specimens usually glow weakly or not at all.",
     "quiz_angle": "bioluminescence and fluorescence: North American strains can be clearly bioluminescent, European ones are treated with caution",
     "safety_note": "Inedible; do not use the glow or a UV lamp as the only identifying feature.",
-    "region": "Throughout Poland; fairly common in forests with dead deciduous wood.",
-    "habitat": "Stumps, logs and dead wood of deciduous trees, especially oak, beech and birch.",
-    "occurrence": "In Poland what matters is the presence of the species itself; visible glowing of the fruiting bodies is not something to promise in the field.",
+    "region": "Very common in Poland.",
+    "habitat": "Dead and decaying wood, mainly of broadleaved trees, especially often oaks; very rarely on conifers.",
+    "occurrence": "It usually grows in clusters.",
     "level": "night curiosity"
   },
   "wrosniak-roznobarwny": {
@@ -528,9 +528,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Miniature fans arrange themselves in concentric bands of color, like natural graphics on dead wood.",
     "quiz_angle": "colored zones, thin leathery shelves and growth in rosettes or overlapping tiers on wood",
     "safety_note": "Inedible because of its tough texture; this is educational, not culinary, material.",
-    "region": "Throughout Poland; a very common species on dead wood.",
-    "habitat": "Stumps, logs and dead branches of deciduous trees, less often of conifers.",
-    "occurrence": "The most photogenic are fresh, moist rosettes with distinct bands of color.",
+    "region": "Throughout Poland except the higher mountains; very common.",
+    "habitat": "Trunks and stumps, mainly of dead trees, often soon after a tree has been felled or has died; in forests, thickets, gardens and parks.",
+    "occurrence": "It grows all year round. It is less common only in riverside woods.",
     "level": "wow effect"
   },
   "boczniaczek-pomaranczowozolty": {
@@ -538,9 +538,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Bright orange shelves grow sideways out of wood and look like a woodland neon sign.",
     "quiz_angle": "intense orange-yellow color, lateral attachment and growth on dead wood",
     "safety_note": "Do not treat it as an edible fungus; a rare species, presented for education.",
-    "region": "Scattered and rare; known from isolated sites in various regions, including the Carpathians, the Beskids and old forest complexes.",
-    "habitat": "Dead wood of conifers, especially spruce; less often deciduous wood.",
-    "occurrence": "A good candidate for the atlas as a rare, very colorful accent on wood.",
+    "region": "Rare; listed as V (vulnerable) on the Polish Red List.",
+    "habitat": "Old, decaying trees and dead trunks and stumps of broadleaved and coniferous trees, in broadleaved and mixed forests.",
+    "occurrence": "The fruit bodies appear from April to October.",
     "level": "special specimen"
   },
   "zaslonak-fioletowy": {
@@ -548,9 +548,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "The whole fruiting body can be a deep, velvety violet with a metallic sheen.",
     "quiz_angle": "the dark violet color of the cap and stem, the velvety surface and the cortina in young specimens",
     "safety_note": "Do not encourage collecting; webcaps are difficult to identify and include dangerous species.",
-    "region": "Uncommon, scattered; deciduous forests in various parts of Poland.",
-    "habitat": "Deciduous forests, especially under beeches, alders, willows and birches.",
-    "occurrence": "A young, fresh fruiting body with still intense violet makes the strongest visual impression.",
+    "region": "Rare; listed as V (vulnerable) on the Polish Red List.",
+    "habitat": "On the ground in broadleaved and mixed forests, mainly under beeches and birches; acidic or alkaline soils.",
+    "occurrence": "The fruit bodies appear from August to October, singly or in small groups.",
     "level": "special specimen"
   },
   "czernidlak-kolpakowaty": {
@@ -558,9 +558,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A white, scaly cap matures quickly, blackens and dissolves into an inky goo.",
     "quiz_angle": "a tall white cap, protruding scales, and gills that blacken and dissolve",
     "safety_note": "This site is not for decisions about eating; we show the transformation of the fruiting body as a curiosity.",
-    "region": "Throughout Poland; very common, also close to people.",
-    "habitat": "Lawns, parks, gardens, roadsides, fertilized meadows and forest edges.",
-    "occurrence": "The ink effect is best described as a stage of maturing, not a permanent feature of young fruiting bodies.",
+    "region": "Very common in Poland, also close to people.",
+    "habitat": "Lawns, gardens, riverbanks, rubbish dumps and other ruderal places; also meadows, pastures and forests.",
+    "occurrence": "The fruit bodies appear from April to November.",
     "level": "easy start"
   },
   "miekusz-rabarbarowy": {
@@ -568,9 +568,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "An inconspicuous cinnamon bracket has a laboratory secret: in contact with an alkali it quickly turns purple.",
     "quiz_angle": "the chemical reaction with KOH or ammonia: the flesh turns purple",
     "safety_note": "Highly poisonous; the description concerns only a natural-history curiosity and does not encourage field experiments.",
-    "region": "Fairly rare in Poland; it grows on dead broadleaf wood.",
-    "habitat": "Dead branches and wood of deciduous trees, including oak, birch, beech, hornbeam and hazel.",
-    "occurrence": "In the atlas it is worth showing as an example that the most unusual feature is not always visible at once.",
+    "region": "Fairly rare in Poland, but not threatened.",
+    "habitat": "Trunks, stumps and branches of dead broadleaved trees, especially birch, hornbeam, hazel, ash, oak and goat willow; in forests and parks.",
+    "occurrence": "The fruit bodies are annual and develop from June to October.",
     "level": "chemical curiosity"
   },
   "krasnoborowik-ceglastopory": {
@@ -578,9 +578,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "Red pores and yellow flesh quickly turn an intense navy blue when damaged.",
     "quiz_angle": "instant bluing after touching or cutting, and red pores with no net on the stem",
     "safety_note": "Do not use this site to judge edibility; similar boletes can be difficult and dangerous.",
-    "region": "Throughout Poland, more often in the south of the country, the foothills and the mountains.",
-    "habitat": "Coniferous, deciduous and mixed forests, especially beech and spruce forests on more acidic soils.",
-    "occurrence": "The color change after damage is a great curiosity, but it is not enough for safe identification.",
+    "region": "Fairly common in Poland; much more common in the mountains than in the lowlands.",
+    "habitat": "Broadleaved and coniferous forests, mainly under firs, hornbeams, beeches, spruces, oaks and limes.",
+    "occurrence": "The fruit bodies appear from May to late autumn.",
     "level": "wow effect"
   },
   "lejkowiec-dety": {
@@ -588,9 +588,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A black, hollow trumpet grows from the forest floor and can vanish completely from view among beech leaves.",
     "quiz_angle": "the hollow, trumpet-shaped fruiting body, black interior and greyish outer hymenophore",
     "safety_note": "Educational material; do not use this site to confirm what you collect.",
-    "region": "Throughout Poland, locally fairly common in suitable deciduous forests.",
-    "habitat": "Deciduous forests, especially beech forests; often in large groups on damper parts of the forest floor.",
-    "occurrence": "The curiosity is not only its shape but also its excellent camouflage in dark litter.",
+    "region": "In Poland most often in the foothills.",
+    "habitat": "Broadleaved and mixed forests, usually under beeches and oaks; it grows in clumps.",
+    "occurrence": "The fruit bodies appear from August to November.",
     "level": "atmospheric specimen"
   },
   "zagwiak-luskowaty": {
@@ -598,9 +598,9 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "hook": "A huge, fan-shaped cap has dark scales arranged like the pattern on a reptile's skin.",
     "quiz_angle": "a very large fan-shaped fruiting body, concentric scales and growth on trunks of deciduous trees",
     "safety_note": "This site describes form and habitat; it is not a collecting guide.",
-    "region": "Throughout Poland; a common species.",
-    "habitat": "Living and dead deciduous trees, trunks, boughs, stumps; often high above the ground.",
-    "occurrence": "It works well in the atlas as a contrast of scale: one fruiting body can be the size of a large plate.",
+    "region": "Throughout Poland except the higher mountains; common.",
+    "habitat": "Living and dying trunks of broadleaved trees, most often beech, maple and ash; in forests, parks, gardens and along roads.",
+    "occurrence": "Young fruit bodies appear in March and grow until the first frosts; old ones sometimes stay on the trunks until February.",
     "level": "scale and form"
   }
 };

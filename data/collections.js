@@ -26,6 +26,7 @@
         "/data/region-pack-v07.js",
         "/data/photo-pack-v08.js",
         "/data/i18n/grzyby.en.js",
+        "/data/occurrence/grzyby.occurrence.js",
         "/data/facts/grzyby.facts.js"
       ],
       build: () => {
