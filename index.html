@@ -47,6 +47,7 @@
     <div class="topbar__inner shell">
       <a id="wordmark" class="wordmark" href="/" data-action="go-home" aria-label="Atlas Osobliwości Polski, strona główna">Atlas <em>Osobliwości</em> Polski</a>
       <div class="topbar__tools">
+        <a id="drawerLink" class="topbar__link topbar__drawer is-hidden" href="/#myDrawer" data-action="go-drawer" aria-label="Moja szuflada">Szuflada</a>
         <a id="mapLink" class="topbar__link" href="/mapa" data-action="go-map" aria-label="Mapa wszystkich miejsc atlasu">Mapa</a>
         <div id="languageToggle" class="language-toggle" role="group" aria-label="Wybór języka">
           <button class="language-btn is-active" data-action="set-language" data-language="pl" type="button">PL</button>
@@ -67,6 +68,14 @@
           <button id="chooseCollectionHero" class="primary" data-action="show-collections" type="button">Wyrusz w podróż</button>
           <button id="surpriseButton" class="secondary" data-action="surprise" type="button">Zaskocz mnie</button>
         </div>
+        <form id="atlasSearch" class="atlas-search" role="search">
+          <label class="search-box">
+            <span id="atlasSearchLabel">Szukaj w całym atlasie</span>
+            <input id="atlasSearchInput" type="search" placeholder="np. okratek, Wieliczka, zorza…" autocomplete="off" spellcheck="false" aria-describedby="atlasSearchStatus" />
+          </label>
+          <p id="atlasSearchStatus" class="atlas-search__status" role="status"></p>
+          <ul id="atlasSearchResults" class="atlas-search__results" aria-labelledby="atlasSearchLabel"></ul>
+        </form>
         <ul id="heroStats" class="hero__stats" aria-label="Atlas w liczbach"></ul>
       </div>
       <ul id="cabinet" class="cabinet" aria-label="Wybrane osobliwości"></ul>

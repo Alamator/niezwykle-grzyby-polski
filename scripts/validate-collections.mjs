@@ -738,6 +738,16 @@ const startPage = JSON.parse(JSON.stringify(context.window.ATLAS_START || null))
 assert(startPage, "data/start-page.js should set window.ATLAS_START");
 assert.deepEqual(startPage, JSON.parse(JSON.stringify(buildStartPage(context.window))), "data/start-page.js no longer matches the cards: run npm run build:start-page");
 assert(htmlScripts.indexOf("./data/start-page.js") !== -1 && htmlScripts.indexOf("./data/start-page.js") < htmlScripts.indexOf("./js/app.js"), "index.html should load data/start-page.js before js/app.js");
+// "Szukaj w całym atlasie" looks through data/search-index.js, made by scripts/build-search-index.mjs: one row
+// per card of every collection. The page loads it on first use, so index.html does not.
+const { buildSearchIndex } = await import("./build-search-index.mjs");
+vm.runInContext(fs.readFileSync("data/search-index.js", "utf8"), context, { filename: "data/search-index.js" });
+const searchIndex = JSON.parse(JSON.stringify(context.window.ATLAS_SEARCH || null));
+assert(searchIndex, "data/search-index.js should set window.ATLAS_SEARCH");
+assert.deepEqual(searchIndex, JSON.parse(JSON.stringify(buildSearchIndex(context.window))), "data/search-index.js no longer matches the cards: run npm run build:search-index");
+assert.equal(searchIndex.cards.length, collections.reduce((sum, collection) => sum + collection.items.length, 0), "the search index should have every card");
+assert(!htmlScripts.some((src) => src.includes("search-index")), "index.html should not load the search index up front");
+assert(appJs.includes('loadScript("/data/search-index.js", "ATLAS_SEARCH")'), "the start page should load data/search-index.js for the search");
 const startPhotos = [...startPage.specimens.map((entry) => entry.photo), ...Object.values(startPage.covers).map((entry) => entry.photo)];
 assert.equal(new Set(startPhotos.map((photo) => photo.image)).size, startPhotos.length, "every photo on the start page should be different");
 for (const photo of startPhotos) {

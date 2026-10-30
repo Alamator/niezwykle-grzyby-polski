@@ -336,14 +336,22 @@ h1 em, h2 em { color: var(--amber); }
   text-decoration: underline 1px var(--amber);
   text-underline-offset: 7px;
 }
+/* The drawer link: the star and the number of kept cards in amber, like the kept stars on the cards, and the
+   word "Szuflada" between them on wider screens. */
+.topbar__drawer { gap: 0.4rem; }
+.topbar__drawer .star { width: 16px; height: 16px; fill: var(--amber); stroke: var(--amber); }
+.topbar__drawer:hover .star { fill: var(--amber-2); stroke: var(--amber-2); }
+.topbar__count { color: var(--amber); letter-spacing: 0; }
+.topbar__drawer:hover .topbar__count { color: var(--amber-2); }
 
 /* ---------- Start page: hero and the cabinet of five curiosities ---------- */
 
+/* The cabinet keeps to the top: search results lengthen the text column, and centred it would slide down. */
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
   gap: clamp(28px, 5vw, 72px);
-  align-items: center;
+  align-items: start;
   padding: clamp(32px, 6vw, 84px) 0 clamp(40px, 6vw, 80px);
 }
 .hero h1 {
@@ -353,6 +361,25 @@ h1 em, h2 em { color: var(--amber); }
   letter-spacing: -0.012em;
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+/* "Szukaj w całym atlasie": under the hero buttons; the results are a plain list of links. */
+.atlas-search { max-width: 34rem; margin-top: 1.6rem; }
+.atlas-search__status { margin: 0.6rem 0 0; color: var(--muted); font: 400 12.5px/1.45 var(--mono); }
+.atlas-search__status:empty,
+.atlas-search__results:empty { display: none; }
+.atlas-search__results { margin: 0.5rem 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.atlas-search__hit {
+  display: grid;
+  gap: 0.15rem;
+  min-height: 44px;
+  padding: 0.55rem 0.2rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.atlas-search__hit:hover .atlas-search__name,
+.atlas-search__hit:focus-visible .atlas-search__name { color: var(--amber-2); }
+.atlas-search__name { font: 400 16px/1.3 var(--sans); }
+.atlas-search__meta { color: var(--muted); font: 400 12px/1.4 var(--mono); }
 .hero__stats {
   display: flex;
   flex-wrap: wrap;
@@ -1627,9 +1654,12 @@ tbody tr:last-child td { border-bottom: 0; }
 }
 
 /* On phones the top bar is full: smaller gaps, and below 360 px the map link and the language switch
-   move under the wordmark. */
+   move under the wordmark. With cards in the drawer the star needs room too, so they move there whenever the
+   line is full. */
 @media (max-width: 420px) {
   .topbar__inner { gap: 0 0.5rem; }
+  .topbar--with-drawer .topbar__inner { flex-wrap: wrap; gap: 0 1rem; padding-top: 0.4rem; }
+  .topbar--with-drawer .topbar__tools { margin-left: auto; }
 }
 @media (max-width: 359px) {
   .topbar__inner { flex-wrap: wrap; gap: 0 1rem; padding-top: 0.4rem; }
@@ -1638,6 +1668,7 @@ tbody tr:last-child td { border-bottom: 0; }
 
 @media (max-width: 620px) {
   .topbar__inner { min-height: 58px; }
+  .topbar__drawer-text { display: none; }
   .wordmark { font-size: 20px; }
   .hero { padding-top: 28px; }
   .hero h1 { font-size: clamp(44px, 13vw, 60px); }

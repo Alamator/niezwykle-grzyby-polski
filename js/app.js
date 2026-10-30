@@ -29,7 +29,7 @@
   const ALL_MAP_ROUTE = "/mapa";
   const ALL_QUIZ_ROUTE = "/quiz";
   // Where these pages were scrolled to, for coming back to them from a card.
-  const pageScroll = { map: 0, quiz: 0 };
+  const pageScroll = { start: 0, map: 0, quiz: 0 };
   // The atlas's mailbox for contact and error reports. The script puts it together, so it is not written
   // in the pages for address-harvesting bots to find.
   const CONTACT_EMAIL = ["kontakt", "atlas-osobliwosci.pl"].join("@");
@@ -637,6 +637,7 @@
     renderHeroStats();
     renderCabinet();
     renderMyDrawer();
+    renderAtlasSearchChrome();
     renderCollections();
     renderStartCredits();
     renderDailyFact();
@@ -1272,8 +1273,23 @@
     announce(t("drawerRemoved"));
   }
 
+  // The star in the top bar leads to the drawer from anywhere, with the number of cards in it. It shows only
+  // when the drawer has cards, like the drawer itself; on narrow phones the top bar then takes a second line.
+  function renderDrawerLink() {
+    const link = $("#drawerLink");
+    if (!link) return;
+    const count = myDrawer.filter((card) => collectionById(card.c)).length;
+    link.classList.toggle("is-hidden", !count);
+    $(".topbar")?.classList.toggle("topbar--with-drawer", count > 0);
+    const label = t("drawerLinkLabel", { cards: tPlural("cardCountForms", count) });
+    link.setAttribute("aria-label", label);
+    link.title = label;
+    link.innerHTML = `${STAR_SVG}<span class="topbar__drawer-text">${escapeHtml(t("drawerLinkText"))}</span><span class="topbar__count">${count}</span>`;
+  }
+
   // The section shows only with cards in it; right after the last one leaves here, it stays to say so.
   function renderMyDrawer({ keepEmpty = false } = {}) {
+    renderDrawerLink();
     const section = $("#myDrawer");
     if (!section) return;
     const cards = myDrawer.filter((card) => collectionById(card.c));
@@ -1326,6 +1342,115 @@
     myDrawer = cards;
     writeMyDrawer(cards);
     renderMyDrawer();
+  }
+
+  // ----- Search across the whole atlas (start page) -----
+
+  // data/search-index.js has every card's names; it loads on the first search, not with the start page.
+  const SEARCH_LIMIT = 10;
+  let searchIndexLoad = null;
+
+  function loadSearchIndex() {
+    if (window.ATLAS_SEARCH) return Promise.resolve(window.ATLAS_SEARCH);
+    searchIndexLoad ||= loadScript("/data/search-index.js", "ATLAS_SEARCH").catch((error) => {
+      searchIndexLoad = null;
+      throw error;
+    });
+    return searchIndexLoad;
+  }
+
+  // Every word typed has to begin a word of the card's names: Polish, English, Latin (or the line under a place's
+  // name) or a former name in the atlas. First come cards whose name in the page's language starts with the words
+  // typed, then those with a later word starting with them, then those with the words apart; after them, in the
+  // same order, cards found by another name. A card found by a former name says which one.
+  // Polish words change their endings ("zorza", but "Zorze polarne"), so when nothing matches, the words typed
+  // lose their last letter, then two, as long as four letters stay.
+  function atlasSearchMatches(index, query) {
+    const typed = searchWords(query).split(" ").filter(Boolean);
+    let matches = atlasSearchWords(index, typed);
+    let tried = typed.join(" ");
+    for (const cut of [1, 2]) {
+      if (matches.length) break;
+      const words = typed.map((word) => word.slice(0, Math.max(4, word.length - cut)));
+      if (words.join(" ") === tried) break;
+      tried = words.join(" ");
+      matches = atlasSearchWords(index, words);
+    }
+    return matches;
+  }
+
+  // Lower case, without Polish letters and punctuation: "Kopalnia Soli „Wieliczka”" is "kopalnia soli wieliczka".
+  function searchWords(text) {
+    return searchKey(text, "pl").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  }
+
+  function atlasSearchWords(index, words) {
+    if (!words.length) return [];
+    const phrase = ` ${words.join(" ")}`;
+    // 0: the text starts with the words typed, 1: a later word does, 2: it has them apart, -1: it has not.
+    const place = (text) => {
+      const key = ` ${searchWords(text)}`;
+      if (key.startsWith(phrase)) return 0;
+      if (key.includes(phrase)) return 1;
+      return words.every((word) => key.includes(` ${word}`)) ? 2 : -1;
+    };
+    const english = state.language === "en";
+    return index.cards.flatMap(([collectionId, id, pl, en, latin, latinEn, ...formerNames]) => {
+      const collection = collectionById(collectionId);
+      if (!collection) return [];
+      const name = english ? en : pl;
+      const line = english && latinEn ? latinEn : latin;
+      const others = [english ? pl : en, latin, latinEn, ...formerNames];
+      const haystack = ` ${searchWords([name, ...others].join(" "))}`;
+      if (!words.every((word) => haystack.includes(` ${word}`))) return [];
+      const inName = place(name);
+      const inOthers = others.map(place).filter((at) => at >= 0);
+      const rank = inName >= 0 ? inName : inOthers.length ? 3 + Math.min(...inOthers) : 6;
+      const formerName = inName < 0 && place(line) < 0 ? formerNames.find((former) => place(former) >= 0) || "" : "";
+      return [{ collection, id, name, line, formerName, rank }];
+    }).sort((a, b) => a.rank - b.rank || a.name.localeCompare(b.name, state.language));
+  }
+
+  async function renderAtlasSearch() {
+    const input = $("#atlasSearchInput");
+    const status = $("#atlasSearchStatus");
+    const list = $("#atlasSearchResults");
+    if (!input || !status || !list) return;
+    const query = input.value.trim();
+    if (searchWords(query).replace(/ /g, "").length < 2) {
+      status.textContent = "";
+      list.innerHTML = "";
+      return;
+    }
+    let index;
+    try {
+      if (!window.ATLAS_SEARCH) status.textContent = t("atlasSearchLoading");
+      index = await loadSearchIndex();
+    } catch {
+      status.textContent = t("atlasSearchError");
+      return;
+    }
+    // Typing may have gone on while the index loaded.
+    if (input.value.trim() !== query) return;
+    const matches = atlasSearchMatches(index, query);
+    const shown = matches.slice(0, SEARCH_LIMIT);
+    status.textContent = !matches.length
+      ? t("atlasSearchNone")
+      : t(matches.length > shown.length ? "atlasSearchMore" : "atlasSearchCount", { cards: tPlural("cardCountForms", matches.length), shown: shown.length });
+    list.innerHTML = shown.map(({ collection, id, name, line, formerName }) => `
+      <li>
+        <a class="atlas-search__hit" href="${escapeHtml(cardPath(collection, { id }))}" data-action="open-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(id)}">
+          <span class="atlas-search__name">${escapeHtml(name)}</span>
+          <span class="atlas-search__meta">${escapeHtml([collectionText(collection, "title"), line].filter(Boolean).join(" · "))}</span>
+          ${formerName ? `<span class="atlas-search__meta">${escapeHtml(`${t("synonymsLabel")}: ${formerName}`)}</span>` : ""}
+        </a>
+      </li>`).join("");
+  }
+
+  function renderAtlasSearchChrome() {
+    setText("#atlasSearchLabel", "atlasSearchLabel");
+    $("#atlasSearchInput")?.setAttribute("placeholder", t("atlasSearchPlaceholder"));
+    renderAtlasSearch();
   }
 
   // ----- Fact of the day -----
@@ -2777,7 +2902,7 @@
 
   // Which page shows: the start page, an opened collection or the map of every place.
   function showPage(page) {
-    // Back from a card returns to the same spot of the map or the quiz.
+    // Back from a card returns to the same spot of the start page, the map or the quiz.
     if (state.page in pageScroll && page !== state.page) pageScroll[state.page] = window.scrollY;
     state.page = page;
     $("#startPage").classList.toggle("is-hidden", page !== "start");
@@ -2790,7 +2915,8 @@
     else $("#mapLink").removeAttribute("aria-current");
   }
 
-  // Back to the start page: the wordmark goes to its top, every other way leads to the drawers.
+  // Back to the start page: the wordmark goes to its top, the star in the top bar to "Moja szuflada", back in
+  // history where it was left (at a search result, say), and every other way leads to the drawers.
   function showCollections(options = {}) {
     // A collection still loading does not open over the start page afterwards.
     selectionSerial += 1;
@@ -2798,7 +2924,11 @@
     showPage("start");
     renderMyDrawer();
     if ($("#itemDialog").open) $("#itemDialog").close?.();
-    if (options.top) window.scrollTo({ top: 0, behavior: "smooth" });
+    if (options.drawer && !$("#myDrawer").classList.contains("is-hidden")) {
+      $("#myDrawer").scrollIntoView({ behavior: "smooth", block: "start" });
+      $("#myDrawerTitle").focus({ preventScroll: true });
+    } else if (options.top) window.scrollTo({ top: 0, behavior: "smooth" });
+    else if (options.updateRoute === false) window.scrollTo(0, pageScroll.start);
     else $("#collectionPicker").scrollIntoView({ behavior: "smooth", block: "start" });
     if (options.updateRoute !== false) pushRoute("/", { collectionId: null });
     // After the address changes, as the head follows the address.
@@ -2861,6 +2991,7 @@
     if (action === "select-collection") selectCollection(target.dataset.collection);
     if (action === "show-collections") showCollections();
     if (action === "go-home") showCollections({ top: true });
+    if (action === "go-drawer") showCollections({ drawer: true });
     if (action === "go-map") showMapPage();
     // "Zagraj" on the start page begins today's challenge, unless it is already done today.
     if (action === "go-quiz") showQuizPage({ start: target.dataset.mode === "daily" && !readDailyResults()[todayIso()] ? "daily" : null });
@@ -2960,6 +3091,13 @@
     $("#searchInput").addEventListener("input", (event) => {
       state.search = event.target.value;
       renderAtlasGrid();
+    });
+
+    // Results follow the typing; Enter moves to the first result.
+    $("#atlasSearchInput")?.addEventListener("input", renderAtlasSearch);
+    $("#atlasSearch")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      $("#atlasSearchResults .atlas-search__hit")?.focus();
     });
 
     $("#itemDialog").addEventListener("click", (event) => {
