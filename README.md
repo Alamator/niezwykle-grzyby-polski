@@ -206,7 +206,16 @@ Najprostsza ścieżka:
 
 ## Publikacja na Vercel
 
-Framework: **Other** albo brak frameworka. Build Command `npm run build` i Output Directory `.` (główny katalog projektu) są ustawione w `vercel.json`.
+Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalog projektu) i Build Command są ustawione w `vercel.json`. Build Command to `npm run build && node scripts/version-assets.mjs --in-place`.
+
+### Pamięć przeglądarki (cache)
+
+- Po `npm run build` Vercel uruchamia `scripts/version-assets.mjs`. Skrypt dopisuje do adresu każdego pliku z `css/`, `js/`, `data/` i `fonts/` skrót jego treści, np. `/js/app.js?v=1a2b3c4d5e`.
+  - Robi to w stronach, w arkuszu stylów (fonty), w liście plików kolekcji (`data/collections.js`) i w `js/app.js` (spis kart do wyszukiwarki, punkty mapy).
+- Plik pod adresem z `?v=` przeglądarka trzyma przez rok (`vercel.json`). Zmieniony plik dostaje nowy skrót, czyli nowy adres, więc przychodzi od razu.
+- Strony i pliki bez `?v=` przeglądarka sprawdza przy każdej wizycie, jak dotąd. Adres, któremu skrypt nie dopisał skrótu, działa więc jak wcześniej, tylko bez długiej pamięci.
+- Nowy plik ładowany przez stronę trzeba podać pełnym adresem w cudzysłowie, np. `"/data/nowy-plik.js"`. Tylko taki adres skrypt znajdzie.
+- Skrypt zmienia pliki na miejscu, więc nie uruchamia się go na kopii roboczej (bez `--in-place` odmawia). `npm run test:technical` sprawdza go na kopii tymczasowej.
 
 ## Wyszukiwarki i podgląd linków
 

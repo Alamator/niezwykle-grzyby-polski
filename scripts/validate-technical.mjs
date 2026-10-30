@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 
 const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));
 const readme = fs.readFileSync("README.md", "utf8");
@@ -71,9 +74,19 @@ assert(
 );
 
 // Pages of collections and cards with their own titles, and the sitemap, are built on each deployment
-// (npm run build, run by Vercel) and stay out of git.
+// (npm run build, run by Vercel) and stay out of git. Then scripts/version-assets.mjs puts each site file's
+// hash in its address, and only such an address may stay in the browser for a year.
 assert.equal(packageJson.scripts?.build, "node scripts/build-pages.mjs", "npm run build should make the collection and card pages");
-assert.equal(vercelConfig.buildCommand, "npm run build", "Vercel should build the collection and card pages on each deployment");
+assert.equal(vercelConfig.buildCommand, "npm run build && node scripts/version-assets.mjs --in-place", "Vercel should build the collection and card pages, then put the files' hashes in their addresses, on each deployment");
+{
+  const rule = (source) => vercelConfig.headers?.find((entry) => entry.source === source);
+  const cacheControl = (entry) => entry?.headers.find((header) => header.key === "Cache-Control")?.value;
+  const byVersion = (conditions) => conditions?.some((condition) => condition.type === "query" && condition.key === "v" && condition.value === undefined);
+  assert(byVersion(rule("/(.*)")?.missing) && cacheControl(rule("/(.*)")) === "public, max-age=0, must-revalidate", "pages and files without ?v= should be checked on every visit");
+  for (const dir of ["css", "js", "data", "fonts"]) {
+    assert(byVersion(rule(`/${dir}/(.*)`)?.has) && cacheControl(rule(`/${dir}/(.*)`)) === "public, max-age=31536000, immutable", `files in ${dir}/ should stay in the browser for a year, but only at an address with ?v=`);
+  }
+}
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
@@ -155,6 +168,40 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     assert(notFound.includes(`href="${collection.route || `/atlas/${collection.id}`}"`), `404.html should link to ${collection.id}`);
   }
   assert(notFound.includes("/assets/logo-oroloko-ai.svg"), "404.html should keep the Made by Oroloko footer");
+  // scripts/version-assets.mjs, tried on a temporary copy with the start page, a card page and the 404 page:
+  // every address of a site file gets the hash of that file, as it is after its own addresses got theirs.
+  const { ASSET_ADDRESS, contentHash, versionAssets } = await import("./version-assets.mjs");
+  const copy = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-versions-"));
+  try {
+    for (const dir of ["css", "js", "data", "fonts"]) fs.cpSync(dir, path.join(copy, dir), { recursive: true });
+    fs.mkdirSync(path.join(copy, "atlas", "grzyby"), { recursive: true });
+    const site = { "index.html": indexHtml, "atlas/grzyby/okratek-australijski.html": card.html, "404.html": notFound };
+    for (const [file, html] of Object.entries(site)) fs.writeFileSync(path.join(copy, file), html);
+    const named = ["index.html", "atlas/grzyby/okratek-australijski.html", "404.html", "css/styles.css", "js/app.js", "data/collections.js"];
+    const before = Object.fromEntries(named.map((file) => [file, [...fs.readFileSync(path.join(copy, file), "utf8").matchAll(ASSET_ADDRESS)].map((match) => match[0])]));
+    versionAssets(copy);
+    const withHash = /(?<=["'(])(\/(?:css|js|data|fonts)\/[\w./-]+\.(?:css|js|woff2))\?v=([0-9a-f]{10})(?=["')])/g;
+    for (const file of named) {
+      const text = fs.readFileSync(path.join(copy, file), "utf8");
+      assert(before[file].length, `${file} should name site files`);
+      assert.deepEqual([...text.matchAll(ASSET_ADDRESS)].map((match) => match[0]), [], `${file}: every address of a site file should carry its hash`);
+      const found = [...text.matchAll(withHash)];
+      assert.deepEqual(found.map((match) => match[1]), before[file], `${file}: the same addresses, now with their hashes`);
+      for (const [, address, hash] of found) {
+        assert.equal(hash, contentHash(fs.readFileSync(path.join(copy, address))), `${file}: ${address} should carry the hash of its content`);
+      }
+    }
+    const snapshot = () => Object.fromEntries(fs.readdirSync(copy, { recursive: true })
+      .filter((file) => fs.statSync(path.join(copy, file)).isFile())
+      .map((file) => [file, contentHash(fs.readFileSync(path.join(copy, file)))]));
+    const once = snapshot();
+    versionAssets(copy);
+    assert.deepEqual(snapshot(), once, "a second run of scripts/version-assets.mjs should change nothing");
+  } finally {
+    fs.rmSync(copy, { recursive: true, force: true });
+  }
+  const refusal = spawnSync(process.execPath, ["scripts/version-assets.mjs"], { encoding: "utf8" });
+  assert.equal(refusal.status, 1, "scripts/version-assets.mjs should not rewrite a working copy without --in-place");
   // js/app.js builds the same card addresses as scripts/build-pages.mjs.
   assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
 }
