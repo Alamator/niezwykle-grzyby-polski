@@ -20,3 +20,5 @@ Statusy w `data/facts/*.facts.js`:
 **Ograniczenie, które znamy:** w ślepym audycie 40 losowych faktów „verified” wyszukiwanie doprecyzowało 13, a 1 nie znalazło potwierdzenia. Zgodność z hasłem Wikipedii nie gwarantuje więc pełnej precyzji. Dlatego 707 faktów z liczbami i datami sprawdzono wyszukiwaniem w niezależnych źródłach (28.10.2026): 352 potwierdzone, 113 do poprawki, 242 bez potwierdzenia. Szczegóły: [weryfikacja-liczb-2026-10.md](weryfikacja-liczb-2026-10.md). Fakty do poprawki i bez potwierdzenia strona ukrywa, dopóki generator nie wprowadzi zmian z [zmiany-dla-generatora-2026-10.json](zmiany-dla-generatora-2026-10.json).
 
 `docs/content/poprawki-2026-10.json` to potwierdzone poprawki do obecnej treści kart: nazwy, statusy ochrony, siedliska, rekordy. Wprowadzi je sesja, która robi interfejs.
+
+**Audyt z 30.10.2026:** zewnętrzny audyt zakwestionował 8 faktów. Po ponownym sprawdzeniu ukryto 3 (F0217, F1070, F1349), przywrócono F1073 (Siedlce: oficjalny rekord zimna według IMGW-PIB) i zmieniono poprawkę F1325. Szczegóły: [audyt-2026-10-30.md](audyt-2026-10-30.md).

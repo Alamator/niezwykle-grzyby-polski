@@ -447,7 +447,10 @@
       F0143: "Żółciak: „surowe lub niedogotowane” sugeruje jadalność po ugotowaniu.",
       F0170: "Opieńka: „surowa lub niedogotowana” sugeruje jadalność po ugotowaniu.",
       F0985: "Ctenochasma: rodzaj niepotwierdzony w Owadowie-Brzezinkach, fakt nie dotyczy karty (C121).",
-      F1073: "Siedlce: „najniższa oficjalna temperatura” przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929)."
+      // Audit of 30.10.2026 (docs/content/audyt-2026-10-30.md).
+      F0217: "Obrazki plamiste: kategoria E pochodzi z Czerwonej listy z 2006 r.; lista z 2016 r. podaje VU (narażony).",
+      F1070: "Litworowy Kocioł: według IMGW-PIB oficjalny rekord zimna to −41,0 °C (Siedlce, 1940), nie −40,6 °C (Żywiec, 1929).",
+      F1349: "Kolej na Kasprowy: „26 m poniżej szczytu” liczono od dawnej wysokości 1985 m; szczyt ma 1987 m."
     },
     // Numbers and dates checked by search in independent sources (10.2026): in these facts a source
     // contradicts a number or date, or none confirms it. The reasons and the corrected wording for the
