@@ -38,7 +38,7 @@
       group: "przyroda-zywa",
       title: "Kwiaty",
       heading: "Osobliwe kwiaty i rośliny Polski",
-      subtitle: "31 polskie, dziko rosnące lub zadomowione osobliwości roślinne: pułapki, zapachy, mimikra, pasożyty i relikty.",
+      subtitle: "31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych: pułapki, zapachy, mimikra, pasożyty i relikty.",
       teaser: "pułapki, mimikra, pasożyty i relikty",
       count_label: "31 osobliwości",
       icon: "K",

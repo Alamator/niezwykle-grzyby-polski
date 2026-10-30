@@ -5,7 +5,7 @@ window.ATLAS_ITEM_TEXT_EN = window.ATLAS_ITEM_TEXT_EN || {};
 window.ATLAS_ITEM_TEXT_EN["podziemia"] = {
   "kopalnia-soli-wieliczka": {
     "name": "Wieliczka Salt Mine",
-    "hook": "A cathedral carved in salt, with no access to daylight.",
+    "hook": "St. Kinga's Chapel carved in salt, with no access to daylight.",
     "quiz_angle": "salt chambers, St. Kinga's Chapel, halite sculptures and the multilevel scale of the mine",
     "safety_note": "Visit only on the official route; follow the guide's rules and do not touch the salt sculptures or safety structures.",
     "region": "Wieliczka, Lesser Poland.",
