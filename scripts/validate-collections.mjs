@@ -545,6 +545,33 @@ for (const scripts of manifestScripts) {
   if (placesFile) assert(fs.existsSync(placesFile.slice(1)), `${placesFile} is listed in collections.js but missing`);
 }
 
+// The "Występowanie w Polsce" box (region, habitat and the note below them) of a collection with a file in
+// data/occurrence/ names, for every card, the sources it was checked against and the date of the check.
+const occurrenceData = context.window.ATLAS_OCCURRENCE_SOURCES || {};
+for (const file of fs.existsSync("data/occurrence") ? fs.readdirSync("data/occurrence") : []) {
+  const collectionId = file.replace(/\.occurrence\.js$/, "");
+  const collection = collections.find((entry) => entry.id === collectionId);
+  assert(collection, `data/occurrence/${file} does not belong to any collection`);
+  assert(manifestScripts.some((scripts) => scripts.includes(`/data/occurrence/${file}`)), `data/occurrence/${file} should be loaded with its collection`);
+  const sources = occurrenceData[collectionId];
+  assert(sources?.items, `data/occurrence/${file} should set window.ATLAS_OCCURRENCE_SOURCES["${collectionId}"].items`);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(sources.checked || ""), `data/occurrence/${file} should give the date the cards were checked`);
+  for (const id of Object.keys(sources.items)) assert(collection.items.some((item) => item.id === id), `data/occurrence/${file}: ${id} is not a card of ${collectionId}`);
+  for (const item of collection.items) {
+    const list = sources.items[item.id];
+    assert(Array.isArray(list) && list.length, `${collectionId}/${item.id}: the occurrence box needs at least one source`);
+    for (const source of list) {
+      assert(/^https:\/\/\S+$/.test(source.url || ""), `${collectionId}/${item.id}: a source should be an https address: ${source.url}`);
+      assert(typeof source.label === "string" && source.label.trim(), `${collectionId}/${item.id}: every source needs a label`);
+    }
+  }
+  assert.equal(Object.keys(collection.occurrence_sources || {}).length, collection.items.length, `${collectionId}: the sources of every card should reach the collection`);
+}
+for (const scripts of manifestScripts) {
+  const occurrenceFile = scripts.find((src) => src.startsWith("/data/occurrence/"));
+  if (occurrenceFile) assert(fs.existsSync(occurrenceFile.slice(1)), `${occurrenceFile} is listed in collections.js but missing`);
+}
+
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");

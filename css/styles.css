@@ -1072,19 +1072,24 @@ h1 em, h2 em { color: var(--amber); }
 }
 .fact__icon { font-size: 1.1rem; line-height: 1.4; text-align: center; }
 .fact__text { margin: 0; color: var(--ink-2); }
-.fact__source {
+.fact__source,
+.occurrence-box .occurrence-box__sources {
   display: block;
   margin-top: 0.25rem;
   color: var(--muted);
   font: 400 11.5px/1.45 var(--mono);
 }
-.fact__source a {
+.occurrence-box .occurrence-box__sources { margin-top: 0.7rem; }
+.fact__source a,
+.occurrence-box__sources a {
   color: var(--muted);
   text-decoration-color: rgba(163, 157, 144, 0.5);
   overflow-wrap: anywhere;
 }
 .fact__source a:hover,
-.fact__source a:focus-visible { color: var(--amber-2); }
+.fact__source a:focus-visible,
+.occurrence-box__sources a:hover,
+.occurrence-box__sources a:focus-visible { color: var(--amber-2); }
 .facts--card { margin-top: 0.9rem; border-top: 1px solid var(--line); }
 .facts--card summary {
   display: flex;
