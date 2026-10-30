@@ -79,6 +79,9 @@ Najprostsza ścieżka:
 1. Dodaj plik danych w `data/`, np. `fish.js`.
 2. Utrzymaj pola pozycji zgodne z obecnymi kolekcjami: `id`, `name_pl`, `name_lat`, `category`, `hook`, `quiz_angle`, `safety_note`, `region_pl`, `habitat_pl`, `occurrence_note` oraz pola zdjęć/licencji.
 3. Dopisz kolekcję w `data/collections.js`, z plikami danych na liście `scripts` (ładują się dopiero po otwarciu kolekcji) i krótkim opisem szuflady w `teaser`.
+   - Jeśli „Występowanie w Polsce”, „Region” i „Siedlisko” nie pasują do kolekcji (kopalnia, zorza, minerał), nazwij je po swojemu w `card_labels`, np. `card_labels: { occurrence: "Miejsce i obiekt", region: "Miejsce", habitat: "Obiekt" }`. Angielskie odpowiedniki idą do `card_labels` kolekcji w `data/i18n.js`.
+   - Tekst w polu nie powtarza swojej etykiety: przy etykiecie „Mechanizm” piszemy „system pochylni przenosi…”, a nie „Mechanizm: system pochylni…”.
+   - Pole `level` to zwykle motyw ciekawostki (karta pokazuje „Motyw: solne UNESCO”). Tylko wartości „łatwy start”, „średni” i „trudniejszy” karta podpisuje jako „Poziom”.
 4. Dodaj angielskie teksty:
    - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser`;
    - teksty kart w `data/i18n/<kolekcja>.en.js`, na liście `scripts` kolekcji. Każda karta ma tu każde pole (`name`, `hook`, `quiz_angle`, `safety_note`, `region`, `habitat`, `occurrence`, `level`, a dla miejsc także `latin`, czyli podpis pod nazwą), przetłumaczone 1:1 z polskiego. Karta bez angielskiego tekstu pokazałaby polski, a `npm run test:collections` tego pilnuje.

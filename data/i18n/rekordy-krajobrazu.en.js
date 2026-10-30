@@ -9,7 +9,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "drifting sands, exposed glaciofluvial deposits, wind and the former impact of mining",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Lesser Poland / Silesia.",
-    "habitat": "Mechanism: sandy deposits were exposed, and the wind could shape an open, dry landscape resembling a desert.",
+    "habitat": "sandy deposits were exposed, and the wind could shape an open, dry landscape resembling a desert.",
     "occurrence": "The peculiarity is the scale of the contrast: in the middle of the country there is a space more associated with a desert than with Central Europe.",
     "level": "Polish Sahara",
     "latin": "Lesser Poland / Silesia • drifting sands"
@@ -20,7 +20,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "coastal dunes, wind, deflation, accumulation of sand and the burial of vegetation",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Around Łeba, Pomerania.",
-    "habitat": "Mechanism: waves supply the sand, and the wind blows it inland, constantly rebuilding the dune ridges.",
+    "habitat": "waves supply the sand, and the wind blows it inland, constantly rebuilding the dune ridges.",
     "occurrence": "One of the most dynamic landscapes of Poland: the landform here is not a stable hill, but movement.",
     "level": "wandering sand",
     "latin": "around Łeba • active dunes on the Baltic"
@@ -31,7 +31,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "the uniform direction in which the pines bend, an early stage of growth and an unknown cause (deliberate shaping of the trees is a hypothesis)",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Nowe Czarnowo near Gryfino, West Pomerania.",
-    "habitat": "Mechanism: the trunks were deformed at an early stage of growth, and later the trees continued normal vertical growth.",
+    "habitat": "the trunks were deformed at an early stage of growth, and later the trees continued normal vertical growth.",
     "occurrence": "The peculiarity is the repetition of the form: many trees look as if they had reacted to the same impulse.",
     "level": "forest of deformations",
     "latin": "Nowe Czarnowo near Gryfino • bent pines"
@@ -42,7 +42,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an exposed root system, erosion of the ground and a tree holding its trunk above the soil",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Wełecz near Busko-Zdrój, Świętokrzyskie Province.",
-    "habitat": "Mechanism: the ground around the roots was removed or lowered, and the roots remained like natural supports.",
+    "habitat": "the ground around the roots was removed or lowered, and the roots remained like natural supports.",
     "occurrence": "The tree works like a miniature sculpture of erosion: it shows a part of the system that is usually hidden underground.",
     "level": "tree on its roots",
     "latin": "Wełecz near Busko-Zdrój • exposed roots"
@@ -53,7 +53,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "submerged trunks, a change in water level and an underwater landscape left by a former forest",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Borne Sulinowo, West Pomerania.",
-    "habitat": "Mechanism: part of a former forest ended up under water, and the upright trunks kept a legible trace of the drowned habitat.",
+    "habitat": "part of a former forest ended up under water, and the upright trunks kept a legible trace of the drowned habitat.",
     "occurrence": "The peculiarity works below the surface: an ordinary lake surface hides a vertical forest rhythm.",
     "level": "underwater forest",
     "latin": "Borne Sulinowo • underwater trunks"
@@ -64,7 +64,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "Baltic abrasion, cliff landslides, moraine clays and a retreating shoreline",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Wolin, West Pomerania.",
-    "habitat": "Mechanism: waves undercut the base of the cliff, and the material slides down and is carried away by the sea.",
+    "habitat": "waves undercut the base of the cliff, and the material slides down and is carried away by the sea.",
     "occurrence": "A landscape under reconstruction: the boundary between land and sea is a process here, not a line on a map.",
     "level": "active cliff",
     "latin": "Wolin • an actively undercut coast"
@@ -75,7 +75,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an active cliff, moraine clays, abrasion and the visible work of the waves",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Gdynia-Orłowo, Pomerania.",
-    "habitat": "Mechanism: the sea removes material from the foot of the slope, so the cliff loses stability and retreats in stages.",
+    "habitat": "the sea removes material from the foot of the slope, so the cliff loses stability and retreats in stages.",
     "occurrence": "The cliff is peculiar for the legibility of the process: in an urban landscape you can see the raw work of geology.",
     "level": "city cliff",
     "latin": "Gdynia-Orłowo • moraine clays by the sea"
@@ -86,7 +86,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a back-delta, channels, reed beds, flooded areas and islands at the river mouth",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Świnoujście / Wolin, West Pomerania.",
-    "habitat": "Mechanism: currents, backwater surges, deposition of material and changes in water level create a mosaic of islands and channels.",
+    "habitat": "currents, backwater surges, deposition of material and changes in water level create a mosaic of islands and channels.",
     "occurrence": "The peculiarity is the fragmentation of the landscape: land and water do not form a simple shore here, but a network.",
     "level": "Land of 44 Islands",
     "latin": "Świnoujście / Wolin • island labyrinth"
@@ -97,7 +97,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a spit, transport of sand along the shore, a narrow peninsula and two different bodies of water",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Pomerania.",
-    "habitat": "Mechanism: coastal currents and waves carried sand, building a long ridge that separates the bay from the open sea.",
+    "habitat": "coastal currents and waves carried sand, building a long ridge that separates the bay from the open sea.",
     "occurrence": "A peculiarity of scale and proportion: the landscape is long, thin and constantly dependent on the movement of sand.",
     "level": "sand spit",
     "latin": "Pomerania • a narrow strip of sand"
@@ -108,7 +108,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a river mouth, sandbars, sediment transport and the clash of the Vistula's current with the Baltic",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Sobieszewo Island / Mikoszewo, Pomerania.",
-    "habitat": "Mechanism: the Vistula carries sediment, and the waves and currents of the Baltic move it into shifting sandbars.",
+    "habitat": "the Vistula carries sediment, and the waves and currents of the Baltic move it into shifting sandbars.",
     "occurrence": "The map of this place is alive: sand can appear, disappear and change the shape of the shore.",
     "level": "river building land",
     "latin": "Sobieszewo Island / Mikoszewo • sandbars"
@@ -119,7 +119,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a glacial tunnel valley, great depth, cold water and the landscape of the Suwałki region",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Suwałki region, Podlasie.",
-    "habitat": "Mechanism: the ice sheet and meltwater carved a deep trough, which filled with water.",
+    "habitat": "the ice sheet and meltwater carved a deep trough, which filled with water.",
     "occurrence": "The peculiarity is a vertical scale invisible from the shore: the most important record lies beneath the surface.",
     "level": "deepest lake",
     "latin": "Suwałki region • Poland's deepest lake"
@@ -130,7 +130,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "the largest lake area in Poland, shallowness, wind and glacial boulders",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Masuria, Warmia-Masuria.",
-    "habitat": "Mechanism: the lake fills a vast glacial depression, and the wind quickly builds waves on the broad surface.",
+    "habitat": "the lake fills a vast glacial depression, and the wind quickly builds waves on the broad surface.",
     "occurrence": "Its record works horizontally: it impresses not with depth, but with its expanse and a sense of an open water horizon.",
     "level": "largest lake",
     "latin": "Masuria • Poland's largest lake"
@@ -141,7 +141,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "peatlands, flooded areas, the largest national park in Poland and the natural rhythm of water",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Biebrza National Park, Podlasie.",
-    "habitat": "Mechanism: a low valley, peat and periodic floods maintain an extensive wetland landscape.",
+    "habitat": "a low valley, peat and periodic floods maintain an extensive wetland landscape.",
     "occurrence": "A peculiarity of scale: instead of a single attraction, we get a huge, slow system of water and peat.",
     "level": "great marsh",
     "latin": "Biebrza National Park • great wetlands"
@@ -152,7 +152,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an anastomosing pattern, channels separated by reeds, a water labyrinth and a slow flow",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Podlasie.",
-    "habitat": "Mechanism: the valley's slight gradient, vegetation and sediments split the current of the Narew into many parallel channels.",
+    "habitat": "the valley's slight gradient, vegetation and sediments split the current of the Narew into many parallel channels.",
     "occurrence": "The nickname works as a hook: the peculiarity is the labyrinthine way the river flows, not a literal resemblance to the Amazon.",
     "level": "Polish Amazon",
     "latin": "Podlasie • multi-channel river"
@@ -163,7 +163,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "periodic floods, meadows, flooded areas and the changing landscape of a bird refuge",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Lubusz Province.",
-    "habitat": "Mechanism: the Warta and the Oder regulate the water rhythm of the valley, periodically flooding wide, flat areas.",
+    "habitat": "the Warta and the Oder regulate the water rhythm of the valley, periodically flooding wide, flat areas.",
     "occurrence": "The peculiarity lies in change: the same ground can be a meadow, a flooded area and a stage for birds.",
     "level": "flood stage",
     "latin": "Lubusz Province • flooded meadows and backwaters"
@@ -174,7 +174,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "peatlands, lakes, marshes, a cool microclimate and vegetation associated with the north",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Lublin Province.",
-    "habitat": "Mechanism: flat depressions, a high water table and peat maintain the marshy landscape of Polesie.",
+    "habitat": "flat depressions, a high water table and peat maintain the marshy landscape of Polesie.",
     "occurrence": "The peculiarity is the impression of a biogeographical shift: eastern Poland at times resembles the cooler north.",
     "level": "little tundra",
     "latin": "Lublin Province • a little wetland north"
@@ -185,7 +185,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a natural valley, peatlands, meanders and the dependence of habitats on clean water",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Podlasie.",
-    "habitat": "Mechanism: the river, the peat and groundwater supply maintain a mosaic of wetlands in the valley.",
+    "habitat": "the river, the peat and groundwater supply maintain a mosaic of wetlands in the valley.",
     "occurrence": "A landscape in which the most important thing is the absence of straightening: the river keeps its own natural rhythm.",
     "level": "wild valley",
     "latin": "Podlasie • wild river valley"
@@ -196,7 +196,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an artificial 19th-century river crossing, a concrete weir and land drainage instead of a bifurcation",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Wągrowiec, Greater Poland.",
-    "habitat": "Mechanism: in the 19th century, during land drainage works, the channels were shaped so that the Nielba crosses the Wełna at a right angle, and a concrete weir directs the water.",
+    "habitat": "in the 19th century, during land drainage works, the channels were shaped so that the Nielba crosses the Wełna at a right angle, and a concrete weir directs the water.",
     "occurrence": "The peculiarity is almost graphic: the water behaves here like lines on a street map.",
     "level": "river crossing",
     "latin": "Wągrowiec • a crossing of two rivers"
@@ -207,7 +207,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "karst springs, clear water, pulsating sand on the bottom and the color effect",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Tomaszów Mazowiecki, Łódź Province.",
-    "habitat": "Mechanism: groundwater flows out through the sandy bottom, moving the sediment and enhancing the color effect.",
+    "habitat": "groundwater flows out through the sandy bottom, moving the sediment and enhancing the color effect.",
     "occurrence": "An optical and hydrological peculiarity at once: the movement of spring water becomes visible.",
     "level": "blue karst springs",
     "latin": "Tomaszów Mazowiecki • karst springs"
@@ -218,7 +218,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a river gorge, the limestones of the Pieniny, erosion and the winding course of the Dunajec",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Pieniny, Lesser Poland.",
-    "habitat": "Mechanism: the Dunajec cut into a rising, resistant massif, keeping its winding course between the rocks.",
+    "habitat": "the Dunajec cut into a rising, resistant massif, keeping its winding course between the rocks.",
     "occurrence": "The peculiarity is the contrast of scale: a calmly flowing river looks as if it had cut through stone walls.",
     "level": "Pieniny gorge",
     "latin": "Pieniny • a river between limestone walls"
@@ -229,7 +229,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a loess ravine, erosion, steep walls and exposed root systems",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Kazimierz Dolny, Lublin Province.",
-    "habitat": "Mechanism: water running over the loess deepens the road, and tree roots are exposed on the walls.",
+    "habitat": "water running over the loess deepens the road, and tree roots are exposed on the walls.",
     "occurrence": "The peculiarity is a spatial experience: the landscape turns into a natural corridor.",
     "level": "loess tunnel",
     "latin": "Kazimierz Dolny • loess and roots"
@@ -240,7 +240,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "rock steps, small cascades, headward erosion and the characteristic roar of the current",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Roztocze, Lublin Province.",
-    "habitat": "Mechanism: the river crosses a series of more resistant steps, creating a low, repeating pattern of cascades.",
+    "habitat": "the river crosses a series of more resistant steps, creating a low, repeating pattern of cascades.",
     "occurrence": "A peculiarity of rhythm: not one great waterfall, but a whole series of small steps builds the memory of the place.",
     "level": "Roztocze rapids",
     "latin": "Roztocze • rock steps and small cascades"
@@ -251,7 +251,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "meanders, an incision into limestone hills, the valley of the Kamienna and a lowland contrast",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Bałtów, Świętokrzyskie Province.",
-    "habitat": "Mechanism: the Kamienna cuts into local elevations and leads a winding current between limestone forms.",
+    "habitat": "the Kamienna cuts into local elevations and leads a winding current between limestone forms.",
     "occurrence": "The peculiarity is a change in the tone of the landscape: the river turns from a lowland river into an almost gorge-like one.",
     "level": "meander and gorge",
     "latin": "Bałtów • a lowland river in a limestone landscape"
@@ -262,7 +262,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "former mine workings, mineral compounds, acidic waters and purple and blue shades",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Rudawy Janowickie, Lower Silesia.",
-    "habitat": "Mechanism: former workings filled with water, and minerals and pH gave the pools intense colors.",
+    "habitat": "former workings filled with water, and minerals and pH gave the pools intense colors.",
     "occurrence": "The peculiarity is chemistry visible from afar: color becomes the main form of the landscape.",
     "level": "chemistry of colors",
     "latin": "Rudawy Janowickie • post-mining water colors"
@@ -273,7 +273,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a former chalk pit, a bright bottom, light scattering and a turquoise color",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Wapnica, Wolin Island, West Pomerania.",
-    "habitat": "Mechanism: water filled a chalk pit, and the bright bottom and suspended particles strengthen the turquoise hue.",
+    "habitat": "water filled a chalk pit, and the bright bottom and suspended particles strengthen the turquoise hue.",
     "occurrence": "A post-mining landscape that, instead of harshness, gives a very strong visual effect.",
     "level": "turquoise pit",
     "latin": "Wapnica, Wolin Island • flooded chalk pit"
@@ -284,7 +284,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a former dolomite mine, bright walls, clear water and the popular nickname 'Polish Maldives'",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Jaworzno, Silesia.",
-    "habitat": "Mechanism: extraction exposed bright rocks, and after flooding a reservoir with a vivid color was formed.",
+    "habitat": "extraction exposed bright rocks, and after flooding a reservoir with a vivid color was formed.",
     "occurrence": "The nickname is a shortcut of the imagination: the peculiarity is the transformation of an industrial trace into a picturesque water scene.",
     "level": "Polish Maldives",
     "latin": "Jaworzno • flooded dolomite mine"
@@ -295,7 +295,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a push moraine, glaciotectonics, a UNESCO geopark and mining exposures of the layers",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Lubusz Province / Polish-German border.",
-    "habitat": "Mechanism: the pressure of the ice sheet piled up layers of sediment, and later mining exposed colorful traces of this deformation.",
+    "habitat": "the pressure of the ice sheet piled up layers of sediment, and later mining exposed colorful traces of this deformation.",
     "occurrence": "The peculiarity is the scale of the form: the arc is best understood as a huge record of the glacier's movement.",
     "level": "UNESCO geopark",
     "latin": "Lubusz Province / Polish-German border • push moraine"
@@ -306,7 +306,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "acidic mine waters, iron, a rusty color and a shape associated with Africa",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Łęknica, Lubusz Province.",
-    "habitat": "Mechanism: water in former workings reacts with minerals, so some of the pools take on rusty colors.",
+    "habitat": "water in former workings reacts with minerals, so some of the pools take on rusty colors.",
     "occurrence": "A peculiarity of chemistry and imagination: shape and color turn a mine pit into a landmark of the landscape.",
     "level": "map lake",
     "latin": "Łęknica • acidic post-mining lakes"
@@ -317,7 +317,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "natural emission of carbon dioxide, bubbling in water and Carpathian geology",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Złockie / Jastrzębik, Lesser Poland.",
-    "habitat": "Mechanism: carbon dioxide escapes through fissures toward the surface and shows itself as bubbles in water and mud.",
+    "habitat": "carbon dioxide escapes through fissures toward the surface and shows itself as bubbles in water and mud.",
     "occurrence": "The peculiarity is living geology made visible: gas from the depths becomes sound and movement.",
     "level": "Carpathian mofette",
     "latin": "Złockie / Jastrzębik • natural CO2"
@@ -328,7 +328,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "CO2 exhalations, mineral springs, algae and an unusual history of research",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Tylicz, Lesser Poland.",
-    "habitat": "Mechanism: gas moves toward the surface in the zone of Carpathian mineral waters, creating bubbling outflows.",
+    "habitat": "gas moves toward the surface in the zone of Carpathian mineral waters, creating bubbling outflows.",
     "occurrence": "A peculiarity at the meeting point of geology and a scientific story: a small outflow of gas opens a large research context.",
     "level": "gas springs",
     "latin": "Tylicz • CO2 springs"
@@ -339,7 +339,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "natural gas emission, the bubbling of the spring and old stories about burning water",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Iwonicz-Zdrój, Subcarpathia.",
-    "habitat": "Mechanism: natural gas and mineral waters escape toward the surface, creating a characteristic bubbling.",
+    "habitat": "natural gas and mineral waters escape toward the surface, creating a characteristic bubbling.",
     "occurrence": "The peculiarity is small but very memorable: the spring behaves like an active geological valve.",
     "level": "bubbling spring",
     "latin": "Iwonicz-Zdrój • gassy spring"
@@ -350,7 +350,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "old shales, brittle black rock, erosion and the contrast with the Vistula valley",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Sandomierz, Świętokrzyskie Province.",
-    "habitat": "Mechanism: very old, brittle shales are exposed on the slopes and weather into fine, dark material.",
+    "habitat": "very old, brittle shales are exposed on the slopes and weather into fine, dark material.",
     "occurrence": "The peculiarity is age and texture: small hills above the river turn out to be a geological old-timer.",
     "level": "old shales",
     "latin": "Sandomierz • old Cambrian shales"
@@ -361,7 +361,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "glacial cirques, steep walls, former glaciers and the high-mountain character of the Karkonosze",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Karkonosze, Lower Silesia.",
-    "habitat": "Mechanism: former mountain glaciers carved hollows and undercut the slopes, leaving steep cirques.",
+    "habitat": "former mountain glaciers carved hollows and undercut the slopes, leaving steep cirques.",
     "occurrence": "An almost Alpine landscape in the Sudetes: the walls of the cirques show the scale of the former ice.",
     "level": "glacial cirques",
     "latin": "Karkonosze • glacial cirques"
@@ -372,7 +372,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a glacial step, high-mountain lakes, a waterfall and the glacial relief of the Tatras",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Tatras, Lesser Poland.",
-    "habitat": "Mechanism: the glacier carved out the valley and rock steps, over which a stream now flows, forming the waterfall.",
+    "habitat": "the glacier carved out the valley and rock steps, over which a stream now flows, forming the waterfall.",
     "occurrence": "The peculiarity is the Tatras in condensed form: lakes, a step and a waterfall in one high-mountain arrangement.",
     "level": "post-glacial waterfall",
     "latin": "Tatras • waterfall and glacial valley"
@@ -383,7 +383,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "sandstones, horizontal beds, crevices, erosion and the flat massif of the Table Mountains",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Table Mountains, Lower Silesia.",
-    "habitat": "Mechanism: horizontal layers of sandstone cracked and weathered, creating terraces, crevices and rock corridors.",
+    "habitat": "horizontal layers of sandstone cracked and weathered, creating terraces, crevices and rock corridors.",
     "occurrence": "From afar it looks calm and flat; up close it turns out to be a labyrinth.",
     "level": "table mountain",
     "latin": "Table Mountains • a mountain like a cracked table"
@@ -394,7 +394,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "sandstone fissures, widening crevices, rock blocks and a labyrinth of passages",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Table Mountains, Lower Silesia.",
-    "habitat": "Mechanism: water, frost and weathering widened the natural crevices in the sandstone, cutting the massif into blocks.",
+    "habitat": "water, frost and weathering widened the natural crevices in the sandstone, cutting the massif into blocks.",
     "occurrence": "The peculiarity is spatial: you have to walk through the rock to understand its shape.",
     "level": "rock labyrinth",
     "latin": "Table Mountains • sandstone labyrinth"
@@ -405,7 +405,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "sandstone mushrooms, towers, gates, selective weathering and forms hidden in the forest",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Niekłań, Świętokrzyskie Province.",
-    "habitat": "Mechanism: the different resistance of the sandstone layers meant that weathering left mushrooms, pulpits and gates.",
+    "habitat": "the different resistance of the sandstone layers meant that weathering left mushrooms, pulpits and gates.",
     "occurrence": "An intimate peculiarity: a small forest hides a landscape as if from bigger table mountains.",
     "level": "forest rocks",
     "latin": "Niekłań • forest sandstone forms"
@@ -416,7 +416,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a karst valley, Jurassic limestones, rock outliers, caves and Hercules' Club",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Ojców National Park, Lesser Poland.",
-    "habitat": "Mechanism: karst and river erosion cut through the limestone rocks, leaving a valley, caves and solitary rock outliers.",
+    "habitat": "karst and river erosion cut through the limestone rocks, leaving a valley, caves and solitary rock outliers.",
     "occurrence": "The peculiarity is the density of forms: a small area holds almost the whole alphabet of a limestone landscape.",
     "level": "Jurassic karst",
     "latin": "Ojców National Park • a concentration of limestones"
@@ -427,7 +427,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "limestone walls, the entrance to a valley, karst and the erosion of Jura rocks",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Kraków-Częstochowa Upland, Lesser Poland.",
-    "habitat": "Mechanism: erosion cut a valley between resistant limestones, leaving monumental rock pillars.",
+    "habitat": "erosion cut a valley between resistant limestones, leaving monumental rock pillars.",
     "occurrence": "A peculiarity of a threshold: the landscape opens like an architectural entrance, although it formed naturally.",
     "level": "limestone gate",
     "latin": "Kraków-Częstochowa Upland • limestone gate"
@@ -438,7 +438,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "frost weathering, quartzites, block fields and some of the oldest mountains in Poland",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Świętokrzyski National Park, Świętokrzyskie Province.",
-    "habitat": "Mechanism: frost cracking of rocks and long weathering piled up blocks on the slopes and ridges.",
+    "habitat": "frost cracking of rocks and long weathering piled up blocks on the slopes and ridges.",
     "occurrence": "The peculiarity is the raw material of the landscape: instead of forest, a sea of stone appears on the summit.",
     "level": "sea of stones",
     "latin": "Świętokrzyski National Park • fields of rock blocks"
@@ -449,7 +449,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a raised bog, a cool microclimate, sphagnum mosses and northern vegetation",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Bystrzyckie Mountains, Lower Silesia.",
-    "habitat": "Mechanism: excess water, cold and the slow decomposition of plant matter build a dome of peat.",
+    "habitat": "excess water, cold and the slow decomposition of plant matter build a dome of peat.",
     "occurrence": "The peculiarity is the microclimate: here the Sudetes keep a landscape more northern than the surrounding forests.",
     "level": "mountain peat bog",
     "latin": "Bystrzyckie Mountains • mountain raised bog"
@@ -460,7 +460,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "mountain meadows (połoniny), the Eastern Carpathians, the subalpine zone and open ridges",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Bieszczady National Park, Subcarpathia.",
-    "habitat": "Mechanism: altitude conditions, a history of use and the natural tree line create extensive grassy ridges.",
+    "habitat": "altitude conditions, a history of use and the natural tree line create extensive grassy ridges.",
     "occurrence": "In Poland it is an exceptionally eastern landscape: the mountains are remembered not for rock but for a sea of grass.",
     "level": "sea of grass",
     "latin": "Bieszczady National Park • treeless ridges"
@@ -471,7 +471,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a basalt cone, former volcanism, the 'Silesian Fujiyama' and the isolated silhouette of the mountain",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Kaczawskie Foothills, Lower Silesia.",
-    "habitat": "Mechanism: more resistant volcanic rocks remained in the landscape as a conical hill after former volcanism.",
+    "habitat": "more resistant volcanic rocks remained in the landscape as a conical hill after former volcanism.",
     "occurrence": "The peculiarity is the silhouette: the mountain looks more like a solitary landmark than part of a range.",
     "level": "Silesian Fujiyama",
     "latin": "Kaczawskie Foothills • cone of a former volcano"
@@ -482,7 +482,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "rhyolites, columnar jointing, former volcanic processes and a wall resembling organ pipes",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Kaczawskie Foothills, Lower Silesia.",
-    "habitat": "Mechanism: the cooling and cracking of volcanic rocks created a regular arrangement of columns.",
+    "habitat": "the cooling and cracking of volcanic rocks created a regular arrangement of columns.",
     "occurrence": "The peculiarity lies in geometry: the natural cracks look like a carefully designed facade.",
     "level": "rock organ",
     "latin": "Kaczawskie Foothills • rhyolite organ"
@@ -493,7 +493,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "glacial erratics, the ice sheet, a concentration of blocks and the Czarna Hańcza valley",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Suwałki region, Podlasie.",
-    "habitat": "Mechanism: the ice sheet brought rock blocks from the north and left them behind when the ice melted.",
+    "habitat": "the ice sheet brought rock blocks from the north and left them behind when the ice melted.",
     "occurrence": "The peculiarity is the concentration: in a small area you can see the glacier's stone signature.",
     "level": "glacier's cargo",
     "latin": "Suwałki region • glacial erratics"
@@ -504,7 +504,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an isolated massif, a contrast of height, a complex geology and the cultural distinctness of the place",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Ślęża Massif, Lower Silesia.",
-    "habitat": "Mechanism: a resistant massif towers over the surrounding lowlands, creating a strong contrast of height and visibility.",
+    "habitat": "a resistant massif towers over the surrounding lowlands, creating a strong contrast of height and visibility.",
     "occurrence": "The peculiarity is its dominance of the horizon: Ślęża works like a separate landscape island.",
     "level": "solitary mountain",
     "latin": "Ślęża Massif • a solitary mountain above the plain"
@@ -515,7 +515,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "former volcanism, basalt, the form of the hill and a cultural and pilgrimage layer",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Opole Province.",
-    "habitat": "Mechanism: old volcanic rocks build the elevation, and cultural history has laid another layer of meaning over the geology.",
+    "habitat": "old volcanic rocks build the elevation, and cultural history has laid another layer of meaning over the geology.",
     "occurrence": "The peculiarity is the fusion of nature and culture: a volcanic trace became the axis of a pilgrimage site.",
     "level": "cultural volcano",
     "latin": "Opole Province • a volcano and a pilgrimage landscape"
@@ -526,7 +526,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "glacial deposits, conglomerates, suffosion processes and a rare cave in the Polish Lowlands",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Mechowo near Puck, Pomerania.",
-    "habitat": "Mechanism: water washed finer material out of glacial deposits and conglomerates, creating a small void.",
+    "habitat": "water washed finer material out of glacial deposits and conglomerates, creating a small void.",
     "occurrence": "The peculiarity is the context: the cave does not need karst mountains, only an unusual arrangement of sediments and water.",
     "level": "lowland cave",
     "latin": "Mechowo near Puck • a cave of the Polish Lowlands"
@@ -537,7 +537,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "the highest point in Poland, a border peak of the Tatras and the country's natural pole of altitude",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Tatras, Lesser Poland.",
-    "habitat": "Mechanism: the Alpine relief of the Tatras, tectonic uplift and erosion created Poland's highest landscape.",
+    "habitat": "the Alpine relief of the Tatras, tectonic uplift and erosion created Poland's highest landscape.",
     "occurrence": "The peculiarity is the altitude record: a point on the map becomes the symbolic summit of the whole country.",
     "level": "highest point",
     "latin": "Tatras • the roof of Poland"
@@ -548,7 +548,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "the Żuławy depression, a polder landscape, water controlled by embankments and a record that passed to Marzęcino",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Żuławy Wiślane, Warmia-Masuria.",
-    "habitat": "Mechanism: the flat land of the Vistula delta was drained and is maintained by a system of embankments, canals and pumps.",
+    "habitat": "the flat land of the Vistula delta was drained and is maintained by a system of embankments, canals and pumps.",
     "occurrence": "A record opposite to the mountains that changed its address: Raczki lies 1.8 m below sea level, and since 2022 the depression in Marzęcino (2.2 m below sea level) has been considered Poland's lowest point.",
     "level": "Żuławy depression",
     "latin": "Żuławy Wiślane • depression"
@@ -559,7 +559,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an optical illusion, the lack of a reliable horizon, the slope of the road and a misreading of the gradient",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Sudetes, Lower Silesia.",
-    "habitat": "Mechanism: the surroundings and the lack of a legible horizon distort the judgment of the slope, so a downhill stretch looks like a climb.",
+    "habitat": "the surroundings and the lack of a legible horizon distort the judgment of the slope, so a downhill stretch looks like a climb.",
     "occurrence": "The peculiarity does not break physics: it shows how easily a landscape deceives the senses.",
     "level": "gravity illusion",
     "latin": "Sudetes • topographic illusion"
@@ -570,7 +570,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "rolling hills, gypsum, limestone, drought-loving vegetation and a warm microclimate",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Around Pińczów, Świętokrzyskie Province.",
-    "habitat": "Mechanism: gypsum and limestone rocks, erosion and warm slopes create a mosaic of hills, valleys and grasslands.",
+    "habitat": "gypsum and limestone rocks, erosion and warm slopes create a mosaic of hills, valleys and grasslands.",
     "occurrence": "The nickname is a metaphor, but it helps capture the contrast: Ponidzie has a soft, sunny scale of landscape.",
     "level": "Polish Tuscany",
     "latin": "around Pińczów • rolling gypsum and limestone landscape"
@@ -581,7 +581,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "the relief differences of the lake district, lake troughs, moraine hills and the effect of miniature mountains",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Kashubian Lake District, Pomerania.",
-    "habitat": "Mechanism: the ice sheet left moraines, troughs and hollows, creating a rolling lake landscape.",
+    "habitat": "the ice sheet left moraines, troughs and hollows, creating a rolling lake landscape.",
     "occurrence": "The peculiarity is the contrast with the image of a flat north: here the land suddenly gains height.",
     "level": "Kashubian Switzerland",
     "latin": "Kashubian Lake District • glacial hills"
@@ -592,7 +592,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "an enclosed valley, a microclimate, a history of treating lungs and a spa landscape",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Suche Mountains, Lower Silesia.",
-    "habitat": "Mechanism: the position in a valley and mountain conditions shaped a local microclimate used in medicine.",
+    "habitat": "the position in a valley and mountain conditions shaped a local microclimate used in medicine.",
     "occurrence": "A peculiarity of climate and culture: the landscape became a medical argument and part of the identity of the place.",
     "level": "Lower Silesian Davos",
     "latin": "Suche Mountains • valley of a microclimate"
@@ -603,7 +603,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a historical nickname from IMGW data for 1971–2000, a warm microclimate and new normals led by Wrocław",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Lesser Poland.",
-    "habitat": "Mechanism: location, exposure, buildings and regional climatic conditions reinforce the image of a very warm city.",
+    "habitat": "location, exposure, buildings and regional climatic conditions reinforce the image of a very warm city.",
     "occurrence": "The nickname is historical: in the IMGW normals for 1991–2020 Tarnów has 9.4 °C, and the highest mean annual temperature is in Wrocław (9.7 °C).",
     "level": "Polish Pole of Warmth",
     "latin": "Lesser Poland • warm city microclimate"
@@ -614,7 +614,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "quiz_angle": "a cultural landscape, the Narew floodwaters, a wooden hermitage and a periodic island effect",
     "safety_note": "This is an educational prototype. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
     "region": "Narew valley, Podlasie.",
-    "habitat": "Mechanism: periodic floods and marshy surroundings set the wooden skete into an almost island landscape.",
+    "habitat": "periodic floods and marshy surroundings set the wooden skete into an almost island landscape.",
     "occurrence": "A landscape and cultural bonus: the peculiarity comes from the relationship of architecture, water and silence.",
     "level": "cultural landscape",
     "latin": "Narew valley • a hermitage among the floodwaters"
