@@ -854,8 +854,15 @@
         <p><strong>${escapeHtml(labels.author)}:</strong> ${escapeHtml(item.image_author)}</p>
         ${sourceHtml ? `<p><strong>${escapeHtml(labels.source)}:</strong> ${sourceHtml}</p>` : ""}
         ${licenseHtml ? `<p><strong>${escapeHtml(labels.license)}:</strong> ${licenseHtml}</p>` : ""}
-        ${item.image_modifications ? `<p><strong>${escapeHtml(labels.modifications)}:</strong> ${escapeHtml(item.image_modifications)}</p>` : ""}
+        ${item.image_modifications ? `<p><strong>${escapeHtml(labels.modifications)}:</strong> ${escapeHtml(photoModifications(item))}</p>` : ""}
       </div>`;
+  }
+
+  // The photo packs note in Polish how a photo is shown; the interface has the known notes in both languages.
+  function photoModifications(item) {
+    const note = item.image_modifications || "";
+    const key = Object.keys(i18n.ui?.pl || {}).find((name) => name.startsWith("photoModifications") && i18n.ui.pl[name] === note);
+    return key ? t(key) : note;
   }
 
   function contactMailto(subject, body = "") {

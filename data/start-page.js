@@ -37,7 +37,7 @@ window.ATLAS_START = {
       },
       "hook": {
         "pl": "Las, w którym drzewa najpierw rosną poziomo, a dopiero potem pionowo.",
-        "en": "A pine stand where trunks bend sideways before rising upward."
+        "en": "A forest where the trees first grow horizontally and only then vertically."
       },
       "photo": {
         "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Krzywy%20las%20-%20003.jpg",

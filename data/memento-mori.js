@@ -437,7 +437,7 @@
       region_pl: "Wrocław, Dolnośląskie.",
       habitat_pl: "Mechanizm pamięci: zachowane nagrobki pokazują języki, style artystyczne i społeczne role żydowskiej społeczności dawnego Wrocławia.",
       occurrence_note: "Wrocławski cmentarz uzupełnia kolekcję jako miejsce, gdzie edukacja muzealna spotyka się z realną tkanką nekropolii.",
-      level: "rozszerzony kandydat",
+      level: "cmentarz-muzeum",
       source_status: "expanded_candidate"
     })
   ];

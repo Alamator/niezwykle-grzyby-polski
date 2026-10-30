@@ -454,12 +454,22 @@ for (const collection of collections) {
     assert(translatedItem.safety_note, `${collection.id}/${item.id} should have an English safety note`);
   }
 }
-// Full English card texts of ten collections live in data/i18n/<collection>.en.js, loaded with the
-// collection. Every card needs every field, and the files must not keep Polish sentences by mistake.
+// English card texts live in data/i18n/<collection>.en.js, one file per collection, loaded with the
+// collection; a card without English text would show its Polish one. Every card needs every field, and
+// the files must not keep Polish sentences by mistake.
 const itemTextEn = context.window.ATLAS_ITEM_TEXT_EN || {};
 const englishFields = ["name", "hook", "quiz_angle", "safety_note", "region", "habitat", "occurrence", "level"];
+const polishFields = { safety_note: "safety_note", region: "region_pl", habitat: "habitat_pl", occurrence: "occurrence_note" };
 const polishWords = /(^|[^\p{L}])(się|jest|oraz|który|która|które|również|można|dlatego|gdzie)(?![\p{L}])/iu;
-for (const file of fs.existsSync("data/i18n") ? fs.readdirSync("data/i18n") : []) {
+// Level labels that are the same word in English: a Tatar cemetery and the code name of the Owl Mountains complex.
+const sameInEnglish = new Set(["mizar", "Riese"]);
+// English texts that rightly repeat although the Polish ones differ (only in grammatical gender).
+const sharedEnglish = new Set(["Rare; listed as R on the Polish Red List."]);
+const i18nFiles = fs.existsSync("data/i18n") ? fs.readdirSync("data/i18n") : [];
+for (const collection of collections) {
+  assert(i18nFiles.includes(`${collection.id}.en.js`), `${collection.id} should have its English card texts in data/i18n/${collection.id}.en.js`);
+}
+for (const file of i18nFiles) {
   const collectionId = file.replace(/\.en\.js$/, "");
   const collection = collections.find((entry) => entry.id === collectionId);
   assert(collection, `data/i18n/${file} does not belong to any collection`);
@@ -475,11 +485,33 @@ for (const file of fs.existsSync("data/i18n") ? fs.readdirSync("data/i18n") : []
       assert(typeof entry[field] === "string" && entry[field].trim(), `${collectionId}/${item.id}: English ${field} is missing`);
       assert(!polishWords.test(entry[field]), `${collectionId}/${item.id}: English ${field} looks Polish: ${entry[field]}`);
     }
+    assert(entry.level !== item.level || sameInEnglish.has(item.level), `${collectionId}/${item.id}: the English level is still the Polish one: ${item.level}`);
     if (entry.latin !== undefined) assert(typeof entry.latin === "string" && entry.latin.trim(), `${collectionId}/${item.id}: English latin line should be a non-empty string`);
-    // The interface shows the full text, not the generic template.
+    // For places the line under the name is a Polish descriptor ("Wieliczka • solne miasto UNESCO"), not a scientific name.
+    if (item.name_lat?.includes(" • ")) assert(entry.latin, `${collectionId}/${item.id}: the descriptor under the name needs an English text`);
+    // The interface shows the card file as it is.
     const shown = i18n.collections.en[collectionId].items[item.id];
-    assert(!/is included here/.test(shown.hook), `${collectionId}/${item.id}: the English hook is still the generic template`);
+    for (const field of englishFields) assert.equal(shown[field], entry[field], `${collectionId}/${item.id}: the English ${field} shown should come from data/i18n/${file}`);
   }
+  // One English text for cards whose Polish texts differ is a template, not a translation.
+  for (const [field, polishField] of Object.entries(polishFields)) {
+    const polishByEnglish = new Map();
+    for (const item of collection.items) {
+      const english = texts[item.id][field];
+      if (!polishByEnglish.has(english)) polishByEnglish.set(english, new Set());
+      polishByEnglish.get(english).add(item[polishField]);
+    }
+    for (const [english, polish] of polishByEnglish) {
+      assert(polish.size === 1 || sharedEnglish.has(english), `${collectionId}: one English ${field} stands for ${polish.size} different Polish texts: ${english}`);
+    }
+  }
+}
+
+// The photo packs note in Polish how each photo is shown; the English interface translates every note.
+const photoNotes = new Set(collections.flatMap((collection) => collection.items.map((item) => item.image_modifications).filter(Boolean)));
+for (const note of photoNotes) {
+  const key = Object.keys(i18n.ui.pl).find((name) => name.startsWith("photoModifications") && i18n.ui.pl[name] === note);
+  assert(key && i18n.ui.en[key] && i18n.ui.en[key] !== note, `the English interface should translate the photo note: ${note}`);
 }
 
 // Map points live in data/places/<collection>.places.js: coordinates from Wikidata, checked against the

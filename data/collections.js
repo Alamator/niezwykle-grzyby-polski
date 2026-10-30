@@ -25,6 +25,7 @@
         "/data/photo-pack-v06.js",
         "/data/region-pack-v07.js",
         "/data/photo-pack-v08.js",
+        "/data/i18n/grzyby.en.js",
         "/data/facts/grzyby.facts.js"
       ],
       build: () => {
@@ -45,7 +46,7 @@
       accent: "rose",
       search_placeholder: "np. aldrowanda, storczyk, dyptam...",
       source_note: "Opisy startują z listy roboczej o osobliwych roślinach Polski. Zdjęcia i atrybucje dodamy później z legalnych źródeł.",
-      scripts: ["/data/flowers.js", "/data/flower-photo-pack-v01.js", "/data/facts/kwiaty.facts.js"],
+      scripts: ["/data/flowers.js", "/data/flower-photo-pack-v01.js", "/data/i18n/kwiaty.en.js", "/data/facts/kwiaty.facts.js"],
       build: () => {
         const data = window.FLOWER_APP_DATA;
         if (!data) return null;
@@ -83,7 +84,7 @@
       accent: "amber",
       search_placeholder: "np. oleica, świetlik, jelonek...",
       source_note: "Opisy startują z listy roboczej. Zdjęcia i atrybucje będziemy uzupełniać stopniowo z legalnych źródeł.",
-      scripts: ["/data/insects.js", "/data/facts/owady.facts.js"],
+      scripts: ["/data/insects.js", "/data/i18n/owady.en.js", "/data/facts/owady.facts.js"],
       build: () => {
         const data = window.INSECT_APP_DATA;
         if (!data) return null;
@@ -102,7 +103,7 @@
       accent: "aqua",
       search_placeholder: "np. stynka, tasza, różanka...",
       source_note: "Opisy powstały na bazie listy roboczej o osobliwych rybach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
-      scripts: ["/data/fish.js", "/data/fish-photo-pack-v01.js", "/data/facts/ryby.facts.js"],
+      scripts: ["/data/fish.js", "/data/fish-photo-pack-v01.js", "/data/i18n/ryby.en.js", "/data/facts/ryby.facts.js"],
       build: () => {
         const data = window.FISH_APP_DATA;
         if (!data) return null;
@@ -140,7 +141,7 @@
       accent: "sky",
       search_placeholder: "np. dudek, jerzyk, pomurnik...",
       source_note: "Opisy powstały na bazie dwóch list roboczych o osobliwej awifaunie Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją.",
-      scripts: ["/data/birds.js", "/data/bird-photo-pack-v01.js", "/data/facts/ptaki.facts.js"],
+      scripts: ["/data/birds.js", "/data/bird-photo-pack-v01.js", "/data/i18n/ptaki.en.js", "/data/facts/ptaki.facts.js"],
       build: () => {
         const data = window.BIRD_APP_DATA;
         if (!data) return null;
@@ -277,7 +278,7 @@
       route: "/atlas/twierdze-ruiny",
       search_placeholder: "np. Zamość, Krzyżtopór, Malbork, Modlin, Stańczyki...",
       source_note: "Opisy powstały na bazie wskazanego materiału o zamkach, twierdzach, ruinach i zapomnianych konstrukcjach Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry reprezentatywne są oznaczone uczciwie.",
-      scripts: ["/data/fortresses-ruins.js", "/data/fortresses-ruins-photo-pack-v01.js", "/data/places/twierdze-ruiny.places.js", "/data/facts/twierdze-ruiny.facts.js"],
+      scripts: ["/data/fortresses-ruins.js", "/data/fortresses-ruins-photo-pack-v01.js", "/data/i18n/twierdze-ruiny.en.js", "/data/places/twierdze-ruiny.places.js", "/data/facts/twierdze-ruiny.facts.js"],
       build: () => {
         const data = window.FORTRESS_RUIN_APP_DATA;
         if (!data) return null;
@@ -297,7 +298,7 @@
       route: "/atlas/memento-mori",
       search_placeholder: "np. Czermna, Powązki, mizar, Treblinka, kopiec...",
       source_note: "Opisy powstały na bazie wskazanego materiału o miejscach pamięci i przemijania w Polsce. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; przy miejscach trudnej historii zachowujemy spokojny, edukacyjny ton.",
-      scripts: ["/data/memento-mori.js", "/data/memento-mori-photo-pack-v01.js", "/data/places/memento-mori.places.js", "/data/facts/memento-mori.facts.js"],
+      scripts: ["/data/memento-mori.js", "/data/memento-mori-photo-pack-v01.js", "/data/i18n/memento-mori.en.js", "/data/places/memento-mori.places.js", "/data/facts/memento-mori.facts.js"],
       build: () => {
         const data = window.MEMENTO_MORI_APP_DATA;
         if (!data) return null;
@@ -355,7 +356,7 @@
       route: "/atlas/rekordy-krajobrazu",
       search_placeholder: "np. pustynia, wydmy, Hańcza, mofeta, Rysy...",
       source_note: "Opisy powstały na bazie wskazanego materiału o rekordach i osobliwościach krajobrazowych Polski. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry kontekstowe są oznaczone uczciwie.",
-      scripts: ["/data/landscape-records.js", "/data/landscape-records-photo-pack-v01.js", "/data/places/rekordy-krajobrazu.places.js", "/data/facts/rekordy-krajobrazu.facts.js"],
+      scripts: ["/data/landscape-records.js", "/data/landscape-records-photo-pack-v01.js", "/data/i18n/rekordy-krajobrazu.en.js", "/data/places/rekordy-krajobrazu.places.js", "/data/facts/rekordy-krajobrazu.facts.js"],
       build: () => {
         const data = window.LANDSCAPE_RECORD_APP_DATA;
         if (!data) return null;

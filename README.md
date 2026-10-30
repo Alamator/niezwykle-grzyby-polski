@@ -26,6 +26,7 @@ data/birds.js
 data/bird-photo-pack-v01.js
 data/collections.js
 data/i18n.js
+data/i18n/<kolekcja>.en.js
 data/start-page.js
 data/map-points.js
 data/photo-pack-*.js
@@ -77,7 +78,9 @@ Najprostsza ścieżka:
 1. Dodaj plik danych w `data/`, np. `fish.js`.
 2. Utrzymaj pola pozycji zgodne z obecnymi kolekcjami: `id`, `name_pl`, `name_lat`, `category`, `hook`, `quiz_angle`, `safety_note`, `region_pl`, `habitat_pl`, `occurrence_note` oraz pola zdjęć/licencji.
 3. Dopisz kolekcję w `data/collections.js`, z plikami danych na liście `scripts` (ładują się dopiero po otwarciu kolekcji) i krótkim opisem szuflady w `teaser`.
-4. Dodaj tłumaczenia interfejsu kolekcji, kategorii i pozycji w `data/i18n.js`, razem z angielskim `teaser`.
+4. Dodaj angielskie teksty:
+   - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser`;
+   - teksty kart w `data/i18n/<kolekcja>.en.js`, na liście `scripts` kolekcji. Każda karta ma tu każde pole (`name`, `hook`, `quiz_angle`, `safety_note`, `region`, `habitat`, `occurrence`, `level`, a dla miejsc także `latin`, czyli podpis pod nazwą), przetłumaczone 1:1 z polskiego. Karta bez angielskiego tekstu pokazałaby polski, a `npm run test:collections` tego pilnuje.
 5. Wybierz zdjęcie szuflady w `scripts/build-start-page.mjs` (`COVERS`) i uruchom `npm run build:start-page`.
 6. Zmień liczebnik w nagłówku szuflad (`collectionsTitle` w `data/i18n.js`) i w teście, który go pilnuje.
 7. Uruchom testy.
