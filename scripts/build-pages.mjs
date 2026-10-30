@@ -66,14 +66,15 @@ function headHtml(indexHtml, origin, page) {
   html = setMeta(html, "name", "twitter:title", page.shareTitle);
   html = setMeta(html, "name", "twitter:description", page.description);
   // Opened on its own page, as the app shows it, so the start page does not flash first; "Przejdź do
-  // treści" leads to that page.
+  // treści" leads to that page. Each page is a <main>, and HTML allows only one without the hidden
+  // attribute: the page shown.
   html = replaceOnce(html, '<a id="skipLink" class="skip-link" href="#startPage">', `<a id="skipLink" class="skip-link" href="${page.content}">`, "skip link");
-  return replaceOnce(html, '<div id="startPage" class="start-page" tabindex="-1">', '<div id="startPage" class="start-page is-hidden" tabindex="-1">', "start page");
+  return replaceOnce(html, '<main id="startPage" class="start-page" tabindex="-1">', '<main id="startPage" class="start-page is-hidden" tabindex="-1" hidden>', "start page");
 }
 
 function pageHtml(indexHtml, origin, page) {
   let html = headHtml(indexHtml, origin, page);
-  html = replaceOnce(html, '<main id="main" class="app-main is-hidden" tabindex="-1">', '<main id="main" class="app-main" tabindex="-1">', "main");
+  html = replaceOnce(html, '<main id="main" class="app-main is-hidden" tabindex="-1" hidden>', '<main id="main" class="app-main" tabindex="-1">', "main");
   html = replaceOnce(html, '<nav id="appNav" class="app-nav is-hidden"', '<nav id="appNav" class="app-nav"', "navigation");
   if (page.hasMap) {
     html = replaceOnce(html, '<button class="nav-btn is-hidden" data-view="map" type="button">', '<button class="nav-btn" data-view="map" type="button">', "map tab");
@@ -171,7 +172,7 @@ function mapPage(win, indexHtml, origin) {
   }).join("");
   let html = headHtml(indexHtml, origin, page);
   html = replaceOnce(html, '<a id="mapLink" class="topbar__link" href="/mapa"', '<a id="mapLink" class="topbar__link" href="/mapa" aria-current="page"', "map link");
-  html = replaceOnce(html, '<div id="mapPage" class="map-page is-hidden" tabindex="-1">', '<div id="mapPage" class="map-page" tabindex="-1">', "map page");
+  html = replaceOnce(html, '<main id="mapPage" class="map-page is-hidden" tabindex="-1" hidden>', '<main id="mapPage" class="map-page" tabindex="-1">', "map page");
   html = replaceOnce(html, `<p id="allMapEyebrow" class="eyebrow">${ui.allMapDocumentTitle}</p>`, `<p id="allMapEyebrow" class="eyebrow">${escapeHtml(ui.allMapEyebrow.replace("{places}", count))}</p>`, "map page eyebrow");
   html = replaceOnce(html, '<div id="allPlaceList" class="source-panel place-list"></div>', `<div id="allPlaceList" class="source-panel place-list"><noscript>${noscript}</noscript></div>`, "map page list");
   return { file: "mapa.html", route: MAP_ROUTE, html };
@@ -191,7 +192,7 @@ function quizPage(win, indexHtml, origin) {
   const collections = win.ATLAS_APP_DATA.collections.map((collection) =>
     `<li><a href="${escapeHtml(routeForCollection(collection))}">${escapeHtml(collection.title)}</a></li>`).join("");
   let html = headHtml(indexHtml, origin, page);
-  html = replaceOnce(html, '<div id="quizPage" class="quiz-page is-hidden" tabindex="-1">', '<div id="quizPage" class="quiz-page" tabindex="-1">', "quiz page");
+  html = replaceOnce(html, '<main id="quizPage" class="quiz-page is-hidden" tabindex="-1" hidden>', '<main id="quizPage" class="quiz-page" tabindex="-1">', "quiz page");
   html = replaceOnce(html, '<div id="atlasQuizBox" class="quiz-box atlas-quiz"></div>',
     `<div id="atlasQuizBox" class="quiz-box atlas-quiz"><noscript><p>Quiz działa w przeglądarce z włączonym JavaScriptem. Karty, z których powstają pytania, są w kolekcjach:</p><ul class="static-list">${collections}</ul></noscript></div>`, "quiz box");
   return { file: "quiz.html", route: QUIZ_ROUTE, html };

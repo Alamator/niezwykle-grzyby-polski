@@ -94,7 +94,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.match(card.html, /<title>Okratek australijski – Grzyby – Atlas Osobliwości Polski<\/title>/);
   assert(card.html.includes(`<link rel="canonical" href="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should name itself as canonical");
   assert(card.html.includes(`<meta property="og:url" content="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should share its own address");
-  assert(card.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "a card page should open on its collection, not the start page");
+  assert(card.html.includes('<main id="startPage" class="start-page is-hidden" tabindex="-1" hidden>'), "a card page should open on its collection, not the start page");
   assert(pages.find((page) => page.route === "/atlas/rekordy-krajobrazu/mofeta-swidzinskiego"), "card addresses should drop Polish letters");
   // The descriptions come from data/i18n.js, which the app uses too when the reader moves around the atlas.
   const ui = win.ATLAS_I18N.ui.pl;
@@ -105,11 +105,24 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(indexHtml.includes(`<meta name="description" content="${ui.metaStartDescription}" />`), "index.html should describe the start page as data/i18n.js does");
   assert(indexHtml.includes(`<meta property="og:description" content="${ui.metaStartShare}" />`) && indexHtml.includes(`<meta name="twitter:description" content="${ui.metaStartShare}" />`), "the start page's link preview should match data/i18n.js");
   // "Przejdź do treści" leads to the page shown: the start page, a collection, the map or the quiz.
-  assert(indexHtml.includes('<a id="skipLink" class="skip-link" href="#startPage">') && indexHtml.includes('<div id="startPage" class="start-page" tabindex="-1">'), "on the start page the skip link should lead to the start page");
+  assert(indexHtml.includes('<a id="skipLink" class="skip-link" href="#startPage">') && indexHtml.includes('<main id="startPage" class="start-page" tabindex="-1">'), "on the start page the skip link should lead to the start page");
   assert(card.html.includes('<a id="skipLink" class="skip-link" href="#main">'), "on a card page the skip link should lead to the collection");
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
   }
+  // One main landmark on every page. The start page, the map, the quiz and a collection are each a <main>,
+  // and HTML allows only one without the hidden attribute: the page shown, where "Przejdź do treści" leads.
+  // A hidden page has is-hidden too, and js/app.js keeps the two in step when the reader moves around.
+  const hasHiddenAttribute = (tag) => /\shidden[\s>=]/.test(tag.replace(/"[^"]*"/g, '""'));
+  for (const { route, html } of [{ route: "/", html: indexHtml }, ...pages]) {
+    const mains = [...html.matchAll(/<main\b[^>]*>/g)].map(([tag]) => tag);
+    const shown = mains.filter((tag) => !hasHiddenAttribute(tag));
+    const skipTarget = html.match(/<a id="skipLink" class="skip-link" href="#([^"]+)">/)?.[1];
+    assert.equal(shown.length, 1, `${route}: only the page shown should be a <main> without the hidden attribute`);
+    assert(shown[0].includes(` id="${skipTarget}"`), `${route}: the skip link should lead to the <main> shown`);
+    assert(mains.every((tag) => hasHiddenAttribute(tag) === /\bis-hidden\b/.test(tag)), `${route}: a hidden <main> should have both is-hidden and the hidden attribute`);
+  }
+  assert.match(appJs, /function showPage\(page\) \{[\s\S]{0,900}\.hidden = /, "js/app.js should hide the pages not shown with the hidden attribute too");
   // The map of every place: its own title and address, opened on the map, with every placed card linked
   // for readers without scripts. js/app.js opens the same address.
   const { MAP_ROUTE } = await import("./build-pages.mjs");
@@ -119,9 +132,9 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.equal(mapPage?.file, "mapa.html", "the map of every place should be built as mapa.html, served at /mapa");
   assert.match(mapPage.html, /<title>Mapa atlasu – Atlas Osobliwości Polski<\/title>/);
   assert(mapPage.html.includes(`<link rel="canonical" href="${origin}${MAP_ROUTE}" />`), "the map page should name itself as canonical");
-  assert(mapPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the map page should not open on the start page");
-  assert(mapPage.html.includes('<div id="mapPage" class="map-page" tabindex="-1">'), "the map page should open on the map");
-  assert(mapPage.html.includes('<main id="main" class="app-main is-hidden" tabindex="-1">'), "the map page should keep the collection view hidden");
+  assert(mapPage.html.includes('<main id="startPage" class="start-page is-hidden" tabindex="-1" hidden>'), "the map page should not open on the start page");
+  assert(mapPage.html.includes('<main id="mapPage" class="map-page" tabindex="-1">'), "the map page should open on the map");
+  assert(mapPage.html.includes('<main id="main" class="app-main is-hidden" tabindex="-1" hidden>'), "the map page should keep the collection view hidden");
   assert(mapPage.html.includes('<a id="skipLink" class="skip-link" href="#mapPage">'), "on the map page the skip link should lead to the map");
   const placedCards = collections.flatMap((collection) => collection.items.filter((item) => collection.places?.[item.id]).map((item) => `/atlas/${collection.id}/${cardSlug(item.id)}`));
   for (const route of placedCards) {
@@ -136,8 +149,8 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.equal(quizPage?.file, "quiz.html", "the quiz should be built as quiz.html, served at /quiz");
   assert.match(quizPage.html, /<title>Quiz atlasu – Atlas Osobliwości Polski<\/title>/);
   assert(quizPage.html.includes(`<link rel="canonical" href="${origin}${QUIZ_ROUTE}" />`), "the quiz page should name itself as canonical");
-  assert(quizPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the quiz page should not open on the start page");
-  assert(quizPage.html.includes('<div id="quizPage" class="quiz-page" tabindex="-1">'), "the quiz page should open on the quiz");
+  assert(quizPage.html.includes('<main id="startPage" class="start-page is-hidden" tabindex="-1" hidden>'), "the quiz page should not open on the start page");
+  assert(quizPage.html.includes('<main id="quizPage" class="quiz-page" tabindex="-1">'), "the quiz page should open on the quiz");
   assert(quizPage.html.includes('<a id="skipLink" class="skip-link" href="#quizPage">'), "on the quiz page the skip link should lead to the quiz");
   assert(sitemap.includes(`<loc>${origin}${QUIZ_ROUTE}</loc>`), "the sitemap should list the quiz page");
   // The page names the numbers of questions before the app runs; they have to be the app's.

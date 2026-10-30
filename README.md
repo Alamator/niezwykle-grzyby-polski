@@ -203,6 +203,7 @@ Framework: **Other** albo brak frameworka. Build Command `npm run build` i Outpu
   - Stare linki `/atlas/<kolekcja>#item=<karta>` dalej otwierają kartę i przechodzą na jej adres.
 - **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), stronę quizu atlasu (`quiz.html`), `sitemap.xml` i stronę błędu `404.html`.
   - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, na mapie albo na quizie, a bez skryptów pokazuje tekst karty albo listę kart.
+  - Strona startowa, mapa, quiz i kolekcja to osobne elementy `<main>`. Wszystkie poza otwartym mają atrybut `hidden` (i klasę `is-hidden`), bo HTML pozwala tylko na jeden widoczny `<main>`. Do otwartego prowadzi „Przejdź do treści”. Pilnuje tego `npm run test:technical`.
   - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
   - Wyniki (`atlas/`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.

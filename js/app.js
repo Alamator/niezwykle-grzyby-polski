@@ -2775,17 +2775,19 @@
     syncDialogFromRoute();
   }
 
-  // Which page shows: the start page, an opened collection or the map of every place.
+  // Which page shows: the start page, an opened collection, the map of every place or the quiz.
   function showPage(page) {
     // Back from a card returns to the same spot of the map or the quiz.
     if (state.page in pageScroll && page !== state.page) pageScroll[state.page] = window.scrollY;
     state.page = page;
-    $("#startPage").classList.toggle("is-hidden", page !== "start");
-    $("#mapPage").classList.toggle("is-hidden", page !== "map");
-    $("#quizPage").classList.toggle("is-hidden", page !== "quiz");
-    $("#main").classList.toggle("is-hidden", page !== "collection");
+    // Each page is a <main>, and HTML allows only one without the hidden attribute: the page shown.
+    const pages = { start: "#startPage", map: "#mapPage", quiz: "#quizPage", collection: "#main" };
+    for (const [name, selector] of Object.entries(pages)) {
+      $(selector).classList.toggle("is-hidden", name !== page);
+      $(selector).hidden = name !== page;
+    }
     $(".app-nav").classList.toggle("is-hidden", page !== "collection");
-    $("#skipLink").setAttribute("href", { start: "#startPage", map: "#mapPage", quiz: "#quizPage" }[page] || "#main");
+    $("#skipLink").setAttribute("href", pages[page] || "#main");
     if (page === "map") $("#mapLink").setAttribute("aria-current", "page");
     else $("#mapLink").removeAttribute("aria-current");
   }
