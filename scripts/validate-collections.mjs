@@ -507,6 +507,29 @@ for (const file of i18nFiles) {
   }
 }
 
+// A collection may name the occurrence box and its lines itself ("Obiekt" instead of "Siedlisko" for a mine).
+// Every Polish label needs an English one, and a text does not repeat its own label ("Mechanizm: …").
+const cardLabelFields = new Set(["occurrence", "region", "habitat"]);
+for (const collection of collections) {
+  const polish = collection.card_labels;
+  const english = i18n.collections.en[collection.id]?.card_labels;
+  if (!polish) {
+    assert(!english, `${collection.id}: English card_labels without Polish ones`);
+    continue;
+  }
+  for (const [field, label] of Object.entries(polish)) {
+    assert(cardLabelFields.has(field), `${collection.id}: unknown card label ${field}`);
+    assert(typeof label === "string" && label.trim(), `${collection.id}: card label ${field} should be a non-empty string`);
+    assert(typeof english?.[field] === "string" && english[field].trim(), `${collection.id}: card label ${field} needs an English text`);
+    assert(english[field] !== label && !polishWords.test(english[field]), `${collection.id}: the English card label ${field} looks Polish: ${english[field]}`);
+  }
+  assert.deepEqual(Object.keys(english).sort(), Object.keys(polish).sort(), `${collection.id}: English and Polish card labels should name the same fields`);
+  for (const item of collection.items) {
+    if (polish.habitat) assert(!item.habitat_pl.startsWith(`${polish.habitat}:`), `${collection.id}/${item.id}: the habitat text repeats its label "${polish.habitat}"`);
+    if (english.habitat) assert(!itemTextEn[collection.id][item.id].habitat.startsWith(`${english.habitat}:`), `${collection.id}/${item.id}: the English habitat text repeats its label "${english.habitat}"`);
+  }
+}
+
 // The photo packs note in Polish how each photo is shown; the English interface translates every note.
 const photoNotes = new Set(collections.flatMap((collection) => collection.items.map((item) => item.image_modifications).filter(Boolean)));
 for (const note of photoNotes) {

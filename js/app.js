@@ -275,6 +275,19 @@
     return itemField(item, "level", "level");
   }
 
+  // Most cards keep the motif of the curiosity in the level field ("solne UNESCO"); only a few hold a difficulty.
+  const DIFFICULTY_LEVELS = new Set(["łatwy start", "średni", "trudniejszy"]);
+
+  function itemLevelLabel(item) {
+    return t(DIFFICULTY_LEVELS.has(item.level) ? "levelLabel" : "motifLabel");
+  }
+
+  // "Siedlisko" fits a fungus, not a mine or an aurora: a collection can name the occurrence box and its lines
+  // itself (card_labels in data/collections.js and data/i18n.js); otherwise the interface labels apply.
+  function cardLabel(collection, field, key) {
+    return collectionText(collection, "card_labels")?.[field] || t(key);
+  }
+
   function itemCategoryLabel(item) {
     return categoryText(categoryById(item.category), "label") || item.category_label || "";
   }
@@ -749,7 +762,7 @@
           <div class="latin">${escapeHtml(itemLatin(item))}</div>
           ${badgesHtml(item)}
           <p class="hook">${escapeHtml(itemHook(item))}</p>
-          ${region ? `<p class="occurrence-snippet"><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
+          ${region ? `<p class="occurrence-snippet"><strong>${escapeHtml(cardLabel(activeCollection(), "region", "regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
           ${notesHtml(item)}
           <div class="meta-line">
             <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryShort(item))}</span>
@@ -912,7 +925,7 @@
         ${photoCaptionHtml(item, true)}
         <div class="meta-line" style="margin-top:1rem">
           <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryLabel(item))}</span>
-          <span class="pill">${escapeHtml(t("levelLabel"))}: ${escapeHtml(itemLevel(item) || "atlas")}</span>
+          <span class="pill">${escapeHtml(itemLevelLabel(item))}: ${escapeHtml(itemLevel(item) || "atlas")}</span>
         </div>
         <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(itemName(item))}</h2>
         <p class="latin">${escapeHtml(itemLatin(item))}</p>
@@ -922,9 +935,9 @@
         <p class="hook">${escapeHtml(itemHook(item))}</p>
         ${region ? `
           <div class="occurrence-box">
-            <h3>${escapeHtml(t("occurrenceTitle"))}</h3>
-            <p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>
-            ${habitat ? `<p><strong>${escapeHtml(t("habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : ""}
+            <h3>${escapeHtml(cardLabel(collection, "occurrence", "occurrenceTitle"))}</h3>
+            <p><strong>${escapeHtml(cardLabel(collection, "region", "regionLabel"))}:</strong> ${escapeHtml(region)}</p>
+            ${habitat ? `<p><strong>${escapeHtml(cardLabel(collection, "habitat", "habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : ""}
             ${occurrence ? `<p>${escapeHtml(occurrence)}</p>` : ""}
             ${occurrenceSourcesHtml(collection, item)}
           </div>` : ""}
@@ -1461,7 +1474,7 @@
               <h3>${escapeHtml(itemName(item))}</h3>
               <p class="latin">${escapeHtml(itemLatin(item))}</p>
               ${badgesHtml(item)}
-              ${region ? `<p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
+              ${region ? `<p><strong>${escapeHtml(cardLabel(activeCollection(), "region", "regionLabel"))}:</strong> ${escapeHtml(region)}</p>` : ""}
               <p><strong>${escapeHtml(t("rememberLabel"))}:</strong> ${escapeHtml(itemQuizAngle(item))}</p>
               <p><strong>${escapeHtml(t("cautionLabel"))}:</strong> ${escapeHtml(itemSafety(item))}</p>
             </div>` : ""}
