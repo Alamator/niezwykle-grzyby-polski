@@ -2543,7 +2543,7 @@
         heroEyebrow: "Gabinet osobliwości · {collections}",
         // *…* marks the words set in amber italics.
         heroTitle: "Polska, jakiej *nie pokazują* przewodniki.",
-        heroLead: "Zapraszamy w podróż po kraju dziwów: grzybie, który wygląda jak czerwona ośmiornica, lesie, w którym sosny rosną najpierw poziomo, i katedrze wykutej w soli. Otwórz którąś z szuflad i sprawdź, ile z tych osobliwości znasz.",
+        heroLead: "Zapraszamy w podróż po kraju dziwów: grzybie, który wygląda jak czerwona ośmiornica, lesie, w którym sosny rosną najpierw poziomo, i kaplicy św. Kingi wykutej w soli. Otwórz którąś z szuflad i sprawdź, ile z tych osobliwości znasz.",
         heroStart: "Wyrusz w podróż",
         heroSurprise: "Zaskocz mnie",
         surpriseLoading: "Losuję…",
@@ -2802,7 +2802,7 @@
         homeLabel: "Atlas of Polish Curiosities, home page",
         heroEyebrow: "Cabinet of curiosities · {collections}",
         heroTitle: "The Poland guidebooks *leave out*.",
-        heroLead: "Come on a journey through a land of wonders: a fungus that looks like a red octopus, a forest where the pines first grow sideways, and a cathedral carved out of salt. Open any drawer and see how many of these curiosities you know.",
+        heroLead: "Come on a journey through a land of wonders: a fungus that looks like a red octopus, a forest where the pines first grow sideways, and St. Kinga's Chapel carved out of salt. Open any drawer and see how many of these curiosities you know.",
         heroStart: "Start the journey",
         heroSurprise: "Surprise me",
         surpriseLoading: "Picking…",

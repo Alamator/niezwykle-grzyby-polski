@@ -56,8 +56,8 @@ window.ATLAS_START = {
         "en": "Wieliczka Salt Mine"
       },
       "hook": {
-        "pl": "Katedra wykuta w soli, bez dostępu do dziennego światła.",
-        "en": "A cathedral carved in salt, with no access to daylight."
+        "pl": "Kaplica św. Kingi wykuta w soli, bez dostępu do dziennego światła.",
+        "en": "St. Kinga's Chapel carved in salt, with no access to daylight."
       },
       "photo": {
         "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kopalnia%20soli%20Wieliczka%20001.JPG",

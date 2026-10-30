@@ -516,7 +516,7 @@ for (const scripts of manifestScripts) {
 assert.match(insects.subtitle, /pamięć owadów/, "insect subtitle should use Polish diacritics");
 assert(insects.categories.some((category) => category.label === "Nocne i świecące"), "insect categories should use Polish diacritics");
 assert(insects.categories.some((category) => category.short === "Kształty"), "insect category short names should use Polish diacritics");
-assert(flowers.subtitle.includes("dziko rosnące"), "flower subtitle should describe the wild/naturalized scope");
+assert(flowers.subtitle.includes("dziko rosnących"), "flower subtitle should describe the wild/naturalized scope");
 assert(flowers.categories.some((category) => category.label === "Łowcy i pułapki"), "flower categories should use Polish diacritics");
 assert(flowers.items.some((item) => item.name_pl === "Świetlanka długoszowata" && item.synonyms?.includes("Świetlik mszysty")), "flower collection should include the moss curiosity under its corrected name, with the former atlas name kept as a synonym");
 assert(fish.subtitle.includes("rybich osobliwości"), "fish subtitle should describe fish curiosities");

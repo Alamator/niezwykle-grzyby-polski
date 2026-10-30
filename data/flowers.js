@@ -454,7 +454,7 @@
   ];
 
   window.FLOWER_APP_DATA = {
-    subtitle: "31 polskie, dziko rosnące lub zadomowione osobliwości roślinne: pułapki, zapachy, mimikra, pasożyty i relikty.",
+    subtitle: "31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych: pułapki, zapachy, mimikra, pasożyty i relikty.",
     safety_notice: "To prototyp edukacyjny. Wiele roślin jest chronionych, rzadkich, trujących albo siedliskowo wrażliwych: obserwuj bez zrywania i bez przenoszenia.",
     categories,
     flowers

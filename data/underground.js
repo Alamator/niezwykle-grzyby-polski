@@ -58,7 +58,7 @@
       name_pl: "Kopalnia Soli „Wieliczka”",
       name_lat: "Wieliczka • solne miasto UNESCO",
       category: "kopalnie-surowce",
-      hook: "Katedra wykuta w soli, bez dostępu do dziennego światła.",
+      hook: "Kaplica św. Kingi wykuta w soli, bez dostępu do dziennego światła.",
       quiz_angle: "solne komory, kaplica św. Kingi, rzeźby z halitu i wielopiętrowa skala kopalni",
       safety_note: "zwiedzać tylko oficjalną trasą; słuchać zasad przewodnika i nie dotykać solnych rzeźb ani zabezpieczeń",
       region_pl: "Wieliczka, Małopolska.",
