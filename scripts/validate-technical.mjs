@@ -122,21 +122,38 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(card.html.includes(`<meta property="og:url" content="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should share its own address");
   assert(card.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "a card page should open on its collection, not the start page");
   // The photo at the top of the collection is in the page, so the browser fetches it before the app runs.
-  // It is marked for the app, which keeps it, and drawn as the app draws it (renderCollectionPhoto).
-  const bannerImg = 'sizes="100vw" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" />';
-  assert(appJs.includes(bannerImg), "js/app.js should draw the collection photo as the pages have it");
-  // Commons serves photos only at fixed widths and rounds any other up, so a card photo offers only those.
-  const cardWidths = JSON.parse(/const CARD_PHOTO_WIDTHS = (\[[\d, ]*\]);/.exec(appJs)?.[1] || "[]");
-  assert(cardWidths.length && cardWidths.every((width) => [250, 330, 500, 960, 1280].includes(width)), "card photos should offer only the widths Commons serves");
+  // The app keeps it when the page is marked with the same collection and language (renderCollectionPhoto),
+  // so the page must hold what the app would draw. collectionPhotoHtml in scripts/build-pages.mjs copies these
+  // lines of js/app.js: change both, then this list.
+  const appBanner = [
+    "if (!node || (node.dataset.collection === collection.id && node.dataset.language === state.language)) return;",
+    'return `${photo.image}?width=${width}`;',
+    '<picture><source media="(max-width: 620px)" srcset="${escapeHtml(commonsSrc(cover.photo, 500))}" /><img src="${escapeHtml(commonsSrc(cover.photo, 960))}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>',
+    '${photoCreditHtml(cover.photo, localized(cover.name), "collection-bar__credit")}',
+    '<a class="photo-credit ${className}" href="${escapeHtml(photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(t("photoCreditPrefix", { name }))}</span>${escapeHtml(`${photo.author} · ${photo.license}`)}</a>'
+  ];
+  for (const line of appBanner) {
+    assert(appJs.includes(line), `js/app.js no longer draws the collection photo as scripts/build-pages.mjs writes it (collectionPhotoHtml); missing: ${line}`);
+  }
+  // Every collection and card page: the photo of its collection, fetched first at the widths the app uses,
+  // with its author, license and source.
+  const esc = (value) => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;" })[char]);
   const { covers } = buildStartPage(win);
   for (const collection of collections) {
     const route = routeForCollection(collection);
-    const image = covers[collection.id].photo.image.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    const { photo, name } = covers[collection.id];
+    const src = (width) => esc(`${photo.image}?width=${width}`);
+    const credit = `<a class="photo-credit collection-bar__credit" href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${esc(win.ATLAS_I18N.ui.pl.photoCreditPrefix.replace("{name}", name.pl))}</span>${esc(`${photo.author} · ${photo.license}`)}</a>`;
     for (const page of pages.filter((entry) => entry.route === route || entry.route.startsWith(`${route}/`))) {
-      assert(page.html.includes(`<div id="collectionPhoto" class="collection-bar__photo" data-collection="${collection.id}" data-language="pl">`), `${page.route}: the page should have the photo of its collection`);
-      assert(page.html.includes(`src="${image}?width=960" srcset="${image}?width=500 500w, ${image}?width=960 960w" ${bannerImg}`), `${page.route}: the collection photo should be fetched first, at the widths the app uses`);
+      assert(page.html.includes(`<div id="collectionPhoto" class="collection-bar__photo" data-collection="${collection.id}" data-language="pl">`), `${page.route}: the page should have the photo of its collection, marked for the app`);
+      assert(page.html.includes(`<picture><source media="(max-width: 620px)" srcset="${src(500)}" /><img src="${src(960)}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>`), `${page.route}: the collection photo should be fetched first, at the widths the app uses`);
+      assert(page.html.includes(credit), `${page.route}: the collection photo should keep its author, license and source`);
     }
   }
+  // Commons serves photos only at fixed widths and rounds any other up, so a card photo offers only those.
+  const cardWidthsList = /const CARD_PHOTO_WIDTHS = (\[[\d,\s]*\]);/.exec(appJs);
+  assert(cardWidthsList, "js/app.js should list the card photo widths in CARD_PHOTO_WIDTHS");
+  assert(JSON.parse(cardWidthsList[1]).every((width) => [250, 330, 500, 960, 1280].includes(width)), "card photos should offer only the widths Commons serves");
   assert(pages.find((page) => page.route === "/atlas/rekordy-krajobrazu/mofeta-swidzinskiego"), "card addresses should drop Polish letters");
   // The descriptions come from data/i18n.js, which the app uses too when the reader moves around the atlas.
   const ui = win.ATLAS_I18N.ui.pl;

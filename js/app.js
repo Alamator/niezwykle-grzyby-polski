@@ -498,8 +498,10 @@
   }
 
   // The banner of an opened collection shows the photo of its drawer. It is the largest thing on the first
-  // screen, so the browser fetches it first. The page of a collection or card already has it, marked with
-  // the collection and language (scripts/build-pages.mjs), so it is not drawn again.
+  // screen, so the browser fetches it first. On a phone it lies dimmed under the title, where the 500 px copy
+  // looks practically the same as the 960 px one and weighs a third to a half as much. The page of a
+  // collection or card already has it, marked with the collection and language (scripts/build-pages.mjs),
+  // so it is not drawn again.
   function renderCollectionPhoto(collection) {
     const node = $("#collectionPhoto");
     if (!node || (node.dataset.collection === collection.id && node.dataset.language === state.language)) return;
@@ -507,7 +509,7 @@
     node.dataset.language = state.language;
     const cover = start.covers?.[collection.id];
     node.innerHTML = cover ? `
-      <img src="${escapeHtml(commonsSrc(cover.photo, 960))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="100vw" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" />
+      <picture><source media="(max-width: 620px)" srcset="${escapeHtml(commonsSrc(cover.photo, 500))}" /><img src="${escapeHtml(commonsSrc(cover.photo, 960))}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>
       ${photoCreditHtml(cover.photo, localized(cover.name), "collection-bar__credit")}` : "";
   }
 
@@ -756,6 +758,21 @@
   // columns, and the large photo in the card window and on the flashcard. Update them with the layout.
   const CARD_PHOTO_SIZES = "(max-width: 620px) 92vw, (max-width: 960px) calc(46vw - 7px), (max-width: 1280px) calc(33.3vw - 36px), 391px";
   const LARGE_PHOTO_SIZES = "(max-width: 620px) calc(100vw - 34px), (max-width: 960px) calc(92vw - 2px), 733px";
+
+  // A photo wider than its box is drawn at the box's height (object-fit: cover), wider than the box: a
+  // panorama such as Wąwóz Korzeniowy Dół is drawn twice as wide. Once the photo is in, the copy from
+  // srcset for the width it is drawn at is fetched aside, and only when it has arrived does sizes tell the
+  // photo to use it; if it fails, the photo stays as it was.
+  function fitWidePhoto(img) {
+    const box = img.parentElement.getBoundingClientRect();
+    if (!box.height || !img.naturalHeight || img.currentSrc.endsWith(`width=${CARD_PHOTO_WIDTHS.at(-1)}`)) return;
+    const sizes = `${Math.ceil((box.height * img.naturalWidth) / img.naturalHeight)}px`;
+    if (parseInt(sizes, 10) <= Math.ceil(box.width) || img.sizes === sizes) return;
+    const larger = new Image();
+    larger.onload = () => { img.sizes = sizes; };
+    larger.sizes = sizes;
+    larger.srcset = img.srcset;
+  }
 
   function visualHtml(item, large = false) {
     const name = itemName(item);
@@ -3076,6 +3093,12 @@
   }
 
   function bindEvents() {
+    // A loaded card photo may be wider than its box (fitWidePhoto). Load events do not bubble, so they are
+    // caught on the way down.
+    document.addEventListener("load", (event) => {
+      if (event.target.matches?.(".m-card__visual img")) fitWidePhoto(event.target);
+    }, true);
+
     // "Przejdź do treści" moves the focus to the page shown, without a #fragment in the address.
     $("#skipLink").addEventListener("click", (event) => {
       const target = $(event.currentTarget.getAttribute("href"));
