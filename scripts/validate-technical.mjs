@@ -226,8 +226,8 @@ assert.match(
 );
 assert.match(
   appJs,
-  /sample\(items\(\), Math\.min\(10, items\(\)\.length\)\)/,
-  "quiz should sample unique correct answers before building questions"
+  /const pool = quizPool\(collection\);[\s\S]{0,200}sample\(pool, Math\.min\(10, pool\.length\)\)/,
+  "quiz should sample unique correct answers, without Holocaust and martyrdom sites, before building questions"
 );
 
 const { createStaticServer } = await import("./dev-server.mjs");
