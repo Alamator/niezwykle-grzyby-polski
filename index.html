@@ -31,7 +31,7 @@
   <meta property="og:image:alt" content="Atlas Osobliwości Polski: „Polska, jakiej nie pokazują przewodniki” i mapa Polski z punktów miejsc z atlasu" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Atlas Osobliwości Polski" />
-  <meta name="twitter:description" content="Zapraszamy w podróż po kraju dziwów: osobliwości polskiej przyrody i kultury." />
+  <meta name="twitter:description" content="Zapraszamy w podróż po kraju dziwów: 18 kolekcji osobliwości polskiej przyrody i kultury, z atlasem, fiszkami, quizem, mapą i źródłami." />
   <meta name="twitter:image" content="https://www.atlas-osobliwosci.pl/assets/og-image.png" />
   <meta name="twitter:image:alt" content="Atlas Osobliwości Polski: „Polska, jakiej nie pokazują przewodniki” i mapa Polski z punktów miejsc z atlasu" />
   <script defer src="/js/cache-reset.js"></script>
@@ -41,7 +41,7 @@
   <script defer src="/js/app.js"></script>
 </head>
 <body>
-  <a id="skipLink" class="skip-link" href="#main">Przejdź do treści</a>
+  <a id="skipLink" class="skip-link" href="#startPage">Przejdź do treści</a>
 
   <header class="topbar">
     <div class="topbar__inner shell">
@@ -57,7 +57,7 @@
     </div>
   </header>
 
-  <div id="startPage" class="start-page">
+  <div id="startPage" class="start-page" tabindex="-1">
     <section class="hero shell" aria-labelledby="heroTitle">
       <div class="hero__content">
         <p id="heroEyebrow" class="eyebrow">Gabinet osobliwości · 18 kolekcji</p>
@@ -211,7 +211,7 @@
 
     <nav id="appNav" class="app-nav is-hidden" aria-label="Nawigacja aplikacji">
       <div class="app-nav__inner shell">
-        <button class="nav-btn is-active" data-view="atlas" type="button">Atlas</button>
+        <button class="nav-btn is-active" data-view="atlas" type="button" aria-current="page">Atlas</button>
         <button class="nav-btn is-hidden" data-view="map" type="button">Mapa</button>
         <button class="nav-btn" data-view="learn" type="button">Nauka</button>
         <button class="nav-btn" data-view="quiz" type="button">Quiz</button>

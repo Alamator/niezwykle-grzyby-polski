@@ -94,8 +94,19 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.match(card.html, /<title>Okratek australijski – Grzyby – Atlas Osobliwości Polski<\/title>/);
   assert(card.html.includes(`<link rel="canonical" href="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should name itself as canonical");
   assert(card.html.includes(`<meta property="og:url" content="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should share its own address");
-  assert(card.html.includes('<div id="startPage" class="start-page is-hidden">'), "a card page should open on its collection, not the start page");
+  assert(card.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "a card page should open on its collection, not the start page");
   assert(pages.find((page) => page.route === "/atlas/rekordy-krajobrazu/mofeta-swidzinskiego"), "card addresses should drop Polish letters");
+  // The descriptions come from data/i18n.js, which the app uses too when the reader moves around the atlas.
+  const ui = win.ATLAS_I18N.ui.pl;
+  const okratek = collections.find((entry) => entry.id === "grzyby").items.find((item) => item.id === "okratek-australijski");
+  const okratekDescription = ui.metaCardDescription.replace("{hook}", /[.!?…]$/.test(okratek.hook.trim()) ? okratek.hook.trim() : `${okratek.hook.trim()}.`).replace("{collection}", "Grzyby");
+  assert(card.html.includes(`<meta name="description" content="${okratekDescription.replace(/"/g, "&quot;")}" />`), "a card page should describe itself with the text the app uses");
+  // The start page tells search engines and link previews what data/i18n.js gives the app for it.
+  assert(indexHtml.includes(`<meta name="description" content="${ui.metaStartDescription}" />`), "index.html should describe the start page as data/i18n.js does");
+  assert(indexHtml.includes(`<meta property="og:description" content="${ui.metaStartShare}" />`) && indexHtml.includes(`<meta name="twitter:description" content="${ui.metaStartShare}" />`), "the start page's link preview should match data/i18n.js");
+  // "Przejdź do treści" leads to the page shown: the start page, a collection, the map or the quiz.
+  assert(indexHtml.includes('<a id="skipLink" class="skip-link" href="#startPage">') && indexHtml.includes('<div id="startPage" class="start-page" tabindex="-1">'), "on the start page the skip link should lead to the start page");
+  assert(card.html.includes('<a id="skipLink" class="skip-link" href="#main">'), "on a card page the skip link should lead to the collection");
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
   }
@@ -108,9 +119,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.equal(mapPage?.file, "mapa.html", "the map of every place should be built as mapa.html, served at /mapa");
   assert.match(mapPage.html, /<title>Mapa atlasu – Atlas Osobliwości Polski<\/title>/);
   assert(mapPage.html.includes(`<link rel="canonical" href="${origin}${MAP_ROUTE}" />`), "the map page should name itself as canonical");
-  assert(mapPage.html.includes('<div id="startPage" class="start-page is-hidden">'), "the map page should not open on the start page");
+  assert(mapPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the map page should not open on the start page");
   assert(mapPage.html.includes('<div id="mapPage" class="map-page" tabindex="-1">'), "the map page should open on the map");
   assert(mapPage.html.includes('<main id="main" class="app-main is-hidden" tabindex="-1">'), "the map page should keep the collection view hidden");
+  assert(mapPage.html.includes('<a id="skipLink" class="skip-link" href="#mapPage">'), "on the map page the skip link should lead to the map");
   const placedCards = collections.flatMap((collection) => collection.items.filter((item) => collection.places?.[item.id]).map((item) => `/atlas/${collection.id}/${cardSlug(item.id)}`));
   for (const route of placedCards) {
     assert(mapPage.html.includes(`href="${route}"`), `the map page should link to ${route} for readers without scripts`);
@@ -124,8 +136,9 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.equal(quizPage?.file, "quiz.html", "the quiz should be built as quiz.html, served at /quiz");
   assert.match(quizPage.html, /<title>Quiz atlasu – Atlas Osobliwości Polski<\/title>/);
   assert(quizPage.html.includes(`<link rel="canonical" href="${origin}${QUIZ_ROUTE}" />`), "the quiz page should name itself as canonical");
-  assert(quizPage.html.includes('<div id="startPage" class="start-page is-hidden">'), "the quiz page should not open on the start page");
+  assert(quizPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the quiz page should not open on the start page");
   assert(quizPage.html.includes('<div id="quizPage" class="quiz-page" tabindex="-1">'), "the quiz page should open on the quiz");
+  assert(quizPage.html.includes('<a id="skipLink" class="skip-link" href="#quizPage">'), "on the quiz page the skip link should lead to the quiz");
   assert(sitemap.includes(`<loc>${origin}${QUIZ_ROUTE}</loc>`), "the sitemap should list the quiz page");
   // The page names the numbers of questions before the app runs; they have to be the app's.
   const dailyQuestions = appJs.match(/const DAILY_QUESTIONS = (\d+);/)?.[1];
@@ -145,6 +158,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   // js/app.js builds the same card addresses as scripts/build-pages.mjs.
   assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
 }
+
+// Screen readers hear which category filter is chosen and which view of a collection is shown.
+assert(appJs.includes('aria-pressed="${state.category === id}"'), "the category filters should say which one is pressed");
+assert(appJs.includes('btn.setAttribute("aria-current", "page")'), "the view tabs should say which view is shown");
 
 // Contact and error reports go to the atlas's mailbox. The address is put together by js/app.js, never
 // written out in the pages, where address-harvesting bots would find it.

@@ -20,6 +20,7 @@ const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => 
 })[char]);
 
 const sentence = (text) => (/[.!?…]$/.test(String(text).trim()) ? String(text).trim() : `${String(text).trim()}.`);
+const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => values[key] ?? "");
 
 // Card addresses use the card id without Polish letters, as js/app.js does (cardSlug).
 export function cardSlug(id) {
@@ -64,8 +65,10 @@ function headHtml(indexHtml, origin, page) {
   html = setMeta(html, "property", "og:description", page.description);
   html = setMeta(html, "name", "twitter:title", page.shareTitle);
   html = setMeta(html, "name", "twitter:description", page.description);
-  // Opened on its own page, as the app shows it, so the start page does not flash first.
-  return replaceOnce(html, '<div id="startPage" class="start-page">', '<div id="startPage" class="start-page is-hidden">', "start page");
+  // Opened on its own page, as the app shows it, so the start page does not flash first; "Przejdź do
+  // treści" leads to that page.
+  html = replaceOnce(html, '<a id="skipLink" class="skip-link" href="#startPage">', `<a id="skipLink" class="skip-link" href="${page.content}">`, "skip link");
+  return replaceOnce(html, '<div id="startPage" class="start-page" tabindex="-1">', '<div id="startPage" class="start-page is-hidden" tabindex="-1">', "start page");
 }
 
 function pageHtml(indexHtml, origin, page) {
@@ -86,12 +89,14 @@ function pageHtml(indexHtml, origin, page) {
 
 export function buildPages(win, indexHtml) {
   const app = win.ATLAS_APP_DATA;
+  const ui = win.ATLAS_I18N.ui.pl;
   const origin = canonicalOrigin(indexHtml);
   const pages = [];
   for (const collection of app.collections) {
     const route = routeForCollection(collection);
     const group = (app.groups || []).find((entry) => entry.id === collection.group)?.label || "";
     const base = {
+      content: "#main",
       group,
       heading: collection.heading || collection.title,
       lead: collection.subtitle,
@@ -122,7 +127,7 @@ export function buildPages(win, indexHtml) {
         file: `${itemRoute.slice(1)}.html`,
         title: `${item.name_pl} – ${collection.title} – ${SITE_NAME}`,
         shareTitle: item.name_pl,
-        description: `${sentence(item.hook)} Karta z kolekcji ${collection.title} w Atlasie Osobliwości Polski.`,
+        description: fill(ui.metaCardDescription, { hook: sentence(item.hook), collection: collection.title }),
         noscript: `<article class="static-card"><p class="eyebrow">${escapeHtml(collection.title)}</p><h2>${escapeHtml(item.name_pl)}</h2>` +
           `<p class="latin">${escapeHtml(item.name_lat)}</p><p>${escapeHtml(item.hook)}</p>` +
           (item.region_pl ? `<p><strong>Region:</strong> ${escapeHtml(item.region_pl)}</p>` : "") +
@@ -152,9 +157,10 @@ function mapPage(win, indexHtml, origin) {
   const count = plural(ui.placeCountForms, places.length);
   const page = {
     route: MAP_ROUTE,
+    content: "#mapPage",
     title: `${ui.allMapDocumentTitle} – ${SITE_NAME}`,
-    shareTitle: "Mapa Atlasu Osobliwości Polski",
-    description: `${count} z kart Atlasu Osobliwości Polski na jednej mapie: kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne. Sprawdź, co jest najbliżej Ciebie.`
+    shareTitle: ui.metaMapTitle,
+    description: fill(ui.metaMapDescription, { places: count })
   };
   const collections = win.ATLAS_APP_DATA.collections.filter((collection) => places.some((place) => place.cards.some((card) => card.collection === collection.id)));
   const noscript = collections.map((collection) => {
@@ -177,9 +183,10 @@ function quizPage(win, indexHtml, origin) {
   const ui = win.ATLAS_I18N.ui.pl;
   const page = {
     route: QUIZ_ROUTE,
+    content: "#quizPage",
     title: `${ui.atlasQuizDocumentTitle} – ${SITE_NAME}`,
-    shareTitle: "Quiz Atlasu Osobliwości Polski",
-    description: "Wyzwanie dnia, dziś takie samo dla wszystkich, i losowy quiz z pytaniami z różnych kolekcji Atlasu Osobliwości Polski: opisy, nazwy i ciekawostki ze źródłami."
+    shareTitle: ui.metaQuizTitle,
+    description: ui.metaQuizDescription
   };
   const collections = win.ATLAS_APP_DATA.collections.map((collection) =>
     `<li><a href="${escapeHtml(routeForCollection(collection))}">${escapeHtml(collection.title)}</a></li>`).join("");
