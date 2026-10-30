@@ -95,7 +95,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
   },
   "piestrzenica-kasztanowata": {
     "name": "False morel",
-    "hook": "It looks like a brown brain: an ideal species for a lesson about dangerous mix-ups.",
+    "hook": "It looks like a brown brain, and it is poisonous.",
     "quiz_angle": "telling it apart from morels, and toxicological warnings",
     "safety_note": "Poisonous / dangerous; do not promote eating it.",
     "region": "Throughout Poland except the higher mountains; fairly common.",
@@ -295,7 +295,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
   },
   "gniazdniczka-kulista": {
     "name": "Common bird's nest",
-    "hook": "A second type of 'bird's nest': great for comparisons in the quiz.",
+    "hook": "A second type of 'bird's nest': a little cup with a smooth, glossy inside.",
     "quiz_angle": "differences between the common bird's nest and the fluted bird's nest",
     "safety_note": "Educational material.",
     "region": "Common in Poland.",
@@ -325,7 +325,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
   },
   "kolczakowka-wonna": {
     "name": "Fragrant tooth fungus",
-    "hook": "A fungus interesting not only for its looks but also for its smell: a good subject for a sensory flashcard.",
+    "hook": "A fungus interesting not only for its looks but also for its smell: its flesh smells strongly of anise.",
     "quiz_angle": "features other than color: smell and spines",
     "safety_note": "Strictly protected species; for educational purposes only.",
     "region": "By 2020, 20 historical and 14 recent sites had been reported in Poland.",
@@ -355,7 +355,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
   },
   "krwistoborowik-szatanski": {
     "name": "Devil's bolete",
-    "hook": "A pale cap, red pores and a dramatic name: a strong species for a safety quiz.",
+    "hook": "A pale cap, red pores and a dramatic name; the species is poisonous.",
     "quiz_angle": "red pores, the stem and the risk of wrong associations",
     "safety_note": "Poisonous and strictly protected; for educational purposes only, do not collect.",
     "region": "Very rare; the sites described in the literature are in the Kaczawskie Mountains and on the Kraków-Częstochowa Upland.",
@@ -485,7 +485,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
   },
   "maczuznik-nasiezrzalowy": {
     "name": "Snaketongue truffleclub",
-    "hook": "A dark club growing out of underground fungi: a fungus that parasitizes another fungus sounds like a ready-made quiz topic.",
+    "hook": "A dark club growing out of underground fungi, which it parasitises.",
     "quiz_angle": "relationships between fungi: parasitism on underground fruiting bodies",
     "safety_note": "Educational material.",
     "region": "Rare; listed as R on the Polish Red List.",

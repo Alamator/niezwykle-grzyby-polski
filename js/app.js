@@ -1553,20 +1553,59 @@
     };
   }
 
+  // The line under a place's name starts with where it is ("Kraków • kamienna mapa miasta"); species have none.
+  function placePart(item) {
+    const latin = String(item.name_lat || "");
+    return latin.includes(" • ") ? latin.split(" • ")[0] : "";
+  }
+
+  // A description that names its own card ("Gronostaj zmienia futro…") gives the answer away. Checked in both
+  // languages (the Polish name starts with its noun, the English one ends with it), so the choice of question
+  // does not depend on the language of the page.
+  function hookNamesCard(item, collection) {
+    const english = i18n.collections?.en?.[collection.id]?.items?.[item.id] || {};
+    const words = (name) => String(name || "").replace(/[„”"()/]/g, " ").trim().split(/\s+/);
+    return [[words(item.name_pl)[0], item.hook], [words(english.name).at(-1), english.hook]].some(([noun, hook]) => {
+      const head = String(noun || "").toLocaleLowerCase("pl");
+      return head.length >= 3 && String(hook || "").toLocaleLowerCase("pl").includes(head.slice(0, Math.max(4, head.length - 2)));
+    });
+  }
+
   // A question about `correct` (or a random card of `list`); the wrong answers come from `list` too.
+  // A question should have one right answer: a place is asked by where it is and what it is, with the wrong
+  // answers somewhere else; a description is asked only when it does not name its card, with wrong answers from
+  // other categories, since a slogan like "Nekropolia, która pozwala czytać miasto przez nagrobki" can fit
+  // several cards of its own kind.
   function buildQuestion(correct, counts = factTextCounts(activeCollection()), { collection = activeCollection(), list = items(), rng = Math.random } = {}) {
     const selected = correct || sample(list, 1, rng)[0];
     if (rng() < TRUE_FALSE_SHARE) {
       const trueFalse = buildTrueFalseQuestion(selected, counts, { collection, list, rng });
       if (trueFalse) return trueFalse;
     }
+    const others = list.filter((item) => item.id !== selected.id);
+    const place = placePart(selected);
     // A Latin name shared by several cards (e.g. many "Quercus robur" trees) would have more than one right answer.
     const latinIsUnique = list.filter((item) => item.name_lat === selected.name_lat).length === 1;
-    const mode = rng() > 0.45 || !latinIsUnique ? "hook" : "latin";
-    const prompt = mode === "hook"
-      ? t("quizHookPrompt", { hook: itemHook(selected, collection) })
-      : t("quizLatinPrompt", { latin: itemLatin(selected, collection) });
-    const wrong = sample(list.filter((item) => item.id !== selected.id && item.hook !== selected.hook), 3, rng);
+    const hookIsFair = !hookNamesCard(selected, collection);
+    if (!place && !hookIsFair && !latinIsUnique) {
+      const trueFalse = buildTrueFalseQuestion(selected, counts, { collection, list, rng });
+      if (trueFalse) return trueFalse;
+    }
+    const mode = place ? "place" : (rng() > 0.45 && hookIsFair) || !latinIsUnique ? "hook" : "latin";
+    let prompt;
+    let pool = others;
+    if (mode === "place") {
+      prompt = t("quizPlacePrompt", { place: itemLatin(selected, collection) });
+      pool = others.filter((item) => placePart(item) !== place);
+    } else if (mode === "hook") {
+      prompt = t("quizHookPrompt", { hook: itemHook(selected, collection) });
+      const unlike = others.filter((item) => item.hook !== selected.hook && lineageKey(item) !== lineageKey(selected));
+      const otherCategories = unlike.filter((item) => item.category !== selected.category);
+      pool = otherCategories.length >= 3 ? otherCategories : unlike;
+    } else {
+      prompt = t("quizLatinPrompt", { latin: itemLatin(selected, collection) });
+    }
+    const wrong = sample(pool.length >= 3 ? pool : others, 3, rng);
     return {
       type: "choice",
       correctId: selected.id,
@@ -1577,9 +1616,12 @@
     };
   }
 
+  // Holocaust and martyrdom sites stay out of a collection's quiz too, as in the quiz of the whole atlas.
   function buildQuestions() {
-    const counts = factTextCounts(activeCollection());
-    return sample(items(), Math.min(10, items().length)).map((item) => buildQuestion(item, counts));
+    const collection = activeCollection();
+    const pool = quizPool(collection);
+    const counts = factTextCounts(collection);
+    return sample(pool, Math.min(10, pool.length)).map((item) => buildQuestion(item, counts, { collection, list: pool }));
   }
 
   function initQuiz() {
