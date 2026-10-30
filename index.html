@@ -8,6 +8,9 @@
   <meta name="description" content="Atlas Osobliwości Polski: grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architektura drewniana, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, rekordy krajobrazu oraz kolejne niezwykłe zjawiska w atlasie, fiszkach, quizie i źródłach." />
   <title>Atlas Osobliwości Polski</title>
   <link rel="canonical" href="https://www.atlas-osobliwosci.pl/" />
+  <link rel="alternate" hreflang="pl" href="https://www.atlas-osobliwosci.pl/" />
+  <link rel="alternate" hreflang="en" href="https://www.atlas-osobliwosci.pl/en" />
+  <link rel="alternate" hreflang="x-default" href="https://www.atlas-osobliwosci.pl/" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32x32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192x192.png" />
@@ -41,15 +44,15 @@
   <script defer src="/js/app.js"></script>
 </head>
 <body>
-  <a id="skipLink" class="skip-link" href="#startPage">Przejdź do treści</a>
+  <a id="skipLink" class="skip-link" href="#startPage" data-i18n="skipLink">Przejdź do treści</a>
 
   <header class="topbar">
     <div class="topbar__inner shell">
-      <a id="wordmark" class="wordmark" href="/" data-action="go-home" aria-label="Atlas Osobliwości Polski, strona główna">Atlas <em>Osobliwości</em> Polski</a>
+      <a id="wordmark" class="wordmark" href="/" data-action="go-home" aria-label="Atlas Osobliwości Polski, strona główna" data-i18n-label="homeLabel">Atlas <em>Osobliwości</em> Polski</a>
       <div class="topbar__tools">
         <a id="drawerLink" class="topbar__link topbar__drawer is-hidden" href="/#myDrawer" data-action="go-drawer" aria-label="Moja szuflada">Szuflada</a>
-        <a id="mapLink" class="topbar__link" href="/mapa" data-action="go-map" aria-label="Mapa wszystkich miejsc atlasu">Mapa</a>
-        <div id="languageToggle" class="language-toggle" role="group" aria-label="Wybór języka">
+        <a id="mapLink" class="topbar__link" href="/mapa" data-action="go-map" aria-label="Mapa wszystkich miejsc atlasu" data-i18n="navMap" data-i18n-label="navMapLabel">Mapa</a>
+        <div id="languageToggle" class="language-toggle" role="group" aria-label="Wybór języka" data-i18n-label="languageLabel">
           <button class="language-btn is-active" data-action="set-language" data-language="pl" type="button">PL</button>
           <span class="language-toggle__sep" aria-hidden="true">/</span>
           <button class="language-btn" data-action="set-language" data-language="en" type="button">EN</button>
@@ -63,59 +66,59 @@
       <section class="hero shell" aria-labelledby="heroTitle">
         <div class="hero__content">
           <p id="heroEyebrow" class="eyebrow">Gabinet osobliwości · 18 kolekcji</p>
-          <h1 id="heroTitle">Polska, jakiej <em>nie pokazują</em> przewodniki.</h1>
-          <p id="heroLead" class="lead">Zapraszamy w podróż po kraju dziwów: grzybie, który wygląda jak czerwona ośmiornica, lesie, w którym sosny rosną najpierw poziomo, i kaplicy św. Kingi wykutej w soli. Otwórz którąś z szuflad i sprawdź, ile z tych osobliwości znasz.</p>
-          <div id="heroActions" class="hero__actions" role="group" aria-label="Szybkie akcje">
-            <button id="chooseCollectionHero" class="primary" data-action="show-collections" type="button">Wyrusz w podróż</button>
-            <button id="surpriseButton" class="secondary" data-action="surprise" type="button">Zaskocz mnie</button>
+          <h1 id="heroTitle" data-i18n-html="heroTitle">Polska, jakiej <em>nie pokazują</em> przewodniki.</h1>
+          <p id="heroLead" class="lead" data-i18n="heroLead">Zapraszamy w podróż po kraju dziwów: grzybie, który wygląda jak czerwona ośmiornica, lesie, w którym sosny rosną najpierw poziomo, i kaplicy św. Kingi wykutej w soli. Otwórz którąś z szuflad i sprawdź, ile z tych osobliwości znasz.</p>
+          <div id="heroActions" class="hero__actions" role="group" aria-label="Szybkie akcje" data-i18n-label="quickActions">
+            <button id="chooseCollectionHero" class="primary" data-action="show-collections" type="button" data-i18n="heroStart">Wyrusz w podróż</button>
+            <button id="surpriseButton" class="secondary" data-action="surprise" type="button" data-i18n="heroSurprise">Zaskocz mnie</button>
           </div>
           <form id="atlasSearch" class="atlas-search" role="search">
             <label class="search-box">
-              <span id="atlasSearchLabel">Szukaj w całym atlasie</span>
-              <input id="atlasSearchInput" type="search" placeholder="np. okratek, Wieliczka, zorza…" autocomplete="off" spellcheck="false" aria-describedby="atlasSearchStatus" />
+              <span id="atlasSearchLabel" data-i18n="atlasSearchLabel">Szukaj w całym atlasie</span>
+              <input id="atlasSearchInput" type="search" placeholder="np. okratek, Wieliczka, zorza…" autocomplete="off" spellcheck="false" aria-describedby="atlasSearchStatus" data-i18n-placeholder="atlasSearchPlaceholder" />
             </label>
             <p id="atlasSearchStatus" class="atlas-search__status" role="status"></p>
             <ul id="atlasSearchResults" class="atlas-search__results" aria-labelledby="atlasSearchLabel"></ul>
           </form>
-          <ul id="heroStats" class="hero__stats" aria-label="Atlas w liczbach"></ul>
+          <ul id="heroStats" class="hero__stats" aria-label="Atlas w liczbach" data-i18n-label="heroStatsLabel"></ul>
         </div>
-        <ul id="cabinet" class="cabinet" aria-label="Wybrane osobliwości"></ul>
+        <ul id="cabinet" class="cabinet" aria-label="Wybrane osobliwości" data-i18n-label="cabinetLabel"></ul>
       </section>
 
       <section id="myDrawer" class="my-drawer shell is-hidden" aria-labelledby="myDrawerTitle">
         <div class="section-head">
           <div>
             <p id="myDrawerEyebrow" class="eyebrow">Twoja szuflada</p>
-            <h2 id="myDrawerTitle" tabindex="-1">Moja <em>szuflada</em></h2>
+            <h2 id="myDrawerTitle" tabindex="-1" data-i18n-html="myDrawerTitle">Moja <em>szuflada</em></h2>
           </div>
-          <p id="myDrawerNote" class="section-note">Karty zachowane przyciskiem ☆ na karcie. Lista jest tylko w tej przeglądarce: atlas nigdzie jej nie wysyła, a wyczyszczenie danych strony ją usuwa.</p>
+          <p id="myDrawerNote" class="section-note" data-i18n="myDrawerNote">Karty zachowane przyciskiem ☆ na karcie. Lista jest tylko w tej przeglądarce: atlas nigdzie jej nie wysyła, a wyczyszczenie danych strony ją usuwa.</p>
         </div>
-        <ul id="myDrawerList" class="my-drawer__list" aria-label="Karty w Twojej szufladzie"></ul>
+        <ul id="myDrawerList" class="my-drawer__list" aria-label="Karty w Twojej szufladzie" data-i18n-label="myDrawerLabel"></ul>
         <button id="myDrawerMore" class="secondary my-drawer__more is-hidden" type="button" data-action="keep-show-all">Pokaż wszystkie</button>
-        <p id="myDrawerEmpty" class="my-drawer__empty is-hidden">Szuflada jest pusta. Kartę zachowasz przyciskiem ☆ na karcie.</p>
+        <p id="myDrawerEmpty" class="my-drawer__empty is-hidden" data-i18n="myDrawerEmpty">Szuflada jest pusta. Kartę zachowasz przyciskiem ☆ na karcie.</p>
       </section>
 
       <section id="collectionPicker" class="collection-picker shell" aria-labelledby="collections-title">
         <div class="section-head">
           <div>
-            <p id="collectionsEyebrow" class="eyebrow">Kolekcje</p>
-            <h2 id="collections-title">Osiemnaście <em>szuflad</em> gabinetu</h2>
+            <p id="collectionsEyebrow" class="eyebrow" data-i18n="collectionsEyebrow">Kolekcje</p>
+            <h2 id="collections-title" data-i18n-html="collectionsTitle">Osiemnaście <em>szuflad</em> gabinetu</h2>
           </div>
-          <p id="collectionsNote" class="section-note">Każda kolekcja ma atlas, fiszki, quiz i źródła. Część ma też mapę miejsc.</p>
+          <p id="collectionsNote" class="section-note" data-i18n="collectionsNote">Każda kolekcja ma atlas, fiszki, quiz i źródła. Część ma też mapę miejsc.</p>
         </div>
         <div id="collectionGrid" class="collection-grid"></div>
       </section>
 
       <section id="dailyFact" class="daily-fact shell" aria-labelledby="dailyFactTitle">
         <div class="daily-fact__card">
-          <h2 id="dailyFactTitle" class="eyebrow daily-fact__title">Ciekawostka dnia</h2>
+          <h2 id="dailyFactTitle" class="eyebrow daily-fact__title" data-i18n="dailyFactEyebrow">Ciekawostka dnia</h2>
           <div id="dailyFactBody" class="daily-fact__body">
             <p class="daily-fact__loading">Wczytuję ciekawostkę dnia…</p>
           </div>
         </div>
         <div class="daily-quiz">
           <div class="daily-quiz__text">
-            <h2 id="dailyQuizCardTitle" class="eyebrow">Wyzwanie dnia</h2>
+            <h2 id="dailyQuizCardTitle" class="eyebrow" data-i18n="dailyQuizName">Wyzwanie dnia</h2>
             <p id="dailyQuizCardText">5 pytań z całego atlasu, dziś te same dla wszystkich.</p>
           </div>
           <a id="dailyQuizCardLink" class="primary" href="/quiz" data-action="go-quiz" data-mode="daily">Zagraj</a>
@@ -124,36 +127,36 @@
 
       <section id="about" class="about shell" aria-labelledby="about-title">
         <div class="about__head">
-          <p id="aboutEyebrow" class="eyebrow">O projekcie</p>
-          <h2 id="about-title">Atlas różnych osobliwości polskiej przyrody i kultury</h2>
+          <p id="aboutEyebrow" class="eyebrow" data-i18n="aboutEyebrow">O projekcie</p>
+          <h2 id="about-title" data-i18n="aboutTitle">Atlas różnych osobliwości polskiej przyrody i kultury</h2>
           <blockquote class="about__lead">
-            <p id="aboutLeadBody">Niezwykłe gatunki, miejsca i zjawiska Polski w jednym miejscu — z atlasem, fiszkami, quizem i jawnymi źródłami zdjęć. Projekt edukacyjny, w którym AI pomaga badać, a człowiek decyduje co trafia do publikacji.</p>
-            <cite id="aboutLeadSignature">— Robert Oroloko</cite>
+            <p id="aboutLeadBody" data-i18n="aboutLeadBody">Niezwykłe gatunki, miejsca i zjawiska Polski w jednym miejscu — z atlasem, fiszkami, quizem i jawnymi źródłami zdjęć. Projekt edukacyjny, w którym AI pomaga badać, a człowiek decyduje co trafia do publikacji.</p>
+            <cite id="aboutLeadSignature" data-i18n="aboutLeadSignature">— Robert Oroloko</cite>
           </blockquote>
         </div>
         <div class="about__grid">
           <article class="about-card">
             <span class="about-card__num" aria-hidden="true">01</span>
-            <h3 id="aboutCard1Title">Tylko edukacja</h3>
-            <p id="aboutCard1Body">Atlas nie służy do oznaczania gatunków w terenie, potwierdzania jadalności grzybów ani decyzji o kontakcie z dzikimi zwierzętami. To ciekawski wstęp, nie identyfikator.</p>
+            <h3 id="aboutCard1Title" data-i18n="aboutCard1Title">Tylko edukacja</h3>
+            <p id="aboutCard1Body" data-i18n="aboutCard1Body">Atlas nie służy do oznaczania gatunków w terenie, potwierdzania jadalności grzybów ani decyzji o kontakcie z dzikimi zwierzętami. To ciekawski wstęp, nie identyfikator.</p>
           </article>
           <article class="about-card">
             <span class="about-card__num" aria-hidden="true">02</span>
-            <h3 id="aboutCard2Title">Sprawdzone, nie zmyślone</h3>
-            <p id="aboutCard2Body">Każda ciekawostka ma źródło i jest sprawdzona z jego tekstem, a liczby i daty dodatkowo wyszukiwaniem. Co niepewne, wypada z atlasu. AI pomaga w pracy, wybór i ostatnie słowo należą do mnie.</p>
+            <h3 id="aboutCard2Title" data-i18n="aboutCard2Title">Sprawdzone, nie zmyślone</h3>
+            <p id="aboutCard2Body" data-i18n="aboutCard2Body">Każda ciekawostka ma źródło i jest sprawdzona z jego tekstem, a liczby i daty dodatkowo wyszukiwaniem. Co niepewne, wypada z atlasu. AI pomaga w pracy, wybór i ostatnie słowo należą do mnie.</p>
           </article>
           <article class="about-card">
             <span class="about-card__num" aria-hidden="true">03</span>
-            <h3 id="aboutCard3Title">Otwarte licencje</h3>
-            <p id="aboutCard3Body">Zdjęcia z Wikimedia Commons z pełną atrybucją (autor, źródło, licencja, link, info o kadrowaniu). Nie kopiujemy opisów z cudzych atlasów.</p>
+            <h3 id="aboutCard3Title" data-i18n="aboutCard3Title">Otwarte licencje</h3>
+            <p id="aboutCard3Body" data-i18n="aboutCard3Body">Zdjęcia z Wikimedia Commons z pełną atrybucją (autor, źródło, licencja, link, info o kadrowaniu). Nie kopiujemy opisów z cudzych atlasów.</p>
           </article>
         </div>
       </section>
 
       <section class="start-credits shell" aria-labelledby="startCreditsTitle">
         <details class="start-credits__box">
-          <summary id="startCreditsTitle">Zdjęcia na stronie głównej</summary>
-          <p id="startCreditsNote" class="start-credits__note">Zdjęcia są osadzone z Wikimedia Commons w zmniejszonej wersji i przycięte do kształtu kafelków.</p>
+          <summary id="startCreditsTitle" data-i18n="startCreditsTitle">Zdjęcia na stronie głównej</summary>
+          <p id="startCreditsNote" class="start-credits__note" data-i18n="startCreditsNote">Zdjęcia są osadzone z Wikimedia Commons w zmniejszonej wersji i przycięte do kształtu kafelków.</p>
           <ul id="startCreditsList" class="start-credits__list"></ul>
         </details>
       </section>
@@ -162,17 +165,17 @@
     <div id="mapPage" class="map-page is-hidden" tabindex="-1">
       <section class="map-page__head shell" aria-labelledby="allMapTitle">
         <p id="allMapEyebrow" class="eyebrow">Mapa atlasu</p>
-        <h1 id="allMapTitle">Wszystkie miejsca <em>na jednej</em> mapie</h1>
-        <p id="allMapLead" class="lead">Kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne miejsca z kart atlasu. Kliknij punkt, żeby otworzyć kartę, albo sprawdź, co jest najbliżej Ciebie.</p>
+        <h1 id="allMapTitle" data-i18n-html="allMapTitle">Wszystkie miejsca <em>na jednej</em> mapie</h1>
+        <p id="allMapLead" class="lead" data-i18n="allMapLead">Kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne miejsca z kart atlasu. Kliknij punkt, żeby otworzyć kartę, albo sprawdź, co jest najbliżej Ciebie.</p>
       </section>
       <div class="map-page__body shell">
         <div class="map-page__near">
-          <button id="nearMeButton" class="primary" data-action="near-me" type="button">Blisko mnie</button>
-          <p id="nearMePrivacy" class="map-source-note">Blisko mnie: położenie zostaje w Twojej przeglądarce, atlas go nie zapisuje i nikomu nie wysyła. Mapa pobiera z OpenFreeMap tylko podkład oglądanego obszaru.</p>
+          <button id="nearMeButton" class="primary" data-action="near-me" type="button" data-i18n="nearMe">Blisko mnie</button>
+          <p id="nearMePrivacy" class="map-source-note" data-i18n="nearMePrivacy">Blisko mnie: położenie zostaje w Twojej przeglądarce, atlas go nie zapisuje i nikomu nie wysyła. Mapa pobiera z OpenFreeMap tylko podkład oglądanego obszaru.</p>
         </div>
         <p id="nearMeStatus" class="map-status" role="status" aria-live="polite"></p>
-        <div id="allMapFilters" class="chips map-page__filters" role="group" aria-label="Kolekcje na mapie"></div>
-        <div id="allMap" class="place-map" role="region" aria-label="Mapa wszystkich miejsc atlasu"></div>
+        <div id="allMapFilters" class="chips map-page__filters" role="group" aria-label="Kolekcje na mapie" data-i18n-label="allMapFiltersLabel"></div>
+        <div id="allMap" class="place-map" role="region" aria-label="Mapa wszystkich miejsc atlasu" data-i18n-label="allMapLabel"></div>
         <p id="allMapStatus" class="map-status" role="status" aria-live="polite"></p>
         <div id="nearList" class="source-panel place-list is-hidden"></div>
         <div id="allPlaceList" class="source-panel place-list"></div>
@@ -182,12 +185,12 @@
 
     <div id="quizPage" class="quiz-page is-hidden" tabindex="-1">
       <section class="quiz-page__head shell" aria-labelledby="atlasQuizTitle">
-        <p id="atlasQuizEyebrow" class="eyebrow">Quiz atlasu</p>
-        <h1 id="atlasQuizTitle">Sprawdź się na <em>całym</em> atlasie</h1>
-        <p id="atlasQuizLead" class="lead">Pytania z różnych kolekcji: opisy, nazwy i ciekawostki ze źródłami. Wyzwanie dnia jest dziś takie samo dla wszystkich, a losowy quiz za każdym razem jest inny.</p>
+        <p id="atlasQuizEyebrow" class="eyebrow" data-i18n="atlasQuizEyebrow">Quiz atlasu</p>
+        <h1 id="atlasQuizTitle" data-i18n-html="atlasQuizTitle">Sprawdź się na <em>całym</em> atlasie</h1>
+        <p id="atlasQuizLead" class="lead" data-i18n="atlasQuizLead">Pytania z różnych kolekcji: opisy, nazwy i ciekawostki ze źródłami. Wyzwanie dnia jest dziś takie samo dla wszystkich, a losowy quiz za każdym razem jest inny.</p>
       </section>
       <div class="quiz-page__body shell">
-        <div id="atlasQuizModes" class="quiz-modes" role="group" aria-label="Wybierz quiz">
+        <div id="atlasQuizModes" class="quiz-modes" role="group" aria-label="Wybierz quiz" data-i18n-label="atlasQuizModesLabel">
           <article class="quiz-mode quiz-mode--daily">
             <p id="dailyModeEyebrow" class="eyebrow">Wyzwanie dnia</p>
             <h2 id="dailyModeTitle">5 pytań, dziś te same dla wszystkich</h2>
@@ -195,14 +198,14 @@
             <button id="dailyModeButton" class="primary" type="button" data-action="atlas-quiz-start" data-mode="daily">Zagraj</button>
           </article>
           <article class="quiz-mode">
-            <p id="mixModeEyebrow" class="eyebrow">Losowy quiz</p>
+            <p id="mixModeEyebrow" class="eyebrow" data-i18n="mixQuizEyebrow">Losowy quiz</p>
             <h2 id="mixModeTitle">10 pytań z całego atlasu</h2>
-            <p id="mixModeText" class="quiz-mode__text">Za każdym razem inne kolekcje i pytania.</p>
-            <button id="mixModeButton" class="secondary" type="button" data-action="atlas-quiz-start" data-mode="mix">Zagraj</button>
+            <p id="mixModeText" class="quiz-mode__text" data-i18n="mixQuizIntro">Za każdym razem inne kolekcje i pytania.</p>
+            <button id="mixModeButton" class="secondary" type="button" data-action="atlas-quiz-start" data-mode="mix" data-i18n="atlasQuizPlay">Zagraj</button>
           </article>
         </div>
         <div id="atlasQuizBox" class="quiz-box atlas-quiz"></div>
-        <p id="atlasQuizNote" class="map-source-note">Wyniki wyzwań dnia są tylko w tej przeglądarce: atlas nigdzie ich nie wysyła.</p>
+        <p id="atlasQuizNote" class="map-source-note" data-i18n="atlasQuizNote">Wyniki wyzwań dnia są tylko w tej przeglądarce: atlas nigdzie ich nie wysyła.</p>
       </div>
     </div>
 
@@ -215,38 +218,38 @@
             <h1 id="collectionTitle">Atlas</h1>
             <p id="collectionLead" class="collection-bar__lead"></p>
           </div>
-          <button id="changeCollectionButton" class="secondary" data-action="show-collections" type="button">Zmień kolekcję</button>
+          <button id="changeCollectionButton" class="secondary" data-action="show-collections" type="button" data-i18n="changeCollection">Zmień kolekcję</button>
         </div>
       </section>
 
-      <nav id="appNav" class="app-nav is-hidden" aria-label="Nawigacja aplikacji">
+      <nav id="appNav" class="app-nav is-hidden" aria-label="Nawigacja aplikacji" data-i18n-label="appNavLabel">
         <div class="app-nav__inner shell">
-          <button class="nav-btn is-active" data-view="atlas" type="button" aria-current="page">Atlas</button>
-          <button class="nav-btn is-hidden" data-view="map" type="button">Mapa</button>
-          <button class="nav-btn" data-view="learn" type="button">Nauka</button>
-          <button class="nav-btn" data-view="quiz" type="button">Quiz</button>
-          <button class="nav-btn" data-view="sources" type="button">Źródła</button>
+          <button class="nav-btn is-active" data-view="atlas" type="button" aria-current="page" data-i18n="tabAtlas">Atlas</button>
+          <button class="nav-btn is-hidden" data-view="map" type="button" data-i18n="tabMap">Mapa</button>
+          <button class="nav-btn" data-view="learn" type="button" data-i18n="tabLearn">Nauka</button>
+          <button class="nav-btn" data-view="quiz" type="button" data-i18n="tabQuiz">Quiz</button>
+          <button class="nav-btn" data-view="sources" type="button" data-i18n="tabSources">Źródła</button>
         </div>
       </nav>
 
       <div class="app-main__body shell">
         <section class="notice" role="note">
-          <strong id="noticePrefix">Uwaga:</strong>
+          <strong id="noticePrefix" data-i18n="noticePrefix">Uwaga:</strong>
           <span id="safetyNotice">To jest prototyp edukacyjny.</span>
         </section>
 
         <section id="atlas" class="view is-active" aria-labelledby="atlas-title">
           <div class="section-head">
             <div>
-              <p id="atlasEyebrow" class="eyebrow">Atlas</p>
+              <p id="atlasEyebrow" class="eyebrow" data-i18n="atlasEyebrow">Atlas</p>
               <h2 id="atlas-title">Osobliwości</h2>
             </div>
-            <p id="atlasNote" class="section-note">Kliknij kartę, żeby zobaczyć szczegóły.</p>
+            <p id="atlasNote" class="section-note" data-i18n="atlasNote">Kliknij kartę, żeby zobaczyć szczegóły.</p>
           </div>
 
           <div class="filters" aria-label="Filtry atlasu">
             <label class="search-box">
-              <span id="searchLabel">Szukaj</span>
+              <span id="searchLabel" data-i18n="searchLabel">Szukaj</span>
               <input id="searchInput" type="search" placeholder="Szukaj w aktywnej kolekcji..." autocomplete="off" />
             </label>
             <div id="categoryFilters" class="chips" aria-label="Kategorie"></div>
@@ -259,14 +262,14 @@
         <section id="map" class="view" aria-labelledby="map-title">
           <div class="section-head">
             <div>
-              <p id="mapEyebrow" class="eyebrow">Mapa</p>
-              <h2 id="map-title">Mapa miejsc</h2>
+              <p id="mapEyebrow" class="eyebrow" data-i18n="mapEyebrow">Mapa</p>
+              <h2 id="map-title" data-i18n="mapTitle">Mapa miejsc</h2>
             </div>
-            <p id="mapNote" class="section-note">Kliknij punkt, żeby zobaczyć nazwę i otworzyć kartę.</p>
+            <p id="mapNote" class="section-note" data-i18n="mapNote">Kliknij punkt, żeby zobaczyć nazwę i otworzyć kartę.</p>
           </div>
           <div id="placeMap" class="place-map" role="region" aria-label="Mapa miejsc"></div>
           <p id="mapStatus" class="map-status" role="status" aria-live="polite"></p>
-          <p class="map-all-link"><a id="mapAllLink" href="/mapa" data-action="go-map">Wszystkie miejsca atlasu na jednej mapie</a></p>
+          <p class="map-all-link"><a id="mapAllLink" href="/mapa" data-action="go-map" data-i18n="mapAllLink">Wszystkie miejsca atlasu na jednej mapie</a></p>
           <div id="placeList" class="source-panel place-list"></div>
           <p id="mapSourceNote" class="map-source-note"></p>
         </section>
@@ -274,10 +277,10 @@
         <section id="learn" class="view" aria-labelledby="learn-title">
           <div class="section-head">
             <div>
-              <p id="learnEyebrow" class="eyebrow">Nauka</p>
-              <h2 id="learn-title">Fiszki: zgadnij gatunek</h2>
+              <p id="learnEyebrow" class="eyebrow" data-i18n="learnEyebrow">Nauka</p>
+              <h2 id="learn-title" data-i18n="learnTitle">Fiszki: zgadnij wpis</h2>
             </div>
-            <p id="learnNote" class="section-note">Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.</p>
+            <p id="learnNote" class="section-note" data-i18n="learnNote">Najpierw zobacz ciekawostkę, potem odsłoń odpowiedź.</p>
           </div>
           <div id="flashcard" class="flashcard"></div>
         </section>
@@ -285,28 +288,28 @@
         <section id="quiz" class="view" aria-labelledby="quiz-title">
           <div class="section-head">
             <div>
-              <p id="quizEyebrow" class="eyebrow">Quiz</p>
-              <h2 id="quiz-title">10 pytań na spokojnie</h2>
+              <p id="quizEyebrow" class="eyebrow" data-i18n="quizEyebrow">Quiz</p>
+              <h2 id="quiz-title" data-i18n="quizTitle">10 pytań na spokojnie</h2>
             </div>
-            <p id="quizNote" class="section-note">Pytania powstają z opisów, nazw i ciekawostek aktywnej kolekcji, także jako „prawda czy fałsz”.</p>
+            <p id="quizNote" class="section-note" data-i18n="quizNote">Pytania powstają z opisów, nazw i ciekawostek aktywnej kolekcji, także jako „prawda czy fałsz”.</p>
           </div>
           <div id="quizBox" class="quiz-box"></div>
-          <p class="map-all-link"><a id="atlasQuizLink" href="/quiz" data-action="go-quiz">Quiz z całego atlasu i wyzwanie dnia</a></p>
+          <p class="map-all-link"><a id="atlasQuizLink" href="/quiz" data-action="go-quiz" data-i18n="atlasQuizLink">Quiz z całego atlasu i wyzwanie dnia</a></p>
         </section>
 
         <section id="sources" class="view" aria-labelledby="sources-title">
           <div class="section-head">
             <div>
-              <p id="sourcesEyebrow" class="eyebrow">Źródła i licencje</p>
-              <h2 id="sources-title">Źródła ciekawostek i zdjęć</h2>
+              <p id="sourcesEyebrow" class="eyebrow" data-i18n="sourcesEyebrow">Źródła i licencje</p>
+              <h2 id="sources-title" data-i18n="sourcesTitle">Źródła ciekawostek i zdjęć</h2>
             </div>
             <p class="section-note" id="sourceNote">Zdjęcia uzupełniamy stopniowo z legalnych źródeł.</p>
           </div>
           <div id="factSources" class="source-panel fact-sources"></div>
           <div id="sourcePanel" class="source-panel">
-            <h3 id="sourcePanelTitle">Zasada projektu</h3>
-            <p id="sourcePanelCopy">Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.</p>
-            <h3 id="sourceChecklistTitle">Checklist zdjęcia</h3>
+            <h3 id="sourcePanelTitle" data-i18n="sourcePanelTitle">Zasada projektu</h3>
+            <p id="sourcePanelCopy" data-i18n="sourcePanelCopy">Nie kopiujemy opisów z cudzych atlasów. Tworzymy krótkie, własne teksty edukacyjne i używamy zdjęć wyłącznie z jasnymi licencjami.</p>
+            <h3 id="sourceChecklistTitle" data-i18n="sourceChecklistTitle">Checklist zdjęcia</h3>
             <ul id="sourceChecklist">
               <li>autor / właściciel praw,</li>
               <li>link do strony pliku,</li>
@@ -322,7 +325,7 @@
   </main>
 
   <dialog id="itemDialog" class="mushroom-dialog" aria-labelledby="dialogTitle">
-    <button class="dialog-close" type="button" aria-label="Zamknij">×</button>
+    <button class="dialog-close" type="button" aria-label="Zamknij" data-i18n-label="close">×</button>
     <div id="dialogContent"></div>
   </dialog>
 

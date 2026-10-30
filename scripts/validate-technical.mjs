@@ -103,7 +103,7 @@ assert.equal(vercelConfig.buildCommand, "npm run build && node scripts/version-a
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
-assert(["/atlas/", "/mapa.html", "/quiz.html", "/sitemap.xml", "/404.html"].every((entry) => gitignore.split("\n").includes(entry)), ".gitignore should keep the built pages, sitemap and 404 page out of git");
+assert(["/atlas/", "/en/", "/en.html", "/mapa.html", "/quiz.html", "/sitemap.xml", "/404.html"].every((entry) => gitignore.split("\n").includes(entry)), ".gitignore should keep the built pages, sitemap and 404 page out of git");
 assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");
 {
   const { buildPages, cardSlug, routeForCollection } = await import("./build-pages.mjs");
@@ -112,7 +112,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   const { pages, sitemap } = buildPages(win, indexHtml);
   const collections = win.ATLAS_APP_DATA.collections;
   const cardCount = collections.reduce((sum, collection) => sum + collection.items.length, 0);
-  assert.equal(pages.length, 2 + collections.length + cardCount, "the map, the quiz, every collection and every card should get a page");
+  assert.equal(pages.length, 2 * (2 + collections.length + cardCount) + 1, "the map, the quiz, every collection and every card should get a page in Polish and in English, and the English start page one too");
   assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length + 1, "the sitemap should list the start page and every page");
   assert.equal(new Set(pages.map((page) => page.route)).size, pages.length, "every page should have its own address");
   const card = pages.find((page) => page.route === "/atlas/grzyby/okratek-australijski");
@@ -164,8 +164,8 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(indexHtml.includes(`<meta name="description" content="${ui.metaStartDescription}" />`), "index.html should describe the start page as data/i18n.js does");
   assert(indexHtml.includes(`<meta property="og:description" content="${ui.metaStartShare}" />`) && indexHtml.includes(`<meta name="twitter:description" content="${ui.metaStartShare}" />`), "the start page's link preview should match data/i18n.js");
   // "Przejdź do treści" leads to the page shown: the start page, a collection, the map or the quiz.
-  assert(indexHtml.includes('<a id="skipLink" class="skip-link" href="#startPage">') && indexHtml.includes('<div id="startPage" class="start-page" tabindex="-1">'), "on the start page the skip link should lead to the start page");
-  assert(card.html.includes('<a id="skipLink" class="skip-link" href="#main">'), "on a card page the skip link should lead to the collection");
+  assert(indexHtml.includes('<a id="skipLink" class="skip-link" href="#startPage"') && indexHtml.includes('<div id="startPage" class="start-page" tabindex="-1">'), "on the start page the skip link should lead to the start page");
+  assert(card.html.includes('<a id="skipLink" class="skip-link" href="#main"'), "on a card page the skip link should lead to the collection");
   // One main area holds every page the app shows, so screen readers find the content on each of them.
   assert.equal((indexHtml.match(/<main\b/g) || []).length, 1, "index.html should have one main element");
   const mainHtml = indexHtml.slice(indexHtml.indexOf("<main>"), indexHtml.indexOf("</main>"));
@@ -185,7 +185,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(mapPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the map page should not open on the start page");
   assert(mapPage.html.includes('<div id="mapPage" class="map-page" tabindex="-1">'), "the map page should open on the map");
   assert(mapPage.html.includes('<div id="main" class="app-main is-hidden" tabindex="-1">'), "the map page should keep the collection view hidden");
-  assert(mapPage.html.includes('<a id="skipLink" class="skip-link" href="#mapPage">'), "on the map page the skip link should lead to the map");
+  assert(mapPage.html.includes('<a id="skipLink" class="skip-link" href="#mapPage"'), "on the map page the skip link should lead to the map");
   const placedCards = collections.flatMap((collection) => collection.items.filter((item) => collection.places?.[item.id]).map((item) => `/atlas/${collection.id}/${cardSlug(item.id)}`));
   for (const route of placedCards) {
     assert(mapPage.html.includes(`href="${route}"`), `the map page should link to ${route} for readers without scripts`);
@@ -201,7 +201,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(quizPage.html.includes(`<link rel="canonical" href="${origin}${QUIZ_ROUTE}" />`), "the quiz page should name itself as canonical");
   assert(quizPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the quiz page should not open on the start page");
   assert(quizPage.html.includes('<div id="quizPage" class="quiz-page" tabindex="-1">'), "the quiz page should open on the quiz");
-  assert(quizPage.html.includes('<a id="skipLink" class="skip-link" href="#quizPage">'), "on the quiz page the skip link should lead to the quiz");
+  assert(quizPage.html.includes('<a id="skipLink" class="skip-link" href="#quizPage"'), "on the quiz page the skip link should lead to the quiz");
   assert(sitemap.includes(`<loc>${origin}${QUIZ_ROUTE}</loc>`), "the sitemap should list the quiz page");
   // The page names the numbers of questions before the app runs; they have to be the app's.
   const dailyQuestions = appJs.match(/const DAILY_QUESTIONS = (\d+);/)?.[1];
@@ -209,6 +209,75 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(dailyQuestions && mixQuestions, "js/app.js should set the numbers of questions of the atlas quiz");
   assert(indexHtml.includes(`<h2 id="dailyModeTitle">${dailyQuestions} pytań,`) && indexHtml.includes(`<p id="dailyQuizCardText">${dailyQuestions} pytań z całego atlasu`), "index.html should give the number of questions of the daily challenge");
   assert(indexHtml.includes(`<h2 id="mixModeTitle">${mixQuestions} pytań z całego atlasu</h2>`), "index.html should give the number of questions of the random quiz");
+  const buildPagesJs = fs.readFileSync("scripts/build-pages.mjs", "utf8");
+  assert(buildPagesJs.includes(`const DAILY_QUESTIONS = ${dailyQuestions};`) && buildPagesJs.includes(`const MIX_QUESTIONS = ${mixQuestions};`), "the English pages should give the app's numbers of questions");
+
+  // English pages: every page has a twin at the same address under /en, and both name each other for
+  // search engines (hreflang), Polish being the default. js/app.js gives pages the same addresses.
+  const { addressFor, ENGLISH_PREFIX } = await import("./build-pages.mjs");
+  assert.equal(ENGLISH_PREFIX, "/en");
+  assert(appJs.includes(`const ENGLISH_PREFIX = "${ENGLISH_PREFIX}";`), "js/app.js should put the English pages under the same prefix");
+  const bodyOf = (source, name) => source.match(new RegExp(`^( *)(?:export )?function ${name}\\([^)]*\\) \\{\\n([\\s\\S]*?)\\n\\1\\}$`, "m"))?.[2].replace(/\s+/g, " ").trim();
+  for (const name of ["addressFor", "markdownLight"]) {
+    assert(bodyOf(appJs, name) && bodyOf(appJs, name) === bodyOf(buildPagesJs, name), `${name} should be the same in js/app.js and scripts/build-pages.mjs`);
+  }
+  const english = (route) => addressFor(route, "en");
+  assert.equal(english("/"), "/en");
+  assert.equal(english("/mapa"), "/en/mapa");
+  assert.equal(english("/#myDrawer"), "/en#myDrawer");
+  const byRoute = new Map(pages.map((page) => [page.route, page]));
+  const alternates = (route) => [["pl", route], ["en", english(route)], ["x-default", route]]
+    .map(([hreflang, address]) => `<link rel="alternate" hreflang="${hreflang}" href="${origin}${address}" />`);
+  assert(alternates("/").every((link) => indexHtml.includes(link)), "index.html should name the English start page and itself as the default");
+  for (const page of pages.filter((entry) => entry.route !== ENGLISH_PREFIX && !entry.route.startsWith(`${ENGLISH_PREFIX}/`))) {
+    const twin = byRoute.get(english(page.route));
+    assert(twin, `${page.route} should have an English page at ${english(page.route)}`);
+    assert.equal(twin.file, `${english(page.route).slice(1)}.html`, `${twin.route} should be built where Vercel serves it`);
+    for (const link of alternates(page.route)) {
+      assert(page.html.includes(link) && twin.html.includes(link), `${page.route} and ${twin.route} should name each other: ${link}`);
+    }
+    assert(page.html.includes('<html lang="pl">') && page.html.includes('<meta property="og:locale" content="pl_PL" />'), `${page.route} should be in Polish`);
+    assert(twin.html.includes('<html lang="en">') && twin.html.includes('<meta property="og:locale" content="en_US" />'), `${twin.route} should be in English`);
+    assert(twin.html.includes(`<link rel="canonical" href="${origin}${twin.route}" />`) && twin.html.includes(`<meta property="og:url" content="${origin}${twin.route}" />`), `${twin.route} should name itself as canonical`);
+    assert(sitemap.includes(`<loc>${origin}${twin.route}</loc>`), `the sitemap should list ${twin.route}`);
+  }
+  assert(sitemap.includes(`<loc>${origin}${ENGLISH_PREFIX}</loc>`), "the sitemap should list the English start page");
+  // Every text the app writes by its key reads as data/i18n.js gives it: in Polish in index.html, in
+  // English on the English pages, so nothing changes language when the app starts.
+  const i18nUi = win.ATLAS_I18N.ui;
+  const keyed = (html) => [
+    ...[...html.matchAll(/<(\w+)\b[^>]*\sdata-i18n="(\w+)"[^>]*>([^<]*)<\/\1>/g)].map(([, , key, text]) => ({ key, text, expect: (ui) => esc(ui[key]) })),
+    ...[...html.matchAll(/<(\w+)\b[^>]*\sdata-i18n-html="(\w+)"[^>]*>([\s\S]*?)<\/\1>/g)].map(([, , key, text]) => ({ key, text, expect: (ui) => markdownLightOf(ui[key]) })),
+    ...[...html.matchAll(/<\w+\b[^>]*\sdata-i18n-label="(\w+)"[^>]*>/g)].map(([tag, key]) => ({ key, text: tag.match(/ aria-label="([^"]*)"/)?.[1], expect: (ui) => esc(ui[key]) })),
+    ...[...html.matchAll(/<\w+\b[^>]*\sdata-i18n-placeholder="(\w+)"[^>]*>/g)].map(([tag, key]) => ({ key, text: tag.match(/ placeholder="([^"]*)"/)?.[1], expect: (ui) => esc(ui[key]) }))
+  ];
+  const { markdownLight: markdownLightOf } = await import("./build-pages.mjs");
+  const keyedInIndex = keyed(indexHtml);
+  assert.equal(keyedInIndex.length, (indexHtml.match(/\sdata-i18n(-html|-label|-placeholder)?="/g) || []).length, "every element with a data-i18n key should hold plain text (or *emphasis* for data-i18n-html)");
+  for (const { key, text, expect } of keyedInIndex) {
+    assert.equal(text, expect(i18nUi.pl), `index.html should read as data/i18n.js gives ${key} in Polish`);
+  }
+  for (const route of [ENGLISH_PREFIX, english("/atlas/grzyby/okratek-australijski"), english(MAP_ROUTE), english(QUIZ_ROUTE)]) {
+    for (const { key, text, expect } of keyed(byRoute.get(route).html)) {
+      assert.equal(text, expect(i18nUi.en), `${route} should read as data/i18n.js gives ${key} in English`);
+    }
+  }
+  // The English card says what the app would: names, descriptions and texts from data/i18n.
+  const okratekEn = win.ATLAS_I18N.collections.en.grzyby;
+  const enCard = byRoute.get(english("/atlas/grzyby/okratek-australijski"));
+  const enHook = okratekEn.items["okratek-australijski"].hook.trim();
+  assert(enCard.html.includes(`<title>${okratekEn.items["okratek-australijski"].name} – ${okratekEn.title} – ${i18nUi.en.documentTitle}</title>`), "the English card should have the app's title");
+  assert(enCard.html.includes(`<meta name="description" content="${esc(i18nUi.en.metaCardDescription.replace("{hook}", /[.!?…]$/.test(enHook) ? enHook : `${enHook}.`).replace("{collection}", okratekEn.title))}" />`), "the English card should describe itself as the app does");
+  assert(enCard.html.includes(`<span id="safetyNotice" data-collection="grzyby">${esc(okratekEn.safety_notice)}</span>`), "the English card should give the English safety notice");
+  assert(enCard.html.includes(`data-collection="grzyby" data-language="en">`), "the English card's collection photo should be marked as English, so the app keeps it");
+  assert(enCard.html.includes(`<a id="wordmark" class="wordmark" href="${ENGLISH_PREFIX}"`) && enCard.html.includes(`<a id="mapLink" class="topbar__link" href="${english(MAP_ROUTE)}"`), "the English pages should lead to English pages");
+  assert(enCard.html.includes('<button class="language-btn is-active" data-action="set-language" data-language="en" type="button">'), "the English pages should show English as chosen");
+  const enStart = byRoute.get(ENGLISH_PREFIX);
+  assert.equal(enStart?.file, "en.html", "the English start page should be built as en.html, served at /en");
+  assert(enStart.html.includes(`<meta name="description" content="${esc(i18nUi.en.metaStartDescription)}" />`) && enStart.html.includes(`<meta property="og:description" content="${esc(i18nUi.en.metaStartShare)}" />`), "the English start page should describe itself as data/i18n.js does");
+  assert(enStart.html.includes('<div id="startPage" class="start-page" tabindex="-1">'), "the English start page should open on the start page");
+  // An unknown English card or collection opens the English start page, as an unknown Polish one opens the Polish.
+  assert(vercelConfig.rewrites?.some((rule) => rule.source === "/en/atlas/:path*" && rule.destination === ENGLISH_PREFIX), "vercel.json should send unknown English atlas addresses to the English start page");
   // 404.html: out of search results, with a way home and a link to every collection.
   const { notFoundHtml } = await import("./build-pages.mjs");
   const notFound = notFoundHtml(win);
@@ -355,6 +424,12 @@ try {
   const mapResponse = await fetch(`http://127.0.0.1:${port}/mapa`);
   assert.equal(mapResponse.status, 200, "local dev server should serve the map of every place");
   assert.match(await mapResponse.text(), /id="mapPage"/, "the map address should open the app");
+
+  for (const address of ["/en", "/en/", "/en/atlas/grzyby", "/en/atlas/grzyby/okratek-australijski", "/en/mapa", "/en/quiz", "/en/atlas/grzyby/no-such-card"]) {
+    const response = await fetch(`http://127.0.0.1:${port}${address}`);
+    assert.equal(response.status, 200, `local dev server should serve ${address}`);
+    assert.match(await response.text(), /id="startPage"/, `${address} should open the app`);
+  }
 
   const missingResponse = await fetch(`http://127.0.0.1:${port}/not-a-real-file.js`);
   assert.equal(missingResponse.status, 404, "local dev server should keep non-atlas missing files as 404");

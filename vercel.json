@@ -30,6 +30,10 @@
     {
       "source": "/atlas/:path*",
       "destination": "/"
+    },
+    {
+      "source": "/en/atlas/:path*",
+      "destination": "/en"
     }
   ],
   "headers": [
