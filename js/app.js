@@ -464,7 +464,14 @@
     $("#collectionEyebrow").textContent = (collection.group && groupText(collection.group, "label")) || t("activeCollection");
     $("#collectionTitle").textContent = collectionText(collection, "heading") || collectionText(collection, "title");
     $("#collectionLead").textContent = collectionText(collection, "subtitle");
-    $("#safetyNotice").textContent = collectionText(collection, "safety_notice");
+    // The Polish safety notice comes with the collection's data. Until then the notice keeps the text of
+    // this collection's built page, so the cards below it do not jump while the data loads.
+    const safety = collectionText(collection, "safety_notice");
+    const notice = $("#safetyNotice");
+    if (safety || notice.dataset.collection !== collection.id) {
+      notice.textContent = safety;
+      notice.dataset.collection = collection.id;
+    }
     $("#sourceNote").textContent = collectionText(collection, "source_note");
     $("#searchInput").placeholder = collectionText(collection, "search_placeholder") || t("searchFallback");
     renderCollectionPhoto(collection);
@@ -700,17 +707,16 @@
     }).join("");
   }
 
+  // As on the start page: screen readers hear what the photo shows, then the visible author and license, so
+  // the link's name contains its visible text (WCAG 2.5.3).
   function creditChipHtml(item) {
     if (!item.image_author) return "";
     const labelParts = [item.image_author];
     if (item.image_license) labelParts.push(item.image_license);
-    const label = labelParts.join(" · ");
+    const label = escapeHtml(labelParts.join(" · "));
     const href = item.image_source || item.license_url || "";
-    const aria = state.language === "en" ? "Photo attribution" : "Atrybucja zdjęcia";
-    if (!href) {
-      return `<span class="m-card__credit m-card__credit--static" aria-label="${escapeHtml(aria)}">${escapeHtml(label)}</span>`;
-    }
-    return `<a class="m-card__credit" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(aria)}">${escapeHtml(label)}</a>`;
+    if (!href) return `<span class="m-card__credit m-card__credit--static">${label}</span>`;
+    return `<a class="m-card__credit" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(t("photoCreditPrefix", { name: itemName(item) }))}</span>${label}</a>`;
   }
 
   // A representative photo shows a similar specimen, individual or place, and a context photo shows the

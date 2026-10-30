@@ -87,6 +87,19 @@ assert.equal(vercelConfig.buildCommand, "npm run build && node scripts/version-a
     assert(byVersion(rule(`/${dir}/(.*)`)?.has) && cacheControl(rule(`/${dir}/(.*)`)) === "public, max-age=31536000, immutable", `files in ${dir}/ should stay in the browser for a year, but only at an address with ?v=`);
   }
 }
+// Every response: no guessing the type of a file, only the site's address for the sites it links to, and
+// no camera, microphone or payments. The location stays on for "Blisko mnie", on the site's own pages only.
+{
+  const rule = vercelConfig.headers?.find((entry) => entry.source === "/(.*)" && !entry.has && !entry.missing);
+  const header = (key) => rule?.headers.find((entry) => entry.key === key)?.value;
+  assert.equal(header("X-Content-Type-Options"), "nosniff", "every response should forbid guessing the type of a file");
+  assert.equal(header("Referrer-Policy"), "strict-origin-when-cross-origin", "other sites should get only the site's address");
+  const permissions = (header("Permissions-Policy") || "").split(/,\s*/);
+  for (const feature of ["camera=()", "microphone=()", "payment=()", "geolocation=(self)"]) {
+    assert(permissions.includes(feature), `the Permissions-Policy header should include ${feature}`);
+  }
+  assert(appJs.includes("navigator.geolocation.getCurrentPosition"), "the location is allowed only for \"Blisko mnie\"; without it, set geolocation=() in vercel.json");
+}
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
 const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "utf8") : "";
@@ -120,6 +133,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   // "Przejdź do treści" leads to the page shown: the start page, a collection, the map or the quiz.
   assert(indexHtml.includes('<a id="skipLink" class="skip-link" href="#startPage">') && indexHtml.includes('<div id="startPage" class="start-page" tabindex="-1">'), "on the start page the skip link should lead to the start page");
   assert(card.html.includes('<a id="skipLink" class="skip-link" href="#main">'), "on a card page the skip link should lead to the collection");
+  // One main area holds every page the app shows, so screen readers find the content on each of them.
+  assert.equal((indexHtml.match(/<main\b/g) || []).length, 1, "index.html should have one main element");
+  const mainHtml = indexHtml.slice(indexHtml.indexOf("<main>"), indexHtml.indexOf("</main>"));
+  for (const id of ["startPage", "mapPage", "quizPage", "main"]) assert(mainHtml.includes(` id="${id}" `), `the main element should hold #${id}`);
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
   }
@@ -134,7 +151,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(mapPage.html.includes(`<link rel="canonical" href="${origin}${MAP_ROUTE}" />`), "the map page should name itself as canonical");
   assert(mapPage.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "the map page should not open on the start page");
   assert(mapPage.html.includes('<div id="mapPage" class="map-page" tabindex="-1">'), "the map page should open on the map");
-  assert(mapPage.html.includes('<main id="main" class="app-main is-hidden" tabindex="-1">'), "the map page should keep the collection view hidden");
+  assert(mapPage.html.includes('<div id="main" class="app-main is-hidden" tabindex="-1">'), "the map page should keep the collection view hidden");
   assert(mapPage.html.includes('<a id="skipLink" class="skip-link" href="#mapPage">'), "on the map page the skip link should lead to the map");
   const placedCards = collections.flatMap((collection) => collection.items.filter((item) => collection.places?.[item.id]).map((item) => `/atlas/${collection.id}/${cardSlug(item.id)}`));
   for (const route of placedCards) {
@@ -168,6 +185,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     assert(notFound.includes(`href="${collection.route || `/atlas/${collection.id}`}"`), `404.html should link to ${collection.id}`);
   }
   assert(notFound.includes("/assets/logo-oroloko-ai.svg"), "404.html should keep the Made by Oroloko footer");
+  // The logo's description repeats its English words, so screen readers read it in English.
+  for (const [file, html] of [["index.html", indexHtml], ["404.html", notFound]]) {
+    assert(html.includes('<img class="footer-logo" src="/assets/logo-oroloko-ai.svg" lang="en" alt="'), `${file}: the footer logo should be marked as English`);
+  }
   // scripts/version-assets.mjs, tried on a temporary copy with the start page, a card page and the 404 page:
   // every address of a site file gets the hash of that file, as it is after its own addresses got theirs.
   const { ASSET_ADDRESS, contentHash, versionAssets } = await import("./version-assets.mjs");

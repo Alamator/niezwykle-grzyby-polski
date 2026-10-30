@@ -73,7 +73,7 @@ function headHtml(indexHtml, origin, page) {
 
 function pageHtml(indexHtml, origin, page) {
   let html = headHtml(indexHtml, origin, page);
-  html = replaceOnce(html, '<main id="main" class="app-main is-hidden" tabindex="-1">', '<main id="main" class="app-main" tabindex="-1">', "main");
+  html = replaceOnce(html, '<div id="main" class="app-main is-hidden" tabindex="-1">', '<div id="main" class="app-main" tabindex="-1">', "collection view");
   html = replaceOnce(html, '<nav id="appNav" class="app-nav is-hidden"', '<nav id="appNav" class="app-nav"', "navigation");
   if (page.hasMap) {
     html = replaceOnce(html, '<button class="nav-btn is-hidden" data-view="map" type="button">', '<button class="nav-btn" data-view="map" type="button">', "map tab");
@@ -81,9 +81,10 @@ function pageHtml(indexHtml, origin, page) {
   html = replaceOnce(html, '<p class="eyebrow" id="collectionEyebrow">Aktywna kolekcja</p>', `<p class="eyebrow" id="collectionEyebrow">${escapeHtml(page.group)}</p>`, "collection eyebrow");
   html = replaceOnce(html, '<h1 id="collectionTitle">Atlas</h1>', `<h1 id="collectionTitle">${escapeHtml(page.heading)}</h1>`, "collection title");
   html = replaceOnce(html, '<p id="collectionLead" class="collection-bar__lead"></p>', `<p id="collectionLead" class="collection-bar__lead">${escapeHtml(page.lead)}</p>`, "collection lead");
-  html = replaceOnce(html, '<span id="safetyNotice">To jest prototyp edukacyjny.</span>', `<span id="safetyNotice">${escapeHtml(page.safety)}</span>`, "safety notice");
+  // The app keeps this text while the collection's data loads (updateActiveCollectionLabels in js/app.js).
+  html = replaceOnce(html, '<span id="safetyNotice">To jest prototyp edukacyjny.</span>', `<span id="safetyNotice" data-collection="${escapeHtml(page.collectionId)}">${escapeHtml(page.safety)}</span>`, "safety notice");
   // The text of the page for readers and crawlers that do not run scripts.
-  html = replaceOnce(html, '<div class="app-main__body shell">', `<div class="app-main__body shell">\n      <noscript>${page.noscript}</noscript>`, "main body");
+  html = replaceOnce(html, '<div class="app-main__body shell">', `<div class="app-main__body shell">\n        <noscript>${page.noscript}</noscript>`, "main body");
   return html;
 }
 
@@ -97,6 +98,7 @@ export function buildPages(win, indexHtml) {
     const group = (app.groups || []).find((entry) => entry.id === collection.group)?.label || "";
     const base = {
       content: "#main",
+      collectionId: collection.id,
       group,
       heading: collection.heading || collection.title,
       lead: collection.subtitle,
@@ -239,7 +241,7 @@ export function notFoundHtml(win) {
   </main>
   <footer class="site-footer">
     <div class="site-footer__plaque">
-      <img class="footer-logo" src="/assets/logo-oroloko-ai.svg" alt="The AI does not replace your experience. It amplifies it. You are still the expert. Made by Robert Oroloko" width="800" height="110" loading="lazy" />
+      <img class="footer-logo" src="/assets/logo-oroloko-ai.svg" lang="en" alt="The AI does not replace your experience. It amplifies it. You are still the expert. Made by Robert Oroloko" width="800" height="110" loading="lazy" />
     </div>
   </footer>
 </body>
