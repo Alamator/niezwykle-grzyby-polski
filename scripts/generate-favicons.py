@@ -1,4 +1,4 @@
-"""Generate the favicon (SVG) and the PNG icons for browsers and the PWA manifest.
+"""Generate the favicon (SVG and ICO) and the PNG icons for browsers and the PWA manifest.
 
 Run from the project root: `python scripts/generate-favicons.py` (needs Pillow).
 The mark is the italic "A" of Instrument Serif (SIL Open Font License, fonts/OFL-instrument-serif.txt)
@@ -14,6 +14,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 
 SIZES = [16, 32, 48, 64, 192, 256, 512]
+ICO_SIZES = [16, 32, 48]
 BACKGROUND = "#0c110f"
 AMBER = "#e9a43b"
 
@@ -62,7 +63,12 @@ def main() -> int:
         out_path = os.path.join(root, "assets", f"icon-{size}x{size}.png")
         png(size, font_path).save(out_path, "PNG", optimize=True)
         print(f"  icon-{size}x{size}.png — {os.path.getsize(out_path) / 1024:.1f} KB")
-    print(f"Wrote favicon.svg and {len(SIZES)} PNG icons to assets/.")
+    # Browsers and other programs that ask for /favicon.ico get the same mark, drawn at each size.
+    icons = [png(size, font_path) for size in ICO_SIZES]
+    ico_path = os.path.join(root, "favicon.ico")
+    icons[-1].save(ico_path, "ICO", sizes=[(size, size) for size in ICO_SIZES], append_images=icons[:-1])
+    print(f"  favicon.ico — {os.path.getsize(ico_path) / 1024:.1f} KB")
+    print(f"Wrote favicon.svg and {len(SIZES)} PNG icons to assets/, favicon.ico to the project root.")
     return 0
 
 

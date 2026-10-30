@@ -37,6 +37,7 @@ fonts/
 assets/logo-oroloko-ai.svg
 assets/favicon.svg
 assets/og-image.png
+favicon.ico
 manifest.webmanifest
 service-worker.js
 vercel.json
@@ -217,6 +218,15 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 - Nowy plik ładowany przez stronę trzeba podać pełnym adresem w cudzysłowie, np. `"/data/nowy-plik.js"`. Tylko taki adres skrypt znajdzie.
 - Skrypt zmienia pliki na miejscu, więc nie uruchamia się go na kopii roboczej (bez `--in-place` odmawia). `npm run test:technical` sprawdza go na kopii tymczasowej.
 
+### Nagłówki bezpieczeństwa
+
+`vercel.json` dodaje do każdej odpowiedzi trzy nagłówki:
+- `X-Content-Type-Options: nosniff`: przeglądarka nie zgaduje typu pliku;
+- `Referrer-Policy: strict-origin-when-cross-origin`: strony, do których prowadzą linki (Wikipedia, Commons), dostają tylko adres atlasu, bez podstrony;
+- `Permissions-Policy`: bez kamery, mikrofonu, płatności i USB. Lokalizacja zostaje dla „Blisko mnie” na mapie, tylko na stronach atlasu.
+
+Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybuty `onerror` w HTML, a mapa (MapLibre) potrzebuje `blob:`. To osobny krok.
+
 ## Wyszukiwarki i podgląd linków
 
 - **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`, a quiz atlasu `/quiz`.
@@ -237,4 +247,4 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 ## Stopka
 
-W stopce jest znak **Made by Oroloko** oraz informacja o asyście AI. Na ciemnej stronie leży na jasnej tabliczce, bo znak ma ciemny napis na przezroczystym tle.
+W stopce jest znak **Made by Oroloko** oraz informacja o asyście AI. Na ciemnej stronie leży na jasnej tabliczce, bo znak ma ciemny napis na przezroczystym tle. Opis obrazka powtarza angielski napis ze znaku, więc ma `lang="en"`: czytnik ekranu przeczyta go po angielsku.
