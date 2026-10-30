@@ -497,7 +497,9 @@
     return `<a class="photo-credit ${className}" href="${escapeHtml(photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(t("photoCreditPrefix", { name }))}</span>${escapeHtml(`${photo.author} · ${photo.license}`)}</a>`;
   }
 
-  // The banner of an opened collection shows the photo of its drawer.
+  // The banner of an opened collection shows the photo of its drawer. It is the largest thing on the first
+  // screen, so the browser fetches it first. The page of a collection or card already has it, marked with
+  // the collection and language (scripts/build-pages.mjs), so it is not drawn again.
   function renderCollectionPhoto(collection) {
     const node = $("#collectionPhoto");
     if (!node || (node.dataset.collection === collection.id && node.dataset.language === state.language)) return;
@@ -505,7 +507,7 @@
     node.dataset.language = state.language;
     const cover = start.covers?.[collection.id];
     node.innerHTML = cover ? `
-      <img src="${escapeHtml(commonsSrc(cover.photo, 960))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="100vw" alt="" decoding="async" onerror="this.remove()" />
+      <img src="${escapeHtml(commonsSrc(cover.photo, 960))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="100vw" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" />
       ${photoCreditHtml(cover.photo, localized(cover.name), "collection-bar__credit")}` : "";
   }
 
@@ -741,13 +743,29 @@
     return `<p class="photo-caption"${polish ? ' aria-hidden="true"' : ""}>${escapeHtml(text)}</p>`;
   }
 
+  // Commons serves photos at fixed widths (330, 500, 960 px and more) and rounds any other width up, so a
+  // card photo offers those three and the browser takes the smallest one sharp enough for the screen. The
+  // data keeps each address with "?width=900", which Commons serves at 960 px.
+  const CARD_PHOTO_WIDTHS = [330, 500, 960];
+
+  function cardPhotoSrc(item, width) {
+    return `${item.image.split("?")[0]}?width=${width}`;
+  }
+
+  // How wide the photo is on the page, measured from css/styles.css: a card in the grid of one, two or three
+  // columns, and the large photo in the card window and on the flashcard. Update them with the layout.
+  const CARD_PHOTO_SIZES = "(max-width: 620px) 92vw, (max-width: 960px) calc(46vw - 7px), (max-width: 1280px) calc(33.3vw - 36px), 391px";
+  const LARGE_PHOTO_SIZES = "(max-width: 620px) calc(100vw - 34px), (max-width: 960px) calc(92vw - 2px), 733px";
+
   function visualHtml(item, large = false) {
     const name = itemName(item);
     if (item.image) {
       const altText = state.language === defaultLanguage ? item.image_alt || name : name;
+      const srcset = CARD_PHOTO_WIDTHS.map((width) => `${cardPhotoSrc(item, width)} ${width}w`).join(", ");
+      // Cards in the grid wait until they come near the screen; the large photo is what the reader opened.
       return `
         <div class="m-card__visual">
-          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(altText)}" loading="lazy" onerror="this.closest('.m-card__visual').classList.add('visual-error'); this.remove();" />
+          <img src="${escapeHtml(cardPhotoSrc(item, 960))}" srcset="${escapeHtml(srcset)}" sizes="${large ? LARGE_PHOTO_SIZES : CARD_PHOTO_SIZES}" alt="${escapeHtml(altText)}"${large ? ' fetchpriority="high"' : ' loading="lazy"'} onerror="this.closest('.m-card__visual').classList.add('visual-error'); this.remove();" />
           ${creditChipHtml(item)}
         </div>`;
     }

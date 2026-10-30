@@ -227,6 +227,21 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybuty `onerror` w HTML, a mapa (MapLibre) potrzebuje `blob:`. To osobny krok.
 
+### Zdjęcia: rozmiar i kolejność
+
+- Commons podaje zdjęcia w stałych szerokościach (250, 330, 500, 960, 1280 px), a każdą inną zaokrągla w górę. Gdy oryginał jest węższy, podaje oryginał.
+- Zdjęcie karty ma `srcset` 330, 500 i 960 px. Przeglądarka bierze najmniejsze dość ostre dla ekranu:
+  - na komputerze z gęstością pikseli 1 zwykle 500 px;
+  - na telefonie z gęstością 2–3 nadal 960 px.
+- Szerokości zdjęć na stronie (`CARD_PHOTO_SIZES` i `LARGE_PHOTO_SIZES` w `js/app.js`) są zmierzone z `css/styles.css`. Po zmianie układu siatki kart, okna karty albo fiszki trzeba je poprawić.
+- Zdjęcie w nagłówku kolekcji jest największe na pierwszym ekranie.
+  - `npm run build` wpisuje je do strony kolekcji i karty z `fetchpriority="high"`, więc przeglądarka pobiera je od razu, a nie dopiero po wczytaniu aplikacji.
+  - Aplikacja rozpoznaje je po `data-collection` i `data-language` i nie rysuje go drugi raz.
+- Duże zdjęcie w oknie karty i na fiszce ma pierwszeństwo. Karty w siatce wczytują się, gdy zbliżają się do ekranu.
+- `npm run test:technical` pilnuje dwóch rzeczy:
+  - karty mają tylko szerokości, które podaje Commons;
+  - strony mają zdjęcie nagłówka takie, jakie rysuje aplikacja.
+
 ## Wyszukiwarki i podgląd linków
 
 - **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`, a quiz atlasu `/quiz`.

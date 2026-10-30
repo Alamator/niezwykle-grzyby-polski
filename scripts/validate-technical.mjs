@@ -106,8 +106,8 @@ const gitignore = fs.existsSync(".gitignore") ? fs.readFileSync(".gitignore", "u
 assert(["/atlas/", "/mapa.html", "/quiz.html", "/sitemap.xml", "/404.html"].every((entry) => gitignore.split("\n").includes(entry)), ".gitignore should keep the built pages, sitemap and 404 page out of git");
 assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitemap.xml`), "robots.txt should point to the sitemap at the canonical address");
 {
-  const { buildPages, cardSlug } = await import("./build-pages.mjs");
-  const { loadAtlas } = await import("./build-start-page.mjs");
+  const { buildPages, cardSlug, routeForCollection } = await import("./build-pages.mjs");
+  const { buildStartPage, loadAtlas } = await import("./build-start-page.mjs");
   const win = loadAtlas();
   const { pages, sitemap } = buildPages(win, indexHtml);
   const collections = win.ATLAS_APP_DATA.collections;
@@ -121,6 +121,22 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(card.html.includes(`<link rel="canonical" href="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should name itself as canonical");
   assert(card.html.includes(`<meta property="og:url" content="${origin}/atlas/grzyby/okratek-australijski" />`), "a card page should share its own address");
   assert(card.html.includes('<div id="startPage" class="start-page is-hidden" tabindex="-1">'), "a card page should open on its collection, not the start page");
+  // The photo at the top of the collection is in the page, so the browser fetches it before the app runs.
+  // It is marked for the app, which keeps it, and drawn as the app draws it (renderCollectionPhoto).
+  const bannerImg = 'sizes="100vw" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" />';
+  assert(appJs.includes(bannerImg), "js/app.js should draw the collection photo as the pages have it");
+  // Commons serves photos only at fixed widths and rounds any other up, so a card photo offers only those.
+  const cardWidths = JSON.parse(/const CARD_PHOTO_WIDTHS = (\[[\d, ]*\]);/.exec(appJs)?.[1] || "[]");
+  assert(cardWidths.length && cardWidths.every((width) => [250, 330, 500, 960, 1280].includes(width)), "card photos should offer only the widths Commons serves");
+  const { covers } = buildStartPage(win);
+  for (const collection of collections) {
+    const route = routeForCollection(collection);
+    const image = covers[collection.id].photo.image.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    for (const page of pages.filter((entry) => entry.route === route || entry.route.startsWith(`${route}/`))) {
+      assert(page.html.includes(`<div id="collectionPhoto" class="collection-bar__photo" data-collection="${collection.id}" data-language="pl">`), `${page.route}: the page should have the photo of its collection`);
+      assert(page.html.includes(`src="${image}?width=960" srcset="${image}?width=500 500w, ${image}?width=960 960w" ${bannerImg}`), `${page.route}: the collection photo should be fetched first, at the widths the app uses`);
+    }
+  }
   assert(pages.find((page) => page.route === "/atlas/rekordy-krajobrazu/mofeta-swidzinskiego"), "card addresses should drop Polish letters");
   // The descriptions come from data/i18n.js, which the app uses too when the reader moves around the atlas.
   const ui = win.ATLAS_I18N.ui.pl;
