@@ -255,12 +255,41 @@ Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybut
 - **Adresy:** kolekcja ma adres `/atlas/<kolekcja>`, a karta `/atlas/<kolekcja>/<karta>`, na przykład `/atlas/grzyby/okratek-australijski`. Mapa wszystkich miejsc ma adres `/mapa`, a quiz atlasu `/quiz`.
   - Adres karty to jej id bez polskich liter.
   - Stare linki `/atlas/<kolekcja>#item=<karta>` dalej otwierają kartę i przechodzą na jej adres.
-- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), stronę quizu atlasu (`quiz.html`), `sitemap.xml` i stronę błędu `404.html`.
+  - Wersja angielska ma te same adresy pod `/en` (opis niżej).
+- **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), stronę quizu atlasu (`quiz.html`), ich angielskie odpowiedniki (`en.html` i `en/`), `sitemap.xml` i stronę błędu `404.html`.
   - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, na mapie albo na quizie, a bez skryptów pokazuje tekst karty albo listę kart.
   - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
-  - Wyniki (`atlas/`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
+  - Wyniki (`atlas/`, `en/`, `en.html`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
 - **`robots.txt`:** wskazuje mapę strony i nie wpuszcza wyszukiwarek do `docs/`, `scripts/` i plików `.md`.
+
+### Wersja angielska (`/en`)
+
+- **Adresy:** każda strona ma angielski odpowiednik pod `/en`, z tą samą resztą adresu:
+  - `/en` to strona główna;
+  - `/en/atlas/grzyby/okratek-australijski` to karta;
+  - `/en/mapa` i `/en/quiz` to mapa i quiz.
+- **Język wynika z adresu.**
+  - Przełącznik PL/EN przenosi na tę samą stronę w drugim języku. Wstecz i Dalej zmieniają język razem z adresem.
+  - Wybór języka zapisuje się w przeglądarce (`atlasLanguage`), ale działa tylko na stronie głównej. Kto wybrał angielski, z „/” trafia na „/en”, także w zainstalowanej aplikacji.
+  - Polski adres zawsze pokazuje polską stronę, więc link z Google albo udostępniony działa dla wszystkich tak samo.
+- **Dla wyszukiwarek:** strony angielskie mają:
+  - `lang="en"`, angielski tytuł, opis i podgląd linku;
+  - własny adres kanoniczny.
+- **Odnośniki `hreflang`:** obie wersje wskazują siebie nawzajem. Wersją domyślną (`x-default`) jest polska. Mapa strony podaje adresy w obu językach.
+- **Teksty interfejsu przed uruchomieniem aplikacji:** elementy w `index.html` mają klucz z `data/i18n.js`:
+  - `data-i18n` dla tekstu;
+  - `data-i18n-html` dla tekstu z `*wyróżnieniem*`;
+  - `data-i18n-label` dla nazwy czytanej przez czytnik ekranu;
+  - `data-i18n-placeholder` dla podpowiedzi w polu.
+- **Jedno źródło tekstów:** aplikacja wpisuje teksty z tych kluczy, a `npm run build` robi to samo na stronach angielskich. Strona angielska jest więc po angielsku od pierwszej chwili, także bez skryptów.
+  - Nowy stały tekst dodaje się w `index.html` z kluczem `data-i18n` i w `data/i18n.js` w obu językach.
+- **Nieznany adres:** pod `/en/atlas/...` otwiera angielską stronę główną (`vercel.json`), tak jak polski otwiera polską.
+- **`npm run test:technical` pilnuje:**
+  - par stron i `hreflang`;
+  - adresów kanonicznych, języka i mapy strony;
+  - tekstów z kluczami w obu językach;
+  - zgodności `js/app.js` z generatorem stron co do adresów i wyróżnień w tekstach.
 - **Google Search Console:** właściwość domeny `atlas-osobliwosci.pl` potwierdza się wpisem TXT w strefie DNS w OVH. Mapa strony: `https://www.atlas-osobliwosci.pl/sitemap.xml`.
 
 - **Adres strony:** https://www.atlas-osobliwosci.pl (adres kanoniczny w `index.html`).

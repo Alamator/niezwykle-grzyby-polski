@@ -484,7 +484,7 @@
       en: {
         documentTitle: "Atlas of Polish Curiosities",
         skipLink: "Skip to content",
-        homeLabel: "Atlas of Polish Curiosities, home page",
+        homeLabel: "Atlas Osobliwości Polski, home page",
         heroEyebrow: "Cabinet of curiosities · {collections}",
         heroTitle: "The Poland guidebooks *leave out*.",
         heroLead: "Come on a journey through a land of wonders: a fungus that looks like a red octopus, a forest where the pines first grow sideways, and St. Kinga's Chapel carved out of salt. Open any drawer and see how many of these curiosities you know.",
