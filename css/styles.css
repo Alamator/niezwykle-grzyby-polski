@@ -1135,6 +1135,9 @@ h1 em, h2 em { color: var(--amber); }
 }
 .share-status.is-visible { display: block; }
 
+/* "Zgłoś błąd" at the end of a card. */
+.card-report { margin: 1.25rem 0 0; color: var(--muted); font-size: 14.5px; overflow-wrap: anywhere; }
+
 /* ---------- Card dialog ---------- */
 
 .mushroom-dialog {
@@ -1554,10 +1557,14 @@ tbody tr:last-child td { border-bottom: 0; }
 /* The "Made by Robert Oroloko" sticker is dark ink on a transparent background, so it sits on an ivory plaque. */
 .site-footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
   padding: 2.5rem var(--gutter) 3rem;
   border-top: 1px solid var(--line);
 }
+.site-footer__contact { margin: 0; color: var(--muted); font-size: 14px; text-align: center; overflow-wrap: anywhere; }
+.site-footer__contact:empty { display: none; }
 .site-footer__plaque {
   width: min(100%, 760px);
   padding: 0.9rem 1.4rem;

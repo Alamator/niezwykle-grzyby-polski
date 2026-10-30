@@ -132,6 +132,13 @@ Najprostsza ścieżka:
 - Wejścia: „Wyzwanie dnia” pod ciekawostką dnia na stronie głównej i link pod quizem każdej kolekcji.
 - Liczby pytań są w `js/app.js` (`DAILY_QUESTIONS`, `MIX_QUESTIONS`). `index.html` podaje je w tekstach, zanim ruszy skrypt, a `npm run test:technical` pilnuje, żeby się zgadzały.
 
+## Kontakt i zgłoszenia błędów
+
+- Skrzynka atlasu: kontakt (małpa) atlas-osobliwosci.pl, w OVH (Zimbra Starter, w cenie domeny), z webmailem pod https://webmail.mail.ovh.net/.
+- Na końcu każdej karty jest „Coś się nie zgadza? Zgłoś błąd w tej karcie”. Link otwiera e-mail z nazwą karty i kolekcji w temacie i z adresem karty w pierwszej linijce.
+- W stopce jest „Kontakt i zgłoszenia błędów” z tym samym adresem.
+- Adres składa `js/app.js`. Nie ma go w kodzie HTML stron, żeby nie znalazły go boty zbierające adresy. Pilnuje tego `npm run test:technical`.
+
 ## Wygląd: gabinet osobliwości
 
 - **Styl:** ciemne tło, bursztynowy akcent, cienkie linie; kolekcje to szuflady gabinetu ułożone na trzech półkach (grupach).
