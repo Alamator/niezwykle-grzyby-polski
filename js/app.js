@@ -363,6 +363,17 @@
     return `<span class="fact__source">${escapeHtml(t("factSource"))}: ${links.join(", ")}</span>`;
   }
 
+  // The region, habitat and note of a card name the sources they were checked against, and when.
+  function occurrenceSourcesHtml(collection, item) {
+    const links = (collection.occurrence_sources?.[item.id] || [])
+      .filter((source) => /^https:\/\//.test(source?.url || ""))
+      .map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label || hostOf(source.url))}</a>`);
+    if (!links.length) return "";
+    const checked = partsFromIso(collection.occurrence_checked);
+    const date = checked ? ` · ${escapeHtml(t("occurrenceChecked", { date: formatDate(checked, { numeric: true }) }))}` : "";
+    return `<p class="occurrence-box__sources">${escapeHtml(t("occurrenceSources"))}: ${links.join(", ")}${date}</p>`;
+  }
+
   function factHtml(fact) {
     return `
       <li class="fact">
@@ -915,6 +926,7 @@
             <p><strong>${escapeHtml(t("regionLabel"))}:</strong> ${escapeHtml(region)}</p>
             ${habitat ? `<p><strong>${escapeHtml(t("habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : ""}
             ${occurrence ? `<p>${escapeHtml(occurrence)}</p>` : ""}
+            ${occurrenceSourcesHtml(collection, item)}
           </div>` : ""}
         ${factsSectionHtml(item)}
         <h3>${escapeHtml(t("quizAngleTitle"))}</h3>

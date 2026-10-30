@@ -27,6 +27,7 @@ data/bird-photo-pack-v01.js
 data/collections.js
 data/i18n.js
 data/i18n/<kolekcja>.en.js
+data/occurrence/<kolekcja>.occurrence.js
 data/start-page.js
 data/map-points.js
 data/photo-pack-*.js
@@ -176,6 +177,17 @@ Najprostsza ścieżka:
   - Strona pokazuje to oznaczenie pod zdjęciem. Opis, który wspomina o kadrze reprezentatywnym albo kontekstowym bez oznaczenia na początku, zatrzymuje `npm run test:collections`.
   - Karta gatunku opisuje gatunek, więc zdjęcie tego gatunku zrobione za granicą nie dostaje oznaczenia. Dostaje je zdjęcie innego gatunku albo podgatunku, także wtedy, gdy nie da się potwierdzić, że to ten sam takson.
 - Przy gatunkach chronionych, toksycznych lub wrażliwych dodawać komunikat o obserwacji bez niepokojenia.
+- Ramka „Występowanie w Polsce” (region, siedlisko i uwaga pod nimi) podaje tylko to, co potwierdzają źródła. Czego nie da się potwierdzić, tego nie piszemy.
+  - Źródła i data sprawdzenia leżą w `data/occurrence/<kolekcja>.occurrence.js`, na liście `scripts` kolekcji przed plikiem ciekawostek:
+
+    ```js
+    window.ATLAS_OCCURRENCE_SOURCES["grzyby"] = { checked: "RRRR-MM-DD", items: { "<id karty>": [{ url: "https://…", label: "Wikipedia (PL)" }] } };
+    ```
+
+  - Karta pokazuje je pod ramką: „Źródła: … · sprawdzone DD.MM.RRRR”.
+  - Link do Wikipedii prowadzi do wersji artykułu, która była sprawdzana (`oldid`).
+  - `npm run test:collections` pilnuje, żeby każda karta kolekcji z takim plikiem miała co najmniej jedno źródło `https`.
+  - Na razie mają je Grzyby. Zmiana tekstu w ramce wymaga ponownego sprawdzenia jego źródeł.
 
 ## Publikacja na Vercel
 

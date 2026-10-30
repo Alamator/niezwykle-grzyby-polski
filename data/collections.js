@@ -26,6 +26,7 @@
         "/data/region-pack-v07.js",
         "/data/photo-pack-v08.js",
         "/data/i18n/grzyby.en.js",
+        "/data/occurrence/grzyby.occurrence.js",
         "/data/facts/grzyby.facts.js"
       ],
       build: () => {
@@ -503,6 +504,17 @@
     collection.places_checked = places?.checked || "";
   }
 
+  // Sources of the "Występowanie w Polsce" box (region, habitat and the note below them) live in
+  // data/occurrence/<collection>.occurrence.js, loaded with the collection, and set
+  // window.ATLAS_OCCURRENCE_SOURCES[<collection>] = { checked, items: { <card id>: [{ url, label }] } }.
+  function attachOccurrenceSources(collection) {
+    const sources = window.ATLAS_OCCURRENCE_SOURCES?.[collection.id];
+    const cardIds = new Set((collection.items || []).map((item) => item.id));
+    collection.occurrence_sources = Object.fromEntries(Object.entries(sources?.items || {})
+      .filter(([cardId]) => cardIds.has(cardId)));
+    collection.occurrence_checked = sources?.checked || "";
+  }
+
   const scriptCache = new Map();
 
   function loadScriptOnce(src) {
@@ -536,6 +548,7 @@
         Object.assign(collection, built);
         attachFacts(collection);
         attachPlaces(collection);
+        attachOccurrenceSources(collection);
         collection._loaded = true;
       }
       return collection;
@@ -558,6 +571,7 @@
       Object.assign(collection, built);
       attachFacts(collection);
       attachPlaces(collection);
+      attachOccurrenceSources(collection);
       collection._loaded = true;
     }
   }
