@@ -159,6 +159,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(appJs.includes('String(id).normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/ł/g, "l").replace(/Ł/g, "L")'), "js/app.js and scripts/build-pages.mjs should make card addresses the same way");
 }
 
+// Screen readers hear which category filter is chosen and which view of a collection is shown.
+assert(appJs.includes('aria-pressed="${state.category === id}"'), "the category filters should say which one is pressed");
+assert(appJs.includes('btn.setAttribute("aria-current", "page")'), "the view tabs should say which view is shown");
+
 // Contact and error reports go to the atlas's mailbox. The address is put together by js/app.js, never
 // written out in the pages, where address-harvesting bots would find it.
 {

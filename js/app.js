@@ -754,12 +754,24 @@
       </article>`;
   }
 
+  // The chosen filter is pressed, for screen readers too.
   function renderCategoryFilters() {
     const container = $("#categoryFilters");
+    const chip = (id, label) => `<button class="chip${state.category === id ? " is-active" : ""}" type="button" data-category="${escapeHtml(id)}" aria-pressed="${state.category === id}">${label}</button>`;
     container.innerHTML = [
-      `<button class="chip ${state.category === "all" ? "is-active" : ""}" data-category="all">${escapeHtml(t("all"))}</button>`,
-      ...categories().map((cat) => `<button class="chip ${state.category === cat.id ? "is-active" : ""}" data-category="${escapeHtml(cat.id)}">${escapeHtml(cat.icon)} ${escapeHtml(categoryText(cat, "short"))}</button>`)
+      chip("all", escapeHtml(t("all"))),
+      ...categories().map((cat) => chip(cat.id, `${escapeHtml(cat.icon)} ${escapeHtml(categoryText(cat, "short"))}`))
     ].join("");
+  }
+
+  // A new filter changes the chips in place, so the focus stays on the one just pressed.
+  function selectCategory(id) {
+    state.category = id;
+    $$("#categoryFilters .chip").forEach((chip) => {
+      chip.classList.toggle("is-active", chip.dataset.category === id);
+      chip.setAttribute("aria-pressed", String(chip.dataset.category === id));
+    });
+    renderAtlasGrid();
   }
 
   // Search ignores Polish diacritics, so "zolw" finds "żółw" and a former spelling still matches.
@@ -807,6 +819,10 @@
 
   function renderAtlas() {
     renderCategoryFilters();
+    renderAtlasGrid();
+  }
+
+  function renderAtlasGrid() {
     const list = filteredItems();
     renderStats(list);
     $("#atlasGrid").innerHTML = list.length
@@ -2622,7 +2638,12 @@
   function activateView(view) {
     if (view === "map" && !hasPlaces()) view = "atlas";
     state.view = view;
-    $$(".nav-btn").forEach((btn) => btn.classList.toggle("is-active", btn.dataset.view === view));
+    // The view shown is the current one in the navigation, for screen readers too.
+    $$(".nav-btn").forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.view === view);
+      if (btn.dataset.view === view) btn.setAttribute("aria-current", "page");
+      else btn.removeAttribute("aria-current");
+    });
     $$(".view").forEach((section) => section.classList.toggle("is-active", section.id === view));
     $("#main").focus({ preventScroll: true });
     if (view === "atlas") renderAtlas();
@@ -2847,7 +2868,7 @@
       }
 
       const chip = event.target.closest(".chip[data-category]");
-      if (chip) { state.category = chip.dataset.category; renderAtlas(); }
+      if (chip) selectCategory(chip.dataset.category);
 
       const action = event.target.closest("[data-action]");
       if (action) {
@@ -2864,7 +2885,7 @@
 
     $("#searchInput").addEventListener("input", (event) => {
       state.search = event.target.value;
-      renderAtlas();
+      renderAtlasGrid();
     });
 
     $("#itemDialog").addEventListener("click", (event) => {
