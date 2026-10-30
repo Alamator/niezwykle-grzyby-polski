@@ -13,6 +13,7 @@
     "build": "node scripts/build-pages.mjs",
     "build:start-page": "node scripts/build-start-page.mjs",
     "build:map-points": "node scripts/build-map-points.mjs",
+    "build:search-index": "node scripts/build-search-index.mjs",
     "deploy:vercel": "vercel --prod"
   },
   "keywords": [

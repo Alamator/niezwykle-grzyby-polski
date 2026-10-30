@@ -30,6 +30,7 @@ data/i18n/<kolekcja>.en.js
 data/occurrence/<kolekcja>.occurrence.js
 data/start-page.js
 data/map-points.js
+data/search-index.js
 data/photo-pack-*.js
 data/region-pack-v07.js
 fonts/
@@ -85,7 +86,7 @@ Najprostsza ścieżka:
 4. Dodaj angielskie teksty:
    - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser`;
    - teksty kart w `data/i18n/<kolekcja>.en.js`, na liście `scripts` kolekcji. Każda karta ma tu każde pole (`name`, `hook`, `quiz_angle`, `safety_note`, `region`, `habitat`, `occurrence`, `level`, a dla miejsc także `latin`, czyli podpis pod nazwą), przetłumaczone 1:1 z polskiego. Karta bez angielskiego tekstu pokazałaby polski, a `npm run test:collections` tego pilnuje.
-5. Wybierz zdjęcie szuflady w `scripts/build-start-page.mjs` (`COVERS`) i uruchom `npm run build:start-page`.
+5. Wybierz zdjęcie szuflady w `scripts/build-start-page.mjs` (`COVERS`) i uruchom `npm run build:start-page`, a potem `npm run build:search-index`, żeby karty kolekcji trafiły do wyszukiwarki na stronie głównej.
 6. Zmień liczebnik w nagłówku szuflad (`collectionsTitle` w `data/i18n.js`) i w teście, który go pilnuje.
 7. Uruchom testy.
 
@@ -118,9 +119,20 @@ Najprostsza ścieżka:
   - Liczy to przeglądarka. Położenie nie jest nigdzie zapisywane ani wysyłane, co strona mówi przy przycisku.
   - Mapa pobiera z OpenFreeMap podkład oglądanego obszaru, więc po „Blisko mnie” także okolicy, w której jest użytkownik.
 
+## Szukaj w całym atlasie
+
+- Pole pod przyciskami na stronie głównej szuka w kartach wszystkich kolekcji: po nazwie polskiej, angielskiej i łacińskiej (u miejsc po podpisie pod nazwą, np. „Tatry • dach Polski”) oraz po dawnych nazwach w atlasie.
+  - Każde wpisane słowo musi zaczynać słowo którejś z tych nazw. Wielkość liter i polskie znaki nie mają znaczenia: „zolw” znajdzie „Żółw błotny”.
+  - Najpierw są karty, których nazwa zaczyna się od wpisanego tekstu, potem te, w których nazwie zaczyna on dalsze słowo, a na końcu znalezione po innej nazwie. Karta znaleziona po dawnej nazwie ją podaje.
+  - Gdy nic nie pasuje, słowa tracą ostatnią literę, potem dwie (zostają co najmniej cztery). Dzięki temu „zorza” znajdzie „Zorze polarne nad Polską”, a „Wieliczce” kopalnię w Wieliczce.
+  - Strona pokazuje 10 pierwszych kart i mówi, ile znalazła. Wynik otwiera kartę w jej kolekcji, a „wstecz” wraca na stronę główną do wyników.
+- Spis nazw jest w `data/search-index.js`. Strona wczytuje go dopiero przy pierwszym wyszukiwaniu, więc strona główna dalej nie wczytuje danych kolekcji.
+  - Plik tworzy `npm run build:search-index`. Po dodaniu karty albo zmianie jej nazwy `npm run test:collections` zatrzymuje się, dopóki plik nie zostanie odtworzony.
+
 ## Moja szuflada
 
 - Przycisk „☆ Zachowaj w szufladzie” jest na karcie, a gwiazdka na jej kafelku w atlasie. Zachowane karty pokazuje strona główna pod tytułem, w sekcji „Moja szuflada”: najnowsze najpierw, osiem na początek i przycisk „Pokaż wszystkie”.
+- Gwiazdka z liczbą kart w górnym pasku prowadzi do tej sekcji z każdej strony. Widać ją, gdy w szufladzie są karty. Na szerszych ekranach ma podpis „Szuflada”, a na wąskich telefonach górny pasek dostaje wtedy drugi wiersz.
 - Lista jest tylko w przeglądarce (`localStorage`, klucz `atlasDrawer`). Wpis to kolekcja, id karty i nazwy karty po polsku i angielsku, żeby strona główna pokazała listę bez wczytywania kolekcji.
   - Gdy kolekcja się wczyta, jej karty w szufladzie dostają aktualne nazwy, a karta, której nie ma już w atlasie, wypada z szuflady.
   - Atlas niczego nie wysyła. `npm run test:technical` pilnuje, żeby skrypty strony nie miały `fetch`, `XMLHttpRequest`, `sendBeacon`, `WebSocket` ani `EventSource`.
