@@ -204,24 +204,43 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   }
   // The Content-Security-Policy (vercel.json) blocks what a page carries in itself: event handler attributes
   // (onerror="…", in any spelling), style attributes, <style> elements, scripts written in the page (JSON-LD is
-  // data, not a script) and javascript: links. The app listens for events in js/app.js and sets styles through
-  // element.style, which the policy allows. The page builder's source is checked for attributes only: it holds the
-  // pattern that finds the JSON-LD element.
+  // data, not a script) and javascript: links. It also blocks kinds of resource the atlas does not use, even from
+  // its own address: <base>, frames, plugins, sound and video, workers from a file, and stylesheets from elsewhere.
+  // The app listens for events in js/app.js and sets styles through element.style, which the policy allows.
   const { notFoundHtml } = await import("./build-pages.mjs");
   const notFound = notFoundHtml(win);
   const buildPagesJs = fs.readFileSync("scripts/build-pages.mjs", "utf8");
-  const handlerAttribute = /<[a-z][\w-]*\b[^<>]*?[\s"'\/]on[a-z]+\s*=/i;
-  const styleAttribute = /<[a-z][\w-]*\b[^<>]*?[\s"'\/]style\s*=/i;
+  const handlerInTag = /<[a-z][\w-]*\b[^<>]*?[\s"'\/]on[a-z]+\s*=/i;
+  const styleInTag = /<[a-z][\w-]*\b[^<>]*?[\s"'\/]style\s*=/i;
+  // In the page builder a tag is read to the end of its line: its patterns hold tags that never close.
+  const handlerInLine = /<[a-z][\w-]*\b[^<>\n]*?[\s"'\/]on[a-z]+\s*=/i;
+  const styleInLine = /<[a-z][\w-]*\b[^<>\n]*?[\s"'\/]style\s*=/i;
+  const quotedHandler = /[\s"'`\/]on[a-z]+=["'`]/i;
+  const quotedStyle = /[\s"'`\/]style=["'`]/i;
+  // Code is also read with every ${…} blanked, as a ">" there (a comparison, an arrow function) would end a tag
+  // early; js/app.js is also searched, outside comments, for a quoted attribute in a string of its own.
+  const blankExpressions = (code) => code.replace(/\$\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}/g, "${}");
+  const withoutComments = (code) => code.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:"'`\\])\/\/[^\n]*/g, "$1");
+  const carries = (where, text, inTag, inLine, quoted) => {
+    if (where === "scripts/build-pages.mjs") return [text, blankExpressions(text)].some((view) => inLine.test(view));
+    if (where === "js/app.js") return [text, blankExpressions(text)].some((view) => inTag.test(view)) || quoted.test(withoutComments(text));
+    return inTag.test(text);
+  };
   const codeInPage = /<style[\s>]|<script\b(?![^>]*\ssrc=)(?![^>]*\stype="application\/ld\+json")[^>]*>|javascript:|http-equiv="content-security-policy"/i;
+  const otherResource = /<base\b|<(?:iframe|frame|object|embed|audio|video|track)\b|new\s+(?:Shared)?Worker\(\s*(?!URL\.createObjectURL|blob)|<link\b(?=[^>]*\brel=["']?stylesheet\b)(?=[^>]*\bhref=(?!["']?\/(?!\/)))[^>]*>/i;
   for (const [where, text] of [["js/app.js", appJs], ["scripts/build-pages.mjs", buildPagesJs], ["index.html", indexHtml], ["404.html", notFound],
     ...pages.map((page) => [page.route, page.html])]) {
-    assert(!handlerAttribute.test(text), `${where}: an event handler attribute would be blocked by the Content-Security-Policy`);
-    assert(!styleAttribute.test(text), `${where}: a style attribute would be blocked by the Content-Security-Policy`);
+    assert(!carries(where, text, handlerInTag, handlerInLine, quotedHandler), `${where}: an event handler attribute would be blocked by the Content-Security-Policy`);
+    assert(!carries(where, text, styleInTag, styleInLine, quotedStyle), `${where}: a style attribute would be blocked by the Content-Security-Policy`);
     if (where !== "scripts/build-pages.mjs") {
       assert(!codeInPage.test(text), `${where}: a <style> element, a script written in the page, a javascript: link or a second policy would be blocked by, or change, the Content-Security-Policy`);
+      assert(!otherResource.test(text), `${where}: <base>, a frame, a plugin, sound or video, a worker from a file or a stylesheet from elsewhere would be blocked by the Content-Security-Policy`);
     }
   }
   assert.doesNotMatch(appJs, /\.setAttribute\(\s*["'`](?:on[a-z]+|style)["'`]|\.setAttributeNS\([^,()]*,\s*["'`](?:on[a-z]+|style)["'`]/i, "js/app.js: a handler or style set as an attribute would be blocked by the Content-Security-Policy; use addEventListener or element.style");
+  assert.doesNotMatch(appJs, /createElement\(\s*["'`]style["'`]\s*\)/i, "js/app.js: a <style> element would be blocked by the Content-Security-Policy; use css/styles.css or element.style");
+  assert.equal((appJs.match(/createElement\(\s*["'`]script["'`]\s*\)/gi) || []).length, 1, "js/app.js: scripts should be added only by loadScript, from an address");
+  assert.match(appJs, /createElement\("script"\);\s*script\.src = /, "js/app.js: loadScript should load a script from its address");
   // The stylesheet takes fonts and pictures from the atlas only (font-src and img-src) and imports nothing.
   const stylesheet = fs.readFileSync("css/styles.css", "utf8");
   assert.doesNotMatch(stylesheet, /@import\b/i, "css/styles.css should not import other stylesheets");
