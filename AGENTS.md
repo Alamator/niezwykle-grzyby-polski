@@ -14,6 +14,7 @@ Budujemy niezależny, statyczny serwis edukacyjny „Atlas Osobliwości Polski�
 - Projekt ma działać mobilnie i jako statyczna strona na Vercel.
 - Nie dodawać ciężkich zależności bez potrzeby.
 - Preferować czytelny HTML/CSS/Vanilla JS.
+- Bez atrybutów `on…=` i `style=`, elementów `<style>` i skryptów wpisanych w stronę: blokuje je Content-Security-Policy z `vercel.json`. Nowy adres zewnętrzny i nowy rodzaj zasobu (np. dźwięk, film, ramkę, wątek roboczy, `<base>`), także z atlasu albo z Wikimedia, trzeba dopisać do CSP w `vercel.json` i w `scripts/validate-technical.mjs`.
 
 ## Definition of done dla typowego zadania
 

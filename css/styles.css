@@ -982,6 +982,7 @@ h1 em, h2 em { color: var(--amber); }
   font: 400 12px/1.4 var(--mono);
   text-align: center;
 }
+:lang(en) .visual-error::after { content: "photo temporarily unavailable"; }
 .photo-caption {
   margin: 0;
   padding: 0.55rem 1.1rem 0;
@@ -1203,6 +1204,8 @@ h1 em, h2 em { color: var(--amber); }
 .dialog-body .m-card__visual { aspect-ratio: 16 / 10; border-radius: var(--radius); }
 .dialog-body .photo-caption { padding: 0.6rem 0 0; }
 .dialog-body h2 { font-size: clamp(36px, 5vw, 54px); }
+.dialog-body > .meta-line { margin-top: 1rem; }
+.dialog-body > #dialogTitle { margin-top: 0.75rem; }
 .dialog-body > h3 { margin: 1.3rem 0 0.4rem; font-size: 25px; }
 .dialog-body > p { color: var(--ink-2); }
 .dialog-body .hook { font-size: 16.5px; }
