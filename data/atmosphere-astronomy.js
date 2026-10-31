@@ -455,7 +455,7 @@
 
   window.ATMOSPHERE_ASTRONOMY_APP_DATA = {
     subtitle: "33 atmosferyczne i astronomiczne osobliwości Polski: widmo Brockenu, duszki, białe noce, obłoki srebrzyste, ciemne niebo, zorze, Bałtyk jako fabryka śniegu, dalekie obserwacje, mrozowiska i pył saharyjski.",
-    safety_notice: "To jest prototyp edukacyjny. Zjawiska nie są prognozą ani zachętą do ryzyka: nie ścigaj burz, nie wchodź na granie przy wyładowaniach, nie lekceważ mrozu, morza, mgły ani nocnej orientacji w terenie.",
+    safety_notice: "Do celów edukacyjnych. Zjawiska nie są prognozą ani zachętą do ryzyka: nie ścigaj burz, nie wchodź na granie przy wyładowaniach, nie lekceważ mrozu, morza, mgły ani nocnej orientacji w terenie.",
     categories,
     phenomena
   };

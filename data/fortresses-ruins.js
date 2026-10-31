@@ -482,7 +482,7 @@
   window.FORTRESS_RUIN_APP_DATA = {
     subtitle: "33 osobliwości twierdz i ruin Polski: miasta idealne, zamki-legendy, twierdze, opuszczone pałace i konstrukcje, które zostały po ambicji.",
     long_intro: "To atlas miejsc, w których człowiek chciał rządzić przestrzenią: budował miasta idealne, zamki jak kalendarze, twierdze jak podziemne miasta i pałace, które dziś wyglądają jak scenografia po końcu świata.",
-    safety_notice: "To prototyp edukacyjny. Zamki, twierdze i ruiny zwiedzaj tylko legalnie i ostrożnie: nie wchodź do opuszczonych, prywatnych ani zamkniętych obiektów, nie wspinaj się po murach i traktuj miejsca pamięci spokojnym językiem historycznym.",
+    safety_notice: "Do celów edukacyjnych. Zamki, twierdze i ruiny zwiedzaj tylko legalnie i ostrożnie: nie wchodź do opuszczonych, prywatnych ani zamkniętych obiektów, nie wspinaj się po murach i traktuj miejsca pamięci spokojnym językiem historycznym.",
     categories,
     fortressesRuins
   };

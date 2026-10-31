@@ -20,7 +20,7 @@
   ];
 
   const defaultSafety =
-    "To prototyp edukacyjny. Traktuj kartę jako opis krajobrazu i mechanizmu, nie jako instrukcję dojścia; sprawdzaj aktualne zasady ochrony i poruszaj się tylko po legalnie dostępnych trasach.";
+    "Do celów edukacyjnych. Traktuj kartę jako opis krajobrazu i mechanizmu, nie jako instrukcję dojścia; sprawdzaj aktualne zasady ochrony i poruszaj się tylko po legalnie dostępnych trasach.";
 
   function entry(data) {
     const category = cat[data.category];
@@ -734,7 +734,7 @@
   window.LANDSCAPE_RECORD_APP_DATA = {
     subtitle: "56 krajobrazowych osobliwości Polski: polska pustynia, ruchome wydmy, krzywy las, klify, bagna, kolorowe jeziora, przełomy, dawne wulkany, mikroklimaty i miejsca jak z innej mapy.",
     long_intro: "Polska ma miejsca, które zaskakują, bo nie pasują do stereotypowego krajobrazu kraju. Są tu pustynne piaski, wędrujące wydmy, las z powyginanymi sosnami, najgłębsze jezioro, wielkie bagna, rzeki płynące labiryntem, chemicznie kolorowe zbiorniki, bulgoczące mofety, dawne wulkany, lodowcowe kotły, iluzje topograficzne i mikroregiony przypominające inne kraje.",
-    safety_notice: "To prototyp edukacyjny o krajobrazie jako zjawisku. Nie traktuj opisów jako instrukcji dojścia ani gwarancji dostępu: sprawdzaj zasady parków, rezerwatów i terenów prywatnych, nie niszcz skał, roślin, torfowisk ani wydm.",
+    safety_notice: "Do celów edukacyjnych. Nie traktuj opisów jako instrukcji dojścia ani gwarancji dostępu: sprawdzaj zasady parków, rezerwatów i terenów prywatnych, nie niszcz skał, roślin, torfowisk ani wydm.",
     categories,
     landscapeRecords
   };

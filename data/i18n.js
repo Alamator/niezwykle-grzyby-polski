@@ -781,7 +781,7 @@
           teaser: "forms, colors and smells that are easy to remember",
           count_label: "60 curiosities",
           search_placeholder: "e.g. stinkhorn, coral, earthstar...",
-          safety_notice: "Educational prototype. Do not use the atlas to decide whether a fungus is edible, protected or safe to collect.",
+          safety_notice: "For educational purposes. Do not use the atlas to decide whether a fungus is edible, protected or safe to collect.",
           source_note: "Photos are added only when the license is clear. Wikimedia Commons packages include author, source and license.",
           categories: mushroomCategories,
           get items() { return lazyItemMap("grzyby"); }
@@ -793,7 +793,7 @@
           teaser: "rare, strange and memorable",
           count_label: "30 curiosities",
           search_placeholder: "e.g. oil beetle, glow-worm, stag beetle...",
-          safety_notice: "Educational prototype. Observe insects without catching, harming or moving them from their habitat.",
+          safety_notice: "For educational purposes. Observe insects without catching, harming or moving them from their habitat.",
           source_note: "Descriptions start from the working species list. Photos and attribution are added gradually from legal sources.",
           categories: insectCategories,
           get items() { return lazyItemMap("owady"); }
@@ -805,7 +805,7 @@
           teaser: "traps, mimicry, parasites and relics",
           count_label: "31 curiosities",
           search_placeholder: "e.g. waterwheel, orchid, burning bush...",
-          safety_notice: "Educational prototype. Many plants are protected, rare, toxic or habitat-sensitive: observe without picking or moving them.",
+          safety_notice: "For educational purposes. Many plants are protected, rare, toxic or habitat-sensitive: observe without picking or moving them.",
           source_note: "Descriptions start from the working list of unusual Polish plants. Photos and attribution will be added later from legal sources.",
           categories: flowerCategories,
           get items() { return lazyItemMap("kwiaty"); }
@@ -817,7 +817,7 @@
           teaser: "sounds, suction discs, migrations and camouflage",
           count_label: "30 curiosities",
           search_placeholder: "e.g. smelt, lumpfish, bitterling...",
-          safety_notice: "Educational prototype. Fish may be protected, locally regulated or invasive: observe without collecting and always check current rules.",
+          safety_notice: "For educational purposes. Fish may be protected, locally regulated or invasive: observe without collecting and always check current rules.",
           source_note: "Descriptions start from the working list of unusual fish of Poland. Photos come from Wikimedia Commons with full attribution.",
           categories: fishCategories,
           get items() { return lazyItemMap("ryby"); }
@@ -829,7 +829,7 @@
           teaser: "records of flight, senses and nests",
           count_label: "32 curiosities",
           search_placeholder: "e.g. hoopoe, swift, wallcreeper...",
-          safety_notice: "Educational prototype. Birds may be protected, sensitive to disturbance and tied to nests or leks: observe from a distance, do not reveal rare sites and do not interfere with habitats.",
+          safety_notice: "For educational purposes. Birds may be protected, sensitive to disturbance and tied to nests or leks: observe from a distance, do not reveal rare sites and do not interfere with habitats.",
           source_note: "Descriptions start from two working lists of unusual Polish avifauna. Photos come from Wikimedia Commons with full attribution.",
           categories: birdCategories,
           get items() { return lazyItemMap("ptaki"); }
@@ -841,7 +841,7 @@
           teaser: "the Dehnel phenomenon, venomous water shrews and the bison",
           count_label: "33 curiosities",
           search_placeholder: "e.g. shrew, bat, bison, porpoise...",
-          safety_notice: "Educational prototype. Observe mammals from a distance: do not handle small animals, disturb bat winter roosts, approach large mammals or seals, or reveal sensitive sites.",
+          safety_notice: "For educational purposes. Observe mammals from a distance: do not handle small animals, disturb bat winter roosts, approach large mammals or seals, or reveal sensitive sites.",
           source_note: "Descriptions start from the supplied working material on unusual Polish mammals. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mammalCategories,
           get items() { return lazyItemMap("ssaki"); }
@@ -853,7 +853,7 @@
           teaser: "blue moor-frog breeding and the garlic-scented spadefoot",
           count_label: "30 curiosities",
           search_placeholder: "e.g. moor frog, fire-bellied toad, pond turtle, adder...",
-          safety_notice: "Educational prototype. Observe amphibians and reptiles without handling, moving or damaging habitats; many are protected, sensitive to disturbance or risky when approached carelessly. Never release terrarium animals into the wild.",
+          safety_notice: "For educational purposes. Observe amphibians and reptiles without handling, moving or damaging habitats; many are protected, sensitive to disturbance or risky when approached carelessly. Never release terrarium animals into the wild.",
           source_note: "Descriptions start from the supplied working material on Polish herpetofauna curiosities. Photos come from Wikimedia Commons with full attribution; representative frames are labelled as such.",
           categories: amphibianReptileCategories,
           get items() { return lazyItemMap("plazy-gady"); }
@@ -866,7 +866,7 @@
           count_label: "30 curiosities",
           card_labels: { occurrence: "Where it grows", region: "Location" },
           search_placeholder: "e.g. pine, oak, yew, plane tree...",
-          safety_notice: "Educational prototype. Veteran trees, old trunks and memorial sites should be observed from a distance: do not climb roots, remove bark, disturb supports or leave marked paths.",
+          safety_notice: "For educational purposes. Veteran trees, old trunks and memorial sites should be observed from a distance: do not climb roots, remove bark, disturb supports or leave marked paths.",
           source_note: "Descriptions start from the working list of dendrological curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: treeCategories,
           get items() { return lazyItemMap("drzewa"); }
@@ -879,7 +879,7 @@
           count_label: "33 curiosities",
           card_labels: { region: "Location", habitat: "Geological setting" },
           search_placeholder: "e.g. flint, sulfur, halite, agate...",
-          safety_notice: "Educational prototype. Observe minerals without damaging sites: do not enter abandoned mines, break protected rocks, collect toxic or radioactive ores, or run home chemistry experiments.",
+          safety_notice: "For educational purposes. Observe minerals without damaging sites: do not enter abandoned mines, break protected rocks, collect toxic or radioactive ores, or run home chemistry experiments.",
           source_note: "Descriptions start from the working list of mineralogical curiosities of Poland. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: mineralCategories,
           get items() { return lazyItemMap("mineraly"); }
@@ -892,7 +892,7 @@
           count_label: "32 curiosities",
           card_labels: { occurrence: "Location and geology", region: "Location", habitat: "Geology" },
           search_placeholder: "e.g. Błędne Skały, Hercules' Club, Giewont...",
-          safety_notice: "Educational prototype. Observe rock formations without damaging sites: stay on marked trails, do not chip or mark rock, enter caves only on official routes and respect protected areas.",
+          safety_notice: "For educational purposes. Observe rock formations without damaging sites: stay on marked trails, do not chip or mark rock, enter caves only on official routes and respect protected areas.",
           source_note: "Descriptions start from the working list of unusual Polish rock formations. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: rockFormationCategories,
           get items() { return lazyItemMap("formacje-skalne"); }
@@ -905,7 +905,7 @@
           count_label: "29 curiosities",
           card_labels: { occurrence: "Place and site", region: "Location", habitat: "Site" },
           search_placeholder: "e.g. Świdnica, Dębno, Kwiatoń, Wang, Kruszyniany...",
-          safety_notice: "Educational prototype. Visit wooden monuments respectfully: do not touch polychrome, icons, carved wood or construction elements, do not enter private property without permission and check current visiting rules.",
+          safety_notice: "For educational purposes. Visit wooden monuments respectfully: do not touch polychrome, icons, carved wood or construction elements, do not enter private property without permission and check current visiting rules.",
           source_note: "Descriptions start from the supplied working material on Polish wooden architecture. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: woodenArchitectureCategories,
           get items() { return lazyItemMap("architektura-drewniana"); }
@@ -918,7 +918,7 @@
           count_label: "30 curiosities",
           card_labels: { occurrence: "Place and site", region: "Location", habitat: "Site" },
           search_placeholder: "e.g. Wieliczka, Riese, MRU, Sandomierz, Chełm...",
-          safety_notice: "Educational prototype. Visit underground sites only on official routes: do not enter abandoned adits, shelters or cellars, do not touch safety structures, and keep a calm historical tone around wartime places.",
+          safety_notice: "For educational purposes. Visit underground sites only on official routes: do not enter abandoned adits, shelters or cellars, do not touch safety structures, and keep a calm historical tone around wartime places.",
           source_note: "Descriptions start from the supplied working material on Polish underground curiosities. Photos come from Wikimedia Commons with full attribution; diagrams and representative frames are labelled honestly.",
           categories: undergroundCategories,
           get items() { return lazyItemMap("podziemia"); }
@@ -931,7 +931,7 @@
           count_label: "33 curiosities",
           card_labels: { occurrence: "Place and mechanism", region: "Location", habitat: "Mechanism" },
           search_placeholder: "e.g. Elbląg Canal, graduation towers, Gliwice Radio Tower, Solina, Gdynia...",
-          safety_notice: "Educational prototype. View technical sites only from legal public areas: do not enter dams, tracks, quays, bridge structures, industrial grounds or active infrastructure without permission.",
+          safety_notice: "For educational purposes. View technical sites only from legal public areas: do not enter dams, tracks, quays, bridge structures, industrial grounds or active infrastructure without permission.",
           source_note: "Descriptions start from the supplied working material on Polish technical and architectural curiosities. Technical figures and source references should be verified before final publication.",
           categories: engineeringWonderCategories,
           get items() { return lazyItemMap("cuda-inzynierii"); }
@@ -944,7 +944,7 @@
           count_label: "33 curiosities",
           card_labels: { occurrence: "Place and mechanism", region: "Location", habitat: "Mechanism" },
           search_placeholder: "e.g. Zamość, Krzyżtopór, Malbork, Modlin, Stańczyki...",
-          safety_notice: "Educational prototype. Visit castles, fortresses and ruins legally and carefully: do not enter abandoned, private or closed sites, do not climb walls and treat memorial places with calm historical language.",
+          safety_notice: "For educational purposes. Visit castles, fortresses and ruins legally and carefully: do not enter abandoned, private or closed sites, do not climb walls and treat memorial places with calm historical language.",
           source_note: "Descriptions start from the supplied working material on Polish castles, fortresses, ruins and forgotten structures. Photos come from Wikimedia Commons with full attribution; representative frames are labelled honestly.",
           categories: fortressRuinCategories,
           get items() { return lazyItemMap("twierdze-ruiny"); }
@@ -957,7 +957,7 @@
           count_label: "30 curiosities",
           card_labels: { occurrence: "Place and memory", region: "Location", habitat: "Mechanism of memory" },
           search_placeholder: "e.g. Czermna, Powązki, mizar, Treblinka, mound...",
-          safety_notice: "Educational prototype. This collection includes memorial places and difficult history; read and visit respectfully, without sensational framing, posing at graves or entering closed or fragile areas.",
+          safety_notice: "For educational purposes. This collection includes memorial places and difficult history; read and visit respectfully, without sensational framing, posing at graves or entering closed or fragile areas.",
           source_note: "Descriptions start from the supplied working material on Polish memorial and burial-culture places. Photos come from Wikimedia Commons with full attribution; difficult-history sites use calm educational language.",
           categories: mementoMoriCategories,
           get items() { return lazyItemMap("memento-mori"); }
@@ -970,7 +970,7 @@
           count_label: "32 curiosities",
           card_labels: { region: "Sites", habitat: "Ancient environment" },
           search_placeholder: "e.g. Zachełmie, Smok, ammonites, amber...",
-          safety_notice: "Educational prototype. Observe fossils without damaging sites: do not chip specimens from reserves, enter quarries without permission, dig fossil sites or remove rare finds from their context.",
+          safety_notice: "For educational purposes. Observe fossils without damaging sites: do not chip specimens from reserves, enter quarries without permission, dig fossil sites or remove rare finds from their context.",
           source_note: "Descriptions start from the working list of unusual Polish fossils. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: fossilCategories,
           get items() { return lazyItemMap("skamienialosci"); }
@@ -983,7 +983,7 @@
           count_label: "33 curiosities",
           card_labels: { occurrence: "Where and when to see it", region: "Where", habitat: "Conditions" },
           search_placeholder: "e.g. Brocken, aurora, Baltic, frost hollow...",
-          safety_notice: "Educational prototype. Sky and weather phenomena are not forecasts or invitations to take risks: do not chase storms, stand on ridges during electrical activity, ignore cold or use the atlas as safety guidance.",
+          safety_notice: "For educational purposes. Sky and weather phenomena are not forecasts or invitations to take risks: do not chase storms, stand on ridges during electrical activity, ignore cold or use the atlas as safety guidance.",
           source_note: "Descriptions start from the working list of Polish atmospheric and astronomical phenomena. Photos come from Wikimedia Commons with full attribution; representative images are labelled as such.",
           categories: atmosphereAstronomyCategories,
           get items() { return lazyItemMap("atmosfera-astronomia"); }
@@ -996,7 +996,7 @@
           count_label: "56 curiosities",
           card_labels: { occurrence: "Place and mechanism", region: "Location", habitat: "Mechanism" },
           search_placeholder: "e.g. desert, dunes, Hańcza, mofette, Rysy...",
-          safety_notice: "Educational prototype. Treat this as landscape context, not route guidance: follow park and reserve rules, do not damage rocks, dunes, peatlands or plants, and check current access before visiting.",
+          safety_notice: "For educational purposes. Treat this as landscape context, not route guidance: follow park and reserve rules, do not damage rocks, dunes, peatlands or plants, and check current access before visiting.",
           source_note: "Descriptions start from the supplied working material on Polish landscape records and curiosities. Photos come from Wikimedia Commons with full attribution; contextual and representative frames are labelled honestly.",
           categories: landscapeRecordCategories,
           get items() { return lazyItemMap("rekordy-krajobrazu"); }

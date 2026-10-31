@@ -442,7 +442,7 @@
 
   window.AMPHIBIAN_REPTILE_APP_DATA = {
     subtitle: "30 herpetologiczne osobliwości Polski: błękitne gody żaby moczarowej, czosnkowa obrona grzebiuszki, odruch kumaka, grzebienie traszek, nadrzewne rzekotki, reliktowe węże, żółw błotny i inwazyjne żółwie ozdobne.",
-    safety_notice: "To prototyp edukacyjny. Płazy i gady obserwuj bez dotykania, przenoszenia i niszczenia siedlisk; wiele gatunków jest chronionych, wrażliwych na płoszenie albo niebezpiecznych przy nieostrożnym kontakcie. Nie wypuszczaj zwierząt terrariowych do środowiska.",
+    safety_notice: "Do celów edukacyjnych. Płazy i gady obserwuj bez dotykania, przenoszenia i niszczenia siedlisk; wiele gatunków jest chronionych, wrażliwych na płoszenie albo niebezpiecznych przy nieostrożnym kontakcie. Nie wypuszczaj zwierząt terrariowych do środowiska.",
     categories,
     amphibiansReptiles
   };

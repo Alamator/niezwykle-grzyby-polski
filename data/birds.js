@@ -475,7 +475,7 @@
 
   window.BIRD_APP_DATA = {
     subtitle: "32 ptasie osobliwości Polski: rekordy skali, lotu, zmysłów, gniazd, strategii, mokradeł, gór i rzadkich gości.",
-    safety_notice: "To prototyp edukacyjny. Ptaki bywają chronione, wrażliwe na płoszenie i zależne od gniazd lub tokowisk: obserwuj z dystansu, nie ujawniaj stanowisk rzadkich gatunków i nie ingeruj w siedliska.",
+    safety_notice: "Do celów edukacyjnych. Ptaki bywają chronione, wrażliwe na płoszenie i zależne od gniazd lub tokowisk: obserwuj z dystansu, nie ujawniaj stanowisk rzadkich gatunków i nie ingeruj w siedliska.",
     categories,
     birds
   };

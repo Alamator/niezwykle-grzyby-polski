@@ -488,7 +488,7 @@
 
   window.MAMMAL_APP_DATA = {
     subtitle: "33 ssacze osobliwości Polski: ryjówki ze zjawiskiem Dehnela, jadowite rzęsorki, nietoperze z MRU, relikty stepów i Tatr, żubr, ekspansywne drapieżniki oraz ssaki Bałtyku.",
-    safety_notice: "To prototyp edukacyjny. Ssaki obserwuj z dystansu: nie chwytaj małych zwierząt, nie płosz nietoperzy w zimowiskach, nie podchodź do dużych ssaków ani fok i nie ujawniaj wrażliwych stanowisk.",
+    safety_notice: "Do celów edukacyjnych. Ssaki obserwuj z dystansu: nie chwytaj małych zwierząt, nie płosz nietoperzy w zimowiskach, nie podchodź do dużych ssaków ani fok i nie ujawniaj wrażliwych stanowisk.",
     categories,
     mammals
   };

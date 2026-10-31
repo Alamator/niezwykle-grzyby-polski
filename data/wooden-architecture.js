@@ -416,7 +416,7 @@
 
   window.WOODEN_ARCHITECTURE_APP_DATA = {
     subtitle: "29 drewnianych osobliwości Polski: Kościoły Pokoju, gotyckie świątynie zrębowe, cerkwie Karpat, styl zakopiański, tatarskie meczety i drewniane wsie.",
-    safety_notice: "To prototyp edukacyjny. Drewniane zabytki oglądaj z szacunkiem: nie dotykaj polichromii, ikon, snycerki ani konstrukcji, nie wchodź na prywatne posesje bez zgody i sprawdzaj aktualne zasady zwiedzania.",
+    safety_notice: "Do celów edukacyjnych. Drewniane zabytki oglądaj z szacunkiem: nie dotykaj polichromii, ikon, snycerki ani konstrukcji, nie wchodź na prywatne posesje bez zgody i sprawdzaj aktualne zasady zwiedzania.",
     categories,
     woodenArchitecture
   };

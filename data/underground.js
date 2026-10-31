@@ -448,7 +448,7 @@
 
   window.UNDERGROUND_APP_DATA = {
     subtitle: "30 podziemnych osobliwości Polski: kopalnie soli, krzemienia i srebra, miejskie piwnice, sztolnie, schrony oraz tajemnice Gór Sowich.",
-    safety_notice: "To prototyp edukacyjny. Podziemia zwiedzaj tylko legalnymi trasami: nie wchodź do opuszczonych sztolni, schronów ani piwnic, nie dotykaj zabezpieczeń i przy obiektach wojennych zachowuj spokojny, historyczny ton.",
+    safety_notice: "Do celów edukacyjnych. Podziemia zwiedzaj tylko legalnymi trasami: nie wchodź do opuszczonych sztolni, schronów ani piwnic, nie dotykaj zabezpieczeń i przy obiektach wojennych zachowuj spokojny, historyczny ton.",
     categories,
     underground
   };

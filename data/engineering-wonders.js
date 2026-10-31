@@ -482,7 +482,7 @@
   window.ENGINEERING_WONDER_APP_DATA = {
     subtitle: "33 techniczne osobliwości Polski: kanały, śluzy, tężnie, radiostacje, hale, zapory, mosty, tunele, koleje i przemysłowe miasta.",
     long_intro: "To kolekcja miejsc, w których inżynierowie próbowali wygrać z fizyką: przenieść statek przez trawę, zagęścić solankę w powietrzu, zbudować drewnianą wieżę radiową bez stali albo przykryć halę kopułą, która wyprzedziła swoją epokę.",
-    safety_notice: "To prototyp edukacyjny. Obiekty techniczne oglądaj z miejsc legalnie udostępnionych: nie wchodź na zapory, tory, nabrzeża, konstrukcje mostowe ani tereny przemysłowe bez zgody i traktuj czynną infrastrukturę jak realne miejsce pracy.",
+    safety_notice: "Do celów edukacyjnych. Obiekty techniczne oglądaj z miejsc legalnie udostępnionych: nie wchodź na zapory, tory, nabrzeża, konstrukcje mostowe ani tereny przemysłowe bez zgody i traktuj czynną infrastrukturę jak realne miejsce pracy.",
     categories,
     engineeringWonders
   };
