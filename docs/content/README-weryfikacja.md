@@ -37,7 +37,9 @@ Generatora (`build_site_data.py`) nie ma w repozytorium ani w dostępnych sesjac
     - przy F0600 (bielik): PDF „Bielik – nasz ptak narodowy” na `uwb.edu.pl`.
 - **Nowa szuflada „Rekordy atmosferyczne”:** 35 ciekawostek z `new_facts` (F1508–F1542), z ikonami dobranymi do treści.
 - **Nic już nie jest ukryte:** każda ciekawostka z listy `WITHDRAWN` w `data/collections.js` dostała nowe brzmienie albo zniknęła.
-- **Karty bez ciekawostek:** trzy karty zostały bez ciekawostek: „Sosna Kandelabrowa”, „Godziszów i Zadni Gerlach” i „Żuławskie domy podcieniowe”.
+- **Karty bez ciekawostek:** trzy karty zostały bez ciekawostek: „Sosna Kandelabrowa”, „Godziszów i Zadni Gerlach” i „Żuławskie domy podcieniowe”. Według decyzji Roberta z 31.10.2026:
+  - „Godziszów i Zadni Gerlach” usunięto z atlasu (`WITHDRAWN.cards`, `skip_cards`). Rekordowego zdjęcia z 30.01.2025 (246,1 km) nie potwierdza żadne niezależne źródło, a widok Tatr z daleka opisuje karta „Tatry z Wyżyny Lubelskiej”. „Atmosfera i astronomia” ma teraz 32 karty;
+  - „Sosna Kandelabrowa” mówi w polu „Gdzie rośnie” tylko, że sosna obumarła, bez wieku i daty, których sprawdzenie nie potwierdziło.
 
 Przegląd tych zmian (31.10.2026) znalazł kilka miejsc, w których odkryte ciekawostki nie zgadzały się z resztą atlasu. Poprawiono je w plikach:
 - **F1148 (Szczeliniec Wielki):** bez wysokości. Podawała 919 m, a F0885 w „Formacjach skalnych” wyjaśnia, że szczyt ma 922 m, a 919 m to punkt geodezyjny.

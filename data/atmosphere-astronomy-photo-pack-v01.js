@@ -199,13 +199,6 @@
       "CC BY-SA 3.0",
       ccBySa30
     ),
-    "rekord-godziszow-zadni-gerlach": photo(
-      "Tatry. Polska..JPG",
-      "Kadr reprezentatywny: tatrzańskie szczyty jako cel ekstremalnie dalekich obserwacji z Roztocza",
-      "Fagata",
-      "CC BY-SA 3.0",
-      ccBySa30
-    ),
     "atmosfera-jako-soczewka": photo(
       "Atmospheric refraction.svg",
       "Diagram reprezentatywny: refrakcja atmosferyczna zmieniająca pozorne położenie obiektu przy horyzoncie",

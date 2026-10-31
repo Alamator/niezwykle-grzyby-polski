@@ -339,9 +339,9 @@
       group: "ziemia-niebo",
       title: "Atmosfera i astronomia",
       heading: "Osobliwości atmosferyczne i astronomiczne Polski",
-      subtitle: "33 atmosferyczne i astronomiczne osobliwości Polski: widmo Brockenu, duszki, białe noce, obłoki srebrzyste, ciemne niebo, zorze, Bałtyk jako fabryka śniegu, dalekie obserwacje, mrozowiska i pył saharyjski.",
+      subtitle: "32 atmosferyczne i astronomiczne osobliwości Polski: widmo Brockenu, duszki, białe noce, obłoki srebrzyste, ciemne niebo, zorze, Bałtyk jako fabryka śniegu, dalekie obserwacje, mrozowiska i pył saharyjski.",
       teaser: "widmo Brockenu, duszki, zorze i białe noce",
-      count_label: "33 osobliwości",
+      count_label: "32 osobliwości",
       card_labels: { occurrence: "Gdzie i kiedy zobaczyć", region: "Gdzie", habitat: "Warunki" },
       icon: "N",
       accent: "skyfire",
@@ -464,7 +464,8 @@
       "ryby/lis-morski": "Kosogon: brak potwierdzonej obserwacji w Bałtyku (C065).",
       "formacje-skalne/zezow-czarne-dzialy": "Zęzów i Czarne Działy: nie wiadomo, o które miejsce chodzi; potwierdzona jest tylko wysokość Zęzowa (C111).",
       "skamienialosci/tholodus-schmidi": "Tholodus schmidi: brak publikacji o znaleziskach z Polski (C127).",
-      "architektura-drewniana/chata-na-wysokosci": "Chata na Wysokości: prywatna kwatera, historia tylko według właścicieli, bez ciekawostek i bez zdjęcia obiektu (C144)."
+      "architektura-drewniana/chata-na-wysokosci": "Chata na Wysokości: prywatna kwatera, historia tylko według właścicieli, bez ciekawostek i bez zdjęcia obiektu (C144).",
+      "atmosfera-astronomia/rekord-godziszow-zadni-gerlach": "Godziszów i Zadni Gerlach: rekordowego zdjęcia z 30.01.2025 (246,1 km) nie potwierdza żadne niezależne źródło, a widok Tatr z daleka opisuje karta „Tatry z Wyżyny Lubelskiej” (31.10.2026)."
     },
     facts: {},
     numbers: []

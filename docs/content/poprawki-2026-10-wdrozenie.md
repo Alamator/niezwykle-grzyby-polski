@@ -253,7 +253,7 @@ Lista jest w `data/collections.js` (`WITHDRAWN`). Pliki `data/facts/*.facts.js` 
 | C130 | Bieszczadzki Park Gwiezdnego Nieba | ✅ wprowadzona | Oficjalna nazwa: Park Gwiezdnego Nieba „Bieszczady” (dawna nazwa „Bieszczadzki Park Gwiezdnego Nieba” zostaje w synonimach); data powołania jest w ciekawostce F1047. |
 | C131 | Geminidy | 📌 w ciekawostce | Phaethon jako ciało macierzyste Geminidów (najpewniej odewoluowane jądro komety) jest w ciekawostce F1056; karta nie twierdziła inaczej. |
 | C132 | Białe noce żeglarskie | ✅ wprowadzona | Region białych nocy żeglarskich ujednolicony z ciekawostką F1042: „zwłaszcza klify Jastrzębiej Góry” zamiast Rozewia, Władysławowa i Helu. |
-| C133 | Godziszów i Zadni Gerlach | ✅ wprowadzona | Notka: rekordowe zdjęcie 30.01.2025 z odległości 246,1 km (zamiast zdania o „dacie pliku”); EN zaktualizowane. |
+| C133 | Godziszów i Zadni Gerlach | ✅ wprowadzona | Notka: rekordowe zdjęcie 30.01.2025 z odległości 246,1 km (zamiast zdania o „dacie pliku”); EN zaktualizowane. 31.10.2026 kartę usunięto z atlasu: rekordu nie potwierdza żadne niezależne źródło (`README-weryfikacja.md`). |
 | C134 | Niebieskie strumienie | ➖ bez zmian | Sformułowanie „zjawisko możliwe” przy niebieskich strumieniach zostaje, zgodnie z zaleceniem. |
 
 ### Rekordy krajobrazu (C135–C141, 7)

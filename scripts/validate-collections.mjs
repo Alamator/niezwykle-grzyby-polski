@@ -195,7 +195,7 @@ assert.equal(trees.items.length, 30, "tree collection should contain 30 dendrolo
 assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mineralogical curiosities");
 assert.equal(rockFormations.items.length, 32, "rock formation collection should contain 32 geological curiosities (Zęzów i Czarne Działy withdrawn)");
 assert.equal(fossils.items.length, 32, "fossil collection should contain 32 paleontological curiosities (Tholodus schmidi withdrawn: no published Polish record)");
-assert.equal(skyPhenomena.items.length, 33, "atmosphere and astronomy collection should contain 33 sky and weather curiosities");
+assert.equal(skyPhenomena.items.length, 32, "atmosphere and astronomy collection should contain 32 sky and weather curiosities");
 assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mammal curiosities");
 assert.equal(amphibiansReptiles.items.length, 30, "amphibian and reptile collection should contain 30 well-documented herpetofauna curiosities");
 assert.equal(woodenArchitecture.items.length, 29, "wooden architecture collection should contain 29 prepared architectural curiosities (Chata na Wysokości withdrawn)");
@@ -303,7 +303,7 @@ assert(
 const skyPhenomenonImages = skyPhenomena.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(skyPhenomenonImages.length, 33, "atmosphere and astronomy collection should include 33 curated images with attribution");
+assert.equal(skyPhenomenonImages.length, 32, "atmosphere and astronomy collection should include 32 curated images with attribution");
 assert(
   skyPhenomena.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "atmosphere and astronomy images should use Wikimedia Commons Special:Redirect links"

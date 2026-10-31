@@ -556,7 +556,6 @@ window.ATLAS_SEARCH = {
     ["atmosfera-astronomia","fata-morgana-latajace-statki","Fatamorgana i latające statki","Fata Morgana and flying ships","Fata Morgana",""],
     ["atmosfera-astronomia","baltycki-efekt-morza","Bałtycki efekt morza","Baltic sea-effect snow","Lake-effect snow",""],
     ["atmosfera-astronomia","tatry-z-wyzyny-lubelskiej","Tatry z Wyżyny Lubelskiej","The Tatras seen from the Lublin Upland","Long-distance observation",""],
-    ["atmosfera-astronomia","rekord-godziszow-zadni-gerlach","Godziszów i Zadni Gerlach","Godziszów and Zadni Gerlach","Extreme long-distance view",""],
     ["atmosfera-astronomia","atmosfera-jako-soczewka","Atmosfera jako soczewka","The atmosphere as a lens","Atmospheric refraction",""],
     ["atmosfera-astronomia","hala-izerska-mala-syberia","Hala Izerska - mała Syberia","Hala Izerska, the little Siberia","Frost hollow",""],
     ["atmosfera-astronomia","litworowy-kociol","Litworowy Kocioł","Litworowy Kocioł","High-mountain frost pool",""],

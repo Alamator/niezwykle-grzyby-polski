@@ -334,19 +334,6 @@
       level: "góry zza horyzontu"
     }),
     entry({
-      id: "rekord-godziszow-zadni-gerlach",
-      name_pl: "Godziszów i Zadni Gerlach",
-      name_lat: "Extreme long-distance view",
-      category: "baltyk-refrakcja-obserwacje",
-      hook: "Przykładowe rekordowe zdjęcia Tatr z Roztocza pokazują, jak precyzyjna musi być pogoda, geometria i cierpliwość.",
-      quiz_angle: "konkretny rekordowy kierunek, Tatry ponad horyzontem i refrakcja",
-      safety_note: "traktować rekordy jako dokumentację obserwacyjną, nie gwarancję powtarzalności przy każdej przejrzystej pogodzie",
-      region_pl: "Godziszów i okolice Roztocza w kierunku Tatr Słowackich.",
-      habitat_pl: "Punkty widokowe z długą osią obserwacji i powietrzem o wyjątkowo małej zawartości aerozoli.",
-      occurrence_note: "Rekordowe zdjęcie wykonano 30 stycznia 2025 r. z odległości 246,1 km.",
-      level: "rekord widoczności"
-    }),
-    entry({
       id: "atmosfera-jako-soczewka",
       name_pl: "Atmosfera jako soczewka",
       name_lat: "Atmospheric refraction",
@@ -454,7 +441,7 @@
   ];
 
   window.ATMOSPHERE_ASTRONOMY_APP_DATA = {
-    subtitle: "33 atmosferyczne i astronomiczne osobliwości Polski: widmo Brockenu, duszki, białe noce, obłoki srebrzyste, ciemne niebo, zorze, Bałtyk jako fabryka śniegu, dalekie obserwacje, mrozowiska i pył saharyjski.",
+    subtitle: "32 atmosferyczne i astronomiczne osobliwości Polski: widmo Brockenu, duszki, białe noce, obłoki srebrzyste, ciemne niebo, zorze, Bałtyk jako fabryka śniegu, dalekie obserwacje, mrozowiska i pył saharyjski.",
     safety_notice: "Do celów edukacyjnych. Zjawiska nie są prognozą ani zachętą do ryzyka: nie ścigaj burz, nie wchodź na granie przy wyładowaniach, nie lekceważ mrozu, morza, mgły ani nocnej orientacji w terenie.",
     categories,
     phenomena
