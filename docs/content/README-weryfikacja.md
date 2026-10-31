@@ -49,8 +49,9 @@ Przegląd tych zmian (31.10.2026) znalazł kilka miejsc, w których odkryte ciek
 - **Żagwiak łuskowaty:** pole „Kiedy” na karcie podaje to, co poprawiona F0200 („od maja do października”, grzyby.pl), a nie marzec i luty, które sprawdzenie odrzuciło.
 - **Źródła:** sześć ciekawostek podawało tę samą stronę dwa razy (z ukośnikiem na końcu, z „www.” albo z zakodowanymi nawiasami), w szufladzie rekordów etykiety źródeł nie mają już przecinków ani dat.
 - **Nowa ciekawostka F1543 (Kasprowy Wierch):** 388 cm śniegu w marcu 1939 r., za artykułem w „Przeglądzie Geofizycznym” (2018) opartym na archiwum IMGW-PIB (decyzja Roberta z 31.10.2026, `rekordy-atmosferyczne-2026-10.md`).
+- **F1528 (Kalisz):** `verified` zamiast `checked`. Rocznik GUS Poznań 2023 dało się otworzyć i potwierdza 507, 494 i 437 mm, a przypis „c” przy Kaliszu dotyczy tylko zachmurzenia (`rekordy-atmosferyczne-2026-10.md`).
 
-Teraz atlas ma 1458 ciekawostek na 628 kartach: 494 `checked`, 535 `verified` i 429 `corrected`.
+Teraz atlas ma 1458 ciekawostek na 628 kartach: 493 `checked`, 536 `verified` i 429 `corrected`.
 
 **Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`, także w szufladzie rekordów.** Każda potrzebuje źródła i statusu według tabeli wyżej. Ciekawostkę, która czeka na poprawkę, można ukryć w `data/collections.js` (`WITHDRAWN.facts`, z powodem). `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły, pod żadnym id i w żadnym języku:
 - ciekawostki usuniętych kart i teksty ciekawostek pominiętych;
