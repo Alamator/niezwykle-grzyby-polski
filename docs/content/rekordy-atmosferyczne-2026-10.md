@@ -17,9 +17,19 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
    - Każdą kartę sprawdził osobny, krytyczny sprawdzający: każde zdanie ze źródłem, tłumaczenie, zdjęcie, punkt na mapie.
    - Na koniec sprawdzono wszystkie karty razem i z kartami, które atlas już ma.
 3. **Zasada:** co sporne, niepotwierdzone albo oparte tylko na obliczeniach własnych, tego nie ma.
+4. **Przegląd całej zmiany:** po złożeniu szuflady niezależny przegląd sprawdził treść, kod, działanie i angielski, także poprawki wprowadzone po sprawdzeniu kart. Każde zgłoszenie przeszło dwa sprawdzenia. Potwierdzone poprawiono, m.in.:
+   - przy tornadach z 2008 r. nie ma już oceny F3–F4;
+   - podpisy źródeł nie mają przecinków i dat w polskim zapisie;
+   - quiz pyta „które miejsce” tylko z miejscami w odpowiedziach.
 
 **Ograniczenie:**
 - Strony IMGW-PIB, PAP, GUS, TPN i Lasów Państwowych nie otwierają się z naszego środowiska, więc ich treść znamy z wyników wyszukiwania.
+- Tak samo:
+  - praca T. Niedźwiedzia (IGiPZ PAN 1999, sumy opadów z 1997 r.);
+  - repozytorium RE-BUŚ (wysokość stacji na Hali Gąsienicowej);
+  - Radio Kraków;
+  - angielska Wikipedia.
+- Trzech zdjęć (Wrocław, Suwałki, Kalisz) nie dało się stąd obejrzeć, bo Commons blokował zapytania. Autora i licencję sprawdzono.
 - Ciekawostki oparte na tych źródłach mają dlatego status „checked”, a nie „verified”.
 - Linki do Wikipedii prowadzą do sprawdzanej wersji artykułu (`oldid`).
 
@@ -43,12 +53,12 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
 | Kasprowy Wierch — opady roczne | średnia 1966–2006 z pracy naukowej; zgodnie z IMGW-PIB Hala Gąsienicowa miała w 2001 r. więcej (2626 mm) |
 | Kalisz — opady roczne | norma 494 mm (GUS); „jedna z najniższych”, bez „najsuchszy” |
 | Śnieżka — wiatr 65 m/s | wartość z 21 lutego 2004 r. i przekroczona skala wiatromierza, bez „rekordu Polski” |
-| Kasprowy Wierch — halny 1968 | porywy 75–80 m/s jako szacunek IMGW-PIB; „prawdopodobnie” najsilniejszy wiatr na Kasprowym, nie w Polsce |
+| Kasprowy Wierch — halny 1968 | porywy dochodzące do 75–80 m/s według IMGW-PIB; „prawdopodobnie” najsilniejszy wiatr na Kasprowym, nie w Polsce |
 | Lublin — tornado z 1931 r. | „jedno z najsilniejszych udokumentowanych”; F4 jako szacunek; wagony przewracane, nie podnoszone |
-| 15 sierpnia 2008 — seria tornad | ocena F3–F4 opisana jako sporna |
-| 11 sierpnia 2017 — derecho | według IMGW-PIB porywy ponad 150 km/h; bez sprzecznych liczb hektarów lasu |
+| 15 sierpnia 2008 — seria tornad | bez oceny w skali Fujity: źródła się różnią, a F3 podaje tylko angielska Wikipedia, której nie dało się stąd przeczytać; zostały ścieżka i 15 rannych |
+| 11 sierpnia 2017 — derecho | według IMGW-PIB porywy ponad 150 km/h; bez sprzecznych liczb hektarów lasu; zdjęcie skutków nawałnicy koło Lipusza (szkic nie miał zdjęcia) |
 | Tomaszów Mazowiecki — grad 13,5 cm | rekord wielkości gradu przypisany IMGW-PIB (2023); bez „co najmniej” |
-| Śnieżka — mgła | ok. 300 dni z mgłą w roku; bez „najwięcej w Polsce”, bo podaje to tylko zestawienie w Wikipedii oparte na encyklopedii szkolnej |
+| Śnieżka — mgła | ok. 300 dni z mgłą w roku, za dwoma hasłami Wikipedii (bez źródła instytucjonalnego); bez „najwięcej w Polsce”, bo podaje to tylko zestawienie w Wikipedii oparte na encyklopedii szkolnej |
 
 ## Pominięte (13)
 
@@ -69,6 +79,15 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
 | 388 cm śniegu na Kasprowym | źródła podają 355 albo 335 cm; do sprawdzenia przez Roberta w Vademecum IMGW |
 
 Nowe karty sprawdza też `npm run test:collections`:
-- Żywiec i Słubice nie nazywają swojego rekordu oficjalnym;
+- Żywiec i Słubice nie nazywają swojego rekordu oficjalnym, także w ciekawostkach, gdy przyjdą;
 - pominięte pozycje nie wracają;
 - liczba kart i zdjęć się zgadza.
+
+`npm run test:facts` pilnuje, żeby ciekawostki z generatora były tymi sprawdzonymi z `new_facts`.
+
+## Do sprawdzenia przez Roberta
+
+- **Zdjęcia na podglądzie:** Wrocław, Suwałki i Kalisz. Nie dało się ich stąd obejrzeć; sprawdzone są tylko autor i licencja.
+- **Przypis „c” przy Kaliszu:** w tabeli rocznika GUS Poznań 2023 wiersz Kalisza ma przypis „c”, ale jego treści nie znamy (PDF się stąd nie otwiera).
+- **Kamienica 2024 i 388 cm śniegu na Kasprowym:** wejdą, jeśli potwierdzisz je w źródłach IMGW.
+- **Adresy kart:** pięć różni się od szkicu, np. `wroclaw-srednia-roczna` zamiast `wroclaw-biegun-ciepla`; pełna lista jest w `id_changes`. Po publikacji adresy nie powinny się już zmieniać.

@@ -193,11 +193,11 @@
       name_lat: "potwierdzone tornada w trzech województwach",
       category: "burze",
       hook: "Dzień, w którym jedno z kilku tornad miało ścieżkę długą na prawie 20 km, a miejscami szeroką do 1 km.",
-      quiz_angle: "tornado z powiatu strzeleckiego: prawie 20 km ścieżki i sporna ocena F3–F4",
+      quiz_angle: "tornado z powiatu strzeleckiego: prawie 20 km ścieżki i 15 rannych",
       safety_note: "nie podchodzić do trąby powietrznej, by ją nagrać; przy ostrzeżeniu przed burzą schronić się w murowanym budynku",
       region_pl: "Opolskie / Śląskie / Łódzkie.",
       habitat_pl: "15 sierpnia 2008 r.",
-      occurrence_note: "Tornado o ścieżce długiej na prawie 20 km przeszło przez powiat strzelecki. Źródła oceniają jego siłę od F3 do F4 w skali Fujity; ta ocena jest sporna.",
+      occurrence_note: "Tornado o ścieżce długiej na prawie 20 km przeszło przez powiat strzelecki; rannych zostało 15 osób.",
       level: "dzień tornad"
     }),
     entry({
@@ -236,7 +236,7 @@
       safety_note: "we mgle trzymać się oznakowanego szlaku i zawrócić, gdy widoczność mocno spada",
       region_pl: "Śnieżka w Karkonoszach, Dolnośląskie.",
       habitat_pl: "przeciętny rok (średnia wieloletnia).",
-      occurrence_note: "Mgła pojawia się tu średnio w ok. 300 dniach roku, choćby na krótko. Dni z mgłą jest więc więcej niż dni bez niej.",
+      occurrence_note: "Mgła pojawia się tu średnio w ok. 300 dniach roku. Dni z mgłą jest więc więcej niż dni bez niej.",
       level: "mglisty szczyt"
     })
   ];

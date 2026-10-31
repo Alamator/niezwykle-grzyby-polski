@@ -28,7 +28,7 @@
   const publicDomain = "https://creativecommons.org/publicdomain/mark/1.0/";
 
   // Most photos show the place of the record, not the event: their descriptions start with "Kadr kontekstowy".
-  // Two cards have no fitting free photo: the warmest year (all of Poland) and the 2017 derecho.
+  // The warmest year (all of Poland) has no fitting free photo. The derecho photo shows the storm's own damage.
   const photos = {
     "slubice-40-5": photo(
       "Słubice 2007 001.jpg",
@@ -74,7 +74,7 @@
     ),
     "powodz-1997-opady": photo(
       "2016 Zapora w Międzygórzu 1.jpg",
-      "Kadr kontekstowy: zapora przeciwpowodziowa na Wilczce w Międzygórzu, zdjęcie z 2016 r",
+      "Kadr kontekstowy: zapora przeciwpowodziowa na Wilczce w Międzygórzu, zdjęcie z 2016 roku",
       "Jacek Halicki",
       "CC BY-SA 4.0",
       ccBySa40
@@ -118,6 +118,13 @@
       "August 2008 tornado in Poland - Kalina p3.jpg",
       "Kalina w powiecie lublinieckim 24 sierpnia 2008 roku, po przejściu jednego z tornad z 15 sierpnia: pozostałość pnia modrzewia, który zwalił się na budynek",
       "Przykuta",
+      "CC BY-SA 4.0",
+      ccBySa40
+    ),
+    "derecho-2017": photo(
+      "Lipusz po nawalnicy 5.jpg",
+      "Połamane i pochylone sosny w lesie koło Lipusza, zdjęcie z 29 sierpnia 2017 roku, po nawałnicy z 11 na 12 sierpnia",
+      "Andrzej Otrębski",
       "CC BY-SA 4.0",
       ccBySa40
     ),

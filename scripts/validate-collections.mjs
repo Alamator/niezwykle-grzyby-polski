@@ -411,19 +411,21 @@ assert(
 const weatherRecordImages = weatherRecords.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(weatherRecordImages.length, 15, "weather records collection should include 15 curated images with attribution");
+assert.equal(weatherRecordImages.length, 16, "weather records collection should include 16 curated images with attribution");
 assert.equal(
   JSON.stringify(weatherRecords.items.filter((item) => !item.image).map((item) => item.id)),
-  JSON.stringify(["rok-2024", "derecho-2017"]),
-  "only the warmest year (all of Poland) and the 2017 derecho should be without a photo"
+  JSON.stringify(["rok-2024"]),
+  "only the warmest year (all of Poland) should be without a photo"
 );
 // The owner's rules for this drawer (30-31.10.2026): IMGW-PIB regards Siedlce 1940 as the official cold
 // record, so Żywiec 1929 is never called official; Słubice is the record announced by IMGW for synoptic
 // stations. What was disputed, rested on own calculations or repeated an existing card stays out.
+// Every text of the card, also the photo description, the safety note and its fun facts once they come.
 const cardTexts = (item) => {
   const english = i18n.collections.en["rekordy-atmosferyczne"].items[item.id] || {};
-  return { pl: [item.name_pl, item.name_lat, item.hook, item.quiz_angle, item.region_pl, item.habitat_pl, item.occurrence_note, item.level].join(" "),
-    en: Object.values(english).join(" ") };
+  const facts = weatherRecords.facts?.[item.id]?.facts || [];
+  return { pl: [...Object.values(item).filter((value) => typeof value === "string"), ...facts.map((fact) => fact.pl)].join(" "),
+    en: [...Object.values(english), ...facts.map((fact) => fact.en)].join(" ") };
 };
 for (const id of ["zywiec-1929", "slubice-40-5"]) {
   const item = weatherRecords.items.find((entry) => entry.id === id);
@@ -435,6 +437,9 @@ for (const id of ["koluda-wielka-40-6", "rozdziele-noc-28-4", "opole-dni-upalne"
   "zorza-maj-2024", "kamienica-2024", "kasprowy-388-cm-sniegu"]) {
   assert(!weatherRecords.items.some((item) => item.id === id), `weather records should leave out ${id} (disputed, unconfirmed or already in the atlas)`);
 }
+// The drawer mixes places with cards about a year or several regions: a "which place" quiz question
+// offers only places as wrong answers.
+assert(appJs.includes("pool = others.filter((item) => placePart(item) && placePart(item) !== place);"), "a place question in the quiz should offer only places as wrong answers");
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   30,

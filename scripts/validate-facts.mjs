@@ -36,7 +36,9 @@ for (const { id, scripts } of entryBlocks) {
   else if (index !== scripts.length - 1) fail(`${id}: ${factsFile} should be the last script, after the collection data files`);
   if (!fs.existsSync(factsFile.slice(1))) fail(`${id}: ${factsFile} does not exist`);
 }
-if (!fs.readFileSync("js/app.js", "utf8").includes("const withFacts = app.collections.filter((collection) => collection.has_facts);")) {
+const appJsText = fs.readFileSync("js/app.js", "utf8");
+if (!appJsText.includes("const withFacts = app.collections.filter((collection) => collection.has_facts);")
+  || !appJsText.includes("const collection = withFacts[dayNumber % withFacts.length];")) {
   fail("js/app.js: the fact of the day should take only collections with facts (has_facts)");
 }
 for (const file of fs.readdirSync("data/facts")) {
@@ -240,6 +242,18 @@ for (const id of FACTS_PENDING) {
   for (const fact of (handoff.new_facts || []).filter((candidate) => candidate.collection === id)) {
     if (!cards.includes(fact.card)) fail(`${HANDOFF}: a new fact of ${id} belongs to ${fact.card}, which is not a card of the collection`);
     if (!STATUSES.has(fact.status) || !fact.pl || !fact.en || !fact.sources?.length) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} needs pl, en, a status and sources`);
+    // The owner's rule (31.10.2026): neither record is called official (IMGW-PIB: Siedlce 1940).
+    if (["zywiec-1929", "slubice-40-5"].includes(fact.card) && /oficjaln|official/i.test(`${fact.pl} ${fact.en}`)) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} calls the record official`);
+  }
+}
+// Once the generated file is here, the facts of a new collection are the checked ones from the handoff.
+for (const entry of handoff.new_collections || []) {
+  if (FACTS_PENDING.has(entry.collection)) continue;
+  const checked = new Set((handoff.new_facts || []).filter((fact) => fact.collection === entry.collection).map((fact) => `${fact.card}\n${fact.pl}`));
+  for (const [cardId, item] of Object.entries(allFacts[entry.collection]?.items || {})) {
+    for (const fact of item.facts || []) {
+      if (!checked.has(`${cardId}\n${fact.pl}`)) fail(`${entry.collection}/${cardId}/${fact.id}: not one of the checked new_facts in ${HANDOFF}`);
+    }
   }
 }
 

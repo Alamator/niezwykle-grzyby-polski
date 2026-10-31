@@ -1748,7 +1748,8 @@
     let pool = others;
     if (mode === "place") {
       prompt = t("quizPlacePrompt", { place: itemLatin(selected, collection) });
-      pool = others.filter((item) => placePart(item) !== place);
+      // Only places can be wrong answers to "which place": a card about a year or a whole region is no place.
+      pool = others.filter((item) => placePart(item) && placePart(item) !== place);
     } else if (mode === "hook") {
       prompt = t("quizHookPrompt", { hook: itemHook(selected, collection) });
       const unlike = others.filter((item) => item.hook !== selected.hook && lineageKey(item) !== lineageKey(selected));

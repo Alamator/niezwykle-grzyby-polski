@@ -5,7 +5,7 @@ window.ATLAS_START = {
   "stats": {
     "cards": 634,
     "places": 241,
-    "photos": 616
+    "photos": 617
   },
   "specimens": [
     {

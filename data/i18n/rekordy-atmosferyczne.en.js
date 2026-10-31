@@ -43,7 +43,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-atmosferyczne"] = {
     "safety_note": "An annual mean is a statistic, not a forecast; check current hazards in up-to-date weather bulletins.",
     "region": "All of Poland (area-averaged air temperature).",
     "habitat": "The whole of 2024.",
-    "occurrence": "An area-averaged mean of 10.9 °C: according to the IMGW-PIB report for 2024, the warmest year in the history of Polish instrumental measurements, 0.7 °C warmer than the previous record year, 2019.",
+    "occurrence": "An area-averaged mean of 10.9 °C: according to the IMGW-PIB report for 2024, it was the warmest year in the history of Polish instrumental measurements, 0.7 °C warmer than the previous record year, 2019.",
     "level": "record annual mean",
     "latin": "an area-averaged mean of 10.9 °C"
   },
@@ -149,11 +149,11 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-atmosferyczne"] = {
   "tornada-2008": {
     "name": "15 August 2008, a tornado outbreak",
     "hook": "A day on which one of several tornadoes had a path almost 20 km long and up to 1 km wide in places.",
-    "quiz_angle": "the Strzelce County tornado: almost 20 km of path and a disputed F3–F4 rating",
+    "quiz_angle": "the Strzelce County tornado: almost 20 km of path and 15 injured",
     "safety_note": "Do not approach a tornado to film it; when a storm warning is issued, shelter in a brick or stone building.",
     "region": "Opole Province / Silesia / Łódź Province.",
     "habitat": "15 August 2008.",
-    "occurrence": "The tornado with a path almost 20 km long crossed Strzelce County. Sources rate its strength from F3 to F4 on the Fujita scale; this rating is disputed.",
+    "occurrence": "The tornado with a path almost 20 km long crossed Strzelce County; it injured 15 people.",
     "level": "day of tornadoes",
     "latin": "confirmed tornadoes in three provinces"
   },
@@ -186,7 +186,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-atmosferyczne"] = {
     "safety_note": "In fog, stay on the marked trail and turn back when visibility drops sharply.",
     "region": "Śnieżka in the Karkonosze, Lower Silesia.",
     "habitat": "An average year (long-term average).",
-    "occurrence": "Fog appears here on about 300 days a year on average, if only briefly. So there are more days with fog than without it.",
+    "occurrence": "Fog appears here on about 300 days a year on average. So there are more days with fog than without it.",
     "level": "foggy summit",
     "latin": "Karkonosze • more days with fog than without"
   }
