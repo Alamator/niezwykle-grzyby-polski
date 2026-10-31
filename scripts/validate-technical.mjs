@@ -180,24 +180,24 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     }
   }
   // Link preview images (scripts/og-images.mjs): a collection and its cards show the image of their collection,
-  // the other pages the atlas's, each in the language of the page. Every image is there, 1200×630, and shows
-  // what the data says now: generate-og-image.py writes what it drew into the manifest.
+  // the other pages the atlas's, each in the language of the page. Every image is there, 1200×630, and is the
+  // file generate-og-image.py saved from the data as it is now (the build checks this too).
   {
     const og = await import("./og-images.mjs");
     const { languageTexts } = await import("./build-pages.mjs");
     const { buildMapPoints } = await import("./build-map-points.mjs");
     const images = og.ogImages(win, (language) => languageTexts(win, language), buildMapPoints(win).places);
     assert.equal(images.length, 2 * (collections.length + 1), "the atlas and every collection should have a link preview image in Polish and in English");
-    assert.deepEqual(JSON.parse(fs.readFileSync(og.OG_MANIFEST, "utf8")), og.manifestOf(images),
-      "the link preview images no longer show what the data says (a name, teaser, number of cards or map point changed); run python scripts/generate-og-image.py");
+    assert.deepEqual(og.imageProblems(images), [], `the link preview images do not match the data; ${og.REDRAW}`);
     for (const image of images) {
-      assert(fs.existsSync(image.file), `${image.file} is missing; run python scripts/generate-og-image.py`);
       assert.deepEqual(og.pngSize(image.file), [og.OG_IMAGE_WIDTH, og.OG_IMAGE_HEIGHT], `${image.file} should be ${og.OG_IMAGE_WIDTH}×${og.OG_IMAGE_HEIGHT}, as the pages say`);
       assert(image.alt && !/[{}*]/.test(image.alt), `${image.file} should have a description without placeholders`);
       assert(image.alt.startsWith(win.ATLAS_I18N.ui[image.language].documentTitle), `${image.file} should be described in its own language, starting with the atlas's name in it`);
     }
-    for (const name of fs.readdirSync(path.dirname(og.OG_MANIFEST)).filter((entry) => entry !== path.basename(og.OG_MANIFEST))) {
-      assert(images.some((image) => image.file === `${path.dirname(og.OG_MANIFEST)}/${name}`), `${path.dirname(og.OG_MANIFEST)}/${name} is not a link preview image of any page; run python scripts/generate-og-image.py`);
+    // assets/og holds only the images and their manifest (hidden files such as .DS_Store aside).
+    const ogDir = path.dirname(og.OG_MANIFEST);
+    for (const name of fs.readdirSync(ogDir).filter((entry) => !entry.startsWith(".") && entry !== path.basename(og.OG_MANIFEST))) {
+      assert(images.some((image) => image.file === `${ogDir}/${name}`), `${ogDir}/${name} is not a link preview image of any page; ${name.endsWith(".png") ? og.REDRAW : "delete it"}`);
     }
     const meta = (html, attribute, name) => html.match(new RegExp(`<meta ${attribute}="${name}" content="([^"]*)" />`))?.[1];
     const checkImage = (where, html, image) => {

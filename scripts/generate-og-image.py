@@ -5,8 +5,9 @@ Draws every image that scripts/og-images.mjs lists, in the look of the start pag
 (assets/og-image.png in Polish, assets/og/atlas-en.png in English) with the heading of the start page, and one
 image per collection and language (assets/og/<collection>-<language>.png) with the collection's name and
 teaser. Next to the text is a map of Poland with the places of the atlas or of the collection; a collection
-without places shows its number of cards instead. Then it writes assets/og/manifest.json, what each image
-shows, which npm run test:technical compares with the data.
+without places shows its count label (count_label) in large figures instead. Then it writes
+assets/og/manifest.json: what each image shows and a hash of its file, which the build and npm run
+test:technical compare with the data. Every text is checked to fit and not to touch another.
 Fonts come from fonts/ (SIL Open Font License); the points from data/places/*.places.js (Wikidata, CC0); the
 outline of Poland from Natural Earth 1:50m admin-0 countries (public domain), simplified to three decimals.
 Photos stay out: a share preview has no room for their credits.
@@ -14,12 +15,13 @@ Photos stay out: a share preview has no room for their credits.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import os
 import subprocess
 import sys
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 BACKGROUND = (12, 17, 15)
 INK = (236, 230, 216)
@@ -76,15 +78,60 @@ def draw_text(draw: ImageDraw.ImageDraw, xy, text: str, family: dict, fill, trac
     return x
 
 
-def wrap(words: list, fits) -> list:
-    """Greedy line breaking: as many words on a line as fit."""
-    lines = []
-    for word in words:
-        if lines and fits(lines[-1] + [word]):
-            lines[-1].append(word)
+ONE_LETTER = set("aiouwzAIOUWZ")
+
+
+def words_of(text: str) -> list:
+    """The words of a text, a one-letter word (a, i, o, u, w, z) kept with the word after it: Polish
+    typesetting does not leave one at the end of a line."""
+    words, waiting = [], []
+    for word in text.split():
+        if len(word) == 1 and word in ONE_LETTER:
+            waiting.append(word)
+            continue
+        words.append(" ".join(waiting + [word]))
+        waiting = []
+    if waiting:
+        if words:
+            words[-1] = " ".join([words[-1]] + waiting)
         else:
-            lines.append([word])
-    return lines
+            words.append(" ".join(waiting))
+    return words
+
+
+CONJUNCTIONS = {"i", "a", "oraz", "and", "or"}
+
+
+def lines_of(words: list, width, limit: float, size: int):
+    """The words on one line if they fit, else on two lines, at the break where both fit and the widths are
+    most even. A break that is not natural (after a comma, or before "i", "a", "and"...) counts as 6.5 font
+    sizes less even, which keeps "cerkwie Karpat" together but still breaks "forms, colors and smells / that
+    are easy to remember" in the middle. None when two lines are not enough."""
+    if width(words) <= limit:
+        return [words]
+    pairs = [(words[:k], words[k:]) for k in range(1, len(words)) if width(words[:k]) <= limit and width(words[k:]) <= limit]
+    if not pairs:
+        return None
+    def cost(pair):
+        natural = pair[0][-1].endswith(",") or pair[1][0].split()[0].lower() in CONJUNCTIONS
+        return abs(width(pair[0]) - width(pair[1])) + (0 if natural else 6.5 * size)
+    return list(min(pairs, key=cost))
+
+
+def heading_words(runs: list) -> list:
+    """The heading as words, each a list of (text, style) pieces: in "*leave out*." the last word is the
+    italic "out" with the plain "." after it."""
+    words, previous = [], " "
+    for text, kind in runs:
+        for index, part in enumerate(text.split(" ")):
+            if not part:
+                continue
+            if index == 0 and words and not previous.endswith(" "):
+                words[-1].append((part, kind))
+            else:
+                words.append([(part, kind)])
+        previous = text
+    return words
 
 
 def projector(box):
@@ -118,6 +165,35 @@ class Drawing:
             glow_draw.ellipse([-radius + 60, -radius + 20, radius + 60, radius + 20], fill=AMBER + (alpha,))
         self.image.alpha_composite(glow)
         self.draw = ImageDraw.Draw(self.image)
+        self.inks = []
+
+    def text(self, what: str, xy, pieces: list) -> float:
+        """Draws one line of pieces (text, fonts, colour, tracking) one after another; returns the x after it.
+        The line's ink is kept for apart()."""
+        ink = Image.new("L", (self.width, self.height), 0)
+        ink_draw = ImageDraw.Draw(ink)
+        x, y = xy
+        for text, family, fill, tracking in pieces:
+            draw_text(ink_draw, (x, y), text, family, 255, tracking)
+            x = draw_text(self.draw, (x, y), text, family, fill, tracking)
+        self.inks.append((what, ink))
+        return x
+
+    def apart(self):
+        """Fails when the ink of two texts comes within 2 px, e.g. a descender on the letters of the next line,
+        which the width checks cannot see."""
+        boxes = [(what, ink, ink.getbbox()) for what, ink in self.inks]
+        for index, (what_a, ink_a, box_a) in enumerate(boxes):
+            for what_b, ink_b, box_b in boxes[index + 1:]:
+                if not box_a or not box_b:
+                    continue
+                region = (max(box_a[0], box_b[0], 3) - 3, max(box_a[1], box_b[1], 3) - 3,
+                          min(box_a[2], box_b[2], self.width - 3) + 3, min(box_a[3], box_b[3], self.height - 3) + 3)
+                if region[0] >= region[2] or region[1] >= region[3]:
+                    continue
+                grown = ink_a.crop(region).filter(ImageFilter.MaxFilter(5))
+                if ImageChops.multiply(grown, ink_b.crop(region)).getbbox():
+                    raise ValueError(f"{what_a} and {what_b} touch")
 
     def check(self, what: str, right: float, limit: float):
         if right > limit + 0.5:
@@ -140,24 +216,23 @@ class Drawing:
     def eyebrow(self, text: str, limit: float):
         mono = fonts("ibm-plex-mono-{part}-400-normal.woff2", 19)
         self.check(f"the eyebrow \"{text}\"", self.TEXT_LEFT + text_width(text, mono, 3), limit)
-        draw_text(self.draw, (self.TEXT_LEFT, 118), text, mono, AMBER, tracking=3)
+        self.text("the eyebrow", (self.TEXT_LEFT, 118), [(text, mono, AMBER, 3)])
 
     def footer(self, caption: str):
         """The atlas's name and address at the bottom left, and the caption at the bottom right."""
         mark = fonts("instrument-serif-{part}-400-normal.woff2", 34)
         mark_italic = fonts("instrument-serif-{part}-400-italic.woff2", 34)
         small = fonts("ibm-plex-mono-{part}-400-normal.woff2", 16)
-        x = draw_text(self.draw, (self.TEXT_LEFT, 548), "Atlas ", mark, INK)
-        x = draw_text(self.draw, (x, 548), "Osobliwości", mark_italic, AMBER)
-        draw_text(self.draw, (x, 548), " Polski", mark, INK)
-        address_right = draw_text(self.draw, (self.TEXT_LEFT, 584), SHOWN_HOST, small, MUTED, tracking=0.5)
+        self.text("the atlas's name", (self.TEXT_LEFT, 548), [("Atlas ", mark, INK, 0), ("Osobliwości", mark_italic, AMBER, 0), (" Polski", mark, INK, 0)])
+        address_right = self.text("the address", (self.TEXT_LEFT, 584), [(SHOWN_HOST, small, MUTED, 0.5)])
         if caption:
             left = 1140 - text_width(caption, small, 0.5)
             if left < address_right + 40:
                 raise ValueError(f"the caption \"{caption}\" runs into the address")
-            draw_text(self.draw, (left, 584), caption, small, MUTED, tracking=0.5)
+            self.text("the caption", (left, 584), [(caption, small, MUTED, 0.5)])
 
     def save(self, path: str):
+        self.apart()
         os.makedirs(os.path.dirname(path), exist_ok=True)
         self.image.convert("RGB").save(path, "PNG", optimize=True)
 
@@ -170,31 +245,29 @@ def draw_atlas(spec: dict, size) -> Drawing:
     serif = fonts("instrument-serif-{part}-400-normal.woff2", 104)
     serif_italic = fonts("instrument-serif-{part}-400-italic.woff2", 104)
     style = {"regular": (serif, INK), "italic": (serif_italic, AMBER)}
-    # The heading word by word, each word keeping its style; a line holds what fits left of the map.
-    words = []
-    for text, kind in spec["headline"]:
-        for index, word in enumerate(text.split(" ")):
-            if word:
-                words.append({"text": word, "kind": kind, "joined": index == 0 and bool(words) and not text.startswith(" ")})
-    def width(line):
-        total = 0.0
+    # The heading word by word, each piece in its style, a space between words; a line holds what fits left of
+    # the map, as on the start page.
+    def pieces(line):
+        out = []
         for index, word in enumerate(line):
-            family = style[word["kind"]][0]
-            if index and not word["joined"]:
-                total += text_width(" ", family)
-            total += text_width(word["text"], family)
-        return total
-    lines = wrap(words, lambda line: Drawing.SERIF_LEFT + width(line) <= 640)
+            if index:
+                out.append((" ",) + style[word[0][1]])
+            out.extend((text,) + style[kind] for text, kind in word)
+        return out
+    def width(line):
+        return sum(text_width(text, family) for text, family, _ in pieces(line))
+    lines = []
+    for word in heading_words(spec["headline"]):
+        if lines and Drawing.SERIF_LEFT + width(lines[-1] + [word]) <= 640:
+            lines[-1].append(word)
+        else:
+            lines.append([word])
     if len(lines) > 3:
         raise ValueError("the heading needs more than three lines")
     for number, line in enumerate(lines):
-        x, y = Drawing.SERIF_LEFT, 236 + 98 * number
-        for index, word in enumerate(line):
-            family, colour = style[word["kind"]]
-            if index and not word["joined"]:
-                x = draw_text(drawing.draw, (x, y), " ", family, colour)
-            x = draw_text(drawing.draw, (x, y), word["text"], family, colour)
-        drawing.check(f"the heading line {number + 1}", x, 640)
+        right = drawing.text(f"the heading line {number + 1}", (Drawing.SERIF_LEFT, 236 + 106 * number),
+                             [(text, family, colour, 0) for text, family, colour in pieces(line)])
+        drawing.check(f"the heading line {number + 1}", right, 640)
     drawing.footer(spec["caption"])
     return drawing
 
@@ -210,21 +283,21 @@ def draw_collection(spec: dict, size) -> Drawing:
     # The name: as large as fits in two lines.
     for title_size in (104, 92, 80):
         serif = fonts("instrument-serif-{part}-400-normal.woff2", title_size)
-        title_lines = wrap(spec["title"].split(), lambda line: Drawing.SERIF_LEFT + text_width(" ".join(line), serif) <= right)
-        if len(title_lines) <= 2:
+        title_lines = lines_of(words_of(spec["title"]), lambda line: text_width(" ".join(line), serif), right - Drawing.SERIF_LEFT, title_size)
+        if title_lines:
             break
     else:
         raise ValueError(f"the name \"{spec['title']}\" needs more than two lines")
     y = 236
     for number, line in enumerate(title_lines):
         if number:
-            y += round(title_size * 0.95)
-        drawing.check(f"the name \"{spec['title']}\"", draw_text(drawing.draw, (Drawing.SERIF_LEFT, y), " ".join(line), serif, INK), right)
+            y += round(title_size * 1.02)
+        drawing.check(f"the name \"{spec['title']}\"", drawing.text(f"the name line {number + 1}", (Drawing.SERIF_LEFT, y), [(" ".join(line), serif, INK, 0)]), right)
     # The teaser in amber italic, as large as fits in two lines.
     for teaser_size in (40, 36, 32):
         italic = fonts("instrument-serif-{part}-400-italic.woff2", teaser_size)
-        teaser_lines = wrap(spec["teaser"].split(), lambda line: Drawing.TEXT_LEFT + text_width(" ".join(line), italic) <= right)
-        if len(teaser_lines) <= 2:
+        teaser_lines = lines_of(words_of(spec["teaser"]), lambda line: text_width(" ".join(line), italic), right - Drawing.TEXT_LEFT, teaser_size)
+        if teaser_lines:
             break
     else:
         raise ValueError(f"the teaser \"{spec['teaser']}\" needs more than two lines")
@@ -232,7 +305,7 @@ def draw_collection(spec: dict, size) -> Drawing:
     for number, line in enumerate(teaser_lines):
         if number:
             y += round(teaser_size * 1.25)
-        drawing.check(f"the teaser \"{spec['teaser']}\"", draw_text(drawing.draw, (Drawing.TEXT_LEFT, y), " ".join(line), italic, AMBER), right)
+        drawing.check(f"the teaser \"{spec['teaser']}\"", drawing.text(f"the teaser line {number + 1}", (Drawing.TEXT_LEFT, y), [(" ".join(line), italic, AMBER, 0)]), right)
     if y > 480:
         raise ValueError(f"the teaser of \"{spec['title']}\" comes too close to the atlas's name")
     if not has_map:
@@ -244,32 +317,37 @@ def draw_collection(spec: dict, size) -> Drawing:
         word_left = 1120 - text_width(count["word"], word_font)
         if min(number_left, word_left) < right + 40:
             raise ValueError(f"the count of \"{spec['title']}\" runs into the name")
-        draw_text(drawing.draw, (number_left, 372), count["number"], number_font, AMBER)
-        draw_text(drawing.draw, (word_left, 446), count["word"], word_font, INK_2)
+        drawing.text("the number", (number_left, 372), [(count["number"], number_font, AMBER, 0)])
+        drawing.text("the word under the number", (word_left, 446), [(count["word"], word_font, INK_2, 0)])
     drawing.footer(spec.get("caption", ""))
     return drawing
 
 
 def main() -> int:
-    # What to draw comes from the atlas's own data, through scripts/og-images.mjs.
-    listing = json.loads(subprocess.run(["node", os.path.join(ROOT, "scripts", "og-images.mjs")], cwd=ROOT, check=True,
-                                        capture_output=True, text=True).stdout)
+    # What to draw comes from the atlas's own data, through scripts/og-images.mjs; its errors show here.
+    listed = subprocess.run(["node", os.path.join(ROOT, "scripts", "og-images.mjs")], cwd=ROOT, check=True,
+                            stdout=subprocess.PIPE, encoding="utf-8")
+    if not listed.stdout.strip():
+        raise SystemExit("scripts/og-images.mjs printed nothing")
+    listing = json.loads(listed.stdout)
     size = (listing["width"], listing["height"])
     manifest = {}
     for entry in listing["images"]:
         spec = entry["drawn"]
         drawing = draw_atlas(spec, size) if "headline" in spec else draw_collection(spec, size)
-        drawing.save(os.path.join(ROOT, entry["file"]))
-        manifest[entry["file"]] = spec
+        path = os.path.join(ROOT, entry["file"])
+        drawing.save(path)
+        with open(path, "rb") as handle:
+            manifest[entry["file"]] = {"sha256": hashlib.sha256(handle.read()).hexdigest(), "drawn": spec}
     # Images of collections that are no longer in the atlas go.
     og_dir = os.path.join(ROOT, os.path.dirname(listing["manifest"]))
     for name in sorted(os.listdir(og_dir)):
-        path = os.path.join(og_dir, name)
-        if name.endswith(".png") and os.path.relpath(path, ROOT) not in manifest:
-            os.remove(path)
-            print(f"Removed {os.path.relpath(path, ROOT)}")
+        path = os.path.relpath(os.path.join(og_dir, name), ROOT).replace(os.sep, "/")
+        if name.endswith(".png") and path not in manifest:
+            os.remove(os.path.join(ROOT, path))
+            print(f"Removed {path}")
     # One image per line, so a redrawn image shows as one changed line.
-    lines = [f"  {json.dumps(file)}: {json.dumps(spec, ensure_ascii=False)}" for file, spec in manifest.items()]
+    lines = [f"  {json.dumps(file)}: {json.dumps(entry, ensure_ascii=False)}" for file, entry in manifest.items()]
     with open(os.path.join(ROOT, listing["manifest"]), "w", encoding="utf-8") as handle:
         handle.write("{\n" + ",\n".join(lines) + "\n}\n")
     total = sum(os.path.getsize(os.path.join(ROOT, file)) for file in manifest)

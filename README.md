@@ -81,12 +81,12 @@ Najprostsza ścieżka:
 
 1. Dodaj plik danych w `data/`, np. `fish.js`.
 2. Utrzymaj pola pozycji zgodne z obecnymi kolekcjami: `id`, `name_pl`, `name_lat`, `category`, `hook`, `quiz_angle`, `safety_note`, `region_pl`, `habitat_pl`, `occurrence_note` oraz pola zdjęć/licencji.
-3. Dopisz kolekcję w `data/collections.js`, z plikami danych na liście `scripts` (ładują się dopiero po otwarciu kolekcji) i krótkim opisem szuflady w `teaser`.
+3. Dopisz kolekcję w `data/collections.js`, z plikami danych na liście `scripts` (ładują się dopiero po otwarciu kolekcji), krótkim opisem szuflady w `teaser` i liczbą kart w `count_label` (np. „30 osobliwości”: liczba i słowo; pokazują ją szuflada, nagłówek kolekcji i obrazek podglądu linku, a `npm run test:collections` sprawdza, że liczba się zgadza).
    - Jeśli „Występowanie w Polsce”, „Region” i „Siedlisko” nie pasują do kolekcji (kopalnia, zorza, minerał), nazwij je po swojemu w `card_labels`, np. `card_labels: { occurrence: "Miejsce i obiekt", region: "Miejsce", habitat: "Obiekt" }`. Angielskie odpowiedniki idą do `card_labels` kolekcji w `data/i18n.js`.
    - Tekst w polu nie powtarza swojej etykiety: przy etykiecie „Mechanizm” piszemy „system pochylni przenosi…”, a nie „Mechanizm: system pochylni…”.
    - Pole `level` to zwykle motyw ciekawostki (karta pokazuje „Motyw: solne UNESCO”). Tylko wartości „łatwy start”, „średni” i „trudniejszy” karta podpisuje jako „Poziom”.
 4. Dodaj angielskie teksty:
-   - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser`;
+   - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser` i `count_label` (np. „30 curiosities”);
    - teksty kart w `data/i18n/<kolekcja>.en.js`, na liście `scripts` kolekcji. Każda karta ma tu każde pole (`name`, `hook`, `quiz_angle`, `safety_note`, `region`, `habitat`, `occurrence`, `level`, a dla miejsc także `latin`, czyli podpis pod nazwą), przetłumaczone 1:1 z polskiego. Karta bez angielskiego tekstu pokazałaby polski, a `npm run test:collections` tego pilnuje.
 5. Kolejność plików na liście `scripts`: dane, paczka zdjęć, `data/i18n/<kolekcja>.en.js`, punkty mapy, źródła występowania (jeśli są), a na końcu ciekawostki `data/facts/<kolekcja>.facts.js`.
    - Ciekawostki pisze się w repozytorium, tylko sprawdzone w źródłach (zasady i statusy: `docs/content/README-weryfikacja.md`). Dopóki pliku nie ma, kolekcja stoi na liście `FACTS_PENDING` w `scripts/validate-facts.mjs` i nie ma go na liście `scripts`. Kolekcja działa wtedy bez ciekawostek, a „Ciekawostka dnia” ją pomija.
@@ -96,7 +96,7 @@ Najprostsza ścieżka:
    - `npm run build:start-page`;
    - `npm run build:search-index`, żeby karty trafiły do wyszukiwarki na stronie głównej;
    - `npm run build:map-points`, żeby punkty trafiły na mapę wszystkich miejsc;
-   - `python scripts/generate-og-image.py`: nowa kolekcja dostaje własne obrazki podglądu linku, a obrazek atlasu podaje liczbę kolekcji i miejsc.
+   - `python scripts/generate-og-image.py`: nowa kolekcja dostaje własne obrazki podglądu linku, a obrazek atlasu podaje liczbę kolekcji i miejsc. Vercel ich nie rysuje, więc obrazki i `assets/og/manifest.json` trafiają do repozytorium.
 8. Zmień liczbę kolekcji w tekstach strony głównej:
    - liczebnik w nagłówku szuflad (`collectionsTitle` w `data/i18n.js`) i w teście, który go pilnuje;
    - „N kolekcji” w `metaStartShare` (oba języki) i w `index.html`: w opisach podglądu linku i w linijce nad tytułem strony.
@@ -190,7 +190,7 @@ Najprostsza ścieżka:
 - **Ikony i obrazki do udostępniania:** `python scripts/generate-favicons.py` i `python scripts/generate-og-image.py` (wymagają Pillow, a drugi także Node.js).
   - Znak to pochyłe „A” z Instrument Serif.
   - Obrazek atlasu pokazuje tytuł strony głównej i mapę Polski z punktów atlasu (granice: Natural Earth, domena publiczna).
-  - Każda kolekcja ma własny obrazek: nazwę, opis z szuflady i liczbę osobliwości, a obok mapę swoich miejsc. Kolekcja bez miejsc na mapie pokazuje zamiast niej dużą liczbę osobliwości.
+  - Każda kolekcja ma własny obrazek z nazwą, opisem z szuflady i liczbą osobliwości, a obok z mapą swoich miejsc. Kolekcja bez miejsc na mapie ma zamiast mapy liczbę osobliwości wypisaną dużymi cyframi.
   - Wszystkie są po polsku i po angielsku (opis niżej, w „Wyszukiwarki i podgląd linków”). Nie ma na nich zdjęć, bo podgląd linku nie zmieści ich podpisów.
 
 ## Zasady treści
@@ -228,7 +228,7 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 - Po `npm run build` Vercel uruchamia `scripts/version-assets.mjs`. Skrypt dopisuje do adresu każdego pliku z `css/`, `js/`, `data/` i `fonts/` skrót jego treści, np. `/js/app.js?v=1a2b3c4d5e`.
   - Robi to w stronach, w arkuszu stylów (fonty), w liście plików kolekcji (`data/collections.js`) i w `js/app.js` (spis kart do wyszukiwarki, punkty mapy).
-  - Skrót dostaje też obrazek podglądu linku każdej strony (`og:image` i `twitter:image`).
+  - Skrót dostaje też obrazek podglądu linku każdej strony (`og:image` i `twitter:image`), ale tylko dla serwisów, które pokazują podglądy (opis niżej, w „Wyszukiwarki i podgląd linków”). Przeglądarka obrazków podglądu nie pobiera, a `vercel.json` nie daje im roku w pamięci.
 - Plik pod adresem z `?v=` przeglądarka trzyma przez rok (`vercel.json`). Zmieniony plik dostaje nowy skrót, czyli nowy adres, więc przychodzi od razu.
 - Strony i pliki bez `?v=` przeglądarka sprawdza przy każdej wizycie, jak dotąd. Adres, któremu skrypt nie dopisał skrótu, działa więc jak wcześniej, tylko bez długiej pamięci.
 - Nowy plik ładowany przez stronę trzeba podać pełnym adresem w cudzysłowie, np. `"/data/nowy-plik.js"`. Tylko taki adres skrypt znajdzie.
@@ -286,8 +286,8 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
   - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, na mapie albo na quizie, a bez skryptów pokazuje tekst karty albo listę kart.
   - **Obrazek podglądu:** kolekcja i jej karty pokazują obrazek kolekcji, a strona główna, mapa i quiz obrazek atlasu, zawsze w języku strony (`scripts/og-images.mjs`). Nie ma na nich zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
     - Obrazki rysuje `python scripts/generate-og-image.py` (`assets/og-image.png` i `assets/og/`), a w `assets/og/manifest.json` zapisuje, co narysował.
-    - Gdy zmieni się nazwa kolekcji, jej opis z szuflady (`teaser`), liczba kart albo punkt na mapie, `npm run test:technical` zatrzyma się, dopóki obrazki nie zostaną narysowane od nowa.
-    - Przy wdrożeniu adres obrazka dostaje skrót jego treści (`?v=…`, niżej „Pamięć przeglądarki”). Nowy obrazek ma więc nowy adres i serwisy, które zapamiętały stary podgląd, pobiorą go od nowa.
+    - Gdy zmieni się nazwa kolekcji, jej opis z szuflady (`teaser`), liczba osobliwości (`count_label`), nagłówek strony głównej albo punkt na mapie, `npm run build` i `npm run test:technical` zatrzymają się, dopóki obrazki nie zostaną narysowane od nowa. Tak samo, gdy obrazka brakuje albo plik nie jest tym, który zapisał skrypt (manifest podaje skrót każdego pliku).
+    - Przy wdrożeniu adres obrazka dostaje skrót jego treści (`?v=…`, wyżej „Pamięć przeglądarki”). Serwis, który ponownie odczyta stronę, znajdzie więc nowy adres i pobierze nowy obrazek. Podgląd, który serwis już zapamiętał, zmieni się dopiero wtedy.
   - Wyniki (`atlas/`, `en/`, `en.html`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
 - **Dane strukturalne (JSON-LD):** tylko to, co atlas sam pokazuje: nazwy z tytułów stron i adresy stron.

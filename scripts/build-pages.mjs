@@ -11,7 +11,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { buildMapPoints } from "./build-map-points.mjs";
 import { buildStartPage, loadAtlas } from "./build-start-page.mjs";
-import { atlasImageFile, collectionImageFile, ogImages } from "./og-images.mjs";
+import { REDRAW, atlasImageFile, collectionImageFile, imageProblems, ogImages } from "./og-images.mjs";
 
 const SITE_NAME = "Atlas Osobliwości Polski";
 export const MAP_ROUTE = "/mapa";
@@ -23,19 +23,20 @@ export const LANGUAGES = ["pl", "en"];
 const DAILY_QUESTIONS = 5;
 const MIX_QUESTIONS = 10;
 // Words only the built pages use: for readers without scripts, and the descriptions of the link preview images
-// (scripts/og-images.mjs). index.html gives the Polish start page the same description of the atlas's image.
+// (scripts/og-images.mjs; {heading} is the start page's heading). index.html gives the Polish start page the
+// same description of the atlas's image.
 const STATIC_WORDS = {
   pl: {
     allCards: "wszystkie karty",
     quizNeedsScripts: "Quiz działa w przeglądarce z włączonym JavaScriptem. Karty, z których powstają pytania, są w kolekcjach:",
-    imageAlt: "Atlas Osobliwości Polski: „Polska, jakiej nie pokazują przewodniki” i mapa Polski z punktów miejsc z atlasu",
+    imageAlt: "Atlas Osobliwości Polski: „{heading}” i mapa Polski z punktów miejsc z atlasu",
     collectionImageAlt: "Atlas Osobliwości Polski, kolekcja „{title}”: {count} – {teaser}",
     collectionMapImageAlt: "Atlas Osobliwości Polski, kolekcja „{title}”: {count} – {teaser} – i mapa Polski z miejscami z tej kolekcji"
   },
   en: {
     allCards: "all cards",
     quizNeedsScripts: "The quiz works in a browser with JavaScript turned on. The cards its questions come from are in these collections:",
-    imageAlt: "Atlas of Polish Curiosities: “The Poland guidebooks leave out” and a map of Poland drawn with the places of the atlas",
+    imageAlt: "Atlas of Polish Curiosities: “{heading}” and a map of Poland drawn with the places of the atlas",
     collectionImageAlt: "Atlas of Polish Curiosities, the “{title}” collection: {count} – {teaser}",
     collectionMapImageAlt: "Atlas of Polish Curiosities, the “{title}” collection: {count} – {teaser} – and a map of Poland with the collection's places"
   }
@@ -305,6 +306,9 @@ function collectionPhotoHtml(collection, cover, texts) {
 export function buildPages(win, indexHtml) {
   const origin = canonicalOrigin(indexHtml);
   const images = ogImages(win, (language) => languageTexts(win, language), buildMapPoints(win).places);
+  // A page must not describe an image that shows something else, so images drawn from older data stop the build.
+  const problems = imageProblems(images);
+  if (problems.length) throw new Error(`link preview images: ${problems.join("; ")}; ${REDRAW}`);
   const pages = [];
   for (const language of LANGUAGES) {
     const image = (collection) => {

@@ -800,6 +800,10 @@ for (const collection of collections) {
   assert(startPage.covers[collection.id], `${collection.id} should have a drawer photo in scripts/build-start-page.mjs`);
   assert(collection.teaser, `${collection.id} should have a short teaser for its drawer`);
   assert(i18n.collections.en[collection.id].teaser, `${collection.id} should have an English drawer teaser`);
+  // The drawer, the collection's heading and its link preview image show this count.
+  for (const label of [collection.count_label, i18n.collections.en[collection.id].count_label]) {
+    assert(String(label || "").startsWith(`${collection.items.length} `), `${collection.id}: the count label "${label}" should start with the number of cards, ${collection.items.length}`);
+  }
 }
 // The drawer heading spells the number of collections out.
 const numberWords = { 19: ["Dziewiętnaście", "Nineteen"] };
