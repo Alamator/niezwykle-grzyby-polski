@@ -29,7 +29,7 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
   - repozytorium RE-BUŚ (wysokość stacji na Hali Gąsienicowej);
   - Radio Kraków;
   - angielska Wikipedia.
-- Trzech zdjęć (Wrocław, Suwałki, Kalisz) nie dało się stąd obejrzeć, bo Commons blokował zapytania. Autora i licencję sprawdzono.
+- Trzech zdjęć (Wrocław, Suwałki, Kalisz) nie dało się początkowo stąd obejrzeć, bo Commons blokował zapytania. Autora i licencję sprawdzono, a same zdjęcia obejrzano później tego dnia (niżej, „Decyzje z 31.10.2026”).
 - Ciekawostki oparte na tych źródłach mają dlatego status „checked”, a nie „verified”.
 - Linki do Wikipedii prowadzą do sprawdzanej wersji artykułu (`oldid`).
 
@@ -87,12 +87,13 @@ Ciekawostki szuflady to sprawdzone teksty z `new_facts`. Od 31.10.2026 poprawia 
 
 ## Do sprawdzenia przez Roberta
 
-- **Zdjęcia na podglądzie:** Wrocław, Suwałki i Kalisz. Nie dało się ich stąd obejrzeć; sprawdzone są tylko autor i licencja.
+- **Zdjęcia na podglądzie:** Wrocław, Suwałki i Kalisz. Nie dało się ich stąd obejrzeć; sprawdzone są tylko autor i licencja. Obejrzane później 31.10.2026 (niżej).
 - **Przypis „c” przy Kaliszu:** w tabeli rocznika GUS Poznań 2023 wiersz Kalisza ma przypis „c”, ale jego treści nie znamy (PDF się stąd nie otwiera).
 - **Kamienica 2024 i 388 cm śniegu na Kasprowym:** wejdą, jeśli potwierdzisz je w źródłach IMGW.
 - **Adresy kart:** pięć różni się od szkicu, np. `wroclaw-srednia-roczna` zamiast `wroclaw-biegun-ciepla`; pełna lista jest w `id_changes`. Po publikacji adresy nie powinny się już zmieniać.
 
-## Decyzje z 31.10.2026: 388 cm i Kamienica
+## Decyzje z 31.10.2026: 388 cm, Kamienica i zdjęcie Kalisza
 
 - **388 cm śniegu na Kasprowym Wierchu:** potwierdza je artykuł w „Przeglądzie Geofizycznym” (2018, s. 367: O. Skrynyk, L. Rymarowicz) oparty na archiwum IMGW-PIB. W marcu 1939 r. maksymalna grubość pokrywy śnieżnej na Kasprowym wynosiła 388 cm. Dnia ani słowa „rekord” artykuł nie podaje. 355 cm to maksimum lat 1966–2023 (Quaestiones Geographicae 2025), a 335 cm (2009) to wypowiedź w mediach. Te liczby dotyczą różnych okresów. Według decyzji Roberta 388 cm weszło jako ciekawostka F1543 na karcie „Kasprowy Wierch — średni roczny opad ok. 1800 mm”, bez dnia i bez słowa „rekord”. Osobnej karty nie ma.
 - **Kamienica 2024:** zostaje poza atlasem. Wartości 254,5 mm nie ma w żadnym znalezionym źródle. Komunikat IMGW-PIB z 14.09.2024 (znany tylko z wyników wyszukiwania) podaje 214,5 mm za okno 13.09, 20:00 – 14.09, 20:00, a abstrakt konferencyjny IMGW-PIB z 2025 r. 228,4 mm za 14.09. Według biuletynu PSHM najwyższy opad dobowy 14.09.2024 zanotowano na Śnieżniku (218,8 mm).
+- **Zdjęcia Wrocławia, Suwałk i Kalisza:** obejrzane przez miniatury Commons (`commons.wikimedia.org/w/thumb.php`). Wrocław (Odra i most Sikorskiego o zmierzchu) i Suwałki (zegar słoneczny w parku zimą) pasują do kart i zostają. Zdjęcie Kalisza było małe (680×510 px) i pokazywało osiedle bez rozpoznawalnego obiektu. Według decyzji Roberta zastąpiło je zdjęcie ratusza i Głównego Rynku z lotu ptaka: „Kalisz Town Hall 2019 P04.jpg”, Fallaner, 23.06.2019, CC BY-SA 4.0, 4000×3000 px. Ratusz jest ten sam co na zdjęciu w artykule „Ratusz w Kaliszu” w polskiej Wikipedii (biała wieża z zegarem). Miejsce zdjęcia podane na Commons leży ok. 100 m od ratusza (Główny Rynek 20), a niemiecka Wikipedia używa go w artykule o tym ratuszu.

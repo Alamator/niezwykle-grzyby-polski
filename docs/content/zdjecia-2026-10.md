@@ -119,3 +119,4 @@ Linki `Special:Redirect` przekierowują teraz przeglądarkę na nowy serwer mini
 - **Kadr kontekstowy:** zdjęcia miejsca rekordu, a nie samego zjawiska, mają to oznaczenie. Zdjęcie wału chmur halnego to „Kadr reprezentatywny”, bo nie pokazuje halnego z 1968 r.
 - **Derecho z 11 sierpnia 2017 r.:** szkic nie miał zdjęcia. Doszło zdjęcie połamanych sosen koło Lipusza (Andrzej Otrębski, CC BY-SA 4.0), zrobione 29 sierpnia 2017 r. Pokazuje skutki tej nawałnicy, więc nie ma oznaczenia.
 - **Bez zdjęcia (1):** rok 2024. Karta dotyczy całej Polski, więc żadne wolne zdjęcie do niej nie pasuje.
+- **Kalisz, zmiana po obejrzeniu (31.10.2026):** zamiast małej panoramy osiedla (680×510 px, bez rozpoznawalnego obiektu) — ratusz i Główny Rynek z lotu ptaka (Fallaner, CC BY-SA 4.0, 4000×3000 px). Poprawiony wyżej podpis dotyczył starego zdjęcia. Zdjęcia Wrocławia i Suwałk zostają (`rekordy-atmosferyczne-2026-10.md`).
