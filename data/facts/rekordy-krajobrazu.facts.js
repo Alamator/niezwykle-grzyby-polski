@@ -887,8 +887,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1126",
      "icon": "🎨",
-     "pl": "Stawy (Purpurowe, Błękitne, Zielone i okresowe Żółte) powstały w wyrobiskach kopalń pirytu czynnych do 1925 r.",
-     "en": "The ponds (Purple, Blue, Green and the seasonal Yellow) formed in the pits of pyrite mines that worked until 1925.",
+     "pl": "Stawy (m.in. Purpurowe, Błękitne i Zielone) powstały w wyrobiskach kopalń pirytu czynnych do 1925 r.",
+     "en": "The ponds (including the Purple, Blue and Green ones) formed in the pits of pyrite mines that worked until 1925.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kolorowe_jeziorka",
@@ -1229,8 +1229,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1148",
      "icon": "🏔️",
-     "pl": "Najwyższy szczyt Gór Stołowych (919 m n.p.m.). Z Karłowa prowadzą tam kamienne stopnie. Szlak schodowy jest dziełem Franza Pabla, sołtysa Karłowa.",
-     "en": "The highest peak of the Table Mountains (919 m a.s.l.). Stone steps lead up to it from Karłów. The stairway is the work of Franz Pabel, the village head of Karłów.",
+     "pl": "Najwyższy szczyt Gór Stołowych. Z Karłowa prowadzą tam kamienne stopnie. Szlak schodowy jest dziełem Franza Pabla, sołtysa Karłowa.",
+     "en": "The highest peak of the Table Mountains. Stone steps lead up to it from Karłów. The stairway is the work of Franz Pabel, the village head of Karłów.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Szczeliniec_Wielki",

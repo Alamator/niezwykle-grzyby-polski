@@ -187,10 +187,6 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zniczek_%28zwyczajny%29",
        "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://pl.wikipedia.org/wiki/Zniczek_(zwyczajny)",
-       "label": "Wikipedia (PL)"
       }
      ],
      "status": "checked"

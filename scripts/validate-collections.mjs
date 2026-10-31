@@ -420,7 +420,7 @@ assert.equal(
 // The owner's rules for this drawer (30-31.10.2026): IMGW-PIB regards Siedlce 1940 as the official cold
 // record, so Żywiec 1929 is never called official; Słubice is the record announced by IMGW for synoptic
 // stations. What was disputed, rested on own calculations or repeated an existing card stays out.
-// Every text of the card, also the photo description, the safety note and its fun facts once they come.
+// Every text of the card, also the photo description, the safety note and its fun facts.
 const cardTexts = (item) => {
   const english = i18n.collections.en["rekordy-atmosferyczne"].items[item.id] || {};
   const facts = weatherRecords.facts?.[item.id]?.facts || [];
@@ -431,6 +431,12 @@ for (const id of ["zywiec-1929", "slubice-40-5"]) {
   const item = weatherRecords.items.find((entry) => entry.id === id);
   assert(item, `weather records should include ${id}`);
   assert(!/oficjaln/i.test(cardTexts(item).pl) && !/official/i.test(cardTexts(item).en), `${id} should not call its record official`);
+}
+// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 (254,5 mm in no source) stays out.
+for (const item of weatherRecords.items) {
+  const { pl, en } = cardTexts(item);
+  assert(!/Ko[lł]ud/i.test(`${pl} ${en}`), `${item.id} should not mention Kołuda Wielka`);
+  assert(!/254[,.]5/.test(`${pl} ${en}`), `${item.id} should not give 254,5 mm (Kamienica 2024 is not confirmed)`);
 }
 for (const id of ["koluda-wielka-40-6", "rozdziele-noc-28-4", "opole-dni-upalne", "kasprowy-88-dni-mrozu", "krosno-burze",
   "cisnienie-skrajnosci", "hel-najwiecej-slonca", "najmniej-slonca-gory", "siedlce-minus-41", "litworowy-kociol-41-1",

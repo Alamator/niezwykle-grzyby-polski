@@ -79,11 +79,11 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
 | 388 cm śniegu na Kasprowym | źródła podają 355 albo 335 cm; do sprawdzenia przez Roberta w Vademecum IMGW |
 
 Nowe karty sprawdza też `npm run test:collections`:
-- Żywiec i Słubice nie nazywają swojego rekordu oficjalnym, także w ciekawostkach, gdy przyjdą;
+- Żywiec i Słubice nie nazywają swojego rekordu oficjalnym, także w ciekawostkach, a szuflada nie wspomina Kołudy Wielkiej ani 254,5 mm z Kamienicy;
 - pominięte pozycje nie wracają;
 - liczba kart i zdjęć się zgadza.
 
-`npm run test:facts` pilnuje, żeby ciekawostki szuflady były tymi sprawdzonymi z `new_facts`.
+Ciekawostki szuflady to sprawdzone teksty z `new_facts`. Od 31.10.2026 poprawia się je w `data/facts/rekordy-atmosferyczne.facts.js`, jak ciekawostki innych szuflad (`README-weryfikacja.md`).
 
 ## Do sprawdzenia przez Roberta
 
@@ -91,3 +91,8 @@ Nowe karty sprawdza też `npm run test:collections`:
 - **Przypis „c” przy Kaliszu:** w tabeli rocznika GUS Poznań 2023 wiersz Kalisza ma przypis „c”, ale jego treści nie znamy (PDF się stąd nie otwiera).
 - **Kamienica 2024 i 388 cm śniegu na Kasprowym:** wejdą, jeśli potwierdzisz je w źródłach IMGW.
 - **Adresy kart:** pięć różni się od szkicu, np. `wroclaw-srednia-roczna` zamiast `wroclaw-biegun-ciepla`; pełna lista jest w `id_changes`. Po publikacji adresy nie powinny się już zmieniać.
+
+## Decyzje z 31.10.2026: 388 cm i Kamienica
+
+- **388 cm śniegu na Kasprowym Wierchu:** potwierdza je artykuł w „Przeglądzie Geofizycznym” (2018, s. 367: O. Skrynyk, L. Rymarowicz) oparty na archiwum IMGW-PIB. W marcu 1939 r. maksymalna grubość pokrywy śnieżnej na Kasprowym wynosiła 388 cm. Dnia ani słowa „rekord” artykuł nie podaje. 355 cm to maksimum lat 1966–2023 (Quaestiones Geographicae 2025), a 335 cm (2009) to wypowiedź w mediach. Te liczby dotyczą różnych okresów. Według decyzji Roberta 388 cm weszło jako ciekawostka F1543 na karcie „Kasprowy Wierch — średni roczny opad ok. 1800 mm”, bez dnia i bez słowa „rekord”. Osobnej karty nie ma.
+- **Kamienica 2024:** zostaje poza atlasem. Wartości 254,5 mm nie ma w żadnym znalezionym źródle. Komunikat IMGW-PIB z 14.09.2024 (znany tylko z wyników wyszukiwania) podaje 214,5 mm za okno 13.09, 20:00 – 14.09, 20:00, a abstrakt konferencyjny IMGW-PIB z 2025 r. 228,4 mm za 14.09. Według biuletynu PSHM najwyższy opad dobowy 14.09.2024 zanotowano na Śnieżniku (218,8 mm).

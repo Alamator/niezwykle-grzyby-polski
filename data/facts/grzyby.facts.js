@@ -964,8 +964,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0058",
      "icon": "🧪",
-     "pl": "Kumuluje toksyczny arsen, dlatego nie warto go zbierać w pobliżu terenów zanieczyszczonych.",
-     "en": "It accumulates toxic arsenic, so it's best not to pick it near polluted areas.",
+     "pl": "Gromadzi toksyczny arsen.",
+     "en": "It accumulates toxic arsenic.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Ramaria_botrytis",

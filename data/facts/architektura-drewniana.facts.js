@@ -195,10 +195,6 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1053",
        "label": "whc.unesco.org"
-      },
-      {
-       "url": "https://whc.unesco.org/en/list/1053/",
-       "label": "whc.unesco.org"
       }
      ],
      "status": "checked"

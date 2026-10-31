@@ -17,7 +17,7 @@ Gdy zmieniała się nazwa polska (albo łacińska), dawna nazwa trafiła do pola
 
 Lista jest w `data/collections.js` (`WITHDRAWN`). Pliki `data/facts/*.facts.js` powstają poza repo, dlatego wycofane ciekawostki są odfiltrowywane przy wczytywaniu kolekcji, a nie usuwane z tych plików. Przy następnym generowaniu faktów można je pominąć; `npm run test:facts` pilnuje, żeby lista zgadzała się z danymi.
 
-31.10.2026 wycofane ciekawostki usunięto z plików `data/facts/*.facts.js` (`README-weryfikacja.md`); lista `WITHDRAWN` ma teraz tylko karty.
+31.10.2026 sześć wycofanych ciekawostek usunięto z plików `data/facts/*.facts.js` (`README-weryfikacja.md`); lista `WITHDRAWN` ma teraz tylko karty. F1073 przywrócono już po audycie 30.10.2026 (`audyt-2026-10-30.md`).
 
 ### Karty
 
@@ -39,7 +39,7 @@ Lista jest w `data/collections.js` (`WITHDRAWN`). Pliki `data/facts/*.facts.js` 
 | F0143 | Grzyby: Żółciak siarkowy | Surowe lub niedogotowane owocniki mogą wywoływać zatrucia, objawiające się głównie nudnościami, wymiotami i zawrotami głowy. | „surowe lub niedogotowane” sugeruje jadalność po ugotowaniu. |
 | F0170 | Grzyby: Opieńka miodowa sensu lato | Surowa lub niedogotowana może być trująca. | „surowa lub niedogotowana” sugeruje jadalność po ugotowaniu. |
 | F0985 | Skamieniałości: Pterozaury z Owadowa-Brzezinek | *Ctenochasma* miała w szczękach ok. 250 grzebieniastych zębów do filtrowania wody. | Rodzaj niepotwierdzony w Owadowie-Brzezinkach, fakt nie dotyczy karty (C121). |
-| F1073 | Atmosfera i astronomia: Siedlce i rekord mrozu | 11 stycznia 1940 r. w Siedlcach zanotowano −41 °C. To najniższa oficjalna temperatura w Polsce. | „najniższa oficjalna temperatura” przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929). |
+| F1073 | Atmosfera i astronomia: Siedlce i rekord mrozu | 11 stycznia 1940 r. w Siedlcach zanotowano −41 °C. To najniższa oficjalna temperatura w Polsce. | „najniższa oficjalna temperatura” przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929). **30.10.2026 przywrócona:** według IMGW-PIB oficjalny rekord zimna to −41,0 °C z Siedlec (`audyt-2026-10-30.md`). |
 
 ## Pozycje według kolekcji
 
@@ -249,7 +249,7 @@ Lista jest w `data/collections.js` (`WITHDRAWN`). Pliki `data/facts/*.facts.js` 
 
 | ID | Karta / temat | Status | Co zrobiono |
 | --- | --- | --- | --- |
-| C129 | Siedlce i oficjalny rekord mrozu / Litworowy Kocioł | ✅ wprowadzona | „Siedlce i rekord mrozu” (dawniej: „…i oficjalny rekord mrozu”); notka: pomiar −41 °C z 1940 r. budzi wątpliwości, a −41,1 °C zanotowano 17.02.2025 w Litworowym Kotle. Ciekawostka F1073 („najniższa oficjalna temperatura”) wycofana, bo przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929). EN zaktualizowane. |
+| C129 | Siedlce i oficjalny rekord mrozu / Litworowy Kocioł | ✅ wprowadzona | „Siedlce i rekord mrozu” (dawniej: „…i oficjalny rekord mrozu”); notka: pomiar −41 °C z 1940 r. budzi wątpliwości, a −41,1 °C zanotowano 17.02.2025 w Litworowym Kotle. Ciekawostka F1073 („najniższa oficjalna temperatura”) wycofana, bo przeczy F1070 (oficjalny rekord IMGW: −40,6 °C, Żywiec 1929). EN zaktualizowane. 30.10.2026 F1073 przywrócono, a F1070 poprawiono: według IMGW-PIB oficjalny rekord to −41,0 °C z Siedlec (`audyt-2026-10-30.md`). |
 | C130 | Bieszczadzki Park Gwiezdnego Nieba | ✅ wprowadzona | Oficjalna nazwa: Park Gwiezdnego Nieba „Bieszczady” (dawna nazwa „Bieszczadzki Park Gwiezdnego Nieba” zostaje w synonimach); data powołania jest w ciekawostce F1047. |
 | C131 | Geminidy | 📌 w ciekawostce | Phaethon jako ciało macierzyste Geminidów (najpewniej odewoluowane jądro komety) jest w ciekawostce F1056; karta nie twierdziła inaczej. |
 | C132 | Białe noce żeglarskie | ✅ wprowadzona | Region białych nocy żeglarskich ujednolicony z ciekawostką F1042: „zwłaszcza klify Jastrzębiej Góry” zamiast Rozewia, Władysławowa i Helu. |

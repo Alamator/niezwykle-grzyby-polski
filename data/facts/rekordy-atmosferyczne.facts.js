@@ -231,7 +231,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
      "sources": [
       {
        "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
-       "label": "IMGW-PIB Obserwator, 19.11.2020"
+       "label": "IMGW-PIB Obserwator 2020"
       },
       {
        "url": "https://rebus.us.edu.pl/handle/20.500.12128/16240",
@@ -252,7 +252,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       },
       {
        "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
-       "label": "IMGW-PIB Obserwator, 19.11.2020"
+       "label": "IMGW-PIB Obserwator 2020"
       }
      ],
      "status": "checked"
@@ -265,7 +265,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
      "sources": [
       {
        "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
-       "label": "IMGW-PIB Obserwator, 19.11.2020"
+       "label": "IMGW-PIB Obserwator 2020"
       }
      ],
      "status": "checked"
@@ -296,7 +296,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
      "sources": [
       {
        "url": "https://www.igipz.pan.pl/tl_files/igipz/ZGiHGiW/sgcb/sgbc_33/33_1.pdf",
-       "label": "T. Niedźwiedź (IGiPZ PAN, 1999)"
+       "label": "T. Niedźwiedź (IGiPZ PAN 1999)"
       }
      ],
      "status": "checked"
@@ -313,7 +313,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       },
       {
        "url": "https://www.igipz.pan.pl/tl_files/igipz/ZGiHGiW/sgcb/sgbc_33/33_1.pdf",
-       "label": "T. Niedźwiedź (IGiPZ PAN, 1999)"
+       "label": "T. Niedźwiedź (IGiPZ PAN 1999)"
       }
      ],
      "status": "checked"
@@ -361,6 +361,19 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       }
      ],
      "status": "checked"
+    },
+    {
+     "id": "F1543",
+     "icon": "❄️",
+     "pl": "W marcu 1939 r. pokrywa śnieżna na Kasprowym Wierchu osiągnęła 388 cm grubości. Obserwatorium meteorologiczne działało tam wtedy od nieco ponad roku.",
+     "en": "In March 1939 the snow cover on Kasprowy Wierch reached 388 cm. The meteorological observatory there had been working for just over a year.",
+     "sources": [
+      {
+       "url": "https://bibliotekanauki.pl/articles/163867",
+       "label": "Przegląd Geofizyczny 2018"
+      }
+     ],
+     "status": "verified"
     }
    ],
    "notes": []
@@ -410,7 +423,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
     {
      "id": "F1530",
      "icon": "🌬️",
-     "pl": "Według IMGW-PIB prawdopodobnie najwyższą prędkość wiatru w historii obserwacji na Kasprowym Wierchu odnotowano 6 maja 1968 r., gdy efekt wiatru halnego wzmocnił niskotroposferyczny prąd strumieniowy. Porywy dochodziły wówczas do 75–80 m/s.",
+     "pl": "Według IMGW-PIB prawdopodobnie najwyższą prędkość wiatru w historii obserwacji na Kasprowym Wierchu odnotowano 6 maja 1968 r., gdy niskotroposferyczny prąd strumieniowy wzmocnił efekt wiatru halnego. Porywy dochodziły wówczas do 75–80 m/s.",
      "en": "According to IMGW-PIB, probably the highest wind speed in the history of observations on Kasprowy Wierch was recorded on 6 May 1968, when the effect of the halny was strengthened by a low-tropospheric jet stream. Gusts then reached up to 75–80 m/s.",
      "sources": [
       {

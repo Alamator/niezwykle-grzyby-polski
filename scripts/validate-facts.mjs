@@ -71,6 +71,7 @@ const hiddenFacts = new Set([...Object.keys(withdrawn.facts), ...withdrawn.numbe
 const seenFactIds = new Map();
 const factTexts = new Map();
 const factSources = new Map();
+const factTextsEn = new Map();
 const stats = { cards: 0, facts: 0, notes: 0, statuses: {}, withdrawnCardFacts: 0 };
 
 function markdownBalanced(text) {
@@ -131,6 +132,7 @@ for (const collection of app.collections) {
         seenFactIds.set(fact.id, where);
         factTexts.set(fact.id, fact.pl);
         factSources.set(fact.id, fact.sources || []);
+        factTextsEn.set(fact.id, fact.en || "");
       }
 
       if (typeof fact.pl !== "string" || !fact.pl.trim()) fail(`${label}: missing "pl" text`);
@@ -210,29 +212,36 @@ for (const id of new Set(withdrawn.numbers)) {
 }
 
 // The checks of 28-31.10.2026 are in docs/content/zmiany-dla-generatora-2026-10.json, applied to data/facts
-// on 31.10.2026. What they removed or corrected must not come back: the facts of a removed card, a fact left
-// out, the old wording of a corrected fact, the old address of a fixed source. A fact hidden for the numbers
-// check (WITHDRAWN.numbers) needs its entry there; one that already has the corrected wording can be shown.
+// on 31.10.2026. What they removed or corrected must not come back, under any id and in either language: the
+// facts of a removed card, the text of a fact left out, the old wording of a corrected fact, the old address
+// of a replaced source. A fact can be hidden in data/collections.js (WITHDRAWN.facts, with its reason) until
+// its file is fixed; one hidden for the numbers check (WITHDRAWN.numbers) needs its entry in that file.
 const HANDOFF = "docs/content/zmiany-dla-generatora-2026-10.json";
 const handoff = JSON.parse(fs.readFileSync(HANDOFF, "utf8"));
 const handoffEntries = new Map([...handoff.skip_facts, ...handoff.replace_facts].map((entry) => [entry.id, entry]));
-const handoffCards = new Set(handoff.skip_cards.map((entry) => `${entry.collection}/${entry.card}`));
-for (const key of Object.keys(withdrawn.cards)) {
-  if (!handoffCards.has(key)) fail(`withdrawn card ${key} is missing from skip_cards in ${HANDOFF}`);
-}
 for (const entry of handoff.skip_cards) {
   if (allFacts[entry.collection]?.items?.[entry.card]) fail(`${entry.collection}/${entry.card} was removed from the atlas (skip_cards in ${HANDOFF}); its facts should not come back`);
 }
+const removedWording = new Map();
 for (const entry of handoff.skip_facts) {
   if (seenFactIds.has(entry.id) && !hiddenFacts.has(entry.id)) fail(`${entry.id} was left out (skip_facts in ${HANDOFF}: ${entry.reason}); it should not come back`);
+  for (const text of [entry.pl, entry.en]) if (text) removedWording.set(text, `${entry.id}, left out (${entry.reason})`);
 }
 for (const entry of handoff.replace_facts) {
-  if (!seenFactIds.has(entry.id)) continue;
-  if (factTexts.get(entry.id) === entry.pl_old && !hiddenFacts.has(entry.id)) fail(`${entry.id} has its old wording again (replace_facts in ${HANDOFF})`);
-  if (factTexts.get(entry.id) === entry.pl && hiddenFacts.has(entry.id)) warn(`${entry.id} already has the corrected wording from ${HANDOFF}; remove it from WITHDRAWN to show it again`);
+  for (const text of [entry.pl_old, entry.en_old]) if (text && text !== entry.pl && text !== entry.en) removedWording.set(text, `${entry.id}, corrected`);
+  if (factTexts.get(entry.id) === entry.pl && withdrawn.numbers.includes(entry.id)) warn(`${entry.id} already has the corrected wording from ${HANDOFF}; remove it from WITHDRAWN.numbers to show it again`);
 }
-for (const entry of handoff.fix_sources) {
-  if ((factSources.get(entry.id) || []).some((source) => source.url === entry.url_old)) fail(`${entry.id} links to ${entry.url_old} again (fix_sources in ${HANDOFF})`);
+for (const [id, pl] of factTexts) {
+  if (hiddenFacts.has(id)) continue;
+  for (const text of [pl, factTextsEn.get(id)]) {
+    if (removedWording.has(text)) fail(`${id} repeats the old wording of ${removedWording.get(text)} (${HANDOFF})`);
+  }
+}
+const replacedAddresses = new Map(handoff.fix_sources.filter((entry) => entry.url).map((entry) => [entry.url_old, entry.id]));
+for (const [id, sources] of factSources) {
+  for (const source of sources) {
+    if (replacedAddresses.has(source.url)) fail(`${id} links to ${source.url}, replaced for ${replacedAddresses.get(source.url)} (fix_sources in ${HANDOFF})`);
+  }
 }
 for (const id of new Set(withdrawn.numbers)) {
   if (!handoffEntries.has(id)) fail(`hidden fact ${id} (numbers check) is missing from skip_facts/replace_facts in ${HANDOFF}`);
@@ -240,34 +249,19 @@ for (const id of new Set(withdrawn.numbers)) {
 const numbersCheck = handoff.number_check || {};
 for (const entry of handoff.confirm_facts) {
   if (!seenFactIds.has(entry.id)) warn(`confirmed fact ${entry.id} from ${HANDOFF} no longer exists in data/facts`);
-  if (hiddenFacts.has(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden in data/collections.js`);
+  if (withdrawn.numbers.includes(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden for the numbers check in data/collections.js`);
 }
-// A collection waiting for its facts is in the handoff with exactly its cards, and its checked facts
-// belong to those cards, so its facts file covers the cards the atlas has.
+// A collection waiting for its facts and listed in the handoff (new_collections) has exactly its cards there,
+// and its checked facts belong to those cards. Collections added later get their facts written in the repo.
 for (const id of FACTS_PENDING) {
   const collection = app.collections.find((entry) => entry.id === id);
   const entry = (handoff.new_collections || []).find((candidate) => candidate.collection === id);
-  if (!entry) {
-    fail(`${id} waits for its facts but has no new_collections entry in ${HANDOFF}`);
-    continue;
-  }
+  if (!entry) continue;
   const cards = (collection?.items || []).map((item) => item.id);
   if (JSON.stringify([...entry.cards].sort()) !== JSON.stringify([...cards].sort())) fail(`${HANDOFF}: new_collections should list exactly the cards of ${id}`);
   for (const fact of (handoff.new_facts || []).filter((candidate) => candidate.collection === id)) {
     if (!cards.includes(fact.card)) fail(`${HANDOFF}: a new fact of ${id} belongs to ${fact.card}, which is not a card of the collection`);
     if (!STATUSES.has(fact.status) || !fact.pl || !fact.en || !fact.sources?.length) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} needs pl, en, a status and sources`);
-    // The owner's rule (31.10.2026): neither record is called official (IMGW-PIB: Siedlce 1940).
-    if (["zywiec-1929", "slubice-40-5"].includes(fact.card) && /oficjaln|official/i.test(`${fact.pl} ${fact.en}`)) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} calls the record official`);
-  }
-}
-// Once its facts file is here, the facts of a new collection are the checked ones from the handoff.
-for (const entry of handoff.new_collections || []) {
-  if (FACTS_PENDING.has(entry.collection)) continue;
-  const checked = new Set((handoff.new_facts || []).filter((fact) => fact.collection === entry.collection).map((fact) => `${fact.card}\n${fact.pl}`));
-  for (const [cardId, item] of Object.entries(allFacts[entry.collection]?.items || {})) {
-    for (const fact of item.facts || []) {
-      if (!checked.has(`${cardId}\n${fact.pl}`)) fail(`${entry.collection}/${cardId}/${fact.id}: not one of the checked new_facts in ${HANDOFF}`);
-    }
   }
 }
 

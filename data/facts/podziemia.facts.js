@@ -947,10 +947,6 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "muzeumkrakowa.pl"
       },
       {
-       "url": "https://www.muzeumkrakowa.pl/oddzialy/rynek-podziemny",
-       "label": "muzeumkrakowa.pl"
-      },
-      {
        "url": "https://www.muzeumkrakowa.pl/wystawy/sladem-europejskiej-tozsamosci-krakowa",
        "label": "muzeumkrakowa.pl"
       }
@@ -1005,10 +1001,6 @@ window.ATLAS_FACTS["podziemia"] = {
      "sources": [
       {
        "url": "https://whc.unesco.org/en/list/835",
-       "label": "whc.unesco.org"
-      },
-      {
-       "url": "https://whc.unesco.org/en/list/835/",
        "label": "whc.unesco.org"
       }
      ],

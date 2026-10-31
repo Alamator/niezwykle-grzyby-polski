@@ -1689,10 +1689,13 @@
     let owner = selected;
     if (rng() < 0.5) {
       const selectedTexts = new Set((factsEntry(selected, collection)?.facts || []).map((entry) => entry.pl));
+      // A year in the asked card's name ("2024 — rok rekordowego ciepła") makes a fact of that year true of it too.
+      const selectedYears = String(selected.name_pl || "").match(/\b\d{4}\b/g) || [];
       const decoys = list
         .filter((item) => item.id !== selected.id && lineageKey(item) !== lineageKey(selected))
         .flatMap((item) => quizFactsFor(item, counts, collection)
-          .filter((candidate) => !selectedTexts.has(candidate.pl) && factMentions(candidate, item, collection) && !factMentions(candidate, selected, collection))
+          .filter((candidate) => !selectedTexts.has(candidate.pl) && factMentions(candidate, item, collection) && !factMentions(candidate, selected, collection)
+            && !selectedYears.some((year) => `${candidate.pl} ${candidate.en || ""}`.includes(year)))
           .map((candidate) => ({ item, fact: candidate })));
       if (decoys.length) {
         const decoy = decoys[randomIndex(decoys.length, rng)];

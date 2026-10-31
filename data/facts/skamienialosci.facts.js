@@ -623,10 +623,6 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://orbi.uliege.be/bitstream/2268/182812/1/Bardet%26al2015%20AuthorPP.pdf",
        "label": "orbi.uliege.be"
-      },
-      {
-       "url": "https://paleo.pan.pl/research-department/excavations/annopol.html",
-       "label": "paleo.pan.pl"
       }
      ],
      "status": "checked"
