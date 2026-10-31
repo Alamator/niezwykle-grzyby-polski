@@ -2,6 +2,8 @@
 // "/js/app.js?v=1a2b3c4d5e". vercel.json lets browsers keep such an address for a year, because a changed
 // file gets a new address. The pages themselves are still checked on every visit, so they always lead to
 // the current files. An address without the hash works as before, so a missed one is never stale.
+// A page's link preview image gets the hash of its file too: sites that show link previews keep an image
+// by its address, so a redrawn image needs a new one.
 // It rewrites the files where they are, so Vercel runs it on its copy after npm run build (vercel.json
 // buildCommand: node scripts/version-assets.mjs --in-place). Not for a working copy: npm run test:technical
 // runs it on a temporary one.
@@ -13,6 +15,8 @@ import { pathToFileURL } from "node:url";
 // An address of one of those files in quotes or in url(...): "/data/mushrooms.js",
 // url("/fonts/inter-latin-400-normal.woff2"). One that already has its hash is left alone.
 export const ASSET_ADDRESS = /(?<=["'(])\/(?:css|js|data|fonts)\/[\w./-]+\.(?:css|js|woff2)(?=["')])/g;
+// The link preview image of a page (og:image and twitter:image), at the site's full address.
+export const PREVIEW_IMAGE = /(<meta (?:property|name)="(?:og|twitter):image" content="https:\/\/[^/"]+)(\/assets\/[\w./-]+\.png)(?=")/g;
 // Folders without pages. Vercel serves the whole project folder (vercel.json outputDirectory).
 const NO_PAGES = new Set(["node_modules", "docs", "scripts", "vendor", "fonts", "images", "assets"]);
 
@@ -54,13 +58,23 @@ export function versionAssets(root) {
     hashes.set(address, hash);
     return hash;
   }
+  const imageHashes = new Map();
+  const imageHash = (address, from) => {
+    if (!imageHashes.has(address)) {
+      const file = path.join(root, address);
+      if (!fs.existsSync(file)) throw new Error(`${from} shows ${address} in its link preview, which is not there`);
+      imageHashes.set(address, contentHash(fs.readFileSync(file)));
+    }
+    return imageHashes.get(address);
+  };
   const pages = pagesIn(root);
   for (const page of pages) {
     const text = fs.readFileSync(page, "utf8");
-    const rewritten = withHashes(text, path.relative(root, page));
+    const from = path.relative(root, page);
+    const rewritten = withHashes(text, from).replace(PREVIEW_IMAGE, (_, start, address) => `${start}${address}?v=${imageHash(address, from)}`);
     if (rewritten !== text) fs.writeFileSync(page, rewritten);
   }
-  return { pages: pages.length, files: hashes.size };
+  return { pages: pages.length, files: hashes.size, images: imageHashes.size };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
@@ -68,6 +82,6 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     console.error("version-assets rewrites the files where they are. Vercel runs it after npm run build with --in-place; do not run it on a working copy.");
     process.exit(1);
   }
-  const { pages, files } = versionAssets(process.cwd());
-  console.log(`version-assets: ${files} files have a hash in their address, on ${pages} pages`);
+  const { pages, files, images } = versionAssets(process.cwd());
+  console.log(`version-assets: ${files} files and ${images} link preview images have a hash in their address, on ${pages} pages`);
 }

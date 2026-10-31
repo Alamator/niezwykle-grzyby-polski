@@ -37,6 +37,7 @@ fonts/
 assets/logo-oroloko-ai.svg
 assets/favicon.svg
 assets/og-image.png
+assets/og/
 favicon.ico
 manifest.webmanifest
 service-worker.js
@@ -95,7 +96,7 @@ Najprostsza ścieżka:
    - `npm run build:start-page`;
    - `npm run build:search-index`, żeby karty trafiły do wyszukiwarki na stronie głównej;
    - `npm run build:map-points`, żeby punkty trafiły na mapę wszystkich miejsc;
-   - `python scripts/generate-og-image.py`, bo obrazek podglądu linku podaje liczbę kolekcji i miejsc.
+   - `python scripts/generate-og-image.py`: nowa kolekcja dostaje własne obrazki podglądu linku, a obrazek atlasu podaje liczbę kolekcji i miejsc.
 8. Zmień liczbę kolekcji w tekstach strony głównej:
    - liczebnik w nagłówku szuflad (`collectionsTitle` w `data/i18n.js`) i w teście, który go pilnuje;
    - „N kolekcji” w `metaStartShare` (oba języki) i w `index.html`: w opisach podglądu linku i w linijce nad tytułem strony.
@@ -186,9 +187,11 @@ Najprostsza ścieżka:
 - **Liczby pod tytułem:** karty we wszystkich kolekcjach, miejsca na mapie (różne obiekty Wikidaty) i zdjęcia (różne pliki z Commons).
   - Liczone są karty, nie „różne osobliwości”: kilka miejsc ma kartę w dwóch kolekcjach, a Sosna na Szczudłach ma dwie karty pod dwiema nazwami.
 - **„Zaskocz mnie”** otwiera losową kartę losowej kolekcji. Jak ciekawostka dnia, omija miejsca Zagłady i martyrologii.
-- **Ikony i obrazek do udostępniania:** `python scripts/generate-favicons.py` i `python scripts/generate-og-image.py` (wymagają tylko Pillow).
+- **Ikony i obrazki do udostępniania:** `python scripts/generate-favicons.py` i `python scripts/generate-og-image.py` (wymagają Pillow, a drugi także Node.js).
   - Znak to pochyłe „A” z Instrument Serif.
-  - Obrazek do udostępniania pokazuje tytuł strony i mapę Polski z punktów atlasu (granice: Natural Earth, domena publiczna). Nie ma na nim zdjęć, bo podgląd linku nie zmieści ich podpisów.
+  - Obrazek atlasu pokazuje tytuł strony głównej i mapę Polski z punktów atlasu (granice: Natural Earth, domena publiczna).
+  - Każda kolekcja ma własny obrazek: nazwę, opis z szuflady i liczbę osobliwości, a obok mapę swoich miejsc. Kolekcja bez miejsc na mapie pokazuje zamiast niej dużą liczbę osobliwości.
+  - Wszystkie są po polsku i po angielsku (opis niżej, w „Wyszukiwarki i podgląd linków”). Nie ma na nich zdjęć, bo podgląd linku nie zmieści ich podpisów.
 
 ## Zasady treści
 
@@ -225,6 +228,7 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 - Po `npm run build` Vercel uruchamia `scripts/version-assets.mjs`. Skrypt dopisuje do adresu każdego pliku z `css/`, `js/`, `data/` i `fonts/` skrót jego treści, np. `/js/app.js?v=1a2b3c4d5e`.
   - Robi to w stronach, w arkuszu stylów (fonty), w liście plików kolekcji (`data/collections.js`) i w `js/app.js` (spis kart do wyszukiwarki, punkty mapy).
+  - Skrót dostaje też obrazek podglądu linku każdej strony (`og:image` i `twitter:image`).
 - Plik pod adresem z `?v=` przeglądarka trzyma przez rok (`vercel.json`). Zmieniony plik dostaje nowy skrót, czyli nowy adres, więc przychodzi od razu.
 - Strony i pliki bez `?v=` przeglądarka sprawdza przy każdej wizycie, jak dotąd. Adres, któremu skrypt nie dopisał skrótu, działa więc jak wcześniej, tylko bez długiej pamięci.
 - Nowy plik ładowany przez stronę trzeba podać pełnym adresem w cudzysłowie, np. `"/data/nowy-plik.js"`. Tylko taki adres skrypt znajdzie.
@@ -280,7 +284,10 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
   - Wersja angielska ma te same adresy pod `/en` (opis niżej).
 - **Strony:** `npm run build` (`scripts/build-pages.mjs`) robi przy każdym wdrożeniu stronę dla każdej kolekcji i karty, stronę mapy wszystkich miejsc (`mapa.html`), stronę quizu atlasu (`quiz.html`), ich angielskie odpowiedniki (`en.html` i `en/`), `sitemap.xml` i stronę błędu `404.html`.
   - Każda strona to `index.html` z własnym tytułem, opisem, adresem kanonicznym i podglądem linku. Jest od razu otwarta na kolekcji, na mapie albo na quizie, a bez skryptów pokazuje tekst karty albo listę kart.
-  - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
+  - **Obrazek podglądu:** kolekcja i jej karty pokazują obrazek kolekcji, a strona główna, mapa i quiz obrazek atlasu, zawsze w języku strony (`scripts/og-images.mjs`). Nie ma na nich zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
+    - Obrazki rysuje `python scripts/generate-og-image.py` (`assets/og-image.png` i `assets/og/`), a w `assets/og/manifest.json` zapisuje, co narysował.
+    - Gdy zmieni się nazwa kolekcji, jej opis z szuflady (`teaser`), liczba kart albo punkt na mapie, `npm run test:technical` zatrzyma się, dopóki obrazki nie zostaną narysowane od nowa.
+    - Przy wdrożeniu adres obrazka dostaje skrót jego treści (`?v=…`, niżej „Pamięć przeglądarki”). Nowy obrazek ma więc nowy adres i serwisy, które zapamiętały stary podgląd, pobiorą go od nowa.
   - Wyniki (`atlas/`, `en/`, `en.html`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
 - **Dane strukturalne (JSON-LD):** tylko to, co atlas sam pokazuje: nazwy z tytułów stron i adresy stron.
@@ -301,7 +308,7 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
   - Wybór języka zapisuje się w przeglądarce (`atlasLanguage`), ale działa tylko na stronie głównej. Kto wybrał angielski, z „/” trafia na „/en”, także w zainstalowanej aplikacji.
   - Polski adres zawsze pokazuje polską stronę, więc link z Google albo udostępniony działa dla wszystkich tak samo.
 - **Dla wyszukiwarek:** strony angielskie mają:
-  - `lang="en"`, angielski tytuł, opis i podgląd linku;
+  - `lang="en"`, angielski tytuł, opis i podgląd linku, z angielskim obrazkiem;
   - własny adres kanoniczny.
 - **Odnośniki `hreflang`:** obie wersje wskazują siebie nawzajem. Wersją domyślną (`x-default`) jest polska. Mapa strony podaje adresy w obu językach.
 - **Teksty interfejsu przed uruchomieniem aplikacji:** elementy w `index.html` mają klucz z `data/i18n.js`:

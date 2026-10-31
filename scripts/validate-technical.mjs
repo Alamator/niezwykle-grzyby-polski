@@ -179,6 +179,45 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
       assert(page.html.includes(credit), `${page.route}: the collection photo should keep its author, license and source`);
     }
   }
+  // Link preview images (scripts/og-images.mjs): a collection and its cards show the image of their collection,
+  // the other pages the atlas's, each in the language of the page. Every image is there, 1200×630, and shows
+  // what the data says now: generate-og-image.py writes what it drew into the manifest.
+  {
+    const og = await import("./og-images.mjs");
+    const { languageTexts } = await import("./build-pages.mjs");
+    const { buildMapPoints } = await import("./build-map-points.mjs");
+    const images = og.ogImages(win, (language) => languageTexts(win, language), buildMapPoints(win).places);
+    assert.equal(images.length, 2 * (collections.length + 1), "the atlas and every collection should have a link preview image in Polish and in English");
+    assert.deepEqual(JSON.parse(fs.readFileSync(og.OG_MANIFEST, "utf8")), og.manifestOf(images),
+      "the link preview images no longer show what the data says (a name, teaser, number of cards or map point changed); run python scripts/generate-og-image.py");
+    for (const image of images) {
+      assert(fs.existsSync(image.file), `${image.file} is missing; run python scripts/generate-og-image.py`);
+      assert.deepEqual(og.pngSize(image.file), [og.OG_IMAGE_WIDTH, og.OG_IMAGE_HEIGHT], `${image.file} should be ${og.OG_IMAGE_WIDTH}×${og.OG_IMAGE_HEIGHT}, as the pages say`);
+      assert(image.alt && !/[{}*]/.test(image.alt), `${image.file} should have a description without placeholders`);
+      assert(image.alt.startsWith(win.ATLAS_I18N.ui[image.language].documentTitle), `${image.file} should be described in its own language, starting with the atlas's name in it`);
+    }
+    for (const name of fs.readdirSync(path.dirname(og.OG_MANIFEST)).filter((entry) => entry !== path.basename(og.OG_MANIFEST))) {
+      assert(images.some((image) => image.file === `${path.dirname(og.OG_MANIFEST)}/${name}`), `${path.dirname(og.OG_MANIFEST)}/${name} is not a link preview image of any page; run python scripts/generate-og-image.py`);
+    }
+    const meta = (html, attribute, name) => html.match(new RegExp(`<meta ${attribute}="${name}" content="([^"]*)" />`))?.[1];
+    const checkImage = (where, html, image) => {
+      assert.equal(meta(html, "property", "og:image"), `${origin}/${image.file}`, `${where}: the link preview should show ${image.file}`);
+      assert.equal(meta(html, "name", "twitter:image"), `${origin}/${image.file}`, `${where}: the Twitter card should show ${image.file}`);
+      assert.equal(meta(html, "property", "og:image:alt"), esc(image.alt), `${where}: the link preview image should be described in the language of the page`);
+      assert.equal(meta(html, "name", "twitter:image:alt"), esc(image.alt), `${where}: the Twitter card image should be described in the language of the page`);
+      assert.equal(meta(html, "property", "og:image:width"), String(og.OG_IMAGE_WIDTH), `${where}: the link preview should give the image's width`);
+      assert.equal(meta(html, "property", "og:image:height"), String(og.OG_IMAGE_HEIGHT), `${where}: the link preview should give the image's height`);
+    };
+    // index.html is the Polish start page and names the atlas's Polish image itself.
+    checkImage("index.html", indexHtml, images.find((image) => image.file === og.atlasImageFile("pl")));
+    for (const page of pages) {
+      const language = page.route === "/en" || page.route.startsWith("/en/") ? "en" : "pl";
+      const route = language === "en" ? page.route.slice(3) || "/" : page.route;
+      const collection = collections.find((entry) => route === routeForCollection(entry) || route.startsWith(`${routeForCollection(entry)}/`));
+      const file = collection ? og.collectionImageFile(collection, language) : og.atlasImageFile(language);
+      checkImage(page.route, page.html, images.find((image) => image.file === file));
+    }
+  }
   // Commons serves photos only at fixed widths and rounds any other up, so a card photo offers only those.
   const cardWidthsList = /const CARD_PHOTO_WIDTHS = (\[[\d,\s]*\]);/.exec(appJs);
   assert(cardWidthsList, "js/app.js should list the card photo widths in CARD_PHOTO_WIDTHS");
@@ -444,16 +483,27 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   }
   // scripts/version-assets.mjs, tried on a temporary copy with the start page, a card page and the 404 page:
   // every address of a site file gets the hash of that file, as it is after its own addresses got theirs.
-  const { ASSET_ADDRESS, contentHash, versionAssets } = await import("./version-assets.mjs");
+  const { ASSET_ADDRESS, PREVIEW_IMAGE, contentHash, versionAssets } = await import("./version-assets.mjs");
   const copy = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-versions-"));
   try {
-    for (const dir of ["css", "js", "data", "fonts"]) fs.cpSync(dir, path.join(copy, dir), { recursive: true });
+    for (const dir of ["css", "js", "data", "fonts", "assets"]) fs.cpSync(dir, path.join(copy, dir), { recursive: true });
     fs.mkdirSync(path.join(copy, "atlas", "grzyby"), { recursive: true });
     const site = { "index.html": indexHtml, "atlas/grzyby/okratek-australijski.html": card.html, "404.html": notFound };
     for (const [file, html] of Object.entries(site)) fs.writeFileSync(path.join(copy, file), html);
     const named = ["index.html", "atlas/grzyby/okratek-australijski.html", "404.html", "css/styles.css", "js/app.js", "data/collections.js"];
     const before = Object.fromEntries(named.map((file) => [file, [...fs.readFileSync(path.join(copy, file), "utf8").matchAll(ASSET_ADDRESS)].map((match) => match[0])]));
+    const previews = Object.fromEntries(Object.keys(site).map((file) => [file, [...fs.readFileSync(path.join(copy, file), "utf8").matchAll(PREVIEW_IMAGE)].map((match) => match[2])]));
     versionAssets(copy);
+    // The link preview image of a page carries the hash of its file, as the other files do.
+    assert.deepEqual(previews["index.html"], ["/assets/og-image.png", "/assets/og-image.png"], "index.html should show the atlas's image in its link preview and Twitter card");
+    assert.deepEqual(previews["atlas/grzyby/okratek-australijski.html"], ["/assets/og/grzyby-pl.png", "/assets/og/grzyby-pl.png"], "a card page should show its collection's image in its link preview and Twitter card");
+    for (const [file, addresses] of Object.entries(previews)) {
+      const text = fs.readFileSync(path.join(copy, file), "utf8");
+      assert.deepEqual([...text.matchAll(PREVIEW_IMAGE)], [], `${file}: every link preview image should carry its hash`);
+      for (const address of addresses) {
+        assert(text.includes(`${origin}${address}?v=${contentHash(fs.readFileSync(path.join(copy, address)))}"`), `${file}: ${address} should carry the hash of its content`);
+      }
+    }
     const withHash = /(?<=["'(])(\/(?:css|js|data|fonts)\/[\w./-]+\.(?:css|js|woff2))\?v=([0-9a-f]{10})(?=["')])/g;
     for (const file of named) {
       const text = fs.readFileSync(path.join(copy, file), "utf8");
