@@ -147,7 +147,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://commons.wikimedia.org https://thumb.wikimedia.org https://upload.wikimedia.org; font-src 'self'; connect-src https://tiles.openfreemap.org; worker-src blob:; child-src blob:; frame-src 'none'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+          "value": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://*.wikimedia.org; font-src 'self'; connect-src https://tiles.openfreemap.org; child-src blob:; frame-src 'none'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
         }
       ]
     }

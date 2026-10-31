@@ -100,7 +100,7 @@ Atlas ma **617 kart**. Zdjęcie ma **616** z nich (601 różnych plików z Wikim
 
 ## Uwaga techniczna
 
-Linki `Special:Redirect` przekierowują teraz przeglądarkę na nowy serwer miniatur Wikimedia: `thumb.wikimedia.org`. Strona nie ma nagłówka Content-Security-Policy, więc zdjęcia działają. Gdyby taki nagłówek kiedyś doszedł, musi dopuszczać `thumb.wikimedia.org` i `upload.wikimedia.org`.
+Linki `Special:Redirect` przekierowują teraz przeglądarkę na nowy serwer miniatur Wikimedia: `thumb.wikimedia.org`. Strona ma teraz nagłówek Content-Security-Policy (README, „Nagłówki bezpieczeństwa”). Dopuszcza zdjęcia z każdego serwera `*.wikimedia.org`, więc także z `thumb.wikimedia.org` i `upload.wikimedia.org`.
 
 ## Dopisek 31.10.2026: szuflada „Rekordy atmosferyczne”
 

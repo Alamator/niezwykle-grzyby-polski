@@ -1,4 +1,4 @@
-import { createReadStream } from "node:fs";
+import { createReadStream, readFileSync } from "node:fs";
 import fs from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
@@ -19,6 +19,16 @@ const mimeTypes = {
   ".woff2": "font/woff2",
   ".xml": "application/xml; charset=utf-8"
 };
+
+// The Content-Security-Policy that vercel.json sends with every response, sent here too, so a local check shows
+// in the browser console what the policy blocks. Without frame-ancestors, which would leave the page blank in a
+// local preview pane that shows it in a frame.
+export function localContentSecurityPolicy() {
+  const config = JSON.parse(readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
+  const rule = config.headers?.find((entry) => entry.source === "/(.*)" && !entry.has && !entry.missing);
+  const policy = rule?.headers.find((header) => header.key === "Content-Security-Policy")?.value || "";
+  return policy.split(/;\s*/).filter((directive) => directive && !directive.startsWith("frame-ancestors ")).join("; ");
+}
 
 function contentType(filePath) {
   return mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream";
@@ -63,6 +73,8 @@ export async function resolveRequestFile(requestUrl, rootDir = projectRoot) {
 }
 
 export function createStaticServer({ rootDir = projectRoot } = {}) {
+  const policy = localContentSecurityPolicy();
+  const security = policy ? { "Content-Security-Policy": policy } : {};
   return http.createServer(async (request, response) => {
     if (!["GET", "HEAD"].includes(request.method || "")) {
       response.writeHead(405, { Allow: "GET, HEAD" });
@@ -75,7 +87,7 @@ export function createStaticServer({ rootDir = projectRoot } = {}) {
       // Like Vercel: the built 404.html when there is one.
       const notFound = path.join(rootDir, "404.html");
       if (await isFile(notFound)) {
-        response.writeHead(404, { "Cache-Control": "no-store", "Content-Type": mimeTypes[".html"] });
+        response.writeHead(404, { "Cache-Control": "no-store", "Content-Type": mimeTypes[".html"], ...security });
         if (request.method === "HEAD") response.end();
         else createReadStream(notFound).pipe(response);
         return;
@@ -87,7 +99,8 @@ export function createStaticServer({ rootDir = projectRoot } = {}) {
 
     response.writeHead(200, {
       "Cache-Control": "no-store",
-      "Content-Type": contentType(filePath)
+      "Content-Type": contentType(filePath),
+      ...security
     });
 
     if (request.method === "HEAD") {

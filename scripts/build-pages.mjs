@@ -112,9 +112,9 @@ function headHtml(indexHtml, origin, page, texts) {
     html = replaceOnce(html, new RegExp(`<link rel="alternate" hreflang="${hreflang}" href="[^"]*" />`),
       `<link rel="alternate" hreflang="${hreflang}" href="${escapeHtml(`${origin}${addressFor(page.route, language)}`)}" />`, `${hreflang} alternate link`);
   }
-  // Structured data for search engines (JSON-LD: data, not a script the page runs). index.html names the site;
-  // the other pages give their path from the start page instead. The English start page has none: search
-  // engines read the site's name only from the home page.
+  // Structured data for search engines (JSON-LD: data, not a script the page runs). index.html names the site,
+  // once for the whole domain; the other pages give their path from the start page instead. The English start
+  // page has neither.
   html = replaceOnce(html, /\n {2}<script type="application\/ld\+json">[^<]*<\/script>/,
     page.trail ? `\n  ${jsonLd(breadcrumbs(origin, page.trail, texts))}` : "", "structured data");
   html = setMeta(html, "property", "og:url", url);

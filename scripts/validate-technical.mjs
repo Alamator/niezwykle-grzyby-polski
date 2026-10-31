@@ -104,23 +104,28 @@ assert.equal(vercelConfig.buildCommand, "npm run build && node scripts/version-a
     "default-src": ["'none'"],
     "script-src": ["'self'"],
     "style-src": ["'self'"],
-    // Photos: Commons' Special:Redirect, then its redirect to a scaled copy (thumb) or to the original when it
-    // is narrower than asked (upload); the browser checks every step. data: draws the map's buttons, and
-    // MapLibre tests WebP with a data: image; blob: is for map icons on Safari 14.
-    "img-src": ["'self'", "data:", "blob:", "https://commons.wikimedia.org", "https://thumb.wikimedia.org", "https://upload.wikimedia.org"],
+    // Photos: Commons' Special:Redirect (commons.wikimedia.org), then its redirect to a scaled copy
+    // (thumb.wikimedia.org) or to the original when it is narrower than asked (upload.wikimedia.org); the browser
+    // checks every step. Any *.wikimedia.org host, so the photos keep working if Commons redirects to another of
+    // its servers, as when thumb.wikimedia.org appeared. data: draws the map's buttons, and MapLibre tests WebP
+    // with a data: image; blob: is for map icons on Safari 14.
+    "img-src": ["'self'", "data:", "blob:", "https://*.wikimedia.org"],
     "font-src": ["'self'"],
-    // The base map: style, tiles, letters and icons from OpenFreeMap. The app itself fetches nothing.
+    // The base map: style, tiles, letters and icons from OpenFreeMap. The app itself opens no connections.
     "connect-src": ["https://tiles.openfreemap.org"],
-    // MapLibre runs a worker made from a blob:; Safari before 15.5 reads child-src for workers.
-    "worker-src": ["blob:"],
+    // MapLibre runs a worker made from a blob:. child-src covers workers in every browser (worker-src falls back
+    // to it); Safari before 15.5 knows only child-src and would log an error for a worker-src directive.
     "child-src": ["blob:"],
     "frame-src": ["'none'"],
     "manifest-src": ["'self'"],
     "object-src": ["'none'"],
     "base-uri": ["'none'"],
     "form-action": ["'none'"],
+    // No other site may show the atlas in a frame, so nobody can lay it under false buttons (clickjacking).
     "frame-ancestors": ["'none'"]
   };
+  const policies = vercelConfig.headers.flatMap((entry) => entry.headers.filter((item) => /^content-security-policy$/i.test(item.key)).map(() => entry));
+  assert(policies.length === 1 && policies[0] === rule, "vercel.json should send one Content-Security-Policy, from the rule for every response");
   assert.equal(header("Content-Security-Policy"), Object.entries(policy).map(([name, sources]) => `${name} ${sources.join(" ")}`).join("; "), "vercel.json should send the Content-Security-Policy the site needs, and no more");
   assert(appJs.includes('const MAP_STYLE_URL = "https://tiles.openfreemap.org/'), "the base map comes from OpenFreeMap, the only host the policy lets the page connect to");
 }
@@ -197,15 +202,31 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
   }
-  // The Content-Security-Policy (vercel.json) blocks inline handlers (onerror="…") and style="…" attributes:
-  // the app listens for events in js/app.js and sets styles through element.style, which the policy allows.
+  // The Content-Security-Policy (vercel.json) blocks what a page carries in itself: event handler attributes
+  // (onerror="…", in any spelling), style attributes, <style> elements, scripts written in the page (JSON-LD is
+  // data, not a script) and javascript: links. The app listens for events in js/app.js and sets styles through
+  // element.style, which the policy allows. The page builder's source is checked for attributes only: it holds the
+  // pattern that finds the JSON-LD element.
   const { notFoundHtml } = await import("./build-pages.mjs");
   const notFound = notFoundHtml(win);
   const buildPagesJs = fs.readFileSync("scripts/build-pages.mjs", "utf8");
+  const handlerAttribute = /<[a-z][\w-]*\b[^<>]*?[\s"'\/]on[a-z]+\s*=/i;
+  const styleAttribute = /<[a-z][\w-]*\b[^<>]*?[\s"'\/]style\s*=/i;
+  const codeInPage = /<style[\s>]|<script\b(?![^>]*\ssrc=)(?![^>]*\stype="application\/ld\+json")[^>]*>|javascript:|http-equiv="content-security-policy"/i;
   for (const [where, text] of [["js/app.js", appJs], ["scripts/build-pages.mjs", buildPagesJs], ["index.html", indexHtml], ["404.html", notFound],
     ...pages.map((page) => [page.route, page.html])]) {
-    assert(!/\son[a-z]+=["'`]/.test(text), `${where}: an inline event handler would be blocked by the Content-Security-Policy`);
-    assert(!/\sstyle=["'`]/.test(text), `${where}: a style attribute would be blocked by the Content-Security-Policy`);
+    assert(!handlerAttribute.test(text), `${where}: an event handler attribute would be blocked by the Content-Security-Policy`);
+    assert(!styleAttribute.test(text), `${where}: a style attribute would be blocked by the Content-Security-Policy`);
+    if (where !== "scripts/build-pages.mjs") {
+      assert(!codeInPage.test(text), `${where}: a <style> element, a script written in the page, a javascript: link or a second policy would be blocked by, or change, the Content-Security-Policy`);
+    }
+  }
+  assert.doesNotMatch(appJs, /\.setAttribute\(\s*["'`](?:on[a-z]+|style)["'`]|\.setAttributeNS\([^,()]*,\s*["'`](?:on[a-z]+|style)["'`]/i, "js/app.js: a handler or style set as an attribute would be blocked by the Content-Security-Policy; use addEventListener or element.style");
+  // The stylesheet takes fonts and pictures from the atlas only (font-src and img-src) and imports nothing.
+  const stylesheet = fs.readFileSync("css/styles.css", "utf8");
+  assert.doesNotMatch(stylesheet, /@import\b/i, "css/styles.css should not import other stylesheets");
+  for (const [, address] of stylesheet.matchAll(/url\(\s*["']?([^"')\s]*)/g)) {
+    assert(/^(?:\/(?!\/)|#|data:image\/)/.test(address), `css/styles.css: url(${address}) should lead to a file of the atlas`);
   }
   // The map of every place: its own title and address, opened on the map, with every placed card linked
   // for readers without scripts. js/app.js opens the same address.
@@ -358,9 +379,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.equal(enStart?.file, "en.html", "the English start page should be built as en.html, served at /en");
   assert(enStart.html.includes(`<meta name="description" content="${esc(i18nUi.en.metaStartDescription)}" />`) && enStart.html.includes(`<meta property="og:description" content="${esc(i18nUi.en.metaStartShare)}" />`), "the English start page should describe itself as data/i18n.js does");
   assert(enStart.html.includes('<div id="startPage" class="start-page" tabindex="-1">'), "the English start page should open on the start page");
-  // Structured data (JSON-LD) says only what the page shows. The home page names the site (search engines
-  // read the site's name only there); every other page gives its path from the start page, the same names
-  // as its <title>, ending at its own address. The English start page and 404.html have none.
+  // Structured data (JSON-LD) repeats only what the atlas itself shows: the names in the pages' titles and the
+  // pages' addresses. The home page names the site, once for the whole domain: in Polish, as in its title, and in
+  // English, as in the titles of the English pages. Every other page gives its path from the start page, in its
+  // language, with the names of its <title>, ending at its own address. The English start page and 404.html have none.
   const jsonLdBlocks = (html) => [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/g)].map((match) => JSON.parse(match[1]));
   // No name can end the element early or hide its end: every "<" is written as \u003c, which JSON reads back as "<".
   const { jsonLd } = await import("./build-pages.mjs");
@@ -369,7 +391,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(trapped.endsWith("</script>") && !trapped.slice(0, -"</script>".length).includes("<", 1), "structured data should write every \"<\" as \\u003c, so no name ends its element early");
   assert.deepEqual(jsonLdBlocks(trapped), [trap], "structured data should keep every name whole");
   assert.deepEqual(jsonLdBlocks(indexHtml), [{ "@context": "https://schema.org", "@type": "WebSite", name: i18nUi.pl.documentTitle, alternateName: i18nUi.en.documentTitle, url: `${origin}/` }], "the start page should name the site, in both languages, at its address");
-  assert.equal(jsonLdBlocks(enStart.html).length, 0, "the English start page should not name the site: search engines read the name only from the home page");
+  assert.equal(jsonLdBlocks(enStart.html).length, 0, "the English start page should not name the site again: the home page names it for the whole domain");
   assert.equal(jsonLdBlocks(notFound).length, 0, "404.html should have no structured data");
   for (const page of pages.filter((entry) => entry.route !== ENGLISH_PREFIX)) {
     const blocks = jsonLdBlocks(page.html);
@@ -383,7 +405,10 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     assert.equal(items.at(-1).item, `${origin}${page.route}`, `${page.route}: the path should end at the page itself`);
     const title = asRead(page.html.match(/<title>([^<]*)<\/title>/)?.[1]);
     assert.equal([...items].reverse().map((item) => item.name).join(" – "), title, `${page.route}: the path should name the page as its title does`);
-    for (const item of items.slice(1, -1)) assert(byRoute.has(item.item.slice(origin.length)), `${page.route}: ${item.item} on the path should be a page of the atlas`);
+    for (const item of items.slice(1, -1)) {
+      assert(byRoute.has(item.item.slice(origin.length)), `${page.route}: ${item.item} on the path should be a page of the atlas`);
+      assert.equal(item.item.startsWith(`${origin}${ENGLISH_PREFIX}/`), english, `${page.route}: ${item.item} on the path should be in the page's language`);
+    }
   }
   // An unknown English card or collection opens the English start page, as an unknown Polish one opens the Polish.
   assert(vercelConfig.rewrites?.some((rule) => rule.source === "/en/atlas/:path*" && rule.destination === ENGLISH_PREFIX), "vercel.json should send unknown English atlas addresses to the English start page");
@@ -518,6 +543,12 @@ try {
   const { port } = server.address();
   const atlasResponse = await fetch(`http://127.0.0.1:${port}/atlas/rekordy-krajobrazu`);
   assert.equal(atlasResponse.status, 200, "local dev server should serve nested atlas routes");
+  // The same Content-Security-Policy as on Vercel, so a local check shows what it blocks; frame-ancestors is left
+  // out, so a local preview pane may show the page in a frame.
+  const deployedPolicy = vercelConfig.headers.find((entry) => entry.source === "/(.*)" && !entry.has && !entry.missing)
+    .headers.find((item) => item.key === "Content-Security-Policy").value;
+  const localPolicy = deployedPolicy.split("; ").filter((directive) => !directive.startsWith("frame-ancestors ")).join("; ");
+  assert.equal(atlasResponse.headers.get("content-security-policy"), localPolicy, "npm run dev should send the Content-Security-Policy of vercel.json, without frame-ancestors");
   assert.match(
     await atlasResponse.text(),
     /Atlas Osobliwości Polski/,
@@ -548,6 +579,7 @@ try {
 
   const missingResponse = await fetch(`http://127.0.0.1:${port}/not-a-real-file.js`);
   assert.equal(missingResponse.status, 404, "local dev server should keep non-atlas missing files as 404");
+  if (fs.existsSync("404.html")) assert.equal(missingResponse.headers.get("content-security-policy"), localPolicy, "the local 404 page should get the Content-Security-Policy too");
 } finally {
   await new Promise((resolve, reject) => {
     server.close((error) => (error ? reject(error) : resolve()));

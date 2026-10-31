@@ -238,12 +238,14 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 - `Permissions-Policy`: bez kamery, mikrofonu, płatności i USB. Lokalizacja zostaje dla „Blisko mnie” na mapie, tylko na stronach atlasu;
 - `Content-Security-Policy` (CSP): strona może wczytać tylko to, czego używa.
   - Skrypty, style, czcionki i manifest: tylko z atlasu.
-  - Zdjęcia: z atlasu i z Wikimedia Commons (`commons.wikimedia.org`, a po przekierowaniu `thumb.wikimedia.org` albo `upload.wikimedia.org`). Do tego `data:` i `blob:` dla przycisków i ikon mapy.
-  - Połączenia: tylko podkład mapy z `tiles.openfreemap.org`. Sama aplikacja niczego nie pobiera ani nie wysyła.
-  - Mapa (MapLibre) uruchamia pracownika z adresu `blob:`.
-  - Strony nie da się osadzić w ramce na innej stronie (`frame-ancestors 'none'`).
-  - Atlas nie ma atrybutów `onerror="…"` ani `style="…"`, bo CSP je blokuje. Zdjęcie, które się nie wczyta, usuwa nasłuch w `js/app.js`, a style ustawia skrypt przez `element.style`. Pilnuje tego `npm run test:technical`, razem z treścią nagłówka.
+  - Zdjęcia: z atlasu i z serwerów Wikimedia (`*.wikimedia.org`). Linki do zdjęć prowadzą do `commons.wikimedia.org`, a Commons przekierowuje dziś na `thumb.wikimedia.org` albo `upload.wikimedia.org`. Gwiazdka obejmuje też inny serwer Wikimedia, gdyby Commons zaczęło przekierowywać gdzie indziej, jak wtedy, gdy pojawił się `thumb.wikimedia.org`. Do tego `data:` i `blob:` dla przycisków i ikon mapy.
+  - Połączenia: tylko podkład mapy z `tiles.openfreemap.org`. Sama aplikacja nie otwiera połączeń (`fetch`, XHR, WebSocket) i niczego nie wysyła. Skrypty, style i zdjęcia wczytuje jak zwykła strona.
+  - Mapa (MapLibre) uruchamia wątek roboczy (Web Worker) z adresu `blob:`. Pozwala na to `child-src blob:`, które działa we wszystkich przeglądarkach. Osobnej dyrektywy `worker-src` nie ma, bo Safari starsze niż 15.5 jej nie zna i zgłaszałoby błąd w konsoli.
+  - Strony nie da się osadzić w ramce na innej stronie (`frame-ancestors 'none'`), więc nikt nie podłoży jej pod fałszywe przyciski (tzw. clickjacking). Gdyby atlas miał się dać osadzać, np. na stronie szkoły, wystarczy zmienić tę jedną dyrektywę.
+  - Atlas nie ma atrybutów `onerror="…"` ani `style="…"`, elementów `<style>`, skryptów wpisanych w stronę ani linków `javascript:`, bo CSP je blokuje. Nasłuch w `js/app.js` usuwa zdjęcie, które się nie wczyta, a skrypt ustawia style przez `element.style`. Pilnuje tego `npm run test:technical`, razem z treścią nagłówka.
+  - `npm run dev` wysyła tę samą politykę (bez `frame-ancestors`), więc to, co CSP zablokuje, widać w konsoli przeglądarki już lokalnie. Test, który wstrzykuje kod w stronę (np. `page.addScriptTag` w Playwright), musi użyć `page.evaluate` albo `bypassCSP: true`.
   - Nowy adres zewnętrzny (np. inny podkład mapy) trzeba dopisać do CSP w `vercel.json` i w teście.
+  - Gdy prawie wszystkie zdjęcia pokazują „zdjęcie chwilowo niedostępne” albo mapa nie ma podkładu (same kropki na ciemnym tle albo komunikat „Podkład mapy jest chwilowo niedostępny”), warto zajrzeć do konsoli przeglądarki. Komunikat „… violates the following Content Security Policy directive …” podaje adres, którego polityka nie wpuściła. Ten adres trzeba dopisać do CSP w `vercel.json` i w teście.
   - Na podglądach Vercel CSP blokuje też pasek Vercel (komentarze na podglądzie). Atlas działa normalnie, ale w konsoli widać zablokowany skrypt `vercel.live`. Pasek można wyłączyć w ustawieniach projektu: Settings → General → Vercel Toolbar.
 
 ### Zdjęcia: rozmiar i kolejność
@@ -280,11 +282,11 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
   - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
   - Wyniki (`atlas/`, `en/`, `en.html`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
-- **Dane strukturalne (JSON-LD):** tylko to, co widać na stronie.
-  - Strona główna (`index.html`) podaje nazwę atlasu po polsku i po angielsku (`WebSite`). Wyszukiwarki czytają nazwę witryny tylko ze strony głównej, więc `/en` jej nie powtarza.
+- **Dane strukturalne (JSON-LD):** tylko to, co atlas sam pokazuje: nazwy z tytułów stron i adresy stron.
+  - Strona główna (`index.html`) podaje nazwę atlasu (`WebSite`), raz dla całej domeny: polską, jak w swoim tytule, i angielską, jak w tytułach stron `/en`. Angielska strona główna jej nie powtarza.
   - Kolekcja, karta, mapa i quiz podają swoją ścieżkę od strony głównej (`BreadcrumbList`), w języku strony i z tymi samymi nazwami co w tytule strony.
   - `404.html` nie ma danych strukturalnych. Gatunków, miejsc i zdjęć na razie się nie opisuje: to osobny krok.
-  - `npm run test:technical` pilnuje, żeby ścieżka zgadzała się z tytułem i adresem każdej strony.
+  - `npm run test:technical` pilnuje, żeby ścieżka zgadzała się z tytułem, adresem i językiem każdej strony.
 - **`robots.txt`:** wskazuje mapę strony i nie wpuszcza wyszukiwarek do `docs/`, `scripts/` i plików `.md`.
 
 ### Wersja angielska (`/en`)
