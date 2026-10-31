@@ -7,8 +7,8 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
 - Osobna szuflada, a nie kategoria w „Atmosferze i astronomii”.
 - Żywiec 1929 wchodzi, ale bez słowa „oficjalny”. Za oficjalny rekord zimna IMGW-PIB uznaje −41 °C z Siedlec (11 stycznia 1940 r.). Atlas pisze tak w karcie „Siedlce i rekord mrozu” i w ciekawostce F1073.
 - Szuflada wchodzi najpierw bez ciekawostek.
-  - Ciekawostki zrobi generator. Ich sprawdzone teksty i zasady są w `zmiany-dla-generatora-2026-10.json` (`new_collections`, `new_facts`).
-  - Do tego czasu kolekcja stoi na liście `FACTS_PENDING` w `scripts/validate-facts.mjs`, a „Ciekawostka dnia” ją pomija.
+  - Ciekawostki miał zrobić generator. Ich sprawdzone teksty i zasady są w `zmiany-dla-generatora-2026-10.json` (`new_collections`, `new_facts`).
+  - Generatora nie było, więc 31.10.2026 te 35 ciekawostek trafiło prosto do `data/facts/rekordy-atmosferyczne.facts.js` (`README-weryfikacja.md`). Wcześniej kolekcja stała na liście `FACTS_PENDING` w `scripts/validate-facts.mjs`, a „Ciekawostka dnia” ją pomijała.
 
 ## Jak sprawdzono
 
@@ -83,7 +83,7 @@ Nowe karty sprawdza też `npm run test:collections`:
 - pominięte pozycje nie wracają;
 - liczba kart i zdjęć się zgadza.
 
-`npm run test:facts` pilnuje, żeby ciekawostki z generatora były tymi sprawdzonymi z `new_facts`.
+`npm run test:facts` pilnuje, żeby ciekawostki szuflady były tymi sprawdzonymi z `new_facts`.
 
 ## Do sprawdzenia przez Roberta
 

@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["grzyby"] = {
  "checked": "2026-10-28",
@@ -19,28 +19,40 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://colfungi.org/taxon/urn:lsid:indexfungorum.org:names:112728/general-information",
        "label": "colfungi.org"
+      },
+      {
+       "url": "https://typolive03-microsite-preview.wsl.ch/fileadmin/user_upload/WSL/Microsite/SwissFungi/Merkblaetter/Factsheet_Clathrus_FR_200423_web.pdf",
+       "label": "typolive03-microsite-preview.wsl.ch"
+      }
+     ],
+     "status": "checked"
+    },
+    {
+     "id": "F0001",
+     "icon": "🐍",
+     "pl": "W Polsce po raz pierwszy odnotowano go w latach 70. XX w. Mieszkańcy okolic Biłgoraja wzięli jego „jaja” za… jaja węży!",
+     "en": "In Poland it was first recorded in the 1970s. Residents of the Biłgoraj area mistook its “eggs” for… snake eggs!",
+     "sources": [
+      {
+       "url": "https://pl.wikipedia.org/wiki/Okratek_australijski",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.pjoes.com/Distribution-and-Molecular-Characterization-of-an-Alien-Fungus-Clathrus-archeri-in-Poland,61230,0,2.html",
+       "label": "pjoes.com"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/okratek-australijski-wlasciwosci-wystepowanie-i-ciekawostki/",
+       "label": "national-geographic.pl"
       }
      ],
      "status": "corrected"
     },
     {
-     "id": "F0001",
-     "icon": "🐍",
-     "pl": "W Polsce pierwsi zauważyli go w 1975 r. mieszkańcy okolic Biłgoraja. Jego „jaja” wzięli za… jaja węży!",
-     "en": "In Poland it was first spotted in 1975 by people living near Biłgoraj. They mistook its “eggs” for… snake eggs!",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Okratek_australijski",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
      "id": "F0002",
      "icon": "📍",
-     "pl": "Do 2014 r. owocniki notowano w Polsce blisko 90 razy, głównie na południu kraju; zasięg gatunku koncentruje się w Karpatach i na Śląsku. W Tatrach notowany jest dopiero od niedawna, m.in. na Polanie Chochołowskiej.",
-     "en": "By 2014 fruiting bodies had been recorded in Poland nearly 90 times, mainly in the south of the country; the species’ range is concentrated in the Carpathians and Silesia. In the Tatra Mountains it has been recorded only recently, including on Polana Chochołowska.",
+     "pl": "Owocniki notowano w Polsce blisko 90 razy, głównie na południu kraju; zasięg gatunku koncentruje się w Karpatach i na Śląsku. W Tatrach notowany jest dopiero od niedawna, m.in. na Polanie Chochołowskiej.",
+     "en": "Its fruiting bodies have been recorded in Poland nearly 90 times, mainly in the south of the country; the species' range is concentrated in the Carpathians and Silesia. In the Tatra Mountains it has been recorded only recently, e.g. in Polana Chochołowska.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Okratek_australijski",
@@ -49,6 +61,10 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://www.researchgate.net/publication/298806783_Distribution_and_Molecular_Characterization_of_an_Alien_Fungus_Clathrus_archeri_in_Poland",
        "label": "researchgate.net"
+      },
+      {
+       "url": "https://www.pjoes.com/Distribution-and-Molecular-Characterization-of-an-Alien-Fungus-Clathrus-archeri-in-Poland,61230,0,2.html",
+       "label": "pjoes.com"
       }
      ],
      "status": "corrected"
@@ -88,9 +104,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0269915X04001041",
        "label": "cambridge.org"
+      },
+      {
+       "url": "https://herbaria.plants.ox.ac.uk/bol/plants400/Profiles/op/Phallus",
+       "label": "herbaria.plants.ox.ac.uk"
+      },
+      {
+       "url": "https://cambridge.org/core/journals/mycologist/article/is-phallus-impudicus-a-mycological-giant/7DA3020D5E5DFCE10D1133296E4F908A",
+       "label": "cambridge.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0005",
@@ -108,8 +132,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0006",
      "icon": "🏛️",
-     "pl": "W 1983 r. trafił do pierwszej polskiej listy chronionych grzybów: rozporządzenie objęło ochroną ścisłą całą rodzinę sromotnikowatych, a lista liczyła 10 pozycji i około 21 gatunków. W 2004 r. zdjęto go z listy, bo jest pospolity i szybko się rozprzestrzenia.",
-     "en": "In 1983 it was included on the first Polish list of protected fungi: the regulation placed the entire stinkhorn family under strict protection, and the list comprised 10 entries and around 21 species. In 2004 it was removed from the list because it is common and spreads quickly.",
+     "pl": "W 1983 r. trafił do pierwszej polskiej listy chronionych grzybów: rozporządzenie objęło ochroną ścisłą całą rodzinę sromotnikowatych, a lista liczyła 10 pozycji obejmujących, zależnie od ujęcia, 21–24 gatunki. W 2004 r. zdjęto go z listy, bo jest pospolity i szybko się rozprzestrzenia.",
+     "en": "In 1983 it was included in the first Polish list of protected fungi: the regulation placed the whole stinkhorn family under strict protection, and the list had 10 entries covering, depending on the approach, 21–24 species. In 2004 it was removed from the list because it is common and spreads quickly.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sromotnik_smrodliwy",
@@ -125,8 +149,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0007",
      "icon": "🗣️",
-     "pl": "Ma mnóstwo ludowych nazw: śmierdziuch, smrodnik, bedłka pańska, węże jajo… Polską nazwę nadał mu Józef Jundziłł w 1830 r., a samo słowo „sromotnik” to staropolski wyraz oznaczający osobę okrytą hańbą lub siejącą zgorszenie.",
-     "en": "It has loads of folk names: śmierdziuch, smrodnik, bedłka pańska, węże jajo… Its Polish name was given by Józef Jundziłł in 1830, and the word “sromotnik” itself is an Old Polish term for a person covered in disgrace or spreading scandal.",
+     "pl": "Ma mnóstwo ludowych nazw: śmierdziuch, smrodnik, bedłka pańska, węże jajo… Samo słowo „sromotnik” to staropolski wyraz oznaczający osobę okrytą hańbą lub siejącą zgorszenie.",
+     "en": "It has many folk names: śmierdziuch, smrodnik, bedłka pańska, węże jajo… The word “sromotnik” itself is an Old Polish term for a person covered in shame or spreading scandal.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sromotnik_smrodliwy",
@@ -156,28 +180,19 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0009",
      "icon": "📏",
-     "pl": "Dorasta do ok. 16 cm wysokości przy grubości zaledwie ok. 1 cm. Prawdziwa leśna antena! 📡",
-     "en": "It grows up to about 16 cm tall while being only about 1 cm thick. A true forest antenna! 📡",
+     "pl": "Dorasta do ok. 15 cm wysokości przy grubości zaledwie ok. 1 cm. Prawdziwa leśna antena! 📡",
+     "en": "It grows up to about 15 cm tall while being only about 1 cm thick. A true forest antenna! 📡",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/M%C4%85dziak_psi",
        "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0010",
-     "icon": "🛡️",
-     "pl": "Był ściśle chroniony. 9.10.2014 r. wykreślono go z listy, ale na Czerwonej liście nadal ma status V (narażony).",
-     "en": "It used to be strictly protected. On 9.10.2014 it was removed from the list, but on the Red List it still has status V (vulnerable).",
-     "sources": [
+      },
       {
-       "url": "https://pl.wikipedia.org/wiki/M%C4%85dziak_psi",
-       "label": "Wikipedia (PL)"
+       "url": "https://www.naturespot.org/species/dog-stinkhorn",
+       "label": "naturespot.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -206,9 +221,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Phallus_hadriani",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://encyclopedia.odeuropa.eu/items/show/17",
+       "label": "encyclopedia.odeuropa.eu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0013",
@@ -219,9 +238,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Sromotnik_fio%C5%82kowy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.stampworld.com/en/stamps/Poland/Postage%20stamps/1980-1989",
+       "label": "stampworld.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -267,9 +290,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://kp.org.pl/pdf/pp/pdf2/PPXXVI_1_N_markiewicz.pdf",
+       "label": "kp.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -327,8 +354,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0020",
      "icon": "🛡️",
-     "pl": "Jest pod ochroną ścisłą i na Czerwonej liście ma kategorię E. W polskiej literaturze do 2020 r. podano 13 stanowisk, ale **wszystkie są historyczne**.",
-     "en": "It is strictly protected and has category E on the Red List. Up to 2020, Polish literature recorded 13 sites, but **all of them are historical**.",
+     "pl": "Jest pod ochroną ścisłą i na Czerwonej liście ma kategorię E.",
+     "en": "It is under strict protection and has category E on the Red List.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dzbank%C3%B3wka_kulista",
@@ -337,9 +364,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://redlist.info/iucn/species_view/120549/",
+       "label": "redlist.info"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0021",
@@ -367,9 +398,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pbsociety.org.pl/journals/index.php/am/article/view/am.2013.010",
        "label": "pbsociety.org.pl"
+      },
+      {
+       "url": "https://doaj.org/article/80944622c94e4c8281d702a1a4b28cee",
+       "label": "doaj.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0023",
@@ -405,8 +440,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0025",
      "icon": "🎉",
-     "pl": "W 2019 r. mieszkanka Włocławka odkryła na Kujawach bardzo duże stanowisko czareczki długotrzonkowej, uznawane za najbogatsze w Polsce. To grzyb niezmiernie rzadki, w Polsce znany z zaledwie kilku miejsc.",
-     "en": "In 2019 a resident of Włocławek discovered a very large site of the rosy goblet in Kuyavia, regarded as the richest in Poland. It is an extremely rare fungus, known in Poland from only a handful of locations.",
+     "pl": "To grzyb niezmiernie rzadki, w Polsce znany z zaledwie kilku miejsc.",
+     "en": "It is an extremely rare fungus, known in Poland from only a handful of locations.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Czareczka_d%C5%82ugotrzonkowa",
@@ -415,6 +450,10 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://www.zgorzelec.info/firmnews/32474",
        "label": "zgorzelec.info"
+      },
+      {
+       "url": "https://pbsociety.org.pl/journals/index.php/am/article/view/8190",
+       "label": "pbsociety.org.pl"
       }
      ],
      "status": "corrected"
@@ -453,8 +492,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0028",
      "icon": "🛡️",
-     "pl": "Od 1983 r. jest pod **ochroną ścisłą**, bez wyjątków dla gospodarki rolnej i leśnej.",
-     "en": "Since 1983 it has been under **strict protection**, with no exemptions for agriculture or forestry.",
+     "pl": "Jest pod **ochroną ścisłą**, bez wyjątków dla gospodarki rolnej i leśnej.",
+     "en": "It is under **strict protection**, with no exemptions for agriculture or forestry.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kr%C4%85%C5%BCk%C3%B3wka_%C5%BCy%C5%82kowana",
@@ -465,20 +504,20 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0029",
      "icon": "🌸",
-     "pl": "Owocniki pokazuje w kwietniu i maju, najchętniej na podłożu wapiennym. Do 2020 r. podano 6 historycznych i 27 nowych stanowisk.",
-     "en": "It produces fruiting bodies in April and May, preferably on limestone ground. Up to 2020, 6 historical and 27 new sites were recorded.",
+     "pl": "Owocniki pokazuje wiosną, najchętniej na podłożu wapiennym.",
+     "en": "It produces fruiting bodies in spring, preferably on calcareous ground.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kr%C4%85%C5%BCk%C3%B3wka_%C5%BCy%C5%82kowana",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -512,10 +551,10 @@ window.ATLAS_FACTS["grzyby"] = {
      "status": "verified"
     },
     {
-     "id": "F0032",
-     "icon": "🧬",
-     "pl": "Zawartość toksyny bardzo się waha między regionami i siedliskami, a do tego trudno ustalić, po jakim czasie obróbki termicznej gyromitryna traci trujące właściwości.",
-     "en": "The toxin content varies greatly between regions and habitats, and it is also hard to determine how long it must be cooked before gyromitrin loses its poisonous properties.",
+     "id": "F0033",
+     "icon": "📮",
+     "pl": "Trafiła na przywieszkę znaczka ze smardzem. To filatelistyczna lekcja o pomyłkach!",
+     "en": "It appeared on the tab of a stamp featuring a morel. A philatelic lesson in mistakes!",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Piestrzenica_kasztanowata",
@@ -523,19 +562,6 @@ window.ATLAS_FACTS["grzyby"] = {
       }
      ],
      "status": "corrected"
-    },
-    {
-     "id": "F0033",
-     "icon": "📮",
-     "pl": "Trafiła na przywieszkę znaczka ze smardzem (2012). To filatelistyczna lekcja o pomyłkach!",
-     "en": "It appeared on the tab of a stamp featuring a morel (2012). A philatelic lesson in mistakes!",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Piestrzenica_kasztanowata",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -555,9 +581,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://rcin.org.pl/iop//Content/87813/PDF/KR038_109384_r1994-t50-no5_ChPO-Piatek-80-83.pdf",
+       "label": "rcin.org.pl"
+      },
+      {
+       "url": "https://www.prawo.pl/prawo/grzyb-do-legalnego-zakupu-nie-kazdy-jadalny-nie-znaczy-do-obrotu,510338.html",
+       "label": "prawo.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0035",
@@ -579,29 +613,12 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0036",
      "icon": "🧬",
-     "pl": "Taksonomia smardzów mocno się ostatnio zmieniła. Ok. 260 polskich stanowisk podanych do 2020 r. wymaga sprawdzenia oznaczeń.",
-     "en": "Morel taxonomy has changed considerably in recent years. The identifications for around 260 Polish sites recorded up to 2020 need to be checked.",
+     "pl": "Taksonomia smardzów mocno się ostatnio zmieniła. Dawne polskie stanowiska wymagają sprawdzenia oznaczeń.",
+     "en": "The taxonomy of morels has changed a lot recently. Older Polish records need their identifications checked.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Smardz_jadalny",
        "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0037",
-     "icon": "",
-     "pl": "W stanie surowym lub niedogotowanym może wywołać zatrucie pokarmowe; toksyny smardzów nie są dobrze poznane, a dokładna obróbka termiczna zmniejsza ryzyko.",
-     "en": "Raw or undercooked, it can cause food poisoning. Morel toxins are not well understood, and thorough cooking reduces the risk.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Smardz_jadalny",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://www.cdc.gov/mmwr/volumes/73/wr/pdfs/mm7310a1-H.pdf",
-       "label": "cdc.gov"
       }
      ],
      "status": "corrected"
@@ -627,28 +644,28 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0039",
      "icon": "📐",
-     "pl": "Główka zajmuje od 1/2 do 2/3 wysokości owocnika. Ma pionowe żebra i poprzeczne listewki, które tworzą „kratkę”.",
-     "en": "The cap takes up between 1/2 and 2/3 of the fruiting body's height. It has vertical ribs and transverse ridges that form a ‘grid’.",
+     "pl": "Główka ma pionowe żebra i poprzeczne listewki, które tworzą „kratkę”.",
+     "en": "The cap has vertical ridges and transverse cross-ribs that form a “lattice”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Smardz_wynios%C5%82y",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0040",
      "icon": "🧩",
-     "pl": "Do 2020 r. podano w Polsce ok. 50 stanowisk, ale wszystkie wymagają rewizji z powodu zmian taksonomicznych.",
-     "en": "Up to 2020, around 50 sites were recorded in Poland, but all of them need revision because of taxonomic changes.",
+     "pl": "Wszystkie podawane w Polsce stanowiska wymagają rewizji z powodu zmian taksonomicznych.",
+     "en": "All sites reported in Poland need revision because of taxonomic changes.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Smardz_wynios%C5%82y",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -671,41 +688,49 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0042",
      "icon": "🛡️",
-     "pl": "W Polsce od 1995 r. jest pod **ochroną ścisłą**, a na Czerwonej liście ma kategorię E. Do 2021 r. znano 3 historyczne i 55 współczesnych stanowisk.",
-     "en": "In Poland it has been under **strict protection** since 1995 and has category E on the Red List. Up to 2021, 3 historical and 55 contemporary sites were known.",
+     "pl": "W Polsce od 2004 r. jest pod **ochroną ścisłą**.",
+     "en": "In Poland it has been strictly protected since 2004.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_je%C5%BCowata",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://cepl.sggw.edu.pl/wp-content/uploads/sites/75/2021/08/Domian.pdf?x68467",
+       "label": "cepl.sggw.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0043",
      "icon": "🌳",
-     "pl": "Jedno ze stanowisk to buk, który jest pomnikiem przyrody nr 1066 w Trójmiejskim Parku Krajobrazowym.",
-     "en": "One of its sites is a beech tree that is natural monument no. 1066 in the Tricity Landscape Park.",
+     "pl": "Jedno ze stanowisk to buk, który jest pomnikiem przyrody w Trójmiejskim Parku Krajobrazowym.",
+     "en": "One of its sites is a beech tree that is a natural monument in the Tricity Landscape Park.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_je%C5%BCowata",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0044",
      "icon": "🧊",
-     "pl": "Kolce mają 2–6 cm długości, a cały owocnik dorasta nawet do 30 cm.",
-     "en": "The spines are 2–6 cm long, and the whole fruiting body can grow up to 30 cm.",
+     "pl": "Kolce mają do 6 cm długości.",
+     "en": "Its spines are up to 6 cm long.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_je%C5%BCowata",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://mykoweb.com/CAF/species/Hericium_erinaceus.html",
+       "label": "mykoweb.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -721,48 +746,64 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_bukowa",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://cepl.sggw.edu.pl/wp-content/uploads/sites/75/2021/08/Domian.pdf",
+       "label": "cepl.sggw.edu.pl"
+      },
+      {
+       "url": "https://fragmenta-naturae.wpt.uni.opole.pl/wp-content/uploads/2026/05/FN59_2026_14-25.pdf",
+       "label": "fragmenta-naturae.wpt.uni.opole.pl"
+      },
+      {
+       "url": "https://pressto.amu.edu.pl/index.php/bfb/article/download/24539/22724/50471",
+       "label": "pressto.amu.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0046",
      "icon": "🧭",
-     "pl": "Owocnik ma 10–40 cm średnicy, a „gałązki” kończą się pęczkami miękkich kolców.",
-     "en": "The fruiting body is 10–40 cm across, and its ‘branches’ end in tufts of soft spines.",
+     "pl": "„Gałązki” owocnika kończą się pęczkami miękkich kolców.",
+     "en": "The “branches” of the fruit body end in tufts of soft spines.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_bukowa",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0047",
      "icon": "🗺️",
-     "pl": "Występuje w zasięgu buczyn, głównie na południu i północy kraju. Do 2020 r. podano ok. 300 stanowisk.",
-     "en": "It occurs within the range of beech forests, mainly in the south and north of the country. Up to 2020, around 300 sites were recorded.",
+     "pl": "Występuje w zasięgu buczyn, głównie na południu i północy kraju.",
+     "en": "It occurs within the range of beech forests, mainly in the south and north of the country.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_bukowa",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0048",
      "icon": "📜",
-     "pl": "Nazwa „soplówka gałęzista” to dawny synonim. Obecna nazwa „soplówka bukowa” pochodzi od W. Wojewody (2003).",
-     "en": "The name ‘soplówka gałęzista’ is an old synonym. The current name ‘soplówka bukowa’ comes from W. Wojewoda (2003).",
+     "pl": "Nazwa „soplówka gałęzista” to dawny synonim. Obecna nazwa to „soplówka bukowa”.",
+     "en": "“Soplówka gałęzista” is an old synonym. The current Polish name is “soplówka bukowa”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopl%C3%B3wka_bukowa",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.idpan.poznan.pl/images/Kujawska%20Leski%20K%C3%B3rniczanin%202020.pdf",
+       "label": "idpan.poznan.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -785,8 +826,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0050",
      "icon": "🏋️",
-     "pl": "Bywa ogromny. W 1711 r. w Turoszowie leśnik miał znaleźć okaz ważący 20 kg (dawna relacja, trudna do zweryfikowania). Duże okazy mogą ważyć 14 kg lub więcej.",
-     "en": "It can be enormous. In 1711, a forester in Turoszów is said to have found a specimen weighing 20 kg (an old account, hard to verify). Large specimens can weigh 14 kg or more.",
+     "pl": "Bywa ogromny. W 1711 r. w Turoszowie leśnik miał znaleźć okaz ważący 20 kg (dawna relacja, trudna do zweryfikowania).",
+     "en": "It can be huge. In 1711 a forester in Turoszów is said to have found a specimen weighing 20 kg (an old account that is hard to verify).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Siedzu%C5%84_sosnowy",
@@ -795,6 +836,10 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Sparassis_crispa",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/wielu-uwaza-ze-to-najsmaczniejszy-grzyb-mozna-znalezc-go-w-polsce/",
+       "label": "national-geographic.pl"
       }
      ],
      "status": "corrected"
@@ -802,15 +847,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0051",
      "icon": "🌲",
-     "pl": "Pasożytuje na korzeniach sosen. Zaatakowany pień gnije do 3 m wysokości i pachnie terpentyną.",
-     "en": "It parasitises the roots of pines. An infected trunk rots up to a height of 3 m and smells of turpentine.",
+     "pl": "Pasożytuje na korzeniach sosen. Zaatakowany pień gnije i pachnie terpentyną.",
+     "en": "It parasitises the roots of pines. The attacked trunk rots and smells of turpentine.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Siedzu%C5%84_sosnowy",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0052",
@@ -825,9 +870,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/wielu-uwaza-ze-to-najsmaczniejszy-grzyb-mozna-znalezc-go-w-polsce/",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.html",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -952,9 +1005,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Calocera_viscosa",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://mushroomexpert.com/fungionwood/club%20and%20coral/species%20pages/Calocera%20viscosa.htm",
+       "label": "mushroomexpert.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0061",
@@ -1088,9 +1145,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Galaretnica_mi%C4%99sista",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.mykoweb.com/CAF/species/Ascocoryne_sarcoides.html",
+       "label": "mykoweb.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1122,19 +1183,6 @@ window.ATLAS_FACTS["grzyby"] = {
       }
      ],
      "status": "verified"
-    },
-    {
-     "id": "F0073",
-     "icon": "🦊",
-     "pl": "Ostrzeżenie sanitarne: tego grzyba odradza się jeść na surowo, bo istnieje ryzyko zarażenia jajami bąblowca wielojamowego (tasiemca pasożytującego w ciele lisów).",
-     "en": "Health warning: eating this fungus raw is not recommended, as there is a risk of infection with the eggs of the multilocular tapeworm (a tapeworm that parasitises foxes).",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Galaretek_kolczasty",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "corrected"
     }
    ],
    "notes": []
@@ -1150,22 +1198,30 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/P%C5%82omyczka_galaretowata",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://kp.org.pl/images/pp/artyku%C5%82y_od_2019/XXXI_1/PP_nr%201_2020_Notatka.pdf",
+       "label": "kp.org.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2004/1765/ogl/pol/pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0075",
      "icon": "⛰️",
-     "pl": "To grzyb górski, rosnący na wapieniu. W Tatrach znany m.in. z dolin Kościeliskiej, Strążyskiej i Małej Łąki. Do 2020 r. podano 81 stanowisk.",
-     "en": "It's a mountain fungus that grows on limestone. In the Tatra Mountains it is known from the Kościeliska, Strążyska and Mała Łąka valleys, among others. By 2020, 81 sites had been reported.",
+     "pl": "To grzyb górski, rosnący na wapieniu. W Tatrach znany m.in. z dolin Kościeliskiej, Strążyskiej i Małej Łąki.",
+     "en": "It is a mountain fungus that grows on limestone. In the Tatras it is known from, among others, the Kościeliska, Strążyska and Mała Łąka valleys.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/P%C5%82omyczka_galaretowata",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0076",
@@ -1214,15 +1270,19 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0079",
      "icon": "🛡️",
-     "pl": "Od 2004 r. jest pod **ochroną ścisłą**, a na Czerwonej liście ma kategorię E. Do 2020 r. podano 12 dawnych, 12 współczesnych i 15 wątpliwych stanowisk.",
-     "en": "It has been under **strict protection** since 2004 and is listed in category E on the Red List. By 2020, 12 former, 12 current and 15 doubtful sites had been recorded.",
+     "pl": "Od 2004 r. jest pod **ochroną ścisłą**.",
+     "en": "Since 2004 it has been under **strict protection**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Promieniak_wilgociomierz",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.miechow.pl:443/download/rozporzadzenie_chronione_grzyby,13.pdf",
+       "label": "miechow.pl:443"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0080",
@@ -1258,8 +1318,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0082",
      "icon": "🧂",
-     "pl": "Po angielsku to „solniczka” (saltshaker earthstar) albo „pieprzniczka” (pepper pot). Endoperydium ma zwykle 6–24 otworki (u niektórych okazów ponad 30) i stoi na 3–9 krótkich „kolumienkach”.",
-     "en": "In English it's the “saltshaker earthstar” or the “pepper pot”. The endoperidium usually has 6–24 tiny pores (over 30 in some specimens) and stands on 3–9 short “columns”.",
+     "pl": "Po angielsku to „solniczka” (saltshaker earthstar) albo „pieprzniczka” (pepper pot). Endoperydium ma zwykle 6–24 otworki i stoi na krótkich „kolumienkach”.",
+     "en": "In English it is called the “saltshaker earthstar” or the “pepper pot”. The endoperidium usually has 6–24 small openings and stands on short “columns”.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Myriostoma_coliforme",
@@ -1272,6 +1332,10 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0177873",
        "label": "journals.plos.org"
+      },
+      {
+       "url": "https://bjbs.com.br/index.php/bjbs/article/download/150/106/619",
+       "label": "bjbs.com.br"
       }
      ],
      "status": "corrected"
@@ -1279,28 +1343,36 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0083",
      "icon": "🇪🇺",
-     "pl": "Jest na czerwonych listach 12 krajów Europy i należy do kandydatów do załącznika I Konwencji berneńskiej.",
-     "en": "It is on the red lists of 12 European countries and is a candidate for Appendix I of the Bern Convention.",
+     "pl": "Jest na czerwonych listach wielu krajów Europy i należy do kandydatów do załącznika I Konwencji berneńskiej.",
+     "en": "It is on the red lists of many European countries and is one of the candidates for Appendix I of the Bern Convention.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Myriostoma_coliforme",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://redlist.info/iucn/species_view/122233",
+       "label": "redlist.info"
+      },
+      {
+       "url": "https://rm.coe.int/168074686e",
+       "label": "rm.coe.int"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0084",
      "icon": "🛡️",
-     "pl": "W Polsce jest **bardzo rzadka**: do 2020 r. podano 8 historycznych stanowisk, 5 aktualnych i 1 wątpliwe. Jest pod ochroną ścisłą.",
-     "en": "In Poland it is **very rare**: by 2020, 8 historical sites, 5 current ones and 1 doubtful one had been recorded. It is under strict protection.",
+     "pl": "W Polsce jest **bardzo rzadka**. Jest pod ochroną ścisłą.",
+     "en": "In Poland it is **very rare**. It is under strict protection.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Gwiazda_wieloporowata",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1321,30 +1393,17 @@ window.ATLAS_FACTS["grzyby"] = {
      "status": "verified"
     },
     {
-     "id": "F0086",
-     "icon": "📏",
-     "pl": "Jak na gwiazdosza jest duży: 12–18 cm średnicy.",
-     "en": "For an earthstar, it's big: 12–18 cm across.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Gwiazdosz_wzniesiony",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
      "id": "F0087",
      "icon": "🌿",
-     "pl": "Lubi siedliska bogate w azot, np. zarośla z lilakiem, głogiem, bzem czarnym i robinią. W Polsce znany z 3 historycznych i 11 współczesnych stanowisk. Jest pod ochroną ścisłą.",
-     "en": "It likes nitrogen-rich habitats, such as thickets of lilac, hawthorn, elder and black locust. In Poland it is known from 3 historical and 11 current sites. It is under strict protection.",
+     "pl": "Lubi siedliska bogate w azot, np. zarośla z lilakiem, głogiem, bzem czarnym i robinią. Jest pod ochroną ścisłą.",
+     "en": "It likes nitrogen-rich habitats, such as thickets of lilac, hawthorn, elder and black locust. It is strictly protected.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Gwiazdosz_wzniesiony",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1354,15 +1413,19 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0088",
      "icon": "🦵",
-     "pl": "Na angielsku to „four-footed earthstar”. Stoi na czterech „nóżkach”, które tworzą odgięte ramiona.",
-     "en": "In English it's the “four-footed earthstar”. It stands on four “legs” formed by its turned-back arms.",
+     "pl": "Na angielsku to „four-footed earthstar”. Stoi na czterech lub pięciu „nóżkach”, które tworzą odgięte ramiona.",
+     "en": "In English it is called the “four-footed earthstar”. It stands on four or five “legs” formed by its bent-back rays.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Geastrum_quadrifidum",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.discoverwildlife.com/how-to/identify-wildlife/how-to-identify-earthstars",
+       "label": "discoverwildlife.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0089",
@@ -1394,9 +1457,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://www.grzyby.pl/gatunki/Geastrum_quadrifidum.htm",
+       "label": "grzyby.pl"
+      },
+      {
+       "url": "https://www.miechow.pl:443/download/rozporzadzenie_chronione_grzyby,13.pdf",
+       "label": "miechow.pl:443"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1406,15 +1477,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0091",
      "icon": "🍭",
-     "pl": "Młody owocnik rozwija się **pod ziemią**. Dopiero potem trzonek wypycha główkę (do 1,3 cm) na powierzchnię.",
-     "en": "The young fruiting body develops **underground**. Only later does the stalk push the head (up to 1.3 cm) up to the surface.",
+     "pl": "Młody owocnik rozwija się **pod ziemią**. Dopiero potem trzonek wypycha główkę na powierzchnię.",
+     "en": "The young fruit body develops **underground**. Only later does the stem push the head up to the surface.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ber%C5%82%C3%B3weczka_zimowa",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0092",
@@ -1446,9 +1517,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://kp.org.pl/pdf/pp/pdf2/PP_nr%203-2018_notatka_Stoklosa.pdf",
+       "label": "kp.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1484,15 +1559,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0096",
      "icon": "🔍",
-     "pl": "Kubek ma 1–2 cm wysokości, a perydiole 1,5–2 mm. Wnętrze lśni srebrzyście i ma prążki, które są znakiem rozpoznawczym gatunku.",
-     "en": "The cup is 1–2 cm tall and the peridioles 1.5–2 mm. The inside has a silvery sheen and grooves, the hallmark of the species.",
+     "pl": "Wnętrze kubka lśni srebrzyście i ma prążki, które są znakiem rozpoznawczym gatunku.",
+     "en": "The inside of the cup has a silvery sheen and is grooved; the grooves are the hallmark of the species.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kubek_pr%C4%85%C5%BCkowany",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1502,15 +1577,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0097",
      "icon": "🪺",
-     "pl": "Ptasie gniazda z grzybów opisał już Karol Clusius w 1601 r. Przez stulecia spierano się, czy „jajka” to nasiona.",
-     "en": "Bird's nest fungi were described by Carolus Clusius as early as 1601. For centuries people argued over whether the “eggs” were seeds.",
+     "pl": "Ptasie gniazda z grzybów opisał już Karol Clusius. Przez stulecia spierano się, czy „jajka” to nasiona.",
+     "en": "Bird's nest fungi were already described by Carolus Clusius. For centuries people argued whether the “eggs” were seeds.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Crucibulum_%28fungus%29",
        "label": "Wikipedia (EN)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0098",
@@ -1571,7 +1646,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "onlinelibrary.wiley.com"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0102",
@@ -1593,12 +1668,20 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0103",
      "icon": "🛡️",
-     "pl": "Od 2004 r. jest pod **ochroną ścisłą**, a na Czerwonej liście roślin i grzybów Polski ma status E (gatunek wymierający). Do 2020 r. podano w Polsce 16 stanowisk.",
-     "en": "It has been under **strict protection** since 2004 and has E status (endangered) on the Red List of Plants and Fungi of Poland. By 2020, 16 sites had been recorded in Poland.",
+     "pl": "Od 2004 r. jest pod **ochroną ścisłą**, a na Czerwonej liście roślin i grzybów Polski ma status E (gatunek wymierający).",
+     "en": "Since 2004 it has been under **strict protection**, and on the Polish Red List of plants and fungi it has status E (endangered).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kolczak%C3%B3wka_piek%C4%85ca",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.grzyby.pl/gatunki/Hydnellum_peckii.htm",
+       "label": "grzyby.pl"
+      },
+      {
+       "url": "https://przyrodniczo.pl/grzyby/kolczakowka-piekaca/",
+       "label": "przyrodniczo.pl"
       }
      ],
      "status": "corrected"
@@ -1624,15 +1707,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0105",
      "icon": "🛡️",
-     "pl": "Jest pod **ochroną ścisłą**. Do 2020 r. w Polsce podano zaledwie 2 historyczne, 7 współczesnych i 1 wątpliwe stanowisko.",
-     "en": "It is under **strict protection**. By 2020, a mere 2 historical, 7 current and 1 doubtful site had been recorded in Poland.",
+     "pl": "Jest pod **ochroną ścisłą**.",
+     "en": "It is strictly protected.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kolczak%C3%B3wka_niebieskawa",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1672,12 +1755,20 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0108",
      "icon": "🛡️",
-     "pl": "Jest pod **ochroną ścisłą**, a na Czerwonej liście ma status E (zagrożony wymarciem). Do 2020 r. podano 20 historycznych i 14 współczesnych stanowisk.",
-     "en": "It is under **strict protection** and has E status (threatened with extinction) on the Red List. By 2020, 20 historical and 14 current sites had been recorded.",
+     "pl": "Jest pod **ochroną ścisłą**, a na Czerwonej liście ma status E (zagrożony wymarciem).",
+     "en": "It is strictly protected, and on the Red List it has status E (threatened with extinction).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kolczak%C3%B3wka_wonna",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.infor.pl/akt-prawny/DZU.2014.197.0001408,rozporzadzenie-ministra-srodowiska-w-sprawie-ochrony-gatunkowej-grzybow.html",
+       "label": "infor.pl"
+      },
+      {
+       "url": "https://grzyby.pl/gatunki/Hydnellum_suaveolens.htm",
+       "label": "grzyby.pl"
       }
      ],
      "status": "corrected"
@@ -1716,15 +1807,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0111",
      "icon": "🔁",
-     "pl": "W Polsce odnaleziono go po ponad stu latach w Puszczy Białowieskiej. W 2020 r. znano 6 stanowisk. Jest pod ochroną ścisłą (kategoria E).",
-     "en": "In Poland it was rediscovered in the Białowieża Forest after more than a hundred years. In 2020, 6 sites were known. It is strictly protected (category E).",
+     "pl": "W Polsce odnaleziono go w Puszczy Białowieskiej. Jest pod ochroną ścisłą.",
+     "en": "In Poland it was found in the Białowieża Forest. It is strictly protected.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBy%C5%82kowiec_r%C3%B3%C5%BCowawy",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1774,22 +1865,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0115",
-     "icon": "📮",
-     "pl": "Na znaczku z 1980 r. błędnie podpisano go „szyszkowiec szyszkowaty”.",
-     "en": "On a 1980 stamp it was mistakenly labelled “szyszkowiec szyszkowaty”.",
-     "sources": [
+      },
       {
-       "url": "https://pl.wikipedia.org/wiki/Szyszkowiec_%C5%82uskowaty",
-       "label": "Wikipedia (PL)"
+       "url": "https://eli.gov.pl/eli/DU/2014/1408/ogl/pol/pdf",
+       "label": "eli.gov.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2004/1765/ogl/pol/pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1805,9 +1891,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Rubroboletus_satanas",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.mykoweb.com/boletes/species/Boletus_satanas.html",
+       "label": "mykoweb.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0117",
@@ -1975,9 +2065,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Chlorociboria_aeruginascens",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://botit.botany.wisc.edu/toms_fungi/jul2008.html",
+       "label": "botit.botany.wisc.edu"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0128",
@@ -1988,9 +2082,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Chlor%C3%B3wka_drobna",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://grzyby.pl/gatunki/Chlorociboria_aeruginascens.htm",
+       "label": "grzyby.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0129",
@@ -2030,8 +2128,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0131",
      "icon": "✨",
-     "pl": "Grzybnia i owocniki wykazują bioluminescencję, ale jest ona słaba i niewidoczna dla oka przystosowanego do ciemności. W jednym badaniu światło wykryto dopiero po 20 godzinach naświetlania kliszy rentgenowskiej.",
-     "en": "The mycelium and fruiting bodies are bioluminescent, but the light is faint and invisible to the dark-adapted eye. In one study it was detected only after X-ray film had been exposed for 20 hours.",
+     "pl": "Grzybnia i owocniki wykazują bioluminescencję, ale jest ona słaba i niewidoczna dla oka przystosowanego do ciemności.",
+     "en": "Both the mycelium and the fruit bodies are bioluminescent, but the glow is weak and invisible even to a dark-adapted eye.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Grzyb%C3%B3wka_krwista",
@@ -2047,15 +2145,15 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0132",
      "icon": "🌳",
-     "pl": "W Polsce notowano ją na drewnie kilkunastu gatunków drzew liściastych, od jawora po lipę.",
-     "en": "In Poland it has been recorded on the wood of more than a dozen broadleaved tree species, from sycamore to lime.",
+     "pl": "W Polsce notowano ją na drewnie drzew liściastych, od jawora po lipę.",
+     "en": "In Poland it has been recorded on the wood of broadleaved trees, from sycamore maple to lime.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Grzyb%C3%B3wka_krwista",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -2065,8 +2163,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0133",
      "icon": "🪰",
-     "pl": "Skąd nazwa? Już Albert Wielki (przed 1256 r.) pisał, że sproszkowany w mleku zabija muchy. W rzeczywistości owady są tylko odurzone.",
-     "en": "Where does the name come from? Albertus Magnus (before 1256) wrote that, powdered in milk, it kills flies. In reality the insects are merely stunned.",
+     "pl": "Skąd nazwa? Już Albert Wielki pisał, że sproszkowany w mleku zabija muchy. W rzeczywistości owady są tylko odurzone.",
+     "en": "Where does the name come from? Albertus Magnus already wrote that, powdered in milk, it kills flies. In fact the insects are only stunned.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Amanita_muscaria",
@@ -2077,7 +2175,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0134",
@@ -2092,9 +2190,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/eli/DU/2025/598",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2025/598/ogl",
+       "label": "eli.gov.pl"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/598/text.pdf",
+       "label": "api.sejm.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0135",
@@ -2105,22 +2211,30 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Muchomor_czerwony",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.unodc.org/unodc/en/data-and-analysis/bulletin/bulletin_1970-01-01_4_page005.html",
+       "label": "unodc.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0136",
      "icon": "⚗️",
-     "pl": "Gromadzi wanad w stężeniach nawet 400 razy wyższych niż w glebie, w postaci związku amawadyny.",
-     "en": "It accumulates vanadium at concentrations up to 400 times higher than in the soil, in the form of the compound amavadin.",
+     "pl": "Gromadzi wanad w stężeniach nawet 400 razy wyższych niż typowe dla roślin i grzybów, w postaci związku amawadyny.",
+     "en": "It accumulates vanadium at concentrations up to 400 times higher than is typical of plants and fungi, in the form of the compound amavadin.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Muchomor_czerwony",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://chimia.ch/chimia/article/download/2019_096/520/11175",
+       "label": "chimia.ch"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0137",
@@ -2162,15 +2276,19 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ozorek_d%C4%99bowy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://panel.iop.krakow.pl/uploads/wydawnictwa_artykuly/5dd3d3e100f5f343525672b16386f9030b1823fa.pdf",
+       "label": "panel.iop.krakow.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0140",
      "icon": "🛡️",
-     "pl": "Od 2014 r. jest pod **ochroną częściową**. Na Czerwonej liście ma status R. Do 2020 r. podano ok. 250 stanowisk.",
-     "en": "It has been under **partial protection** since 2014. Its Red List status is R. By 2020, around 250 sites had been recorded.",
+     "pl": "Od 2014 r. jest pod **ochroną częściową**. Na Czerwonej liście ma status R.",
+     "en": "Since 2014 it has been partially protected. On the Red List it has status R.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ozorek_d%C4%99bowy",
@@ -2179,9 +2297,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://www.grzyby.pl/gatunki/Fistulina_hepatica.htm",
+       "label": "grzyby.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -2213,23 +2335,6 @@ window.ATLAS_FACTS["grzyby"] = {
       }
      ],
      "status": "verified"
-    },
-    {
-     "id": "F0143",
-     "icon": "",
-     "pl": "Surowe lub niedogotowane owocniki mogą wywoływać zatrucia, objawiające się głównie nudnościami, wymiotami i zawrotami głowy.",
-     "en": "Raw or undercooked fruiting bodies can cause poisoning, with symptoms mainly of nausea, vomiting and dizziness.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/%C5%BB%C3%B3%C5%82ciak_siarkowy",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://www.czytelniamedyczna.pl/7009,badania-wyciagow-z-owocnikow-grzyba-laetiporus-sulphureus-bull.html",
-       "label": "czytelniamedyczna.pl"
-      }
-     ],
-     "status": "corrected"
     }
    ],
    "notes": []
@@ -2265,8 +2370,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0146",
      "icon": "🛡️",
-     "pl": "Jest pod **ochroną częściową**, a pozyskiwanie jej wymaga zezwolenia (ręczny zbiór bez naruszania drewna). Do 2020 r. podano ok. 150 stanowisk.",
-     "en": "It is under **partial protection**, and collecting it requires a permit (hand-picking without damaging the wood). By 2020, around 150 sites had been recorded.",
+     "pl": "Jest pod **ochroną częściową**, a pozyskiwanie jej wymaga zezwolenia (ręczny zbiór bez naruszania drewna).",
+     "en": "It is under **partial protection**, and collecting it requires a permit (by hand, without damaging the wood).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Lakownica_%C5%BC%C3%B3%C5%82tawa",
@@ -2277,7 +2382,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -2287,28 +2392,28 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0147",
      "icon": "🎂",
-     "pl": "Owocniki są wieloletnie: żyją nawet do 80 lat, dorastają do 1 m i ważą do 10 kg.",
-     "en": "The fruiting bodies are perennial: they can live for up to 80 years, grow up to 1 m across and weigh up to 10 kg.",
+     "pl": "Owocniki są wieloletnie.",
+     "en": "The fruiting bodies are perennial.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pniarek_lekarski",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0148",
      "icon": "📍",
-     "pl": "Najwięcej drzew z tym grzybem w Polsce notowano na Górze Chełmowej w Świętokrzyskim Parku Narodowym. Do 2020 r. podano 11 dawnych i 6 współczesnych stanowisk.",
-     "en": "In Poland, the largest number of trees hosting this fungus has been recorded on Góra Chełmowa in Świętokrzyski National Park. By 2020, 11 historical and 6 current sites had been recorded.",
+     "pl": "W Polsce notowano go m.in. na Górze Chełmowej w Świętokrzyskim Parku Narodowym.",
+     "en": "In Poland it has been recorded, among other places, on Chełmowa Góra in the Świętokrzyski National Park.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pniarek_lekarski",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0149",
@@ -2367,9 +2472,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7234858/",
        "label": "pmc.ncbi.nlm.nih.gov"
+      },
+      {
+       "url": "https://synapse.koreamed.org/articles/1145982",
+       "label": "synapse.koreamed.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0154",
@@ -2466,15 +2575,19 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0160",
      "icon": "🇵🇱",
-     "pl": "W Polsce notowany od 1902 r. Jest rzadki, z kategorią R na Czerwonej liście.",
-     "en": "Recorded in Poland since 1902. It is rare, with category R on the Red List.",
+     "pl": "Jest rzadki, z kategorią R na Czerwonej liście.",
+     "en": "It is rare and listed in category R on the Red List.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Maczu%C5%BCnik_bojowy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.kp.org.pl/pdf/pp/pdf2/przeglad%204-2010_wilga.pdf",
+       "label": "kp.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -2559,22 +2672,26 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Calvatia_gigantea",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://blog.mycology.cornell.edu/2006/10/26/giant-puffballs-calvatia-gigantea/",
+       "label": "blog.mycology.cornell.edu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0166",
      "icon": "🧭",
-     "pl": "W Polsce częstsza jest na północy, a na południu rzadka. Do 2014 r. była ściśle chroniona.",
-     "en": "In Poland it is more common in the north and rare in the south. Until 2014 it was strictly protected.",
+     "pl": "W Polsce częstsza jest na północy, a na południu rzadka.",
+     "en": "In Poland it is more common in the north and rare in the south.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Czasznica_olbrzymia",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -2582,23 +2699,10 @@ window.ATLAS_FACTS["grzyby"] = {
   "opienka-miodowa-bioluminescencja": {
    "facts": [
     {
-     "id": "F0167",
-     "icon": "💡",
-     "pl": "Rosnące ryzomorfy świecą w rytmie dobowym: maksimum ok. 17:30, minimum ok. 7:30. Najjaśniej przy pH 5,7–6.",
-     "en": "Growing rhizomorphs glow on a daily rhythm: peaking at around 17:30 and dimmest at around 7:30. They shine brightest at pH 5.7–6.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Opie%C5%84ka_miodowa",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
      "id": "F0168",
      "icon": "🌍",
-     "pl": "Rekordzistka w rodzinie: jej krewniaczka, opieńka ciemna (*A. ostoyae*) z Oregonu, zajmuje ok. 965 ha (ok. 9,7 km²). Uchodzi za jeden z największych organizmów na Ziemi (szac. wiek od ok. 2400 do ok. 8650 lat; szacunki różnią się).",
-     "en": "The record-holder of the family: its relative, the dark honey fungus (*A. ostoyae*) from Oregon, covers around 965 ha (approx. 9.7 km²). It is considered one of the largest organisms on Earth (estimated age from around 2,400 to around 8,650 years; estimates vary).",
+     "pl": "Rekordzistka w rodzinie: jej krewniaczka, opieńka ciemna (*A. ostoyae*) z Oregonu, zajmuje ok. 965 ha (ok. 9,7 km²). Uchodzi za jeden z największych organizmów na Ziemi (szac. wiek od ok. 1900 do ok. 8650 lat; szacunki różnią się).",
+     "en": "A record-holder in the family: its relative, the dark honey fungus (*A. ostoyae*) from Oregon, covers about 965 ha (about 9.7 km²). It is considered one of the largest organisms on Earth (estimated age from about 1,900 to about 8,650 years; estimates vary).",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Armillaria_ostoyae",
@@ -2607,6 +2711,14 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://www.guinnessworldrecords.com/world-records/66481-largest-fungi",
        "label": "guinnessworldrecords.com"
+      },
+      {
+       "url": "https://webarchive.library.unt.edu/eot2008/20081204184708/http://www.treesearch.fs.fed.us/pubs/20135",
+       "label": "webarchive.library.unt.edu"
+      },
+      {
+       "url": "https://discovery.com/nature/the-largest-living-thing-on-earth-is-a-3-5-square-mile-fungus",
+       "label": "discovery.com"
       }
      ],
      "status": "corrected"
@@ -2623,23 +2735,6 @@ window.ATLAS_FACTS["grzyby"] = {
       }
      ],
      "status": "verified"
-    },
-    {
-     "id": "F0170",
-     "icon": "",
-     "pl": "Surowa lub niedogotowana może być trująca.",
-     "en": "Raw or undercooked, it can be poisonous.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Opie%C5%84ka_miodowa",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://www.grzyby.edu.pl/opienka-miodowa/",
-       "label": "grzyby.edu.pl"
-      }
-     ],
-     "status": "checked"
     }
    ],
    "notes": []
@@ -2672,9 +2767,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://cdnsciencepub.com/doi/10.1139/cjr42c-037",
        "label": "cdnsciencepub.com"
+      },
+      {
+       "url": "https://scilit.com/publications/0f18556dd7c89c24dcbcbc5d15830d30",
+       "label": "scilit.com"
+      },
+      {
+       "url": "https://informahealthcare.com/doi/abs/10.1080/00275514.1992.12026109",
+       "label": "informahealthcare.com"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0173",
@@ -2736,12 +2839,16 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0177",
      "icon": "💊",
-     "pl": "Z jego owocników izoluje się polisacharyd K, stosowany w niektórych krajach jako adiuwant przeciwnowotworowy, a w 1973 r. wprowadzono na rynek otrzymywany z wrośniaka preparat krestin.",
-     "en": "Polysaccharide K is isolated from its fruiting bodies and used in some countries as an anti-cancer adjuvant; in 1973 krestin, a preparation derived from turkey tail, was brought to market.",
+     "pl": "Z jego owocników izoluje się polisacharyd K, stosowany w niektórych krajach jako adiuwant przeciwnowotworowy, a w 1977 r. wprowadzono na rynek otrzymywany z wrośniaka preparat krestin.",
+     "en": "Polysaccharide K, used in some countries as an anticancer adjuvant, is isolated from its fruiting bodies, and in 1977 the preparation Krestin, obtained from turkey tail, was brought to market.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Wro%C5%9Bniak_r%C3%B3%C5%BCnobarwny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://link.springer.com/doi/10.1007/s00595-011-0075-7",
+       "label": "link.springer.com"
       }
      ],
      "status": "corrected"
@@ -2912,8 +3019,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0189",
      "icon": "☠️",
-     "pl": "Jest neurotoksyczny przez kwas poliporowy. Opisano zatrucie rodziny w Niemczech: objawy po ok. 12 h, a mocz ofiar był **fioletowy**.",
-     "en": "It is neurotoxic owing to polyporic acid. A case of a family poisoned in Germany has been described: symptoms appeared after approx. 12 h, and the victims' urine was **violet**.",
+     "pl": "Jest neurotoksyczny przez kwas poliporowy. Opisano zatrucie rodziny w Niemczech, a mocz ofiar był **fioletowy**.",
+     "en": "It is neurotoxic because of polyporic acid. A family poisoning was described in Germany, and the victims' urine was **violet**.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Hapalopilus_rutilans",
@@ -2924,7 +3031,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0190",
@@ -3090,15 +3197,19 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0200",
      "icon": "📏",
-     "pl": "Kapelusz ma 10–40 cm średnicy. Młode owocniki pojawiają się już w marcu, a stare trzymają się na pniu nawet do lutego.",
-     "en": "The cap is 10–40 cm across. Young fruiting bodies appear as early as March, and old ones can cling to the trunk until as late as February.",
+     "pl": "Kapelusz ma 5–60 cm szerokości. Owocniki wyrastają od maja do października.",
+     "en": "The cap is 5–60 cm wide. Fruiting bodies appear from May to October.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBagwiak_%C5%82uskowaty",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://grzyby.pl/gatunki/Polyporus_squamosus.htm",
+       "label": "grzyby.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []

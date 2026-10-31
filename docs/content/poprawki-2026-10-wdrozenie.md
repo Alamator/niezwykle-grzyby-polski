@@ -17,6 +17,8 @@ Gdy zmieniała się nazwa polska (albo łacińska), dawna nazwa trafiła do pola
 
 Lista jest w `data/collections.js` (`WITHDRAWN`). Pliki `data/facts/*.facts.js` powstają poza repo, dlatego wycofane ciekawostki są odfiltrowywane przy wczytywaniu kolekcji, a nie usuwane z tych plików. Przy następnym generowaniu faktów można je pominąć; `npm run test:facts` pilnuje, żeby lista zgadzała się z danymi.
 
+31.10.2026 wycofane ciekawostki usunięto z plików `data/facts/*.facts.js` (`README-weryfikacja.md`); lista `WITHDRAWN` ma teraz tylko karty.
+
 ### Karty
 
 | Karta | Powód |

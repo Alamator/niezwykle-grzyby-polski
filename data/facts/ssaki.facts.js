@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["ssaki"] = {
  "checked": "2026-10-28",
@@ -74,8 +74,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0698",
      "icon": "🧠",
-     "pl": "Zimą jej **czaszka kurczy się o prawie 20%, a mózg nawet o 30%**, a wiosną odrasta mniej więcej do pierwotnych rozmiarów! To **zjawisko Dehnela**, nazwane od polskiego zoologa Augusta Dehnela.",
-     "en": "In winter its **skull shrinks by almost 20% and its brain by as much as 30%**, and in spring they grow back to roughly their original size! This is **Dehnel's phenomenon**, named after the Polish zoologist August Dehnel.",
+     "pl": "Zimą jej **czaszka kurczy się o prawie 20%, a mózg też wyraźnie maleje**, a wiosną odrasta mniej więcej do pierwotnych rozmiarów! To **zjawisko Dehnela**, nazwane od polskiego zoologa Augusta Dehnela.",
+     "en": "In winter its **skull shrinks by almost 20% and its brain clearly shrinks too**, and in spring they grow back to roughly their original size! This is **Dehnel's phenomenon**, named after the Polish zoologist August Dehnel.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Common_shrew",
@@ -84,6 +84,14 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/August_Dehnel",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.sciencedaily.com/releases/2017/10/171023123631.htm",
+       "label": "sciencedaily.com"
+      },
+      {
+       "url": "https://www.cell.com/current-biology/fulltext/S0960-9822(21)00519-4",
+       "label": "cell.com"
       }
      ],
      "status": "corrected"
@@ -139,19 +147,6 @@ window.ATLAS_FACTS["ssaki"] = {
       }
      ],
      "status": "corrected"
-    },
-    {
-     "id": "F0702",
-     "icon": "⚖️",
-     "pl": "Ryjówki po przezimowaniu ważą **dwa razy więcej** niż tegoroczne.",
-     "en": "Shrews that have survived the winter weigh **twice as much** as this year's young.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Ryj%C3%B3wka_%C5%9Brednia",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -167,19 +162,6 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
        "label": "Dziennik Ustaw"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0704",
-     "icon": "🍽️",
-     "pl": "Codziennie zjada **2–3 razy więcej**, niż sama waży!",
-     "en": "Every day it eats **2–3 times its own body weight**!",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Ryj%C3%B3wka_g%C3%B3rska",
-       "label": "Wikipedia (PL)"
       }
      ],
      "status": "verified"
@@ -228,9 +210,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rz%C4%99sorek_rzeczek",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/plywajaca-mysz-czy-wodna-lasica-rzesorek-rzeczek-i-jego-najblizsi-krewni-wciaz-zaskakuja-naukowcow/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0708",
@@ -276,9 +262,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Iberian_water_shrew",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4587729/",
+       "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0711",
@@ -318,15 +308,19 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0713",
      "icon": "⛏️",
-     "pl": "Kopie korytarze w tempie **12–15 m na godzinę**, a na glebach bagiennych kretowiska osiągają do 90 cm wysokości!",
-     "en": "It digs tunnels at a rate of **12–15 m per hour**, and on marshy soils its molehills reach up to 90 cm in height!",
+     "pl": "Kopie korytarze w tempie **12–15 m na godzinę**!",
+     "en": "It digs tunnels at a rate of **12–15 m per hour**!",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kret_europejski",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://gwct.org.uk/wildlife/species-of-the-month/2010/february/",
+       "label": "gwct.org.uk"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0714",
@@ -427,19 +421,6 @@ window.ATLAS_FACTS["ssaki"] = {
       }
      ],
      "status": "verified"
-    },
-    {
-     "id": "F0720",
-     "icon": "🎂",
-     "pl": "W Finlandii samiec „Nestori”, żyjący w starym młynie, miał w 2024 r. około **21 lat**!",
-     "en": "In Finland, a male called “Nestori”, living in an old mill, was around **21 years old** in 2024!",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Daubenton's_bat",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -476,9 +457,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://www.bfn.de/artenportraits/myotis-dasycneme",
        "label": "bfn.de"
+      },
+      {
+       "url": "https://umweltportal.mv-regierung.de/lung/files/artenschutz/ffh-arten/ffh_asb_myotis_dasycneme.pdf",
+       "label": "umweltportal.mv-regierung.de"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0723",
@@ -511,6 +496,10 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Nocek_Bechsteina",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eunis.eea.europa.eu/species/Myotis%20bechsteinii",
+       "label": "eunis.eea.europa.eu"
       }
      ],
      "status": "verified"
@@ -559,9 +548,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Natterer's_bat",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://kmkjournals.com/upload/PDF/RJT/14/ther14_2_129_132_Dokuchaev.pdf",
+       "label": "kmkjournals.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -590,9 +583,17 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Whiskered_bat",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.bats.org.uk/about-bats/what-are-bats/uk-bats/brandts-bat-2",
+       "label": "bats.org.uk"
+      },
+      {
+       "url": "https://publication.plazi.org/GgServer/html/4C3D87E8FF3B6A84FF4F9D621984B0D7",
+       "label": "publication.plazi.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -615,8 +616,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0732",
      "icon": "🗺️",
-     "pl": "W Polsce żyje **tylko na Lubelszczyźnie** (między Wieprzem a Bugiem). W Polsce i na południu Rosji z zasięgu z połowy XX wieku zostało zaledwie około 10%.",
-     "en": "In Poland it lives **only in the Lublin region** (between the Wieprz and the Bug). In Poland and southern Russia, only about 10% of its mid-20th-century range remains.",
+     "pl": "W Polsce żyje **tylko na Lubelszczyźnie** (między Wieprzem a Bugiem).",
+     "en": "In Poland it lives **only in the Lublin region** (between the Wieprz and the Bug).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Suse%C5%82_pere%C5%82kowany",
@@ -660,6 +661,10 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Chomik_europejski",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.iucnredlist.org/species/pdf/111875852",
+       "label": "iucnredlist.org"
       }
      ],
      "status": "verified"
@@ -785,22 +790,30 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://czerniejewo.poznan.lasy.gov.pl/aktualnosci/-/asset_publisher/1M8a/content/orzesznice-juz-spia/pop_up",
        "label": "czerniejewo.poznan.lasy.gov.pl"
+      },
+      {
+       "url": "https://ptes.org/campaigns/dormice/about-hazel-dormice/hazel-dormouse-ecology/",
+       "label": "ptes.org"
+      },
+      {
+       "url": "https://ptes.org/wp-content/uploads/2019/03/dormouse-fact-sheet.pdf",
+       "label": "ptes.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0742",
      "icon": "🏷️",
-     "pl": "W 2015 r. MiIZ PAN ustaliło nazwę gatunku „orzesznica leszczynowa”, a sama „orzesznica” oznacza teraz rodzaj.",
-     "en": "In 2015 the Museum and Institute of Zoology of the Polish Academy of Sciences (MiIZ PAN) established the species name “orzesznica leszczynowa”, while “orzesznica” on its own now refers to the genus.",
+     "pl": "MiIZ PAN ustaliło nazwę gatunku „orzesznica leszczynowa”, a sama „orzesznica” oznacza teraz rodzaj.",
+     "en": "The Museum and Institute of Zoology of the Polish Academy of Sciences (MiIZ PAN) set the species name “orzesznica leszczynowa”, and “orzesznica” alone now denotes the genus.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Orzesznica_leszczynowa",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -881,9 +894,17 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://www.researchgate.net/publication/379237290_Historical_Distribution_of_the_Garden_Dormouse_Eliomys_quercinus_Linnaeus_1766_Rodentia_Gliridae_in_Poland",
        "label": "researchgate.net"
+      },
+      {
+       "url": "https://acta-zoologica-bulgarica.eu/2024/Suppl_19_13.pdf",
+       "label": "acta-zoologica-bulgarica.eu"
+      },
+      {
+       "url": "https://www.dutchnews.nl/2008/08/baby_dormice_born_in_limburg",
+       "label": "dutchnews.nl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -903,9 +924,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Tatra_marmot",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://archiwum.tpn.pl/filebrowser/files/Foldery/swistak.pdf",
+       "label": "archiwum.tpn.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -921,6 +946,10 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/eli/acts/DU/2016/2183/text.html",
+       "label": "api.sejm.gov.pl"
       }
      ],
      "status": "corrected"
@@ -938,9 +967,17 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://www.zolopole.lasy.gov.pl/witamy/-/asset_publisher/N0Sb/content/bobr-europejski/pop_up?_101_INSTANCE_N0Sb_viewMode=print&_101_INSTANCE_N0Sb_languageId=de_DE",
        "label": "zolopole.lasy.gov.pl"
+      },
+      {
+       "url": "https://projekty.ncn.gov.pl/opisy/653160-pl.pdf",
+       "label": "projekty.ncn.gov.pl"
+      },
+      {
+       "url": "https://sulecin.szczecin.lasy.gov.pl/aktualnosci/-/asset_publisher/1M8a/content/bobr-pozyteczny-szkodnik-",
+       "label": "sulecin.szczecin.lasy.gov.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0752",
@@ -951,9 +988,17 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Eurasian_beaver",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://manuscript.isc.ac/Inventory/10/835549.htm",
+       "label": "manuscript.isc.ac"
+      },
+      {
+       "url": "https://brage.nina.no/nina-xmlui/handle/11250/2673340",
+       "label": "brage.nina.no"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -963,21 +1008,25 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0753",
      "icon": "🏃",
-     "pl": "Cała dzika populacja Europy pochodzi od kilku zwierząt, które w **1905 r.** uciekły z fermy pod Pragą.",
-     "en": "The entire wild population in Europe descends from a few animals that escaped from a farm near Prague in **1905**.",
+     "pl": "Cała dzika populacja Europy pochodzi od kilku zwierząt, które w **1905 r.** wypuszczono w majątku pod Pragą.",
+     "en": "The entire wild population of Europe descends from a few animals released on an estate near Prague in **1905**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pi%C5%BCmak_ameryka%C5%84ski",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://invenio.nusl.cz/record/538152/files/200417_Ondatra_pizmova.pdf",
+       "label": "invenio.nusl.cz"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0754",
      "icon": "🗺️",
-     "pl": "Na ziemie polskie dotarł w latach 30. XX w. Dorosłe piżmaki ważą 0,6–2 kg.",
-     "en": "It reached Polish lands in the 1930s. Adult muskrats weigh 0.6–2 kg.",
+     "pl": "Na ziemie polskie dotarł w latach 20. XX w.",
+     "en": "It reached Polish lands in the 1920s.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pi%C5%BCmak_ameryka%C5%84ski",
@@ -986,9 +1035,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Muskrat",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.gov.pl/attachment/1d43a48d-9fb4-4ca5-a5f9-a743d039f1f9",
+       "label": "gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1028,15 +1081,27 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0757",
      "icon": "📈",
-     "pl": "Na wolności wymarł około 1920 r. Pod koniec 2022 r. na świecie żyło **10 536 żubrów**, w tym **2608 w Polsce**.",
-     "en": "It became extinct in the wild around 1920. At the end of 2022 there were **10,536 bison** in the world, including **2,608 in Poland**.",
+     "pl": "Na wolności wymarł około 1920 r. Pod koniec 2022 r. na świecie żyło **10 536 żubrów**, w tym **ponad 2600 w Polsce**.",
+     "en": "It died out in the wild around 1920. At the end of 2022 there were **10,536 European bison** in the world, including **more than 2,600 in Poland**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBubr_europejski",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://tvn24.pl/bialystok/bialowieski-park-narodowy-powrot-zubra-krola-puszczy-st4993774",
+       "label": "tvn24.pl"
+      },
+      {
+       "url": "https://innosfera.belnauka.by/jour/article/download/580/558",
+       "label": "innosfera.belnauka.by"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDU2HRT/i16428-o1.pdf",
+       "label": "api.sejm.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1068,23 +1133,6 @@ window.ATLAS_FACTS["ssaki"] = {
       }
      ],
      "status": "verified"
-    },
-    {
-     "id": "F0760",
-     "icon": "📈",
-     "pl": "Po II wojnie światowej po polskiej stronie Tatr zostało około 26 kozic. W 2010 r. w całych Tatrach było ich już **841**.",
-     "en": "After the Second World War about 26 chamois were left on the Polish side of the Tatra Mountains. By 2010 there were already **841** across the whole Tatras.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Kozica_tatrza%C5%84ska",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://en.wikipedia.org/wiki/Tatra_chamois",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -1108,9 +1156,21 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R1263",
        "label": "eur-lex.europa.eu"
+      },
+      {
+       "url": "https://legislation.gov.uk/eur/2017/1263/introduction/2017-07-12",
+       "label": "legislation.gov.uk"
+      },
+      {
+       "url": "https://legislation.gov.uk/eur/2017/1263/annex/2020-01-31",
+       "label": "legislation.gov.uk"
+      },
+      {
+       "url": "https://ibs.bialowieza.pl/publications/1316.pdf",
+       "label": "ibs.bialowieza.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0762",
@@ -1164,8 +1224,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0765",
      "icon": "🇪🇺",
-     "pl": "Od 2016 r. jest na **unijnej liście inwazyjnych gatunków obcych**. W Polsce pojawił się w latach 50. XX w. Według badań opublikowanych w 2012 r. jest liczny na zachodzie kraju, głównie w lubuskim i zachodniopomorskim.",
-     "en": "Since 2016 it has been on the **EU list of invasive alien species**. It appeared in Poland in the 1950s. According to research published in 2012, it is common in the west of the country, mainly in the Lubusz and West Pomeranian voivodeships.",
+     "pl": "Od 2016 r. jest na **unijnej liście inwazyjnych gatunków obcych**. Pierwsze szopy odnotowano w Polsce już w 1945 r. Według badań opublikowanych w 2012 r. jest liczny na zachodzie kraju, głównie w lubuskim i zachodniopomorskim.",
+     "en": "Since 2016 it has been on the **EU list of invasive alien species**. The first raccoons were recorded in Poland as early as 1945. According to research published in 2012, it is common in the west of the country, mainly in the Lubusz and West Pomeranian provinces.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Raccoon",
@@ -1174,6 +1234,18 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Szop_pracz",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eur-lex.europa.eu/eli/reg_impl/2016/1141/oj/eng",
+       "label": "eur-lex.europa.eu"
+      },
+      {
+       "url": "https://pnuw.gov.pl/pliki-do-pobrania/otworz/cb2a2468-c8fe-4c11-aeeb-39b7ddfaba5f.pdf",
+       "label": "pnuw.gov.pl"
+      },
+      {
+       "url": "https://cepl.sggw.edu.pl/wp-content/uploads/sites/75/2021/08/sim33_Okarma_i_in.pdf",
+       "label": "cepl.sggw.edu.pl"
       }
      ],
      "status": "corrected"
@@ -1213,9 +1285,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "http://www.iop.krakow.pl/ias/en/news/2015",
        "label": "iop.krakow.pl"
+      },
+      {
+       "url": "https://cepl.sggw.edu.pl/wp-content/uploads/sites/75/2021/08/Skorupski.pdf",
+       "label": "cepl.sggw.edu.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0768",
@@ -1243,9 +1319,17 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Szakal_z%C5%82ocisty",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/eli/acts/DU/2017/1484/text.html",
+       "label": "api.sejm.gov.pl"
+      },
+      {
+       "url": "https://oko.press/1270-szakali-do-odstrzalu-w-polsce-naukowcy-beda-mylone-z-wilkami-ale-moze-wlasnie-o-to-chodzi/",
+       "label": "oko.press"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1289,15 +1373,15 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0772",
      "icon": "📈",
-     "pl": "Jej liczebność potrafi wzrosnąć nawet **10-krotnie** w latach obfitości gryzoni.",
-     "en": "Its numbers can rise as much as **10-fold** in years when rodents are abundant.",
+     "pl": "Jej liczebność potrafi **wielokrotnie** wzrosnąć w latach obfitości gryzoni.",
+     "en": "Its numbers can rise **many times over** in years when rodents are abundant.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%81asica_pospolita",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1418,9 +1502,17 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Szarytka_morska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://morskiesiedliska.gios.gov.pl/images/1364_Foka_szara_OST.pdf",
+       "label": "morskiesiedliska.gios.gov.pl"
+      },
+      {
+       "url": "https://septentrio.uit.no/index.php/NAMMCOSP/article/download/2720/2570",
+       "label": "septentrio.uit.no"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1449,9 +1541,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Mor%C5%9Bwin_zwyczajny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zwierciadlo.pl/lifestyle/122878,1,morswin-baltycki-kuzyn-delfina-zagrozony.read",
+       "label": "zwierciadlo.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0783",

@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["skamienialosci"] = {
  "checked": "2026-10-28",
@@ -132,9 +132,17 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://www.abc.net.au/science/archive/articles/2007/04/19/1901623.htm?site=tropic&topic=enviro",
        "label": "abc.net.au"
+      },
+      {
+       "url": "https://sciencedaily.com/releases/2007/04/070418130435.htm",
+       "label": "sciencedaily.com"
+      },
+      {
+       "url": "https://www.cbc.ca/news/science/oldest-tree-fossil-found-scientists-say-1.685125",
+       "label": "cbc.ca"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -150,9 +158,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Alienakantus",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://royalsocietypublishing.org/doi/10.1098/rsos.231747",
+       "label": "royalsocietypublishing.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0951",
@@ -217,7 +229,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "ui.adsabs.harvard.edu"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -227,15 +239,19 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0956",
      "icon": "🌲",
-     "pl": "Lepidodendrony to widłaki dorastające do 30 m wysokości i ok. 2 m średnicy. Ich rombowe „poduszki” liściowe łatwo poznać w skale.",
-     "en": "Lepidodendrons are clubmosses that grew up to 30 m tall and about 2 m in diameter. Their rhombic leaf ‘cushions’ are easy to recognise in rock.",
+     "pl": "Lepidodendrony to widłaki dorastające do 30–40 m wysokości i ok. 2 m średnicy. Ich rombowe „poduszki” liściowe łatwo poznać w skale.",
+     "en": "Lepidodendrons were club mosses that grew up to 30–40 m tall and about 2 m in diameter. Their diamond-shaped leaf “cushions” are easy to recognise in rock.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Lepidodendron",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.britannica.com/plant/Lepidodendron",
+       "label": "britannica.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0957",
@@ -246,9 +262,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Sygilaria",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://repository.si.edu/server/api/core/bitstreams/d4c37e19-24a4-44a0-85eb-952ee78deaab/content",
+       "label": "repository.si.edu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -270,7 +290,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "app.pan.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0959",
@@ -281,15 +301,19 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Smok_(rodzaj)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.app.pan.pl/article/item/app20100045.html",
+       "label": "app.pan.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0960",
      "icon": "🏛️",
-     "pl": "W Muzeum Paleontologicznym w Lisowicach pokazano pierwszą kompletną rekonstrukcję jego szkieletu. Gatunek opisano naukowo w 2012 r.",
-     "en": "The first complete reconstruction of its skeleton was put on display at the Palaeontological Museum in Lisowice. The species was scientifically described in 2012.",
+     "pl": "W Muzeum Paleontologicznym w Lisowicach pokazano kompletną rekonstrukcję jego szkieletu. Gatunek opisano naukowo w 2012 r.",
+     "en": "A complete reconstruction of its skeleton was put on display at the Palaeontological Museum in Lisowice. The species was scientifically described in 2012.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Muzeum_Paleontologiczne_w_Lisowicach",
@@ -298,6 +322,10 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://silesia.travel/news/21649/smok-z-lisowic-w-pelnej-krasie",
        "label": "silesia.travel"
+      },
+      {
+       "url": "https://www.app.pan.pl/article/item/app20100045.html",
+       "label": "app.pan.pl"
       }
      ],
      "status": "corrected"
@@ -384,41 +412,6 @@ window.ATLAS_FACTS["skamienialosci"] = {
    ],
    "notes": []
   },
-  "tholodus-schmidi": {
-   "facts": [
-    {
-     "id": "F0966",
-     "icon": "🦷",
-     "pl": "To bazalny ichtiopterygiowiec (krewny ichtiozaurów) ze środkowego triasu. Znany głównie z zębów i fragmentów szczęk.",
-     "en": "It is a basal ichthyopterygian (a relative of the ichthyosaurs) from the Middle Triassic, known mainly from teeth and jaw fragments.",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Tholodus",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0967",
-     "icon": "📍",
-     "pl": "Większość okazów pochodzi z wapienia muszlowego Niemiec. Są też znaleziska z Włoch, z rosyjskiego Dalekiego Wschodu (Kraj Nadmorski) i być może z Chin.",
-     "en": "Most specimens come from the Muschelkalk of Germany. There are also finds from Italy, the Russian Far East (Primorsky Krai) and possibly China.",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Tholodus",
-       "label": "Wikipedia (EN)"
-      },
-      {
-       "url": "https://link.springer.com/article/10.1134/S0031030115060040",
-       "label": "link.springer.com"
-      }
-     ],
-     "status": "corrected"
-    }
-   ],
-   "notes": []
-  },
   "encrinus-liliiformis": {
    "facts": [
     {
@@ -430,9 +423,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Encrinus",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://palass.org/publications/palaeontology-journal/archive/32/3/article_pp483-497",
+       "label": "palass.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0969",
@@ -472,12 +469,16 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0971",
      "icon": "📏",
-     "pl": "Największe tropy teropodów z Sołtykowa mają od 45 do 65 cm długości. Towarzyszą im mniejsze ślady z ichnorodzajów *Eubrontes* i *Kayentapus*, a wśród tropów teropodów z dolnej jury Polski wymieniany jest *Kayentapus soltykovensis*.",
-     "en": "The largest theropod tracks from Sołtyków are 45 to 65 cm long. They are accompanied by smaller tracks of the ichnogenera *Eubrontes* and *Kayentapus*, and *Kayentapus soltykovensis* is listed among the theropod tracks from the Lower Jurassic of Poland.",
+     "pl": "Największe tropy teropodów z Sołtykowa mają od 50 do 65 cm długości. Towarzyszą im mniejsze ślady z ichnorodzajów *Eubrontes* i *Kayentapus*, a wśród tropów teropodów z dolnej jury Polski wymieniany jest *Kayentapus soltykovensis*.",
+     "en": "The largest theropod tracks from Sołtyków are 50 to 65 cm long. They are accompanied by smaller tracks of the ichnogenera *Eubrontes* and *Kayentapus*, and *Kayentapus soltykovensis* is listed among the theropod tracks from the Lower Jurassic of Poland.",
      "sources": [
       {
        "url": "https://bibliotekanauki.pl/articles/2074449.pdf",
        "label": "bibliotekanauki.pl"
+      },
+      {
+       "url": "https://geojournals.pgi.gov.pl/pg/article/view/30834",
+       "label": "geojournals.pgi.gov.pl"
       }
      ],
      "status": "corrected"
@@ -491,9 +492,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Gagaty_So%C5%82tykowskie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.gov.pl/web/nadlesnictwo-staporkow/ochrona-przyrody",
+       "label": "gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -516,15 +521,19 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0974",
      "icon": "🦖",
-     "pl": "Stąd wziął się JuraPark Bałtów, otwarty 7 sierpnia 2004 r. z rekonstrukcjami dinozaurów naturalnej wielkości.",
-     "en": "This gave rise to JuraPark Bałtów, opened on 7 August 2004 with life-size dinosaur reconstructions.",
+     "pl": "Stąd wziął się JuraPark Bałtów, otwarty w 2004 r. z rekonstrukcjami dinozaurów naturalnej wielkości.",
+     "en": "This is where JuraPark Bałtów came from; it opened in 2004 with life-size dinosaur reconstructions.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/JuraPark_Ba%C5%82t%C3%B3w",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://jurapark.pl/wp-content/uploads/2025/09/Katalog_Kongres_Turystyki_online.pdf",
+       "label": "jurapark.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -553,9 +562,17 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://www.uu.se/en/news/2022/2022-01-13-previously-unknown-dinosaur-habitat-found-in-poland",
        "label": "uu.se"
+      },
+      {
+       "url": "https://geojournals.pgi.gov.pl/pg/article/download/33262/24403/53958",
+       "label": "geojournals.pgi.gov.pl"
+      },
+      {
+       "url": "https://scienceinpoland.pl/en/news/news%2C90612%2Chundreds-dinosaur-footprints-found-polish-village.html",
+       "label": "scienceinpoland.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -602,9 +619,17 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://www.paleo.pan.pl/research-department/excavations/annopol.html",
        "label": "paleo.pan.pl"
+      },
+      {
+       "url": "https://orbi.uliege.be/bitstream/2268/182812/1/Bardet%26al2015%20AuthorPP.pdf",
+       "label": "orbi.uliege.be"
+      },
+      {
+       "url": "https://paleo.pan.pl/research-department/excavations/annopol.html",
+       "label": "paleo.pan.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0980",
@@ -659,9 +684,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0108036",
        "label": "journals.plos.org"
+      },
+      {
+       "url": "https://link.springer.com/doi/10.1007/978-3-319-19542-1_1",
+       "label": "link.springer.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0984",
@@ -685,19 +714,6 @@ window.ATLAS_FACTS["skamienialosci"] = {
   },
   "ctenochasma-owadow": {
    "facts": [
-    {
-     "id": "F0985",
-     "icon": "🪶",
-     "pl": "*Ctenochasma* miała w szczękach ok. 250 grzebieniastych zębów do filtrowania wody.",
-     "en": "*Ctenochasma* had about 250 comb-like teeth in its jaws for filtering water.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Ctenochasma",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
     {
      "id": "F0986",
      "icon": "",
@@ -799,22 +815,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://naukawpolsce.pl/aktualnosci/news,384563,odkryto-najwiekszego-w-polsce-amonita.html",
        "label": "naukawpolsce.pl"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F0992",
-     "icon": "⚖️",
-     "pl": "W 2018 r. znaleziono tam kolejną muszlę, ważącą według naukowców 300–400 kg. To drugi co do wielkości amonit w Polsce.",
-     "en": "In 2018 another shell was found there, weighing 300–400 kg according to scientists. It is the second-largest ammonite in Poland.",
-     "sources": [
+      },
       {
-       "url": "https://pl.wikipedia.org/wiki/Kamienio%C5%82om_Odra",
-       "label": "Wikipedia (PL)"
+       "url": "https://geojournals.pgi.gov.pl/pg/article/download/28232/19935/43543",
+       "label": "geojournals.pgi.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0993",
@@ -989,15 +996,19 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Eurotrochilus",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.eurekalert.org/news-releases/744379",
+       "label": "eurekalert.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1006",
      "icon": "🪶",
-     "pl": "*Jamna szybiaki* to ptak z linii wróblowych (Pan-Passeriformes) z wczesnego oligocenu (rupel, ok. 31 mln lat temu), znaleziony w Jamnej Dolnej na Podkarpaciu. Ma zachowane pióra skrzydeł i ogona. Nazwa gatunkowa nie ma związku z jerzykami (szybkami), tylko upamiętnia znalazcę okazu, Roberta Szybiaka.",
-     "en": "*Jamna szybiaki* is a bird of the passerine lineage (Pan-Passeriformes) from the early Oligocene (Rupelian, about 31 million years ago), found at Jamna Dolna in Podkarpacie. Its wing and tail feathers are preserved. The species name has nothing to do with swifts (*szybki*); instead it commemorates the finder of the specimen, Robert Szybiak.",
+     "pl": "*Jamna szybiaki* to ptak z linii wróblowych (Pan-Passeriformes) z wczesnego oligocenu (rupel), znaleziony w Jamnej Dolnej na Podkarpaciu. Ma zachowane pióra skrzydeł i ogona. Nazwa gatunkowa nie ma związku z jerzykami (szybkami), tylko upamiętnia znalazcę okazu, Roberta Szybiaka.",
+     "en": "*Jamna szybiaki* is a bird of the passerine lineage (Pan-Passeriformes) from the early Oligocene (Rupelian), found in Jamna Dolna in the Subcarpathian region. Its wing and tail feathers are preserved. The species name has nothing to do with swifts (Polish „szybki”); it honours the finder of the specimen, Robert Szybiak.",
      "sources": [
       {
        "url": "https://doi.org/10.1007/s10336-011-0693-2",
@@ -1005,6 +1016,10 @@ window.ATLAS_FACTS["skamienialosci"] = {
       },
       {
        "url": "https://link.springer.com/article/10.1007/s10336-011-0693-2",
+       "label": "link.springer.com"
+      },
+      {
+       "url": "https://link.springer.com/doi/10.1007/s10336-011-0693-2",
        "label": "link.springer.com"
       }
      ],
@@ -1030,7 +1045,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "roztoczanskipn.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1008",
@@ -1066,12 +1081,16 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F1010",
      "icon": "",
-     "pl": "Szczątki „mamuta” znalezione w 1984 roku w odkrywce Jóźwin okazały się prawie kompletnym szkieletem słonia leśnego. Zwierzę żyło ok. 100 tys. lat temu.",
-     "en": "The ‘mammoth’ remains found in 1984 in the Jóźwin opencast mine turned out to be an almost complete skeleton of a straight-tusked elephant. The animal lived around 100,000 years ago.",
+     "pl": "Szczątki „mamuta” znalezione w 1984 roku w odkrywce Jóźwin okazały się prawie kompletnym szkieletem słonia leśnego. Zwierzę żyło ok. 130–110 tys. lat temu.",
+     "en": "The “mammoth” remains found in 1984 in the Jóźwin open-pit mine turned out to be an almost complete skeleton of a straight-tusked (forest) elephant. The animal lived about 130,000–110,000 years ago.",
      "sources": [
       {
        "url": "https://muzeum.com.pl/slon-lesny/",
        "label": "muzeum.com.pl"
+      },
+      {
+       "url": "https://www.pgi.gov.pl/dokumenty-pig-pib-all/publikacje-2/przeglad-geologiczny/2025/5-maj-5/11098-80-lat-kopalni-wegla-brunatnego-konin-czesc-iii-slon-lesny-palaeoloxodon-antiquus-z-odkrywki-jozwin/file.html",
+       "label": "pgi.gov.pl"
       }
      ],
      "status": "corrected"
@@ -1090,9 +1109,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Starunia",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://repo.agh.edu.pl/items/0e93b306-2477-4861-b2ba-2c2b1a1142ba/full",
+       "label": "repo.agh.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1012",
@@ -1156,22 +1179,34 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Jaskinia_Nied%C5%BAwiedzia_(Sudety)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dzieje.pl/wiadomosci/znaleziona-przez-przypadek-mija-60-lat-od-odkrycia-jaskini-niedzwiedziej",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1016",
      "icon": "🏟️",
-     "pl": "2 maja 2012 r. za zaciskiem „Gilotyna” odkryto Salę Mastodonta: ok. 115 m długości, 30 m szerokości i do 30 m wysokości.",
-     "en": "On 2 May 2012, beyond the „Gilotyna” squeeze, Sala Mastodonta was discovered: approx. 115 m long, 30 m wide and up to 30 m high.",
+     "pl": "2 maja 2012 r. za zaciskiem „Gilotyna” odkryto Salę Mastodonta: ma ponad 100 m długości i do 30 m wysokości.",
+     "en": "On 2 May 2012, the Mastodon Hall was discovered beyond the “Guillotine” squeeze: it is over 100 m long and up to 30 m high.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Jaskinia_Nied%C5%BAwiedzia_(Sudety)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://naukawpolsce.pl/aktualnosci/news,390207,w-jaskini-niedzwiedziej-grotolazi-odkryli-nowa-sale.html",
+       "label": "naukawpolsce.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/artykul/sensacja-w-grocie-fantastyczne-odkrycie-polakow",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1017",
@@ -1182,9 +1217,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Nied%C5%BAwied%C5%BA_jaskiniowy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://digitalcommons.usf.edu/kip_articles/2067",
+       "label": "digitalcommons.usf.edu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []

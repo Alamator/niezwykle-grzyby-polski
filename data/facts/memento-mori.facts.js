@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["memento-mori"] = {
  "checked": "2026-10-28",
@@ -9,15 +9,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1445",
      "icon": "",
-     "pl": "Kaplicę zbudował w latach 1776–1784 ksiądz Wacław Tomaszek. Zebrał kości ofiar wojen i epidemii z ziemi kłodzkiej, prawdopodobnie z czasów wojny trzydziestoletniej, wojen śląskich i cholery.",
-     "en": "The chapel was built in 1776–1784 by the priest Wacław Tomaszek. He gathered the bones of victims of wars and epidemics from the Kłodzko Land, probably dating from the Thirty Years' War, the Silesian Wars and cholera.",
+     "pl": "Kaplicę zaczął budować w 1776 r. ksiądz Wacław Tomaszek. Zebrał kości ofiar wojen i epidemii z ziemi kłodzkiej, prawdopodobnie z czasów wojny trzydziestoletniej, wojen śląskich i cholery.",
+     "en": "Father Wacław Tomaszek began building the chapel in 1776. He gathered the bones of victims of wars and epidemics from the Kłodzko Land, probably from the Thirty Years' War, the Silesian Wars and cholera.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kaplica_Czaszek_w_Kudowie-Zdroju",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.czermna.pl/#!/wartoZobaczyc/historia",
+       "label": "czermna.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1446",
@@ -28,9 +32,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://www.smithsonianmag.com/travel/this-creepily-beautiful-chapel-in-czermna-poland-is-constructed-out-of-thousands-of-human-bones-6613033/",
        "label": "smithsonianmag.com"
+      },
+      {
+       "url": "https://tvpworld.com/85741600/echoes-of-the-dead-inside-polands-only-skull-chapel",
+       "label": "tvpworld.com"
+      },
+      {
+       "url": "https://www.polska.travel/odkryjcie-polske-niezwykla-tajemnicze-miejsca/",
+       "label": "polska.travel"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1447",
@@ -41,9 +53,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kaplica_Czaszek_w_Kudowie-Zdroju",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.czermna.pl/#!/kaplica/sanktuarium",
+       "label": "czermna.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -53,15 +69,23 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1448",
      "icon": "",
-     "pl": "Cmentarz założono 4 listopada 1790 r. Ma 43 ha i jest w całości objęty ścisłą ochroną konserwatorską.",
-     "en": "The cemetery was founded on 4 November 1790. It covers 43 ha and is entirely under strict heritage protection.",
+     "pl": "Cmentarz założono 4 listopada 1790 r. Ma ok. 43 ha i jest w całości objęty ścisłą ochroną konserwatorską.",
+     "en": "The cemetery was founded on 4 November 1790. It covers about 43 ha and is entirely under strict heritage protection.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_Pow%C4%85zkowski_w_Warszawie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dzieje.pl/wiadomosci/235-lat-temu-zalozono-cmentarz-powazkowski-w-warszawie",
+       "label": "dzieje.pl"
+      },
+      {
+       "url": "https://um.warszawa.pl/-/stare-powazki-wszystkie-groby-policzone-i-opisane",
+       "label": "um.warszawa.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1449",
@@ -94,22 +118,30 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://archiwalneopowiesci.ank.gov.pl/wystawa/cmentarz-rakowicki-mieszkancy-dawnego-krakowa-historie-odnalezione-w-archiwaliach/",
        "label": "archiwalneopowiesci.ank.gov.pl"
+      },
+      {
+       "url": "https://www.zck-krakow.pl/13/graveyards/2/cmentarz_rakowicki",
+       "label": "zck-krakow.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1451",
      "icon": "",
-     "pl": "Dziś ma ok. 35 ha (700 × 500 m). Nazwa pochodzi od drogi do dawnej wsi Rakowice.",
-     "en": "Today it covers c. 35 ha (700 × 500 m). Its name comes from the road to the former village of Rakowice.",
+     "pl": "Dziś ma ok. 42 ha. Nazwa pochodzi od drogi do dawnej wsi Rakowice.",
+     "en": "Today it covers about 42 ha. Its name comes from the road to the former village of Rakowice.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_Rakowicki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.zck-krakow.pl/13/graveyards/2/cmentarz_rakowicki",
+       "label": "zck-krakow.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -129,22 +161,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://visitmalopolska.pl/obiekt/-/poi/cmentarz-na-peksowym-brzyzku-w-zakopanem",
        "label": "visitmalopolska.pl"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F1453",
-     "icon": "",
-     "pl": "Po masakrach w Warszawie i Wilnie w 1861 r. rodzina Homolacsów ufundowała tu krzyż i tablicę ku pamięci ofiar.",
-     "en": "After the massacres in Warsaw and Vilnius in 1861, the Homolacs family funded a cross and a plaque here in memory of the victims.",
-     "sources": [
+      },
       {
-       "url": "https://pl.wikipedia.org/wiki/Cmentarz_Zas%C5%82u%C5%BConych_na_P%C4%99ksowym_Brzyzku",
-       "label": "Wikipedia (PL)"
+       "url": "https://www.polska.travel/nostalgiczne-zwiedzanie-nekropolie-w-polsce/",
+       "label": "polska.travel"
+      },
+      {
+       "url": "https://dzieje.pl/dziedzictwo-kulturowe/na-peksowym-brzyzku-w-zakopanem-spoczywaja-artysci-patrioci-i-sportowcy",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -189,8 +216,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1456",
      "icon": "",
-     "pl": "Cmentarz otwarto 10 listopada 1892 r. Ma 42 ha i jest jedną z największych nekropolii żydowskich w Europie oraz największą w Polsce.",
-     "en": "The cemetery was opened on 10 November 1892. It covers 42 ha and is one of the largest Jewish necropolises in Europe and the largest in Poland.",
+     "pl": "Cmentarz otwarto 10 listopada 1892 r. Ma ok. 40–42 ha i jest jedną z największych nekropolii żydowskich w Europie oraz największą w Polsce.",
+     "en": "The cemetery opened on 10 November 1892. It covers about 40–42 ha and is one of the largest Jewish cemeteries in Europe and the largest in Poland.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nowy_cmentarz_%C5%BCydowski_w_%C5%81odzi",
@@ -199,6 +226,18 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://architektmiasta.uml.lodz.pl/zabytki/pomnik-historii/nekropolie-lodzkie-cmentarz-zydowski/",
        "label": "architektmiasta.uml.lodz.pl"
+      },
+      {
+       "url": "https://lodz.pl/artykul/najwieksza-nekropolia-zydowska-w-polsce-cmentarz-przy-brackiej-w-lodzi-ma-134-lata-70025/",
+       "label": "lodz.pl"
+      },
+      {
+       "url": "https://sztetl.org.pl/pl/miejscowosci/l/497-lodz/114-cmentarze/193927-cmentarz-zydowski-w-lodzi-ul-bracka-40",
+       "label": "sztetl.org.pl"
+      },
+      {
+       "url": "https://lodz.pl/artykul/cmentarz-zydowski-w-lodzi-najwiekszy-w-polsce-i-jeden-z-najwiekszych-w-europie-64671/",
+       "label": "lodz.pl"
       }
      ],
      "status": "corrected"
@@ -206,15 +245,23 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1457",
      "icon": "",
-     "pl": "Zachowało się ok. 160 tys. macew. Spoczywa tu też ok. 45 tys. zmarłych i zamordowanych w getcie Litzmannstadt.",
-     "en": "Around 160,000 matzevot survive. Some 45,000 people who died or were murdered in the Litzmannstadt Ghetto are also buried here.",
+     "pl": "Zachowało się ok. 160 tys. macew. Spoczywa tu też ok. 43–45 tys. zmarłych i zamordowanych w getcie Litzmannstadt.",
+     "en": "About 160,000 matzevot have survived. Some 43,000–45,000 people who died or were murdered in the Litzmannstadt Ghetto are also buried here.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nowy_cmentarz_%C5%BCydowski_w_%C5%81odzi",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://lodz.pl/artykul/najwieksza-nekropolia-zydowska-w-polsce-cmentarz-przy-brackiej-w-lodzi-ma-134-lata-70025/",
+       "label": "lodz.pl"
+      },
+      {
+       "url": "https://sztetl.org.pl/pl/miejscowosci/l/497-lodz/116-miejsca-martyrologii/48188-pole-gettowe-na-cmentarzu-zydowskim-ul-bracka",
+       "label": "sztetl.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1458",
@@ -251,15 +298,27 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://gwzkrakow.pl/en/cemeteries/",
        "label": "gwzkrakow.pl"
+      },
+      {
+       "url": "https://sztetl.org.pl/pl/miejscowosci/k/512-krakow/114-cmentarze/17208-cmentarz-zydowski-remu-w-krakowie-ul-szeroka-40",
+       "label": "sztetl.org.pl"
+      },
+      {
+       "url": "https://gwzkrakow.pl/cmentarze/",
+       "label": "gwzkrakow.pl"
+      },
+      {
+       "url": "https://muzeumkrakowa.pl/plik-do-pobrania/45",
+       "label": "muzeumkrakowa.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1460",
      "icon": "",
-     "pl": "Najstarsze zachowane macewy pochodzą z 1552 r. Władze austriackie zamknęły cmentarz w 1800 r. Ma ok. 0,75 ha.",
-     "en": "The oldest surviving matzevot date from 1552. The Austrian authorities closed the cemetery in 1800. It covers approx. 0.75 ha.",
+     "pl": "Najstarsze zachowane macewy pochodzą z 1552 r. Władze austriackie zamknęły cmentarz na przełomie XVIII i XIX w. Ma ok. 0,75 ha.",
+     "en": "The oldest surviving matzevot date from 1552. The Austrian authorities closed the cemetery at the turn of the 18th and 19th centuries. It covers about 0.75 ha.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_Remuh",
@@ -268,6 +327,14 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://gwzkrakow.pl/cmentarze/",
        "label": "gwzkrakow.pl"
+      },
+      {
+       "url": "https://www.krakow.pl/instcbi/1284,inst,10976,801,instcbi.html",
+       "label": "krakow.pl"
+      },
+      {
+       "url": "https://opowiedzmimiasto.mhk.pl/miejsca/stary-cmentarz-zydowski-remu/",
+       "label": "opowiedzmimiasto.mhk.pl"
       }
      ],
      "status": "corrected"
@@ -292,7 +359,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1462",
@@ -303,9 +370,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kruszyniany",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pcr.uwb.edu.pl/BKWP/files/BKWP_2013_19_016.pdf",
+       "label": "pcr.uwb.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -328,15 +399,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1464",
      "icon": "",
-     "pl": "W 1679 r. pod Sokółką osiedliło się 30 rodzin tatarskich (Lipków).",
-     "en": "In 1679, 30 Tatar families (Lipkas) settled near Sokółka.",
+     "pl": "W 1679 r. pod Sokółką osiedliły się rodziny tatarskie (Lipków).",
+     "en": "In 1679 Tatar families (Lipka Tatars) settled near Sokółka.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bohoniki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://bohoniki.eu/index.php?Itemid=123&id=3&lang=pl&option=com_content&view=article",
+       "label": "bohoniki.eu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -346,8 +421,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1465",
      "icon": "",
-     "pl": "Cmentarz mennonitów założono w drugiej połowie XVIII w., a w 1768 r. tuż obok wzniesiono drewniany dom modlitwy. Uważa się go za jeden z największych cmentarzy mennonickich w Polsce.",
-     "en": "The Mennonite cemetery was founded in the second half of the 18th century, and in 1768 a wooden prayer house was built right next to it. It is considered one of the largest Mennonite cemeteries in Poland.",
+     "pl": "Uważa się go za jeden z największych cmentarzy mennonickich w Polsce. W 1768 r. tuż obok wzniesiono drewniany dom modlitwy.",
+     "en": "It is considered one of the largest Mennonite cemeteries in Poland. In 1768 a wooden prayer house was built right next to it.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_mennonicki_w_Stogach",
@@ -356,6 +431,14 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://zabytek.pl/pl/obiekty/stogi-cmentarz-mennonicki",
        "label": "zabytek.pl"
+      },
+      {
+       "url": "https://pomorskie.travel/en/-/cmentarz-mennonicki-w-stogach-malborskich",
+       "label": "pomorskie.travel"
+      },
+      {
+       "url": "https://zulawy.infopl.info/index.php/pm/gmalbork/stogi",
+       "label": "zulawy.infopl.info"
       }
      ],
      "status": "corrected"
@@ -363,15 +446,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1466",
      "icon": "",
-     "pl": "Ma 2,6 ha i 6 kwater. Zachowało się 260 obramowań grobów i 78 stel. Rośnie tu ok. 300-letni dąb.",
-     "en": "It covers 2.6 ha and has 6 sections. 260 grave surrounds and 78 stelae survive. An oak around 300 years old grows here.",
+     "pl": "Ma 2,6 ha. Zachowało się 260 obramowań grobów i 78 stel.",
+     "en": "It covers 2.6 ha. 260 grave surrounds and 78 steles have survived.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_mennonicki_w_Stogach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pomorskie.travel/en/-/cmentarz-mennonicki-w-stogach-malborskich",
+       "label": "pomorskie.travel"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -387,22 +474,30 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_wojenny_nr_123_%E2%80%93_%C5%81u%C5%BCna-Pustki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://luzna.pl/znak-dziedzictwa-europejskiego-dla-cmentarza-nr-123-luzna-pustki/historia-cmentarza/",
+       "label": "luzna.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1468",
      "icon": "",
-     "pl": "To jeden z ponad 400 zachodniogalicyjskich cmentarzy z I wojny światowej, zbudowanych przez austro-węgierski Oddział Grobów Wojennych.",
-     "en": "It is one of more than 400 West Galician First World War cemeteries built by the Austro-Hungarian War Graves Department.",
+     "pl": "To jeden z około 400 zachodniogalicyjskich cmentarzy z I wojny światowej, zbudowanych przez austro-węgierski Oddział Grobów Wojennych.",
+     "en": "It is one of about 400 West Galician First World War cemeteries built by the Austro-Hungarian War Graves Department.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_wojenny_nr_123_%E2%80%93_%C5%81u%C5%BCna-Pustki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://grobywojenne.malopolska.uw.gov.pl/pl-PL/Home/Artykul/1041",
+       "label": "grobywojenne.malopolska.uw.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -449,22 +544,34 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rotunda_Zamojska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.muzeum-zamojskie.pl/o-muzeum/rotunda-zamojska/",
+       "label": "muzeum-zamojskie.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1472",
      "icon": "",
-     "pl": "Od 19 czerwca 1940 r. Niemcy prowadzili tu obóz przejściowy policji bezpieczeństwa. W 1942 r. odbywały się tu masowe egzekucje mieszkańców Zamojszczyzny, także dzieci.",
-     "en": "From 19 June 1940 the Germans ran a Security Police transit camp here. In 1942 mass executions of inhabitants of the Zamość region, including children, took place here.",
+     "pl": "Od 19 czerwca 1940 r. Niemcy prowadzili tu obóz przejściowy policji bezpieczeństwa. W 1942 r. odbywały się tu masowe egzekucje mieszkańców Zamojszczyzny.",
+     "en": "From 19 June 1940 the Germans ran a Security Police transit camp here. In 1942 mass executions of inhabitants of the Zamość region took place here.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rotunda_Zamojska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://czaz.akademiazamojska.edu.pl/index.php/bp/article/download/2746/2653/5957",
+       "label": "czaz.akademiazamojska.edu.pl"
+      },
+      {
+       "url": "https://www.memorialmuseums.org/memorialmuseum/the-zamo%C5%9B%C4%87-rotunda?locale=en",
+       "label": "memorialmuseums.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -484,9 +591,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://kampinoski-pn.gov.pl/aktualnosci/wydarzenia/1021-msza-na-cmentarzu-w-palmirach",
        "label": "kampinoski-pn.gov.pl"
+      },
+      {
+       "url": "https://ipn.gov.pl/pl/aktualnosci/224004,Instytut-Pamieci-Narodowej-upamietnil-Polakow-zamordowanych-przez-Niemcow-w-Palm.pdf",
+       "label": "ipn.gov.pl"
+      },
+      {
+       "url": "https://dzieje.pl/wiadomosci/w-sobote-uroczystosci-w-palmirach-upamietnia-ofiary-egzekucji-i-wybuch-ii-wojny",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1474",
@@ -497,9 +612,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_w_Palmirach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://przystanekhistoria.pl/pa2/tematy/zbrodnie-niemieckie/62952,Tylko-sosny-byly-swiadkami-Egzekucje-w-Palmirach.html",
+       "label": "przystanekhistoria.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -515,22 +634,34 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://whc.unesco.org/en/list/31",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://whc.unesco.org/document/163133",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1476",
      "icon": "",
-     "pl": "Zginęło tu ok. 1,1 mln Żydów z całej Europy, 140–150 tys. Polaków, ok. 23 tys. Romów, ok. 12 tys. jeńców radzieckich i ofiary innych narodowości.",
-     "en": "Around 1.1 million Jews from all over Europe, 140,000–150,000 Poles, around 23,000 Roma, around 12,000 Soviet prisoners of war and victims of other nationalities died here.",
+     "pl": "Zginęło tu ok. 1 mln Żydów z całej Europy, 70–75 tys. Polaków, ok. 21 tys. Romów, ok. 15 tys. jeńców radzieckich i ofiary innych narodowości.",
+     "en": "About 1 million Jews from all over Europe, 70,000–75,000 Poles, about 21,000 Roma, about 15,000 Soviet prisoners of war and victims of other nationalities died here.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Auschwitz-Birkenau",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.auschwitz.org/en/history/the-number-of-victims/overall-numbers-by-ethnicity-or-category-of-deportee/",
+       "label": "auschwitz.org"
+      },
+      {
+       "url": "https://www.auschwitz.org/en/history/the-number-of-victims/",
+       "label": "auschwitz.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1477",
@@ -541,9 +672,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://www.auschwitz.org/",
        "label": "auschwitz.org"
+      },
+      {
+       "url": "https://www.auschwitz.org/en/museum/history-of-the-memorial/from-liberation-to-the-opening-of-the-memorial/the-opening-of-the-museum",
+       "label": "auschwitz.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -563,9 +698,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://www.majdanek.eu/en/about-the-museum",
        "label": "majdanek.eu"
+      },
+      {
+       "url": "https://dzieje.pl/node/16525",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1479",
@@ -588,15 +727,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1480",
      "icon": "",
-     "pl": "Obóz zagłady działał od marca 1942 r. do czerwca 1943 r.",
-     "en": "The extermination camp operated from March 1942 to June 1943.",
+     "pl": "Obóz zagłady działał od marca do grudnia 1942 r. W czerwcu 1943 r. obóz zlikwidowano.",
+     "en": "The death camp operated from March to December 1942. In June 1943 the camp was liquidated.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Be%C5%82%C5%BCcu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.belzec.eu/odkryj-historie",
+       "label": "belzec.eu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1481",
@@ -607,9 +750,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Be%C5%82%C5%BCcu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.belzec.eu/etr",
+       "label": "belzec.eu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -619,28 +766,40 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1482",
      "icon": "",
-     "pl": "Obóz działał od maja 1942 r. do grudnia 1943 r. 14 października 1943 r. wybuchło tu powstanie, w trakcie którego uciekło ok. 300 więźniów.",
-     "en": "The camp operated from May 1942 to December 1943. On 14 October 1943 an uprising broke out here, during which around 300 prisoners escaped.",
+     "pl": "Obóz działał od wiosny 1942 r. do października 1943 r. 14 października 1943 r. wybuchło tu powstanie, w trakcie którego uciekło ok. 300 więźniów.",
+     "en": "The camp operated from spring 1942 to October 1943. On 14 October 1943 an uprising broke out here, during which about 300 prisoners escaped.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Sobiborze",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://encyclopedia.ushmm.org/content/en/article/sobibor-uprising",
+       "label": "encyclopedia.ushmm.org"
+      },
+      {
+       "url": "https://encyclopedia.ushmm.org/content/en/timeline-event/holocaust/1942-1945/sobibor-uprising",
+       "label": "encyclopedia.ushmm.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1483",
      "icon": "",
-     "pl": "Szacunki ofiar wahają się od 130 do 300 tys. Badania z 2014 r. (R. Kuwałek) wskazują ok. 170–180 tys.",
-     "en": "Estimates of the number of victims range from 130,000 to 300,000. Research from 2014 (R. Kuwałek) points to around 170,000–180,000.",
+     "pl": "Nowsze szacunki wskazują ok. 170–180 tys. ofiar.",
+     "en": "Recent estimates point to about 170,000–180,000 victims.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Sobiborze",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.ushmm.org/fa/collections/the-museums-collections/the-sobibor-uprising-and-the-death-of-johann-niemann",
+       "label": "ushmm.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -650,15 +809,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1484",
      "icon": "",
-     "pl": "Obóz działał od grudnia 1941 r. do kwietnia 1943 r. oraz ponownie od kwietnia 1944 r. do stycznia 1945 r.",
-     "en": "The camp operated from December 1941 to April 1943, and again from April 1944 to January 1945.",
+     "pl": "Obóz działał od grudnia 1941 r. do kwietnia 1943 r. Ponownie uruchomiono go w 1944 r. i działał do stycznia 1945 r.",
+     "en": "The camp operated from December 1941 to April 1943. It was reopened in 1944 and operated until January 1945.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Che%C5%82mnie_nad_Nerem",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://encyclopedia.ushmm.org/content/en/article/chelmno",
+       "label": "encyclopedia.ushmm.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1485",
@@ -669,9 +832,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Che%C5%82mnie_nad_Nerem",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://chelmno-muzeum.eu/wp-content/uploads/2015/05/Chelmno-poster-Dzieje_niepamieci.pdf",
+       "label": "chelmno-muzeum.eu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -681,28 +848,44 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1486",
      "icon": "",
-     "pl": "Obóz działał od lipca 1942 r. do listopada 1943 r. Zginęło tu prawdopodobnie ok. 800 tys. osób. Był to drugi po Auschwitz-Birkenau ośrodek zagłady w okupowanej Europie.",
-     "en": "The camp operated from July 1942 to November 1943. Probably around 800,000 people were killed here. It was the second-largest extermination centre in occupied Europe after Auschwitz-Birkenau.",
+     "pl": "Obóz działał od lipca 1942 r. do listopada 1943 r. Zginęło tu prawdopodobnie 800–900 tys. osób. Był to drugi po Auschwitz-Birkenau ośrodek zagłady w okupowanej Europie.",
+     "en": "The camp operated from July 1942 to November 1943. Probably 800,000–900,000 people were killed here. It was the deadliest killing centre in occupied Europe after Auschwitz-Birkenau.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Treblince",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://muzeumtreblinka.eu/en/project/treblinka-ii/",
+       "label": "muzeumtreblinka.eu"
+      },
+      {
+       "url": "https://muzeumtreblinka.eu/en/informacje/number-of-victims/",
+       "label": "muzeumtreblinka.eu"
+      },
+      {
+       "url": "https://www.britannica.com/place/Treblinka",
+       "label": "britannica.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1487",
      "icon": "",
-     "pl": "2 sierpnia 1943 r. wybuchło powstanie. Uciekło ok. 400 więźniów, wojnę przeżyło blisko 70.",
-     "en": "On 2 August 1943 an uprising broke out. Around 400 prisoners escaped, and nearly 70 survived the war.",
+     "pl": "2 sierpnia 1943 r. wybuchło powstanie. Pościgu uniknęło ok. 200 uciekinierów, a wojnę przeżyło ok. 100.",
+     "en": "On 2 August 1943 an uprising broke out. About 200 escapees evaded the pursuit, and about 100 survived the war.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Treblince",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://muzeumtreblinka.eu/en/informacje/resistance-and-uprising/",
+       "label": "muzeumtreblinka.eu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -712,15 +895,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1488",
      "icon": "",
-     "pl": "Masowe egzekucje trwały od końca października 1939 r. do początku kwietnia 1940 r. Historycy szacują liczbę ofiar na 12–14 tys.",
-     "en": "The mass executions continued from late October 1939 to early April 1940. Historians estimate the number of victims at 12,000–14,000.",
+     "pl": "Masowe egzekucje trwały od jesieni 1939 r. do wiosny 1940 r. Historycy szacują liczbę ofiar na 12–14 tys.",
+     "en": "The mass executions lasted from autumn 1939 to spring 1940. Historians estimate the number of victims at 12,000–14,000.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zbrodnia_w_Pia%C5%9Bnicy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dzieje.pl/node/139412",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1489",
@@ -747,15 +934,23 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1490",
      "icon": "",
-     "pl": "Kamień węgielny wmurowano w 1989 r. Od 2008 r. mauzoleum jest oddziałem Muzeum Wsi Kieleckiej.",
-     "en": "The foundation stone was laid in 1989. Since 2008 the mausoleum has been a branch of the Museum of the Kielce Countryside.",
+     "pl": "Kamień węgielny wmurowano w 1989 r. Od 1999 r. mauzoleum jest oddziałem Muzeum Wsi Kieleckiej.",
+     "en": "The cornerstone was laid in 1989. Since 1999 the mausoleum has been a branch of the Museum of the Kielce Countryside.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mauzoleum_Martyrologii_Wsi_Polskich_w_Michniowie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://architektura.muratorplus.pl/biblioteka/mauzoleum-martyrologii-wsi-polskich-aa-4ovn-QMJ2-UEzY.html",
+       "label": "architektura.muratorplus.pl"
+      },
+      {
+       "url": "https://mwk.com.pl/oddzialy/mauzoleum-martyrologii-wsi-polskich-w-michniowie/",
+       "label": "mwk.com.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1491",
@@ -784,9 +979,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Gr%C3%B3b_Nieznanego_%C5%BBo%C5%82nierza_w_Warszawie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://ipn.gov.pl/pl/historia-z-ipn/231302,Grob-Nieznanego-Zolnierza-miejsce-pamieci-Polakow-walczacych-za-Ojczyzne.html",
+       "label": "ipn.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1493",
@@ -815,22 +1014,26 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kopiec_Powstania_Warszawskiego",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://um.warszawa.pl/-/ogien-na-kopcu-zaplonal",
+       "label": "um.warszawa.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1495",
      "icon": "",
-     "pl": "Pomysłodawcą był inżynier Stanisław Gruszczyński z Biura Odbudowy Stolicy. Zmarł w 1958 r. i nie doczekał realizacji.",
-     "en": "The idea came from engineer Stanisław Gruszczyński of the Capital Reconstruction Office. He died in 1958 and did not live to see it completed.",
+     "pl": "Pomysłodawcą był inżynier Stanisław Gruszczyński z Biura Odbudowy Stolicy.",
+     "en": "The idea came from engineer Stanisław Gruszczyński of the Warsaw Reconstruction Office.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopiec_Powstania_Warszawskiego",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -846,9 +1049,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Westerplatte",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.gdansk.pl/turystyka-w-gdansku/westerplatte-1939-siedem-dni-obrony,a,5415",
+       "label": "gdansk.pl"
+      },
+      {
+       "url": "https://demagog.org.pl/wypowiedzi/kto-uznal-westerplatte-za-pomnik-historii/",
+       "label": "demagog.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1497",
@@ -859,9 +1070,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Westerplatte",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://muzeum1939.pl/en/node/5703",
+       "label": "muzeum1939.pl"
+      },
+      {
+       "url": "https://dzieje.pl/wiadomosci/dziesieciu-bohaterow-z-westerplatte",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -871,8 +1090,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1498",
      "icon": "",
-     "pl": "Na 17,37 ha rezerwatu jest 10 kręgów kamiennych i 30 kurhanów kultury wielbarskiej, wiązanej z Gotami (cmentarzysko użytkowano od lat 70–80 n.e. do początku III w. n.e.).",
-     "en": "The reserve’s 17.37 ha hold 10 stone circles and 30 barrows of the Wielbark culture, associated with the Goths (the cemetery was in use from AD 70–80 until the early 3rd century AD).",
+     "pl": "Na 17,37 ha rezerwatu jest 12 kręgów kamiennych i 30 kurhanów kultury wielbarskiej, wiązanej z Gotami.",
+     "en": "The 17.37 ha reserve holds 12 stone circles and 30 burial mounds of the Wielbark culture, associated with the Goths.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Odry_(cmentarzysko)",
@@ -881,6 +1100,14 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://chojnicemuzeum.pl/cmentarzysko-z-kregami-kamiennymi-w-odrach",
        "label": "chojnicemuzeum.pl"
+      },
+      {
+       "url": "https://www.gov.pl/attachment/53728362-8efe-40ff-925c-1353d685912d",
+       "label": "gov.pl"
+      },
+      {
+       "url": "https://nowa.muzarp.poznan.pl/fotki/files/files/Edukacyjny%20zak%C4%85tek/unikaj_t%C5%82um%C3%B3w_ca%C5%82o%C5%9B%C4%87.pdf",
+       "label": "nowa.muzarp.poznan.pl"
       }
      ],
      "status": "corrected"
@@ -888,15 +1115,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1499",
      "icon": "",
-     "pl": "Rezerwat „Kręgi Kamienne” istnieje od 1958 r. W 2020 r. powiększono go i dodano otulinę.",
-     "en": "The “Kręgi Kamienne” reserve has existed since 1958. In 2020 it was enlarged and given a buffer zone.",
+     "pl": "Rezerwat „Kręgi Kamienne” istnieje od 1958 r.",
+     "en": "The „Kręgi Kamienne” (Stone Circles) reserve has existed since 1958.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Kr%C4%99gi_Kamienne_(wojew%C3%B3dztwo_pomorskie)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/MP/1958/464/ogl/pol/pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -906,15 +1137,19 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1500",
      "icon": "",
-     "pl": "Cmentarzysko Gotów pochodzi z I–III w. Zachowały się trzy kręgi, część czwartego i 20 kurhanów.",
-     "en": "The Gothic cemetery dates from the 1st–3rd centuries. Three circles, part of a fourth and 20 burial mounds have survived.",
+     "pl": "Na cmentarzysku Gotów zachowały się trzy kręgi, część czwartego i 20 kurhanów.",
+     "en": "Three stone circles, part of a fourth and 20 burial mounds have survived at the Gothic cemetery.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/W%C4%99siory",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://medievalheritage.eu/en/main-page/heritage/poland/wesiory-goths-megalithic-graveyard/",
+       "label": "medievalheritage.eu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1501",
@@ -947,15 +1182,19 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kopiec_Krakusa",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://ejournals.eu/en/journal/geoinformatica-polonica/article/krakus-and-wanda-mounds-and-the-division-of-a-year-into-eight-parts",
+       "label": "ejournals.eu"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1503",
      "icon": "",
-     "pl": "Według Kazimierza Radwańskiego z Muzeum Archeologicznego w Krakowie pod koniec XVIII w. obok kopca było co najmniej 46 innych nasypów. Żaden się nie zachował.",
-     "en": "According to Kazimierz Radwański of the Archaeological Museum in Kraków, there were at least 46 other mounds beside it at the end of the 18th century. None of them has survived.",
+     "pl": "Według Kazimierza Radwańskiego z Muzeum Archeologicznego w Krakowie obok kopca były kiedyś inne nasypy. Żaden się nie zachował.",
+     "en": "According to Kazimierz Radwański of the Archaeological Museum in Kraków, there were once other mounds next to this one. None of them has survived.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopiec_Krakusa",
@@ -989,8 +1228,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1505",
      "icon": "",
-     "pl": "W 1860 r. Austriacy otoczyli kopiec szańcem ziemnym w ramach fortyfikacji Twierdzy Kraków, a w latach 1888–1890 ziemny szaniec zamieniono na ceglano-kamienny fort.",
-     "en": "In 1860 the Austrians surrounded the mound with an earthen redoubt as part of the fortifications of Kraków Fortress, and in 1888–1890 the earthwork was converted into a brick-and-stone fort.",
+     "pl": "Austriacy otoczyli kopiec szańcem ziemnym w ramach fortyfikacji Twierdzy Kraków, a później ziemny szaniec zamieniono na ceglano-kamienny fort.",
+     "en": "The Austrians surrounded the mound with an earthwork as part of the Kraków Fortress, and the earthwork was later replaced by a brick-and-stone fort.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopiec_Wandy",
@@ -1013,9 +1252,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Stary_Cmentarz_%C5%BBydowski_we_Wroc%C5%82awiu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://sztetl.org.pl/pl/miejscowosci/w/642-wroclaw/114-cmentarze/191951-cmentarz-zydowski-we-wroclawiu-ul-slezna-3739",
+       "label": "sztetl.org.pl"
+      },
+      {
+       "url": "https://www.wroclaw.pl/portal/stary-cmentarz-zydowski-ul-slezna-wroclaw-przewodnik",
+       "label": "wroclaw.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1507",

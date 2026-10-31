@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["formacje-skalne"] = {
  "checked": "2026-10-28",
@@ -22,15 +22,15 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0866",
      "icon": "📏",
-     "pl": "Leży na wysokości 1423 m n.p.m. i ma 12,5 m wysokości. Północny filar przypomina postać ludzką.",
-     "en": "It lies at 1423 m above sea level and is 12.5 m high. Its northern pillar resembles a human figure.",
+     "pl": "Północny filar przypomina postać ludzką.",
+     "en": "The northern pillar resembles a human figure.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/S%C5%82onecznik_(Karkonosze)",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0867",
@@ -59,9 +59,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Pielgrzymy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://kpnmab.pl/pielgrzymy-pl/a",
+       "label": "kpnmab.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0869",
@@ -72,9 +76,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Pielgrzymy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://kpnmab.pl/pielgrzymy-pl/a",
+       "label": "kpnmab.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -84,15 +92,15 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0870",
      "icon": "🕳️",
-     "pl": "Po niemiecku nazywała się Hohle Stein („Pusty Kamień”). To granitowa grupa skalna na wysokości 470 m n.p.m.",
-     "en": "Its German name was Hohle Stein (\"Hollow Stone\"). It is a granite rock group at 470 m above sea level.",
+     "pl": "Po niemiecku nazywała się Hohle Stein („Pusty Kamień”). To granitowa grupa skalna.",
+     "en": "In German it was called Hohle Stein (“Hollow Stone”). It is a granite rock group.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dziurawa_Ska%C5%82a_(Karkonosze)",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0871",
@@ -115,15 +123,15 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0872",
      "icon": "🐷",
-     "pl": "Skałki mają do 8 m wysokości. Budują je granity porfirowate z dużymi kremowymi kryształami skaleni.",
-     "en": "The tors are up to 8 m high. They are made of porphyritic granites with large cream-coloured feldspar crystals.",
+     "pl": "Skałki budują granity porfirowate z dużymi kremowymi kryształami skaleni.",
+     "en": "The rocks are made of porphyritic granite with large cream-coloured feldspar crystals.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Trzy_%C5%9Awinki",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0873",
@@ -159,15 +167,19 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0875",
      "icon": "🏰",
-     "pl": "Chojnik (627 m n.p.m.) jest zbudowany z granitu karkonoskiego. Jego południowo-zachodnie zbocze to urwisko o wysokości kilkudziesięciu metrów.",
-     "en": "Chojnik (627 m above sea level) is built of Karkonosze granite. Its south-western slope is a cliff several tens of metres high.",
+     "pl": "Chojnik (627 m n.p.m.) jest zbudowany z granitu karkonoskiego.",
+     "en": "Chojnik (627 m above sea level) is made of Karkonosze granite.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Chojnik_(Karkonosze)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://kpnmab.pl/img/files/Wydawnictwa3/Przewodnik_geoturystyczny.pdf",
+       "label": "kpnmab.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0876",
@@ -178,22 +190,26 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Chojnik",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://en.jeleniagora.pl/content/chojnik-castle",
+       "label": "en.jeleniagora.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0877",
      "icon": "🕳️",
-     "pl": "U podnóża są Zbójeckie Skały i dwie małe jaskinie: Dziurawy Kamień i Jaskinia Zbójecka.",
-     "en": "At its foot lie the Zbójeckie Skały and two small caves: Dziurawy Kamień and Jaskinia Zbójecka.",
+     "pl": "U podnóża są Zbójeckie Skały i mała jaskinia Dziurawy Kamień.",
+     "en": "At its foot lie the Zbójeckie Skały rocks and a small cave, Dziurawy Kamień.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Chojnik_(Karkonosze)",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -216,15 +232,15 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0879",
      "icon": "",
-     "pl": "⏳ Wiek bazaltów szacuje się na ok. 30 mln lat. Obiekt jest pomnikiem przyrody w Parku Krajobrazowym Chełmy.",
-     "en": "⏳ The basalts are estimated to be about 30 million years old. The site is a natural monument in the Chełmy Landscape Park.",
+     "pl": "Obiekt jest pomnikiem przyrody w Parku Krajobrazowym Chełmy.",
+     "en": "The site is a natural monument in the Chełmy Landscape Park.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ma%C5%82e_Organy_My%C5%9Bliborskie",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -244,22 +260,34 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://www.gorykaczawskie.pl/organy-wielislawskie/",
        "label": "gorykaczawskie.pl"
+      },
+      {
+       "url": "https://www.gorykaczawskie.pl/wycieczka-na-wielislawke/",
+       "label": "gorykaczawskie.pl"
+      },
+      {
+       "url": "https://www.gorykaczawskie.pl/en/wielislaw-organ/",
+       "label": "gorykaczawskie.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0881",
      "icon": "📐",
-     "pl": "Słupy są zwykle cztero- lub pięciokątne, o średnicy 20–30 cm. Powstały podczas stygnięcia lawy w kominie wulkanicznym.",
-     "en": "The columns are usually four- or five-sided, 20–30 cm in diameter. They formed as lava cooled in a volcanic vent.",
+     "pl": "Słupy mają średnicę 20–30 cm. Powstały podczas stygnięcia lawy w kominie wulkanicznym.",
+     "en": "The columns are 20–30 cm across. They formed as lava cooled in a volcanic vent.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Organy_Wielis%C5%82awskie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.gorykaczawskie.pl/en/wielislaw-organ/",
+       "label": "gorykaczawskie.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -269,15 +297,23 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0882",
      "icon": "🎨",
-     "pl": "To cztery stawy u stóp Wielkiej Kopy (871 m) w Rudawach Janowickich: Purpurowe, Błękitne, Zielone i okresowo wysychające Żółte.",
-     "en": "These are four ponds at the foot of Wielka Kopa (871 m) in the Rudawy Janowickie: Purpurowe, Błękitne, Zielone and the seasonally drying Żółte.",
+     "pl": "To stawy u stóp Wielkiej Kopy (871 m) w Rudawach Janowickich, m.in. Purpurowe, Błękitne i Zielone.",
+     "en": "They are ponds at the foot of Wielka Kopa (871 m) in the Rudawy Janowickie, including the Purple, Blue and Green ones.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kolorowe_jeziorka",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://gmina.marciszow.pl/wp-content/uploads/2021/07/Marciszow-okl.pdf",
+       "label": "gmina.marciszow.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/kolorowe-jeziorka/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0883",
@@ -336,22 +372,26 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Szczeliniec_Wielki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://geekweek.interia.pl/podroze/news-najbardziej-niezwykly-szczyt-w-polsce-labirynt-na-wysokosci,nId,23477254",
+       "label": "geekweek.interia.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0887",
      "icon": "🎩",
-     "pl": "Odwiedzili go m.in. Goethe i John Quincy Adams, późniejszy prezydent USA (25 sierpnia 1800).",
-     "en": "Its visitors included Goethe and John Quincy Adams, later President of the USA (25 August 1800).",
+     "pl": "Odwiedzili go m.in. Goethe i John Quincy Adams, późniejszy prezydent USA.",
+     "en": "Its visitors included Goethe and John Quincy Adams, later President of the United States.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Szczeliniec_Wielki",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -361,41 +401,49 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0888",
      "icon": "🌀",
-     "pl": "Labirynt leży na wysokości 853 m n.p.m. Obszar ma ok. 21 ha i był rezerwatem przed powstaniem parku narodowego.",
-     "en": "The labyrinth lies at 853 m above sea level. The area covers about 21 ha and was a nature reserve before the national park was established.",
+     "pl": "Labirynt leży na wysokości 852 m n.p.m. Zajmuje ok. 15 ha i był rezerwatem przed powstaniem parku narodowego.",
+     "en": "The labyrinth lies at 852 m above sea level. It covers about 15 ha and was a nature reserve before the national park was created.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/B%C5%82%C4%99dne_Ska%C5%82y",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pngs.gov.pl/najczesciej-zadawane-pytania",
+       "label": "pngs.gov.pl"
+      },
+      {
+       "url": "https://www.pngs.com.pl/data/srt/strategia_tur_pngs.pdf",
+       "label": "pngs.com.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0889",
      "icon": "🤏",
-     "pl": "W najwęższych miejscach szczeliny mają zaledwie kilkadziesiąt centymetrów. Turyści muszą się przez nie przeciskać.",
-     "en": "At their narrowest, the crevices are just a few tens of centimetres wide. Hikers have to squeeze through them.",
+     "pl": "Najwęższe szczeliny są tak wąskie, że turyści muszą się przez nie przeciskać.",
+     "en": "The narrowest crevices are so tight that visitors have to squeeze through them.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/B%C5%82%C4%99dne_Ska%C5%82y",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0890",
      "icon": "🧭",
-     "pl": "Korytarze powstały przez poszerzanie szczelin w trzech kierunkach i nierówne wietrzenie warstw.",
-     "en": "The passages formed as crevices widened in three directions and the layers weathered unevenly.",
+     "pl": "Korytarze powstały przez poszerzanie szczelin i nierówne wietrzenie warstw.",
+     "en": "The corridors formed as crevices widened and the rock layers weathered unevenly.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/B%C5%82%C4%99dne_Ska%C5%82y",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -405,15 +453,19 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0891",
      "icon": "🤍",
-     "pl": "To białawe piaskowce ciosowe z górnej kredy. Ściany mają 20–30 m wysokości.",
-     "en": "These are whitish Upper Cretaceous quader sandstones. The walls are 20–30 m high.",
+     "pl": "To białawe piaskowce ciosowe z górnej kredy.",
+     "en": "They are whitish jointed (quader) sandstones from the Late Cretaceous.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bia%C5%82e_Ska%C5%82y_(Sudety)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://galaxy.agh.edu.pl/bartus/efekty_docs/katalog_obj_19.pdf",
+       "label": "galaxy.agh.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0892",
@@ -436,15 +488,15 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0893",
      "icon": "🍄",
-     "pl": "Ciągną się na długości ok. 2 km, na wysokości 680–700 m n.p.m., między Batorowem a Radkowskimi Skałami.",
-     "en": "They stretch for about 2 km, at 680–700 m above sea level, between Batorów and Radkowskie Skały.",
+     "pl": "Ciągną się między Batorowem a Radkowskimi Skałami.",
+     "en": "They stretch between Batorów and Radkowskie Skały.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Skalne_Grzyby",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0894",
@@ -468,19 +520,6 @@ window.ATLAS_FACTS["formacje-skalne"] = {
   },
   "czartowskie-skaly": {
    "facts": [
-    {
-     "id": "F0895",
-     "icon": "🎨",
-     "pl": "Dwie epoki w jednej skale: czerwone piaskowce triasowe, a na nich żółte i jasnoszare piaskowce górnokredowe.",
-     "en": "Two eras in a single rock: red Triassic sandstones, topped by yellow and pale grey Upper Cretaceous sandstones.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Czartowskie_Ska%C5%82y_(Zawory)",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
     {
      "id": "F0896",
      "icon": "👹",
@@ -512,9 +551,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://polska-org.pl/6796283,Naroznik_851_m.html",
        "label": "polska-org.pl"
+      },
+      {
+       "url": "https://www.rcin.org.pl//Content/53532/PDF/WA51_72898_r2015-t87-no1_Przeg-Geogr-Migon.pdf",
+       "label": "rcin.org.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -524,28 +567,28 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0899",
      "icon": "🧱",
-     "pl": "Piaskowcowe baszty i filary tworzą mur skalny o wysokości do 100 m.",
-     "en": "Sandstone towers and pillars form a rock wall up to 100 m high.",
+     "pl": "Piaskowcowe baszty i filary tworzą mur skalny.",
+     "en": "Sandstone towers and pillars form a rock wall.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Radkowskie_Ska%C5%82y",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0900",
      "icon": "📍",
-     "pl": "Leżą na południe od Radkowa, na wysokości ok. 600–700 m n.p.m. Po niemiecku to Wünschelburger Lehne.",
-     "en": "They lie south of Radków, at about 600–700 m above sea level. In German they are called Wünschelburger Lehne.",
+     "pl": "Leżą na południe od Radkowa. Po niemiecku to Wünschelburger Lehne.",
+     "en": "They lie south of Radków. In German they are called Wünschelburger Lehne.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Radkowskie_Ska%C5%82y",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -555,21 +598,8 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0901",
      "icon": "📏",
-     "pl": "To 8-metrowa maczuga z kredowego piaskowca ciosowego w Gorzeszowie.",
-     "en": "This is an 8-metre club-shaped pillar of Cretaceous quader sandstone in Gorzeszów.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Czarcia_Maczuga",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0902",
-     "icon": "🪧",
-     "pl": "Na skale jest napis „1813 – 1913”. Upamiętnia setną rocznicę zwycięstwa Prus nad wojskami Napoleona w Bitwie Narodów.",
-     "en": "The rock bears the inscription „1813 – 1913”. It commemorates the centenary of Prussia's victory over Napoleon's armies at the Battle of the Nations.",
+     "pl": "To maczuga z kredowego piaskowca ciosowego w Gorzeszowie.",
+     "en": "It is a club-shaped rock of Cretaceous quader sandstone in Gorzeszów.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Czarcia_Maczuga",
@@ -603,15 +633,19 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0904",
      "icon": "📏",
-     "pl": "Sama maczuga ma ok. 25 m. Stoi na skalnej terasie o wysokości 8–12 m.",
-     "en": "The club itself is about 25 m tall. It stands on a rock terrace 8–12 m high.",
+     "pl": "Sama maczuga ma ok. 25 m.",
+     "en": "The club itself is about 25 m tall.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Maczuga_Herkulesa",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://gwo.pl/geografia-klasa-5-lekcja-4-krajobraz-wyzynny",
+       "label": "gwo.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0905",
@@ -660,28 +694,28 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0908",
      "icon": "🪧",
-     "pl": "W 1928 r. wmurowano w nią tablicę z okazji budowy drogi do Ojcowa. Po protestach przyrodników usunięto ją w 1935 r.",
-     "en": "In 1928 a plaque was set into it to mark the building of the road to Ojców. After protests by naturalists, it was removed in 1935.",
+     "pl": "Wmurowano w nią tablicę z okazji budowy drogi do Ojcowa. Po protestach przyrodników ją usunięto.",
+     "en": "A plaque marking the construction of the road to Ojców was set into it. After protests by naturalists, it was removed.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Brama_Krakowska_(Dolina_Pr%C4%85dnika)",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0909",
      "icon": "📏",
-     "pl": "Kolumny z jurajskich wapieni skalistych mają ok. 15 m. Lewa jest wyższa.",
-     "en": "The columns of Jurassic rocky limestone are about 15 m tall. The left one is higher.",
+     "pl": "Kolumny tworzą jurajskie wapienie skaliste. Lewa jest wyższa.",
+     "en": "The columns are made of Jurassic rocky limestone. The left one is taller.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Brama_Krakowska_(Dolina_Pr%C4%85dnika)",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -691,15 +725,15 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0910",
      "icon": "🚪",
-     "pl": "To skalna brama u wylotu Doliny Bolechowickiej. Formalnie stoi w Karniowicach, ok. 800 m na północ od centrum Bolechowic.",
-     "en": "This is a rock gate at the mouth of the Bolechowice Valley. Formally it stands in Karniowice, about 800 m north of the centre of Bolechowice.",
+     "pl": "To skalna brama u wylotu Doliny Bolechowickiej. Formalnie stoi w Karniowicach.",
+     "en": "It is a rock gate at the mouth of the Bolechowicka Valley. Formally, it stands in Karniowice.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Brama_Bolechowicka",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0911",
@@ -784,15 +818,19 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0917",
      "icon": "🏔️",
-     "pl": "Masyw w Tatrach Zachodnich ma 1895 m n.p.m. Północna ściana Wielkiego Giewontu ma ok. 600 m wysokości względnej.",
-     "en": "The massif in the Western Tatras rises to 1895 m above sea level. The north face of Wielki Giewont has a relative height of about 600 m.",
+     "pl": "Masyw w Tatrach Zachodnich ma 1895 m n.p.m.",
+     "en": "The massif in the Western Tatras rises to 1895 m above sea level.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Giewont",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://nbi.com.pl/content/uploads/assets/NBI-pdf/2008/5_20_2008/pdf/giewont.pdf",
+       "label": "nbi.com.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0918",
@@ -807,9 +845,17 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://z-ne.pl/s,menu,1421,krzyz_na_giewoncie.html",
        "label": "z-ne.pl"
+      },
+      {
+       "url": "https://www.polsatnews.pl/wiadomosc/2018-09-04/chcieli-wypozyczyc-krzyz-z-giewontu-na-uroczystosci-koscielne-kuriozalny-pomysl/",
+       "label": "polsatnews.pl"
+      },
+      {
+       "url": "https://nbi.com.pl/content/uploads/assets/NBI-pdf/2008/5_20_2008/pdf/giewont.pdf",
+       "label": "nbi.com.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -819,15 +865,19 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0919",
      "icon": "🏞️",
-     "pl": "Rzeka przepływa między skałkami Kramnica (688 m) i Obłazowa (670 m). To rezerwat krajobrazowy w obszarze Natura 2000 „Dolina Białki”.",
-     "en": "The river flows between the Kramnica (688 m) and Obłazowa (670 m) crags. This is a landscape reserve within the Natura 2000 site \"Dolina Białki\".",
+     "pl": "Rzeka przepływa między skałkami Kramnica i Obłazowa (670 m). To rezerwat krajobrazowy w obszarze Natura 2000 „Dolina Białki”.",
+     "en": "The river flows between the Kramnica and Obłazowa (670 m) crags. It is a landscape reserve within the Natura 2000 site “Dolina Białki”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Prze%C5%82om_Bia%C5%82ki_pod_Krempachami",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://life.pieninypn.pl/files/img/fck/8910195/pieninskipn/File/Pieniny%20Przyroda%20i%20Czlowiek%20t10/16-Valde.pdf",
+       "label": "life.pieninypn.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0920",
@@ -842,9 +892,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0324911",
        "label": "journals.plos.org"
+      },
+      {
+       "url": "https://cris.unibo.it/retrieve/65fc8c2d-193c-499e-857b-79f457de11e1/journal.pone.0324911.pdf",
+       "label": "cris.unibo.it"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -873,9 +927,17 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Prz%C4%85dki_im._prof._Henryka_%C5%9Awidzi%C5%84skiego",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://rcin.org.pl//Content/121462/PDF/KR038_113833_r2000-r57_OP-Krzewicka-51-58.pdf",
+       "label": "rcin.org.pl"
+      },
+      {
+       "url": "https://core.ac.uk/download/270215541.pdf",
+       "label": "core.ac.uk"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -894,19 +956,6 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       }
      ],
      "status": "corrected"
-    },
-    {
-     "id": "F0924",
-     "icon": "⚔️",
-     "pl": "Skałę „Grunwald” nazwano tak na 500-lecie bitwy pod Grunwaldem.",
-     "en": "The \"Grunwald\" rock was so named for the 500th anniversary of the Battle of Grunwald.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Skamienia%C5%82e_Miasto",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
     },
     {
      "id": "F0925",
@@ -935,15 +984,19 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Diable_Ska%C5%82y",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/MP/1953/1349/text/O/M19531349.pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0927",
      "icon": "🏰",
-     "pl": "Wietrzenie fizyczne i chemiczne w zimnym, peryglacjalnym klimacie plejstocenu, wspomagane przez erozję i powierzchniowe ruchy masowe, wyrzeźbiło baszty, ambony, grzyby skalne, mury i stoły o wysokości do kilkunastu metrów.",
-     "en": "Physical and chemical weathering in the cold, periglacial climate of the Pleistocene, aided by erosion and surface mass movements, sculpted towers, pulpits, rock mushrooms, walls and tables up to more than ten metres high.",
+     "pl": "Wietrzenie fizyczne i chemiczne, wspomagane przez erozję i powierzchniowe ruchy masowe, wyrzeźbiło baszty, ambony, grzyby skalne, mury i stoły.",
+     "en": "Physical and chemical weathering, aided by erosion and surface mass movements, carved towers, pulpits, rock mushrooms, walls and tables.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Diable_Ska%C5%82y",
@@ -959,68 +1012,45 @@ window.ATLAS_FACTS["formacje-skalne"] = {
    ],
    "notes": []
   },
-  "zezow-czarne-dzialy": {
-   "facts": [
-    {
-     "id": "F0928",
-     "icon": "⛰️",
-     "pl": "Zęzów (ok. 693 m) to najwyższy szczyt małego pasma w widłach Łososiny i Bednarki. Według Geoportalu ma 693 m, według mapy Compass 705 m, a regulaminy odznak turystycznych podają 695 m.",
-     "en": "Zęzów (c. 693 m) is the highest peak of a small range in the fork of the Łososina and the Bednarka. According to Geoportal it is 693 m high, according to the Compass map 705 m, while the rules of hiking badges give 695 m.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Z%C4%99z%C3%B3w",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F0929",
-     "icon": "",
-     "pl": "Znane Czarne Działy, z osuwiskiem i jaskiniami, leżą w **Beskidzie Małym** (Pasmo Łysiny), a nie w Beskidzie Wyspowym. Do sprawdzenia, o które miejsce chodzi.",
-     "en": "The well-known Czarne Działy, with a landslide and caves, lie in the **Little Beskids** (Łysina Range), not in the Island Beskids. To be checked which place is meant.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Czarne_Dzia%C5%82y",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://jaskiniepolski.pgi.gov.pl/Details/Information/3011",
-       "label": "jaskiniepolski.pgi.gov.pl"
-      }
-     ],
-     "status": "checked"
-    }
-   ],
-   "notes": []
-  },
   "skalki-pieklo-nieklan": {
    "facts": [
     {
      "id": "F0930",
      "icon": "📏",
-     "pl": "Skałki ciągną się na ok. 1 km i mają do 8 m wysokości.",
-     "en": "The crags stretch for about 1 km and are up to 8 m high.",
+     "pl": "Skałki mają do 8 m wysokości.",
+     "en": "The rocks are up to 8 m high.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Ska%C5%82ki_Piek%C5%82o_pod_Niek%C5%82aniem",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/polskie-pieklo-zachwyca-niezwyklymi-skalami-niektore-maja-8-metrow/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0931",
      "icon": "🛡️",
-     "pl": "Rezerwat utworzono w 1959 r. Ma ok. 6,18 ha.",
-     "en": "The reserve was established in 1959. It covers about 6.18 ha.",
+     "pl": "Rezerwat utworzono w 1959 r. Ma ok. 6,32 ha.",
+     "en": "The reserve was established in 1959. It covers about 6.32 ha.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Ska%C5%82ki_Piek%C5%82o_pod_Niek%C5%82aniem",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.iop.krakow.pl/geosites/home/single/176",
+       "label": "iop.krakow.pl"
+      },
+      {
+       "url": "https://www.gov.pl/web/nadlesnictwo-staporkow/ochrona-przyrody",
+       "label": "gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1036,9 +1066,17 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kadzielnia",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://swietokrzyskie.travel/en/e-wydawnictwa/geological_wonders/pobierz",
+       "label": "swietokrzyskie.travel"
+      },
+      {
+       "url": "https://www.pgi.gov.pl/dokumenty-pig-pib-all/geoturystyka/mapy-geoturystyczne/11488-geopark-swietokrzyski-unesco-tekst-1.html",
+       "label": "pgi.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0933",
@@ -1084,9 +1122,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Krzemionki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://whc.unesco.org/en/decisions/7390/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0936",
@@ -1097,9 +1139,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://whc.unesco.org/en/list/1599",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://whc.unesco.org/en/decisions/7390/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1109,8 +1155,8 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0937",
      "icon": "🏆",
-     "pl": "To największy głaz narzutowy w Polsce. Ma obwód ok. 44–50 m (źródła podają różne wartości) i wystaje 3,8 m nad ziemię, a pod ziemią kryje się jeszcze ponad 4 m głazu.",
-     "en": "It is the largest glacial erratic in Poland. Its circumference is approx. 44–50 m (sources give differing values) and it rises 3.8 m above the ground, while more than 4 m of the boulder lies hidden underground.",
+     "pl": "To największy głaz narzutowy w Polsce. Ma obwód ok. 50 m i wystaje 3,8 m nad ziemię, a pod ziemią kryje się jeszcze ok. 4 m głazu.",
+     "en": "It is the largest glacial erratic in Poland. It is about 50 m in circumference and rises 3.8 m above the ground, while about 4 m more of the boulder lies below the surface.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Trygław_(głaz_narzutowy)",
@@ -1119,6 +1165,14 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://tychowo.szczecinek.lasy.gov.pl/pomniki-przyrody",
        "label": "tychowo.szczecinek.lasy.gov.pl"
+      },
+      {
+       "url": "https://www.marmurykieleckie.pl/wp-content/uploads/2021/04/Skad-sie-wziely-glazy-narzutowe-w-Polsce_-Jerzy-Gagol-Panstwowy-Instytut-Geologiczny-PIB.pdf",
+       "label": "marmurykieleckie.pl"
+      },
+      {
+       "url": "https://www.radiokrakow.pl/audycje/w-kregu-nauki-audycja-z-dn-703-2026-r/",
+       "label": "radiokrakow.pl"
       }
      ],
      "status": "corrected"
@@ -1178,8 +1232,8 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0941",
      "icon": "🏛️",
-     "pl": "Charakterystyczne są skalne kolumny z odporniejszego piaskowca, a prześwity między nimi prowadzą do dalszych części jaskini. Od 1955 r. jaskinia jest chroniona jako pomnik przyrody nieożywionej.",
-     "en": "Its hallmark is the rock columns of more resistant sandstone, and the gaps between them lead to further parts of the cave. Since 1955 the cave has been protected as a natural monument of inanimate nature.",
+     "pl": "Charakterystyczne są skalne kolumny z odporniejszego piaskowca, a prześwity między nimi prowadzą do dalszych części jaskini. Jaskinia jest chroniona jako pomnik przyrody nieożywionej.",
+     "en": "Rock columns of more resistant sandstone are characteristic, and the gaps between them lead to further parts of the cave. The cave is protected as a monument of inanimate nature.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Groty_Mechowskie",

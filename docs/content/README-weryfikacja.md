@@ -22,3 +22,26 @@ Statusy w `data/facts/*.facts.js`:
 `docs/content/poprawki-2026-10.json` to potwierdzone poprawki do obecnej treści kart: nazwy, statusy ochrony, siedliska, rekordy. Wprowadzi je sesja, która robi interfejs.
 
 **Audyt z 30.10.2026:** zewnętrzny audyt zakwestionował 8 faktów. Po ponownym sprawdzeniu ukryto 3 (F0217, F1070, F1349), przywrócono F1073 (Siedlce: oficjalny rekord zimna według IMGW-PIB) i zmieniono poprawkę F1325. Szczegóły: [audyt-2026-10-30.md](audyt-2026-10-30.md).
+
+## 31.10.2026: poprawki wprowadzone w repozytorium
+
+Generatora (`build_site_data.py`) nie ma w repozytorium ani w dostępnych sesjach. Dlatego plik [`zmiany-dla-generatora-2026-10.json`](zmiany-dla-generatora-2026-10.json) wprowadzono prosto do `data/facts/*.facts.js`. Przed każdą zmianą skrypt sprawdzał, że obecny tekst ciekawostki jest tym, który opisuje plik zmian.
+
+- **Nowe brzmienie:** 322 ciekawostki (`replace_facts`).
+- **Potwierdzone:** 349 ciekawostek dostało status i niezależne źródła ze sprawdzenia liczb (`confirm_facts`).
+- **Usunięte:** 43 ciekawostki (`skip_facts`) i 9 ciekawostek czterech kart usuniętych z atlasu (`skip_cards`).
+- **Źródła (`fix_sources`):**
+  - F0209 linkuje do nowego adresu listu Darwina.
+  - Usunięto dwa źródła, które w audycie 30.10 nie działały, a stąd nie dało się ich sprawdzić. Obie ciekawostki mają inne źródła (Wikipedia):
+    - przy F1319 (Solina): `http://doi.prz.edu.pl/pl/pdf/biis/151`;
+    - przy F0600 (bielik): PDF „Bielik – nasz ptak narodowy” na `uwb.edu.pl`.
+- **Nowa szuflada „Rekordy atmosferyczne”:** 35 ciekawostek z `new_facts` (F1508–F1542), z ikonami dobranymi do treści.
+- **Nic już nie jest ukryte:** każda ciekawostka z listy `WITHDRAWN` w `data/collections.js` dostała nowe brzmienie albo zniknęła.
+- **Karty bez ciekawostek:** wszystkie ciekawostki straciły trzy karty: „Sosna Kandelabrowa”, „Godziszów i Zadni Gerlach” i „Żuławskie domy podcieniowe”.
+
+Teraz atlas ma 1457 ciekawostek na 628 kartach: 494 `checked`, 534 `verified` i 429 `corrected`.
+
+**Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`.** Każda potrzebuje źródła i statusu według tabeli wyżej. `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły:
+- ciekawostki usuniętych kart i ciekawostki pominięte;
+- dawne brzmienia;
+- dawne adresy źródeł.

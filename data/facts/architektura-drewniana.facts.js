@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["architektura-drewniana"] = {
  "checked": "2026-10-28",
@@ -51,7 +51,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -67,9 +67,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_Pokoju_w_Jaworze",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/jawor-jawor-kosciol-ewangelicko-augsburski-pw-ducha-swietego",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1189",
@@ -96,15 +100,19 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1190",
      "icon": "🎨",
-     "pl": "Obecny kościół powstał w II połowie XV w. Jego polichromia to najlepiej zachowana tego rodzaju polichromia w Polsce.",
-     "en": "The present church dates from the second half of the 15th century. Its polychrome decoration is the best-preserved of its kind in Poland.",
+     "pl": "Obecny kościół powstał w II połowie XV w.",
+     "en": "The present church was built in the second half of the 15th century.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_D%C4%99bnie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://webarchive.unesco.org/web/20190403050846/http://whc.unesco.org/uploads/nominations/1053rev.pdf",
+       "label": "webarchive.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1191",
@@ -115,9 +123,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_D%C4%99bnie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://nid.pl/en/miejsca/drewniane-koscioly/debno/",
+       "label": "nid.pl"
+      },
+      {
+       "url": "https://3d.drewniana.malopolska.pl/en/portfolio-item/church-of-st-michael-the-archangel-debno-podhalanskie-unesco-list/",
+       "label": "3d.drewniana.malopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1192",
@@ -132,9 +148,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://www.swietokrzyskie.pro/plebiscyt-na-siedem-cudow-polski-rozstrzygniety/",
        "label": "swietokrzyskie.pro"
+      },
+      {
+       "url": "https://www.money.pl/archiwum/wiadomosci_agencyjne/iar/artykul/rzeczpospolita;siedem;cudow;polski,176,0,266928.html",
+       "label": "money.pl"
+      },
+      {
+       "url": "https://www.swietokrzyskie.pro/siedem-cudow-polski/",
+       "label": "swietokrzyskie.pro"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -150,9 +174,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Binarowej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/binarowa-kosciol-sw-michala-archaniola",
+       "label": "visitmalopolska.pl"
+      },
+      {
+       "url": "https://nid.pl/wp-content/uploads/2026/02/MAL-rej_12.02.2026.pdf",
+       "label": "nid.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1194",
@@ -163,9 +195,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1053",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1053/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -175,15 +211,23 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1195",
      "icon": "📅",
-     "pl": "Zbudowano go ok. 1520 r. (najpóźniej w 1522 r.). Jest na Liście UNESCO.",
-     "en": "It was built around 1520 (in 1522 at the latest). It is on the UNESCO List.",
+     "pl": "Zbudowano go ok. 1520 r. Jest na Liście UNESCO.",
+     "en": "It was built around 1520. It is on the UNESCO World Heritage List.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Filipa_i_%C5%9Bw._Jakuba_w_S%C4%99kowej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/en_GB/obiekt/-/poi/kosciol-sw-sw-filipa-i-jakuba-apostolow-w-sekowej",
+       "label": "visitmalopolska.pl"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1053/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1196",
@@ -194,9 +238,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Filipa_i_%C5%9Bw._Jakuba_w_S%C4%99kowej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/sekowa-kosciol-pw-sw-filipa-i-sw-jakuba",
+       "label": "zabytek.pl"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/kosciol-sw-sw-filipa-i-jakuba-apostolow-w-sekowej",
+       "label": "visitmalopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -212,9 +264,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Leonarda_w_Lipnicy_Murowanej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/-/najpiekniejsze-koscioly-malopolski",
+       "label": "visitmalopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1198",
@@ -225,9 +281,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Leonarda_w_Lipnicy_Murowanej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://nid.pl/en/wystawa-skarby-plansza-en-11/",
+       "label": "nid.pl"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1053/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -260,9 +324,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_Wniebowzi%C4%99cia_Naj%C5%9Bwi%C4%99tszej_Maryi_Panny_w_Haczowie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/haczow-kosciol-parafialny-pw-wniebowziecia-nmp-i-sw-michala-ar",
+       "label": "zabytek.pl"
+      },
+      {
+       "url": "https://whc.unesco.org/document/217699",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -278,9 +350,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_Wszystkich_%C5%9Awi%C4%99tych_w_Bliznem",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/blizne-kosciol-parafialny-pw-wszystkich-swietych",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1202",
@@ -291,9 +367,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_Wszystkich_%C5%9Awi%C4%99tych_w_Bliznem",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://medievalheritage.eu/en/main-page/heritage/poland/blizne-all-saints-church/",
+       "label": "medievalheritage.eu"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1053/documents",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -303,8 +387,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1203",
      "icon": "📅",
-     "pl": "Cerkiew zbudowano w drugiej połowie XVII w., a jako datę budowy często podaje się 1700 r. Wieżę dostawiono w 1743 r.",
-     "en": "The tserkva was built in the second half of the 17th century, though 1700 is often given as the year of construction. The tower was added in 1743.",
+     "pl": "Cerkiew zbudowano w drugiej połowie XVII w., a jako datę budowy często podaje się 1700 r. Na jednej z belek wieży odkryto datę 1743, którą badacze wiążą raczej z remontem świątyni.",
+     "en": "The church was built in the second half of the 17th century, and 1700 is often given as the year of construction. The date 1743 was found on one of the tower's beams; researchers link it to a renovation of the church rather than to its construction.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Paraskewy_w_Kwiatoniu",
@@ -313,6 +397,14 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://dnidziedzictwa.pl/cerkiew-pw-sw-paraskiewy/",
        "label": "dnidziedzictwa.pl"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/cerkiew-pw-sw-paraskewii-w-kwiatoniu",
+       "label": "visitmalopolska.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/to-arcydzielo-architektury-z-malopolski-zostalo-cudem-polski-2025-nie-wszyscy-znaja-te-cerkiew/",
+       "label": "national-geographic.pl"
       }
      ],
      "status": "corrected"
@@ -326,9 +418,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1424",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://3d.drewniana.malopolska.pl/en/portfolio-item/st-paraskeva-greek-catholic-church-kwiaton-unesco-list/",
+       "label": "3d.drewniana.malopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -338,21 +434,25 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1205",
      "icon": "🔔",
-     "pl": "Cerkiew istniała od 1600 r. Ze starego budynku zostało tylko tyle, ile wchodzi dziś w skład zakrystii. Na wieży wisi dzwon z 1615 r.",
-     "en": "A tserkva stood here from 1600. All that remains of the old building is what now forms part of the sacristy. A bell from 1615 hangs in the tower.",
+     "pl": "Cerkiew istniała od 1600 r. Ze starego budynku zostało tylko tyle, ile wchodzi dziś w skład zakrystii.",
+     "en": "The church has existed since 1600. Of the old building, only the part that now forms the sacristy survives.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Jakuba_w_Powro%C5%BAniku",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/cerkiew-pw-sw-jakuba-w-powrozniku",
+       "label": "visitmalopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1206",
      "icon": "🌍",
-     "pl": "Od 2013 r. jest w UNESCO. W 1813 r. z powodu powodzi cerkiew przeniesiono w nowe miejsce i zachowano przy tym jej pierwotną konstrukcję.",
-     "en": "Since 2013 it has been on the UNESCO List. In 1813, because of flooding, the tserkva was moved to a new site, with its original structure preserved.",
+     "pl": "Od 2013 r. jest w UNESCO. Po powodzi w latach 1813–1814 cerkiew przeniesiono w nowe miejsce i zachowano przy tym jej pierwotną konstrukcję.",
+     "en": "It has been on the UNESCO list since 2013. After the flood of 1813–1814 the church was moved to a new site, keeping its original structure.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Jakuba_w_Powro%C5%BAniku",
@@ -361,6 +461,14 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://nid.pl/miejsca/cerkwie/powroznik/",
        "label": "nid.pl"
+      },
+      {
+       "url": "https://tarnow.gosc.pl/doc/7290884.Powroznik-70-lat-parafii",
+       "label": "tarnow.gosc.pl"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/cerkiew-pw-sw-jakuba-w-powrozniku",
+       "label": "visitmalopolska.pl"
       }
      ],
      "status": "corrected"
@@ -396,9 +504,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_Opieki_Matki_Bo%C5%BCej_w_Owczarach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1424/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -414,22 +526,30 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Brunary",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/en_GB/obiekt/-/poi/cerkiew-sw-michala-archaniola-w-brunarach-wyznych",
+       "label": "visitmalopolska.pl"
+      },
+      {
+       "url": "https://whc.unesco.org/en/decisions/5165",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1210",
      "icon": "🗺️",
-     "pl": "16 września 1934 r. Brunary Niżne, Brunary Wyżne i Jaszkową połączono w jedną wieś.",
-     "en": "On 16 September 1934 Brunary Niżne, Brunary Wyżne and Jaszkowa were merged into a single village.",
+     "pl": "Brunary Niżne, Brunary Wyżne i Jaszkową połączono w jedną wieś.",
+     "en": "Brunary Niżne, Brunary Wyżne and Jaszkowa were merged into one village.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Brunary",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -439,8 +559,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1211",
      "icon": "📅",
-     "pl": "Według sprawozdań Kościoła greckokatolickiego z lat 1918–1928 cerkiew zbudowano w 1615 r., a konsekrowano w 1616 r. Żaden dokument nie potwierdza jednak tej daty. Badacze architektury cerkiewnej datują budowlę na około 1600 r. Pierwszym zachowanym dokumentem o samej świątyni jest przywilej króla Michała Korybuta Wiśniowieckiego z 1671 r.",
-     "en": "According to Greek Catholic Church reports from 1918–1928, the tserkva was built in 1615 and consecrated in 1616. However, no document confirms this date. Researchers of tserkva architecture date the building to around 1600. The earliest surviving document concerning the church itself is a charter issued by King Michał Korybut Wiśniowiecki in 1671.",
+     "pl": "Według sprawozdań Kościoła greckokatolickiego z lat 1918–1928 cerkiew zbudowano w 1615 r., a konsekrowano w 1616 r. Żaden dokument nie potwierdza jednak tej daty. Badacze architektury cerkiewnej datują budowlę na około 1600 r.",
+     "en": "According to Greek Catholic Church reports from 1918–1928, the church was built in 1615 and consecrated in 1616. However, no document confirms this date. Researchers of Eastern church architecture date the building to around 1600.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_Narodzenia_Przenaj%C5%9Bwi%C4%99tszej_Bogurodzicy_w_Choty%C5%84cu",
@@ -449,6 +569,10 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://nid.pl/miejsca/cerkwie/chotyniec/",
        "label": "nid.pl"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/chotyniec-cerkiew-greckokatolicka-parafialna-pw-narodzenia-nmp",
+       "label": "zabytek.pl"
       }
      ],
      "status": "corrected"
@@ -462,9 +586,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_Narodzenia_Przenaj%C5%9Bwi%C4%99tszej_Bogurodzicy_w_Choty%C5%84cu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/chotyniec-cerkiew-greckokatolicka-parafialna-pw-narodzenia-nmp",
+       "label": "zabytek.pl"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1424/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -480,9 +612,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Paraskewy_w_Radru%C5%BCu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://bezdroza.pl/pobierz-fragment/s_00k4/pdf",
+       "label": "bezdroza.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1214",
@@ -497,9 +633,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://nid.pl/miejsca/cerkwie/radruz/",
        "label": "nid.pl"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1424/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -532,9 +672,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Smolniku",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://whc.unesco.org/en/list/1424",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -550,9 +694,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Turza%C5%84sku",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/turzansk-cerkiew-pw-sw-michala-archaniola",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1218",
@@ -563,9 +711,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Turza%C5%84sku",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://whc.unesco.org/en/decisions/?id_decision=5165",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -581,9 +733,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%9Awi%C4%85tynia_Wang",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://wang.com.pl/en/zwiedzanie-kosciola/historia/",
+       "label": "wang.com.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1220",
@@ -601,19 +757,6 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       }
      ],
      "status": "checked"
-    },
-    {
-     "id": "F1221",
-     "icon": "🧩",
-     "pl": "W 1844 r. kierownik budowy pisał, że z Norwegii przywieziono tylko jedną piętnastą fragmentów.",
-     "en": "In 1844 the construction manager wrote that only one fifteenth of the pieces had been brought from Norway.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/%C5%9Awi%C4%85tynia_Wang",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -623,15 +766,19 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1222",
      "icon": "🛠️",
-     "pl": "Budowę rozpoczęto w 1904 r., a poświęcenie odbyło się w 1907 r.",
-     "en": "Construction began in 1904, and the church was blessed in 1907.",
+     "pl": "Budowę rozpoczęto w 1904 r.",
+     "en": "Construction began in 1904.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kaplica_Naj%C5%9Bwi%C4%99tszego_Serca_Jezusa_w_Jaszczur%C3%B3wce",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/en/obiekt/-/poi/jaszczurowka-kosciol-filialny-parafii-w-toporowej-cyrhli-w-zakopanem",
+       "label": "visitmalopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1223",
@@ -677,9 +824,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Willa_%E2%80%9EKoliba%E2%80%9D",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://archiwalna.muzeumtatrzanskie.pl/?strona%2Cdoc%2Cpol%2Cglowna%2C1373%2C0%2C1506%2C1%2C1373%2Cant.html=",
+       "label": "archiwalna.muzeumtatrzanskie.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -695,9 +846,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Chocho%C5%82%C3%B3w_(wojew%C3%B3dztwo_ma%C5%82opolskie)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/sk_SK/obiekt/-/poi/chocholow-zespol-budownictwa-ludowego",
+       "label": "visitmalopolska.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1227",
@@ -708,9 +863,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Chocho%C5%82%C3%B3w_(wojew%C3%B3dztwo_ma%C5%82opolskie)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://muzeumtatrzanskie.pl/en/home-en/museum-of-the-1846-chocholow-uprising/",
+       "label": "muzeumtatrzanskie.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -726,9 +885,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Jana_Chrzciciela_w_Orawce",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/kosciol-pw-sw-jana-chrzciciela-w-orawce",
+       "label": "visitmalopolska.pl"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/orawka-kosciol-pod-wezwaniem-sw-jana-chrzciciela-2",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1229",
@@ -745,7 +912,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "malopolska.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -755,15 +922,19 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1230",
      "icon": "📅",
-     "pl": "Wzniesiono go w 1736 lub 1739 r., a poświęcono w 1756 r.",
-     "en": "It was built in 1736 or 1739 and blessed in 1756.",
+     "pl": "Wzniesiono go w latach 1739–1756.",
+     "en": "It was built in 1739–1756.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Szalowej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/szalowa-kosciol-parafialny-pw-sw-michala-archaniola",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1231",
@@ -825,15 +996,19 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1234",
      "icon": "📜",
-     "pl": "Data 1240 r. to niepotwierdzona tradycja. Kościół istniał na pewno w 1400 r.",
-     "en": "The date 1240 is an unconfirmed tradition. The church certainly existed in 1400.",
+     "pl": "Kościół istniał na pewno w 1400 r.",
+     "en": "The church certainly existed in 1400.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Awi%C4%99tej_Tr%C3%B3jcy_i_%C5%9Bw._Antoniego_Opata_w_%C5%81opusznej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://medievalheritage.eu/en/main-page/heritage/poland/lopuszna-holy-trinity-church/",
+       "label": "medievalheritage.eu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -843,8 +1018,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1235",
      "icon": "🕌",
-     "pl": "To najstarszy zachowany meczet tatarski w Polsce, zbudowany na planie prostokąta o wymiarach 10 × 13 m. Pierwsza zapisana wzmianka o świątyni muzułmańskiej w Kruszynianach pochodzi z 1782 r., choć meczet stał tu już wcześniej.",
-     "en": "It is the oldest surviving Tatar mosque in Poland, built on a rectangular plan measuring 10 × 13 m. The first recorded mention of a Muslim place of worship in Kruszyniany dates from 1782, although a mosque stood here even earlier.",
+     "pl": "To najstarszy zachowany meczet tatarski w Polsce, zbudowany na planie prostokąta. Pierwsza zapisana wzmianka o świątyni muzułmańskiej w Kruszynianach pochodzi z 1782 r., choć meczet stał tu już wcześniej.",
+     "en": "It is the oldest surviving Tatar mosque in Poland, built on a rectangular plan. The first recorded mention of a Muslim temple in Kruszyniany dates from 1782, although a mosque stood here earlier.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Meczet_w_Kruszynianach",
@@ -853,6 +1028,10 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://zabytek.pl/en/obiekty/kruszyniany-meczet-tatarski",
        "label": "zabytek.pl"
+      },
+      {
+       "url": "https://tvn24.pl/bialystok/kruszyniany-najstarszy-meczet-w-polsce-przeszedl-remont-4780963",
+       "label": "tvn24.pl"
       }
      ],
      "status": "corrected"
@@ -866,9 +1045,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Meczet_w_Kruszynianach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2012/1275/ogl/pol/pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -888,9 +1071,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://zabytek.pl/en/obiekty/bohoniki-meczet-tatarski",
        "label": "zabytek.pl"
+      },
+      {
+       "url": "https://tvn24.pl/bialystok/bohoniki-zabytkowy-meczet-przejdzie-remont-5024102",
+       "label": "tvn24.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1238",
@@ -919,9 +1106,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Soce",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/to-jedno-z-najbardziej-niezwyklych-miejsc-w-polsce-kraina-otwartych-okiennic-zachwyca-wyjatkowa-architektura/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1240",
@@ -931,37 +1122,6 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Soce",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    }
-   ],
-   "notes": []
-  },
-  "domy-podcieniowe-zulawy": {
-   "facts": [
-    {
-     "id": "F1241",
-     "icon": "📉",
-     "pl": "Ok. 1900 r. na Żuławach było co najmniej 221 domów podcieniowych, a w 1968 r. już tylko 165.",
-     "en": "Around 1900 there were at least 221 arcaded houses in Żuławy; by 1968 only 165 remained.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Dom_podcieniowy",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F1242",
-     "icon": "🔎",
-     "pl": "W latach 2015–2020 naliczono tylko 43 budynki w stanie godnym rejestru zabytków.",
-     "en": "Between 2015 and 2020 only 43 buildings were found in a condition worthy of the heritage register.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Dom_podcieniowy",
        "label": "Wikipedia (PL)"
       }
      ],
@@ -981,15 +1141,19 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Park_Etnograficzny_Krakowiak%C3%B3w_Zachodnich",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://yadda.icm.edu.pl/cejsh/element/bwmeta1.element.4505ba16-2c37-34ca-86ca-50f3d34780a0",
+       "label": "yadda.icm.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1244",
      "icon": "🏷️",
-     "pl": "Skansen powstał w 1968 r. Dziś nazywa się **Park Etnograficzny Krakowiaków Zachodnich**, a do 17 stycznia 2023 r. nosił nazwę Nadwiślański Park Etnograficzny.",
-     "en": "The open-air museum was founded in 1968. Today it is called **Park Etnograficzny Krakowiaków Zachodnich**, and until 17 January 2023 it was named Nadwiślański Park Etnograficzny.",
+     "pl": "Dziś skansen nazywa się **Park Etnograficzny Krakowiaków Zachodnich**, a wcześniej nosił nazwę Nadwiślański Park Etnograficzny.",
+     "en": "Today the open-air museum is called the **Ethnographic Park of the Western Krakowiaks**; it was formerly named the Vistula Ethnographic Park.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Park_Etnograficzny_Krakowiak%C3%B3w_Zachodnich",

@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["ptaki"] = {
  "checked": "2026-10-28",
@@ -32,10 +32,6 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/White-tailed_eagle",
        "label": "Wikipedia (EN)"
-      },
-      {
-       "url": "https://uwb.edu.pl/fcp/DFBsTMCQZEyUgCg4WSHd4ak1VYTZUNlAGDzRMdEFdaWpfG09gJxIYIXZvRQIGbyc/_global/public/main/uploads/tiny/ucpmyrcha/do-strony-glownej/bielik-nasz-ptak-narodowy.pdf",
-       "label": "uwb.edu.pl"
       }
      ],
      "status": "checked"
@@ -43,8 +39,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0601",
      "icon": "🇵🇱",
-     "pl": "W Polsce gniazduje dziś około 1,4–1,5 tys. par, co daje trzecią co do wielkości populację w Europie, po Norwegii i europejskiej części Rosji. Od 1994 do 2008 r. przybywało średnio 40 par rocznie.",
-     "en": "Around 1,400–1,500 pairs nest in Poland today, making it the third-largest population in Europe, after Norway and European Russia. From 1994 to 2008 the population grew by an average of 40 pairs a year.",
+     "pl": "W Polsce gniazduje dziś około 1,4–1,5 tys. par, co daje trzecią co do wielkości populację w Europie.",
+     "en": "Around 1,400–1,500 pairs breed in Poland today, the third-largest population in Europe.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bielik_%28zwyczajny%29",
@@ -53,6 +49,14 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "http://www.koo.org.pl/attachments/article/47/Biuletyn%20KOO%2020_2022.pdf",
        "label": "koo.org.pl"
+      },
+      {
+       "url": "https://informahealthcare.com/doi/full/10.1080/24750263.2022.2134478",
+       "label": "informahealthcare.com"
+      },
+      {
+       "url": "https://www.polsatnews.pl/wiadomosc/2026-05-12/smutne-i-bulwersujace-zniszczono-gniazdo-bielika-pod-poddebicami/",
+       "label": "polsatnews.pl"
       }
      ],
      "status": "corrected"
@@ -118,22 +122,30 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://www.bto.org/our-science/projects/gbw/gardens-wildlife/garden-birds/a-z-garden-birds/goldcrest",
        "label": "bto.org"
+      },
+      {
+       "url": "https://www.kentwildlifetrust.org.uk/wildlife-explorer/birds/tits-crests-and-warblers/goldcrest",
+       "label": "kentwildlifetrust.org.uk"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0606",
      "icon": "🥶",
-     "pl": "W czasie 18-godzinnej zimowej nocy przy –25 °C, przytulone do siebie mysikróliki spalają tłuszcz równy około 20% masy ciała.",
-     "en": "During an 18-hour winter night at –25 °C, goldcrests huddled together burn fat equal to about 20% of their body mass.",
+     "pl": "W czasie mroźnej zimowej nocy przytulone do siebie mysikróliki spalają tłuszcz równy około 20% masy ciała.",
+     "en": "During a frosty winter night, goldcrests huddled together burn fat equal to about 20% of their body mass.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Goldcrest",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://woodlandtrust.org.uk/trees-woods-and-wildlife/animals/birds/goldcrest/",
+       "label": "woodlandtrust.org.uk"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -221,15 +233,19 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0612",
      "icon": "✍️",
-     "pl": "Do reformy ortografii z 1936 r. pisało się „**puhacz**”, od czasownika „puhać”.",
-     "en": "Until the spelling reform of 1936, it was written “**puhacz**”, from the verb “puhać”.",
+     "pl": "Dawniej pisało się „**puhacz**”, od czasownika „puhać”.",
+     "en": "It used to be spelled “puhacz”, from the verb “puhać”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Puchacz_%28zwyczajny%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://notesfrompoland.com/2026/01/02/poland-introduces-biggest-changes-to-spelling-in-almost-a-century/",
+       "label": "notesfrompoland.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -258,9 +274,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Jerzyk_%28zwyczajny%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.lu.se/lup/publication/0ca50830-4800-42a8-a035-35e500098a00",
+       "label": "lu.se"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0615",
@@ -275,9 +295,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Common_swift",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.nature.com/news/record-breaking-common-swifts-fly-for-10-months-without-landing-1.20873",
+       "label": "nature.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -306,9 +330,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Sok%C3%B3%C5%82_w%C4%99drowny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://guinnessworldrecords.com/world-records/70929-fastest-bird-diving",
+       "label": "guinnessworldrecords.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0618",
@@ -358,9 +386,17 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://www.guinnessworldrecords.com/world-records/86385-longest-non-stop-migration-by-a-bird",
        "label": "guinnessworldrecords.com"
+      },
+      {
+       "url": "https://www.guinnessworldrecords.com/news/2023/1/the-record-breaking-bird-that-flew-from-alaska-to-australia-731576",
+       "label": "guinnessworldrecords.com"
+      },
+      {
+       "url": "https://explorersweb.com/bird-sets-record-nonstop-13560km-flight/",
+       "label": "explorersweb.com"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0621",
@@ -383,8 +419,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0622",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła** (zał. 1). 🔴 **EN**, zagrożony (populacja lęgowa).",
-     "en": "**Strict protection** (Annex 1). 🔴 **EN**, endangered (breeding population).",
+     "pl": "**Ochrona ścisła** (zał. 1).",
+     "en": "**Strict protection** (Annex 1).",
      "sources": [
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
@@ -395,20 +431,24 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0623",
      "icon": "🎭",
-     "pl": "Samce tokują **stadnie, nocą**, na torfowiskach. Niektóre tokowiska są używane **przez 20, a nawet 60 lat**!",
-     "en": "Males display **in groups, at night**, on peat bogs. Some display grounds are used **for 20 or even 60 years**!",
+     "pl": "Samce tokują **stadnie, nocą**, na torfowiskach. Niektóre tokowiska są używane **przez 20 lat**!",
+     "en": "Males display in groups, at night, on peatlands. Some lek sites are used for 20 years!",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dubelt",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://link.springer.com/10.1007/s10336-023-02091-7",
+       "label": "link.springer.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -424,9 +464,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Eurasian_woodcock",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.britannica.com/animal/woodcock",
+       "label": "britannica.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0625",
@@ -458,9 +502,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://www.gov.pl/web/klimat/glowienka-czernica-lyska-jarzabek-oraz-slonka-nie-sa-juz-gatunkami-lownymi-w-polsce",
        "label": "gov.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2025/1286/ogl",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -575,8 +623,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0634",
      "icon": "🚁",
-     "pl": "Poluje, **zawisając** w powietrzu 10–20 m nad ziemią. Dawna angielska nazwa to *windhover*.",
-     "en": "It hunts by **hovering** in the air 10–20 m above the ground. An old English name for it is *windhover*.",
+     "pl": "Poluje, **zawisając** w powietrzu. Dawna angielska nazwa to *windhover*.",
+     "en": "It hunts by **hovering** in the air. An old English name for it is *windhover*.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Common_kestrel",
@@ -587,7 +635,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0635",
@@ -655,6 +703,10 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Nawa%C5%82nik_du%C5%BCy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://datazone.birdlife.org/species/factsheet/leachs-storm-petrel-hydrobates-leucorhous",
+       "label": "datazone.birdlife.org"
       }
      ],
      "status": "verified"
@@ -662,15 +714,15 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0639",
      "icon": "🇵🇱",
-     "pl": "W Polsce to rzadki zalatujący gość: do 2018 r. było **21 stwierdzeń**.",
-     "en": "In Poland it is a rare vagrant: up to 2018 there had been **21 records**.",
+     "pl": "W Polsce to rzadki zalatujący gość.",
+     "en": "In Poland it is a rare vagrant.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nawa%C5%82nik_du%C5%BCy",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0640",
@@ -816,9 +868,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBo%C5%82na_%28zwyczajna%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://parkilodzkie.pl/npk/aktualnosci/2097-zolna-nowy-gatunek-legowy-w-spalskim-pk",
+       "label": "parkilodzkie.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -854,19 +910,6 @@ window.ATLAS_FACTS["ptaki"] = {
       }
      ],
      "status": "checked"
-    },
-    {
-     "id": "F0651",
-     "icon": "🏘️",
-     "pl": "Na niektórych odcinkach rzek naliczono **kilka tysięcy zamieszkanych norek**.",
-     "en": "On some stretches of river, **several thousand occupied burrows** have been counted.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Brzeg%C3%B3wka_%28zwyczajna%29",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -889,8 +932,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0653",
      "icon": "🧱",
-     "pl": "Gniazdo lepi z **gliny i grudek błota sklejonych śliną**, a budowa zajmuje parze około 2 tygodni, więc stare gniazda są w cenie.",
-     "en": "It builds its nest from **clay and pellets of mud stuck together with saliva**, and construction takes a pair about 2 weeks, so old nests are highly prized.",
+     "pl": "Gniazdo lepi z **gliny i grudek błota sklejonych śliną**, a budowa zajmuje parze 1–2 tygodnie, więc stare gniazda są w cenie.",
+     "en": "It builds its nest from **clay and pellets of mud stuck together with saliva**, and construction takes a pair 1–2 weeks, so old nests are highly prized.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dym%C3%B3wka",
@@ -899,9 +942,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Barn_swallow",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://articles.extension.org/pages/11352/swallows",
+       "label": "articles.extension.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0654",
@@ -989,8 +1036,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0659",
      "icon": "🥚",
-     "pl": "To jedyny przedstawiciel rzędu kukułkowych w polskiej awifaunie i pasożyt lęgowy: sama nie wysiaduje jaj, tylko podrzuca je do cudzych gniazd. Znanych jest około 125 gatunków gospodarzy, ale regularnie korzysta tylko z około 20.",
-     "en": "This is the only member of the cuckoo order in the Polish avifauna, and a brood parasite: it does not incubate its own eggs but slips them into other birds' nests. About 125 host species are known, but it regularly uses only about 20.",
+     "pl": "To pasożyt lęgowy: sama nie wysiaduje jaj, tylko podrzuca je do cudzych gniazd.",
+     "en": "It is a brood parasite: it does not incubate its own eggs but lays them in other birds' nests.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kuku%C5%82ka_%28zwyczajna%29",
@@ -1072,8 +1119,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0664",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła, z wymogiem ochrony czynnej** i ze **strefą ochrony** (zał. 1 i 4). Na *Czerwonej liście ptaków Polski*: **VU** (gatunek narażony).",
-     "en": "**Strict protection, requiring active conservation**, with a **protection zone** (Annexes 1 and 4). On the *Red List of Polish Birds*: **VU** (Vulnerable).",
+     "pl": "**Ochrona ścisła, z wymogiem ochrony czynnej** i ze **strefą ochrony** (zał. 1 i 4).",
+     "en": "**Strict protection, requiring active conservation**, with a **protection zone** (Annexes 1 and 4).",
      "sources": [
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
@@ -1082,6 +1129,18 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/G%C5%82uszec_%28zwyczajny%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://cepl.sggw.edu.pl/wp-content/uploads/sites/75/2021/08/Kobielski_i_in.pdf",
+       "label": "cepl.sggw.edu.pl"
+      },
+      {
+       "url": "https://www.gov.pl/web/klimat/restytucja-i-czynna-ochrona-gluszca-w-puszczy-solskiej-oraz-ochrona-gluszca-tetrao-urogallus-in-situ-i-ex-situ-w-puszczy-augustowskiej",
+       "label": "gov.pl"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/eli/acts/DU/2016/2183/text.html",
+       "label": "api.sejm.gov.pl"
       }
      ],
      "status": "corrected"
@@ -1095,9 +1154,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/G%C5%82uszec_%28zwyczajny%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://mdpi.com/2076-2615/13/4/765",
+       "label": "mdpi.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0666",
@@ -1204,9 +1267,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Szablodzi%C3%B3b_%28zwyczajny%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.ornis-polonica.pl/en/artykul/first-breeding-colony-of-pied-avocets-recurvirostra-avosetta-in-poland-on-artificial-islands-of-the-szczecin-lagoon/",
+       "label": "ornis-polonica.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1239,9 +1306,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://anatomypubs.onlinelibrary.wiley.com/doi/full/10.1002/ar.24820",
        "label": "anatomypubs.onlinelibrary.wiley.com"
+      },
+      {
+       "url": "https://birdsoftheworld.org/bow/species/cincli1/cur/introduction",
+       "label": "birdsoftheworld.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0675",
@@ -1264,8 +1335,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0676",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła** (zał. 1). 🔴 **CR**, krytycznie zagrożony (Czerwona lista ptaków Polski 2020).",
-     "en": "**Strict protection** (Annex 1). 🔴 **CR**, Critically Endangered (Red List of Polish Birds 2020).",
+     "pl": "**Ochrona ścisła** (zał. 1).",
+     "en": "**Strict protection** (Annex 1).",
      "sources": [
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
@@ -1276,7 +1347,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0677",
@@ -1330,6 +1401,10 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Wodniczka_%28ptak%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://otop.org.pl/wp-content/uploads/2025/02/Stasiak-Szczech-Stan-populacji-wodniczki-w-Dolinie-Biebrzy-w-2024.pdf",
+       "label": "otop.org.pl"
       }
      ],
      "status": "verified"
@@ -1347,19 +1422,31 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://otop.org.pl/naszeprojekty/chronimy/wodniczka/nowy-projekt-life-dla-wodniczki-i-kolejne-lata-translokacji/",
        "label": "otop.org.pl"
+      },
+      {
+       "url": "https://www.gov.pl/web/klimat/wzmocnienie-poludniowo-wschodniej-metapopulacji-wodniczki-acrocephalus-paludicola-w-polsce",
+       "label": "gov.pl"
+      },
+      {
+       "url": "https://www.gov.pl/attachment/adb71c50-4569-447c-8693-4f081919a41a",
+       "label": "gov.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0681",
      "icon": "🧭",
-     "pl": "Zimowiska dużej części europejskiej populacji odkryto dopiero po wielu latach niepewności, w Senegalu (Djoudj): 5–10 tys. ptaków w jednym miejscu.",
-     "en": "The wintering grounds of a large part of the European population were discovered only after many years of uncertainty, in Senegal (Djoudj): 5–10 thousand birds in a single place.",
+     "pl": "Zimowiska dużej części europejskiej populacji odkryto dopiero po wielu latach niepewności, w Senegalu (Djoudj): 5–15 tys. ptaków w jednym miejscu.",
+     "en": "The wintering grounds of a large part of the European population were discovered only after many years of uncertainty, in Senegal (Djoudj): 5,000–15,000 birds in a single place.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Aquatic_warbler",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://otop.org.pl/2007/02/25/awct-expedition-finds-the-wintering-grounds-of-the-aquatic-warbler/",
+       "label": "otop.org.pl"
       }
      ],
      "status": "corrected"
@@ -1372,8 +1459,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0682",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła, z wymogiem ochrony czynnej** i ze **strefą ochrony** (zał. 1 i 4). 🔴 **EN** na liście krajowej.",
-     "en": "**Strict protection, requiring active conservation**, with a **protection zone** (Annexes 1 and 4). 🔴 **EN** on the national list.",
+     "pl": "**Ochrona ścisła, z wymogiem ochrony czynnej** i ze **strefą ochrony** (zał. 1 i 4).",
+     "en": "**Strict protection, requiring active conservation**, with a **protection zone** (Annexes 1 and 4).",
      "sources": [
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
@@ -1384,7 +1471,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0683",
@@ -1395,9 +1482,17 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Great_grey_owl",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://allaboutbirds.org/guide/Great_Gray_Owl/id",
+       "label": "allaboutbirds.org"
+      },
+      {
+       "url": "https://www.pbs.org/wnet/nature/blog/great-grey-owl-fact-sheet",
+       "label": "pbs.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0684",
@@ -1408,9 +1503,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Puszczyk_mszarny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://komisjafaunistyczna.pl/wp-content/uploads/2023/11/OP_2011_2_117-149.pdf",
+       "label": "komisjafaunistyczna.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1430,19 +1529,10 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Czajka_towarzyska",
        "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0686",
-     "icon": "🔭",
-     "pl": "Do końca 2023 r. w Polsce odnotowano **72 stwierdzenia** (74 ptaki).",
-     "en": "By the end of 2023, **72 records** (74 birds) had been logged in Poland.",
-     "sources": [
+      },
       {
-       "url": "https://pl.wikipedia.org/wiki/Czajka_towarzyska",
-       "label": "Wikipedia (PL)"
+       "url": "https://datazone.birdlife.org/species/factsheet/sociable-lapwing-vanellus-gregarius/details",
+       "label": "datazone.birdlife.org"
       }
      ],
      "status": "verified"
@@ -1474,19 +1564,6 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
        "label": "Dziennik Ustaw"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0689",
-     "icon": "🇺🇸",
-     "pl": "W Polsce stwierdzono ją **zaledwie 5 razy** (do 2023 r.).",
-     "en": "It has been recorded in Poland **just 5 times** (up to 2023).",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Cyranka_modroskrzyd%C5%82a",
-       "label": "Wikipedia (PL)"
       }
      ],
      "status": "verified"
@@ -1525,15 +1602,15 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0692",
      "icon": "🔭",
-     "pl": "Do końca 2023 r. była w Polsce **10 razy**. Ptaki wracające w kolejnych latach liczy się jako jedno stwierdzenie.",
-     "en": "By the end of 2023 it had been seen in Poland **10 times**. Birds returning in subsequent years are counted as a single record.",
+     "pl": "W Polsce pojawia się **rzadko**. Ptaki wracające w kolejnych latach liczy się jako jedno stwierdzenie.",
+     "en": "It turns up in Poland only **rarely**. Birds returning in later years are counted as a single record.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mewa_delawarska",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0693",
@@ -1550,7 +1627,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "usgs.gov"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []

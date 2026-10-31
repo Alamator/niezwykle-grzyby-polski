@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["owady"] = {
  "checked": "2026-10-28",
@@ -263,8 +263,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0371",
      "icon": "✈️",
-     "pl": "Migruje z południa i potrafi przelecieć tysiące kilometrów, czasem aż za koło podbiegunowe.",
-     "en": "It migrates from the south and can fly thousands of kilometres, sometimes even beyond the Arctic Circle.",
+     "pl": "Migruje z południa i potrafi przelecieć tysiące kilometrów.",
+     "en": "It migrates from the south and can fly thousands of kilometres.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zmierzchnica_trupia_g%C5%82%C3%B3wka",
@@ -273,9 +273,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Acherontia_atropos",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://theconversation.com/these-unusual-moths-migrate-over-thousands-of-kilometres-we-tracked-them-to-reveal-their-secret-navigational-skills-188451",
+       "label": "theconversation.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -317,9 +321,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Lampyris_noctiluca",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://link.springer.com/article/10.1007/s10905-020-09763-9",
+       "label": "link.springer.com"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -335,9 +343,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%9Awietlikowate",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/kto-raz-zobaczyl-tego-owada-nigdy-go-nie-zapomni-swietlik-swietojanski-to-chrzaszcz-ktory-potrafi-swiecic/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0376",
@@ -383,9 +395,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9441242/",
        "label": "ncbi.nlm.nih.gov"
+      },
+      {
+       "url": "https://lup.lub.lu.se/record/131382",
+       "label": "lup.lub.lu.se"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -408,15 +424,15 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0380",
      "icon": "🕳️",
-     "pl": "Jesienią schodzą do gleby i przepoczwarzają się na głębokości około 3–4 cm. Motyle wylatują w czerwcu i lipcu następnego roku.",
-     "en": "In autumn they burrow into the soil and pupate at a depth of about 3–4 cm. The moths emerge in June and July of the following year.",
+     "pl": "Jesienią schodzą do gleby i tam się przepoczwarczają. Motyle wylatują w następnym roku.",
+     "en": "In autumn they go down into the soil and pupate there. The moths emerge the following year.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zawisak_borowiec",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -515,19 +531,6 @@ window.ATLAS_FACTS["owady"] = {
   },
   "topielica": {
    "facts": [
-    {
-     "id": "F0388",
-     "icon": "📏",
-     "pl": "Sama rurka oddechowa ma **25–34 mm** długości.",
-     "en": "The breathing tube alone is **25–34 mm** long.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Topielica_%28owad%29",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
     {
      "id": "F0389",
      "icon": "🏷️",
@@ -666,12 +669,20 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0397",
      "icon": "🦕",
-     "pl": "To prastara grupa: rozkwit przeżyła w jurze i kredzie. Naukowo opisano dziś około 210 żyjących gatunków, a szacuje się, że na świecie jest ich około 260.",
-     "en": "It is an ancient group that flourished in the Jurassic and Cretaceous. Today about 210 living species have been scientifically described, and there are estimated to be about 260 worldwide.",
+     "pl": "To prastara grupa: rozkwit przeżyła w kredzie. Naukowo opisano dziś około 250 żyjących gatunków.",
+     "en": "It is an ancient group: it flourished in the Cretaceous. Today about 250 living species have been scientifically described.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Wielb%C5%82%C4%85dki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.biomedcentral.com/1471-2148/14/84",
+       "label": "biomedcentral.com"
+      },
+      {
+       "url": "https://doaj.org/article/38c0fad96bb64c69a2d0d6e296809675",
+       "label": "doaj.org"
       }
      ],
      "status": "corrected"
@@ -723,8 +734,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0401",
      "icon": "👃",
-     "pl": "Długa, sztywna ssawka (u bujanki większej 5,5–7,5 mm) służy do picia nektaru i mimo groźnego wyglądu jest nieszkodliwa, a sama mucha **nie żądli**.",
-     "en": "The long, rigid proboscis (5.5–7.5 mm in the large bee-fly) is used for drinking nectar and, despite its menacing look, is harmless, and the fly itself **does not sting**.",
+     "pl": "Długa, sztywna ssawka służy do picia nektaru i mimo groźnego wyglądu jest nieszkodliwa, a sama mucha **nie żądli**.",
+     "en": "The long, stiff proboscis is used for drinking nectar and, despite its menacing look, is harmless; the fly itself **does not sting**.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Bombylius_major",
@@ -799,9 +810,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Centrotus_cornutus",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.gbif.org/species/165258241",
+       "label": "gbif.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0406",
@@ -865,22 +880,26 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Bryzgun_brzozowiec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.spektrum.de/lexikon/biologie/cimbicidae/14167",
+       "label": "spektrum.de"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0410",
      "icon": "🐛",
-     "pl": "Jego larwy (do około 45 mm) wyglądają jak gąsienice motyli, ale to błonkówki.",
-     "en": "Its larvae (up to about 45 mm) look like butterfly caterpillars, but they are hymenopterans.",
+     "pl": "Jego larwy wyglądają jak gąsienice motyli, ale to błonkówki.",
+     "en": "Its larvae look like butterfly caterpillars, but they are hymenopterans.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Cimbex_femoratus",
        "label": "Wikipedia (EN)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0411",
@@ -1053,8 +1072,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0422",
      "icon": "🛡️",
-     "pl": "Był pod ścisłą ochroną w latach **1984–2001**, a **obecnie nie jest chroniony**.",
-     "en": "It was strictly protected from **1984 to 2001**, but **is not protected today**.",
+     "pl": "Dawniej był pod ścisłą ochroną, a **obecnie nie jest chroniony**.",
+     "en": "It used to be strictly protected, but **it is not protected now**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%BA_kr%C3%B3lowej",
@@ -1065,7 +1084,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0423",
@@ -1089,9 +1108,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Papilio_machaon",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://gbif.org/species/8225376",
+       "label": "gbif.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1146,6 +1169,18 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Nadobnica_alpejska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.radiokrakow.pl/audycje/jak-mozna-pomoc-zagrozonemu-wyginieciem-owadowi/",
+       "label": "radiokrakow.pl"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/eli/acts/DU/2016/2183/text.html",
+       "label": "api.sejm.gov.pl"
+      },
+      {
+       "url": "https://panel.iop.krakow.pl/uploads/wydawnictwa_artykuly/97e7ba9716b4c8caf7200b6c523bb3aa98775a78.pdf",
+       "label": "panel.iop.krakow.pl"
       }
      ],
      "status": "verified"
@@ -1153,8 +1188,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0428",
      "icon": "🌳",
-     "pl": "Larwy rozwijają się 3–4 lata w martwym i obumierającym drewnie starych buków, rzadziej wiązów górskich. Głównym zagrożeniem jest wycinka starych buczyn i usuwanie z lasu obumierających buków. Pułapką bywa też drewno bukowe składowane latem w lesie, które wywozi się razem ze złożonymi w nim jajami.",
-     "en": "The larvae develop for 3–4 years in the dead and dying wood of old beeches, and less often wych elms. The main threat is the felling of old beech woods and the removal of dying beeches from the forest. Beech wood stacked in the forest in summer can also become a trap: it is hauled away together with the eggs laid in it.",
+     "pl": "Larwy rozwijają się kilka lat w martwym i obumierającym drewnie starych buków, rzadziej wiązów górskich. Głównym zagrożeniem jest wycinka starych buczyn i usuwanie z lasu obumierających buków. Pułapką bywa też drewno bukowe składowane latem w lesie, które wywozi się razem ze złożonymi w nim jajami.",
+     "en": "The larvae develop for several years in the dead and dying wood of old beeches, less often of wych elms. The main threat is the felling of old beech forests and the removal of dying beeches from the forest. Beech wood stored in the forest in summer can also be a trap: it is taken away together with the eggs laid in it.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nadobnica_alpejska",
@@ -1163,6 +1198,10 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://mpn.gov.pl/aktualnosci/nadobnica-alpejska-klejnot-magurskich-lasow",
        "label": "mpn.gov.pl"
+      },
+      {
+       "url": "https://archiwum.bdpn.pl/dokumenty/roczniki/rb24/art10.pdf",
+       "label": "archiwum.bdpn.pl"
       }
      ],
      "status": "corrected"
@@ -1188,8 +1227,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0430",
      "icon": "🛡️",
-     "pl": "**Ochrona częściowa** (zał. 2). W latach 1952–2014 był pod ochroną ścisłą.",
-     "en": "**Partial protection** (Annex 2). From 1952 to 2014 it was strictly protected.",
+     "pl": "**Ochrona częściowa** (zał. 2). Pod ochroną prawną jest nieprzerwanie od 1952 r.",
+     "en": "**Partial protection** (Annex 2). It has been legally protected without a break since 1952.",
      "sources": [
       {
        "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220002380",
@@ -1198,9 +1237,21 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Jelonek_rogacz",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://baza.biomap.pl/en/taxon/species-lucanus_cervus_cervus-lucanus_capra/publications",
+       "label": "baza.biomap.pl"
+      },
+      {
+       "url": "https://api.sejm.gov.pl/eli/acts/DU/2016/2183/text.html",
+       "label": "api.sejm.gov.pl"
+      },
+      {
+       "url": "https://sparrow.up.poznan.pl/pte/we/2026/7N-Bistula&Wasala.pdf",
+       "label": "sparrow.up.poznan.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0431",
@@ -1215,22 +1266,38 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://www.poznan.lasy.gov.pl/jelonek-rogacz",
        "label": "poznan.lasy.gov.pl"
+      },
+      {
+       "url": "https://core.ac.uk/download/33521313.pdf",
+       "label": "core.ac.uk"
+      },
+      {
+       "url": "https://radiokielce.pl/420730/jelonek-olbrzym-zagoscil-juz-na-stale-w-naszych-lasach-108861",
+       "label": "radiokielce.pl"
+      },
+      {
+       "url": "https://www.nhm.ac.uk/discover/stag-beetles.html",
+       "label": "nhm.ac.uk"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0432",
      "icon": "🎨",
-     "pl": "Był malowany już w średniowiecznych iluminacjach (1370) i trafił do herbów.",
-     "en": "It was already being painted in medieval illuminations (1370) and made its way onto coats of arms.",
+     "pl": "Był malowany już w średniowiecznych iluminacjach (koniec XIV w.) i trafił do herbów.",
+     "en": "It was already painted in medieval illuminations (late 14th century) and made its way into coats of arms.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Jelonek_rogacz",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://core.ac.uk/download/33521313.pdf",
+       "label": "core.ac.uk"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1253,8 +1320,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0434",
      "icon": "🥇",
-     "pl": "To jedna z największych kózek Polski. Larwy dorastają do 10 cm, a cały rozwój trwa zwykle 3–4 lata, niekiedy nawet 5 lat.",
-     "en": "This is one of Poland's largest longhorn beetles. The larvae grow up to 10 cm long, and the whole development usually takes 3–4 years, sometimes as many as 5.",
+     "pl": "To jedna z największych kózek Polski. Cały rozwój trwa zwykle 3–4 lata, niekiedy nawet 5 lat.",
+     "en": "It is one of the largest longhorn beetles in Poland. Its whole development usually takes 3–4 years, sometimes even 5.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kozior%C3%B3g_d%C4%99bosz",
@@ -1263,6 +1330,14 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://www.zolwroclaw.lasy.gov.pl/pl/mapa-polski-z-zol-ami/-/asset_publisher/x9eK/content/-2",
        "label": "zolwroclaw.lasy.gov.pl"
+      },
+      {
+       "url": "https://www.wroclaw.pl/zielony-wroclaw/koziorog-debosz-mieszka-w-starych-debach-i-jest-pod-ochrona",
+       "label": "wroclaw.pl"
+      },
+      {
+       "url": "https://baza.biomap.pl/en/taxon/species-cerambyx_cerdo_cerdo/default/letter/C",
+       "label": "baza.biomap.pl"
       }
      ],
      "status": "corrected"
@@ -1276,9 +1351,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kozior%C3%B3g_d%C4%99bosz",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://rcin.org.pl/iop//Content/197225/PDF/KR038_193019_r1973-t29-no1_ChPO-Starzyk-22-30.pdf",
+       "label": "rcin.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []

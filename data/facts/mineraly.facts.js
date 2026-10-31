@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["mineraly"] = {
  "checked": "2026-10-28",
@@ -59,9 +59,17 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://doi.org/10.1180/minmag.2016.080.110",
        "label": "doi.org"
+      },
+      {
+       "url": "https://resolver.caltech.edu/CaltechAUTHORS:20170519-073605517",
+       "label": "resolver.caltech.edu"
+      },
+      {
+       "url": "https://geo.uw.edu.pl/wp-content/uploads/sites/65/2023/05/S_Ilnicki_publikacje.pdf",
+       "label": "geo.uw.edu.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0788",
@@ -76,9 +84,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://www.cambridge.org/core/journals/mineralogical-magazine/article/abs/zabinskiite-ideally-caal05ta05sio4o-a-new-mineral-of-the-titanite-group-from-the-pilawa-gorna-pegmatite-the-gory-sowie-block-southwestern-poland/4919B87AF552E0222B443209695EB595",
        "label": "cambridge.org"
+      },
+      {
+       "url": "https://resolver.caltech.edu/CaltechAUTHORS:20170519-073605517",
+       "label": "resolver.caltech.edu"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0789",
@@ -128,9 +140,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://www.handbookofmineralogy.org/pdfs/Thalliomelane.pdf",
        "label": "handbookofmineralogy.org"
+      },
+      {
+       "url": "https://msaweb.org/MSA/AmMin/TOC/2021/Abstracts/AM106P2020.pdf",
+       "label": "msaweb.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0792",
@@ -217,7 +233,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "msaweb.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0797",
@@ -251,7 +267,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "msaweb.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -267,9 +283,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://doi.org/10.1180/mgm.2023.21",
        "label": "doi.org"
+      },
+      {
+       "url": "https://cnmnc.units.it/recent/211a.%20CNMNC%20Newsletter%2072-2023%20(MM).pdf",
+       "label": "cnmnc.units.it"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0800",
@@ -280,9 +300,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://doi.org/10.1180/mgm.2023.21",
        "label": "doi.org"
+      },
+      {
+       "url": "https://cnmnc.units.it/recent/211a.%20CNMNC%20Newsletter%2072-2023%20(MM).pdf",
+       "label": "cnmnc.units.it"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -309,8 +333,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0802",
      "icon": "🎓",
-     "pl": "Nazwa honoruje prof. Michała Sachanbińskiego, w latach 1977–2009 kierownika Muzeum Mineralogicznego UWr. W 1992 roku wraz ze współautorami opisał on naturalny prazjolit z okolic Suszyny-Mrówieńca na Dolnym Śląsku, uznawany za pierwsze znalezisko naturalnego prazjolitu.",
-     "en": "The name honours Prof. Michał Sachanbiński, head of the Mineralogical Museum of the University of Wrocław from 1977 to 2009. In 1992, together with co-authors, he described natural prasiolite from the Suszyna-Mrówieniec area in Lower Silesia, regarded as the first find of natural prasiolite.",
+     "pl": "Nazwa honoruje prof. Michała Sachanbińskiego, który od 1977 r. przez ponad 30 lat kierował Muzeum Mineralogicznym UWr. W 1992 roku wraz ze współautorami opisał on naturalny prazjolit z okolic Suszyny-Mrówieńca na Dolnym Śląsku, uznawany za pierwsze znalezisko naturalnego prazjolitu.",
+     "en": "The name honours Prof. Michał Sachanbiński, who headed the Mineralogical Museum of the University of Wrocław for more than 30 years from 1977. In 1992, with co-authors, he described natural prasiolite from the Suszyna–Mrówieniec area in Lower Silesia, regarded as the first find of natural prasiolite.",
      "sources": [
       {
        "url": "https://doi.org/10.2138/gselements.20.2.134",
@@ -318,6 +342,14 @@ window.ATLAS_FACTS["mineraly"] = {
       },
       {
        "url": "https://muzmin.uwr.edu.pl/historia/",
+       "label": "muzmin.uwr.edu.pl"
+      },
+      {
+       "url": "https://ing.uwr.edu.pl/en/k-maslankiewicz-mineralogical-museum/history-of-the-mineralogy-museum/",
+       "label": "ing.uwr.edu.pl"
+      },
+      {
+       "url": "https://muzmin.uwr.edu.pl/en/?p=26223",
        "label": "muzmin.uwr.edu.pl"
       }
      ],
@@ -379,28 +411,32 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0806",
      "icon": "🌀",
-     "pl": "W Polsce tworzy konkrecje do 2 m lub warstwy w skałach górnej jury (oksford, kimeryd).",
-     "en": "In Poland it forms concretions up to 2 m across or layers in Upper Jurassic rocks (Oxfordian, Kimmeridgian).",
+     "pl": "W Polsce tworzy konkrecje lub warstwy w skałach górnej jury (oksford).",
+     "en": "In Poland it forms concretions or layers in Upper Jurassic (Oxfordian) rocks.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzemie%C5%84_pasiasty",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://vjs.pgi.gov.pl/article/download/26453/18163",
+       "label": "vjs.pgi.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0807",
      "icon": "🧪",
-     "pl": "W ok. 95% to krzemionka, głównie kwarc. Chalcedonu jest mniej. Jego geneza wciąż nie jest do końca wyjaśniona.",
-     "en": "It is about 95% silica, mainly quartz. Chalcedony is less abundant. Its origin is still not fully understood.",
+     "pl": "To głównie krzemionka, przede wszystkim kwarc. Chalcedonu jest mniej. Jego geneza wciąż nie jest do końca wyjaśniona.",
+     "en": "It is mostly silica, chiefly quartz. Chalcedony is less common. Its origin is still not fully explained.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzemie%C5%84_pasiasty",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0808",
@@ -411,9 +447,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://whc.unesco.org/en/list/1599",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://whc.unesco.org/en/decisions/7390/",
+       "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -490,9 +530,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Tarnobrzeskie_Zag%C5%82%C4%99bie_Siarkowe",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.pgi.gov.pl/muzeum/kopalnia-wiedzy-1/12583-siarka.html",
+       "label": "pgi.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0814",
@@ -534,9 +578,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Hauerite",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://webmineral.com/data/Hauerite.shtml",
+       "label": "webmineral.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0817",
@@ -638,15 +686,23 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0823",
      "icon": "🔁",
-     "pl": "To polimorficzna odmiana węglanu wapnia, druga co do powszechności po kalcycie. Z aragonitu składa się ok. 90% masy perłowej.",
-     "en": "It is a polymorph of calcium carbonate, second in abundance only to calcite. Aragonite makes up about 90% of mother-of-pearl.",
+     "pl": "To polimorficzna odmiana węglanu wapnia, druga co do powszechności po kalcycie. Z aragonitu składa się ok. 95% masy perłowej.",
+     "en": "It is a polymorph of calcium carbonate, the second most common after calcite. About 95% of nacre (mother-of-pearl) is made of aragonite.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Aragonit",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.mindat.org/min-307.html",
+       "label": "mindat.org"
+      },
+      {
+       "url": "https://newscenter.lbl.gov/2008/11/25/mother-of-pearl-secret-revealed/",
+       "label": "newscenter.lbl.gov"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -687,8 +743,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0826",
      "icon": "🧂",
-     "pl": "Groty Kryształowe to podziemny rezerwat przyrody nieożywionej w Kopalni Soli Wieliczka. W obecnej formie utworzono go rozporządzeniem Wojewody Małopolskiego z 11 września 2000 r., ale groty chroniono jako podziemny rezerwat już od 1928 r.",
-     "en": "Groty Kryształowe is an underground nature reserve protecting inanimate nature in the Wieliczka Salt Mine. In its present form it was established by a regulation of the Małopolska Voivode of 11 September 2000, but the grottoes had already been protected as an underground reserve since 1928.",
+     "pl": "Groty Kryształowe to podziemny rezerwat przyrody nieożywionej w Kopalni Soli Wieliczka. W obecnej formie utworzono go rozporządzeniem Wojewody Małopolskiego w 2000 r., ale groty chroniono jako podziemny rezerwat już od 1928 r.",
+     "en": "The Crystal Grottoes are an underground inanimate-nature reserve in the Wieliczka Salt Mine. It was created in its present form by a regulation of the Małopolska Voivode in 2000, but the grottoes had been protected as an underground reserve since 1928.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Groty_Kryszta%C5%82owe",
@@ -697,6 +753,10 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://kopalniawieliczka.eu/groty-krysztalowe-jedyne-takie-na-swiecie/",
        "label": "kopalniawieliczka.eu"
+      },
+      {
+       "url": "https://www.iop.krakow.pl/geosites/home/single/250",
+       "label": "iop.krakow.pl"
       }
      ],
      "status": "corrected"
@@ -704,15 +764,19 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0827",
      "icon": "📏",
-     "pl": "Chroni dwie naturalne pustki: Grotę Dolną (706 m³) i Górną (1000 m³), na głębokości 70–114 m.",
-     "en": "It protects two natural cavities, Grota Dolna (706 m³) and Grota Górna (1000 m³), at a depth of 70–114 m.",
+     "pl": "Chroni dwie naturalne pustki: Grotę Dolną (706 m³) i Górną (1000 m³).",
+     "en": "It protects two natural voids: the Lower Grotto (706 m³) and the Upper Grotto (1000 m³).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_Groty_Kryszta%C5%82owe",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.iop.krakow.pl/geosites/home/single/250",
+       "label": "iop.krakow.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0828",
@@ -982,15 +1046,19 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0845",
      "icon": "🔥",
-     "pl": "Jego zastosowanie jako topnika opisał już w 1529 r. Georgius Agricola. Łacińskie *fluere* znaczy „płynąć”.",
-     "en": "Its use as a flux was described as early as 1529 by Georgius Agricola. The Latin *fluere* means ‘to flow’.",
+     "pl": "Jego zastosowanie jako topnika opisał już w 1530 r. Georgius Agricola. Łacińskie *fluere* znaczy „płynąć”.",
+     "en": "Georgius Agricola described its use as a flux as early as 1530. The Latin *fluere* means “to flow”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Fluoryt",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry/Chemistry_of_the_Main_Group_Elements_(Barron)/10%3A_The_Halogens/10.01%3A_The_Group_17_Elements-_The_Halogens",
+       "label": "chem.libretexts.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1013,15 +1081,19 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0847",
      "icon": "🏚️",
-     "pl": "Miedzianka miała prawa miasta górniczego w latach 1519–1945. Nadał je król Ludwik Jagiellończyk.",
-     "en": "Miedzianka held the rights of a mining town from 1519 to 1945. They were granted by King Louis Jagiellon.",
+     "pl": "Miedzianka otrzymała prawa miasta górniczego na początku XVI w. Nadał je król Ludwik Jagiellończyk.",
+     "en": "Miedzianka received the rights of a mining town in the early 16th century. They were granted by King Louis Jagiellon.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Miedzianka_(wojew%C3%B3dztwo_dolno%C5%9Bl%C4%85skie)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://digi.ub.uni-heidelberg.de/diglit/rhs2017/0113",
+       "label": "digi.ub.uni-heidelberg.de"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1044,15 +1116,19 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0849",
      "icon": "⛏️",
-     "pl": "W latach 1945–1954 w Miedziance wydobyto ok. 600 t rudy uranu. Całość wysłano do ZSRR.",
-     "en": "Between 1945 and 1954 about 600 t of uranium ore was mined at Miedzianka. All of it was sent to the USSR.",
+     "pl": "W latach 1948–1951 w Miedziance wydobyto ok. 2400 t rudy uranu. Całość wysłano do ZSRR.",
+     "en": "Between 1948 and 1951, about 2,400 t of uranium ore were mined in Miedzianka. All of it was sent to the USSR.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Miedzianka_(wojew%C3%B3dztwo_dolno%C5%9Bl%C4%85skie)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.wug.gov.pl/download/467-Mniszkow,8640.pdf/view",
+       "label": "wug.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1099,9 +1175,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Kupryt",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://webmineral.com/data/Cuprite.shtml",
+       "label": "webmineral.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0853",
@@ -1124,28 +1204,44 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0854",
      "icon": "☢️",
-     "pl": "Uran w Kowarach zaczęto wydobywać w 1927 r., przy okazji eksploatacji rud żelaza. Po 1945 r. trafiał do radzieckiego programu atomowego.",
-     "en": "Uranium mining in Kowary began in 1927, alongside the extraction of iron ore. After 1945 it went to the Soviet atomic programme.",
+     "pl": "Uran w Kowarach wydobywano już w latach 20. XX w., przy okazji eksploatacji rud żelaza. Po 1945 r. trafiał do radzieckiego programu atomowego.",
+     "en": "Uranium was already being mined in Kowary in the 1920s, alongside iron ore. After 1945 it went to the Soviet atomic programme.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kowary",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dbc.wroc.pl/Content/75036/download",
+       "label": "dbc.wroc.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/najbardziej-niesamowite-uzdrowisko-w-polsce-kowary-to-jedno-z-kilku-miejsc-na-swiecie-gdzie-leczono-radioaktywnoscia/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0855",
      "icon": "🔦",
-     "pl": "Trasa „Sztolnie Kowary” w dawnej kopalni Liczyrzepa ma ok. 1200 m. Otwarto ją 24 kwietnia 2000 r. Ma 13 stale monitorowanych punktów dozymetrycznych.",
-     "en": "The ‘Sztolnie Kowary’ route in the former Liczyrzepa mine is about 1,200 m long. It opened on 24 April 2000. It has 13 continuously monitored dosimetry points.",
+     "pl": "Trasa „Sztolnie Kowary” w dawnej kopalni Liczyrzepa ma ok. 1200 m. Ma 13 stale monitorowanych punktów dozymetrycznych.",
+     "en": "The “Sztolnie Kowary” route in the former Liczyrzepa mine is about 1,200 m long. It has 13 continuously monitored dosimetry points.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sztolnie_Kowary",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://turysta.kowary.pl/atrakcje_turystyczne/sztolnie-kowary/",
+       "label": "turysta.kowary.pl"
+      },
+      {
+       "url": "https://um.kowary.pl/um-uploads/2026/07/Kowary-przewodnik-turystyczny-EN.pdf",
+       "label": "um.kowary.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0856",
@@ -1174,9 +1270,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Galena",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://webmineral.com/data/Galena.shtml",
+       "label": "webmineral.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0858",
@@ -1202,7 +1302,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1249,9 +1349,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Whewellit",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://webmineral.com/data/Whewellite.shtml",
+       "label": "webmineral.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0863",

@@ -389,8 +389,7 @@
       route: "/atlas/rekordy-atmosferyczne",
       search_placeholder: "np. Słubice, halny, tornado, grad...",
       source_note: "Opisy powstały na bazie wskazanego materiału o rekordach pogody w Polsce. Wartości sprawdzono w źródłach (IMGW-PIB, GUS, prace naukowe, PAP, Wikipedia); sporne i niepotwierdzone pominięto. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry kontekstowe są oznaczone uczciwie.",
-      // No facts file yet: the generator makes it (FACTS_PENDING in scripts/validate-facts.mjs).
-      scripts: ["/data/atmospheric-records.js", "/data/atmospheric-records-photo-pack-v01.js", "/data/i18n/rekordy-atmosferyczne.en.js", "/data/places/rekordy-atmosferyczne.places.js", "/data/occurrence/rekordy-atmosferyczne.occurrence.js"],
+      scripts: ["/data/atmospheric-records.js", "/data/atmospheric-records-photo-pack-v01.js", "/data/i18n/rekordy-atmosferyczne.en.js", "/data/places/rekordy-atmosferyczne.places.js", "/data/occurrence/rekordy-atmosferyczne.occurrence.js", "/data/facts/rekordy-atmosferyczne.facts.js"],
       build: () => {
         const data = window.ATMOSPHERIC_RECORD_APP_DATA;
         if (!data) return null;
@@ -441,7 +440,7 @@
     source_note: builder.source_note,
     card_labels: builder.card_labels,
     route: builder.route,
-    // False while the collection's facts are still being generated (no facts file in its scripts yet):
+    // False while a collection has no facts file in its scripts yet (FACTS_PENDING in scripts/validate-facts.mjs):
     // the fact of the day passes it by.
     has_facts: builder.scripts.some((src) => src.startsWith("/data/facts/")),
     safety_notice: "",
@@ -454,9 +453,11 @@
     _loadPromise: null
   }));
 
-  // Editorial review of 28.10.2026: what is not confirmed well enough stays out of the atlas.
-  // The withdrawn cards were removed from the collection data. data/facts/*.facts.js is generated
-  // outside the repo, so withdrawn facts are filtered here; the reasons are kept for the next run.
+  // Editorial review of 28.10.2026: what is not confirmed well enough stays out of the atlas. The withdrawn
+  // cards were removed from the collection data, with their facts (skip_cards in
+  // docs/content/zmiany-dla-generatora-2026-10.json). A fact that needs a correction can be hidden here
+  // (facts: { id: reason }) until data/facts/*.facts.js is fixed. Since 31.10.2026 the facts are corrected
+  // in those files directly, and every hidden fact of 28-31.10.2026 has been corrected or removed there.
   const WITHDRAWN = {
     cards: {
       "ryby/murowy-swiecik": "Mauryk: brak potwierdzonej obserwacji w Bałtyku (C064).",
@@ -465,64 +466,12 @@
       "skamienialosci/tholodus-schmidi": "Tholodus schmidi: brak publikacji o znaleziskach z Polski (C127).",
       "architektura-drewniana/chata-na-wysokosci": "Chata na Wysokości: prywatna kwatera, historia tylko według właścicieli, bez ciekawostek i bez zdjęcia obiektu (C144)."
     },
-    facts: {
-      F0032: "Piestrzenica: czas obróbki termicznej to wskazówka kulinarna.",
-      F0037: "Smardz: „dokładna obróbka termiczna zmniejsza ryzyko” to porada kulinarna.",
-      F0073: "Galaretek kolczasty: „odradza się jeść na surowo” sugeruje jedzenie po obróbce.",
-      F0143: "Żółciak: „surowe lub niedogotowane” sugeruje jadalność po ugotowaniu.",
-      F0170: "Opieńka: „surowa lub niedogotowana” sugeruje jadalność po ugotowaniu.",
-      F0985: "Ctenochasma: rodzaj niepotwierdzony w Owadowie-Brzezinkach, fakt nie dotyczy karty (C121).",
-      // Audit of 30.10.2026 (docs/content/audyt-2026-10-30.md).
-      F0217: "Obrazki plamiste: kategoria E pochodzi z Czerwonej listy z 2006 r.; lista z 2016 r. podaje VU (narażony).",
-      F1070: "Litworowy Kocioł: według IMGW-PIB oficjalny rekord zimna to −41,0 °C (Siedlce, 1940), nie −40,6 °C (Żywiec, 1929).",
-      F1349: "Kolej na Kasprowy: „26 m poniżej szczytu” liczono od dawnej wysokości 1985 m; szczyt ma 1987 m.",
-      F0594: "Wąż Eskulapa: rekord 225 cm podaje wien.gv.at, a Rocznik Bieszczadzki „do 220 cm”; nowe brzmienie bez liczby rekordu czeka w generatorze."
-    },
-    // Numbers and dates checked by search in independent sources (10.2026): in these facts a source
-    // contradicts a number or date, or none confirms it. The reasons and the corrected wording for the
-    // generator are in docs/content/zmiany-dla-generatora-2026-10.json.
-    numbers: [
-      "F0001", "F0002", "F0006", "F0007", "F0009", "F0010", "F0020", "F0025", "F0028", "F0029",
-      "F0033", "F0036", "F0039", "F0040", "F0042", "F0043", "F0044", "F0046", "F0047", "F0048",
-      "F0050", "F0051", "F0075", "F0079", "F0082", "F0083", "F0084", "F0086", "F0087", "F0088",
-      "F0091", "F0096", "F0097", "F0103", "F0105", "F0108", "F0111", "F0115", "F0131", "F0132",
-      "F0133", "F0136", "F0140", "F0146", "F0147", "F0148", "F0160", "F0166", "F0167", "F0168",
-      "F0177", "F0189", "F0200", "F0205", "F0207", "F0214", "F0220", "F0232", "F0239", "F0241",
-      "F0243", "F0246", "F0247", "F0252", "F0254", "F0258", "F0259", "F0261", "F0263", "F0271",
-      "F0295", "F0296", "F0298", "F0300", "F0301", "F0302", "F0303", "F0304", "F0306", "F0307",
-      "F0311", "F0312", "F0313", "F0315", "F0321", "F0324", "F0326", "F0327", "F0328", "F0330",
-      "F0331", "F0336", "F0338", "F0342", "F0344", "F0345", "F0346", "F0350", "F0352", "F0353",
-      "F0371", "F0380", "F0388", "F0397", "F0401", "F0410", "F0422", "F0428", "F0430", "F0432",
-      "F0434", "F0437", "F0451", "F0454", "F0465", "F0466", "F0472", "F0474", "F0476", "F0485",
-      "F0487", "F0490", "F0492", "F0494", "F0504", "F0506", "F0509", "F0517", "F0530", "F0534",
-      "F0537", "F0547", "F0555", "F0557", "F0558", "F0565", "F0568", "F0569", "F0571", "F0591",
-      "F0601", "F0606", "F0612", "F0622", "F0623", "F0634", "F0639", "F0651", "F0653", "F0659",
-      "F0664", "F0676", "F0681", "F0682", "F0686", "F0689", "F0692", "F0698", "F0702", "F0704",
-      "F0713", "F0720", "F0732", "F0742", "F0753", "F0754", "F0757", "F0760", "F0765", "F0772",
-      "F0802", "F0806", "F0807", "F0823", "F0826", "F0827", "F0845", "F0847", "F0849", "F0854",
-      "F0855", "F0866", "F0870", "F0872", "F0875", "F0877", "F0879", "F0881", "F0882", "F0887",
-      "F0888", "F0889", "F0890", "F0891", "F0893", "F0895", "F0899", "F0900", "F0901", "F0902",
-      "F0904", "F0908", "F0909", "F0910", "F0917", "F0919", "F0924", "F0927", "F0930", "F0931",
-      "F0937", "F0941", "F0956", "F0960", "F0971", "F0974", "F0992", "F1006", "F1010", "F1016",
-      "F1041", "F1049", "F1053", "F1057", "F1063", "F1065", "F1067", "F1071", "F1072", "F1074",
-      "F1075", "F1080", "F1083", "F1084", "F1086", "F1092", "F1096", "F1103", "F1107", "F1108",
-      "F1112", "F1126", "F1133", "F1134", "F1136", "F1141", "F1145", "F1148", "F1149", "F1150",
-      "F1151", "F1152", "F1159", "F1160", "F1163", "F1165", "F1168", "F1190", "F1195", "F1203",
-      "F1205", "F1206", "F1210", "F1211", "F1221", "F1222", "F1230", "F1234", "F1235", "F1241",
-      "F1242", "F1244", "F1257", "F1259", "F1265", "F1270", "F1276", "F1277", "F1278", "F1280",
-      "F1281", "F1287", "F1292", "F1293", "F1300", "F1301", "F1304", "F1309", "F1312", "F1314",
-      "F1322", "F1325", "F1332", "F1335", "F1337", "F1339", "F1341", "F1353", "F1358", "F1359",
-      "F1360", "F1363", "F1365", "F1366", "F1372", "F1374", "F1375", "F1387", "F1388", "F1390",
-      "F1392", "F1393", "F1394", "F1395", "F1400", "F1403", "F1414", "F1417", "F1419", "F1421",
-      "F1423", "F1425", "F1426", "F1429", "F1435", "F1437", "F1440", "F1442", "F1445", "F1448",
-      "F1451", "F1453", "F1456", "F1457", "F1460", "F1464", "F1465", "F1466", "F1468", "F1472",
-      "F1476", "F1480", "F1482", "F1483", "F1484", "F1486", "F1487", "F1488", "F1490", "F1495",
-      "F1498", "F1499", "F1500", "F1503", "F1505"
-    ]
+    facts: {},
+    numbers: []
   };
   const HIDDEN_FACTS = new Set([...Object.keys(WITHDRAWN.facts), ...WITHDRAWN.numbers]);
 
-  // Verified fun facts live in data/facts/<collection>.facts.js (generated outside the repo) and set
+  // Verified fun facts live in data/facts/<collection>.facts.js (corrected there; docs/content/README-weryfikacja.md) and set
   // window.ATLAS_FACTS[<collection>] = { checked, items: { <card id>: { facts, notes } } }.
   // Only the facts of cards present in the collection are attached, without the hidden ones.
   function attachFacts(collection) {
