@@ -112,6 +112,11 @@ function headHtml(indexHtml, origin, page, texts) {
     html = replaceOnce(html, new RegExp(`<link rel="alternate" hreflang="${hreflang}" href="[^"]*" />`),
       `<link rel="alternate" hreflang="${hreflang}" href="${escapeHtml(`${origin}${addressFor(page.route, language)}`)}" />`, `${hreflang} alternate link`);
   }
+  // Structured data for search engines (JSON-LD: data, not a script the page runs). index.html names the site;
+  // the other pages give their path from the start page instead. The English start page has none: search
+  // engines read the site's name only from the home page.
+  html = replaceOnce(html, /\n {2}<script type="application\/ld\+json">[^<]*<\/script>/,
+    page.trail ? `\n  ${jsonLd(breadcrumbs(origin, page.trail, texts))}` : "", "structured data");
   html = setMeta(html, "property", "og:url", url);
   html = setMeta(html, "property", "og:title", page.shareTitle);
   html = setMeta(html, "property", "og:description", page.share || page.description);
@@ -124,6 +129,20 @@ function headHtml(indexHtml, origin, page, texts) {
     html = replaceOnce(html, '<div id="startPage" class="start-page" tabindex="-1">', '<div id="startPage" class="start-page is-hidden" tabindex="-1">', "start page");
   }
   return texts.language === "en" ? englishHtml(html, texts) : html;
+}
+
+// A <script type="application/ld+json"> element; "<" is escaped, so no text can close the element early.
+export function jsonLd(data) {
+  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
+}
+
+// The page's place in the atlas: [name, route] from the start page down, with addresses in the page's language.
+export function breadcrumbs(origin, trail, texts) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map(([name, route], index) => ({ "@type": "ListItem", position: index + 1, name, item: `${origin}${texts.address(route)}` }))
+  };
 }
 
 // The same as markdownLight in js/app.js: *emphasis*, **strong** and ***both*** in a text of data/i18n.js.
@@ -263,7 +282,7 @@ function collectionPhotoHtml(collection, cover, texts) {
   const src = (width) => `${cover.photo.image}?width=${width}`;
   const credit = fill(texts.ui.photoCreditPrefix, { name: cover.name[texts.language] || cover.name.pl });
   return `<div id="collectionPhoto" class="collection-bar__photo" data-collection="${escapeHtml(collection.id)}" data-language="${texts.language}">\n` +
-    `          <picture><source media="(max-width: 620px)" srcset="${escapeHtml(src(500))}" /><img src="${escapeHtml(src(960))}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>\n` +
+    `          <picture><source media="(max-width: 620px)" srcset="${escapeHtml(src(500))}" /><img src="${escapeHtml(src(960))}" alt="" decoding="async" fetchpriority="high" /></picture>\n` +
     `          <a class="photo-credit collection-bar__credit" href="${escapeHtml(cover.photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(credit)}</span>${escapeHtml(`${cover.photo.author} · ${cover.photo.license}`)}</a>\n` +
     "        </div>";
 }
@@ -328,6 +347,7 @@ function collectionPages(win, indexHtml, origin, texts) {
     const page = {
       ...base,
       route,
+      trail: [[texts.site, "/"], [title, route]],
       title: `${title} – ${texts.site}`,
       shareTitle: base.heading,
       description: base.lead,
@@ -340,6 +360,7 @@ function collectionPages(win, indexHtml, origin, texts) {
       const card = {
         ...base,
         route: cardRoute(collection, item),
+        trail: [[texts.site, "/"], [title, route], [name, cardRoute(collection, item)]],
         title: `${name} – ${title} – ${texts.site}`,
         shareTitle: name,
         description: fill(ui.metaCardDescription, { hook: sentence(texts.hook(collection, item)), collection: title }),
@@ -362,6 +383,7 @@ function mapPage(win, indexHtml, origin, texts) {
   const count = texts.plural(ui.placeCountForms, places.length);
   const page = {
     route: MAP_ROUTE,
+    trail: [[texts.site, "/"], [ui.allMapDocumentTitle, MAP_ROUTE]],
     content: "#mapPage",
     title: `${ui.allMapDocumentTitle} – ${texts.site}`,
     shareTitle: ui.metaMapTitle,
@@ -389,6 +411,7 @@ function quizPage(win, indexHtml, origin, texts) {
   const { ui } = texts;
   const page = {
     route: QUIZ_ROUTE,
+    trail: [[texts.site, "/"], [ui.atlasQuizDocumentTitle, QUIZ_ROUTE]],
     content: "#quizPage",
     title: `${ui.atlasQuizDocumentTitle} – ${texts.site}`,
     shareTitle: ui.metaQuizTitle,

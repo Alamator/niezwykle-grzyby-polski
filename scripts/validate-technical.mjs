@@ -99,6 +99,30 @@ assert.equal(vercelConfig.buildCommand, "npm run build && node scripts/version-a
     assert(permissions.includes(feature), `the Permissions-Policy header should include ${feature}`);
   }
   assert(appJs.includes("navigator.geolocation.getCurrentPosition"), "the location is allowed only for \"Blisko mnie\"; without it, set geolocation=() in vercel.json");
+  // Content-Security-Policy: the page may load only what it uses. Change it here and in vercel.json together.
+  const policy = {
+    "default-src": ["'none'"],
+    "script-src": ["'self'"],
+    "style-src": ["'self'"],
+    // Photos: Commons' Special:Redirect, then its redirect to a scaled copy (thumb) or to the original when it
+    // is narrower than asked (upload); the browser checks every step. data: draws the map's buttons, and
+    // MapLibre tests WebP with a data: image; blob: is for map icons on Safari 14.
+    "img-src": ["'self'", "data:", "blob:", "https://commons.wikimedia.org", "https://thumb.wikimedia.org", "https://upload.wikimedia.org"],
+    "font-src": ["'self'"],
+    // The base map: style, tiles, letters and icons from OpenFreeMap. The app itself fetches nothing.
+    "connect-src": ["https://tiles.openfreemap.org"],
+    // MapLibre runs a worker made from a blob:; Safari before 15.5 reads child-src for workers.
+    "worker-src": ["blob:"],
+    "child-src": ["blob:"],
+    "frame-src": ["'none'"],
+    "manifest-src": ["'self'"],
+    "object-src": ["'none'"],
+    "base-uri": ["'none'"],
+    "form-action": ["'none'"],
+    "frame-ancestors": ["'none'"]
+  };
+  assert.equal(header("Content-Security-Policy"), Object.entries(policy).map(([name, sources]) => `${name} ${sources.join(" ")}`).join("; "), "vercel.json should send the Content-Security-Policy the site needs, and no more");
+  assert(appJs.includes('const MAP_STYLE_URL = "https://tiles.openfreemap.org/'), "the base map comes from OpenFreeMap, the only host the policy lets the page connect to");
 }
 // With a build step Vercel looks for the site in public/ unless told otherwise; the site is the project root.
 assert.equal(vercelConfig.outputDirectory, ".", "Vercel should serve the project root after the build");
@@ -128,7 +152,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   const appBanner = [
     "if (!node || (node.dataset.collection === collection.id && node.dataset.language === state.language)) return;",
     'return `${photo.image}?width=${width}`;',
-    '<picture><source media="(max-width: 620px)" srcset="${escapeHtml(commonsSrc(cover.photo, 500))}" /><img src="${escapeHtml(commonsSrc(cover.photo, 960))}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>',
+    '<picture><source media="(max-width: 620px)" srcset="${escapeHtml(commonsSrc(cover.photo, 500))}" /><img src="${escapeHtml(commonsSrc(cover.photo, 960))}" alt="" decoding="async" fetchpriority="high" /></picture>',
     '${photoCreditHtml(cover.photo, localized(cover.name), "collection-bar__credit")}',
     '<a class="photo-credit ${className}" href="${escapeHtml(photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${escapeHtml(t("photoCreditPrefix", { name }))}</span>${escapeHtml(`${photo.author} · ${photo.license}`)}</a>'
   ];
@@ -146,7 +170,7 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
     const credit = `<a class="photo-credit collection-bar__credit" href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer"><span class="visually-hidden">${esc(win.ATLAS_I18N.ui.pl.photoCreditPrefix.replace("{name}", name.pl))}</span>${esc(`${photo.author} · ${photo.license}`)}</a>`;
     for (const page of pages.filter((entry) => entry.route === route || entry.route.startsWith(`${route}/`))) {
       assert(page.html.includes(`<div id="collectionPhoto" class="collection-bar__photo" data-collection="${collection.id}" data-language="pl">`), `${page.route}: the page should have the photo of its collection, marked for the app`);
-      assert(page.html.includes(`<picture><source media="(max-width: 620px)" srcset="${src(500)}" /><img src="${src(960)}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>`), `${page.route}: the collection photo should be fetched first, at the widths the app uses`);
+      assert(page.html.includes(`<picture><source media="(max-width: 620px)" srcset="${src(500)}" /><img src="${src(960)}" alt="" decoding="async" fetchpriority="high" /></picture>`), `${page.route}: the collection photo should be fetched first, at the widths the app uses`);
       assert(page.html.includes(credit), `${page.route}: the collection photo should keep its author, license and source`);
     }
   }
@@ -172,6 +196,16 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   for (const id of ["startPage", "mapPage", "quizPage", "main"]) assert(mainHtml.includes(` id="${id}" `), `the main element should hold #${id}`);
   for (const page of pages) {
     assert(page.html.includes('<script defer src="/js/app.js"></script>'), `${page.route}: the page should load the app`);
+  }
+  // The Content-Security-Policy (vercel.json) blocks inline handlers (onerror="…") and style="…" attributes:
+  // the app listens for events in js/app.js and sets styles through element.style, which the policy allows.
+  const { notFoundHtml } = await import("./build-pages.mjs");
+  const notFound = notFoundHtml(win);
+  const buildPagesJs = fs.readFileSync("scripts/build-pages.mjs", "utf8");
+  for (const [where, text] of [["js/app.js", appJs], ["scripts/build-pages.mjs", buildPagesJs], ["index.html", indexHtml], ["404.html", notFound],
+    ...pages.map((page) => [page.route, page.html])]) {
+    assert(!/\son[a-z]+=["'`]/.test(text), `${where}: an inline event handler would be blocked by the Content-Security-Policy`);
+    assert(!/\sstyle=["'`]/.test(text), `${where}: a style attribute would be blocked by the Content-Security-Policy`);
   }
   // The map of every place: its own title and address, opened on the map, with every placed card linked
   // for readers without scripts. js/app.js opens the same address.
@@ -209,7 +243,6 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert(dailyQuestions && mixQuestions, "js/app.js should set the numbers of questions of the atlas quiz");
   assert(indexHtml.includes(`<h2 id="dailyModeTitle">${dailyQuestions} pytań,`) && indexHtml.includes(`<p id="dailyQuizCardText">${dailyQuestions} pytań z całego atlasu`), "index.html should give the number of questions of the daily challenge");
   assert(indexHtml.includes(`<h2 id="mixModeTitle">${mixQuestions} pytań z całego atlasu</h2>`), "index.html should give the number of questions of the random quiz");
-  const buildPagesJs = fs.readFileSync("scripts/build-pages.mjs", "utf8");
   assert(buildPagesJs.includes(`const DAILY_QUESTIONS = ${dailyQuestions};`) && buildPagesJs.includes(`const MIX_QUESTIONS = ${mixQuestions};`), "the English pages should give the app's numbers of questions");
 
   // English pages: every page has a twin at the same address under /en, and both name each other for
@@ -325,11 +358,36 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   assert.equal(enStart?.file, "en.html", "the English start page should be built as en.html, served at /en");
   assert(enStart.html.includes(`<meta name="description" content="${esc(i18nUi.en.metaStartDescription)}" />`) && enStart.html.includes(`<meta property="og:description" content="${esc(i18nUi.en.metaStartShare)}" />`), "the English start page should describe itself as data/i18n.js does");
   assert(enStart.html.includes('<div id="startPage" class="start-page" tabindex="-1">'), "the English start page should open on the start page");
+  // Structured data (JSON-LD) says only what the page shows. The home page names the site (search engines
+  // read the site's name only there); every other page gives its path from the start page, the same names
+  // as its <title>, ending at its own address. The English start page and 404.html have none.
+  const jsonLdBlocks = (html) => [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/g)].map((match) => JSON.parse(match[1]));
+  // No name can end the element early or hide its end: every "<" is written as \u003c, which JSON reads back as "<".
+  const { jsonLd } = await import("./build-pages.mjs");
+  const trap = { name: "</script><script>alert(1)</script><!--<script>" };
+  const trapped = jsonLd(trap);
+  assert(trapped.endsWith("</script>") && !trapped.slice(0, -"</script>".length).includes("<", 1), "structured data should write every \"<\" as \\u003c, so no name ends its element early");
+  assert.deepEqual(jsonLdBlocks(trapped), [trap], "structured data should keep every name whole");
+  assert.deepEqual(jsonLdBlocks(indexHtml), [{ "@context": "https://schema.org", "@type": "WebSite", name: i18nUi.pl.documentTitle, alternateName: i18nUi.en.documentTitle, url: `${origin}/` }], "the start page should name the site, in both languages, at its address");
+  assert.equal(jsonLdBlocks(enStart.html).length, 0, "the English start page should not name the site: search engines read the name only from the home page");
+  assert.equal(jsonLdBlocks(notFound).length, 0, "404.html should have no structured data");
+  for (const page of pages.filter((entry) => entry.route !== ENGLISH_PREFIX)) {
+    const blocks = jsonLdBlocks(page.html);
+    assert.equal(blocks.length, 1, `${page.route}: the page should give its path once`);
+    const [trail] = blocks;
+    const english = page.route.startsWith(`${ENGLISH_PREFIX}/`);
+    const items = trail.itemListElement || [];
+    assert(trail["@context"] === "https://schema.org" && trail["@type"] === "BreadcrumbList" && items.length >= 2, `${page.route}: the path should be a BreadcrumbList from the start page`);
+    items.forEach((item, index) => assert(item["@type"] === "ListItem" && item.position === index + 1 && item.name && item.item.startsWith(`${origin}/`), `${page.route}: step ${index + 1} of the path should have its place, name and address`));
+    assert.equal(items[0].item, english ? `${origin}${ENGLISH_PREFIX}` : `${origin}/`, `${page.route}: the path should start at the start page in the page's language`);
+    assert.equal(items.at(-1).item, `${origin}${page.route}`, `${page.route}: the path should end at the page itself`);
+    const title = asRead(page.html.match(/<title>([^<]*)<\/title>/)?.[1]);
+    assert.equal([...items].reverse().map((item) => item.name).join(" – "), title, `${page.route}: the path should name the page as its title does`);
+    for (const item of items.slice(1, -1)) assert(byRoute.has(item.item.slice(origin.length)), `${page.route}: ${item.item} on the path should be a page of the atlas`);
+  }
   // An unknown English card or collection opens the English start page, as an unknown Polish one opens the Polish.
   assert(vercelConfig.rewrites?.some((rule) => rule.source === "/en/atlas/:path*" && rule.destination === ENGLISH_PREFIX), "vercel.json should send unknown English atlas addresses to the English start page");
   // 404.html: out of search results, with a way home and a link to every collection.
-  const { notFoundHtml } = await import("./build-pages.mjs");
-  const notFound = notFoundHtml(win);
   assert(notFound.includes('<meta name="robots" content="noindex" />'), "404.html should stay out of search results");
   assert(notFound.includes('<a class="primary" href="/">'), "404.html should lead back to the start page");
   for (const collection of collections) {

@@ -541,7 +541,7 @@
     node.dataset.language = state.language;
     const cover = start.covers?.[collection.id];
     node.innerHTML = cover ? `
-      <picture><source media="(max-width: 620px)" srcset="${escapeHtml(commonsSrc(cover.photo, 500))}" /><img src="${escapeHtml(commonsSrc(cover.photo, 960))}" alt="" decoding="async" fetchpriority="high" onerror="this.remove()" /></picture>
+      <picture><source media="(max-width: 620px)" srcset="${escapeHtml(commonsSrc(cover.photo, 500))}" /><img src="${escapeHtml(commonsSrc(cover.photo, 960))}" alt="" decoding="async" fetchpriority="high" /></picture>
       ${photoCreditHtml(cover.photo, localized(cover.name), "collection-bar__credit")}` : "";
   }
 
@@ -570,7 +570,7 @@
       const alt = state.language === defaultLanguage ? specimen.photo.alt : name;
       return `
         <li class="specimen specimen--${index + 1}">
-          <img src="${escapeHtml(commonsSrc(specimen.photo, index === 0 ? 960 : 500))}" srcset="${escapeHtml(commonsSrcset(specimen.photo))}" sizes="(max-width: 560px) 80vw, (max-width: 900px) 50vw, 30vw" alt="${escapeHtml(alt)}" decoding="async"${index === 0 && startVisible ? ' fetchpriority="high"' : ' loading="lazy"'} onerror="this.closest('.specimen').classList.add('is-broken'); this.remove();" />
+          <img src="${escapeHtml(commonsSrc(specimen.photo, index === 0 ? 960 : 500))}" srcset="${escapeHtml(commonsSrcset(specimen.photo))}" sizes="(max-width: 560px) 80vw, (max-width: 900px) 50vw, 30vw" alt="${escapeHtml(alt)}" decoding="async"${index === 0 && startVisible ? ' fetchpriority="high"' : ' loading="lazy"'} />
           <div class="specimen__caption">
             <span class="specimen__cat">${escapeHtml(collectionText(collection, "title"))}</span>
             <a class="specimen__name" href="${escapeHtml(cardPath(collection, { id: specimen.id }))}" data-action="open-card" data-collection="${escapeHtml(collection.id)}" data-id="${escapeHtml(specimen.id)}" aria-label="${escapeHtml(t("openCardLabel", { name }))}">${escapeHtml(name)}</a>
@@ -645,7 +645,7 @@
     const cover = start.covers?.[collection.id];
     return `
       <li class="drawer${cover ? "" : " drawer--plain"}">
-        ${cover ? `<img class="drawer__img" src="${escapeHtml(commonsSrc(cover.photo, 500))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="(max-width: 1000px) 50vw, 25vw" alt="" loading="lazy" decoding="async" onerror="this.remove()" />` : ""}
+        ${cover ? `<img class="drawer__img" src="${escapeHtml(commonsSrc(cover.photo, 500))}" srcset="${escapeHtml(commonsSrcset(cover.photo))}" sizes="(max-width: 1000px) 50vw, 25vw" alt="" loading="lazy" decoding="async" />` : ""}
         <p class="drawer__count">${escapeHtml(collectionText(collection, "count_label") || `${collection.items.length}`)}</p>
         <h4 class="drawer__name"><a class="drawer__open" href="${escapeHtml(addressFor(routeForCollection(collection)))}" data-action="select-collection" data-collection="${escapeHtml(collection.id)}">${escapeHtml(title)}</a></h4>
         <p class="drawer__teaser">${escapeHtml(collectionText(collection, "teaser"))}</p>
@@ -674,7 +674,8 @@
 
     if (!orderedGroups.length) {
       grid.classList.remove("is-grouped");
-      grid.innerHTML = `<ul class="shelf__drawers" style="--cols: ${shelfColumns(app.collections.length)}">${app.collections.map(drawerHtml).join("")}</ul>`;
+      grid.innerHTML = `<ul class="shelf__drawers" data-cols="${shelfColumns(app.collections.length)}">${app.collections.map(drawerHtml).join("")}</ul>`;
+      applyShelfColumns(grid);
       return;
     }
 
@@ -690,9 +691,15 @@
             <p class="shelf__count">${escapeHtml(tPlural("drawerCountForms", shelf.length))}</p>
             ${description ? `<p class="shelf__lead">${escapeHtml(description)}</p>` : ""}
           </header>
-          <ul class="shelf__drawers${shelf.length % 2 ? " shelf__drawers--odd" : ""}" style="--cols: ${shelfColumns(shelf.length)}">${shelf.map(drawerHtml).join("")}</ul>
+          <ul class="shelf__drawers${shelf.length % 2 ? " shelf__drawers--odd" : ""}" data-cols="${shelfColumns(shelf.length)}">${shelf.map(drawerHtml).join("")}</ul>
         </section>`;
     }).join("");
+    applyShelfColumns(grid);
+  }
+
+  // Set through CSSOM, which a Content-Security-Policy does not restrict, unlike a style attribute.
+  function applyShelfColumns(grid) {
+    $$(".shelf__drawers[data-cols]", grid).forEach((list) => list.style.setProperty("--cols", list.dataset.cols));
   }
 
   // As on the start page: screen readers hear what the photo shows, then the visible author and license, so
@@ -766,7 +773,7 @@
       // Cards in the grid wait until they come near the screen; the large photo is what the reader opened.
       return `
         <div class="m-card__visual">
-          <img src="${escapeHtml(cardPhotoSrc(item, 960))}" srcset="${escapeHtml(srcset)}" sizes="${large ? LARGE_PHOTO_SIZES : CARD_PHOTO_SIZES}" alt="${escapeHtml(altText)}"${large ? ' fetchpriority="high"' : ' loading="lazy"'} onerror="this.closest('.m-card__visual').classList.add('visual-error'); this.remove();" />
+          <img src="${escapeHtml(cardPhotoSrc(item, 960))}" srcset="${escapeHtml(srcset)}" sizes="${large ? LARGE_PHOTO_SIZES : CARD_PHOTO_SIZES}" alt="${escapeHtml(altText)}"${large ? ' fetchpriority="high"' : ' loading="lazy"'} />
           ${creditChipHtml(item)}
         </div>`;
     }
@@ -949,11 +956,11 @@
       <div class="dialog-body">
         ${visualHtml(item, true)}
         ${photoCaptionHtml(item, true)}
-        <div class="meta-line" style="margin-top:1rem">
+        <div class="meta-line">
           <span class="pill">${escapeHtml(item.category_icon || "")} ${escapeHtml(itemCategoryLabel(item))}</span>
           <span class="pill">${escapeHtml(itemLevelLabel(item))}: ${escapeHtml(itemLevel(item) || "atlas")}</span>
         </div>
-        <h2 id="dialogTitle" style="margin-top:.75rem">${escapeHtml(itemName(item))}</h2>
+        <h2 id="dialogTitle">${escapeHtml(itemName(item))}</h2>
         <p class="latin">${escapeHtml(itemLatin(item))}</p>
         ${synonymsHtml(item)}
         ${badgesHtml(item)}
@@ -3073,12 +3080,25 @@
     return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
   }
 
+  function photoFailed(img) {
+    if (!img.matches("#collectionPhoto img, .drawer__img, .specimen img, .m-card__visual img")) return;
+    img.closest(".m-card__visual")?.classList.add("visual-error");
+    img.closest(".specimen")?.classList.add("is-broken");
+    img.remove();
+  }
+
   function bindEvents() {
     // A loaded card photo may be wider than its box (fitWidePhoto). Load events do not bubble, so they are
     // caught on the way down.
     document.addEventListener("load", (event) => {
       if (event.target.matches?.(".m-card__visual img")) fitWidePhoto(event.target);
     }, true);
+    // A photo that does not load is taken out (what the onerror attributes did). Error events do not bubble either.
+    document.addEventListener("error", (event) => {
+      if (event.target instanceof HTMLImageElement) photoFailed(event.target);
+    }, true);
+    // The banner is in the built page and may have failed before this deferred script ran.
+    $$("#collectionPhoto img").forEach((img) => { if (img.complete && !img.naturalWidth) photoFailed(img); });
 
     // "Przejdź do treści" moves the focus to the page shown, without a #fragment in the address.
     $("#skipLink").addEventListener("click", (event) => {

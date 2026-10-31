@@ -232,12 +232,19 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 ### Nagłówki bezpieczeństwa
 
-`vercel.json` dodaje do każdej odpowiedzi trzy nagłówki:
+`vercel.json` dodaje do każdej odpowiedzi cztery nagłówki:
 - `X-Content-Type-Options: nosniff`: przeglądarka nie zgaduje typu pliku;
 - `Referrer-Policy: strict-origin-when-cross-origin`: strony, do których prowadzą linki (Wikipedia, Commons), dostają tylko adres atlasu, bez podstrony;
-- `Permissions-Policy`: bez kamery, mikrofonu, płatności i USB. Lokalizacja zostaje dla „Blisko mnie” na mapie, tylko na stronach atlasu.
-
-Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybuty `onerror` w HTML, a mapa (MapLibre) potrzebuje `blob:`. To osobny krok.
+- `Permissions-Policy`: bez kamery, mikrofonu, płatności i USB. Lokalizacja zostaje dla „Blisko mnie” na mapie, tylko na stronach atlasu;
+- `Content-Security-Policy` (CSP): strona może wczytać tylko to, czego używa.
+  - Skrypty, style, czcionki i manifest: tylko z atlasu.
+  - Zdjęcia: z atlasu i z Wikimedia Commons (`commons.wikimedia.org`, a po przekierowaniu `thumb.wikimedia.org` albo `upload.wikimedia.org`). Do tego `data:` i `blob:` dla przycisków i ikon mapy.
+  - Połączenia: tylko podkład mapy z `tiles.openfreemap.org`. Sama aplikacja niczego nie pobiera ani nie wysyła.
+  - Mapa (MapLibre) uruchamia pracownika z adresu `blob:`.
+  - Strony nie da się osadzić w ramce na innej stronie (`frame-ancestors 'none'`).
+  - Atlas nie ma atrybutów `onerror="…"` ani `style="…"`, bo CSP je blokuje. Zdjęcie, które się nie wczyta, usuwa nasłuch w `js/app.js`, a style ustawia skrypt przez `element.style`. Pilnuje tego `npm run test:technical`, razem z treścią nagłówka.
+  - Nowy adres zewnętrzny (np. inny podkład mapy) trzeba dopisać do CSP w `vercel.json` i w teście.
+  - Na podglądach Vercel CSP blokuje też pasek Vercel (komentarze na podglądzie). Atlas działa normalnie, ale w konsoli widać zablokowany skrypt `vercel.live`. Pasek można wyłączyć w ustawieniach projektu: Settings → General → Vercel Toolbar.
 
 ### Zdjęcia: rozmiar i kolejność
 
@@ -273,6 +280,11 @@ Nagłówka `Content-Security-Policy` (CSP) na razie nie ma: strony mają atrybut
   - Obrazek podglądu jest wspólny, bez zdjęć z kart, bo podgląd linku nie zmieści ich podpisów.
   - Wyniki (`atlas/`, `en/`, `en.html`, `mapa.html`, `quiz.html`, `sitemap.xml`, `404.html`) nie trafiają do repozytorium (`.gitignore`).
   - Gdy zmieni się `index.html` tak, że skrypt nie znajdzie tytułu, opisu albo innego miejsca do podmiany, budowanie się zatrzyma. Pilnuje tego też `npm run test:technical`.
+- **Dane strukturalne (JSON-LD):** tylko to, co widać na stronie.
+  - Strona główna (`index.html`) podaje nazwę atlasu po polsku i po angielsku (`WebSite`). Wyszukiwarki czytają nazwę witryny tylko ze strony głównej, więc `/en` jej nie powtarza.
+  - Kolekcja, karta, mapa i quiz podają swoją ścieżkę od strony głównej (`BreadcrumbList`), w języku strony i z tymi samymi nazwami co w tytule strony.
+  - `404.html` nie ma danych strukturalnych. Gatunków, miejsc i zdjęć na razie się nie opisuje: to osobny krok.
+  - `npm run test:technical` pilnuje, żeby ścieżka zgadzała się z tytułem i adresem każdej strony.
 - **`robots.txt`:** wskazuje mapę strony i nie wpuszcza wyszukiwarek do `docs/`, `scripts/` i plików `.md`.
 
 ### Wersja angielska (`/en`)
