@@ -164,6 +164,14 @@
     "epoka-lodowcowa": { label: "Ice Age", short: "Pleistocene" }
   };
 
+  const atmosphericRecordCategories = {
+    "upal-mroz": { label: "Heat and frost", short: "Temperature" },
+    opady: { label: "Precipitation", short: "Precipitation" },
+    wiatr: { label: "Wind", short: "Wind" },
+    burze: { label: "Storms, tornadoes and hail", short: "Storms" },
+    mgla: { label: "Fog", short: "Fog" }
+  };
+
   const atmosphereAstronomyCategories = {
     "optyka-gorska": { label: "Mountain optics", short: "Optics" },
     "burze-i-gorna-atmosfera": { label: "Storms and upper atmosphere", short: "Storms" },
@@ -239,7 +247,7 @@
         aboutCard3Title: "Otwarte licencje",
         aboutCard3Body: "Zdjęcia z Wikimedia Commons z pełną atrybucją (autor, źródło, licencja, link, info o kadrowaniu). Nie kopiujemy opisów z cudzych atlasów.",
         // The number word follows the number of collections; scripts/validate-collections.mjs checks it.
-        collectionsTitle: "Osiemnaście *szuflad* gabinetu",
+        collectionsTitle: "Dziewiętnaście *szuflad* gabinetu",
         collectionsNote: "Każda kolekcja ma atlas, fiszki, quiz i źródła. Część ma też mapę miejsc.",
         appNavLabel: "Nawigacja aplikacji",
         activeCollection: "Aktywna kolekcja",
@@ -474,7 +482,7 @@
         // What a page says about itself to search engines and link previews. scripts/build-pages.mjs uses the
         // Polish ones for the pages it makes; the app sets them while the reader moves around the atlas.
         metaStartDescription: "Atlas Osobliwości Polski: grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architektura drewniana, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, rekordy krajobrazu oraz kolejne niezwykłe zjawiska w atlasie, fiszkach, quizie i źródłach.",
-        metaStartShare: "Zapraszamy w podróż po kraju dziwów: 18 kolekcji osobliwości polskiej przyrody i kultury, z atlasem, fiszkami, quizem, mapą i źródłami.",
+        metaStartShare: "Zapraszamy w podróż po kraju dziwów: 19 kolekcji osobliwości polskiej przyrody i kultury, z atlasem, fiszkami, quizem, mapą i źródłami.",
         metaCardDescription: "{hook} Karta z kolekcji {collection} w Atlasie Osobliwości Polski.",
         metaMapTitle: "Mapa Atlasu Osobliwości Polski",
         metaMapDescription: "{places} z kart Atlasu Osobliwości Polski na jednej mapie: kopalnie, zamki, drewniane cerkwie, skały, jeziora i inne. Sprawdź, co jest najbliżej Ciebie.",
@@ -521,7 +529,7 @@
         aboutCard2Body: "Every fun fact has a source and is checked against its text; numbers and dates were also checked by search. Whatever is uncertain is left out. AI helps with the work; the choices and the final word are mine.",
         aboutCard3Title: "Open licensing",
         aboutCard3Body: "Photos from Wikimedia Commons with full attribution (author, source, license, license URL, crop and compression info). We don't copy descriptions from other atlases.",
-        collectionsTitle: "Eighteen *drawers* of the cabinet",
+        collectionsTitle: "Nineteen *drawers* of the cabinet",
         collectionsNote: "Every collection has an atlas, flashcards, a quiz and sources. Some also have a map of places.",
         appNavLabel: "Application navigation",
         activeCollection: "Active collection",
@@ -754,7 +762,7 @@
         reportBody: "Card: {url}\n\nWhat is wrong (ideally with a source):\n",
         footerContact: "Contact and error reports:",
         metaStartDescription: "Atlas of Polish Curiosities: fungi, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, undergrounds, engineering wonders, fortresses and ruins, Memento Mori, landscape records and more unusual phenomena, in an atlas, flashcards, a quiz and sources.",
-        metaStartShare: "Come on a journey through a land of wonders: 18 collections of curiosities of Polish nature and culture, with an atlas, flashcards, a quiz, a map and sources.",
+        metaStartShare: "Come on a journey through a land of wonders: 19 collections of curiosities of Polish nature and culture, with an atlas, flashcards, a quiz, a map and sources.",
         metaCardDescription: "{hook} A card from the {collection} collection in the Atlas of Polish Curiosities.",
         metaMapTitle: "Map of the Atlas of Polish Curiosities",
         metaMapDescription: "{places} from the cards of the Atlas of Polish Curiosities on one map: mines, castles, wooden tserkvas, rocks, lakes and more. See what is nearest to you.",
@@ -992,6 +1000,19 @@
           source_note: "Descriptions start from the supplied working material on Polish landscape records and curiosities. Photos come from Wikimedia Commons with full attribution; contextual and representative frames are labelled honestly.",
           categories: landscapeRecordCategories,
           get items() { return lazyItemMap("rekordy-krajobrazu"); }
+        },
+        "rekordy-atmosferyczne": {
+          title: "Weather Records",
+          heading: "Weather Records of Poland",
+          subtitle: "17 weather curiosities of Poland: heat in Słubice, frost in Żywiec, downpours in the Tatras and the Sudetes, wind on Śnieżka, the halny, tornadoes, a derecho, hail and fog.",
+          teaser: "heat, downpours, the halny, tornadoes and fog on Śnieżka",
+          count_label: "17 curiosities",
+          card_labels: { occurrence: "Where and when", region: "Where", habitat: "When" },
+          search_placeholder: "e.g. Słubice, halny, tornado, hail...",
+          safety_notice: "The cards describe past measurements and events. They do not replace IMGW-PIB forecasts or weather warnings: in heat, storms or gales, follow current bulletins.",
+          source_note: "Descriptions start from the supplied material on Polish weather records. The values were checked in sources (IMGW-PIB, GUS, scientific papers, PAP, Wikipedia); disputed and unconfirmed ones were left out. Photos come from Wikimedia Commons with full attribution; contextual frames are labelled honestly.",
+          categories: atmosphericRecordCategories,
+          get items() { return lazyItemMap("rekordy-atmosferyczne"); }
         }
       }
     },

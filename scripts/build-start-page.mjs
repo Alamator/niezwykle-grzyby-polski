@@ -35,7 +35,8 @@ export const COVERS = {
   "memento-mori": "kamienne-kregi-odry",
   skamienialosci: "rafy-dewonskie-kadzielni",
   "atmosfera-astronomia": "obloki-srebrzyste",
-  "rekordy-krajobrazu": "ruchome-wydmy-slowinski"
+  "rekordy-krajobrazu": "ruchome-wydmy-slowinski",
+  "rekordy-atmosferyczne": "sniezka-mgla"
 };
 
 // Runs every data script of every collection, then collections.js and i18n.js, the way the browser

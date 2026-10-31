@@ -18,15 +18,28 @@ const warn = (message) => warnings.push(message);
 const collectionsJs = fs.readFileSync("data/collections.js", "utf8");
 const entryBlocks = [...collectionsJs.matchAll(/id:\s*"([a-z-]+)",[\s\S]*?scripts:\s*\[([\s\S]*?)\]/g)]
   .map((match) => ({ id: match[1], scripts: [...match[2].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1]) }));
-assert(entryBlocks.length >= 18, "collections.js should expose a scripts list for every collection");
+assert(entryBlocks.length >= 19, "collections.js should expose a scripts list for every collection");
+
+// Collections whose facts the generator has not made yet. They open without facts and have no facts
+// file in their scripts. When the file comes, it goes last in the scripts and the id leaves this list.
+const FACTS_PENDING = new Set(["rekordy-atmosferyczne"]);
 
 // Each collection loads its own facts file lazily, after the collection data and photo packs.
 for (const { id, scripts } of entryBlocks) {
   const factsFile = `/data/facts/${id}.facts.js`;
   const index = scripts.indexOf(factsFile);
+  if (FACTS_PENDING.has(id)) {
+    if (index !== -1 || fs.existsSync(factsFile.slice(1))) fail(`${id}: its facts file is here; take it off FACTS_PENDING`);
+    continue;
+  }
   if (index === -1) fail(`${id}: ${factsFile} is missing from COLLECTION_BUILDERS[].scripts`);
   else if (index !== scripts.length - 1) fail(`${id}: ${factsFile} should be the last script, after the collection data files`);
   if (!fs.existsSync(factsFile.slice(1))) fail(`${id}: ${factsFile} does not exist`);
+}
+const appJsText = fs.readFileSync("js/app.js", "utf8");
+if (!appJsText.includes("const withFacts = app.collections.filter((collection) => collection.has_facts);")
+  || !appJsText.includes("const collection = withFacts[dayNumber % withFacts.length];")) {
+  fail("js/app.js: the fact of the day should take only collections with facts (has_facts)");
 }
 for (const file of fs.readdirSync("data/facts")) {
   const id = file.replace(/\.facts\.js$/, "");
@@ -72,6 +85,9 @@ function markdownBalanced(text) {
 
 for (const collection of app.collections) {
   const data = allFacts[collection.id];
+  // The fact of the day takes only collections that have facts (js/app.js, loadDailyFact).
+  if (collection.has_facts !== !FACTS_PENDING.has(collection.id)) fail(`${collection.id}: has_facts should say whether the collection has its facts file`);
+  if (FACTS_PENDING.has(collection.id)) continue;
   if (!data) {
     fail(`${collection.id}: window.ATLAS_FACTS["${collection.id}"] is not defined`);
     continue;
@@ -211,6 +227,34 @@ const numbersCheck = handoff.number_check || {};
 for (const entry of handoff.confirm_facts) {
   if (!seenFactIds.has(entry.id)) warn(`confirmed fact ${entry.id} from ${HANDOFF} no longer exists in data/facts`);
   if (hiddenFacts.has(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden in data/collections.js`);
+}
+// A collection waiting for its facts is in the handoff with exactly its cards, and its checked facts
+// belong to those cards, so the generator writes facts for the cards the atlas has.
+for (const id of FACTS_PENDING) {
+  const collection = app.collections.find((entry) => entry.id === id);
+  const entry = (handoff.new_collections || []).find((candidate) => candidate.collection === id);
+  if (!entry) {
+    fail(`${id} waits for its facts but has no new_collections entry in ${HANDOFF}`);
+    continue;
+  }
+  const cards = (collection?.items || []).map((item) => item.id);
+  if (JSON.stringify([...entry.cards].sort()) !== JSON.stringify([...cards].sort())) fail(`${HANDOFF}: new_collections should list exactly the cards of ${id}`);
+  for (const fact of (handoff.new_facts || []).filter((candidate) => candidate.collection === id)) {
+    if (!cards.includes(fact.card)) fail(`${HANDOFF}: a new fact of ${id} belongs to ${fact.card}, which is not a card of the collection`);
+    if (!STATUSES.has(fact.status) || !fact.pl || !fact.en || !fact.sources?.length) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} needs pl, en, a status and sources`);
+    // The owner's rule (31.10.2026): neither record is called official (IMGW-PIB: Siedlce 1940).
+    if (["zywiec-1929", "slubice-40-5"].includes(fact.card) && /oficjaln|official/i.test(`${fact.pl} ${fact.en}`)) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} calls the record official`);
+  }
+}
+// Once the generated file is here, the facts of a new collection are the checked ones from the handoff.
+for (const entry of handoff.new_collections || []) {
+  if (FACTS_PENDING.has(entry.collection)) continue;
+  const checked = new Set((handoff.new_facts || []).filter((fact) => fact.collection === entry.collection).map((fact) => `${fact.card}\n${fact.pl}`));
+  for (const [cardId, item] of Object.entries(allFacts[entry.collection]?.items || {})) {
+    for (const fact of item.facts || []) {
+      if (!checked.has(`${cardId}\n${fact.pl}`)) fail(`${entry.collection}/${cardId}/${fact.id}: not one of the checked new_facts in ${HANDOFF}`);
+    }
+  }
 }
 
 for (const message of warnings) console.warn(`warning: ${message}`);

@@ -87,9 +87,21 @@ Najprostsza ścieżka:
 4. Dodaj angielskie teksty:
    - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser`;
    - teksty kart w `data/i18n/<kolekcja>.en.js`, na liście `scripts` kolekcji. Każda karta ma tu każde pole (`name`, `hook`, `quiz_angle`, `safety_note`, `region`, `habitat`, `occurrence`, `level`, a dla miejsc także `latin`, czyli podpis pod nazwą), przetłumaczone 1:1 z polskiego. Karta bez angielskiego tekstu pokazałaby polski, a `npm run test:collections` tego pilnuje.
-5. Wybierz zdjęcie szuflady w `scripts/build-start-page.mjs` (`COVERS`) i uruchom `npm run build:start-page`, a potem `npm run build:search-index`, żeby karty kolekcji trafiły do wyszukiwarki na stronie głównej.
-6. Zmień liczebnik w nagłówku szuflad (`collectionsTitle` w `data/i18n.js`) i w teście, który go pilnuje.
-7. Uruchom testy.
+5. Kolejność plików na liście `scripts`: dane, paczka zdjęć, `data/i18n/<kolekcja>.en.js`, punkty mapy, źródła występowania (jeśli są), a na końcu ciekawostki `data/facts/<kolekcja>.facts.js`.
+   - Plik ciekawostek robi generator poza repozytorium. Dopóki go nie ma, kolekcja stoi na liście `FACTS_PENDING` w `scripts/validate-facts.mjs` i nie ma go na liście `scripts`. Kolekcja działa wtedy bez ciekawostek, a „Ciekawostka dnia” ją pomija.
+   - Gdy plik przyjdzie, dopisz go na końcu `scripts` i zdejmij kolekcję z `FACTS_PENDING`. Test przypomni o tym sam.
+6. Punkty mapy: dopisz kolekcję do `placeCollections` w `scripts/validate-collections.mjs`.
+7. Wybierz zdjęcie szuflady w `scripts/build-start-page.mjs` (`COVERS`). Potem uruchom:
+   - `npm run build:start-page`;
+   - `npm run build:search-index`, żeby karty trafiły do wyszukiwarki na stronie głównej;
+   - `npm run build:map-points`, żeby punkty trafiły na mapę wszystkich miejsc;
+   - `python scripts/generate-og-image.py`, bo obrazek podglądu linku podaje liczbę kolekcji i miejsc.
+8. Zmień liczbę kolekcji w tekstach strony głównej:
+   - liczebnik w nagłówku szuflad (`collectionsTitle` w `data/i18n.js`) i w teście, który go pilnuje;
+   - „N kolekcji” w `metaStartShare` (oba języki) i w `index.html`: w opisach podglądu linku i w linijce nad tytułem strony.
+
+   Testy sprawdzają wszystkie te miejsca.
+9. Uruchom testy.
 
 ## Mapa miejsc
 

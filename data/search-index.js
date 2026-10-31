@@ -620,6 +620,23 @@ window.ATLAS_SEARCH = {
     ["rekordy-krajobrazu","szwajcaria-kaszubska","Szwajcaria Kaszubska","Kashubian Switzerland","Pojezierze Kaszubskie • pagórki polodowcowe","Kashubian Lake District • glacial hills"],
     ["rekordy-krajobrazu","sokolowsko-dolnoslaskie-davos","Sokołowsko — Dolnośląskie Davos","Sokołowsko, the Lower Silesian Davos","Góry Suche • dolina mikroklimatu","Suche Mountains • valley of a microclimate"],
     ["rekordy-krajobrazu","tarnow-polski-biegun-ciepla","Tarnów — Polski Biegun Ciepła","Tarnów, the Polish Pole of Warmth","Małopolskie • ciepły mikroklimat miasta","Lesser Poland • warm city microclimate"],
-    ["rekordy-krajobrazu","skit-odrynki","Skit w Odrynkach","Odrynki Skete","dolina Narwi • pustelnia wśród rozlewisk","Narew valley • a hermitage among the floodwaters"]
+    ["rekordy-krajobrazu","skit-odrynki","Skit w Odrynkach","Odrynki Skete","dolina Narwi • pustelnia wśród rozlewisk","Narew valley • a hermitage among the floodwaters"],
+    ["rekordy-atmosferyczne","slubice-40-5","Słubice — 40,5 °C, rekord ogłoszony przez IMGW","Słubice, a 40.5 °C record announced by IMGW","Lubuskie • upał z czerwca 2026 r.","Lubusz Province • the June 2026 heat"],
+    ["rekordy-atmosferyczne","proszkow-1921","Prószków — 40,2 °C","Prószków, 40.2 °C","Opolskie • upał z lipca 1921 r.","Opole Province • the July 1921 heat"],
+    ["rekordy-atmosferyczne","zywiec-1929","Żywiec — mróz −40,6 °C","Żywiec, a −40.6 °C frost","Śląskie • mróz z lutego 1929 r.","Silesia • the February 1929 frost"],
+    ["rekordy-atmosferyczne","rok-2024","2024 — rok rekordowego ciepła","2024, a year of record warmth","średnia obszarowa 10,9 °C","an area-averaged mean of 10.9 °C"],
+    ["rekordy-atmosferyczne","wroclaw-srednia-roczna","Wrocław — średnio 9,7 °C w latach 1991–2020","Wrocław, a 1991–2020 mean of 9.7 °C","Dolnośląskie • ciepła średnia roczna","Lower Silesia • a warm annual mean"],
+    ["rekordy-atmosferyczne","suwalki-srednia-roczna","Suwałki — średnio 7,2 °C w latach 1991–2020","Suwałki, a 1991–2020 mean of 7.2 °C","Podlaskie • chłodna średnia roczna","Podlasie • a cool annual mean"],
+    ["rekordy-atmosferyczne","hala-gasienicowa-300-mm","Hala Gąsienicowa — 300 mm opadu w jedną dobę","Hala Gąsienicowa, 300 mm of precipitation in one day","Tatry • opad dobowy z czerwca 1973 r.","Tatras • the daily precipitation of June 1973"],
+    ["rekordy-atmosferyczne","powodz-1997-opady","Lipiec 1997 — ulewy i powódź tysiąclecia","July 1997, downpours and the Millennium Flood","sumy opadów z trzech dób w Masywie Śnieżnika","three-day precipitation totals in the Śnieżnik Massif"],
+    ["rekordy-atmosferyczne","kasprowy-opady-roczne","Kasprowy Wierch — średni roczny opad ok. 1800 mm","Kasprowy Wierch, mean annual precipitation of about 1,800 mm","Tatry • roczne opady na szczycie","Tatras • annual precipitation on a summit"],
+    ["rekordy-atmosferyczne","kalisz-opady-roczne","Kalisz — średni roczny opad 494 mm w latach 1991–2020","Kalisz, a 1991–2020 mean annual precipitation of 494 mm","Wielkopolskie • mało opadów","Greater Poland • little precipitation"],
+    ["rekordy-atmosferyczne","sniezka-wiatr","Śnieżka — wiatr 65 m/s","Śnieżka, a wind of 65 m/s","Karkonosze • wiatromierz poza skalą","Karkonosze • an anemometer off the scale"],
+    ["rekordy-atmosferyczne","halny-1968","Kasprowy Wierch — halny z maja 1968 roku","Kasprowy Wierch, the May 1968 halny","Tatry • porywy do 75–80 m/s według IMGW-PIB","Tatras • gusts of up to 75–80 m/s according to IMGW-PIB"],
+    ["rekordy-atmosferyczne","tornado-lublin-1931","Lublin — tornado z 1931 roku","Lublin, the tornado of 1931","Lubelskie • siła wiatru szacowana na F4","Lublin Province • wind strength estimated at F4"],
+    ["rekordy-atmosferyczne","tornada-2008","15 sierpnia 2008 — seria tornad","15 August 2008, a tornado outbreak","potwierdzone tornada w trzech województwach","confirmed tornadoes in three provinces"],
+    ["rekordy-atmosferyczne","derecho-2017","11 sierpnia 2017 — derecho","11 August 2017, a derecho","burza wiatrowa od Dolnego Śląska po Pomorze","a windstorm from Lower Silesia to Pomerania"],
+    ["rekordy-atmosferyczne","grad-tomaszow-2021","Tomaszów Mazowiecki — gradzina 13,5 cm","Tomaszów Mazowiecki, a 13.5 cm hailstone","Łódzkie • grad z czerwca 2021 r.","Łódź Province • the hail of June 2021"],
+    ["rekordy-atmosferyczne","sniezka-mgla","Śnieżka — ok. 300 dni z mgłą w roku","Śnieżka, about 300 days with fog a year","Karkonosze • więcej dni z mgłą niż bez niej","Karkonosze • more days with fog than without"]
   ]
 };

@@ -1540,7 +1540,9 @@
   async function loadDailyFact() {
     const parts = localDateParts();
     const dayNumber = Math.floor(Date.UTC(parts.y, parts.m - 1, parts.d) / 86400000);
-    const collection = app.collections[dayNumber % app.collections.length];
+    // A collection whose facts are still being generated waits for them (has_facts in data/collections.js).
+    const withFacts = app.collections.filter((collection) => collection.has_facts);
+    const collection = withFacts[dayNumber % withFacts.length];
     try {
       if (typeof app.loadCollection === "function") await app.loadCollection(collection.id);
     } catch {
@@ -1746,7 +1748,8 @@
     let pool = others;
     if (mode === "place") {
       prompt = t("quizPlacePrompt", { place: itemLatin(selected, collection) });
-      pool = others.filter((item) => placePart(item) !== place);
+      // Only places can be wrong answers to "which place": a card about a year or a whole region is no place.
+      pool = others.filter((item) => placePart(item) && placePart(item) !== place);
     } else if (mode === "hook") {
       prompt = t("quizHookPrompt", { hook: itemHook(selected, collection) });
       const unlike = others.filter((item) => item.hook !== selected.hook && lineageKey(item) !== lineageKey(selected));
