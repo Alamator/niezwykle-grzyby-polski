@@ -441,7 +441,7 @@
 
   window.ROCK_FORMATION_APP_DATA = {
     subtitle: "32 formacje skalne Polski: granitowe skałki Karkonoszy, wulkaniczne organy, piaskowcowe labirynty, jurajskie bramy, karpackie ostańce i głazy polodowcowe.",
-    safety_notice: "To prototyp edukacyjny. Formacje skalne oglądaj bez niszczenia stanowisk: nie schodź ze szlaków, nie odłupuj skał, nie rysuj po ścianach, nie wchodź do jaskiń lub wyrobisk poza trasami udostępnionymi i traktuj miejsca chronione z dużą ostrożnością.",
+    safety_notice: "Do celów edukacyjnych. Formacje skalne oglądaj bez niszczenia stanowisk: nie schodź ze szlaków, nie odłupuj skał, nie rysuj po ścianach, nie wchodź do jaskiń lub wyrobisk poza trasami udostępnionymi i traktuj miejsca chronione z dużą ostrożnością.",
     categories,
     formations
   };

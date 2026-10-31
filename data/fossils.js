@@ -444,7 +444,7 @@
 
   window.FOSSIL_APP_DATA = {
     subtitle: "32 paleontologiczne osobliwości Polski: trylobity, rafy dewońskie, Zachełmie, triasowe olbrzymy, tropy dinozaurów, jurajskie morza, bursztyn i megafauna epoki lodowcowej.",
-    safety_notice: "To prototyp edukacyjny. Skamieniałości oglądaj bez niszczenia stanowisk: nie odkuwaj okazów z rezerwatów, nie wchodź do kamieniołomów bez zgody, nie rozkopuj stanowisk i zgłaszaj rzadkie znaleziska specjalistom.",
+    safety_notice: "Do celów edukacyjnych. Skamieniałości oglądaj bez niszczenia stanowisk: nie odkuwaj okazów z rezerwatów, nie wchodź do kamieniołomów bez zgody, nie rozkopuj stanowisk i zgłaszaj rzadkie znaleziska specjalistom.",
     categories,
     fossils
   };

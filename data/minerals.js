@@ -457,7 +457,7 @@
 
   window.MINERAL_APP_DATA = {
     subtitle: "33 mineralogiczne osobliwości Polski: endemity IMA, kruszce, sole, agaty, krzemień pasiasty, bursztyn i minerały z dawnych kopalń.",
-    safety_notice: "To prototyp edukacyjny. Minerały oglądaj bez niszczenia stanowisk: nie wchodź do opuszczonych wyrobisk, nie rozbijaj skał w miejscach chronionych, nie zbieraj rud toksycznych lub promieniotwórczych i nie prowadź domowych eksperymentów chemicznych.",
+    safety_notice: "Do celów edukacyjnych. Minerały oglądaj bez niszczenia stanowisk: nie wchodź do opuszczonych wyrobisk, nie rozbijaj skał w miejscach chronionych, nie zbieraj rud toksycznych lub promieniotwórczych i nie prowadź domowych eksperymentów chemicznych.",
     categories,
     minerals
   };

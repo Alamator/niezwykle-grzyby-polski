@@ -418,7 +418,7 @@
 
   window.TREE_APP_DATA = {
     subtitle: "Te dendrologiczne osobliwości Polski to 30 historii zapachu, światła próchna, deformacji, rekordów wieku, pamięci miejsc, katastrof i parkowych egzotów.",
-    safety_notice: "To prototyp edukacyjny. Drzewa pomnikowe, stare pnie i stanowiska pamięci oglądaj z dystansu: nie wchodź na korzenie, nie zrywaj kory, nie naruszaj zabezpieczeń i nie schodź poza wyznaczone dojścia.",
+    safety_notice: "Do celów edukacyjnych. Drzewa pomnikowe, stare pnie i stanowiska pamięci oglądaj z dystansu: nie wchodź na korzenie, nie zrywaj kory, nie naruszaj zabezpieczeń i nie schodź poza wyznaczone dojścia.",
     categories,
     trees
   };

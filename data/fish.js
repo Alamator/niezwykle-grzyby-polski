@@ -425,7 +425,7 @@
 
   window.FISH_APP_DATA = {
     subtitle: "30 rybich osobliwości polskich wód i ich rubieży: zapachy, dźwięki, przyssawki, wędrówki, kamuflaż i gatunki inwazyjne.",
-    safety_notice: "To prototyp edukacyjny. Ryby bywają chronione, objęte lokalnymi regulacjami albo inwazyjne: obserwuj bez odławiania i zawsze sprawdzaj aktualne przepisy.",
+    safety_notice: "Do celów edukacyjnych. Ryby bywają chronione, objęte lokalnymi regulacjami albo inwazyjne: obserwuj bez odławiania i zawsze sprawdzaj aktualne przepisy.",
     categories,
     fish
   };
