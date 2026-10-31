@@ -20,13 +20,24 @@ const entryBlocks = [...collectionsJs.matchAll(/id:\s*"([a-z-]+)",[\s\S]*?script
   .map((match) => ({ id: match[1], scripts: [...match[2].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1]) }));
 assert(entryBlocks.length >= 18, "collections.js should expose a scripts list for every collection");
 
+// Collections whose facts the generator has not made yet. They open without facts and have no facts
+// file in their scripts. When the file comes, it goes last in the scripts and the id leaves this list.
+const FACTS_PENDING = new Set(["rekordy-atmosferyczne"]);
+
 // Each collection loads its own facts file lazily, after the collection data and photo packs.
 for (const { id, scripts } of entryBlocks) {
   const factsFile = `/data/facts/${id}.facts.js`;
   const index = scripts.indexOf(factsFile);
+  if (FACTS_PENDING.has(id)) {
+    if (index !== -1 || fs.existsSync(factsFile.slice(1))) fail(`${id}: its facts file is here; take it off FACTS_PENDING`);
+    continue;
+  }
   if (index === -1) fail(`${id}: ${factsFile} is missing from COLLECTION_BUILDERS[].scripts`);
   else if (index !== scripts.length - 1) fail(`${id}: ${factsFile} should be the last script, after the collection data files`);
   if (!fs.existsSync(factsFile.slice(1))) fail(`${id}: ${factsFile} does not exist`);
+}
+if (!fs.readFileSync("js/app.js", "utf8").includes("const withFacts = app.collections.filter((collection) => collection.has_facts);")) {
+  fail("js/app.js: the fact of the day should take only collections with facts (has_facts)");
 }
 for (const file of fs.readdirSync("data/facts")) {
   const id = file.replace(/\.facts\.js$/, "");
@@ -72,6 +83,9 @@ function markdownBalanced(text) {
 
 for (const collection of app.collections) {
   const data = allFacts[collection.id];
+  // The fact of the day takes only collections that have facts (js/app.js, loadDailyFact).
+  if (collection.has_facts !== !FACTS_PENDING.has(collection.id)) fail(`${collection.id}: has_facts should say whether the collection has its facts file`);
+  if (FACTS_PENDING.has(collection.id)) continue;
   if (!data) {
     fail(`${collection.id}: window.ATLAS_FACTS["${collection.id}"] is not defined`);
     continue;

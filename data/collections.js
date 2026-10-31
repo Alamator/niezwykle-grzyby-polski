@@ -419,6 +419,9 @@
     source_note: builder.source_note,
     card_labels: builder.card_labels,
     route: builder.route,
+    // False while the collection's facts are still being generated (no facts file in its scripts yet):
+    // the fact of the day passes it by.
+    has_facts: builder.scripts.some((src) => src.startsWith("/data/facts/")),
     safety_notice: "",
     categories: [],
     items: [],

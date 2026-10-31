@@ -1540,7 +1540,9 @@
   async function loadDailyFact() {
     const parts = localDateParts();
     const dayNumber = Math.floor(Date.UTC(parts.y, parts.m - 1, parts.d) / 86400000);
-    const collection = app.collections[dayNumber % app.collections.length];
+    // A collection whose facts are still being generated waits for them (has_facts in data/collections.js).
+    const withFacts = app.collections.filter((collection) => collection.has_facts);
+    const collection = withFacts[dayNumber % withFacts.length];
     try {
       if (typeof app.loadCollection === "function") await app.loadCollection(collection.id);
     } catch {
