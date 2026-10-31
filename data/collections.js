@@ -374,6 +374,28 @@
         if (!data) return null;
         return { safety_notice: data.safety_notice, categories: data.categories, items: data.landscapeRecords };
       }
+    },
+    {
+      id: "rekordy-atmosferyczne",
+      group: "ziemia-niebo",
+      title: "Rekordy atmosferyczne",
+      heading: "Rekordy atmosferyczne Polski",
+      subtitle: "17 pogodowych osobliwości Polski: upał w Słubicach, mróz w Żywcu, ulewy w Tatrach i Sudetach, wiatr na Śnieżce, halny, tornada, derecho, grad i mgła.",
+      teaser: "upał, ulewy, halny, tornada i mgła na Śnieżce",
+      count_label: "17 osobliwości",
+      card_labels: { occurrence: "Gdzie i kiedy", region: "Gdzie", habitat: "Kiedy" },
+      icon: "RA",
+      accent: "weather",
+      route: "/atlas/rekordy-atmosferyczne",
+      search_placeholder: "np. Słubice, halny, tornado, grad...",
+      source_note: "Opisy powstały na bazie wskazanego materiału o rekordach pogody w Polsce. Wartości sprawdzono w źródłach (IMGW-PIB, GUS, prace naukowe, PAP, Wikipedia); sporne i niepotwierdzone pominięto. Zdjęcia pochodzą z Wikimedia Commons z pełną atrybucją; kadry kontekstowe są oznaczone uczciwie.",
+      // No facts file yet: the generator makes it (FACTS_PENDING in scripts/validate-facts.mjs).
+      scripts: ["/data/atmospheric-records.js", "/data/atmospheric-records-photo-pack-v01.js", "/data/i18n/rekordy-atmosferyczne.en.js", "/data/places/rekordy-atmosferyczne.places.js", "/data/occurrence/rekordy-atmosferyczne.occurrence.js"],
+      build: () => {
+        const data = window.ATMOSPHERIC_RECORD_APP_DATA;
+        if (!data) return null;
+        return { safety_notice: data.safety_notice, categories: data.categories, items: data.atmosphericRecords };
+      }
     }
   ];
 

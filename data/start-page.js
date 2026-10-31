@@ -3,9 +3,9 @@
 // each collection drawer and the numbers under the hero.
 window.ATLAS_START = {
   "stats": {
-    "cards": 617,
-    "places": 230,
-    "photos": 601
+    "cards": 634,
+    "places": 241,
+    "photos": 616
   },
   "specimens": [
     {
@@ -378,6 +378,21 @@ window.ATLAS_START = {
         "license": "CC BY-SA 3.0 PL",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
         "source": "https://commons.wikimedia.org/wiki/File:Ruchome_wydmy_-_S%C5%82owi%C5%84ski_Park_Narodowy_01.jpg"
+      }
+    },
+    "rekordy-atmosferyczne": {
+      "id": "sniezka-mgla",
+      "name": {
+        "pl": "Śnieżka — ok. 300 dni z mgłą w roku",
+        "en": "Śnieżka, about 300 days with fog a year"
+      },
+      "photo": {
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C5%9Anie%C5%BCka%2007.jpg",
+        "alt": "Budynek obserwatorium meteorologicznego na szczycie Śnieżki, złożony z brył w kształcie dysków, w gęstej mgle",
+        "author": "Wyksztalcioch",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "source": "https://commons.wikimedia.org/wiki/File:%C5%9Anie%C5%BCka_07.jpg"
       }
     }
   }

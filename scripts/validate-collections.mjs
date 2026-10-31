@@ -36,13 +36,13 @@ assert(
   "collections.js must load before i18n.js so the i18n table can read ATLAS_APP_DATA at IIFE start"
 );
 assert(
-  !htmlScripts.some((src) => /\/data\/(mushrooms|insects|flowers|fish|birds|mammals|amphibians-reptiles|trees|minerals|rock-formations|wooden-architecture|underground|engineering-wonders|fortresses-ruins|memento-mori|fossils|atmosphere-astronomy|landscape-records|photo-pack-v0[3-8]|region-pack-v07|[a-z-]+-photo-pack-v01)\.js$/.test(src)),
+  !htmlScripts.some((src) => /\/data\/(mushrooms|insects|flowers|fish|birds|mammals|amphibians-reptiles|trees|minerals|rock-formations|wooden-architecture|underground|engineering-wonders|fortresses-ruins|memento-mori|fossils|atmosphere-astronomy|landscape-records|atmospheric-records|photo-pack-v0[3-8]|region-pack-v07|[a-z-]+-photo-pack-v01)\.js$/.test(src)),
   "per-collection data scripts must be lazy-loaded by collections.js, not declared eagerly in index.html"
 );
 
 // Extract every "/data/X.js" reference from the per-collection scripts arrays in collections.js.
 const scriptsArrayBlocks = [...collectionsJs.matchAll(/scripts:\s*\[([\s\S]*?)\]/g)];
-assert(scriptsArrayBlocks.length >= 18, "collections.js should expose at least 18 lazy-load script lists, one per collection");
+assert(scriptsArrayBlocks.length >= 19, "collections.js should expose at least 19 lazy-load script lists, one per collection");
 const manifestScripts = scriptsArrayBlocks.map((match) =>
   [...match[1].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1])
 );
@@ -146,7 +146,7 @@ for (const key of Object.keys(i18n.ui.pl)) {
 }
 
 const collections = app.collections || [];
-assert.equal(collections.length, 18, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, memento mori, landscape records, fossils and sky phenomena");
+assert.equal(collections.length, 19, "atlas should expose mushrooms, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground, engineering wonders, fortresses and ruins, memento mori, landscape records, fossils, sky phenomena and weather records");
 
 const mushrooms = collections.find((collection) => collection.id === "grzyby");
 const insects = collections.find((collection) => collection.id === "owady");
@@ -166,6 +166,7 @@ const engineeringWonders = collections.find((collection) => collection.id === "c
 const fortressesRuins = collections.find((collection) => collection.id === "twierdze-ruiny");
 const mementoMori = collections.find((collection) => collection.id === "memento-mori");
 const landscapeRecords = collections.find((collection) => collection.id === "rekordy-krajobrazu");
+const weatherRecords = collections.find((collection) => collection.id === "rekordy-atmosferyczne");
 assert(mushrooms, "mushroom collection should exist");
 assert(insects, "insect collection should exist");
 assert(flowers, "flower collection should exist");
@@ -184,6 +185,7 @@ assert(engineeringWonders, "engineering wonders collection should exist");
 assert(fortressesRuins, "fortresses and ruins collection should exist");
 assert(mementoMori, "memento mori collection should exist");
 assert(landscapeRecords, "landscape records collection should exist");
+assert(weatherRecords, "weather records collection should exist");
 assert.equal(mushrooms.items.length, 60, "mushroom collection should keep all 60 entries");
 assert.equal(insects.items.length, 30, "insect collection should contain the prepared 30 entries");
 assert.equal(flowers.items.length, 31, "flower collection should contain 31 Polish wild or naturalized plant curiosities");
@@ -208,6 +210,8 @@ assert.equal(mementoMori.items.length, 30, "memento mori collection should conta
 assert.equal(mementoMori.route, "/atlas/memento-mori", "memento mori collection should expose the requested route");
 assert.equal(landscapeRecords.items.length, 56, "landscape records collection should contain 56 landscape curiosities");
 assert.equal(landscapeRecords.route, "/atlas/rekordy-krajobrazu", "landscape records collection should expose the requested route");
+assert.equal(weatherRecords.items.length, 17, "weather records collection should contain the 17 records confirmed in the sources (30.10.2026)");
+assert.equal(weatherRecords.route, "/atlas/rekordy-atmosferyczne", "weather records collection should expose the requested route");
 const flowerImages = flowers.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
@@ -404,6 +408,33 @@ assert(
   landscapeRecords.items.every((item) => item.image_source.startsWith("https://commons.wikimedia.org/wiki/File:")),
   "landscape records image sources should link to Wikimedia Commons file pages"
 );
+const weatherRecordImages = weatherRecords.items.filter(
+  (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
+);
+assert.equal(weatherRecordImages.length, 15, "weather records collection should include 15 curated images with attribution");
+assert.equal(
+  JSON.stringify(weatherRecords.items.filter((item) => !item.image).map((item) => item.id)),
+  JSON.stringify(["rok-2024", "derecho-2017"]),
+  "only the warmest year (all of Poland) and the 2017 derecho should be without a photo"
+);
+// The owner's rules for this drawer (30-31.10.2026): IMGW-PIB regards Siedlce 1940 as the official cold
+// record, so Żywiec 1929 is never called official; Słubice is the record announced by IMGW for synoptic
+// stations. What was disputed, rested on own calculations or repeated an existing card stays out.
+const cardTexts = (item) => {
+  const english = i18n.collections.en["rekordy-atmosferyczne"].items[item.id] || {};
+  return { pl: [item.name_pl, item.name_lat, item.hook, item.quiz_angle, item.region_pl, item.habitat_pl, item.occurrence_note, item.level].join(" "),
+    en: Object.values(english).join(" ") };
+};
+for (const id of ["zywiec-1929", "slubice-40-5"]) {
+  const item = weatherRecords.items.find((entry) => entry.id === id);
+  assert(item, `weather records should include ${id}`);
+  assert(!/oficjaln/i.test(cardTexts(item).pl) && !/official/i.test(cardTexts(item).en), `${id} should not call its record official`);
+}
+for (const id of ["koluda-wielka-40-6", "rozdziele-noc-28-4", "opole-dni-upalne", "kasprowy-88-dni-mrozu", "krosno-burze",
+  "cisnienie-skrajnosci", "hel-najwiecej-slonca", "najmniej-slonca-gory", "siedlce-minus-41", "litworowy-kociol-41-1",
+  "zorza-maj-2024", "kamienica-2024", "kasprowy-388-cm-sniegu"]) {
+  assert(!weatherRecords.items.some((item) => item.id === id), `weather records should leave out ${id} (disputed, unconfirmed or already in the atlas)`);
+}
 assert.equal(
   insects.items.filter((item) => item.image && item.image_author && item.image_source && item.image_license).length,
   30,
@@ -541,7 +572,7 @@ for (const note of photoNotes) {
 // card's municipality and voivodeship. Only collections of places get them; the atlas never shows where
 // species live, and a card whose safety note asks not to reveal the site gets no point either.
 const placeCollections = new Set(["podziemia", "cuda-inzynierii", "architektura-drewniana", "twierdze-ruiny", "memento-mori",
-  "rekordy-krajobrazu", "formacje-skalne", "drzewa", "skamienialosci", "atmosfera-astronomia"]);
+  "rekordy-krajobrazu", "formacje-skalne", "drzewa", "skamienialosci", "atmosfera-astronomia", "rekordy-atmosferyczne"]);
 const hiddenSite = /nie (ujawniać|publikować|nagłaśniać|zdradzać)/i;
 const placeData = context.window.ATLAS_PLACES || {};
 for (const file of fs.existsSync("data/places") ? fs.readdirSync("data/places") : []) {
@@ -760,10 +791,19 @@ for (const collection of collections) {
   assert(i18n.collections.en[collection.id].teaser, `${collection.id} should have an English drawer teaser`);
 }
 // The drawer heading spells the number of collections out.
-const numberWords = { 18: ["Osiemnaście", "Eighteen"] };
+const numberWords = { 19: ["Dziewiętnaście", "Nineteen"] };
 assert(numberWords[collections.length], `add the number words for ${collections.length} collections here and to collectionsTitle in data/i18n.js`);
 assert(i18n.ui.pl.collectionsTitle.startsWith(numberWords[collections.length][0]), "the Polish drawer heading should name the number of collections");
 assert(i18n.ui.en.collectionsTitle.startsWith(numberWords[collections.length][1]), "the English drawer heading should name the number of collections");
+// The line above the hero and the share texts of the start page give the number in figures.
+const collectionCount = (language) => {
+  const forms = i18n.ui[language].collectionCountForms;
+  return (forms[new Intl.PluralRules(language).select(collections.length)] ?? forms.other).replace("{count}", collections.length);
+};
+assert(indexHtml.includes(`<p id="heroEyebrow" class="eyebrow">${i18n.ui.pl.heroEyebrow.replace("{collections}", collectionCount("pl"))}</p>`), "index.html should give the number of collections above the hero");
+for (const language of ["pl", "en"]) {
+  assert(i18n.ui[language].metaStartShare.includes(collectionCount(language)), `the ${language} share text of the start page should give the number of collections`);
+}
 
 // The map of every place (/mapa) shows the places before any collection loads, from copies of the map
 // points and card names in data/map-points.js, made by scripts/build-map-points.mjs. Only that page loads it.

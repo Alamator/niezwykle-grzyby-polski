@@ -84,3 +84,14 @@ Gdy obiekt z karty nie ma własnego wpisu ze współrzędnymi, a leży w jednym,
   - **Gady morskie z Krzyżanowic:** karta sama mówi, że szczęki prawdopodobnie pochodzą z innego miejsca.
   - **Łuk Mużakowa:** łuk leży po obu stronach granicy, a punkt jego wpisu jest w Niemczech.
 - **Uwaga karty, by nie ujawniać miejsca (1):** tropy dinozaurów z Borkowic.
+
+## Dopisek 31.10.2026: szuflada „Rekordy atmosferyczne”
+
+- **13 kart z punktem, na 11 miejscach.** Mapa ma teraz 258 punktów kart w 11 kolekcjach (241 miejsc, bo miejsce wspólne dla kilku kart pokazuje się raz).
+- **Sprawdzenie jak wyżej:** obiekt z Wikidaty dla miejscowości albo szczytu z karty, zgodny z gminą i województwem karty.
+- **Dwie karty na jednym miejscu:** Śnieżka (wiatr i mgła) oraz Kasprowy Wierch (roczne opady i halny z 1968 r.). Obie karty z jednego obiektu mają te same współrzędne.
+- **Bez punktu (4), bo nie są jednym miejscem:**
+  - rok 2024 (cała Polska);
+  - ulewy z lipca 1997 r. (Kamienica i Międzygórze);
+  - tornada z 15 sierpnia 2008 r. (trzy województwa);
+  - derecho z 11 sierpnia 2017 r.

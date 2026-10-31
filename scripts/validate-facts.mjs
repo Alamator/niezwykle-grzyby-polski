@@ -18,7 +18,7 @@ const warn = (message) => warnings.push(message);
 const collectionsJs = fs.readFileSync("data/collections.js", "utf8");
 const entryBlocks = [...collectionsJs.matchAll(/id:\s*"([a-z-]+)",[\s\S]*?scripts:\s*\[([\s\S]*?)\]/g)]
   .map((match) => ({ id: match[1], scripts: [...match[2].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1]) }));
-assert(entryBlocks.length >= 18, "collections.js should expose a scripts list for every collection");
+assert(entryBlocks.length >= 19, "collections.js should expose a scripts list for every collection");
 
 // Collections whose facts the generator has not made yet. They open without facts and have no facts
 // file in their scripts. When the file comes, it goes last in the scripts and the id leaves this list.
@@ -225,6 +225,22 @@ const numbersCheck = handoff.number_check || {};
 for (const entry of handoff.confirm_facts) {
   if (!seenFactIds.has(entry.id)) warn(`confirmed fact ${entry.id} from ${HANDOFF} no longer exists in data/facts`);
   if (hiddenFacts.has(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden in data/collections.js`);
+}
+// A collection waiting for its facts is in the handoff with exactly its cards, and its checked facts
+// belong to those cards, so the generator writes facts for the cards the atlas has.
+for (const id of FACTS_PENDING) {
+  const collection = app.collections.find((entry) => entry.id === id);
+  const entry = (handoff.new_collections || []).find((candidate) => candidate.collection === id);
+  if (!entry) {
+    fail(`${id} waits for its facts but has no new_collections entry in ${HANDOFF}`);
+    continue;
+  }
+  const cards = (collection?.items || []).map((item) => item.id);
+  if (JSON.stringify([...entry.cards].sort()) !== JSON.stringify([...cards].sort())) fail(`${HANDOFF}: new_collections should list exactly the cards of ${id}`);
+  for (const fact of (handoff.new_facts || []).filter((candidate) => candidate.collection === id)) {
+    if (!cards.includes(fact.card)) fail(`${HANDOFF}: a new fact of ${id} belongs to ${fact.card}, which is not a card of the collection`);
+    if (!STATUSES.has(fact.status) || !fact.pl || !fact.en || !fact.sources?.length) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} needs pl, en, a status and sources`);
+  }
 }
 
 for (const message of warnings) console.warn(`warning: ${message}`);

@@ -101,3 +101,22 @@ Atlas ma **617 kart**. Zdjęcie ma **616** z nich (601 różnych plików z Wikim
 ## Uwaga techniczna
 
 Linki `Special:Redirect` przekierowują teraz przeglądarkę na nowy serwer miniatur Wikimedia: `thumb.wikimedia.org`. Strona nie ma nagłówka Content-Security-Policy, więc zdjęcia działają. Gdyby taki nagłówek kiedyś doszedł, musi dopuszczać `thumb.wikimedia.org` i `upload.wikimedia.org`.
+
+## Dopisek 31.10.2026: szuflada „Rekordy atmosferyczne”
+
+- **Atlas ma teraz 634 karty.** Zdjęcie ma 631 z nich (616 różnych plików).
+- **Nowa szuflada:** 15 zdjęć z Wikimedia Commons. Autora i licencję każdego porównano ze stroną pliku albo z wcześniejszym sprawdzeniem (30.10.2026).
+- **Cztery zdjęcia z materiału wyjściowego zamienione na lepiej pasujące:**
+  - Słubice: zamiast drogowskazu z widokiem głównie na Frankfurt nad Odrą — ulica w Słubicach;
+  - Prószków: zamiast tablicy z datą 1563 — rynek w Prószkowie;
+  - Żywiec: zamiast domu w Beskidzie Żywieckim ok. 10 km od miasta — konkatedra w Żywcu zimą;
+  - halny: zamiast obrazu Stanisława Witkiewicza — zdjęcie wału chmur halnego nad Tatrami, bo oznaczenie „Kadr reprezentatywny” nie pasuje do obrazu. Obraz zostaje w ciekawostce dla generatora.
+- **Poprawione podpisy:**
+  - tornado z 1931 r.: „Unknown author” zamiast zdublowanego „Unknown authorUnknown author”;
+  - Tomaszów Mazowiecki: autor zamiast opisu miejsca w polu autora;
+  - Kalisz: autor bez dopisku „Original uploader was” i link licencji przez https;
+  - tornada z 2008 r.: autor bez dopisku „(talk)”.
+- **Kadr kontekstowy:** zdjęcia miejsca rekordu, a nie samego zjawiska, mają to oznaczenie. Zdjęcie wału chmur halnego to „Kadr reprezentatywny”, bo nie pokazuje halnego z 1968 r.
+- **Bez zdjęcia (2), bo nie ma wolnego zdjęcia, które by do nich pasowało:**
+  - rok 2024 (cała Polska);
+  - derecho z 11 sierpnia 2017 r.
