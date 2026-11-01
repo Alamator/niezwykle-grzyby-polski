@@ -432,11 +432,12 @@ for (const id of ["zywiec-1929", "slubice-40-5"]) {
   assert(item, `weather records should include ${id}`);
   assert(!/oficjaln/i.test(cardTexts(item).pl) && !/official/i.test(cardTexts(item).en), `${id} should not call its record official`);
 }
-// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 (254,5 mm in no source) stays out.
+// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 stays out until Robert decides again
+// (sources give different values: docs/content/rekordy-atmosferyczne-2026-10.md).
 for (const item of weatherRecords.items) {
   const { pl, en } = cardTexts(item);
   assert(!/Ko[lł]ud/i.test(`${pl} ${en}`), `${item.id} should not mention Kołuda Wielka`);
-  assert(!/254[,.]5/.test(`${pl} ${en}`), `${item.id} should not give 254,5 mm (Kamienica 2024 is not confirmed)`);
+  assert(!/254[,.]5/.test(`${pl} ${en}`), `${item.id} should not give 254,5 mm (Kamienica 2024 stays out of the atlas)`);
 }
 for (const id of ["koluda-wielka-40-6", "rozdziele-noc-28-4", "opole-dni-upalne", "kasprowy-88-dni-mrozu", "krosno-burze",
   "cisnienie-skrajnosci", "hel-najwiecej-slonca", "najmniej-slonca-gory", "siedlce-minus-41", "litworowy-kociol-41-1",

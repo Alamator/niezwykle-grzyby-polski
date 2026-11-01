@@ -105,6 +105,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://rebus.us.edu.pl/handle/20.500.12128/16240",
         "label": "T. Niedźwiedź (RE-BUŚ)"
+      },
+      {
+        "url": "https://klimat.imgw.pl/pl/meta-dane/",
+        "label": "IMGW-PIB metadane stacji"
       }
     ],
     "powodz-1997-opady": [
@@ -129,6 +133,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
         "label": "IMGW-PIB Obserwator 2020"
+      },
+      {
+        "url": "https://bibliotekanauki.pl/articles/2035472",
+        "label": "Miscellanea Geographica 2011"
       }
     ],
     "kalisz-opady-roczne": [

@@ -307,6 +307,10 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       {
        "url": "https://klimat.imgw.pl/pl/meta-dane/",
        "label": "IMGW-PIB metadane stacji"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
+       "label": "IMGW-PIB Obserwator 2020"
       }
      ],
      "status": "corrected"
