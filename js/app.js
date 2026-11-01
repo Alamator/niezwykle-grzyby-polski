@@ -1662,7 +1662,7 @@
     return /^[A-Z][a-z]{3,}$/.test(genus) ? genus.toLowerCase() : "";
   }
 
-  // Name stems used to tell whether a fact names a given card ("smardz jadalny" -> "smard"), plus the genus.
+  // Name stems used to tell whether a fact names a given card ("smardz jadalny" -> "smar"), plus the genus.
   function stemsOf(names, item) {
     const stems = new Set();
     for (const name of names) {
@@ -1686,15 +1686,19 @@
     return nameStems(item, collection).some((stem) => text.includes(stem));
   }
 
-  // A Polish name starts with what the thing is ("Boczniaczek", "Kościół", "Twierdza"); the words after it
-  // describe it ("pomarańczowożółty", "kolejowy") or are proper names ("Pokoju", "w Świdnicy"). So a Polish
-  // text names its card with the first word of five or more letters of its name or of a former name, with
-  // the Latin genus, or with a proper name from its name written with a capital letter. A describing word
-  // alone ("a mokry pomarańczowożółty") does not name the card: another card may fit that description.
+  // A Polish name usually starts with what the thing is ("Boczniaczek", "Kościół", "Twierdza"); the words
+  // after it describe it ("pomarańczowożółty", "kolejowy") or are proper names ("Pokoju", "w Świdnicy"). So a
+  // Polish text names its card with the Latin genus, with the first word of five or more letters of its name
+  // or of a former name (in any case; after a shorter first word, as in "Żaba trawna", that is the next word),
+  // or with a later proper name from its name written with a capital letter. A later describing word alone
+  // ("a mokry pomarańczowożółty") does not count: another card may fit that description. Latin names in
+  // italics ("*Batrachochytrium salamandrivorans*") can hold a word of the card's name without naming the
+  // card, so the Polish name is looked for outside them.
   function polishNamesCard(text, item) {
-    const raw = String(text || "");
+    const full = String(text || "");
+    if (latinGenus(item) && full.toLocaleLowerCase("pl").includes(latinGenus(item))) return true;
+    const raw = full.replace(/(^|[^*])\*[^*]+\*(?!\*)/g, "$1 ");
     const lower = raw.toLocaleLowerCase("pl");
-    if (latinGenus(item) && lower.includes(latinGenus(item))) return true;
     return [item.name_pl, ...itemSynonyms(item)].some((name) => {
       const [head, ...rest] = nameWords(name);
       return Boolean(head) && lower.includes(wordStem(head).toLocaleLowerCase("pl"))
@@ -1724,8 +1728,9 @@
 
   // True or false: "is this fact about <card>?". A false statement is always a real fact of another
   // card in the same collection, never an edited one. It must name its own card in both languages
-  // (factNamesCard), must not name the asked card and must come from another genus, so it cannot
-  // accidentally be true.
+  // (factNamesCard), must not name the asked card and must come from another genus and another category,
+  // so it cannot accidentally be true: cards of one category share their subject (mirages, phototoxic
+  // plants), and a fact about one of them can be true of another without naming it.
   // Every choice here depends only on the cards and on rng, never on the language of the page.
   function buildTrueFalseQuestion(selected, counts, { collection = activeCollection(), list = collection.items, rng = Math.random } = {}) {
     const own = quizFactsFor(selected, counts, collection);
@@ -1737,7 +1742,7 @@
       // A year in the asked card's name ("2024 — rok rekordowego ciepła") makes a fact of that year true of it too.
       const selectedYears = String(selected.name_pl || "").match(/\b\d{4}\b/g) || [];
       const decoys = list
-        .filter((item) => item.id !== selected.id && lineageKey(item) !== lineageKey(selected))
+        .filter((item) => item.id !== selected.id && item.category !== selected.category && lineageKey(item) !== lineageKey(selected))
         .flatMap((item) => quizFactsFor(item, counts, collection)
           .filter((candidate) => !selectedTexts.has(candidate.pl) && factNamesCard(candidate, item, collection) && !factMentions(candidate, selected, collection)
             && !selectedYears.some((year) => `${candidate.pl} ${candidate.en || ""}`.includes(year)))
