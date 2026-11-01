@@ -727,9 +727,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pisz.bialystok.lasy.gov.pl/aktualnosci/-/asset_publisher/kCS6/content/dab-bolko-w-czolowce-europejskich-drzew",
        "label": "pisz.bialystok.lasy.gov.pl"
+      },
+      {
+       "url": "https://de.wikipedia.org/wiki/Europ%C3%A4ischer_Baum_des_Jahres",
+       "label": "Wikipedia (DE)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

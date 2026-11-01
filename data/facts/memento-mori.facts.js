@@ -654,9 +654,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://whc.unesco.org/document/163133",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Auschwitz-Birkenau",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1476",
@@ -692,9 +696,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://www.auschwitz.org/en/museum/history-of-the-memorial/from-liberation-to-the-opening-of-the-memorial/the-opening-of-the-museum",
        "label": "auschwitz.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Pa%C5%84stwowe_Muzeum_Auschwitz-Birkenau_w_O%C5%9Bwi%C4%99cimiu",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

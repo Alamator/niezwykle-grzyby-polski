@@ -467,9 +467,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://whc.unesco.org/en/decisions/7390/",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Krzemionki",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -637,9 +641,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "http://webmineral.com/data/Celestine.shtml",
        "label": "webmineral.com"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Celestine_(mineral)",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0819",
@@ -1320,9 +1328,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://whc.unesco.org/en/list/1539",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Kopalnia_rud_o%C5%82owiu,_srebra_i_cynku_wraz_z_systemem_gospodarowania_wodami_podziemnymi_w_Tarnowskich_G%C3%B3rach",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

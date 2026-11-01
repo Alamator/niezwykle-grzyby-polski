@@ -526,9 +526,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.gwiezdnebieszczady.pl/wps/wp-content/uploads/2013/03/Informacja-prasowa-Sprawozdanie-z-podpisania-memorandum.pdf",
        "label": "gwiezdnebieszczady.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Park_Gwiezdnego_Nieba_%E2%80%9EBieszczady%E2%80%9D",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -726,9 +730,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.hko.gov.hk/en/Observatorys-Blog/104520/Mirage",
        "label": "hko.gov.hk"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Hillingar_effect",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Mirage",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

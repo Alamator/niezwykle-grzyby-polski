@@ -1,0 +1,190 @@
+# Ponowne sprawdzenie ciekawostek „checked” (1.11.2026)
+
+Przed tym sprawdzeniem 470 ciekawostek miało status `checked`: potwierdziło je wyszukiwanie w niezależnym źródle, zwykle tylko z wyników wyszukiwania, bo strony tych źródeł się stąd nie otwierały. Na prośbę Roberta wszystkie sprawdzono jeszcze raz, tym razem na pełnych tekstach źródeł, które dało się otworzyć. Statusy opisuje [README-weryfikacja.md](README-weryfikacja.md).
+
+## Jak sprawdzono
+
+1. **Źródła:** wszystkie strony podane przy tych ciekawostkach, które się stąd otwierają, pobrano raz, 1.11.2026, i zamieniono na tekst (Wikipedia: aktualna wersja artykułu). Otwierają się Wikipedia i nieliczne inne strony: z 658 adresów spoza Wikipedii tylko 44. Pozostałe blokuje filtr sieci tego środowiska.
+2. **Dwa niezależne odczyty:** każdą ciekawostkę przeczytały dwa niezależne odczyty (dwa różne modele), zdanie po zdaniu, po polsku i po angielsku.
+3. **Rozstrzygnięcie:** gdy odczyty się nie zgadzały albo proponowały zmianę brzmienia, decyzję podejmował trzeci odczyt na pełnych tekstach źródeł.
+4. **Zasady:**
+   - `verified` tylko wtedy, gdy źródło podane przy ciekawostce i czytelne stąd mówi wszystko, co ona: każdą liczbę, datę, miejsce i przymiotnik w stopniu najwyższym, po polsku i po angielsku;
+   - `corrected`, gdy coś było za mocne, nieprecyzyjne albo inne niż w źródłach: nowe brzmienie mówi tylko to, co źródła, a angielski tłumaczy polski 1:1;
+   - `checked` zostaje, gdy czytelne źródła nie mówią wszystkiego, a nic im nie przeczy (źródło potwierdzające jest zablokowane).
+5. **Dopisane źródła:** przy 50 ciekawostkach, które zostały `checked`, odczyty wskazały czytelne źródło spoza listy, które ma potwierdzać całość. Dwa kolejne niezależne odczyty sprawdziły każde z nich. Źródło dopisano tylko tam, gdzie oba odczyty uznały, że to samo źródło mówi wszystko (16 ciekawostek).
+6. **Przegląd:** niezależny przegląd sprawdził wszystkie poprawione brzmienia, karty tych ciekawostek i losową próbę 30 ciekawostek `verified`. Każde zgłoszenie sprawdził drugi, sceptyczny odczyt. W próbie `verified` nie znalazł się żaden błąd w faktach, tylko dwie sprawy językowe (F0325, F0644).
+
+## Wynik
+
+| Szuflada | Ciekawostek | `verified` | `corrected` | zostaje `checked` |
+| --- | ---: | ---: | ---: | ---: |
+| architektura-drewniana | 41 | 32 | 8 | 1 |
+| atmosfera-astronomia | 19 | 13 | 2 | 4 |
+| cuda-inzynierii | 45 | 38 | 4 | 3 |
+| drzewa | 20 | 11 | 4 | 5 |
+| formacje-skalne | 19 | 12 | 3 | 4 |
+| grzyby | 39 | 19 | 13 | 7 |
+| kwiaty | 11 | 4 | 4 | 3 |
+| memento-mori | 26 | 17 | 7 | 2 |
+| mineraly | 26 | 7 | 2 | 17 |
+| owady | 10 | 6 | 3 | 1 |
+| plazy-gady | 13 | 8 | 3 | 2 |
+| podziemia | 31 | 19 | 10 | 2 |
+| ptaki | 26 | 16 | 6 | 4 |
+| rekordy-atmosferyczne | 2 | 2 | 0 | 0 |
+| rekordy-krajobrazu | 40 | 29 | 8 | 3 |
+| ryby | 11 | 5 | 3 | 3 |
+| skamienialosci | 29 | 11 | 3 | 15 |
+| ssaki | 25 | 15 | 6 | 4 |
+| twierdze-ruiny | 37 | 27 | 7 | 3 |
+| **razem** | **470** | **291** | **96** | **83** |
+
+Teraz atlas ma 1458 ciekawostek: 846 `verified`, 529 `corrected` i 83 `checked`.
+
+## Poprawione brzmienie (96)
+
+Tabela podaje tekst polski. Gdy zmienił się tylko angielski, wiersz pokazuje angielski. Typowe poprawki:
+- przymiotnik w stopniu najwyższym albo stwierdzenie mocniejsze niż w źródle („przekracza 320 km/h” → „potrafi przekroczyć 320 km/h”);
+- liczby z innego okresu albo zaokrąglone przez nas („około półtora raza” → „144% masy ciała samicy”);
+- zdania, których źródła nie potwierdzają, usunięte;
+- angielski, który mówił więcej niż polski.
+
+| Id | Karta | Było | Jest |
+| --- | --- | --- | --- |
+| F1196 | Kościół św. Filipa i św. Jakuba w Sękowej | Kościół mocno ucierpiał w czasie bitwy pod Gorlicami (1914/1915). Drewno z niego posłużyło wtedy m.in. do budowy okopów. | Kościół mocno ucierpiał w czasie walk pod Gorlicami na przełomie 1914/1915 r. Drewno z niego posłużyło wtedy m.in. do budowy okopów. |
+| F1198 | Kościół św. Leonarda w Lipnicy Murowanej | Malowidła w prezbiterium pochodzą z 1689 r., a w nawie z 1711 r. Od 2003 r. kościół jest w UNESCO. | Malowidła w prezbiterium pochodzą z 1689 r., a polichromia na północnej ścianie nawy z 1711 r. Od 2003 r. kościół jest w UNESCO. |
+| F1201 | Kościół Wszystkich Świętych w Bliznem | EN: The earliest reliable mention dates from 1470. The church served a defensive purpose. | EN: The earliest reliable mention dates from 1470. The church had a defensive character. (polski tekst bez zmian) |
+| F1214 | Cerkiew św. Paraskewy w Radrużu | To jedna z najstarszych i najcenniejszych drewnianych cerkwi zachowanych w Polsce. Od 2013 r. jest na Liście Światowego Dziedzictwa UNESCO. | To jedna z najstarszych i najlepiej zachowanych drewnianych cerkwi w Polsce. Od 2013 r. jest na Liście Światowego Dziedzictwa UNESCO. |
+| F1215 | Cerkiew św. Michała Archanioła w Smolniku | Pierwsza wzmianka o cerkwi w Smolniku pochodzi z 1589 r. Od 1974 r. świątynia jest kościołem rzymskokatolickim. | Pierwsza znana wzmianka o cerkwi w Smolniku pochodzi z 1589 r. Obecny budynek od 1974 r. jest kościołem rzymskokatolickim. |
+| F1229 | Kościół św. Jana Chrzciciela w Orawce | Leży na małopolskim Szlaku Architektury Drewnianej. Szlak ma ponad 1500 km i obejmuje 255 obiektów. | Leży na małopolskim Szlaku Architektury Drewnianej. Szlak ma ponad 1500 km. |
+| F1237 | Meczet tatarski w Bohonikach | Obecny meczet datuje się zwykle na II połowę XIX w. Podczas prac konserwatorskich w 2006 r. na jednej z belek odkryto datę 1873, która może oznaczać rok budowy albo przebudowy. | Obecny meczet datuje się zwykle na II połowę XIX w. Podczas prac konserwatorskich na jednej z belek odkryto datę 1873, która może oznaczać rok budowy albo przebudowy. |
+| F1239 | Kraina Otwartych Okiennic | Szlak obejmuje m.in. Soce i Puchły. Projekt działa od 2001 r. i ratuje znikający krajobraz kulturowy doliny Narwi. | Szlak obejmuje m.in. Soce. Projekt działa od 2001 r. i ma na celu ratowanie znikającego krajobrazu kulturowego doliny Narwi. |
+| F1039 | Białe noce astronomiczne | Latem w całej Polsce nie zapada noc astronomiczna. Słońce chowa się wtedy pod horyzont na mniej niż 18°. | Latem w całej Polsce bywają noce, kiedy nie zapada noc astronomiczna. Słońce chowa się wtedy pod horyzont na mniej niż 18°. |
+| F1056 | Geminidy | Ich ciałem macierzystym jest planetoida (3200) Phaethon, która według dzisiejszej wiedzy jest najpewniej odewoluowanym jądrem starej komety. | Ich ciałem macierzystym jest planetoida (3200) Phaethon, która według dzisiejszej wiedzy wydaje się odewoluowanym jądrem starej komety. |
+| F1343 | Wrocławski Węzeł Wodny | Po powodzi z 1903 r. zbudowano nowy Kanał Powodziowy. W 1997 r. system zawiódł podczas powodzi tysiąclecia. | Po powodzi z 1903 r. zbudowano nowy Kanał Powodziowy. W 1997 r. system przeciwpowodziowy zawiódł podczas powodzi tysiąclecia. |
+| F1352 | Port Gdynia | Port zbudowano, by zapewnić Polsce dostęp do morza i bazę marynarki wojennej. Gdynia dostała prawa miejskie 4 marca 1926 r. | Port zbudowano, by zapewnić Polsce dostęp do morskich szlaków i bazę marynarki wojennej. Gdynia dostała prawa miejskie 4 marca 1926 r. |
+| F1361 | Nikiszowiec | W 1978 r. trafiło do rejestru zabytków, a od 2011 r. jest Pomnikiem Historii. | W 1978 r. układ urbanistyczny osiedla trafił do rejestru zabytków, a od 2011 r. osiedle jest Pomnikiem Historii. |
+| F1364 | EC1 Łódź | Pierwsza komercyjna elektrownia w Łodzi dawała prąd od 1907 r. Jako elektrociepłownia szczytowa działała do 2000 r. | Pierwsza miejska elektrownia w Łodzi dawała prąd od 1907 r. Jako elektrociepłownia szczytowa działała do 2000 r. |
+| F0280 | Miłorząb dwuklapowy | To „żywa skamieniałość”: kopalne miłorzęby bardzo podobne do dzisiejszego znane są sprzed około **170 mln lat** (środkowa jura). | To „żywa skamieniałość”: kopalne miłorzęby podobne do dzisiejszego znane są sprzed około **170 mln lat** (środkowa jura). |
+| F0286 | Bożodrzew gruczołowaty | W młodości przyrasta nawet **2 m rocznie**, a w Polsce dorasta do 30 m. Pochodzi z Chin, a do Europy trafił w **1751 r.** | W młodości przyrasta nawet **2 m rocznie**, a w Polsce dorasta do 30 m. Pochodzi z Chin, a do Europy trafił w **XVIII w.** |
+| F0337 | Dęby Rogalińskie | Najsłynniejsze to Lech, Czech i Rus. Od 2020 roku pomnikiem historii jest nie tylko zespół pałacowo-parkowy, ale także cały obszar dawnego majątku ziemskiego Raczyńskich w Rogalinie. | Najsłynniejsze to Lech, Czech i Rus. Od 2020 roku pomnikiem historii jest nie tylko zespół pałacowo-parkowy, ale także obszar dawnego majątku ziemskiego Raczyńskich w Rogalinie. |
+| F0347 | Dawidia chińska | „Drzewo chusteczkowe”: kuliste kwiatostany otaczają dwie białe podsadki **długości do 20 cm**. | „Drzewo chusteczkowe”: kuliste kwiatostany są otoczone **dwiema białymi podsadkami**. |
+| F0868 | Pielgrzymy | Granitowe skały mają do 25 m wysokości. To trzy potężne grupy oraz wiele mniejszych bloków. | Granitowe skały mają do 25 m wysokości. To trzy potężne grupy skalne, kilka mniejszych i wiele pojedynczych bloków. |
+| F0886 | Szczeliniec Wielki | Prowadzi tam 665 schodów, powstałych w 1814 r. dzięki Franzowi Pablowi, sołtysowi Karłowa i pierwszemu przewodnikowi po szczycie. | Prowadzą tam schody, powstałe w 1814 r. dzięki Franzowi Pablowi, sołtysowi Karłowa i pierwszemu przewodnikowi po szczycie. |
+| F0897 | Skalna Czaszka | Pobliski Narożnik (851 m n.p.m.) zbudowany jest z piaskowców ciosowych górnych, czyli najmłodszej warstwy Gór Stołowych. Jego pionowe ściany od zachodu i południa są popularnym rejonem wspinaczkowym. | Narożnik zbudowany jest z piaskowców ciosowych górnych, czyli najmłodszej warstwy Gór Stołowych. Jego pionowe ściany od zachodu i południa są popularnym rejonem wspinaczkowym. |
+| F0000 | Okratek australijski | Przybysz z antypodów. Za jego ojczyznę uważa się Australię z Tasmanią i Nową Zelandię. W Europie po raz pierwszy odnotowano go w 1914 r. we Francji, w Wogezach. Najpewniej przypłynął z zaopatrzeniem wojskowym na początku I wojny światowej, choć bierze się też pod uwagę transport australijskiej wełny. | Przybysz z antypodów. Za jego ojczyznę uważa się Australię z Tasmanią i Nową Zelandię. W Europie po raz pierwszy odnotowano go w 1914 r. we Francji. |
+| F0022 | Dzbankówka kulista | W Finlandii przez trzy dekady przybywało jej stwierdzeń (dane z 2013 r.). Autorzy badania przypuszczają, że jedną z przyczyn mogą być cieplejsze zimy i deszczowe wiosny. | W Finlandii przez trzy dekady zwiększało się jej występowanie (badanie z 2013 r.). Autorzy badania przypuszczają, że jedną z przyczyn mogą być cieplejsze zimy i deszczowe wiosny. |
+| F0034 | Smardz jadalny | W latach 1983–2014 był pod ochroną ścisłą. Od 2014 r. jest pod **częściową**. Okazy rosnące poza ogrodami, uprawami, szkółkami i terenami zieleni nadal są chronione. | W latach 1983–2014 był pod ochroną ścisłą. Od 2014 r. jest pod **częściową**. Zbierać go na własny użytek i do celów gospodarczych wolno tylko w ogrodach, uprawach ogrodniczych, szkółkach leśnych i na terenach zieleni. |
+| F0057 | Koralówka czerwonowierzchołkowa | Owocniki dorastają do ok. 20 cm wysokości i 30 cm szerokości. Mają różowe lub czerwonawe końcówki. | Owocniki dorastają do ok. 20 cm wysokości. Mają różowe lub czerwonawe końcówki. |
+| F0077 | Płomyczka galaretowata | Po angielsku to „apricot jelly” (morelowa galaretka). Jest jedynym gatunkiem w swoim rodzaju. | Po angielsku to „apricot jelly” (morelowa galaretka). Jest jedynym gatunkiem ze swojego rodzaju w Polsce. |
+| F0089 | Gwiazdosz czteropromienny | To jeden z najmniejszych gwiazdoszy. Suche owocniki można znaleźć nawet zimą i wiosną. | To jeden z najmniejszych gwiazdoszy. Suche owocniki można znaleźć także w bezśnieżne zimy, a nawet wiosną. |
+| F0101 | Kolczakówka piekąca | Owocniki zawierają atromentynę, barwnik o działaniu przeciwzakrzepowym podobnym do heparyny, wykrytym w badaniach na zwierzętach w latach 60. XX wieku. Nie wykazano, że atromentyna występuje akurat w czerwonych kroplach. | Zawiera atromentynę, barwnik o działaniu przeciwzakrzepowym podobnym do heparyny. |
+| F0124 | Lakówka ametystowa | EN: On arsenic-contaminated soils it can accumulate large amounts of the element. | EN: On arsenic-contaminated soils it can strongly accumulate the element. (polski tekst bez zmian) |
+| F0128 | Chlorówka drobna | EN: The fruiting bodies measure a mere 2–5 mm. We see the green wood far more often than the fungus itself. | EN: The fruiting bodies measure a mere 2–5 mm. We see just the green wood more often than the fungus. (polski tekst bez zmian) |
+| F0135 | Muchomor czerwony | Wbrew nazwie za zatrucia odpowiada głównie kwas ibotenowy, a nie muskaryna, której jest ok. 0,0002%. | Wbrew łacińskiej nazwie za zatrucia odpowiada głównie kwas ibotenowy, a nie muskaryna, której jest ok. 0,0002%. |
+| F0139 | Ozorek dębowy | Rozkłada drewno dębu bardzo powoli (nawet przez kilkadziesiąt lat), a na początku tego procesu drewno nabiera czerwonego odcienia, co **podnosi jego wartość w meblarstwie**. | Rozkłada drewno dębu powoli (nawet przez kilkadziesiąt lat), a na początku tego procesu drewno nabiera czerwonego odcienia, co **podnosi jego wartość w meblarstwie**. |
+| F0153 | Błyskoporek podkorowy | Narośl zawiera bardzo dużo szczawianów. W badanych proszkach z czagi było ich od 2,8 do 14,2 g na 100 g. | Narośl zawiera bardzo dużo szczawianów: od 2800 do 11 200 mg na 100 g. |
+| F0164 | Czasznica olbrzymia | EN: It measures 10–60 cm across. One of the largest known specimens (Czech Republic, 1955) weighed 20.8 kg, and a specimen of over 23 kg has been recorded in Canada. | EN: It measures 10–60 cm across. One of the largest known specimens (Czechia, 1955) weighed 20.8 kg, and a specimen of over 23 kg has been recorded in Canada. (polski tekst bez zmian) |
+| F0203 | Aldrowanda pęcherzykowata | EN: It's the underwater cousin of the Venus flytrap: its two-lobed trap works just like the flytrap's, only it's smaller and hidden underwater. | EN: It's the underwater cousin of the Venus flytrap: its two-lobed trap works like the flytrap's, only it's smaller and hidden underwater. (polski tekst bez zmian) |
+| F0210 | Rosiczka | Wszystkie krajowe rosiczki (okrągłolistna, długolistna, pośrednia i mieszańcowa owalna) są pod **ochroną ścisłą**. Rodzime gatunki chroni się w Polsce od 1946 roku. | Wszystkie krajowe rosiczki (okrągłolistna, długolistna, pośrednia i mieszańcowa owalna) są pod **ochroną ścisłą**. |
+| F0240 | Podkolan zielonawy | Ma ostrogę długości 2–4 cm, maczugowato zgrubiałą na końcu. Kwiaty zapylają ćmy, które przylatują po nektar. | Ma ostrogę długości 20–40 mm, maczugowato zgrubiałą na końcu. Kwiaty zapylają ćmy, które przylatują po nektar. |
+| F0244 | Kukuczka kapturkowata | Botanicy przenieśli ją ostatnio do rodzaju *Hemipilia* (*H. cucullata*). | Botanicy przenieśli ją do rodzaju *Hemipilia* (*H. cucullata*). |
+| F1450 | Cmentarz Rakowicki | Działa od stycznia 1803 r. Był pierwszym ogólnym cmentarzem miejskim Krakowa, założonym w miejsce zlikwidowanych cmentarzy przykościelnych. | Działa od stycznia 1803 r. Był pierwszym cmentarzem komunalnym w Krakowie. Powstał w związku z zakazem pochówków na cmentarzach przykościelnych w obrębie miasta. |
+| F1452 | Cmentarz na Pęksowym Brzyzku | Pierwszy cmentarz Zakopanego powstał w połowie XIX wieku; najczęściej podaje się rok 1851, choć dokładna data nie jest pewna. Nazwa pochodzi od darczyńcy ziemi, Jana Pęksy. | Cmentarz powstał w połowie XIX wieku. Nazwa pochodzi od darczyńcy ziemi, Jana Pęksy. |
+| F1454 | Cmentarz Żydowski przy ul. Okopowej w Warszawie | Cmentarz założono w 1806 r. Ma ok. 33,4 ha. Pochowano tu ponad 200 tys. osób. | Cmentarz założono w 1806 r. Ma ok. 33,5 ha. Pochowano tu ponad 200 tys. osób. |
+| F1461 | Mizar w Kruszynianach | Najstarsze nagrobki na mizarze pochodzą z końca XVII w.; to nieociosane kamienie, na wielu z nich nie ma inskrypcji albo są nieczytelne. | Najstarsze nagrobki na mizarze pochodzą z XVII i XVIII w.; to nieociosane kamienie bez czytelnych inskrypcji. |
+| F1473 | Palmiry | Spoczywa tu ponad 2 tys. Polaków zamordowanych przez Niemców w latach 1939–1943. Najczęściej podaje się liczbę 2115 pochowanych, a w niektórych opracowaniach 2204. | Spoczywa tu ponad 2 tys. Polaków zamordowanych przez Niemców w latach 1939–1943. Podaje się różne liczby pochowanych, m.in. 2115 i 2204. |
+| F1485 | Ośrodek Zagłady Kulmhof | Liczba ofiar sięgnęła prawdopodobnie ok. 200 tys. osób. Byli to głównie Żydzi, a także mniejsze grupy Polaków i jeńców sowieckich. | Liczba ofiar sięgnęła prawdopodobnie ok. 200 tys. osób. Byli to głównie Żydzi, a także Romowie i Sinti oraz mniejsze grupy Polaków i jeńców sowieckich. |
+| F1504 | Kopiec Wandy | Wieś Mogiła, której nazwę wiąże się z kopcem, wzmiankowano w 1222 r. Wygląd kopca opisano po raz pierwszy w 1584 r. | Wieś Mogiła, której nazwę wiąże się z kopcem, wzmiankowano po raz pierwszy w 1222 r. Pierwsza wzmianka o wyglądzie kopca pochodzi z 1584 r. |
+| F0795 | Heflikit | Heflikit **nie jest amfibolem**, jak podaje strona. Amfibolem ze skandem jest skandiowinchit. | Heflikit **nie jest amfibolem**. Skandiowinchit to amfibol ze skandem. |
+| F0813 | Siarka rodzima z Tarnobrzega | Odkrywkę w Machowie zamknięto w 1992 r. i zalano wodą. Tak powstało Jezioro Tarnobrzeskie. | Wydobycie w odkrywce w Machowie zakończono w 1992 r. Wyrobisko zalano potem wodą. Tak powstało Jezioro Tarnobrzeskie. |
+| F0378 | Gąsienica zmrocznika gładysza | Dorosły motyl widzi kolory nawet przy bardzo słabym świetle. To pierwszy gatunek zwierzęcia, u którego udokumentowano **nocne widzenie barwne** (badania z 2002 roku). Rozróżniał kolory przy świetle tak słabym jak blask gwiazd. | Dorosły motyl widzi kolory nawet przy bardzo słabym świetle. To jeden z pierwszych gatunków zwierząt, u których udokumentowano **nocne widzenie barwne** (badania z 2002 roku). Rozróżniał kolory przy świetle tak słabym jak blask gwiazd. |
+| F0409 | Bryzgun | Jednym z gatunków rodzaju *Cimbex* jest **bryzgun brzozowiec** (*C. femoratus*), dorastający do 20 mm. | Jednym z gatunków rodzaju *Cimbex* jest **bryzgun brzozowiec** (*C. femoratus*). |
+| F0435 | Kozioróg dębosz | EN: It lives in sunlit oaks over 100 years old, including Bartek, the famous monument oak. | EN: It lives in sunlit oaks over 100 years old, including the monument oak Bartek. (polski tekst bez zmian) |
+| F0522 | Kumak górski | Z wydzieliny skóry kumaka górskiego wyizolowano na przełomie lat 60. i 70. XX w. (pierwszy opis z 1970 r.) bombininę, jeden z pierwszych poznanych peptydów przeciwdrobnoustrojowych płazów. | W skórze kumaka górskiego znaleziono peptydy przeciwdrobnoustrojowe. Pierwszym wyizolowanym z nich była bombinina. |
+| F0529 | Ropucha szara | To **największa ropucha Polski**. Samice mają do 12,5 cm. | To **największa ropucha Polski**. Samice są większe od samców. |
+| F0540 | Traszka górska | Ma pomarańczowy brzuch i gardło. To jedyny żyjący dziś gatunek swojego rodzaju, nazywanego *Ichthyosaura*, choć część herpetologów od 2025 r. używa nazwy *Mesotriton*. | Ma pomarańczowy brzuch i gardło. To jedyny żyjący dziś gatunek swojego rodzaju, nazywanego *Ichthyosaura* lub *Mesotriton*. |
+| F1247 | Kopalnia Soli „Wieliczka” | Sól pochodzi z miocenu. Od XIII w. do 1772 r. Wieliczka razem z Bochnią tworzyła żupy krakowskie. | Sól pochodzi z miocenu. Od XIII w. do 1772 r. Wieliczka razem z Bochnią wchodziła w skład żup krakowskich. |
+| F1249 | Kopalnia Soli Bochnia | Kopalnie w Wieliczce i Bochni tworzą wspólny obiekt UNESCO „Królewskie Kopalnie Soli”. Sól wydobywano tu od XIII w. | Kopalnie w Wieliczce i Bochni należą do wspólnego obiektu UNESCO „Królewskie Kopalnie Soli w Wieliczce i Bochni”. Sól wydobywano tu od XIII w. |
+| F1260 | Kopalnia Guido | Kopalnię założył hrabia Guido Henckel von Donnersmarck, który 2 października 1855 r. otrzymał nadanie górnicze. | Kopalnię założył hrabia Guido Henckel von Donnersmarck, który w 1855 r. otrzymał nadanie górnicze. |
+| F1261 | Kopalnia Guido | Wydobycie prowadzono na poziomach 170 i 320 m. | Wydobycie prowadzono m.in. na poziomach 170 i 320 m. |
+| F1262 | Sztolnia Królowa Luiza | Kompleks to prawie 5 km wyrobisk. Od 14 września 2018 r. działa tu najdłuższy podziemny spływ łodziami w Polsce. | Od 14 września 2018 r. działa tu najdłuższy podziemny spływ łodziami w Polsce. |
+| F1263 | Sztolnia Królowa Luiza | Razem z Kopalnią Guido należy do Muzeum Górnictwa Węglowego w Zabrzu, które od 2013 roku tworzy z nimi jedną instytucję. | Razem z Kopalnią Guido należy do Muzeum Górnictwa Węglowego w Zabrzu. W 2013 roku Kopalnię Guido połączono z muzeum w jedną instytucję. |
+| F1269 | Projekt Riese — Włodarz | „Riese” („Olbrzym”) to kryptonim wielkiej budowy nowej kwatery Hitlera w Górach Sowich i na zamku Książ. Prace zaczęto prawdopodobnie w październiku 1943 roku i przerwano w 1945 roku, zanim je skończono. | „Riese” („Olbrzym”) to kryptonim wielkiej budowy w Górach Sowich i na zamku Książ. Uważa się, że zamek Książ przygotowywano na jedną z kwater głównych Hitlera. Prace prowadzono w latach 1943–1945 i ich nie ukończono. |
+| F1286 | Bunkier kolejowy w Stępinie-Cieszynie | 27 sierpnia 1941 r. przybyli tu koleją Adolf Hitler i Benito Mussolini i spędzili w Stępinie noc. | 27 sierpnia 1941 r. Adolf Hitler i Benito Mussolini przybyli koleją do kwatery głównej „Anlage Süd”. |
+| F1295 | Podziemna Trasa Turystyczna w Sandomierzu | W XX w. zapadliska i katastrofy budowlane zagroziły starówce. Do ratowania gruntu wezwano górników z Bytomia. | W XX w. zapadliska i katastrofy budowlane zagroziły starówce. Aby ustabilizować grunt pod budynkami, pracownicy Przedsiębiorstwa Robót Górniczych w Bytomiu prowadzili prace górnicze. |
+| F1303 | Toruńskie piwnice i podziemia staromiejskie | Toruńska starówka (z zamkiem krzyżackim) jest od 1997 r. obiektem UNESCO „Średniowieczne miasto Toruń”. | Stare Miasto, Nowe Miasto i zamek krzyżacki w Toruniu są od 1997 r. obiektem UNESCO „Średniowieczny zespół miejski Torunia”. |
+| F0604 | Mysikrólik | To **najmniejszy ptak Europy**: waży **4,5–7 g**. Wbrew obiegowej opinii nie jest nim strzyżyk. | To **najmniejszy ptak Europy**: waży **4,5–7 g**. Niektórzy błędnie przypisują ten tytuł strzyżykowi. |
+| F0605 | Mysikrólik | Pełne zniesienie, liczące nawet 10–12 jaj, może ważyć około półtora raza więcej niż sama samica. | Całe zniesienie z 10 jaj waży 144% masy ciała samicy (przy założeniu, że samica waży 5 g). |
+| F0617 | Sokół wędrowny | W locie nurkowym przekracza **320 km/h**. To najszybciej poruszający się organizm na Ziemi. | W locie nurkowym potrafi przekroczyć **320 km/h**. To najszybciej poruszający się organizm na Ziemi. |
+| F0620 | Szlamnik | Podgatunek baueri leci jesienią z Alaski do Nowej Zelandii i wschodniej Australii nad Pacyfikiem, bez lądowania i bez żerowania. To najdłuższa znana wędrówka ptaka bez przerwy na odpoczynek i jedzenie: w 2022 roku młody ptak przeleciał około 13 560 km z Alaski na Tasmanię w 11 dni. | Podgatunek baueri leci z Alaski do Nowej Zelandii i wschodniej Australii nad Pacyfikiem, bez lądowania i bez żerowania. To najdłuższa znana wędrówka ptaka bez przerwy na odpoczynek i jedzenie: w 2022 roku młody ptak przeleciał co najmniej 13 560 km z Alaski na Tasmanię w 11 dni i 1 godzinę. |
+| F0644 | Zimorodek | Gniazduje w **norze wykopanej w stromym brzegu**. Polską nazwę próbowano wywodzić od „ziemiorodek”, czyli „rodzący się w ziemi”. | Gniazduje w **norze wykopanej w stromym brzegu**. Polską nazwę próbowano wywodzić od „ziemio-rodek”, czyli „rodzący się w ziemi”. |
+| F0672 | Szablodziób | W Polsce lęgi zdarzają się wyjątkowo, a w 2023 r. na sztucznej wyspie na Zalewie Szczecińskim gniazdowało aż **25 par**, co jak na polskie warunki jest dużą liczbą. | W Polsce lęgi zdarzają się wyjątkowo, a w 2023 r. na Zalewie Szczecińskim gniazdowało aż **25 par**. |
+| F1081 | Pustynia Błędowska | Piaski i żwiry nanosiły do doliny kolejne zlodowacenia epoki lodowej. Ich warstwa ma miejscami nawet 70 m grubości. | Piaski i żwiry nanosiły do doliny kolejne zlodowacenia epoki lodowej. Warstwa piasków ma miejscami nawet 70 m grubości. |
+| F1082 | Ruchome wydmy Słowińskiego Parku Narodowego | Wydma Łącka, zwana też Łącką Górą, wznosi się na ok. 40–42 m n.p.m. To najbardziej znana ruchoma wydma w Polsce i jedna z najwyższych na polskim wybrzeżu. | Wydma Łącka, zwana też Łącką Górą, wznosi się nawet na 42 m n.p.m. To ruchoma wydma i jedna z najwyższych wydm w Polsce. |
+| F1085 | Krzywy Las | Zasadzono je w latach 30. XX w. (prawdopodobnie w 1934 r.). Najpopularniejsza teoria mówi, że celowo hodowano „krzywulce” do stolarki lub szkutnictwa. Pewności nie ma. | Zasadzono je w latach 30. XX w. (prawdopodobnie w 1934 r.). Najbardziej znana teoria mówi, że celowo hodowano „krzywulce” do stolarki lub szkutnictwa. Pewności nie ma. |
+| F1090 | Klify Wolińskiego Parku Narodowego | Najwyższe aktywne klify WPN mają do 93 m wysokości (Gosań). | Najwyższe aktywne klify WPN osiągają wysokość 95 m. |
+| F1100 | Jezioro Hańcza | To najgłębsze jezioro Polski i całej środkowej części Niżu Europejskiego. Najczęściej podaje się 108,5 m. Inne źródła i pomiary dają od około 105 do 113 m. | To najgłębsze jezioro Polski i całej środkowej części Niżu Europejskiego. Najczęściej podaje się 108,5 m. Inne źródła i pomiary dają od 105,55 do 113 m. |
+| F1128 | Jezioro Turkusowe | Ma 6,74 ha i 21,2 m głębokości. Lustro wody leży 2,6 m n.p.m., więc dno to kryptodepresja (18,6 m p.p.m.). | Ma 6,74 ha i 21,2 m głębokości. Lustro wody leży 2,6 m n.p.m., więc jezioro tworzy kryptodepresję (18,6 m p.p.m.). |
+| F1164 | Głazowisko Bachanowo nad Czarną Hańczą | Rezerwat utworzono 27 października 1972 r. | Rezerwat utworzono zarządzeniem z 27 października 1972 r. |
+| F1179 | Sokołowsko — Dolnośląskie Davos | W 1854 r. uzdrowisko przejął dr Hermann Brehmer i w latach 1854–1855 uruchomił tu sanatorium dla chorych na gruźlicę, powszechnie uważane za pierwsze takie na świecie. Leczono w nim klimatem i dietą. | W 1854 r. uzdrowisko przejął dr Hermann Brehmer. Uruchomił tu sanatorium dla chorych na gruźlicę, powszechnie uważane za pierwsze takie na świecie. Leczono w nim klimatem i dietą. |
+| F0444 | Piskorz | **Oddycha jelitem!** Połyka powietrze przy powierzchni, tlen wchłaniają naczynia krwionośne w jelicie, a resztę wydala odbytem. | **Potrafi oddychać jelitem!** Gdy w wodzie jest mało tlenu, połyka powietrze przy powierzchni, tlen wchłaniają naczynia krwionośne w jelicie, a resztę wydala odbytem. |
+| F0500 | Zębacz pasiasty | Za stożkowatymi zębami w szczęce górnej ma **trzy rzędy zębów miażdżących**, a w dolnej dwa rzędy zębów trzonowych, którymi radzi sobie z krabami i jeżowcami. | Za stożkowatymi zębami w szczęce górnej ma **trzy rzędy zębów miażdżących**, a w dolnej dwa rzędy zębów trzonowych. Silnymi szczękami zjada m.in. kraby i jeżowce. |
+| F0505 | Wstęgor królewski | To najdłuższa ryba kostnoszkieletowa świata: rekordowe, wiarygodnie zmierzone okazy miały około 8 m, a niepotwierdzone doniesienia mówią nawet o 11 m. Zwykle osiąga około 3 m. | To najdłuższa ryba kostnoszkieletowa świata: jej rekordowa długość to około 7–8 m, a być może nawet do 11 m. Zwykle osiąga około 3 m. |
+| F0957 | Karbońskie lasy węglowe | Sygilarie (ponad 20 m) były bardzo pospolite w górnym karbonie Polski, m.in. na Górnym Śląsku i koło Wałbrzycha. | Sygilarie (do ponad 20 m wysokości) były bardzo pospolite w górnym karbonie Polski, m.in. na Górnym Śląsku i w rejonie Wałbrzycha. |
+| F0959 | Smok wawelski | Szczątki pochodzą z cegielni w Lisowicach koło Lublińca. Osady datuje się na przełom noryku i retyku (205–200 mln lat). | Szczątki pochodzą z cegielni w Lisowicach koło Lublińca. Osady datuje się na przełom noryku i retyku. |
+| F1017 | Niedźwiedzie jaskiniowe z Kletna | ⏳ Niedźwiedź jaskiniowy wymarł pod koniec ostatniej epoki lodowej, ok. 28 tys. lat temu. | ⏳ Niedźwiedź jaskiniowy wymarł pod koniec ostatniej epoki lodowej. |
+| F0699 | Ryjówka aksamitna | To jeden z rzadkich **jadowitych ssaków**. Codziennie zjada pokarm o masie 80–90% swojego ciała, jedząc co 2–3 godziny. | To jeden z rzadkich **jadowitych ssaków**. Je co 2–3 godziny. |
+| F0710 | Rzęsorek mniejszy | Badania genetyczne podzieliły dawny gatunek na dwa. Nazwa *N. anomalus* oznacza dziś **rzęsorka iberyjskiego**, a środkowoeuropejskie rzęsorki to *N. milleri*. | Badania genetyczne podzieliły dawny gatunek na dwa. Nazwa *N. anomalus* oznacza dziś **gatunek iberyjski**, a ten żyjący w Polsce to *N. milleri*. |
+| F0722 | Nocek łydkowłosy | Poluje nad spokojną wodą: kanałami, rzekami i jeziorami. Rekordowy osobnik dożył **20,5 roku**. | Poluje nad **spokojną wodą**: kanałami, rzekami i jeziorami. |
+| F0727 | Nocek Natterera | Brzeg błony ogonowej ma porośnięty **dwoma rzędami sztywnych, haczykowatych włosów**. To jego cecha rozpoznawcza. | Brzeg błony ogonowej ma porośnięty **dwoma rzędami sztywnych, haczykowatych włosów**. To jedna z jego cech rozpoznawczych. |
+| F0741 | Orzesznica leszczynowa | Dorosła orzesznica waży około 20 g, ale jesienią, przed snem zimowym (od października do kwietnia), jej masa może się nawet podwoić. | Jesienią, tuż przed snem zimowym (od października do kwietnia), masa orzesznicy leszczynowej rośnie do 30–40 g. |
+| F0780 | Szarytka morska | Na początku XX w. w Bałtyku żyło około 100 tys. szarytek; masowe polowania zmniejszyły ich liczbę do około 20 tys. w latach 40., a przez DDT i PCB w latach 70. zostało ich mniej niż 3 tys. Dziś liczebność **powoli rośnie**. | Na początku XX w. w Bałtyku żyło około 100 tys. szarytek; masowe polowania i przyłów w sieciach rybackich zmniejszyły ich liczbę do około 20 tys. w latach 40., a przez DDT i PCB w latach 70. zostało ich **mniej niż 3 tys.** |
+| F1380 | Zamek Krzyżtopór | Rezydencję otoczoną bastionami zbudował w latach 1621–1644 wojewoda Krzysztof Ossoliński. | Rezydencję otoczoną bastionami zbudował wojewoda Krzysztof Ossoliński. Budowę ukończono w 1644 roku. |
+| F1381 | Zamek Krzyżtopór | Była jedną z największych rezydencji pałacowych XVII-wiecznej Europy. | Była to jedna z największych budowli pałacowych w Europie przed powstaniem Wersalu. |
+| F1384 | Zamek w Malborku | Wielki Refektarz (zbudowany w drugiej ćwierci XIV w., ok. 30 × 15 m) był największym wnętrzem w świeckiej architekturze zakonu krzyżackiego. Jego sklepienie wspiera się na trzech smukłych granitowych filarach. | Wielki Refektarz (zbudowany ok. 1320–1337, 30,3 × 15,3 m) był największym świeckim pomieszczeniem w państwie zakonu krzyżackiego. Jego sklepienie wspiera się na trzech granitowych filarach. |
+| F1415 | Zamek Tenczyn w Rudnie | Przyjmuje się, że pierwszy, drewniany zamek zbudował ok. 1319 r. kasztelan krakowski Nawój z Morawicy. Od jego imienia nazwano „Wieżę Nawojową”. | Przyjmuje się, że pierwszy, drewniany zamek zbudował ok. 1319 r. kasztelan krakowski Nawój z Morawicy. Wzniósł też zamkową wieżę, zwaną do dziś „Wieżą Nawojową”. |
+| F1416 | Mysia Wieża | Ceglaną wieżę zbudował ok. 1350 r. Kazimierz Wielki. Razem z resztkami murów i piwnic jest pozostałością zamku w Kruszwicy, a zarazem jego najlepiej zachowaną częścią. | Ceglaną wieżę zbudował ok. 1350 r. Kazimierz Wielki. Jest pozostałością zamku w Kruszwicy. |
+| F1428 | Twierdza Osowiec | Nigdy jej nie zdobyto. Obrona z 1915 r. przeszła do historii jako „atak umarłych”. | W I wojnie światowej jej nie zdobyto. Obrona z 1915 r. przeszła do historii jako „atak umarłych”. |
+| F1439 | Pałac w Kopicach | To pałac w ruinie: podpalony w 1956 roku, potem rozgrabiony i zdewastowany, a później zabezpieczony tylko prowizorycznie. | To pałac w ruinie: podpalony w 1956 roku, potem rozgrabiony i zdewastowany, a później zabezpieczony prowizorycznie. |
+
+## Dopisane źródła (16 ciekawostek z `checked` na `verified`)
+
+| Id | Karta | Dopisane źródło |
+| --- | --- | --- |
+| F1187 | Kościół Pokoju w Świdnicy | [zabytek.pl](https://zabytek.pl/en/obiekty/jawor-jawor-kosciol-ewangelicko-augsburski-pw-ducha-swietego) |
+| F1194 | Kościół św. Michała Archanioła w Binarowej | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Binarowej) |
+| F1204 | Cerkiew św. Paraskewii w Kwiatoniu | [Wikipedia (EN)](https://en.wikipedia.org/wiki/Wooden_Tserkvas_of_the_Carpathian_Region_in_Poland_and_Ukraine), [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Drewniane_cerkwie_w_polskim_i_ukrai%C5%84skim_regionie_Karpat) |
+| F0323 | Dąb Bolko | [Wikipedia (DE)](https://de.wikipedia.org/wiki/Europ%C3%A4ischer_Baum_des_Jahres) |
+| F0818 | Celestyn z Machowa | [Wikipedia (EN)](https://en.wikipedia.org/wiki/Celestine_(mineral)) |
+| F0859 | Galena z rejonu Olkusza | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Kopalnia_rud_o%C5%82owiu,_srebra_i_cynku_wraz_z_systemem_gospodarowania_wodami_podziemnymi_w_Tarnowskich_G%C3%B3rach) |
+| F1232 | Kościół św. Marcina w Grywałdzie | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Marcina_w_Grywa%C5%82dzie) (zamiast linku z literówką w tytule) |
+| F1048 | Park Gwiezdnego Nieba „Bieszczady” | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Park_Gwiezdnego_Nieba_%E2%80%9EBieszczady%E2%80%9D) |
+| F0958 | Smok wawelski | [Wikipedia (EN)](https://en.wikipedia.org/wiki/Smok_wawelski) |
+| F1058 | Miraż górny nad Bałtykiem | [Wikipedia (EN)](https://en.wikipedia.org/wiki/Hillingar_effect), [Wikipedia (EN)](https://en.wikipedia.org/wiki/Mirage) |
+| F1317 | Hala Stulecia | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Hala_Stulecia_we_Wroc%C5%82awiu) |
+| F1475 | Auschwitz-Birkenau | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Auschwitz-Birkenau) |
+| F1477 | Auschwitz-Birkenau | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Pa%C5%84stwowe_Muzeum_Auschwitz-Birkenau_w_O%C5%9Bwi%C4%99cimiu) |
+| F0808 | Krzemień pasiasty | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Krzemionki) |
+| F0936 | Krzemionki | [Wikipedia (EN)](https://en.wikipedia.org/wiki/Krzemionki), [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Krzemionki) |
+| F1114 | Skrzyżowanie Wełny i Nielby | [Wikipedia (PL)](https://pl.wikipedia.org/wiki/Skrzy%C5%BCowanie_We%C5%82ny_z_Nielb%C4%85) |
+
+## Poprawki kart
+
+Przegląd sprawdził też karty poprawionych ciekawostek. Cztery karty mówiły to, co poprawka usunęła z ciekawostki. Poprawiono je po polsku i po angielsku:
+- **Smardz jadalny:** w polu bezpieczeństwa tylko „pod ochroną częściową”, bez zakresu ochrony, którego źródła nie podają dla tego gatunku.
+- **Kościół w Bliznem:** podpis pod nazwą „kościół o charakterze obronnym” zamiast „warowny krajobraz wsi”.
+- **Piskorz:** „potrafi oddychać jelitowo” zamiast „oddycha jelitowo”.
+- **Kraina Otwartych Okiennic:** poprawny dopełniacz „Soc” zamiast „Socec”.
+
+## Zostaje `checked` (83)
+
+Źródła, które je potwierdziły, są stąd zablokowane, a Wikipedia i inne czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Minerały” (17) i „Skamieniałości” (15). Najczęściej potrzebne strony: `doi.org` (17 ciekawostek; przekierowuje do wydawnictw naukowych), `eli.gov.pl` (6), `msaweb.org` (4), `cambridge.org`, `national-geographic.pl`, `api.sejm.gov.pl` i `mindat.org` (po 3). Po dopuszczeniu tych stron można je sprawdzić tak samo.
+
+## Do decyzji Roberta: F0747 (żołędnica)
+
+Ciekawostka i karta „Żołędnica europejska” mówią, że gatunek jest „w Polsce uznawany obecnie za wymarły”, a ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry. W październiku ostatnią obserwację z 1961 r. potwierdzono w pracy z 2024 r. („Acta Zoologica Bulgarica”), której stąd nie da się otworzyć. Czytelne źródła mówią co innego:
+- ocena IUCN z 2024 r. (cytowana w angielskiej Wikipedii) wymienia Polskę wśród krajów, w których gatunek występuje;
+- polska Wikipedia pisze, że „w Polsce występuje tylko na terenach Babiogórskiego Parku Narodowego”.
+
+Odczyty zaproponowały ukrycie ciekawostki, ale ta sama treść jest też na karcie, a praca z 2024 r. może być nowsza od ocen ogólnych. Ciekawostka zostaje więc bez zmian (`checked`) do decyzji Roberta. Rozstrzygnęłaby to lektura pracy z 2024 r. (`acta-zoologica-bulgarica.eu`, `researchgate.net`).

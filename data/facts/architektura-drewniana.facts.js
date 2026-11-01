@@ -49,9 +49,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1054",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/jawor-jawor-kosciol-ewangelicko-augsburski-pw-ducha-swietego",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -195,9 +199,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1053",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Binarowej",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -418,9 +426,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://3d.drewniana.malopolska.pl/en/portfolio-item/st-paraskeva-greek-catholic-church-kwiaton-unesco-list/",
        "label": "3d.drewniana.malopolska.pl"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Wooden_Tserkvas_of_the_Carpathian_Region_in_Poland_and_Ukraine",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Drewniane_cerkwie_w_polskim_i_ukrai%C5%84skim_regionie_Karpat",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -957,7 +973,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
      "en": "The church was built in the second half of the 15th century. The main altar is a late Gothic triptych from the 16th century.",
      "sources": [
       {
-       "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Marcina_w_Gryw%C5%82adzie",
+       "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Marcina_w_Grywa%C5%82dzie",
        "label": "Wikipedia (PL)"
       },
       {
@@ -965,7 +981,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1233",

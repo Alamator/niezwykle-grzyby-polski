@@ -682,9 +682,13 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
       {
        "url": "https://bazadata.pgi.gov.pl/data/mgsp/txt/mgsp0395.pdf",
        "label": "bazadata.pgi.gov.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Skrzy%C5%BCowanie_We%C5%82ny_z_Nielb%C4%85",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1115",

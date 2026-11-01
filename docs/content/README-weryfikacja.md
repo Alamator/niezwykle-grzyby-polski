@@ -62,7 +62,17 @@ Decyzją Roberta dopuszczono w ustawieniach środowiska kolejne strony, m.in. IM
   - F1319 (Solina): artykuł Politechniki Rzeszowskiej (JCEEA 2014) otwiera się pod adresem `https://` i wrócił jako źródło. Podaje, że Solina to zbiornik zaporowy o największej pojemności w Polsce, a przy normalnym poziomie piętrzenia (420 m n.p.m.) mieści 472 mln m³. Ciekawostka mówi teraz dokładnie to. Wcześniej brzmiała „Jezioro Solińskie ma największą pojemność w Polsce”, bez słowa o zbiornikach zaporowych. Status `corrected`.
   - F0600 (bielik): PDF na `uwb.edu.pl` nadal się nie otwiera (serwer odpowiada błędem 503). Ciekawostka zostaje bez zmian, z dwoma hasłami Wikipedii.
 
-Teraz atlas ma 1458 ciekawostek na 628 kartach: 470 `checked`, 555 `verified` i 433 `corrected`.
+### Ciekawostki „checked” (1.11.2026)
+
+Na prośbę Roberta sprawdzono jeszcze raz wszystkie 470 ciekawostek ze statusem `checked`, na pełnych tekstach źródeł, które się stąd otwierają (głównie Wikipedia). Każdą przeczytały dwa niezależne odczyty, a spory i poprawki rozstrzygał trzeci. Potem przegląd sprawdził poprawki, ich karty i losową próbę ciekawostek `verified`.
+- 291 ma teraz status `verified` (16 z nich po dopisaniu czytelnego źródła, które potwierdza całość);
+- 96 ma nowe brzmienie (`corrected`), zgodne ze źródłami;
+- 83 zostaje `checked`, bo źródła, które je potwierdziły, są stąd zablokowane;
+- przy okazji poprawiono cztery karty, które mówiły to, co poprawka usunęła z ciekawostki, i link do Wikipedii z literówką w tytule (Grywałd).
+
+F0747 (żołędnica) czeka na decyzję Roberta: czytelne źródła przeczą temu, że gatunek uznaje się w Polsce za wymarły. Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
+
+Teraz atlas ma 1458 ciekawostek na 628 kartach: 83 `checked`, 846 `verified` i 529 `corrected`.
 
 **Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`, także w szufladzie rekordów.** Każda potrzebuje źródła i statusu według tabeli wyżej. Ciekawostkę, która czeka na poprawkę, można ukryć w `data/collections.js` (`WITHDRAWN.facts`, z powodem). `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły, pod żadnym id i w żadnym języku:
 - ciekawostki usuniętych kart i teksty ciekawostek pominiętych;

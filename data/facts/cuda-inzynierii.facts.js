@@ -191,9 +191,13 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
       {
        "url": "https://whc.unesco.org/en/list/1165",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Hala_Stulecia_we_Wroc%C5%82awiu",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

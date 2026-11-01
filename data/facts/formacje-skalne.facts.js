@@ -1143,9 +1143,17 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://whc.unesco.org/en/decisions/7390/",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Krzemionki",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Krzemionki",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

@@ -288,9 +288,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://www.app.pan.pl/article/item/app20100045.html",
        "label": "app.pan.pl"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Smok_wawelski",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0959",
