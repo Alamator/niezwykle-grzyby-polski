@@ -294,9 +294,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://kp.org.pl/pdf/pp/pdf2/PPXXVI_1_N_markiewicz.pdf",
        "label": "kp.org.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Czarka_austriacka",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/DU/2004/1765/text.pdf",
+       "label": "Dziennik Ustaw"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -864,8 +872,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0052",
      "icon": "🛡️",
-     "pl": "Od 1990 r. był ściśle chroniony, ale 9.10.2014 r. **wykreślono go z listy**. Chroniony częściowo jest za to jego krewny, siedzuń dębowy (*S. brevipes*).",
-     "en": "It was strictly protected from 1990, but on 9 October 2014 **it was removed from the list**. Its relative, the oak cauliflower fungus (*S. brevipes*), is partially protected, however.",
+     "pl": "Był ściśle chroniony, ale 9.10.2014 r. **wykreślono go z listy**. Chroniony częściowo jest za to jego krewny, siedzuń dębowy (*S. brevipes*).",
+     "en": "It was strictly protected, but on 9 October 2014 **it was removed from the list**. Its relative, the oak cauliflower fungus (*S. brevipes*), is partially protected, however.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Siedzu%C5%84_sosnowy",
@@ -882,9 +890,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1408/text.html",
        "label": "eli.gov.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/DU/2004/1765/text.pdf",
+       "label": "Dziennik Ustaw"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1539,7 +1551,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "kp.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -2214,9 +2226,17 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/598/text.pdf",
        "label": "api.sejm.gov.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Muchomor_czerwony",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/DU/2025/598/text.pdf",
+       "label": "Dziennik Ustaw"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0135",

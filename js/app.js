@@ -1649,25 +1649,88 @@
 
   // ----- Quiz -----
 
-  // Name stems used to tell whether a fact names a given card ("smardz jadalny" -> "smard").
+  function nameWords(name) {
+    return String(name || "").split(/[\s/—–,()„”"-]+/).filter((word) => word.length >= 5);
+  }
+
+  function wordStem(word) {
+    return word.slice(0, Math.max(4, word.length - 2));
+  }
+
+  function latinGenus(item) {
+    const genus = String(item.name_lat || "").split(/[\s,•]+/)[0];
+    return /^[A-Z][a-z]{3,}$/.test(genus) ? genus.toLowerCase() : "";
+  }
+
+  // Name stems used to tell whether a fact names a given card ("smardz jadalny" -> "smar"), plus the genus.
+  function stemsOf(names, item) {
+    const stems = new Set();
+    for (const name of names) {
+      for (const word of nameWords(name)) stems.add(wordStem(word).toLocaleLowerCase("pl"));
+    }
+    if (latinGenus(item)) stems.add(latinGenus(item));
+    return [...stems];
+  }
+
+  function englishItemName(item, collection) {
+    return i18n.collections?.en?.[collection.id]?.items?.[item.id]?.name;
+  }
+
   // Both languages' names, so a question is chosen the same way in Polish and in English.
   function nameStems(item, collection = activeCollection()) {
-    const stems = new Set();
-    const names = [item.name_pl, i18n.collections?.en?.[collection.id]?.items?.[item.id]?.name, ...itemSynonyms(item)];
-    for (const name of names) {
-      for (const word of String(name || "").split(/[\s/—–,()„”"-]+/)) {
-        if (word.length < 5) continue;
-        stems.add(word.slice(0, Math.max(4, word.length - 2)).toLocaleLowerCase("pl"));
-      }
-    }
-    const genus = String(item.name_lat || "").split(/[\s,•]+/)[0];
-    if (/^[A-Z][a-z]{3,}$/.test(genus)) stems.add(genus.toLowerCase());
-    return [...stems];
+    return stemsOf([item.name_pl, englishItemName(item, collection), ...itemSynonyms(item)], item);
   }
 
   function factMentions(fact, item, collection = activeCollection()) {
     const text = `${fact.pl || ""} ${fact.en || ""}`.toLocaleLowerCase("pl");
     return nameStems(item, collection).some((stem) => text.includes(stem));
+  }
+
+  // A Polish name usually starts with what the thing is ("Boczniaczek", "Kościół", "Twierdza"); the words
+  // after it describe it ("pomarańczowożółty", "kolejowy") or are proper names ("Pokoju", "w Świdnicy"). So a
+  // Polish text names its card with the Latin genus, with the first word of five or more letters of its name
+  // or of a former name (in any case; after a shorter first word, as in "Żaba trawna", that is the next word),
+  // or with a later proper name from its name written with a capital letter. A later describing word alone
+  // ("a mokry pomarańczowożółty") does not count: another card may fit that description. Latin names in
+  // italics ("*Batrachochytrium salamandrivorans*") can hold a word of the card's name without naming the
+  // card, so the Polish name is looked for outside them.
+  function polishNamesCard(text, item, collection = activeCollection()) {
+    const full = String(text || "");
+    if (latinGenus(item) && full.toLocaleLowerCase("pl").includes(latinGenus(item))) return true;
+    const raw = full.replace(/(^|[^*])\*[^*]+\*(?!\*)/g, "$1 ");
+    const lower = raw.toLocaleLowerCase("pl");
+    const shared = sharedFindPlaces(item, collection);
+    return [item.name_pl, ...itemSynonyms(item)].some((name) => {
+      const [head, ...rest] = nameWords(name);
+      return Boolean(head) && lower.includes(wordStem(head).toLocaleLowerCase("pl"))
+        || rest.some((word) => /^\p{Lu}/u.test(word) && !shared.has(word) && raw.includes(wordStem(word)));
+    });
+  }
+
+  // "Siarka rodzima z Tarnobrzega", "Malachit z Miedzianki": the place after "z"/"ze" says where a specimen comes
+  // from. When another card of the drawer names that place too (in its name or region), the place does not tell
+  // the cards apart, so it does not name the card: a fact about the Machów mine fits every Tarnobrzeg mineral.
+  function sharedFindPlaces(item, collection) {
+    const shared = new Set();
+    const others = (collection?.items || []).filter((other) => other.id !== item.id)
+      .map((other) => [other.name_pl, ...itemSynonyms(other), other.region_pl].join(" "));
+    for (const name of [item.name_pl, ...itemSynonyms(item)]) {
+      const place = (String(name || "").match(/\s(?:z|ze)\s+(\p{Lu}.*)$/u) || [])[1] || "";
+      for (const word of nameWords(place)) {
+        if (/^\p{Lu}/u.test(word) && others.some((text) => text.includes(wordStem(word)))) shared.add(word);
+      }
+    }
+    return shared;
+  }
+
+  // A fact names its own card in each language with that language's name: the Polish text as above, the
+  // English text with the English name. A fact named in one language only ("gold" of "golden saxifrage" in
+  // "Golden-yellow bracts", while the Polish text names nothing) does not count, because the reader of the
+  // other page would see a fact that names no card at all.
+  function factNamesCard(fact, item, collection = activeCollection()) {
+    const english = String(fact.en || "").toLocaleLowerCase("pl");
+    return polishNamesCard(fact.pl, item, collection)
+      && stemsOf([englishItemName(item, collection)], item).some((stem) => english.includes(stem));
   }
 
   function lineageKey(item) {
@@ -1681,8 +1744,10 @@
   }
 
   // True or false: "is this fact about <card>?". A false statement is always a real fact of another
-  // card in the same collection, never an edited one. It must name its own card, must not name the
-  // asked card and must come from another genus, so it cannot accidentally be true.
+  // card in the same collection, never an edited one. It must name its own card in both languages
+  // (factNamesCard), must not name the asked card and must come from another genus and another category,
+  // so it cannot accidentally be true: cards of one category share their subject (mirages, phototoxic
+  // plants), and a fact about one of them can be true of another without naming it.
   // Every choice here depends only on the cards and on rng, never on the language of the page.
   function buildTrueFalseQuestion(selected, counts, { collection = activeCollection(), list = collection.items, rng = Math.random } = {}) {
     const own = quizFactsFor(selected, counts, collection);
@@ -1694,9 +1759,9 @@
       // A year in the asked card's name ("2024 — rok rekordowego ciepła") makes a fact of that year true of it too.
       const selectedYears = String(selected.name_pl || "").match(/\b\d{4}\b/g) || [];
       const decoys = list
-        .filter((item) => item.id !== selected.id && lineageKey(item) !== lineageKey(selected))
+        .filter((item) => item.id !== selected.id && item.category !== selected.category && lineageKey(item) !== lineageKey(selected))
         .flatMap((item) => quizFactsFor(item, counts, collection)
-          .filter((candidate) => !selectedTexts.has(candidate.pl) && factMentions(candidate, item, collection) && !factMentions(candidate, selected, collection)
+          .filter((candidate) => !selectedTexts.has(candidate.pl) && factNamesCard(candidate, item, collection) && !factMentions(candidate, selected, collection)
             && !selectedYears.some((year) => `${candidate.pl} ${candidate.en || ""}`.includes(year)))
           .map((candidate) => ({ item, fact: candidate })));
       if (decoys.length) {

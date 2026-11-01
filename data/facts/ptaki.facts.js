@@ -846,9 +846,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://api.sejm.gov.pl/eli/acts/DU/2022/2380/text.pdf",
        "label": "api.sejm.gov.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/DU/2022/2380/text.pdf",
+       "label": "Dziennik Ustaw"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0647",

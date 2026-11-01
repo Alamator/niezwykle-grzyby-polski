@@ -134,8 +134,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0791",
      "icon": "🔬",
-     "pl": "Tworzy włókniste skupienia mniejsze niż 50 μm. Powstał w przedlodowcowej strefie utleniania, w klimacie półsuchym lub suchym.",
-     "en": "It forms fibrous aggregates smaller than 50 μm. It formed in a pre-glacial oxidation zone, in a semi-arid or arid climate.",
+     "pl": "Tworzy włókniste skupienia mniejsze niż 50 μm. Powstał w przedlodowcowej strefie utleniania, najprawdopodobniej w klimacie półsuchym lub suchym.",
+     "en": "It forms fibrous aggregates smaller than 50 μm. It formed in a pre-glacial oxidation zone, most probably in a semi-arid or arid climate.",
      "sources": [
       {
        "url": "https://www.handbookofmineralogy.org/pdfs/Thalliomelane.pdf",
@@ -146,7 +146,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "msaweb.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0792",
@@ -254,8 +254,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0797",
      "icon": "🔬",
-     "pl": "Jest naprawdę mikro: pojedynczy kryształ ma ok. 20 × 8 μm, a skupienia do 50 μm. Dlatego nie dało się zmierzyć jego barwy.",
-     "en": "It is truly micro: a single crystal measures about 20 × 8 μm, and aggregates reach up to 50 μm. That is why its colour could not be measured.",
+     "pl": "Jest naprawdę mikro: pojedynczy kryształ ma ok. 20 × 8 μm, a skupienia do 50 μm. Przez tak małe kryształy i skąpość materiału nie dało się zmierzyć jego barwy.",
+     "en": "It is truly micro: a single crystal measures about 20 × 8 μm, and aggregates reach up to 50 μm. Because of such small crystals and the scarcity of material, its colour could not be measured.",
      "sources": [
       {
        "url": "https://doi.org/10.2138/am-2023-8974",
@@ -266,7 +266,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "msaweb.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0798",
@@ -283,7 +283,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "msaweb.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

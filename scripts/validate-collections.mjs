@@ -550,6 +550,146 @@ for (const file of i18nFiles) {
   }
 }
 
+// True or false in the quiz ("is this fact about <card>?"): a false statement is a real fact of another card
+// that names its own card in both languages, each with that language's name (factNamesCard in js/app.js), and
+// comes from another genus and another category (buildTrueFalseQuestion). Cases found in reviews:
+// - F0272 matched only through "gold" of the English "golden saxifrage" in "Golden-yellow bracts", so the
+//   Polish page showed a fact that names no card;
+// - F0179 "mokry pomarańczowożółty" only describes a colour, though the card is "Boczniaczek pomarańczowożółty";
+// - F0527 matched "salamand" inside the Latin "*Batrachochytrium salamandrivorans*", and the fungus threatens
+//   newts too;
+// - F1066 and F1058 (refraction, mirages) are true of the other mirage cards of their category, and F0265
+//   (phototoxic sap) of Dyptam, a card of the same category;
+// - F0813 (the Machów mine closed and flooded) named "Siarka rodzima z Tarnobrzega" only through Tarnobrzeg,
+//   the find place of other minerals too, so it fitted calcite, gypsum and strontianite; F0849 (uranium ore
+//   from Miedzianka) named malachite only through Miedzianka and fitted uraninite;
+// - F1410 said only "Zamek zbudował … Kazimierz Wielki", which fits Mysia Wieża too; it now names its castle.
+// The test runs the real buildTrueFalseQuestion for every quiz card and every possible false statement, in
+// Polish and in English.
+function appFunction(name) {
+  const start = appJs.indexOf(`function ${name}(`);
+  assert(start >= 0, `js/app.js should define ${name}`);
+  let depth = 0;
+  let index = appJs.indexOf("(", start);
+  // The parameter list can hold braces ("{ collection, rng } = {}"), so the body starts after it.
+  for (; index < appJs.length; index += 1) {
+    if (appJs[index] === "(") depth += 1;
+    if (appJs[index] === ")" && --depth === 0) break;
+  }
+  for (index = appJs.indexOf("{", index); index < appJs.length; index += 1) {
+    if (appJs[index] === "{") depth += 1;
+    if (appJs[index] === "}" && --depth === 0) return appJs.slice(start, index + 1);
+  }
+  throw new Error(`could not read ${name} from js/app.js`);
+}
+const quizState = { language: "pl", collection: null, lengths: [] };
+const quizContext = vm.createContext({
+  i18n,
+  state: quizState,
+  defaultLanguage: "pl",
+  FACTS_LIMIT: Number(appJs.match(/const FACTS_LIMIT = (\d+);/)[1]),
+  SOLEMN_CATEGORIES: new Set(JSON.parse(appJs.match(/const SOLEMN_CATEGORIES = new Set\((\[[^\]]*\])\);/)[1])),
+  activeCollection: () => quizState.collection,
+  t: (key) => `${quizState.language}:${key}`,
+  itemName: (item) => item.id,
+  // Records how many choices each draw had, so the test can go through every possible false statement.
+  randomIndex: (length, rng) => {
+    quizState.lengths.push(length);
+    return Math.floor(rng() * length);
+  },
+});
+const quizFunctions = ["itemSynonyms", "factsEntry", "itemFacts", "nameWords", "wordStem", "latinGenus", "stemsOf", "englishItemName",
+  "nameStems", "factMentions", "sharedFindPlaces", "polishNamesCard", "factNamesCard", "lineageKey", "quizFactsFor", "factTextCounts", "quizPool", "buildTrueFalseQuestion"];
+vm.runInContext(`${quizFunctions.map(appFunction).join("\n")}\nthis.quiz = { factNamesCard, factTextCounts, quizPool, buildTrueFalseQuestion };`, quizContext);
+// The question is built anew for every choice, so the name checks repeat; their results are kept per fact, card
+// and page language (the language stays in the key, so a check that came to depend on it would still show).
+vm.runInContext(`
+  const remember = (check) => {
+    const results = new WeakMap();
+    return (fact, item, collection) => {
+      if (!results.has(fact)) results.set(fact, new Map());
+      const byCard = results.get(fact);
+      const key = item.id + "|" + state.language;
+      if (!byCard.has(key)) byCard.set(key, check(fact, item, collection));
+      return byCard.get(key);
+    };
+  };
+  factNamesCard = remember(factNamesCard);
+  factMentions = remember(factMentions);
+`, quizContext);
+const { quiz } = quizContext;
+{
+  const factOf = (collectionId, itemId, factId) => {
+    const collection = collections.find((entry) => entry.id === collectionId);
+    const item = collection.items.find((entry) => entry.id === itemId);
+    const fact = collection.facts[itemId].facts.find((entry) => entry.id === factId);
+    assert(fact, `${collectionId}/${itemId} should have the fact ${factId}`);
+    return quiz.factNamesCard(fact, item, collection);
+  };
+  assert(!factOf("kwiaty", "sledziennica-skretolistna", "F0272"), "F0272 names its card only through the English 'golden' and should not be a true/false decoy");
+  assert(!factOf("grzyby", "boczniaczek-pomaranczowozolty", "F0179"), "F0179 only describes a colour ('pomarańczowożółty') and should not be a true/false decoy");
+  assert(!factOf("architektura-drewniana", "kraina-otwartych-okiennic", "F1240"), "F1240 uses 'okiennice' as a common word, not the proper name 'Kraina Otwartych Okiennic', and should not be a true/false decoy");
+  assert(!factOf("plazy-gady", "salamandra-plamista", "F0527"), "F0527 contains 'salamand' only inside a Latin name in italics and should not be a true/false decoy");
+  assert(!factOf("mineraly", "siarka-rodzima-tarnobrzeg", "F0813"), "F0813 names only Tarnobrzeg, the find place of other minerals too, and should not be a true/false decoy");
+  assert(!factOf("mineraly", "malachit-miedzianka", "F0849"), "F0849 names only Miedzianka, the find place of other minerals too, and should not be a true/false decoy");
+  {
+    const castles = collections.find((collection) => collection.id === "twierdze-ruiny");
+    const pieskowaSkala = castles.facts["zamek-pieskowa-skala"].facts.find((fact) => fact.id === "F1410");
+    assert(pieskowaSkala.pl.includes("Pieskowej Skale") && pieskowaSkala.en.includes("Pieskowa Skała"), "F1410 is a false statement for Mysia Wieża, which Kazimierz Wielki built too, so it should name its castle");
+  }
+  assert(factOf("drzewa", "krzywy-las", "F0300"), "F0300 names the Krzywy Las by its first word and should stay a possible decoy");
+  assert(factOf("drzewa", "kasztanowiec-jastarnia", "F0345"), "F0345 names Jastarnia, a proper name from the card's name, and should stay a possible decoy");
+
+  const served = new Map();
+  for (const collection of collections) {
+    if (!Object.keys(collection.facts || {}).length) continue;
+    quizState.collection = collection;
+    const counts = quiz.factTextCounts(collection);
+    const list = quiz.quizPool(collection);
+    const ask = (selected, draws, language) => {
+      quizState.language = language;
+      let draw = 0;
+      return quiz.buildTrueFalseQuestion(selected, counts, { collection, list, rng: () => draws[draw++] ?? 0 });
+    };
+    const falseStatements = new Set();
+    for (const selected of list) {
+      quizState.lengths = [];
+      // The second draw (below 0.5) asks for a false statement; the last recorded length is how many there are.
+      const first = ask(selected, [0, 0.1, 0], "pl");
+      if (!first || first.correctId === "true") continue;
+      const choices = quizState.lengths.at(-1);
+      const facts = new Set();
+      for (let choice = 0; choice < choices; choice += 1) {
+        const draws = [0, 0.1, (choice + 0.5) / choices];
+        const polish = ask(selected, draws, "pl");
+        const english = ask(selected, draws, "en");
+        assert.equal(english.fact.id, polish.fact.id, `${collection.id}/${selected.id}: the true/false question should not depend on the page language`);
+        assert.equal(polish.correctId, "false", `${collection.id}/${selected.id}: ${polish.fact.id} should be a false statement`);
+        assert.equal(english.correctId, "false", `${collection.id}/${selected.id}: ${english.fact.id} should be a false statement`);
+        const owner = list.find((item) => item.id === polish.ownerName);
+        assert(owner && owner.id !== selected.id && owner.category !== selected.category, `${collection.id}/${selected.id}: ${polish.fact.id} should come from a card of another category`);
+        assert(quiz.factNamesCard(polish.fact, owner, collection), `${collection.id}/${selected.id}: ${polish.fact.id} should name its own card`);
+        facts.add(polish.fact.id);
+      }
+      served.set(`${collection.id}/${selected.id}`, facts);
+      for (const id of facts) falseStatements.add(id);
+    }
+    assert(falseStatements.size >= 5, `${collection.id}: the true/false quiz should keep at least 5 facts that can serve as a false statement (now ${falseStatements.size})`);
+  }
+  const neverServed = [
+    ["plazy-gady/traszka-gorska", "F0527"], ["plazy-gady/traszka-zwyczajna", "F0527"], ["plazy-gady/traszka-karpacka", "F0527"], ["plazy-gady/traszka-grzebieniasta", "F0527"],
+    ["atmosfera-astronomia/miraz-gorny-nad-baltykiem", "F1066"], ["atmosfera-astronomia/fata-morgana-latajace-statki", "F1066"], ["atmosfera-astronomia/tatry-z-wyzyny-lubelskiej", "F1066"],
+    ["atmosfera-astronomia/fata-morgana-latajace-statki", "F1058"], ["atmosfera-astronomia/tatry-z-wyzyny-lubelskiej", "F1058"], ["atmosfera-astronomia/atmosfera-jako-soczewka", "F1058"],
+    ["kwiaty/dyptam-jesionolistny", "F0265"],
+    ["mineraly/gips-wtorny-jeziorko", "F0813"], ["mineraly/kalcyt-siarkowy", "F0813"], ["mineraly/stroncjanit-tarnobrzeg", "F0813"],
+    ["mineraly/uraninit-kowary", "F0849"],
+  ];
+  for (const [card, factId] of neverServed) {
+    assert(collections.some((collection) => collection.items.some((item) => card === `${collection.id}/${item.id}`)), `${card} should be a card`);
+    assert(!served.get(card)?.has(factId), `${factId} is true of ${card} too and should not be served there as a false statement`);
+  }
+}
+
 // Polish "Podlaskie" (region line, line under the name) is the voivodeship, so English says "Podlaskie Province",
 // as with "Lublin Province". English "Podlasie" is the historical region: it stands only where the Polish text
 // names the region too ("Podlasie" or the adjective "podlaski"), and a Polish "Podlasie" there stays "Podlasie".
