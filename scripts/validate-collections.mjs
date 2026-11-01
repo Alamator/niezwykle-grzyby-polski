@@ -559,7 +559,11 @@ for (const file of i18nFiles) {
 // - F0527 matched "salamand" inside the Latin "*Batrachochytrium salamandrivorans*", and the fungus threatens
 //   newts too;
 // - F1066 and F1058 (refraction, mirages) are true of the other mirage cards of their category, and F0265
-//   (phototoxic sap) of Dyptam, a card of the same category.
+//   (phototoxic sap) of Dyptam, a card of the same category;
+// - F0813 (the Machów mine closed and flooded) named "Siarka rodzima z Tarnobrzega" only through Tarnobrzeg,
+//   the find place of other minerals too, so it fitted calcite, gypsum and strontianite; F0849 (uranium ore
+//   from Miedzianka) named malachite only through Miedzianka and fitted uraninite;
+// - F1410 said only "Zamek zbudował … Kazimierz Wielki", which fits Mysia Wieża too; it now names its castle.
 // The test runs the real buildTrueFalseQuestion for every quiz card and every possible false statement, in
 // Polish and in English.
 function appFunction(name) {
@@ -595,7 +599,7 @@ const quizContext = vm.createContext({
   },
 });
 const quizFunctions = ["itemSynonyms", "factsEntry", "itemFacts", "nameWords", "wordStem", "latinGenus", "stemsOf", "englishItemName",
-  "nameStems", "factMentions", "polishNamesCard", "factNamesCard", "lineageKey", "quizFactsFor", "factTextCounts", "quizPool", "buildTrueFalseQuestion"];
+  "nameStems", "factMentions", "sharedFindPlaces", "polishNamesCard", "factNamesCard", "lineageKey", "quizFactsFor", "factTextCounts", "quizPool", "buildTrueFalseQuestion"];
 vm.runInContext(`${quizFunctions.map(appFunction).join("\n")}\nthis.quiz = { factNamesCard, factTextCounts, quizPool, buildTrueFalseQuestion };`, quizContext);
 // The question is built anew for every choice, so the name checks repeat; their results are kept per fact, card
 // and page language (the language stays in the key, so a check that came to depend on it would still show).
@@ -626,6 +630,13 @@ const { quiz } = quizContext;
   assert(!factOf("grzyby", "boczniaczek-pomaranczowozolty", "F0179"), "F0179 only describes a colour ('pomarańczowożółty') and should not be a true/false decoy");
   assert(!factOf("architektura-drewniana", "kraina-otwartych-okiennic", "F1240"), "F1240 uses 'okiennice' as a common word, not the proper name 'Kraina Otwartych Okiennic', and should not be a true/false decoy");
   assert(!factOf("plazy-gady", "salamandra-plamista", "F0527"), "F0527 contains 'salamand' only inside a Latin name in italics and should not be a true/false decoy");
+  assert(!factOf("mineraly", "siarka-rodzima-tarnobrzeg", "F0813"), "F0813 names only Tarnobrzeg, the find place of other minerals too, and should not be a true/false decoy");
+  assert(!factOf("mineraly", "malachit-miedzianka", "F0849"), "F0849 names only Miedzianka, the find place of other minerals too, and should not be a true/false decoy");
+  {
+    const castles = collections.find((collection) => collection.id === "twierdze-ruiny");
+    const pieskowaSkala = castles.facts["zamek-pieskowa-skala"].facts.find((fact) => fact.id === "F1410");
+    assert(pieskowaSkala.pl.includes("Pieskowej Skale") && pieskowaSkala.en.includes("Pieskowa Skała"), "F1410 is a false statement for Mysia Wieża, which Kazimierz Wielki built too, so it should name its castle");
+  }
   assert(factOf("drzewa", "krzywy-las", "F0300"), "F0300 names the Krzywy Las by its first word and should stay a possible decoy");
   assert(factOf("drzewa", "kasztanowiec-jastarnia", "F0345"), "F0345 names Jastarnia, a proper name from the card's name, and should stay a possible decoy");
 
@@ -670,6 +681,8 @@ const { quiz } = quizContext;
     ["atmosfera-astronomia/miraz-gorny-nad-baltykiem", "F1066"], ["atmosfera-astronomia/fata-morgana-latajace-statki", "F1066"], ["atmosfera-astronomia/tatry-z-wyzyny-lubelskiej", "F1066"],
     ["atmosfera-astronomia/fata-morgana-latajace-statki", "F1058"], ["atmosfera-astronomia/tatry-z-wyzyny-lubelskiej", "F1058"], ["atmosfera-astronomia/atmosfera-jako-soczewka", "F1058"],
     ["kwiaty/dyptam-jesionolistny", "F0265"],
+    ["mineraly/gips-wtorny-jeziorko", "F0813"], ["mineraly/kalcyt-siarkowy", "F0813"], ["mineraly/stroncjanit-tarnobrzeg", "F0813"],
+    ["mineraly/uraninit-kowary", "F0849"],
   ];
   for (const [card, factId] of neverServed) {
     assert(collections.some((collection) => collection.items.some((item) => card === `${collection.id}/${item.id}`)), `${card} should be a card`);

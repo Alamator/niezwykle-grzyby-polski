@@ -1694,16 +1694,33 @@
   // ("a mokry pomarańczowożółty") does not count: another card may fit that description. Latin names in
   // italics ("*Batrachochytrium salamandrivorans*") can hold a word of the card's name without naming the
   // card, so the Polish name is looked for outside them.
-  function polishNamesCard(text, item) {
+  function polishNamesCard(text, item, collection = activeCollection()) {
     const full = String(text || "");
     if (latinGenus(item) && full.toLocaleLowerCase("pl").includes(latinGenus(item))) return true;
     const raw = full.replace(/(^|[^*])\*[^*]+\*(?!\*)/g, "$1 ");
     const lower = raw.toLocaleLowerCase("pl");
+    const shared = sharedFindPlaces(item, collection);
     return [item.name_pl, ...itemSynonyms(item)].some((name) => {
       const [head, ...rest] = nameWords(name);
       return Boolean(head) && lower.includes(wordStem(head).toLocaleLowerCase("pl"))
-        || rest.some((word) => /^\p{Lu}/u.test(word) && raw.includes(wordStem(word)));
+        || rest.some((word) => /^\p{Lu}/u.test(word) && !shared.has(word) && raw.includes(wordStem(word)));
     });
+  }
+
+  // "Siarka rodzima z Tarnobrzega", "Malachit z Miedzianki": the place after "z"/"ze" says where a specimen comes
+  // from. When another card of the drawer names that place too (in its name or region), the place does not tell
+  // the cards apart, so it does not name the card: a fact about the Machów mine fits every Tarnobrzeg mineral.
+  function sharedFindPlaces(item, collection) {
+    const shared = new Set();
+    const others = (collection?.items || []).filter((other) => other.id !== item.id)
+      .map((other) => [other.name_pl, ...itemSynonyms(other), other.region_pl].join(" "));
+    for (const name of [item.name_pl, ...itemSynonyms(item)]) {
+      const place = (String(name || "").match(/\s(?:z|ze)\s+(\p{Lu}.*)$/u) || [])[1] || "";
+      for (const word of nameWords(place)) {
+        if (/^\p{Lu}/u.test(word) && others.some((text) => text.includes(wordStem(word)))) shared.add(word);
+      }
+    }
+    return shared;
   }
 
   // A fact names its own card in each language with that language's name: the Polish text as above, the
@@ -1712,7 +1729,7 @@
   // other page would see a fact that names no card at all.
   function factNamesCard(fact, item, collection = activeCollection()) {
     const english = String(fact.en || "").toLocaleLowerCase("pl");
-    return polishNamesCard(fact.pl, item)
+    return polishNamesCard(fact.pl, item, collection)
       && stemsOf([englishItemName(item, collection)], item).some((stem) => english.includes(stem));
   }
 

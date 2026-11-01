@@ -648,8 +648,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1410",
      "icon": "🏰",
-     "pl": "Zamek zbudował w I połowie XIV w. Kazimierz Wielki. W latach 1542–1580 przebudowano go w renesansową rezydencję.",
-     "en": "The castle was built in the first half of the 14th century by Casimir the Great. Between 1542 and 1580 it was rebuilt as a Renaissance residence.",
+     "pl": "Zamek w Pieskowej Skale zbudował w I połowie XIV w. Kazimierz Wielki. W latach 1542–1580 przebudowano go w renesansową rezydencję.",
+     "en": "Pieskowa Skała Castle was built in the first half of the 14th century by Casimir the Great. Between 1542 and 1580 it was rebuilt as a Renaissance residence.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Pieskowa_Ska%C5%82a",
