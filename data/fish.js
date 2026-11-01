@@ -66,7 +66,7 @@
       name_pl: "Piskorz",
       name_lat: "Misgurnus fossilis",
       category: "dzwiek-i-swiatlo",
-      hook: "Wydłużona ryba mułu, która oddycha jelitowo; wyjęta z wody potrafi cicho piszczeć, gdy z jelita uchodzi powietrze, i stąd jej nazwa.",
+      hook: "Wydłużona ryba mułu, która potrafi oddychać jelitowo; wyjęta z wody potrafi cicho piszczeć, gdy z jelita uchodzi powietrze, i stąd jej nazwa.",
       quiz_angle: "oddychanie jelitowe, zakopywanie się w mule i wrażliwość na zmiany ciśnienia",
       safety_note: "gatunek pod ochroną częściową i siedliskowo wrażliwy; nie odławiać i nie osuszać starorzeczy",
       protection: "partial",

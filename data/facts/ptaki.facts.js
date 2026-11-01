@@ -797,8 +797,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0644",
      "icon": "🕳️",
-     "pl": "Gniazduje w **norze wykopanej w stromym brzegu**. Polską nazwę próbowano wywodzić od „ziemiorodek”, czyli „rodzący się w ziemi”.",
-     "en": "It nests in a **burrow dug into a steep bank**. Attempts have been made to derive its Polish name from 'ziemiorodek', meaning 'born in the earth'.",
+     "pl": "Gniazduje w **norze wykopanej w stromym brzegu**. Polską nazwę próbowano wywodzić od „ziemio-rodek”, czyli „rodzący się w ziemi”.",
+     "en": "It nests in a **burrow dug into a steep bank**. Attempts have been made to derive its Polish name from 'ziemio-rodek', meaning 'born in the earth'.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zimorodek_%28zwyczajny%29",
@@ -809,7 +809,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "otop.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0645",

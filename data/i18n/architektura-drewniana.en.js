@@ -89,7 +89,7 @@ window.ATLAS_ITEM_TEXT_EN["architektura-drewniana"] = {
     "habitat": "A wooden church within a historic sacred complex, with an interior that is important for the study of wall painting.",
     "occurrence": "In the atlas, it completes the Subcarpathian thread of Gothic log churches inscribed on the UNESCO list.",
     "level": "log Gothic",
-    "latin": "Blizne • fortified village landscape • UNESCO"
+    "latin": "Blizne • church with a defensive character • UNESCO"
   },
   "kwiaton": {
     "name": "St. Paraskevi Tserkva in Kwiatoń",

@@ -107,7 +107,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "name": "Common morel",
     "hook": "A honeycomb-like fruiting body: one of the most recognizable spring fungi.",
     "quiz_angle": "honeycomb pits versus the folded brain-like surface of false morels",
-    "safety_note": "Partially protected (specimens growing outside gardens, horticultural crops, forest nurseries and green areas); for educational purposes only.",
+    "safety_note": "Partially protected; for educational purposes only.",
     "region": "Throughout Poland, but rare: by 2020 about 260 sites had been reported.",
     "habitat": "Broadleaved and mixed forests, meadows and riparian woods, often under ash trees; fertilised soils.",
     "occurrence": "The fruit bodies appear in April and May. Older records need checking, because the taxonomy of morels has changed in recent years.",

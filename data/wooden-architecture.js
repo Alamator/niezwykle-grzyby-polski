@@ -129,7 +129,7 @@
     expanded({
       id: "blizne",
       name_pl: "Kościół Wszystkich Świętych w Bliznem",
-      name_lat: "Blizne • warowny krajobraz wsi • UNESCO",
+      name_lat: "Blizne • kościół o charakterze obronnym • UNESCO",
       category: "gotyk-zrebowy",
       hook: "Drewniany kościół w Bliznem zachował nie tylko bryłę i polichromie, lecz także poczucie dawnego zespołu kościelnego w krajobrazie podkarpackiej wsi.",
       quiz_angle: "gotycki zrąb, malowane wnętrze i czytelny zespół sakralny wokół świątyni",
@@ -381,7 +381,7 @@
       hook: "Tu osobliwością nie jest pojedynczy dom, lecz rytm okiennic, narożników i kolorowych detali, które zmieniają drewniane wsie w żywy ornament.",
       quiz_angle: "zdobione okiennice, podlaskie wsie, drewniany detal i krajobraz wielokulturowego pogranicza",
       safety_note: "to zamieszkane miejscowości; oglądać z drogi, nie wchodzić na posesje i nie traktować domów jak dekoracji bez właścicieli",
-      region_pl: "Podlasie, szczególnie okolice Trześcianki, Socec i Puchłów.",
+      region_pl: "Podlasie, szczególnie okolice Trześcianki, Soc i Puchłów.",
       habitat_pl: "Zespoły drewnianej zabudowy wiejskiej z bogatym detalem snycerskim wokół okien, naroży i szczytów.",
       occurrence_note: "W atlasie reprezentuje drewnianą architekturę żywą, rozproszoną i zależną od codziennej opieki mieszkańców.",
       level: "żywy zabytek"

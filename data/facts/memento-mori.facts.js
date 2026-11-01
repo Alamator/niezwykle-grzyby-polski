@@ -359,11 +359,11 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1461",
      "icon": "",
-     "pl": "Najstarsze nagrobki na mizarze pochodzą z XVII i XVIII w.; to nieociosane kamienie bez inskrypcji.",
-     "en": "The oldest gravestones in the mizar date from the 17th and 18th centuries; they are undressed stones without inscriptions.",
+     "pl": "Najstarsze nagrobki na mizarze pochodzą z XVII i XVIII w.; to nieociosane kamienie bez czytelnych inskrypcji.",
+     "en": "The oldest gravestones in the mizar date from the 17th and 18th centuries; they are undressed stones without legible inscriptions.",
      "sources": [
       {
-       "url": "https://pl.wikipedia.org/wiki/Kruszyniany",
+       "url": "https://pl.wikipedia.org/wiki/Cmentarz_muzu%C5%82ma%C5%84ski_w_Kruszynianach",
        "label": "Wikipedia (PL)"
       },
       {

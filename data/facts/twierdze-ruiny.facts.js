@@ -69,7 +69,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1381",
      "icon": "🏆",
-     "pl": "Była jedną z największych budowli pałacowych w Europie przed powstaniem Wersalu.",
+     "pl": "Była to jedna z największych budowli pałacowych w Europie przed powstaniem Wersalu.",
      "en": "It was one of the largest palace buildings in Europe before Versailles was built.",
      "sources": [
       {

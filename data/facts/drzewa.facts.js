@@ -756,8 +756,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0325",
      "icon": "🏷️",
-     "pl": "Nosił m.in. nazwy „1000-letni Dąb Niemiec”, „Dąb Królewski” (gdy Kadyny należały do cesarza Wilhelma II, który postawił przy nim strażnika), „Dąb Kadyny” i „Dąb Odrodzenia Polski”. Obecne imię uczci rycerza **Jana Bażyńskiego**.",
-     "en": "Its names have included the ‘1000-Year-Old Oak of Germany’, the ‘Royal Oak’ (when Kadyny belonged to Kaiser Wilhelm II, who posted a guard beside it), the ‘Kadyny Oak’ and the ‘Oak of Poland’s Rebirth’. Its current name honours the knight **Jan Bażyński**.",
+     "pl": "Nosił m.in. nazwy „1000-letni Dąb Niemiec”, „Dąb Królewski” (gdy Kadyny należały do cesarza Wilhelma II, który postawił przy nim strażnika), „Dąb Kadyny” i „Dąb Odrodzenia Polski”. Obecne imię upamiętnia rycerza **Jana Bażyńskiego**.",
+     "en": "Its names have included the ‘1000-Year-Old Oak of Germany’, the ‘Royal Oak’ (when Kadyny belonged to Kaiser Wilhelm II, who posted a guard beside it), the ‘Kadyny Oak’ and the ‘Oak of Poland’s Rebirth’. Its current name commemorates the knight **Jan Bażyński**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Ba%C5%BCy%C5%84skiego",
@@ -1112,7 +1112,7 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0347",
      "icon": "🤧",
-     "pl": "„Drzewo chusteczkowe”: kuliste kwiatostany otaczają **dwie białe podsadki**.",
+     "pl": "„Drzewo chusteczkowe”: kuliste kwiatostany są otoczone **dwiema białymi podsadkami**.",
      "en": "The ‘handkerchief tree’: its spherical flower heads are surrounded by **two white bracts**.",
      "sources": [
       {

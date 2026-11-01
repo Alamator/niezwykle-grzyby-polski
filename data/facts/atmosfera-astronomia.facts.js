@@ -360,8 +360,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1040",
      "icon": "🔭",
-     "pl": "To utrudnienie dla astronomów: w letnie noce nie zapada noc astronomiczna, więc niebo nie robi się w pełni ciemne.",
-     "en": "It's a nuisance for astronomers: on summer nights astronomical night never falls, so the sky never gets fully dark.",
+     "pl": "To utrudnienie dla astronomów: w niektóre letnie noce nie zapada noc astronomiczna, więc niebo nie robi się w pełni ciemne.",
+     "en": "It's a nuisance for astronomers: on some summer nights astronomical night does not fall, so the sky does not get fully dark.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce",

@@ -776,8 +776,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0741",
      "icon": "⚖️",
-     "pl": "Orzesznica waży 17–20 g, ale jesienią, tuż przed snem zimowym (od października do kwietnia), jej masa rośnie do 30–40 g.",
-     "en": "The hazel dormouse weighs 17–20 g, but in autumn, just before hibernation (from October to April), its mass rises to 30–40 g.",
+     "pl": "Jesienią, tuż przed snem zimowym (od października do kwietnia), masa orzesznicy leszczynowej rośnie do 30–40 g.",
+     "en": "In autumn, just before hibernation (from October to April), the hazel dormouse's mass rises to 30–40 g.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Hazel_dormouse",
@@ -1495,7 +1495,7 @@ window.ATLAS_FACTS["ssaki"] = {
     },
     {
      "id": "F0780",
-     "icon": "📉📈",
+     "icon": "📉",
      "pl": "Na początku XX w. w Bałtyku żyło około 100 tys. szarytek; masowe polowania i przyłów w sieciach rybackich zmniejszyły ich liczbę do około 20 tys. w latach 40., a przez DDT i PCB w latach 70. zostało ich **mniej niż 3 tys.**",
      "en": "At the start of the 20th century about 100,000 grey seals lived in the Baltic; mass hunting and bycatch in fishing nets cut their numbers to about 20,000 in the 1940s, and because of DDT and PCBs **fewer than 3,000** were left in the 1970s.",
      "sources": [

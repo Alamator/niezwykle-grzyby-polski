@@ -283,7 +283,7 @@ window.MUSHROOM_APP_DATA = {
       "category": "czarki-mozgi-i-plastry-miodu",
       "hook": "Owocnik jak plaster miodu — jeden z najbardziej rozpoznawalnych wiosennych grzybów.",
       "quiz_angle": "plaster miodu kontra pofałdowany mózg piestrzenicy",
-      "safety_note": "pod ochroną częściową (okazy rosnące poza ogrodami, uprawami ogrodniczymi, szkółkami leśnymi i terenami zieleni); tylko edukacyjnie",
+      "safety_note": "pod ochroną częściową; tylko edukacyjnie",
       "protection": "partial",
       "image_status": "do_pozyskania",
       "ordinal": 11,

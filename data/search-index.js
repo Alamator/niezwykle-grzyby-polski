@@ -352,7 +352,7 @@ window.ATLAS_SEARCH = {
     ["architektura-drewniana","sekowa","Kościół św. Filipa i św. Jakuba w Sękowej","Sts. Philip and James Church in Sękowa","Sękowa • dach i soboty • UNESCO","Sękowa • roof and arcades • UNESCO"],
     ["architektura-drewniana","lipnica-murowana","Kościół św. Leonarda w Lipnicy Murowanej","St. Leonard's Church in Lipnica Murowana","Lipnica Murowana • cmentarz i drewno • UNESCO","Lipnica Murowana • cemetery and wood • UNESCO"],
     ["architektura-drewniana","haczow","Kościół Wniebowzięcia NMP i św. Michała Archanioła w Haczowie","Church of the Assumption and St. Michael in Haczów","Haczów • wielki zrąb • UNESCO","Haczów • great log structure • UNESCO"],
-    ["architektura-drewniana","blizne","Kościół Wszystkich Świętych w Bliznem","All Saints Church in Blizne","Blizne • warowny krajobraz wsi • UNESCO","Blizne • fortified village landscape • UNESCO"],
+    ["architektura-drewniana","blizne","Kościół Wszystkich Świętych w Bliznem","All Saints Church in Blizne","Blizne • kościół o charakterze obronnym • UNESCO","Blizne • church with a defensive character • UNESCO"],
     ["architektura-drewniana","kwiaton","Cerkiew św. Paraskewii w Kwiatoniu","St. Paraskevi Tserkva in Kwiatoń","Kwiatoń • łemkowska cerkiew • UNESCO","Kwiatoń • Lemko tserkva • UNESCO"],
     ["architektura-drewniana","powroznik","Cerkiew św. Jakuba w Powroźniku","St. James Tserkva in Powroźnik","Powroźnik • najstarsze warstwy cerkiewne • UNESCO","Powroźnik • oldest tserkva layers • UNESCO"],
     ["architektura-drewniana","owczary","Cerkiew Opieki Bogurodzicy w Owczarach","Protection of the Mother of God Tserkva in Owczary","Owczary • cerkiew łemkowska • UNESCO","Owczary • Lemko tserkva • UNESCO"],

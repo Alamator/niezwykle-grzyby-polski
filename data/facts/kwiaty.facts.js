@@ -176,10 +176,6 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (PL)"
       },
       {
-       "url": "https://eli.gov.pl/eli/DU/1946/384/ogl/pol/pdf",
-       "label": "eli.gov.pl"
-      },
-      {
        "url": "https://pl.wikipedia.org/wiki/Lista_gatunk%C3%B3w_ro%C5%9Blin_obj%C4%99tych_%C5%9Bcis%C5%82%C4%85_ochron%C4%85_w_Polsce",
        "label": "Wikipedia (PL)"
       }
