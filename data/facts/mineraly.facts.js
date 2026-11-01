@@ -199,8 +199,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0795",
      "icon": "",
-     "pl": "Heflikit **nie jest amfibolem**, jak podaje strona. Amfibolem ze skandem jest skandiowinchit.",
-     "en": "Heflikite **is not an amphibole**, as the page states. The scandium-bearing amphibole is scandio-winchite.",
+     "pl": "Heflikit **nie jest amfibolem**. Skandiowinchit to amfibol ze skandem.",
+     "en": "Heflikite **is not an amphibole**. Scandio-winchite is an amphibole with scandium.",
      "sources": [
       {
        "url": "https://www.mindat.org/min-470696.html",
@@ -209,9 +209,25 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/A44D4938B480CFE61573539EA1F49897/S0026461X23000981a.pdf/heflikite_ideally_ca2al2scsi2o7sio4ooh_the_first_scandium_epidotesupergroup_mineral_from_jordanow_slaski_lower_silesia_poland_and_from_heftetjern_tordal_norway.pdf",
        "label": "cambridge.org"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Epidote_group",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Amphibole",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://de.wikipedia.org/wiki/Amphibolgruppe",
+       "label": "Wikipedia (DE)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/List_of_minerals_recognized_by_the_International_Mineralogical_Association_(S)",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -519,13 +535,13 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0813",
      "icon": "🌊",
-     "pl": "Odkrywkę w Machowie zamknięto w 1992 r. i zalano wodą. Tak powstało Jezioro Tarnobrzeskie.",
-     "en": "The open-pit mine at Machów was closed in 1992 and flooded. That is how Jezioro Tarnobrzeskie came into being.",
+     "pl": "Wydobycie w odkrywce w Machowie zakończono w 1992 r. Wyrobisko zalano potem wodą. Tak powstało Jezioro Tarnobrzeskie.",
+     "en": "Extraction at the Machów open-pit mine ended in 1992. The pit was later flooded. That is how Jezioro Tarnobrzeskie came into being.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Tarnobrzeskie_Zag%C5%82%C4%99bie_Siarkowe",
@@ -534,9 +550,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://www.pgi.gov.pl/muzeum/kopalnia-wiedzy-1/12583-siarka.html",
        "label": "pgi.gov.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Jezioro_Tarnobrzeskie",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0814",
@@ -1181,7 +1201,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "webmineral.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0853",
@@ -1276,7 +1296,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "webmineral.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0858",
@@ -1355,7 +1375,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "webmineral.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0863",

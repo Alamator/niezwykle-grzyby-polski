@@ -174,8 +174,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0522",
      "icon": "🧪",
-     "pl": "Z wydzieliny skóry kumaka górskiego wyizolowano na przełomie lat 60. i 70. XX w. (pierwszy opis z 1970 r.) bombininę, jeden z pierwszych poznanych peptydów przeciwdrobnoustrojowych płazów.",
-     "en": "Bombinin, one of the first amphibian antimicrobial peptides to be discovered, was isolated from the skin secretion of the yellow-bellied toad at the turn of the 1960s and 1970s (first described in 1970).",
+     "pl": "W skórze kumaka górskiego znaleziono peptydy przeciwdrobnoustrojowe. Pierwszym wyizolowanym z nich była bombinina.",
+     "en": "Antimicrobial peptides were found in the skin of the yellow-bellied toad. The first of them to be isolated was bombinin.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kumak_g%C3%B3rski",
@@ -194,7 +194,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0523",
@@ -299,8 +299,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0529",
      "icon": "🥇",
-     "pl": "To **największa ropucha Polski**. Samice mają do 12,5 cm.",
-     "en": "It is **Poland’s largest toad**. Females reach up to 12.5 cm.",
+     "pl": "To **największa ropucha Polski**. Samice są większe od samców.",
+     "en": "It is **Poland’s largest toad**. Females are larger than males.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ropucha_szara",
@@ -311,7 +311,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0530",
@@ -486,8 +486,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0540",
      "icon": "🧡",
-     "pl": "Ma pomarańczowy brzuch i gardło. To jedyny żyjący dziś gatunek swojego rodzaju, nazywanego *Ichthyosaura*, choć część herpetologów od 2025 r. używa nazwy *Mesotriton*.",
-     "en": "It has an orange belly and throat. It is the only living species in its genus, *Ichthyosaura*, although since 2025 some herpetologists have used the name *Mesotriton*.",
+     "pl": "Ma pomarańczowy brzuch i gardło. To jedyny żyjący dziś gatunek swojego rodzaju, nazywanego *Ichthyosaura* lub *Mesotriton*.",
+     "en": "It has an orange belly and throat. It is the only living species in its genus, which is called *Ichthyosaura* or *Mesotriton*.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Alpine_newt",
@@ -510,7 +510,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "salamandra-journal.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0541",
@@ -562,7 +562,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "cites.zoo.waw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0544",
@@ -693,7 +693,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "serval.unil.ch"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0552",
@@ -710,7 +710,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "peerj.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -859,7 +859,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0563",
@@ -1006,7 +1006,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "eur-lex.europa.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0571",
@@ -1085,7 +1085,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "peerj.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0576",
@@ -1150,7 +1150,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1198,7 +1198,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "link.springer.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

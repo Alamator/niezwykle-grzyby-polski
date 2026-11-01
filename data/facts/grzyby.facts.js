@@ -9,8 +9,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0000",
      "icon": "🐙",
-     "pl": "Przybysz z antypodów. Za jego ojczyznę uważa się Australię z Tasmanią i Nową Zelandię. W Europie po raz pierwszy odnotowano go w 1914 r. we Francji, w Wogezach. Najpewniej przypłynął z zaopatrzeniem wojskowym na początku I wojny światowej, choć bierze się też pod uwagę transport australijskiej wełny.",
-     "en": "A newcomer from the Antipodes. Its homeland is thought to be Australia with Tasmania, and New Zealand. In Europe it was first recorded in 1914 in France, in the Vosges. It most probably arrived with military supplies at the start of the First World War, although shipments of Australian wool are also considered.",
+     "pl": "Przybysz z antypodów. Za jego ojczyznę uważa się Australię z Tasmanią i Nową Zelandię. W Europie po raz pierwszy odnotowano go w 1914 r. we Francji.",
+     "en": "A newcomer from the Antipodes. Its homeland is thought to be Australia with Tasmania, and New Zealand. In Europe it was first recorded in 1914 in France.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Okratek_australijski",
@@ -25,7 +25,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "typolive03-microsite-preview.wsl.ch"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0001",
@@ -244,7 +244,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "stampworld.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -388,8 +388,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0022",
      "icon": "🌡️",
-     "pl": "W Finlandii przez trzy dekady przybywało jej stwierdzeń (dane z 2013 r.). Autorzy badania przypuszczają, że jedną z przyczyn mogą być cieplejsze zimy i deszczowe wiosny.",
-     "en": "In Finland, records of it increased over three decades (data from 2013). The study's authors suggest that warmer winters and rainy springs may be among the causes.",
+     "pl": "W Finlandii przez trzy dekady zwiększało się jej występowanie (badanie z 2013 r.). Autorzy badania przypuszczają, że jedną z przyczyn mogą być cieplejsze zimy i deszczowe wiosny.",
+     "en": "In Finland, its occurrence increased over three decades (a 2013 study). The study's authors suggest that warmer winters and rainy springs may be among the causes.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dzbank%C3%B3wka_kulista",
@@ -402,9 +402,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://doaj.org/article/80944622c94e4c8281d702a1a4b28cee",
        "label": "doaj.org"
+      },
+      {
+       "url": "https://bibliotekanauki.pl/articles/67193.pdf",
+       "label": "Acta Mycologica 2013"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0023",
@@ -571,8 +575,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0034",
      "icon": "🛡️",
-     "pl": "W latach 1983–2014 był pod ochroną ścisłą. Od 2014 r. jest pod **częściową**. Okazy rosnące poza ogrodami, uprawami, szkółkami i terenami zieleni nadal są chronione.",
-     "en": "From 1983 to 2014 it was strictly protected. Since 2014 it has been under **partial** protection. Specimens growing outside gardens, crops, nurseries and green spaces are still protected.",
+     "pl": "W latach 1983–2014 był pod ochroną ścisłą. Od 2014 r. jest pod **częściową**. Zbierać go na własny użytek i do celów gospodarczych wolno tylko w ogrodach, uprawach ogrodniczych, szkółkach leśnych i na terenach zieleni.",
+     "en": "From 1983 to 2014 it was strictly protected. Since 2014 it has been under **partial** protection. It may be collected for personal use and for commercial purposes only in gardens, horticultural crops, forest nurseries and green spaces.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Smardz_jadalny",
@@ -591,7 +595,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "prawo.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0035",
@@ -608,7 +612,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "msafungi.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0036",
@@ -760,7 +764,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "pressto.amu.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0046",
@@ -947,8 +951,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0057",
      "icon": "📏",
-     "pl": "Owocniki dorastają do ok. 20 cm wysokości i 30 cm szerokości. Mają różowe lub czerwonawe końcówki.",
-     "en": "The fruiting bodies grow up to about 20 cm tall and 30 cm wide. They have pink or reddish tips.",
+     "pl": "Owocniki dorastają do ok. 20 cm wysokości. Mają różowe lub czerwonawe końcówki.",
+     "en": "The fruiting bodies grow up to about 20 cm tall. They have pink or reddish tips.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Koral%C3%B3wka_czerwonowierzcho%C5%82kowa",
@@ -957,9 +961,13 @@ window.ATLAS_FACTS["grzyby"] = {
       {
        "url": "https://www.mushroomexpert.com/ramaria_botrytis.html",
        "label": "mushroomexpert.com"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Ramaria_botrytis",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0058",
@@ -1011,7 +1019,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "mushroomexpert.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0061",
@@ -1134,7 +1142,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "journals.plos.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0070",
@@ -1151,7 +1159,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "mykoweb.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1208,7 +1216,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0075",
@@ -1239,15 +1247,23 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0077",
      "icon": "🍑",
-     "pl": "Po angielsku to „apricot jelly” (morelowa galaretka). Jest jedynym gatunkiem w swoim rodzaju.",
-     "en": "In English it's 'apricot jelly'. It is the only species in its genus.",
+     "pl": "Po angielsku to „apricot jelly” (morelowa galaretka). Jest jedynym gatunkiem ze swojego rodzaju w Polsce.",
+     "en": "In English it's 'apricot jelly'. It is the only species of its genus in Poland.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Guepinia",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Guepinia",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/P%C5%82omyczka_galaretowata",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1430,8 +1446,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0089",
      "icon": "🤏",
-     "pl": "To jeden z najmniejszych gwiazdoszy. Suche owocniki można znaleźć nawet zimą i wiosną.",
-     "en": "It's one of the smallest earthstars. Dry fruiting bodies can be found even in winter and spring.",
+     "pl": "To jeden z najmniejszych gwiazdoszy. Suche owocniki można znaleźć także w bezśnieżne zimy, a nawet wiosną.",
+     "en": "It's one of the smallest earthstars. Dry fruiting bodies can also be found in snowless winters, and even in spring.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Gwiazdosz_czteropromienny",
@@ -1442,7 +1458,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "encyklopedia.puszcza-bialowieska.eu"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0090",
@@ -1467,7 +1483,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "miechow.pl:443"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1502,7 +1518,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "mycokeys.pensoft.net"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0093",
@@ -1634,8 +1650,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0101",
      "icon": "🩸",
-     "pl": "Owocniki zawierają atromentynę, barwnik o działaniu przeciwzakrzepowym podobnym do heparyny, wykrytym w badaniach na zwierzętach w latach 60. XX wieku. Nie wykazano, że atromentyna występuje akurat w czerwonych kroplach.",
-     "en": "The fruiting bodies contain atromentin, a pigment with heparin-like anticoagulant activity, discovered in animal studies in the 1960s. It has not been shown that atromentin is actually present in the red droplets.",
+     "pl": "Zawiera atromentynę, barwnik o działaniu przeciwzakrzepowym podobnym do heparyny.",
+     "en": "It contains atromentin, a pigment with heparin-like anticoagulant activity.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Hydnellum_peckii",
@@ -1646,7 +1662,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "onlinelibrary.wiley.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0102",
@@ -1663,7 +1679,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "burkeherbarium.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0103",
@@ -1850,7 +1866,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "researchgate.net"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0114",
@@ -1875,7 +1891,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1897,7 +1913,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "mykoweb.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0117",
@@ -1984,7 +2000,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -2008,7 +2024,7 @@ window.ATLAS_FACTS["grzyby"] = {
      "id": "F0124",
      "icon": "🧪",
      "pl": "Na glebach skażonych arsenem potrafi go silnie kumulować.",
-     "en": "On arsenic-contaminated soils it can accumulate large amounts of the element.",
+     "en": "On arsenic-contaminated soils it can strongly accumulate the element.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Laccaria_amethystina",
@@ -2019,7 +2035,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "link.springer.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0125",
@@ -2049,7 +2065,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -2071,13 +2087,13 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "botit.botany.wisc.edu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0128",
      "icon": "🔍",
      "pl": "Owocniki mają ledwie 2–5 mm. Częściej widzimy samo zielone drewno niż grzyba.",
-     "en": "The fruiting bodies measure a mere 2–5 mm. We see the green wood far more often than the fungus itself.",
+     "en": "The fruiting bodies measure a mere 2–5 mm. We see just the green wood more often than the fungus.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Chlor%C3%B3wka_drobna",
@@ -2088,7 +2104,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "grzyby.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0129",
@@ -2205,8 +2221,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0135",
      "icon": "🧪",
-     "pl": "Wbrew nazwie za zatrucia odpowiada głównie kwas ibotenowy, a nie muskaryna, której jest ok. 0,0002%.",
-     "en": "Despite the name, poisoning is caused mainly by ibotenic acid rather than muscarine, which makes up only about 0.0002%.",
+     "pl": "Wbrew łacińskiej nazwie za zatrucia odpowiada głównie kwas ibotenowy, a nie muskaryna, której jest ok. 0,0002%.",
+     "en": "Despite the Latin name, poisoning is caused mainly by ibotenic acid rather than muscarine, which makes up about 0.0002%.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Muchomor_czerwony",
@@ -2217,7 +2233,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "unodc.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0136",
@@ -2270,8 +2286,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0139",
      "icon": "🪑",
-     "pl": "Rozkłada drewno dębu bardzo powoli (nawet przez kilkadziesiąt lat), a na początku tego procesu drewno nabiera czerwonego odcienia, co **podnosi jego wartość w meblarstwie**.",
-     "en": "It breaks down oak wood very slowly (over as long as several decades), and early in the process the wood takes on a reddish tint, which **raises its value in furniture-making**.",
+     "pl": "Rozkłada drewno dębu powoli (nawet przez kilkadziesiąt lat), a na początku tego procesu drewno nabiera czerwonego odcienia, co **podnosi jego wartość w meblarstwie**.",
+     "en": "It breaks down oak wood slowly (over as long as several decades), and early in the process the wood takes on a red tint, which **raises its value in furniture-making**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ozorek_d%C4%99bowy",
@@ -2282,7 +2298,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "panel.iop.krakow.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0140",
@@ -2462,8 +2478,8 @@ window.ATLAS_FACTS["grzyby"] = {
     {
      "id": "F0153",
      "icon": "",
-     "pl": "Narośl zawiera bardzo dużo szczawianów. W badanych proszkach z czagi było ich od 2,8 do 14,2 g na 100 g.",
-     "en": "The growth contains very high levels of oxalates. In the chaga powders tested, they ranged from 2.8 to 14.2 g per 100 g.",
+     "pl": "Narośl zawiera bardzo dużo szczawianów: od 2800 do 11 200 mg na 100 g.",
+     "en": "The growth contains very high levels of oxalates: from 2,800 to 11,200 mg per 100 g.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Inonotus_obliquus",
@@ -2478,7 +2494,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "synapse.koreamed.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0154",
@@ -2570,7 +2586,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "sciencedirect.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0160",
@@ -2646,7 +2662,7 @@ window.ATLAS_FACTS["grzyby"] = {
      "id": "F0164",
      "icon": "⚽",
      "pl": "Ma 10–60 cm średnicy. Jeden z największych znanych okazów (Czechy, 1955) ważył 20,8 kg, a w Kanadzie odnotowano okaz ponad 23 kg.",
-     "en": "It measures 10–60 cm across. One of the largest known specimens (Czech Republic, 1955) weighed 20.8 kg, and a specimen of over 23 kg has been recorded in Canada.",
+     "en": "It measures 10–60 cm across. One of the largest known specimens (Czechia, 1955) weighed 20.8 kg, and a specimen of over 23 kg has been recorded in Canada.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Czasznica_olbrzymia",
@@ -2661,7 +2677,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "bialystok.lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0165",
@@ -2678,7 +2694,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "blog.mycology.cornell.edu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0166",
@@ -3113,7 +3129,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "first-nature.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

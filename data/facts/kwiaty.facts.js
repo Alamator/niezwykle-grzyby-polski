@@ -36,7 +36,7 @@ window.ATLAS_FACTS["kwiaty"] = {
      "id": "F0203",
      "icon": "🪤",
      "pl": "To podwodna kuzynka muchołówki: pułapka z dwóch klapek działa jak u muchołówki, tylko jest mniejsza i schowana pod wodą.",
-     "en": "It's the underwater cousin of the Venus flytrap: its two-lobed trap works just like the flytrap's, only it's smaller and hidden underwater.",
+     "en": "It's the underwater cousin of the Venus flytrap: its two-lobed trap works like the flytrap's, only it's smaller and hidden underwater.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Aldrovanda_vesiculosa",
@@ -45,9 +45,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7671111",
        "label": "pmc.ncbi.nlm.nih.gov"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Venus_flytrap",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0204",
@@ -72,7 +76,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "siedliska.gios.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -160,8 +164,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0210",
      "icon": "🛡️",
-     "pl": "Wszystkie krajowe rosiczki (okrągłolistna, długolistna, pośrednia i mieszańcowa owalna) są pod **ochroną ścisłą**. Rodzime gatunki chroni się w Polsce od 1946 roku.",
-     "en": "All of Poland's sundews (round-leaved, great, oblong-leaved and the hybrid obovate sundew) are under **strict protection**. Native species have been protected in Poland since 1946.",
+     "pl": "Wszystkie krajowe rosiczki (okrągłolistna, długolistna, pośrednia i mieszańcowa owalna) są pod **ochroną ścisłą**.",
+     "en": "All of Poland's sundews (round-leaved, great, oblong-leaved and the hybrid obovate sundew) are under **strict protection**.",
      "sources": [
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
@@ -174,9 +178,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://eli.gov.pl/eli/DU/1946/384/ogl/pol/pdf",
        "label": "eli.gov.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Lista_gatunk%C3%B3w_ro%C5%9Blin_obj%C4%99tych_%C5%9Bcis%C5%82%C4%85_ochron%C4%85_w_Polsce",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -255,7 +263,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "homepage.uni-graz.at"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0216",
@@ -416,7 +424,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "miteco.gob.es"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -587,7 +595,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "merriam-webster.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0236",
@@ -674,8 +682,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0240",
      "icon": "📏",
-     "pl": "Ma ostrogę długości 2–4 cm, maczugowato zgrubiałą na końcu. Kwiaty zapylają ćmy, które przylatują po nektar.",
-     "en": "It has a spur 2–4 cm long, thickened into a club shape at the tip. The flowers are pollinated by moths that come for the nectar.",
+     "pl": "Ma ostrogę długości 20–40 mm, maczugowato zgrubiałą na końcu. Kwiaty zapylają ćmy, które przylatują po nektar.",
+     "en": "It has a spur 20–40 mm long, thickened into a club shape at the tip. The flowers are pollinated by moths that come for the nectar.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Podkolan_zielonawy",
@@ -686,7 +694,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "efloras.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0241",
@@ -739,8 +747,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0244",
      "icon": "🔬",
-     "pl": "Botanicy przenieśli ją ostatnio do rodzaju *Hemipilia* (*H. cucullata*).",
-     "en": "Botanists have recently moved it to the genus *Hemipilia* (*H. cucullata*).",
+     "pl": "Botanicy przenieśli ją do rodzaju *Hemipilia* (*H. cucullata*).",
+     "en": "Botanists have moved it to the genus *Hemipilia* (*H. cucullata*).",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Hemipilia_cucullata",
@@ -751,7 +759,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "powo.science.kew.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []

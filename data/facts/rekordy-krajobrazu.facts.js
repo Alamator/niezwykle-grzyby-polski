@@ -38,8 +38,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1081",
      "icon": "🧊",
-     "pl": "Piaski i żwiry nanosiły do doliny kolejne zlodowacenia epoki lodowej. Ich warstwa ma miejscami nawet 70 m grubości.",
-     "en": "Successive glaciations of the Ice Age carried sand and gravel into the valley. In places the layer is as much as 70 m thick.",
+     "pl": "Piaski i żwiry nanosiły do doliny kolejne zlodowacenia epoki lodowej. Warstwa piasków ma miejscami nawet 70 m grubości.",
+     "en": "Successive glaciations of the Ice Age carried sand and gravel into the valley. In places the sand layer is as much as 70 m thick.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pustynia_B%C5%82%C4%99dowska",
@@ -50,7 +50,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -60,8 +60,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1082",
      "icon": "🏔️",
-     "pl": "Wydma Łącka, zwana też Łącką Górą, wznosi się na ok. 40–42 m n.p.m. To najbardziej znana ruchoma wydma w Polsce i jedna z najwyższych na polskim wybrzeżu.",
-     "en": "Wydma Łącka, also known as Łącka Góra, rises to about 40–42 m above sea level. It is Poland's best-known moving dune and one of the highest on the Polish coast.",
+     "pl": "Wydma Łącka, zwana też Łącką Górą, wznosi się nawet na 42 m n.p.m. To ruchoma wydma i jedna z najwyższych wydm w Polsce.",
+     "en": "Wydma Łącka, also known as Łącka Góra, rises to as much as 42 m above sea level. It is a moving dune and one of the highest dunes in Poland.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%81%C4%85czka_(wydma)",
@@ -76,7 +76,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1083",
@@ -120,8 +120,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1085",
      "icon": "🛶",
-     "pl": "Zasadzono je w latach 30. XX w. (prawdopodobnie w 1934 r.). Najpopularniejsza teoria mówi, że celowo hodowano „krzywulce” do stolarki lub szkutnictwa. Pewności nie ma.",
-     "en": "They were planted in the 1930s (probably in 1934). The most popular theory is that the “crooked trees” were deliberately grown for joinery or boatbuilding. Nobody knows for sure.",
+     "pl": "Zasadzono je w latach 30. XX w. (prawdopodobnie w 1934 r.). Najbardziej znana teoria mówi, że celowo hodowano „krzywulce” do stolarki lub szkutnictwa. Pewności nie ma.",
+     "en": "They were planted in the 1930s (probably in 1934). The best-known theory is that the “crooked trees” were deliberately grown for joinery or boatbuilding. Nobody knows for sure.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzywy_Las_(pomnik_przyrody)",
@@ -132,7 +132,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "gryfino.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -193,7 +193,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "encyklopedia.pwn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": [
@@ -205,8 +205,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1090",
      "icon": "🌊",
-     "pl": "Najwyższe aktywne klify WPN mają do 93 m wysokości (Gosań).",
-     "en": "The highest active cliffs in Wolin National Park are up to 93 m high (Gosań).",
+     "pl": "Najwyższe aktywne klify WPN osiągają wysokość 95 m.",
+     "en": "The highest active cliffs in Wolin National Park reach a height of 95 m.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Woli%C5%84ski_Park_Narodowy",
@@ -221,7 +221,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "miedzyzdroje.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1091",
@@ -238,7 +238,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -295,7 +295,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "eturystyka.wzp.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1095",
@@ -312,7 +312,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "funduszeunijne.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -369,7 +369,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "parkmierzeja.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1099",
@@ -396,8 +396,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1100",
      "icon": "🥇",
-     "pl": "To najgłębsze jezioro Polski i całej środkowej części Niżu Europejskiego. Najczęściej podaje się 108,5 m. Inne źródła i pomiary dają od około 105 do 113 m.",
-     "en": "This is the deepest lake in Poland and in the whole central part of the European Plain. The figure most often given is 108.5 m. Other sources and measurements range from about 105 to 113 m.",
+     "pl": "To najgłębsze jezioro Polski i całej środkowej części Niżu Europejskiego. Najczęściej podaje się 108,5 m. Inne źródła i pomiary dają od 105,55 do 113 m.",
+     "en": "This is the deepest lake in Poland and in the whole central part of the European Plain. The figure most often given is 108.5 m. Other sources and measurements range from 105.55 to 113 m.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ha%C5%84cza_(jezioro)",
@@ -428,7 +428,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "pap.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1101",
@@ -463,7 +463,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "xn--meb.pisz.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1103",
@@ -506,7 +506,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "biebrza.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1105",
@@ -523,7 +523,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "rajgrod.bialystok.lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -627,7 +627,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "umwl.bip.lubelskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -736,7 +736,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "eunis.eea.europa.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -758,7 +758,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "life.pieninypn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1119",
@@ -775,7 +775,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "life.pieninypn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -817,7 +817,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "polsko.travel"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1123",
@@ -838,7 +838,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "jozefow.lublin.lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -877,7 +877,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "agro.icm.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -922,8 +922,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1128",
      "icon": "💎",
-     "pl": "Ma 6,74 ha i 21,2 m głębokości. Lustro wody leży 2,6 m n.p.m., więc dno to kryptodepresja (18,6 m p.p.m.).",
-     "en": "It covers 6.74 ha and is 21.2 m deep. The water surface lies 2.6 m above sea level, so the bottom is a cryptodepression (18.6 m below sea level).",
+     "pl": "Ma 6,74 ha i 21,2 m głębokości. Lustro wody leży 2,6 m n.p.m., więc jezioro tworzy kryptodepresję (18,6 m p.p.m.).",
+     "en": "It covers 6.74 ha and is 21.2 m deep. The water surface lies 2.6 m above sea level, so the lake forms a cryptodepression (18.6 m below sea level).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Jezioro_Turkusowe",
@@ -934,7 +934,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "rowery.wzp.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1129",
@@ -989,7 +989,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1133",
@@ -1080,7 +1080,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "geojournals.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": [
@@ -1175,7 +1175,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "turystyczna.szklarskaporeba.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1145",
@@ -1405,7 +1405,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1158",
@@ -1466,7 +1466,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "gazetawroclawska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1519,8 +1519,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1164",
      "icon": "📜",
-     "pl": "Rezerwat utworzono 27 października 1972 r.",
-     "en": "The reserve was established on 27 October 1972.",
+     "pl": "Rezerwat utworzono zarządzeniem z 27 października 1972 r.",
+     "en": "The reserve was established by an ordinance of 27 October 1972.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rezerwat_przyrody_G%C5%82azowisko_Bachanowo_nad_Czarn%C4%85_Ha%C5%84cz%C4%85",
@@ -1531,7 +1531,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "edziennik.bialystok.uw.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1584,7 +1584,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "jednaziemia.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1168",
@@ -1623,7 +1623,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "geostanowiska.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1645,7 +1645,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "magazyngory.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1171",
@@ -1662,7 +1662,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "magazyngory.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1688,7 +1688,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "wydarzenia.interia.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1173",
@@ -1790,7 +1790,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "kpk.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1800,8 +1800,8 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
     {
      "id": "F1179",
      "icon": "🏥",
-     "pl": "W 1854 r. uzdrowisko przejął dr Hermann Brehmer i w latach 1854–1855 uruchomił tu sanatorium dla chorych na gruźlicę, powszechnie uważane za pierwsze takie na świecie. Leczono w nim klimatem i dietą.",
-     "en": "In 1854 Dr Hermann Brehmer took over the spa, and in 1854–1855 he opened a sanatorium for tuberculosis patients here, widely regarded as the first of its kind in the world. Patients were treated with climate and diet.",
+     "pl": "W 1854 r. uzdrowisko przejął dr Hermann Brehmer. Uruchomił tu sanatorium dla chorych na gruźlicę, powszechnie uważane za pierwsze takie na świecie. Leczono w nim klimatem i dietą.",
+     "en": "In 1854 Dr Hermann Brehmer took over the spa. He opened a sanatorium for tuberculosis patients here, widely regarded as the first of its kind in the world. Patients were treated with climate and diet.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Soko%C5%82owsko",
@@ -1822,9 +1822,17 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
       {
        "url": "https://sokolowsko.org/informacje-praktyczne/historia-sokolowska/",
        "label": "sokolowsko.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Hermann_Brehmer",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Soko%C5%82owsko",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1180",
@@ -1841,7 +1849,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "sokolowsko.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1906,7 +1914,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "pravoslavie.ru"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1184",

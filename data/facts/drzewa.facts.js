@@ -22,8 +22,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0280",
      "icon": "🦕",
-     "pl": "To „żywa skamieniałość”: kopalne miłorzęby bardzo podobne do dzisiejszego znane są sprzed około **170 mln lat** (środkowa jura).",
-     "en": "It is a “living fossil”: fossil ginkgos very similar to today's are known from about **170 million years ago** (Middle Jurassic).",
+     "pl": "To „żywa skamieniałość”: kopalne miłorzęby podobne do dzisiejszego znane są sprzed około **170 mln lat** (środkowa jura).",
+     "en": "It is a “living fossil”: fossil ginkgos similar to today's are known from about **170 million years ago** (Middle Jurassic).",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Ginkgo_biloba",
@@ -34,7 +34,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "nature.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0281",
@@ -64,7 +64,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "bsapubs.onlinelibrary.wiley.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -118,8 +118,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0286",
      "icon": "🚀",
-     "pl": "W młodości przyrasta nawet **2 m rocznie**, a w Polsce dorasta do 30 m. Pochodzi z Chin, a do Europy trafił w **1751 r.**",
-     "en": "When young it can grow as much as **2 m a year**, and in Poland it reaches 30 m. It comes from China and reached Europe in **1751**.",
+     "pl": "W młodości przyrasta nawet **2 m rocznie**, a w Polsce dorasta do 30 m. Pochodzi z Chin, a do Europy trafił w **XVIII w.**",
+     "en": "When young it can grow as much as **2 m a year**, and in Poland it reaches 30 m. It comes from China and reached Europe in the **18th century**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bo%C5%BCodrzew_gruczo%C5%82owaty",
@@ -132,9 +132,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://research.fs.usda.gov/silvics/ailanthus",
        "label": "research.fs.usda.gov"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Ailanthus_altissima",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0287",
@@ -445,7 +449,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -764,7 +768,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "rcin.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -817,7 +821,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "zpe.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0330",
@@ -891,7 +895,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0334",
@@ -925,7 +929,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "internationaloaksociety.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -964,8 +968,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0337",
      "icon": "🏰",
-     "pl": "Najsłynniejsze to Lech, Czech i Rus. Od 2020 roku pomnikiem historii jest nie tylko zespół pałacowo-parkowy, ale także cały obszar dawnego majątku ziemskiego Raczyńskich w Rogalinie.",
-     "en": "The most famous are Lech, Czech and Rus. Since 2020 not only the palace and park complex but the entire area of the Raczyński family’s former landed estate in Rogalin has been a Historic Monument.",
+     "pl": "Najsłynniejsze to Lech, Czech i Rus. Od 2020 roku pomnikiem historii jest nie tylko zespół pałacowo-parkowy, ale także obszar dawnego majątku ziemskiego Raczyńskich w Rogalinie.",
+     "en": "The most famous are Lech, Czech and Rus. Since 2020 not only the palace and park complex but also the area of the Raczyński family’s former landed estate in Rogalin has been a Historic Monument.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rogalin",
@@ -980,7 +984,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1019,7 +1023,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "wydarzenia.interia.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0340",
@@ -1040,7 +1044,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "scienceinpoland.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1108,8 +1112,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0347",
      "icon": "🤧",
-     "pl": "„Drzewo chusteczkowe”: kuliste kwiatostany otaczają dwie białe podsadki **długości do 20 cm**.",
-     "en": "The ‘handkerchief tree’: its spherical flower heads are surrounded by two white bracts **up to 20 cm long**.",
+     "pl": "„Drzewo chusteczkowe”: kuliste kwiatostany otaczają **dwie białe podsadki**.",
+     "en": "The ‘handkerchief tree’: its spherical flower heads are surrounded by **two white bracts**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dawidia_chi%C5%84ska",
@@ -1122,9 +1126,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://www.rhs.org.uk/plants/5364/wd/details",
        "label": "rhs.org.uk"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Davidia_involucrata",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0348",
@@ -1141,7 +1149,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "arboretum.harvard.edu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1167,7 +1175,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "chojna.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0350",
