@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["twierdze-ruiny"] = {
  "checked": "2026-10-28",
@@ -15,9 +15,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://whc.unesco.org/en/list/564",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://www.unesco.pl/kultura/dziedzictwo-kulturowe/swiatowe-dziedzictwo/lista-swiatowego-dziedzictwa/europa-i-ameryka-polnocna/polska/",
+       "label": "unesco.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1379",
@@ -28,9 +32,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamo%C5%9B%C4%87",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zamosc.ap.gov.pl/2026/04/10/akt-lokacyjny-zamoscia-z-10-kwietnia-1580-r-dokument-od-ktorego-zaczyna-sie-nasza-historia/",
+       "label": "zamosc.ap.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -46,9 +54,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Krzy%C5%BCtop%C3%B3r",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.krzyztopor.org.pl/strona-3404-historia.html",
+       "label": "krzyztopor.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1381",
@@ -63,9 +75,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://www.krzyztopor.org.pl/",
        "label": "krzyztopor.org.pl"
+      },
+      {
+       "url": "https://dzieje.pl/wiadomosci/zabytki-z-wawelu-po-pol-wieku-wroca-do-zamku-krzyztopor",
+       "label": "dzieje.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2018/943/ogl/pol/pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -85,9 +105,21 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://whc.unesco.org/en/list/847",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://zamek.malbork.pl/wizyta/historia-zamku/lata-1280-1457/",
+       "label": "zamek.malbork.pl"
+      },
+      {
+       "url": "https://zamek.malbork.pl/wizyta/historia-zamku/lata-1457-1772/",
+       "label": "zamek.malbork.pl"
+      },
+      {
+       "url": "https://zamek.malbork.pl/aktualnosci/25-lecie-obecnosci-zamku-w-malborku-na-liscie-swiatowego-dziedzictwa-unesco/",
+       "label": "zamek.malbork.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1384",
@@ -102,9 +134,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://zamek.malbork.pl/wnetrze/wielki-refektarz/",
        "label": "zamek.malbork.pl"
+      },
+      {
+       "url": "https://cejsh.icm.edu.pl/cejsh/element/bwmeta1.element.desklight-87d0df43-120c-4a8a-a147-31767c5c35e7/c/Ochrona_Zabytkow-r1994-t47-n2__185_-s123-137.pdf",
+       "label": "cejsh.icm.edu.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -120,9 +156,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Srebrna_G%C3%B3ra",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://forty.pl/en/fortress/calendar/",
+       "label": "forty.pl"
+      },
+      {
+       "url": "https://encyklopedia.pwn.pl/haslo/Srebrna-Przelecz;3978652.html",
+       "label": "encyklopedia.pwn.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1386",
@@ -145,28 +189,40 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1387",
      "icon": "🏰",
-     "pl": "To trzeci co do wielkości zamek w Polsce, po Malborku i Wawelu, o powierzchni ok. 42 840 m².",
-     "en": "It is the third-largest castle in Poland, after Malbork and Wawel, with an area of c. 42,840 m².",
+     "pl": "To trzeci co do wielkości zamek w Polsce, po Malborku i Wawelu.",
+     "en": "It is the third-largest castle in Poland, after Malbork and Wawel.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Ksi%C4%85%C5%BC",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/zamek-ksiaz-w-walbrzychu-zwiedzanie-bilety-i-dojazd-historia-obiektu/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1388",
      "icon": "🕯️",
-     "pl": "W latach 1943–1945 pod zamkiem drążono tunele w ramach projektu Riese, przy pracy więźniów i jeńców.",
-     "en": "In 1943–1945 tunnels were dug beneath the castle as part of Project Riese, using the labour of prisoners and POWs.",
+     "pl": "W ramach projektu Riese (1943–1945) pod zamkiem drążono tunele, przy pracy więźniów i jeńców.",
+     "en": "As part of Project Riese (1943–1945), tunnels were dug beneath the castle by prisoners and prisoners of war.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Riese",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.gross-rosen.eu/historia-kl-gross-rosen/historia-al-riese/",
+       "label": "gross-rosen.eu"
+      },
+      {
+       "url": "https://www.cnn.com/travel/ksiaz-castle-poland-nazi-tunnels-gold-train",
+       "label": "cnn.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -193,15 +249,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1390",
      "icon": "🏛️",
-     "pl": "W latach 1530–1545 Seweryn Boner przebudował gotycką warownię na renesansowy zamek.",
-     "en": "In 1530–1545 Seweryn Boner rebuilt the Gothic stronghold as a Renaissance castle.",
+     "pl": "W latach 1533–1547 Seweryn Boner przebudował gotycką warownię na renesansowy zamek.",
+     "en": "In 1533–1547, Seweryn Boner rebuilt the Gothic stronghold into a Renaissance castle.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Ogrodzieniec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/podzamcze-zamek-ogrodzieniec",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -217,19 +277,27 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Mosznej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.visitopolskie.pl/en/strona/discover/561-moszna-castle",
+       "label": "visitopolskie.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1392",
      "icon": "🎬",
-     "pl": "Kręcono tu m.in. „Test pilota Pirxa” (1978). Utożsamienie odkrytych w ogrodzie piwnic z zamkiem templariuszy uznaje się za raczej bezzasadne, a o pałacu przed 1845 r. brak informacji.",
-     "en": "Films shot here include ‘The Test of Pilot Pirx’ (1978). Identifying the cellars discovered in the garden with a Templar castle is considered rather unfounded, and there is no information about the palace before 1845.",
+     "pl": "Kręcono tu m.in. „Test pilota Pirxa” (1978). Utożsamienie odkrytych w ogrodzie piwnic z zamkiem templariuszy uznaje się za raczej bezzasadne.",
+     "en": "Among other films, “Test pilota Pirxa” (1978) was shot here. Linking the cellars found in the garden with a Templar castle is considered rather unfounded.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Mosznej",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.allmovie.com/movie/test-pilota-pirxa-v113000/related",
+       "label": "allmovie.com"
       }
      ],
      "status": "corrected"
@@ -242,28 +310,36 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1393",
      "icon": "🛡️",
-     "pl": "W latach 1629–1641 zamek rozbudował Stanisław Lubomirski według projektu Macieja Trapoli. Bastiony obroniły go przed Szwedami (1655) i Siedmiogrodzianami (1657).",
-     "en": "In 1629–1641 Stanisław Lubomirski extended the castle to a design by Maciej Trapola. Its bastions held off the Swedes (1655) and the Transylvanians (1657).",
+     "pl": "W latach 1629–1641 zamek rozbudował Stanisław Lubomirski według projektu Macieja Trapoli.",
+     "en": "In 1629–1641 Stanisław Lubomirski rebuilt and enlarged the castle to a design by Maciej Trapola.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_%C5%81a%C5%84cucie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.zamek-lancut.pl/?view=article&id=398%3Aile-bylo-zamkow-w-lancucie-2&catid=2%3Auncategorised",
+       "label": "zamek-lancut.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1394",
      "icon": "🏛️",
-     "pl": "Muzeum udostępniono zwiedzającym już we wrześniu 1944 r.",
-     "en": "The museum opened to visitors as early as September 1944.",
+     "pl": "Muzeum utworzono w zamku już w 1944 r.",
+     "en": "The museum was set up in the castle as early as 1944.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_%C5%81a%C5%84cucie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://old.zamek-lancut.pl/digitalizacja/opisy/folderorka.pdf",
+       "label": "old.zamek-lancut.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -273,15 +349,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1395",
      "icon": "🏰",
-     "pl": "Zamek zbudowano ok. 1580–1590 na planie czworoboku, z czterema basztami. Później dodano ażurowe attyki.",
-     "en": "The castle was built c. 1580–1590 on a quadrilateral plan, with four towers. Openwork attics were added later.",
+     "pl": "Zamek zbudowano na planie czworoboku, z czterema basztami. Później dodano ażurowe attyki.",
+     "en": "The castle was built on a quadrilateral plan, with four towers. Openwork attics were added later.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Krasiczynie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/krasiczyn-zespol-zamkowy",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1396",
@@ -310,9 +390,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Baranowie_Sandomierskim",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://baranowsandomierski.pl/o-gminie/historia/dzieje-zamku/",
+       "label": "baranowsandomierski.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -328,9 +412,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Janowcu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.janowiec.pl/turystyka-i-atrakcje/zabytki-i-historia/zamek",
+       "label": "janowiec.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1399",
@@ -341,9 +429,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Janowcu",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://czasopisma.uni.lodz.pl/historica/article/view/19317",
+       "label": "czasopisma.uni.lodz.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -353,15 +445,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1400",
      "icon": "🛡️",
-     "pl": "Warownię graniczną zbudowano w latach 1241–1247.",
-     "en": "The border stronghold was built in 1241–1247.",
+     "pl": "Warownię graniczną zbudowano w XIII w.",
+     "en": "The border stronghold was built in the 13th century.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Czocha",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.lesna.pl/asp/pl_start.asp?menu=230&strona=1&sub=10&typ=14",
+       "label": "lesna.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1401",
@@ -397,8 +493,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1403",
      "icon": "📜",
-     "pl": "Pierwsza wzmianka pochodzi z 1277 r. (Bolesław II legnicki, zwany Rogatką). Zamek stoi na wzgórzu (396 m n.p.m.), które stromo opada do doliny Nysy Szalonej.",
-     "en": "The first mention dates from 1277 (Bolesław II of Legnica, known as Rogatka). The castle stands on a hill (396 m a.s.l.) that drops steeply into the valley of the Nysa Szalona.",
+     "pl": "Pierwsza wzmianka pochodzi z 1277 r. (Bolesław II legnicki, zwany Rogatką). Zamek stoi na wzgórzu, które stromo opada do doliny Nysy Szalonej.",
+     "en": "The first mention dates from 1277 (Bolesław II of Legnica, known as Rogatka). The castle stands on a hill that drops steeply into the valley of the Nysa Szalona.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Bolkowie",
@@ -407,6 +503,10 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://umwd.dolnyslask.pl/turystyka/dla-turysty/palace-zamki-i-dziedzictwo-kultury/zamek-bolkow/",
        "label": "umwd.dolnyslask.pl"
+      },
+      {
+       "url": "https://miedziowefakty.pl/?p=52534",
+       "label": "miedziowefakty.pl"
       }
      ],
      "status": "corrected"
@@ -429,9 +529,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://kpn.gov.pl/sciezka-dydaktyczna-na-gore-chojnik",
        "label": "kpn.gov.pl"
+      },
+      {
+       "url": "https://kpnmab.pl/img/files/Wydawnictwa3/Przewodnik_geoturystyczny.pdf",
+       "label": "kpnmab.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1405",
@@ -464,9 +568,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Dunajec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.nocowanie.pl/zamek_dunajec,140528.html",
+       "label": "nocowanie.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1407",
@@ -477,9 +585,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Dunajec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://polonika.pl/polonik-tygodnia/zamek-stara-lubovna-slowacja",
+       "label": "polonika.pl"
+      },
+      {
+       "url": "https://ojs.academicon.pl/np/article/download/7901/7150/20878",
+       "label": "ojs.academicon.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -495,9 +611,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Czorsztyn",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://archiwum.pieninypn.pl/pl/992/0/zamek-czorsztyn.html",
+       "label": "archiwum.pieninypn.pl"
+      },
+      {
+       "url": "https://czorsztyn.pl/pl/575/0/zarys-historyczny.html",
+       "label": "czorsztyn.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1409",
@@ -526,9 +650,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Pieskowa_Ska%C5%82a",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://medievalheritage.eu/en/main-page/heritage/poland/pieskowa-skala-castle/",
+       "label": "medievalheritage.eu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1411",
@@ -557,9 +685,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Mirowie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/mirow-ruiny-zamku",
+       "label": "zabytek.pl"
+      },
+      {
+       "url": "https://orlegniazda.pl/poi/2420",
+       "label": "orlegniazda.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1413",
@@ -570,9 +706,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Bobolicach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/mirow-ruiny-zamku",
+       "label": "zabytek.pl"
+      },
+      {
+       "url": "https://dzieje.pl/kultura-i-sztuka/uhonorowana-rekonstrukcja-sredniowiecznego-zamku-w-bobolicach",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -582,8 +726,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1414",
      "icon": "🌋",
-     "pl": "Ruiny stoją na wschodnim wierzchołku (398/401 m n.p.m.) Góry Zamkowej, dawnego stożka wulkanicznego, który jest najwyższym wzniesieniem Garbu Tenczyńskiego.",
-     "en": "The ruins stand on the eastern summit (398/401 m a.s.l.) of Góra Zamkowa, a former volcanic cone and the highest elevation of the Garb Tenczyński.",
+     "pl": "Ruiny stoją na wschodnim wierzchołku (401 m n.p.m.) Góry Zamkowej, dawnego stożka wulkanicznego, który jest najwyższym wzniesieniem Garbu Tenczyńskiego.",
+     "en": "The ruins stand on the eastern summit (401 m a.s.l.) of Castle Hill (Góra Zamkowa), a former volcanic cone and the highest elevation of the Tenczyn Ridge.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Tenczyn",
@@ -592,6 +736,10 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/G%C3%B3ra_Zamkowa_(Zamek_Tenczyn)",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://visitmalopolska.pl/obiekt/-/poi/zamek-teczyn-w-rudnie",
+       "label": "visitmalopolska.pl"
       }
      ],
      "status": "corrected"
@@ -609,9 +757,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://zamkomania.pl/rudno.php",
        "label": "zamkomania.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/traveler/kierunki/zamek-tenczyn-byl-jedna-z-najwspanialszych-sredniowiecznych-twierdz-dzis-to-malownicza-ruina/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -631,15 +783,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://www.gminakruszwica.pl/page/mysia-wieza",
        "label": "gminakruszwica.pl"
+      },
+      {
+       "url": "https://pressto.amu.edu.pl/index.php/sla/article/download/29869/26441/64259",
+       "label": "pressto.amu.edu.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1417",
      "icon": "💥",
-     "pl": "Szwedzi zajęli zamek w 1655 r., a po dwóch latach okupacji, wycofując się w 1657 r., zniszczyli go razem z miastem. Wieżę odnowiono w latach 1894–1896 i od tego czasu jest atrakcją turystyczną.",
-     "en": "The Swedes captured the castle in 1655, and after a two-year occupation they destroyed it, along with the town, as they withdrew in 1657. The tower was restored in 1894–1896 and has been a tourist attraction ever since.",
+     "pl": "Szwedzi zajęli zamek w 1655 r., a po dwóch latach okupacji, wycofując się w 1657 r., zniszczyli go razem z miastem.",
+     "en": "The Swedes captured the castle in 1655 and, after two years of occupation, destroyed it together with the town as they withdrew in 1657.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mysia_Wie%C5%BCa",
@@ -648,6 +804,10 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://parki.kujawsko-pomorskie.pl/npt/turystyka/warto-zobaczyc/480-mysia-wieza",
        "label": "parki.kujawsko-pomorskie.pl"
+      },
+      {
+       "url": "https://pressto.amu.edu.pl/index.php/sla/article/download/29869/26441/64259",
+       "label": "pressto.amu.edu.pl"
       }
      ],
      "status": "corrected"
@@ -666,19 +826,31 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_B%C4%99dzinie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://powiat.bedzin.pl/powiat/zamek-obronny-z-xiv-wieku",
+       "label": "powiat.bedzin.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1419",
      "icon": "🏛️",
-     "pl": "Odbudowano go w 1956 r. i w tym samym roku urządzono w nim Muzeum Zagłębia. Zamek jest udostępniony do zwiedzania.",
-     "en": "It was rebuilt in 1956, and that same year it became home to the Zagłębie Museum. The castle is open to visitors.",
+     "pl": "Odbudowano go w latach 1952–1956, a w 1956 r. urządzono w nim Muzeum Zagłębia. Zamek jest udostępniony do zwiedzania.",
+     "en": "It was rebuilt in 1952–1956, and in 1956 the Zagłębie Museum was set up inside. The castle is open to visitors.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_B%C4%99dzinie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://muzeumzaglebia.pl/2318-29-07-2023-rocznica-otwarcia-zamku-w-b%C4%99dzinie-po-odbudowie",
+       "label": "muzeumzaglebia.pl"
+      },
+      {
+       "url": "https://www.bedzin.pl/aktualnosc-629-jubileusz_60_lecia_muzeum_zaglebia.html",
+       "label": "bedzin.pl"
       }
      ],
      "status": "corrected"
@@ -708,15 +880,23 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1421",
      "icon": "🕯️",
-     "pl": "Broniono jej czterokrotnie: w 1813, 1831, 1915 i 1939 r.",
-     "en": "It was defended four times: in 1813, 1831, 1915 and 1939.",
+     "pl": "Broniono jej w 1813, 1831, 1915, 1920 i 1939 r.",
+     "en": "It was defended in 1813, 1831, 1915, 1920 and 1939.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Modlin",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/historia/twierdza-modlin-bronili-jej-francuzi-rosjanie-i-polacy-i-niedzwiedzica-polarna/",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://ipn.gov.pl/pl/historia-z-ipn/230784,Ryszard-Sodel-Kapitulacja-twierdzy-Modlin.pdf",
+       "label": "ipn.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -732,22 +912,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_K%C5%82odzko",
        "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F1423",
-     "icon": "🔦",
-     "pl": "W 2022 r. odkryto nieznane wcześniej XVIII-wieczne chodniki kontrminowe.",
-     "en": "In 2022, previously unknown 18th-century countermine galleries were discovered.",
-     "sources": [
+      },
       {
-       "url": "https://pl.wikipedia.org/wiki/Twierdza_K%C5%82odzko",
-       "label": "Wikipedia (PL)"
+       "url": "https://twierdza.klodzko.pl/historia/",
+       "label": "twierdza.klodzko.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -763,15 +934,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Przemy%C5%9Bl",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://geojournals.pgi.gov.pl/pg/article/download/29801/21445/47196",
+       "label": "geojournals.pgi.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1425",
      "icon": "🕯️",
-     "pl": "Była oblegana trzykrotnie w latach 1914–1915. Najdłuższe, drugie oblężenie trwało od listopada 1914 roku do kapitulacji 22 marca 1915 roku, czyli około 133 dni. Przez cały ten czas twierdza była całkowicie okrążona i odcięta od własnego frontu.",
-     "en": "It was besieged three times in 1914–1915. The longest, the second siege, lasted from November 1914 until the surrender on 22 March 1915, roughly 133 days. Throughout that time the fortress was completely encircled and cut off from its own front line.",
+     "pl": "Drugie oblężenie trwało od listopada 1914 roku do kapitulacji 22 marca 1915 roku, czyli około 133 dni. Przez cały ten czas twierdza była całkowicie okrążona i odcięta od własnego frontu.",
+     "en": "The second siege lasted from November 1914 until the surrender on 22 March 1915, about 133 days. Throughout that time the fortress was completely encircled and cut off from its own front.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Przemy%C5%9Bl",
@@ -780,6 +955,14 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://zabytek.pl/en/obiekty/twierdza-przemysl",
        "label": "zabytek.pl"
+      },
+      {
+       "url": "https://bazhum.muzhp.pl/media/texts/kwartalnik-kresowy/2021-r-7-nr-412/kwartalnik-kresowy-2021-r7-nr412-olejko.pdf",
+       "label": "bazhum.muzhp.pl"
+      },
+      {
+       "url": "https://www.lbi.org/web-exhibits/WWI/ExhibitWWIPart7_03.html",
+       "label": "lbi.org"
       }
      ],
      "status": "corrected"
@@ -792,15 +975,23 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1426",
      "icon": "⭐",
-     "pl": "Twierdzę w kształcie gwiazdy zbudowano w latach 1844–1856. Zajmuje ok. 100 ha na przesmyku między jeziorami Kisajno i Niegocin.",
-     "en": "The star-shaped fortress was built between 1844 and 1856. It covers about 100 ha on the isthmus between lakes Kisajno and Niegocin.",
+     "pl": "Twierdzę w kształcie gwiazdy zbudowano w latach 1843–1855. Zajmuje ok. 100 ha na przesmyku między jeziorami Kisajno i Niegocin.",
+     "en": "The star-shaped fortress was built in 1843–1855. It covers about 100 ha on the isthmus between lakes Kisajno and Niegocin.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Boyen",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://twierdza.gizycko.pl/o-twierdzy-boyen/",
+       "label": "twierdza.gizycko.pl"
+      },
+      {
+       "url": "https://bip.gizycko.pl/wiadomosci/archiwum/4/wiadomosc/37370/twierdza_boyen",
+       "label": "bip.gizycko.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1427",
@@ -811,9 +1002,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Boyen",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://twierdza.gizycko.pl/about-the-boyen-fortress/",
+       "label": "twierdza.gizycko.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -829,22 +1024,30 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Osowiec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/osowiec-twierdza-twierdza-osowiec",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1429",
      "icon": "🏗️",
-     "pl": "Zbudowano ją w latach 1882–1887 nad Biebrzą, do ochrony linii kolejowej Białystok–Królewiec.",
-     "en": "It was built between 1882 and 1887 on the Biebrza, to protect the Białystok–Königsberg railway line.",
+     "pl": "Zbudowano ją w latach 1882–1892 nad Biebrzą, do ochrony linii kolejowej Białystok–Królewiec.",
+     "en": "It was built in 1882–1892 on the Biebrza River to protect the Białystok–Königsberg railway line.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Osowiec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/osowiec-twierdza-twierdza-osowiec",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -860,9 +1063,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Wilczy_Szaniec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dzieje.pl/rozmaitosci/historyk-wysadzeniu-wilczego-szanca-niemieccy-saperzy-nie-sprostali",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1431",
@@ -873,9 +1080,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Wilczy_Szaniec",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://wilczyszaniec.olsztyn.lasy.gov.pl/aktualnosci/-/asset_publisher/lDN0bLYdxTdC/content/wolfsschanze-20-07-1944",
+       "label": "wilczyszaniec.olsztyn.lasy.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": [
@@ -893,9 +1104,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Westerplatte",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://muzeum1939.pl/pierwszy-polski-oddzial-wartowniczy-na-westerplatte/timeline/159.html",
+       "label": "muzeum1939.pl"
+      },
+      {
+       "url": "https://polskieradio24.pl/artykul/678997,westerplatte-zamiast-12-godzin-walczyli-7-dni",
+       "label": "polskieradio24.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1434",
@@ -906,9 +1125,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Westerplatte",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://polskieradio24.pl/artykul/259341,Siedem-dni-na-Westerplatte",
+       "label": "polskieradio24.pl"
+      },
+      {
+       "url": "https://gdansk.ipn.gov.pl/pl2/aktualnosci/105257,Gdanski-bohater-wojny-polsko-bolszewickiej-mjr-Henryk-Sucharski-18981946-Oddalis.html",
+       "label": "gdansk.ipn.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -918,12 +1145,20 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1435",
      "icon": "🌉",
-     "pl": "To dwa mosty kolejowe z lat 1917–1918: budowę południowego zaczęto w 1912 r. i ukończono w 1917 r., północny powstał w 1918 r. Pociągi pojechały tędy 1 października 1927 r., ale tor położono tylko na jednym moście.",
-     "en": "These are two railway bridges from 1917–1918: construction of the southern one began in 1912 and was completed in 1917, while the northern one was built in 1918. Trains first ran here on 1 October 1927, but track was laid on only one of the bridges.",
+     "pl": "To dwa mosty kolejowe: budowę północnego zaczęto w 1912 r., a południowy powstał w latach 1923–1926. Pociągi pojechały tędy w 1927 r., ale tor położono tylko na jednym moście.",
+     "en": "These are two railway bridges: construction of the northern one began in 1912, and the southern one was built in 1923–1926. Trains started running here in 1927, but track was laid on only one bridge.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mosty_w_Sta%C5%84czykach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://encyklopedia.warmia.mazury.pl/index.php/Mosty_kolejowe_w_Sta%C5%84czykach",
+       "label": "encyklopedia.warmia.mazury.pl"
+      },
+      {
+       "url": "https://pkpr.warmia.mazury.pl/mosty-w-stanczykach/",
+       "label": "pkpr.warmia.mazury.pl"
       }
      ],
      "status": "corrected"
@@ -937,9 +1172,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Mosty_w_Sta%C5%84czykach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pkpr.warmia.mazury.pl/mosty-w-stanczykach/",
+       "label": "pkpr.warmia.mazury.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -949,15 +1188,15 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1437",
      "icon": "🌉",
-     "pl": "We wsi stoi trzyprzęsłowy wiadukt z początku XX w. po zlikwidowanej linii. Ma 18 m wysokości nad rzeką Bludzią i neogotyckie detale.",
-     "en": "The village has a three-span viaduct from the early 20th century on a closed railway line. It stands 18 m above the Bludzia River and has neo-Gothic details.",
+     "pl": "We wsi stoi wiadukt po zlikwidowanej linii, nad rzeką Bludzią. Ma neogotyckie detale.",
+     "en": "The village has a viaduct of a closed railway line, over the Bludzia river. It has neo-Gothic details.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kiepojcie",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -973,9 +1212,17 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Kopicach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://grodkow.pl/244-gmina/4451-solectwa/4465-kopice.html",
+       "label": "grodkow.pl"
+      },
+      {
+       "url": "https://nto.pl/kopciuszek-z-szombierek/ar/3968631",
+       "label": "nto.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1439",
@@ -986,9 +1233,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Kopicach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://plus.nto.pl/kto-przed-64-laty-podpalil-zabytkowy-palac-w-kopicach-hipotezy-sa-co-najmniej-cztery/ar/c15-15237663",
+       "label": "plus.nto.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -998,15 +1249,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1440",
      "icon": "🏰",
-     "pl": "W latach 1525–1945 była to główna siedziba pruskiego rodu Dohnów. Pałac i park powstały w latach 1696–1732.",
-     "en": "From 1525 to 1945 this was the main seat of the Prussian Dohna family. The palace and park were created in 1696–1732.",
+     "pl": "W latach 1525–1945 Słobity należały do pruskiego rodu Dohnów, który z czasem przeniósł tu swoją główną siedzibę. Barokowy pałac i park powstały na przełomie XVII i XVIII w.",
+     "en": "From 1525 to 1945 Słobity belonged to the Prussian Dohna family, which in time moved its main seat here. The Baroque palace and park were created at the turn of the 17th and 18th centuries.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_S%C5%82obitach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://encyklopedia.warmia.mazury.pl/index.php/S%C5%82obity",
+       "label": "encyklopedia.warmia.mazury.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1441",
@@ -1017,9 +1272,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_S%C5%82obitach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://encyklopedia.warmia.mazury.pl/index.php/S%C5%82obity",
+       "label": "encyklopedia.warmia.mazury.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1029,12 +1288,20 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1442",
      "icon": "🏗️",
-     "pl": "Budowla powstała jako samowola budowlana. W 1983 r. Piotr Kazimierczak dostał pozwolenie na dom jednorodzinny z pracownią rzeźbiarską o powierzchni 170 m², a zbudował budynek o powierzchni ok. 5 tys. m².",
-     "en": "The building went up without planning permission. In 1983 Piotr Kazimierczak was granted permission for a 170 m² single-family house with a sculpture studio, but instead built a structure of about 5,000 m².",
+     "pl": "Budowla powstała jako samowola budowlana. W 1983 r. Piotr Kazimierczak dostał pozwolenie na dom jednorodzinny z pracownią rzeźbiarską o powierzchni 170 m², a zbudował budynek o powierzchni ok. 5–6 tys. m².",
+     "en": "The building began as an unauthorised construction. In 1983 Piotr Kazimierczak obtained a permit for a single-family house with a sculpture studio of 170 m², but he built a structure of about 5,000–6,000 m².",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_%C5%81apalicach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.whitemad.pl/en/the-castle-in-lapalice-has-been-given-the-green-light-at-last-its-construction-can-be-completed/",
+       "label": "whitemad.pl"
+      },
+      {
+       "url": "https://tvpworld.com/79340743/castles-in-the-sky-polands-newgeneration-landmarks",
+       "label": "tvpworld.com"
       }
      ],
      "status": "corrected"

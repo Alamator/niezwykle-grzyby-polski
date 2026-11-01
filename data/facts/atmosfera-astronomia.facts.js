@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["atmosfera-astronomia"] = {
  "checked": "2026-10-28",
@@ -32,9 +32,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.dwd.de/DE/wetter/thema_des_tages/2025/3/13.html",
        "label": "dwd.de"
+      },
+      {
+       "url": "https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=100496&lv2=100310",
+       "label": "dwd.de"
+      },
+      {
+       "url": "https://www.cambridge.org/core/books/abs/diffraction-effects-in-semiclassical-scattering/glory/50FABA20DFE356B768663E737E0B6BD2",
+       "label": "cambridge.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -275,9 +283,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Lightning",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.noaa.gov/jetstream/lightning/positive-and-negative-side-of-lightning",
+       "label": "noaa.gov"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1036",
@@ -337,9 +349,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/kosmos/biale-noce-zawitaly-nad-polska-przez-najblizsze-tygodnie-ciemnosc-niemal-calkowicie-zniknie/",
+       "label": "national-geographic.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1040",
@@ -362,8 +378,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1041",
      "icon": "⛵",
-     "pl": "Na północy Polski, w okolicach przesilenia letniego, Słońce chowa się za horyzontem na mniej niż 12°. To tak zwane białe noce żeglarskie.",
-     "en": "In northern Poland, around the summer solstice, the Sun dips less than 12° below the horizon. These are the so-called nautical white nights.",
+     "pl": "Na północy Polski, w okolicach przesilenia letniego, występują tak zwane białe noce żeglarskie.",
+     "en": "In northern Poland, around the summer solstice, there are so-called nautical white nights.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce",
@@ -420,9 +436,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://hgss.copernicus.org/articles/3/87/2012/hgss-3-87-2012.pdf",
        "label": "hgss.copernicus.org"
+      },
+      {
+       "url": "https://www.national-geographic.pl/artykul/obloki-srebrzyste-w-polsce-dlaczego-ostatnio-widzimy-je-coraz-czesciej-220705124125",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://tvn24.pl/tvnmeteo/najnowsze/obserwuj-niebo-moze-uda-ci-sie-dostrzec-rzadkie-obloki-mezosferyczne-ls4896573",
+       "label": "tvn24.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -438,9 +462,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Izerski_Park_Ciemnego_Nieba",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.astro.uni.wroc.pl/index.php/58-piec-lat-w-ciemnosci",
+       "label": "astro.uni.wroc.pl"
+      },
+      {
+       "url": "https://tai.czasopisma.pan.pl/Content/94634/mainfile.pdf",
+       "label": "tai.czasopisma.pan.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1046",
@@ -473,9 +505,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.gwiezdnebieszczady.pl/o-inicjatywe/",
        "label": "gwiezdnebieszczady.pl"
+      },
+      {
+       "url": "https://www.gwiezdnebieszczady.pl/wps/wp-content/uploads/2013/03/Informacja-prasowa-Sprawozdanie-z-podpisania-memorandum.pdf",
+       "label": "gwiezdnebieszczady.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1048",
@@ -486,9 +522,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://parkikrosno.pl/474-strona-glowna/27554-aktualnosci/26812-park-gwiezdnego-nieba-bieszczady.html",
        "label": "parkikrosno.pl"
+      },
+      {
+       "url": "https://www.gwiezdnebieszczady.pl/wps/wp-content/uploads/2013/03/Informacja-prasowa-Sprawozdanie-z-podpisania-memorandum.pdf",
+       "label": "gwiezdnebieszczady.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -498,8 +538,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1049",
      "icon": "💡",
-     "pl": "W 2011 r. utworzono tu obszar ochrony ciemnego nieba CN-001. Wszystkie około 150 latarni ulicznych wymieniono na w pełni osłonięte, które nie świecą w niebo.",
-     "en": "In 2011 the CN-001 dark-sky protection area was established here. All of the roughly 150 street lamps were replaced with fully shielded ones that do not shine into the sky.",
+     "pl": "W 2011 r. utworzono tu obszar ochrony ciemnego nieba. Wszystkie latarnie uliczne wymieniono na w pełni osłonięte, które nie świecą w niebo.",
+     "en": "In 2011, a dark-sky protection area was created here. All street lights were replaced with fully shielded ones that do not shine into the sky.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sopotnia_Wielka",
@@ -508,6 +548,10 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://darksky.org/places/sopotnia-wielka/",
        "label": "darksky.org"
+      },
+      {
+       "url": "https://repozytorium.p.lodz.pl/handle/11652/4588",
+       "label": "repozytorium.p.lodz.pl"
       }
      ],
      "status": "corrected"
@@ -543,9 +587,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Droga_Mleczna",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.space.com/amp/25959-how-many-stars-are-in-the-milky-way.html",
+       "label": "space.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F1052",
@@ -568,15 +616,15 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1053",
      "icon": "🟢",
-     "pl": "Światło zorzy tworzy ponad 270 linii emisyjnych, głównie tlenu i azotu.",
-     "en": "Auroral light is made up of more than 270 emission lines, mainly from oxygen and nitrogen.",
+     "pl": "Światło zorzy tworzy wiele linii emisyjnych, głównie tlenu i azotu.",
+     "en": "Auroral light is made up of many emission lines, mainly of oxygen and nitrogen.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zorza_polarna",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1054",
@@ -605,9 +653,21 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Perseidy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://science.nasa.gov/solar-system/meteors-meteorites/perseids/",
+       "label": "science.nasa.gov"
+      },
+      {
+       "url": "https://www.amsmeteors.org/2026/08/viewing-the-perseid-meteor-shower-in-2026/",
+       "label": "amsmeteors.org"
+      },
+      {
+       "url": "https://science.nasa.gov/solar-system/meteors-meteorites/meteor-showers/",
+       "label": "science.nasa.gov"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -623,22 +683,30 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Geminidy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://blogs.nasa.gov/Watch_the_Skies/tag/geminids/",
+       "label": "blogs.nasa.gov"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1057",
      "icon": "📈",
-     "pl": "W maksimum (13–14 grudnia) można zobaczyć ok. 120–130 meteorów na godzinę.",
-     "en": "At the peak (13–14 December) you can see around 120–130 meteors per hour.",
+     "pl": "W maksimum (13–14 grudnia) w idealnych warunkach można zobaczyć ok. 120 meteorów na godzinę.",
+     "en": "At the peak (13–14 December), under perfect conditions, about 120 meteors an hour can be seen.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Geminidy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://science.nasa.gov/solar-system/meteors-meteorites/geminids/",
+       "label": "science.nasa.gov"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -732,15 +800,19 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1063",
      "icon": "🏔️",
-     "pl": "30 stycznia 2024 r. Paweł Kłak sfotografował Lodową Kopę z Godziszowa na Roztoczu, z odległości ok. 241 km.",
-     "en": "On 30 January 2024 Paweł Kłak photographed Lodowa Kopa from Godziszów in Roztocze, from a distance of about 241 km.",
+     "pl": "W styczniu 2024 r. Paweł Kłak sfotografował Lodową Kopę z Godziszowa na Roztoczu, z odległości ok. 241 km.",
+     "en": "In January 2024 Paweł Kłak photographed Lodowa Kopa from Godziszów in Roztocze, from a distance of about 241 km.",
      "sources": [
       {
        "url": "https://dalekiewidoki.pl/2024/02/tatry-z-roztocza.html",
        "label": "dalekiewidoki.pl"
+      },
+      {
+       "url": "https://radio.lublin.pl/2024/11/z-lubelskiego-mozna-zobaczyc-nawet-tatry",
+       "label": "radio.lublin.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1064",
@@ -751,24 +823,6 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Refrakcja_atmosferyczna",
        "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "corrected"
-    }
-   ],
-   "notes": []
-  },
-  "rekord-godziszow-zadni-gerlach": {
-   "facts": [
-    {
-     "id": "F1065",
-     "icon": "🥇",
-     "pl": "Rekord: 30 stycznia 2025 r. z Godziszowa Pierwszego sfotografowano z odległości 246,1 km szczyt, który najpewniej jest Zadnim Gerlachem. To najdalsza udokumentowana na zdjęciu obserwacja Tatr z Polski (stan na koniec 2025 r.).",
-     "en": "Record: on 30 January 2025 a peak that is most likely Zadni Gerlach was photographed from Godziszów Pierwszy, from a distance of 246.1 km. This is the most distant photographically documented sighting of the Tatra Mountains from Poland (as of the end of 2025).",
-     "sources": [
-      {
-       "url": "https://dalekiehoryzonty.pl/najdalsze-obserwacje-z-polski/",
-       "label": "dalekiehoryzonty.pl"
       }
      ],
      "status": "corrected"
@@ -799,15 +853,19 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1067",
      "icon": "🥶",
-     "pl": "Latem notowano tu ujemne temperatury: −5,5 °C (20 lipca 1996) i −1,7 °C (14 sierpnia 2012).",
-     "en": "Sub-zero temperatures have been recorded here in summer: −5.5 °C (20 July 1996) and −1.7 °C (14 August 2012).",
+     "pl": "Latem notowano tu ujemne temperatury, np. −5,5 °C (20 lipca 1996).",
+     "en": "Sub-zero temperatures have been recorded here in summer, e.g. −5.5 °C (20 July 1996).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Hala_Izerska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://swieradow.wroclaw.lasy.gov.pl/rezerwaty-przyrody",
+       "label": "swieradow.wroclaw.lasy.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F1068",
@@ -818,9 +876,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Hala_Izerska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://swieradow.wroclaw.lasy.gov.pl/rezerwaty-przyrody",
+       "label": "swieradow.wroclaw.lasy.gov.pl"
+      },
+      {
+       "url": "https://turystyczna.szklarskaporeba.pl/2832-szklarskaporeba-gory-izerskie",
+       "label": "turystyczna.szklarskaporeba.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -840,15 +906,23 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://energetyka24.com/klimat/wiadomosci/litworowy-kociol-mrozy-i-globalne-ocieplenie-o-czym-swiadczy-ten-pomiar",
        "label": "energetyka24.com"
+      },
+      {
+       "url": "https://oko.press/rekord-zimna-w-tatrach-jak-to-mozliwe-w-coraz-cieplejszym-klimacie",
+       "label": "oko.press"
+      },
+      {
+       "url": "https://www.radiokrakow.pl/aktualnosci/nowy-sacz/podhale/w-litworowym-kotle-5-dni-z-rzedu-ponizej-30-st-mrozu/",
+       "label": "radiokrakow.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F1070",
      "icon": "🌡️",
-     "pl": "17 lutego 2025 r. stacja badawcza Uniwersytetu im. Adama Mickiewicza w Poznaniu zanotowała tu −41,1 °C. To najprawdopodobniej najniższa temperatura w historii pomiarów w Polsce, ale nie jest to rekord oficjalny, bo stacja nie należy do IMGW. Oficjalny rekord IMGW to −40,6 °C, zmierzone w Żywcu 10 lutego 1929 r. Pomiar wykonano w specyficznych warunkach wysokogórskiej kotliny, w której podczas najostrzejszych zim XX wieku nie mierzono temperatury.",
-     "en": "On 17 February 2025 the research station of Adam Mickiewicz University in Poznań recorded −41.1 °C here. This is most probably the lowest temperature in the history of measurements in Poland, but it is not an official record, because the station does not belong to IMGW. The official IMGW record is −40.6 °C, measured in Żywiec on 10 February 1929. The measurement was taken in the specific conditions of a high-mountain basin, where no temperatures were recorded during the harshest winters of the 20th century.",
+     "pl": "17 lutego 2025 r. stacja badawcza Uniwersytetu im. Adama Mickiewicza w Poznaniu zanotowała tu −41,1 °C. To najprawdopodobniej najniższa temperatura w historii pomiarów w Polsce, ale nie jest to rekord oficjalny, bo stacja nie należy do IMGW. Pomiar wykonano w specyficznych warunkach wysokogórskiej kotliny, w której podczas najostrzejszych zim XX wieku nie mierzono temperatury. Oficjalny rekord zimna według IMGW-PIB to −41,0 °C, zmierzone w Siedlcach 11 stycznia 1940 r.",
+     "en": "On 17 February 2025 the research station of Adam Mickiewicz University in Poznań recorded −41.1 °C here. This is most probably the lowest temperature in the history of measurements in Poland, but it is not an official record, because the station does not belong to IMGW. The measurement was taken in the specific conditions of a high-mountain basin, where no temperatures were recorded during the harshest winters of the 20th century. According to IMGW-PIB, the official cold record is −41.0 °C, measured in Siedlce on 11 January 1940.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rekordy_klimatyczne_w_Polsce",
@@ -857,6 +931,22 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.rmf24.pl/regiony/zakopane/news-litworowy-kociol-z-gigantycznym-mrozem-jest-potwierdzenie-to,nId,7913997",
        "label": "rmf24.pl"
+      },
+      {
+       "url": "https://notesfrompoland.com/2025/02/17/new-record-low-temperature-of-41-1c-observed-in-poland/",
+       "label": "notesfrompoland.com"
+      },
+      {
+       "url": "https://www.radiokrakow.pl/aktualnosci/nowy-sacz/podhale/w-litworowym-kotle-5-dni-z-rzedu-ponizej-30-st-mrozu/",
+       "label": "radiokrakow.pl"
+      },
+      {
+       "url": "https://naukawpolsce.pl/aktualnosci/news,106677,ekspert-padl-rekord-temperatury-minimalnej-w-polsce-odpowiedzialne",
+       "label": "naukawpolsce.pl"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2026/07/27/ekstremalne-kontrasty-termiczne-w-pierwszej-polowie-2026-roku/",
+       "label": "obserwator.imgw.pl"
       }
      ],
      "status": "corrected"
@@ -869,28 +959,19 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1071",
      "icon": "🌡️",
-     "pl": "Panują tu częste mrozy, a temperatura potrafi spaść poniżej zera nawet latem. 8 lipca 2016 r. było −1,9 °C, a 8 stycznia 2017 r. −39,8 °C.",
-     "en": "Frosts are frequent here, and the temperature can drop below zero even in summer. On 8 July 2016 it was −1.9 °C, and on 8 January 2017 −39.8 °C.",
+     "pl": "Panują tu częste mrozy, a temperatura potrafi spaść poniżej zera nawet latem. W styczniu 2017 r. zanotowano tu ok. −39 °C.",
+     "en": "Frosts are frequent here, and the temperature can drop below zero even in summer. In January 2017, about −39 °C was recorded here.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pu%C5%9Bcizna_R%C4%99kowia%C5%84ska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.polskieradio.pl/395/7789/artykul/3486322,poland-records-coldest-temperature-of-the-21st-century",
+       "label": "polskieradio.pl"
       }
      ],
      "status": "corrected"
-    },
-    {
-     "id": "F1072",
-     "icon": "📈",
-     "pl": "Dobowe amplitudy temperatury przekraczają tu nawet 30 °C.",
-     "en": "Daily temperature ranges here can even exceed 30 °C.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Pu%C5%9Bcizna_R%C4%99kowia%C5%84ska",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
     }
    ],
    "notes": []
@@ -910,6 +991,10 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://siedlce.pl/aktualnosci/2016/2016-01/rekord-zimna-sprzed-76-lat",
        "label": "siedlce.pl"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2026/07/27/ekstremalne-kontrasty-termiczne-w-pierwszej-polowie-2026-roku/",
+       "label": "obserwator.imgw.pl"
       }
      ],
      "status": "checked"
@@ -917,8 +1002,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1074",
      "icon": "🤔",
-     "pl": "Pomiar budzi wątpliwości meteorologów. Średnia temperatura stycznia 1940 r. w Siedlcach wydaje się mocno zaniżona w porównaniu z okolicą, a inne stacje w regionie nie notowały wtedy tak silnego mrozu. Pomiar wykonano w pierwszą zimę okupacji, prawdopodobnie na niemieckim lotnisku wojskowym.",
-     "en": "Meteorologists have doubts about the measurement. The mean temperature for January 1940 in Siedlce seems far too low compared with the surrounding area, and other stations in the region did not record such severe frost at the time. The measurement was taken during the first winter of the occupation, probably at a German military airfield.",
+     "pl": "Pomiar budzi wątpliwości meteorologów. Inne stacje w regionie nie notowały wtedy tak silnego mrozu. Pomiar wykonano w pierwszą zimę okupacji.",
+     "en": "Meteorologists have doubts about the measurement. Other stations in the region did not record such severe frost at the time. It was taken during the first winter of the occupation.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rekordy_klimatyczne_w_Polsce",
@@ -927,6 +1012,14 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://g.pl/news/7,187452,30074392,najnizsza-temperatura-w-polsce.html",
        "label": "g.pl"
+      },
+      {
+       "url": "https://tvp.info/61423449/litworowy-kociol-polski-biegun-zimna-rekord-mrozu-lipiec",
+       "label": "tvp.info"
+      },
+      {
+       "url": "https://oko.press/zima-stulecia-byla-jedna-w-xx-wieku",
+       "label": "oko.press"
       }
      ],
      "status": "corrected"
@@ -939,8 +1032,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1075",
      "icon": "🏜️",
-     "pl": "Sahara to największe na świecie źródło pyłu eolicznego. Szacunki, ile pyłu wydmuchuje rocznie, bardzo się różnią: zwykle podaje się od ok. 130 do 760 mln ton, a jedno badanie mówi nawet o ok. 1,6 mld ton.",
-     "en": "The Sahara is the world's largest source of aeolian dust. Estimates of how much dust it blows out each year vary widely: figures of about 130 to 760 million tonnes are usually given, and one study even puts it at about 1.6 billion tonnes.",
+     "pl": "Sahara to największe na świecie źródło pyłu eolicznego. Szacunki, ile pyłu wydmuchuje rocznie, bardzo się różnią.",
+     "en": "The Sahara is the world's largest source of aeolian dust. Estimates of how much dust it blows out each year vary widely.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Saharan_dust",

@@ -189,7 +189,6 @@ window.ATLAS_MAP_POINTS = {
     {"q":"Q959801","lat":50.84,"lng":15.33,"cards":[{"collection":"atmosfera-astronomia","id":"izerski-park-ciemnego-nieba","name":{"pl":"Izerski Park Ciemnego Nieba","en":"Izera Dark-Sky Park"}}]},
     {"q":"Q62284127","lat":49.2,"lng":22.47,"cards":[{"collection":"atmosfera-astronomia","id":"bieszczadzki-park-gwiezdnego-nieba","name":{"pl":"Park Gwiezdnego Nieba „Bieszczady”","en":"“Bieszczady” Starry Sky Park"}}]},
     {"q":"Q2801727","lat":49.59403,"lng":19.29703,"cards":[{"collection":"atmosfera-astronomia","id":"sopotnia-wielka-ciemne-niebo","name":{"pl":"Sopotnia Wielka i inteligentne światło","en":"Sopotnia Wielka and smart dark-sky lighting"}}]},
-    {"q":"Q5577084","lat":50.7525,"lng":22.485,"cards":[{"collection":"atmosfera-astronomia","id":"rekord-godziszow-zadni-gerlach","name":{"pl":"Godziszów i Zadni Gerlach","en":"Godziszów and Zadni Gerlach"}}]},
     {"q":"Q11708381","lat":50.847,"lng":15.3642,"cards":[{"collection":"atmosfera-astronomia","id":"hala-izerska-mala-syberia","name":{"pl":"Hala Izerska - mała Syberia","en":"Hala Izerska, the little Siberia"}}]},
     {"q":"Q11762032","lat":49.2364,"lng":19.9128,"cards":[{"collection":"atmosfera-astronomia","id":"litworowy-kociol","name":{"pl":"Litworowy Kocioł","en":"Litworowy Kocioł"}}]},
     {"q":"Q30905509","lat":49.46621,"lng":19.82248,"cards":[{"collection":"atmosfera-astronomia","id":"puscizna-rekowianska","name":{"pl":"Puścizna Rękowiańska","en":"Puścizna Rękowiańska"}}]},

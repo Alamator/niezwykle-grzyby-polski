@@ -1,7 +1,8 @@
 // Validates the Karta 2.0 data: verified fun facts in data/facts/*.facts.js and the card fields
 // that the interface reads next to them (protection / toxic badges, synonyms).
-// The facts files are generated outside the repo, so this script only reads them. Cards and facts
-// withdrawn after editorial review are listed in data/collections.js and must stay out of the UI.
+// Since 31.10.2026 the facts are corrected in those files directly (docs/content/README-weryfikacja.md).
+// Cards and facts withdrawn after editorial review are listed in data/collections.js and must stay out of
+// the UI, and what the checks of 28-31.10.2026 removed or corrected must not come back.
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
@@ -20,9 +21,9 @@ const entryBlocks = [...collectionsJs.matchAll(/id:\s*"([a-z-]+)",[\s\S]*?script
   .map((match) => ({ id: match[1], scripts: [...match[2].matchAll(/"(\/data\/[^"]+)"/g)].map((m) => m[1]) }));
 assert(entryBlocks.length >= 19, "collections.js should expose a scripts list for every collection");
 
-// Collections whose facts the generator has not made yet. They open without facts and have no facts
-// file in their scripts. When the file comes, it goes last in the scripts and the id leaves this list.
-const FACTS_PENDING = new Set(["rekordy-atmosferyczne"]);
+// Collections that open before their facts are written. They have no facts file in their scripts. When
+// the file comes, it goes last in the scripts and the id leaves this list.
+const FACTS_PENDING = new Set();
 
 // Each collection loads its own facts file lazily, after the collection data and photo packs.
 for (const { id, scripts } of entryBlocks) {
@@ -69,6 +70,8 @@ const hiddenFacts = new Set([...Object.keys(withdrawn.facts), ...withdrawn.numbe
 
 const seenFactIds = new Map();
 const factTexts = new Map();
+const factSources = new Map();
+const factTextsEn = new Map();
 const stats = { cards: 0, facts: 0, notes: 0, statuses: {}, withdrawnCardFacts: 0 };
 
 function markdownBalanced(text) {
@@ -128,6 +131,8 @@ for (const collection of app.collections) {
       else {
         seenFactIds.set(fact.id, where);
         factTexts.set(fact.id, fact.pl);
+        factSources.set(fact.id, fact.sources || []);
+        factTextsEn.set(fact.id, fact.en || "");
       }
 
       if (typeof fact.pl !== "string" || !fact.pl.trim()) fail(`${label}: missing "pl" text`);
@@ -188,14 +193,15 @@ for (const collection of app.collections) {
 }
 
 // The withdrawn registry has to stay in sync with the data: withdrawn cards are gone from the
-// collections, withdrawn facts still exist in the generated files (a stale entry is a warning).
+// collections, a hidden fact still exists in data/facts (a stale entry is a warning) and says why.
 for (const key of Object.keys(withdrawn.cards)) {
   const [collectionId, cardId] = key.split("/");
   const collection = app.collections.find((entry) => entry.id === collectionId);
   if (!collection) fail(`withdrawn card ${key}: unknown collection`);
   else if (collection.items.some((item) => item.id === cardId)) fail(`withdrawn card ${key} still exists in the collection data`);
 }
-for (const id of Object.keys(withdrawn.facts)) {
+for (const [id, reason] of Object.entries(withdrawn.facts)) {
+  if (typeof reason !== "string" || !reason.trim()) fail(`WITHDRAWN.facts.${id} should give the reason`);
   if (!seenFactIds.has(id)) warn(`withdrawn fact ${id} no longer exists in data/facts`);
 }
 if (!Array.isArray(withdrawn.numbers)) fail("WITHDRAWN.numbers should be an array of fact ids");
@@ -205,55 +211,57 @@ for (const id of new Set(withdrawn.numbers)) {
   if (!seenFactIds.has(id)) warn(`hidden fact ${id} (numbers check) no longer exists in data/facts`);
 }
 
-// The generator handoff lists every hidden fact with its reason and, where possible, the corrected
-// wording. A hidden fact that already has the corrected wording can be shown again.
+// The checks of 28-31.10.2026 are in docs/content/zmiany-dla-generatora-2026-10.json, applied to data/facts
+// on 31.10.2026. What they removed or corrected must not come back, under any id and in either language: the
+// facts of a removed card, the text of a fact left out, the old wording of a corrected fact, the old address
+// of a replaced source. A fact can be hidden in data/collections.js (WITHDRAWN.facts, with its reason) until
+// its file is fixed; one hidden for the numbers check (WITHDRAWN.numbers) needs its entry in that file.
 const HANDOFF = "docs/content/zmiany-dla-generatora-2026-10.json";
 const handoff = JSON.parse(fs.readFileSync(HANDOFF, "utf8"));
 const handoffEntries = new Map([...handoff.skip_facts, ...handoff.replace_facts].map((entry) => [entry.id, entry]));
-const handoffCards = new Set(handoff.skip_cards.map((entry) => `${entry.collection}/${entry.card}`));
-for (const key of Object.keys(withdrawn.cards)) {
-  if (!handoffCards.has(key)) fail(`withdrawn card ${key} is missing from skip_cards in ${HANDOFF}`);
+for (const entry of handoff.skip_cards) {
+  if (allFacts[entry.collection]?.items?.[entry.card]) fail(`${entry.collection}/${entry.card} was removed from the atlas (skip_cards in ${HANDOFF}); its facts should not come back`);
 }
-for (const id of hiddenFacts) {
-  if (!handoffEntries.has(id)) fail(`hidden fact ${id} is missing from skip_facts/replace_facts in ${HANDOFF}`);
+const removedWording = new Map();
+for (const entry of handoff.skip_facts) {
+  if (seenFactIds.has(entry.id) && !hiddenFacts.has(entry.id)) fail(`${entry.id} was left out (skip_facts in ${HANDOFF}: ${entry.reason}); it should not come back`);
+  for (const text of [entry.pl, entry.en]) if (text) removedWording.set(text, `${entry.id}, left out (${entry.reason})`);
 }
-for (const [id, entry] of handoffEntries) {
-  if (!seenFactIds.has(id)) continue;
-  const updated = entry.pl_old !== undefined && factTexts.get(id) === entry.pl;
-  if (updated && hiddenFacts.has(id)) warn(`${id} already has the corrected wording from ${HANDOFF}; remove it from WITHDRAWN to show it again`);
-  if (!updated && !hiddenFacts.has(id)) fail(`${id} is listed in ${HANDOFF} but data/collections.js does not hide it`);
+for (const entry of handoff.replace_facts) {
+  for (const text of [entry.pl_old, entry.en_old]) if (text && text !== entry.pl && text !== entry.en) removedWording.set(text, `${entry.id}, corrected`);
+  if (factTexts.get(entry.id) === entry.pl && withdrawn.numbers.includes(entry.id)) warn(`${entry.id} already has the corrected wording from ${HANDOFF}; remove it from WITHDRAWN.numbers to show it again`);
+}
+for (const [id, pl] of factTexts) {
+  if (hiddenFacts.has(id)) continue;
+  for (const text of [pl, factTextsEn.get(id)]) {
+    if (removedWording.has(text)) fail(`${id} repeats the old wording of ${removedWording.get(text)} (${HANDOFF})`);
+  }
+}
+const replacedAddresses = new Map(handoff.fix_sources.filter((entry) => entry.url).map((entry) => [entry.url_old, entry.id]));
+for (const [id, sources] of factSources) {
+  for (const source of sources) {
+    if (replacedAddresses.has(source.url)) fail(`${id} links to ${source.url}, replaced for ${replacedAddresses.get(source.url)} (fix_sources in ${HANDOFF})`);
+  }
+}
+for (const id of new Set(withdrawn.numbers)) {
+  if (!handoffEntries.has(id)) fail(`hidden fact ${id} (numbers check) is missing from skip_facts/replace_facts in ${HANDOFF}`);
 }
 const numbersCheck = handoff.number_check || {};
 for (const entry of handoff.confirm_facts) {
   if (!seenFactIds.has(entry.id)) warn(`confirmed fact ${entry.id} from ${HANDOFF} no longer exists in data/facts`);
-  if (hiddenFacts.has(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden in data/collections.js`);
+  if (withdrawn.numbers.includes(entry.id)) fail(`${entry.id} is confirmed in ${HANDOFF} but hidden for the numbers check in data/collections.js`);
 }
-// A collection waiting for its facts is in the handoff with exactly its cards, and its checked facts
-// belong to those cards, so the generator writes facts for the cards the atlas has.
+// A collection waiting for its facts and listed in the handoff (new_collections) has exactly its cards there,
+// and its checked facts belong to those cards. Collections added later get their facts written in the repo.
 for (const id of FACTS_PENDING) {
   const collection = app.collections.find((entry) => entry.id === id);
   const entry = (handoff.new_collections || []).find((candidate) => candidate.collection === id);
-  if (!entry) {
-    fail(`${id} waits for its facts but has no new_collections entry in ${HANDOFF}`);
-    continue;
-  }
+  if (!entry) continue;
   const cards = (collection?.items || []).map((item) => item.id);
   if (JSON.stringify([...entry.cards].sort()) !== JSON.stringify([...cards].sort())) fail(`${HANDOFF}: new_collections should list exactly the cards of ${id}`);
   for (const fact of (handoff.new_facts || []).filter((candidate) => candidate.collection === id)) {
     if (!cards.includes(fact.card)) fail(`${HANDOFF}: a new fact of ${id} belongs to ${fact.card}, which is not a card of the collection`);
     if (!STATUSES.has(fact.status) || !fact.pl || !fact.en || !fact.sources?.length) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} needs pl, en, a status and sources`);
-    // The owner's rule (31.10.2026): neither record is called official (IMGW-PIB: Siedlce 1940).
-    if (["zywiec-1929", "slubice-40-5"].includes(fact.card) && /oficjaln|official/i.test(`${fact.pl} ${fact.en}`)) fail(`${HANDOFF}: a new fact of ${id}/${fact.card} calls the record official`);
-  }
-}
-// Once the generated file is here, the facts of a new collection are the checked ones from the handoff.
-for (const entry of handoff.new_collections || []) {
-  if (FACTS_PENDING.has(entry.collection)) continue;
-  const checked = new Set((handoff.new_facts || []).filter((fact) => fact.collection === entry.collection).map((fact) => `${fact.card}\n${fact.pl}`));
-  for (const [cardId, item] of Object.entries(allFacts[entry.collection]?.items || {})) {
-    for (const fact of item.facts || []) {
-      if (!checked.has(`${cardId}\n${fact.pl}`)) fail(`${entry.collection}/${cardId}/${fact.id}: not one of the checked new_facts in ${HANDOFF}`);
-    }
   }
 }
 

@@ -190,7 +190,7 @@ window.ATLAS_ITEM_TEXT_EN["drzewa"] = {
     "safety_note": "Do not damage dead trunks and logs; even dead curiosities are home to insects, fungi and the memory of the place.",
     "region": "The Łuża forest tract near Wólka Węglowa, Mazovia.",
     "habitat": "Sandy pine forest at the edge of a primeval-forest landscape, under strong pressure from drought.",
-    "occurrence": "The pine died before reaching the age of 100; its death was described in late November 2018. It has stayed in the atlas even after death: sometimes a dendrological curiosity is already just the skeleton of past growth.",
+    "occurrence": "The pine has died. It has stayed in the atlas even after death: sometimes a dendrological curiosity is already just the skeleton of past growth.",
     "level": "strange shape"
   },
   "lipa-pokoju": {

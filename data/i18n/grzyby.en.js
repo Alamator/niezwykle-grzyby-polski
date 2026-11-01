@@ -600,7 +600,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "safety_note": "This site describes form and habitat; it is not a collecting guide.",
     "region": "Throughout Poland except the higher mountains; common.",
     "habitat": "Living and dying trunks of broadleaved trees, most often beech, maple and ash; in forests, parks, gardens and along roads.",
-    "occurrence": "Young fruit bodies appear in March and grow until the first frosts; old ones sometimes stay on the trunks until February.",
+    "occurrence": "Fruit bodies appear from May to October.",
     "level": "scale and form"
   }
 };

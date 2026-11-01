@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["kwiaty"] = {
  "checked": "2026-10-28",
@@ -41,9 +41,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Aldrovanda_vesiculosa",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7671111",
+       "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0204",
@@ -58,9 +62,17 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Aldrowanda_p%C4%99cherzykowata",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.butbn.cas.cz/adamec/PPEES2018.pdf",
+       "label": "butbn.cas.cz"
+      },
+      {
+       "url": "https://siedliska.gios.gov.pl/images/pliki_pdf/wyniki/2020-2021/dla_roslin/aldrowanda_pecherzykowata_wyniki_monitoringu_2021.pdf",
+       "label": "siedliska.gios.gov.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -70,15 +82,15 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0205",
      "icon": "🫧",
-     "pl": "Na każdym liściu ma co najmniej 8 pęcherzyków-pułapek, a na całej roślinie może ich być **ponad 200**.",
-     "en": "Each leaf bears at least 8 bladder-traps, and the whole plant can have **more than 200**.",
+     "pl": "Na jego liściach jest wiele pęcherzyków-pułapek.",
+     "en": "Its leaves bear many bladder traps.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/P%C5%82ywacz_zwyczajny",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0206",
@@ -96,8 +108,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0207",
      "icon": "🛡️",
-     "pl": "Był chroniony w latach 2004–2014. **Obecnie nie jest chroniony**, natomiast kilku jego krewnych jest (np. pływacz drobny pod ochroną ścisłą).",
-     "en": "It was protected from 2004 to 2014. **It is no longer protected**, but several of its relatives are (e.g. lesser bladderwort, which is under strict protection).",
+     "pl": "**Obecnie nie jest chroniony**, natomiast kilku jego krewnych jest (np. pływacz drobny pod ochroną ścisłą).",
+     "en": "**It is not protected today**, although several of its relatives are (e.g. the lesser bladderwort is strictly protected).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/P%C5%82ywacz_zwyczajny",
@@ -108,7 +120,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -139,7 +151,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (EN)"
       },
       {
-       "url": "https://www.darwinproject.ac.uk/letter?docId=letters%2FDCP-LETT-2996.xml",
+       "url": "https://www.darwinproject.ac.uk/DCP-LETT-2996",
        "label": "darwinproject.ac.uk"
       }
      ],
@@ -158,9 +170,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rosiczka",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/1946/384/ogl/pol/pdf",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -214,8 +230,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0214",
      "icon": "🔥",
-     "pl": "Roślina w czasie kwitnienia sama się grzeje: 1 gram jej tkanki wytwarza 0,4 J ciepła na sekundę.",
-     "en": "The plant heats itself up while flowering: 1 gram of its tissue produces 0.4 J of heat per second.",
+     "pl": "Roślina w czasie kwitnienia sama się grzeje.",
+     "en": "While flowering, the plant warms itself up.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Obrazki_plamiste",
@@ -233,9 +249,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Arum_maculatum",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://homepage.uni-graz.at/en/anton.stabentheiner/research/floral-biology/",
+       "label": "homepage.uni-graz.at"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0216",
@@ -253,8 +273,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0217",
      "icon": "☠️",
-     "pl": "Roślina trująca (zawiera aroinę). 🛡️ **Ochrona ścisła**. Na Czerwonej liście z 2006 r. ma kategorię E, czyli wymierający.",
-     "en": "A poisonous plant (it contains aroin). 🛡️ **Strict protection**. On the 2006 Red List it is in category E, meaning “dying out”.",
+     "pl": "Roślina trująca (zawiera aroinę). 🛡️ **Ochrona ścisła**. Na Czerwonej liście z 2016 r. ma kategorię VU, czyli narażony.",
+     "en": "A poisonous plant (it contains aroin). 🛡️ **Strict protection**. On the 2016 Red List it is in category VU, meaning “vulnerable”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Obrazki_plamiste",
@@ -265,7 +285,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -301,8 +321,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0220",
      "icon": "🛡️",
-     "pl": "Od 2014 r. są pod **ochroną częściową**, a w latach 2001–2014 były pod ścisłą.",
-     "en": "Since 2014 they have been under **partial protection**; from 2001 to 2014 they were strictly protected.",
+     "pl": "Od 2014 r. są pod **ochroną częściową**.",
+     "en": "Since 2014 they have been under partial protection.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Obrazki_alpejskie",
@@ -311,9 +331,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://www.krakow.lasy.gov.pl/documents/688359/20929648/Lista+ro%C5%9Blin+obj%C4%99tych+ochron%C4%85+w+zasi%C4%99gu+terytorialnym++RDLP+w+Krakowie/55ba0cc3-270d-f890-9555-73c01b311169",
+       "label": "krakow.lasy.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -386,9 +410,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Wiesio%C5%82ek_dwuletni",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.miteco.gob.es/content/dam/miteco/es/biodiversidad/temas/inventarios-nacionales/oenothera_biennis_tcm30-70130.pdf",
+       "label": "miteco.gob.es"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -491,8 +519,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0232",
      "icon": "🆕",
-     "pl": "Jeden z nowych gatunków polskiej flory. Do 2010 r. nie był w Polsce notowany. Pierwszą populację znaleziono wtedy na Górnym Śląsku, a dekadę później, w 2020 r., kolejną w Sudetach.",
-     "en": "One of the new species of the Polish flora. Until 2010 it had never been recorded in Poland. That year the first population was found in Upper Silesia, and a decade later, in 2020, another in the Sudetes.",
+     "pl": "Jeden z nowych gatunków polskiej flory. Do 2010 r. nie był w Polsce notowany. Pierwszą populację znaleziono wtedy na Górnym Śląsku, a w 2020 r. opisano kolejną, w Sudetach.",
+     "en": "One of the new species of the Polish flora. Until 2010 it had not been recorded in Poland. The first population was found that year in Upper Silesia, and in 2020 another one, in the Sudetes, was described.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dwulistnik_pszczeli",
@@ -501,6 +529,10 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://www.nature.com/articles/s41598-025-15167-6",
        "label": "nature.com"
+      },
+      {
+       "url": "https://pressto.amu.edu.pl/index.php/biorc/article/download/biorc-2014-0027/29164/71695",
+       "label": "pressto.amu.edu.pl"
       }
      ],
      "status": "corrected"
@@ -533,7 +565,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "pressto.amu.edu.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -583,9 +615,21 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
        "label": "Dziennik Ustaw"
+      },
+      {
+       "url": "https://zpe.gov.pl/a/ochrona-gatunkowa-roslin-zwierzat-i-grzybow/D1EQDDWpJ",
+       "label": "zpe.gov.pl"
+      },
+      {
+       "url": "https://zpe.gov.pl/reader/c/175203/v/latest/t/student-canon/m/ipVGHlkaDX",
+       "label": "zpe.gov.pl"
+      },
+      {
+       "url": "https://archiwum.bdpn.pl/dokumenty/roczniki/rb32/art05.pdf",
+       "label": "archiwum.bdpn.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -608,15 +652,19 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0239",
      "icon": "🛡️",
-     "pl": "W latach 1946–2014 był pod ochroną ścisłą, a **od 2014 r. jest pod częściową**.",
-     "en": "From 1946 to 2014 it was strictly protected, and **since 2014 it has been partially protected**.",
+     "pl": "**Od 2014 r. jest pod ochroną częściową**.",
+     "en": "Since 2014 it has been under partial protection.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Podkolan_bia%C5%82y",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://rcin.org.pl//Content/125587/PDF/KR038_156827_r2015-t71-no2_ChPO-Soltys-137-143.pdf",
+       "label": "rcin.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -632,22 +680,26 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Podkolan_zielonawy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.efloras.org/florataxon.aspx?flora_id=2&taxon_id=200028800",
+       "label": "efloras.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0241",
      "icon": "🛡️",
-     "pl": "**Ochrona częściowa** od 2014 r., a wcześniej ścisła.",
-     "en": "**Partial protection** since 2014; previously strict.",
+     "pl": "**Ochrona częściowa**.",
+     "en": "**Partial protection**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Podkolan_zielonawy",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -670,8 +722,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0243",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła** i **strefa ochrony stanowisk** (zał. 1 i 4). Czerwona lista (2016) ma ją jako krytycznie zagrożoną (CR).",
-     "en": "**Strict protection** and a **site protection zone** (Annexes 1 and 4). The Red List (2016) classes it as Critically Endangered (CR).",
+     "pl": "**Ochrona ścisła** i **strefa ochrony stanowisk** (zał. 1 i 4).",
+     "en": "**Strict protection** and a **site protection zone** (Annexes 1 and 4).",
      "sources": [
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
@@ -682,7 +734,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0244",
@@ -722,21 +774,21 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0246",
      "icon": "",
-     "pl": "⏳ Od wykiełkowania do zakwitnięcia mija nawet kilkanaście lat. Pędy i kwiaty potrafią rozwijać się pod ziemią, więc „zniknięcie” na lata nie znaczy, że wyginął.",
-     "en": "⏳ It can take as long as a dozen or more years from germination to flowering. Its shoots and flowers can develop underground, so \"disappearing\" for years does not mean it has died out.",
+     "pl": "⏳ Pędy i kwiaty potrafią rozwijać się pod ziemią, więc „zniknięcie” na lata nie znaczy, że wyginął.",
+     "en": "⏳ Shoots and flowers can develop underground, so “disappearing” for years does not mean it has died out.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Storzan_bezlistny",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0247",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła**. Na Czerwonej liście z 2006 r. ma kategorię E, czyli wymierający.",
-     "en": "**Strict protection**. On the 2006 Red List it is in category E, i.e. endangered.",
+     "pl": "**Ochrona ścisła**.",
+     "en": "**Strict protection**.",
      "sources": [
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
@@ -747,7 +799,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -814,8 +866,8 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0252",
      "icon": "🛡️",
-     "pl": "**Ochrona częściowa** od 2014 r.",
-     "en": "**Partial protection** since 2014.",
+     "pl": "**Ochrona częściowa**.",
+     "en": "**Partial protection**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zaraza_%C5%BC%C3%B3%C5%82ta",
@@ -826,7 +878,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Dziennik Ustaw"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -849,15 +901,23 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0254",
      "icon": "☠️",
-     "pl": "Roślina trująca i półpasożyt. 🛡️ **Ochrona częściowa** od 2014 r., a w latach 1983–2014 była ścisła.",
-     "en": "A poisonous plant and a hemiparasite. 🛡️ **Partial protection** since 2014; from 1983 to 2014 it was strict.",
+     "pl": "Roślina trująca i półpasożyt. 🛡️ **Ochrona częściowa** od 2014 r., a wcześniej była ścisła.",
+     "en": "A poisonous plant and a hemiparasite. 🛡️ **Partial protection** since 2014; before that it was strictly protected.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Gnidosz_rozes%C5%82any",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://archiwum.bdpn.pl/dokumenty/roczniki/rb30/art07.pdf",
+       "label": "archiwum.bdpn.pl"
+      },
+      {
+       "url": "https://archiwum.botany.pl/ibwyd/fragm-pl/Pdfy/Fragmenta_Polonica-15/Strony%20od%20Frpl15-1_s131-133_bnotes.pdf",
+       "label": "archiwum.botany.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -915,21 +975,29 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0258",
      "icon": "🌿",
-     "pl": "W Polsce potwierdzono obecnie tylko **trzy** naturalne stanowiska.",
-     "en": "Only **three** natural sites are currently confirmed in Poland.",
+     "pl": "W Polsce potwierdzono obecnie tylko **trzy** stanowiska.",
+     "en": "Today the species is confirmed at only **three** sites in Poland.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Dyptam_jesionolistny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://siedliska.gios.gov.pl/images/pliki_pdf/wyniki/2020-2021/dla_roslin/dyptam_jesionolistny_wyniki_monitoringu_2021.pdf",
+       "label": "siedliska.gios.gov.pl"
+      },
+      {
+       "url": "https://siedliska.gios.gov.pl/images/pliki_pdf/publikacje/pojedyncze_metodyki_dla_gat_roslin/Dictamnus-albus_przewodnik.pdf",
+       "label": "siedliska.gios.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0259",
      "icon": "🛡️",
-     "pl": "**Ochrona ścisła** z wymogiem ochrony czynnej, a na Czerwonej liście z 2006 r. kategoria E, czyli wymierający.",
-     "en": "**Strict protection** with active conservation required, and in the 2006 Red List it is category E, i.e. endangered.",
+     "pl": "**Ochrona ścisła** z wymogiem ochrony czynnej.",
+     "en": "**Strict protection** with active conservation required.",
      "sources": [
       {
        "url": "https://eli.gov.pl/api/acts/DU/2014/1409/text.pdf",
@@ -940,7 +1008,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -960,19 +1028,6 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Daphne_mezereum",
        "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0261",
-     "icon": "🛡️",
-     "pl": "Od 2014 r. pod **ochroną częściową**, a wcześniej ścisłą.",
-     "en": "Under **partial protection** since 2014, and under strict protection before that.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Wawrzynek_wilcze%C5%82yko",
-       "label": "Wikipedia (PL)"
       }
      ],
      "status": "verified"
@@ -998,15 +1053,15 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0263",
      "icon": "🛡️",
-     "pl": "Paradoks: ochroną objęto go w 1983 r., gdy zbiór ziela już malał. **Od 2014 r. nie jest chroniony.** Jego toksyczność ograniczyła zastosowanie lecznicze.",
-     "en": "A paradox: it was given protection in 1983, when collection of the herb was already declining. **It has not been protected since 2014.** Its toxicity limited its medicinal use.",
+     "pl": "Paradoks: ochroną objęto go, gdy zbiór ziela już malał. **Dziś nie jest chroniony.** Jego toksyczność ograniczyła zastosowanie lecznicze.",
+     "en": "A paradox: it was protected when the herb harvest was already declining. **Today it is not protected.** Its toxicity limited its medicinal use.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopytnik_pospolity",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1130,15 +1185,19 @@ window.ATLAS_FACTS["kwiaty"] = {
     {
      "id": "F0271",
      "icon": "🍀",
-     "pl": "Zwykle ma 4 liście w okółku, ale zdarzają się okazy z 3 albo z 5–8 liśćmi!",
-     "en": "It usually has 4 leaves in a whorl, but specimens with 3 or 5–8 leaves also occur!",
+     "pl": "Zwykle ma 4 liście w okółku, ale zdarzają się okazy z 3 albo z 5 liśćmi!",
+     "en": "It usually has 4 leaves in a whorl, but plants with 3 or 5 leaves also occur!",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Czworolist_pospolity",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.rhs.org.uk/Plants/12323/wd/Details",
+       "label": "rhs.org.uk"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []

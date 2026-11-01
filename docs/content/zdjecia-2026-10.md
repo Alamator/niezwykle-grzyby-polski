@@ -110,7 +110,7 @@ Linki `Special:Redirect` przekierowują teraz przeglądarkę na nowy serwer mini
   - Słubice: zamiast drogowskazu z widokiem głównie na Frankfurt nad Odrą — ulica w Słubicach;
   - Prószków: zamiast tablicy z datą 1563 — rynek w Prószkowie;
   - Żywiec: zamiast domu w Beskidzie Żywieckim ok. 10 km od miasta — konkatedra w Żywcu zimą;
-  - halny: zamiast obrazu Stanisława Witkiewicza — zdjęcie wału chmur halnego nad Tatrami, bo oznaczenie „Kadr reprezentatywny” nie pasuje do obrazu. Obraz zostaje w ciekawostce dla generatora.
+  - halny: zamiast obrazu Stanisława Witkiewicza — zdjęcie wału chmur halnego nad Tatrami, bo oznaczenie „Kadr reprezentatywny” nie pasuje do obrazu. Obraz zostaje w ciekawostce (F1532).
 - **Poprawione podpisy:**
   - tornado z 1931 r.: „Unknown author” zamiast zdublowanego „Unknown authorUnknown author”;
   - Tomaszów Mazowiecki: autor zamiast opisu miejsca w polu autora;

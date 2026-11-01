@@ -195,7 +195,7 @@ assert.equal(trees.items.length, 30, "tree collection should contain 30 dendrolo
 assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mineralogical curiosities");
 assert.equal(rockFormations.items.length, 32, "rock formation collection should contain 32 geological curiosities (Zęzów i Czarne Działy withdrawn)");
 assert.equal(fossils.items.length, 32, "fossil collection should contain 32 paleontological curiosities (Tholodus schmidi withdrawn: no published Polish record)");
-assert.equal(skyPhenomena.items.length, 33, "atmosphere and astronomy collection should contain 33 sky and weather curiosities");
+assert.equal(skyPhenomena.items.length, 32, "atmosphere and astronomy collection should contain 32 sky and weather curiosities");
 assert.equal(mammals.items.length, 33, "mammal collection should contain 33 mammal curiosities");
 assert.equal(amphibiansReptiles.items.length, 30, "amphibian and reptile collection should contain 30 well-documented herpetofauna curiosities");
 assert.equal(woodenArchitecture.items.length, 29, "wooden architecture collection should contain 29 prepared architectural curiosities (Chata na Wysokości withdrawn)");
@@ -303,7 +303,7 @@ assert(
 const skyPhenomenonImages = skyPhenomena.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(skyPhenomenonImages.length, 33, "atmosphere and astronomy collection should include 33 curated images with attribution");
+assert.equal(skyPhenomenonImages.length, 32, "atmosphere and astronomy collection should include 32 curated images with attribution");
 assert(
   skyPhenomena.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "atmosphere and astronomy images should use Wikimedia Commons Special:Redirect links"
@@ -420,7 +420,7 @@ assert.equal(
 // The owner's rules for this drawer (30-31.10.2026): IMGW-PIB regards Siedlce 1940 as the official cold
 // record, so Żywiec 1929 is never called official; Słubice is the record announced by IMGW for synoptic
 // stations. What was disputed, rested on own calculations or repeated an existing card stays out.
-// Every text of the card, also the photo description, the safety note and its fun facts once they come.
+// Every text of the card, also the photo description, the safety note and its fun facts.
 const cardTexts = (item) => {
   const english = i18n.collections.en["rekordy-atmosferyczne"].items[item.id] || {};
   const facts = weatherRecords.facts?.[item.id]?.facts || [];
@@ -431,6 +431,12 @@ for (const id of ["zywiec-1929", "slubice-40-5"]) {
   const item = weatherRecords.items.find((entry) => entry.id === id);
   assert(item, `weather records should include ${id}`);
   assert(!/oficjaln/i.test(cardTexts(item).pl) && !/official/i.test(cardTexts(item).en), `${id} should not call its record official`);
+}
+// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 (254,5 mm in no source) stays out.
+for (const item of weatherRecords.items) {
+  const { pl, en } = cardTexts(item);
+  assert(!/Ko[lł]ud/i.test(`${pl} ${en}`), `${item.id} should not mention Kołuda Wielka`);
+  assert(!/254[,.]5/.test(`${pl} ${en}`), `${item.id} should not give 254,5 mm (Kamienica 2024 is not confirmed)`);
 }
 for (const id of ["koluda-wielka-40-6", "rozdziele-noc-28-4", "opole-dni-upalne", "kasprowy-88-dni-mrozu", "krosno-burze",
   "cisnienie-skrajnosci", "hel-najwiecej-slonca", "najmniej-slonca-gory", "siedlce-minus-41", "litworowy-kociol-41-1",

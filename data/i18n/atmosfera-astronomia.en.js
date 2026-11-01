@@ -243,16 +243,6 @@ window.ATLAS_ITEM_TEXT_EN["atmosfera-astronomia"] = {
     "occurrence": "This phenomenon lies on the border between geography and optics: the mountains are far away, but the atmosphere carries the image further.",
     "level": "mountains beyond the horizon"
   },
-  "rekord-godziszow-zadni-gerlach": {
-    "name": "Godziszów and Zadni Gerlach",
-    "hook": "Examples of record photos of the Tatras taken from Roztocze show how precise the weather, the geometry and the patience must be.",
-    "quiz_angle": "a specific record-setting direction, the Tatras above the horizon and refraction",
-    "safety_note": "Treat records as observational documentation, not as a guarantee that they can be repeated in every spell of clear weather.",
-    "region": "Godziszów and the Roztocze area, in the direction of the Slovak Tatras.",
-    "habitat": "Viewpoints with a long line of sight and air with an exceptionally low aerosol content.",
-    "occurrence": "The record photo was taken on 30 January 2025 from a distance of 246.1 km.",
-    "level": "visibility record"
-  },
   "atmosfera-jako-soczewka": {
     "name": "The atmosphere as a lens",
     "hook": "Layers of air at different temperatures can bend light and shift the image of distant objects.",

@@ -28,6 +28,7 @@ Krok zapowiedziany w [README-weryfikacja.md](README-weryfikacja.md): ciekawostki
 
 - Ciekawostki **do poprawki** i **niepotwierdzone** strona ukrywa od razu: lista `WITHDRAWN.numbers` w `data/collections.js` (355 ciekawostek).
 - Poprawione brzmienie trafia do generatora ciekawostek (poza repo) przez [`zmiany-dla-generatora-2026-10.json`](zmiany-dla-generatora-2026-10.json): `replace_facts` (nowa treść PL i EN, źródła), `skip_facts` (pominąć), `confirm_facts` (status `checked` i niezależne źródła). Po ponownym wygenerowaniu plików `data/facts/*.facts.js` ciekawostki wrócą w nowym brzmieniu, a `npm run test:facts` przypomni, które wpisy usunąć z `WITHDRAWN.numbers`.
+- 31.10.2026 te zmiany wprowadzono prosto do `data/facts/*.facts.js`, bo generatora nie było. Strona nie ukrywa już żadnej z tych ciekawostek: poprawione mają nowe brzmienie, pominięte usunięto (`README-weryfikacja.md`).
 
 ## Wyniki
 

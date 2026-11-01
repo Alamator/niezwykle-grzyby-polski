@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["drzewa"] = {
  "checked": "2026-10-28",
@@ -28,9 +28,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Ginkgo_biloba",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.nature.com/articles/423821a",
+       "label": "nature.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0281",
@@ -120,9 +124,17 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Bo%C5%BCodrzew_gruczo%C5%82owaty",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.ogrod.uw.edu.pl/baza-wiedzy/bozodrzew-gruczolowaty-3/",
+       "label": "ogrod.uw.edu.pl"
+      },
+      {
+       "url": "https://research.fs.usda.gov/silvics/ailanthus",
+       "label": "research.fs.usda.gov"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0287",
@@ -259,28 +271,36 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0295",
      "icon": "🦵",
-     "pl": "Poziom gruntu obniżył się o **około 4 m** po dawnym wydobywaniu piasku. Odsłonięte korzenie obrosły korą i zaczęły pełnić rolę pni, stąd też nazwa „Krocząca Sosna”.",
-     "en": "The ground level dropped by **about 4 m** as a result of past sand extraction. The exposed roots grew bark and began to function as trunks, hence the name “Krocząca Sosna” (“Walking Pine”).",
+     "pl": "Po dawnym wydobywaniu piasku jej korzenie wystają **około 3 m** nad ziemię. Obrosły korą i zaczęły pełnić rolę pni, stąd też nazwa „Krocząca Sosna”.",
+     "en": "After past sand digging, its roots stick out **about 3 m** above the ground. They grew bark and began to act as trunks, hence the name “Walking Pine”.",
      "sources": [
       {
        "url": "https://www.pomniki-przyrody.pl/?p=19399",
        "label": "pomniki-przyrody.pl"
+      },
+      {
+       "url": "https://busko.travel/data/file/Co%20zobaczyc/Busko-Zdroj/Miciewicza/22_CIT/reportaze/sciezka_oraz_Nowy_Folwark.pdf",
+       "label": "busko.travel"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0296",
      "icon": "🏛️",
-     "pl": "Jest pomnikiem przyrody od 2002 r. Według albumu *Drzewa Polski* ma około 120 lat, 15 m wysokości i 260 cm obwodu (2013).",
-     "en": "It has been a natural monument since 2002. According to the album *Drzewa Polski*, it is about 120 years old, 15 m tall and 260 cm in girth (2013).",
+     "pl": "Jest pomnikiem przyrody od 2002 r.",
+     "en": "It has been a natural monument since 2002.",
      "sources": [
       {
        "url": "https://www.pomniki-przyrody.pl/?p=19399",
        "label": "pomniki-przyrody.pl"
+      },
+      {
+       "url": "https://radiokielce.pl/703666/post-53615",
+       "label": "radiokielce.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0297",
@@ -291,9 +311,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://echodnia.eu/swietokrzyskie/sosna-na-szczudlach-z-welcza-finalistka-konkursu-drzewo-roku-2023/ar/c1-17347977",
        "label": "echodnia.eu"
+      },
+      {
+       "url": "https://www.wroclaw.pl/zielony-wroclaw/buk-serce-ogrodu-ktory-rosnie-w-arboretum-wojslawice-zostal-drzewem-roku-2023",
+       "label": "wroclaw.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -303,15 +327,27 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0298",
      "icon": "",
-     "pl": "〰️ Ponad 50 sosen wygiętych pod kątem około 90°, około 20 cm nad ziemią. Posadzono je prawdopodobnie w 1934 r.",
-     "en": "〰️ More than 50 pines bent at an angle of about 90°, some 20 cm above the ground. They were probably planted in 1934.",
+     "pl": "〰️ Ponad 50 sosen wygiętych nisko nad ziemią pod kątem około 90°. Posadzono je prawdopodobnie w 1934 r.",
+     "en": "〰️ More than 50 pines bent low above the ground at an angle of about 90°. They were probably planted in 1934.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzywy_Las_%28pomnik_przyrody%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/krzywy-las-obumiera-dlatego-obok-powstaje-drugi-taki-sam-211125025653/",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/artykul/slynny-krzywy-las-do-wyciecia",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://gryfino.pl/UMGryfinoFiles/file/Krzywy-Las-PL.pdf",
+       "label": "gryfino.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0299",
@@ -333,51 +369,16 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0300",
      "icon": "🌱",
-     "pl": "W 2021 r. Nadleśnictwo Gryfino utworzyło „powierzchnię zastępczą” Krzywego Lasu, na której posadzono 1000 młodych drzewek.",
-     "en": "In 2021 Gryfino Forest District created a ‘replacement plot’ for the Crooked Forest, where 1,000 young saplings were planted.",
+     "pl": "W 2021 r. Nadleśnictwo Gryfino utworzyło „powierzchnię zastępczą” Krzywego Lasu, na której posadzono 1100 młodych drzewek.",
+     "en": "In 2021, the Gryfino Forest District created a “replacement plot” for the Crooked Forest, where 1,100 young trees were planted.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzywy_Las_%28pomnik_przyrody%29",
        "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "corrected"
-    }
-   ],
-   "notes": []
-  },
-  "sosna-kandelabrowa": {
-   "facts": [
-    {
-     "id": "F0301",
-     "icon": "🕯️",
-     "pl": "Trzy konary przejęły rolę wierzchołka po ścięciu głównego pnia, stąd kształt świecznika. Nazwę nadał jej dr Janusz Bobiński, pierwszy pracownik naukowy Kampinoskiego PN.",
-     "en": "Three limbs took over the role of the leader after the main trunk was cut off, hence the candelabra shape. It was named by Dr Janusz Bobiński, the first research scientist at Kampinos National Park.",
-     "sources": [
-      {
-       "url": "https://mazowszezsercem.blogspot.com/2023/04/krzywulce-w-podwarszawskiej-czesci.html",
-       "label": "mazowszezsercem.blogspot.com"
       },
       {
-       "url": "https://kampn.gov.pl/pliki-do-pobrania/otworz/2c60909f-a7ba-42ab-ace4-d73f7d926e27.pdf",
-       "label": "kampn.gov.pl"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F0302",
-     "icon": "🪦",
-     "pl": "Sosna obumarła już pod koniec 2018 r. Lechosław Herz napisał o tym w listopadzie 2018 r., a w 2023 r. przypominał, że martwe drzewo nadal stoi i wciąż można je oglądać.",
-     "en": "The pine had already died by the end of 2018. Lechosław Herz wrote about it in November 2018, and in 2023 he pointed out that the dead tree is still standing and can still be seen.",
-     "sources": [
-      {
-       "url": "https://mazowszezsercem.blogspot.com/2023/04/krzywulce-w-podwarszawskiej-czesci.html",
-       "label": "mazowszezsercem.blogspot.com"
-      },
-      {
-       "url": "https://kampinoski.eu/2019/01/sosna-kandelabrowa-obumarla.html",
-       "label": "kampinoski.eu"
+       "url": "https://www.national-geographic.pl/przyroda/krzywy-las-obumiera-dlatego-obok-powstaje-drugi-taki-sam-211125025653/",
+       "label": "national-geographic.pl"
       }
      ],
      "status": "corrected"
@@ -390,8 +391,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0303",
      "icon": "👑",
-     "pl": "**Najstarsze drzewo w Polsce.** Jego wiek w 1987 r. oszacowano na około 1250 lat, a w 1992 r. dr Cezary Pacyniak ocenił go na 1253 lata. Według przeliczenia z 2020 r. drzewo miało około 1280 lat. Niektóre źródła podają nawet 1300–1500 lat.",
-     "en": "**The oldest tree in Poland.** In 1987 its age was estimated at about 1,250 years, and in 1992 Dr Cezary Pacyniak put it at 1,253 years. According to a 2020 recalculation, the tree was about 1,280 years old. Some sources even give 1,300–1,500 years.",
+     "pl": "**Najstarsze drzewo w Polsce.** W 2020 r. jego wiek określono na około 1270 lat, a niektóre źródła podają około 1300 lat.",
+     "en": "**The oldest tree in Poland.** In 2020 its age was estimated at about 1,270 years, and some sources give about 1,300 years.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cis_Henrykowski",
@@ -400,6 +401,14 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://rceeluban.pl/2021/01/01/opowiesc-o-cisie-henryku-najstarszym-drzewie-i-zywym-organizmie-w-polsce/",
        "label": "rceeluban.pl"
+      },
+      {
+       "url": "https://www.rmf24.pl/ciekawostki-rmf24/news-najstarsze-drzewo-swiata-ile-ma-lat-odpowiedz-jest-nieoczywi,nId,8071674",
+       "label": "rmf24.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/ma-okolo-1300-lat-i-obumiera-trwa-ratowanie-najstarszego-z-polskich-cisow/",
+       "label": "national-geographic.pl"
       }
      ],
      "status": "corrected"
@@ -407,15 +416,19 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0304",
      "icon": "💥",
-     "pl": "Przeżył uszkodzenia od żołnierzy (1813), pocisku artyleryjskiego (1945) i huraganu (1989). Ma dziś zraszacze, zamgławiacze i monitoring.",
-     "en": "It has survived damage from soldiers (1813), an artillery shell (1945) and a hurricane (1989). Today it has sprinklers, misters and monitoring.",
+     "pl": "Przeżył uszkodzenia od huraganu (1989). Ma dziś zraszacze, zamgławiacze i monitoring.",
+     "en": "It survived damage from a hurricane (1989). Today it has sprinklers, misters and monitoring.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cis_Henrykowski",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://tvn24.pl/tvnmeteo/najnowsze/najstarsze-drzewo-w-polsce-zagrozone-ls4905878",
+       "label": "tvn24.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0305",
@@ -442,8 +455,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0306",
      "icon": "💪",
-     "pl": "To jeden z największych dębów szypułkowych w Polsce i jeden z nielicznych, których obwód pnia przekroczył 900 cm: w 2014 roku miał 900 cm obwodu, a w 2025 roku już 950 cm. Ma około 28 m wysokości i koronę 32 × 27 m.",
-     "en": "It is one of the largest pedunculate oaks in Poland and one of the few whose trunk girth has exceeded 900 cm: in 2014 it measured 900 cm round, and by 2025 already 950 cm. It is about 28 m tall, with a crown of 32 × 27 m.",
+     "pl": "To jeden z największych dębów szypułkowych w Polsce, o obwodzie pnia około 900 cm. Ma około 28 m wysokości.",
+     "en": "It is one of the largest pedunculate oaks in Poland, with a trunk girth of about 900 cm. It is about 28 m tall.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Uparty_Mazur",
@@ -459,15 +472,15 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0307",
      "icon": "🗣️",
-     "pl": "Wiek szacuje się na około 500 lat. „Mazur” to dawne określenie mieszkańca Mazowsza.",
-     "en": "Its age is estimated at about 500 years. ‘Mazur’ is an old term for an inhabitant of Mazovia.",
+     "pl": "„Mazur” to dawne określenie mieszkańca Mazowsza.",
+     "en": "‘Mazur’ is an old term for an inhabitant of Mazovia.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Uparty_Mazur",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -521,28 +534,32 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0311",
      "icon": "🥇",
-     "pl": "**Najgrubszy dąb w województwie śląskim**: 851 cm obwodu (2013) i 30 m wysokości. Rośnie w parze z mniejszym dębem **Przemko**.",
-     "en": "**The thickest oak in Silesian Voivodeship**: 851 cm in girth (2013) and 30 m tall. It grows as a pair with the smaller oak **Przemko**.",
+     "pl": "Ma 910 cm obwodu i 35 m wysokości. Rośnie w parze z mniejszym dębem **Przemko**.",
+     "en": "Its trunk has a girth of 910 cm and the tree is 35 m tall. It grows in a pair with the smaller oak **Przemko**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Mieszko",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://samorzad.gov.pl/web/gmina-hazlach/deby-szypulkowe-w-konczycach-wielkich-ulica-dolna",
+       "label": "samorzad.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0312",
      "icon": "📜",
-     "pl": "Imiona Mieszko i Przemko nadano obu dębom w 2005 r. Razem nazywa się je „Śląskim Matuzalem”.",
-     "en": "The names Mieszko and Przemko were given to the two oaks in 2005. Together they are known as the ‘Silesian Methuselah’.",
+     "pl": "Imiona Mieszko i Przemko nadano obu dębom. Razem nazywa się je „Śląskim Matuzalem”.",
+     "en": "Both oaks were given the names Mieszko and Przemko. Together they are called the „Silesian Methuselah”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Mieszko",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -552,15 +569,15 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0313",
      "icon": "📏",
-     "pl": "Rośnie na stromym pagórku, więc obwód trudno zmierzyć: rejestry podają 870 i 955 cm, a pomiar dendrometryczny z 2005 r. dał **741 cm**.",
-     "en": "It grows on a steep hillock, so its girth is hard to measure: registers give 870 and 955 cm, while a dendrometric measurement in 2005 gave **741 cm**.",
+     "pl": "Rośnie na stromym pagórku, więc obwód trudno zmierzyć.",
+     "en": "It grows on a steep hillock, so its girth is hard to measure.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Chrobry_w_Bia%C5%82obrzegach",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0314",
@@ -580,19 +597,6 @@ window.ATLAS_FACTS["drzewa"] = {
   },
   "dab-gniewko": {
    "facts": [
-    {
-     "id": "F0315",
-     "icon": "📏",
-     "pl": "Ma 694 cm obwodu (pomiar z maja 2025 r.) i 21 m wysokości. Pomnikiem przyrody jest od 1983 r.",
-     "en": "It has a girth of 694 cm (measured in May 2025) and is 21 m tall. It has been a natural monument since 1983.",
-     "sources": [
-      {
-       "url": "https://www.pomniki-przyrody.pl/?p=20323",
-       "label": "pomniki-przyrody.pl"
-      }
-     ],
-     "status": "verified"
-    },
     {
      "id": "F0316",
      "icon": "🪢",
@@ -671,15 +675,19 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0321",
      "icon": "🗓️",
-     "pl": "Według pomiarów z 1992 r. wykiełkował około **1370 r.**, więc ma około 650 lat. Obwód 870 cm, a korona 34 × 30 m!",
-     "en": "According to measurements from 1992, it germinated around **1370**, so it is about 650 years old. Girth 870 cm, and a crown of 34 × 30 m!",
+     "pl": "Ma kilkaset lat. Obwód pnia wynosi ok. 870 cm, a korona ma ponad 30 m rozpiętości!",
+     "en": "It is several hundred years old. Its trunk girth is about 870 cm, and its crown spans more than 30 m!",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Bolko",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://ruda-huta.pl/dab-bolko-zmierzony/",
+       "label": "ruda-huta.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0322",
@@ -707,9 +715,17 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://lomza.bialystok.lasy.gov.pl/aktualnosci/-/asset_publisher/1M8a/content/drzewo-roku-dab-bolko/maximized",
        "label": "lomza.bialystok.lasy.gov.pl"
+      },
+      {
+       "url": "https://www.treeoftheyear.org/Previous-Years/2016/Dub-Bolko",
+       "label": "treeoftheyear.org"
+      },
+      {
+       "url": "https://pisz.bialystok.lasy.gov.pl/aktualnosci/-/asset_publisher/kCS6/content/dab-bolko-w-czolowce-europejskich-drzew",
+       "label": "pisz.bialystok.lasy.gov.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -719,12 +735,16 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0324",
      "icon": "🪖",
-     "pl": "Jego wiek szacuje się na około 700 lat. Ma przyziemną dziuplę, w której za czasów Birknera z Elbląga mieściło się **11 żołnierzy**.",
-     "en": "Its age is estimated at about 700 years. It has a hollow at ground level which, in the time of Birkner of Elbląg, could hold **11 soldiers**.",
+     "pl": "Jego wiek szacuje się na około 700 lat. Ma przyziemną dziuplę.",
+     "en": "Its age is estimated at about 700 years. It has a hollow at ground level.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Ba%C5%BCy%C5%84skiego",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://rcin.org.pl//Content/83831/PDF/KR038_100154_r1988-t44-no2_ChPO-Czart-86-87.pdf",
+       "label": "rcin.org.pl"
       }
      ],
      "status": "corrected"
@@ -738,9 +758,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Ba%C5%BCy%C5%84skiego",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://rcin.org.pl//Content/83831/PDF/KR038_100154_r1988-t44-no2_ChPO-Czart-86-87.pdf",
+       "label": "rcin.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -748,43 +772,30 @@ window.ATLAS_FACTS["drzewa"] = {
   "lipa-cieletniki": {
    "facts": [
     {
-     "id": "F0326",
-     "icon": "🥇",
-     "pl": "Była **najgrubszą lipą drobnolistną i najgrubszym drzewem w Polsce**: 1084 cm obwodu (2014).",
-     "en": "It was the **thickest small-leaved lime and the thickest tree in Poland**: 1,084 cm in girth (2014).",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Ciel%C4%99tniki_%28wojew%C3%B3dztwo_%C5%9Bl%C4%85skie%29",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
      "id": "F0327",
      "icon": "🙏",
-     "pl": "Pod koniec lat 60. XX w. pielgrzymi odrywali korę na pamiątkę, dlatego trzeba było drzewo ogrodzić.",
-     "en": "In the late 1960s pilgrims tore off bark as souvenirs, so the tree had to be fenced off.",
+     "pl": "Pielgrzymi odrywali korę na pamiątkę, dlatego trzeba było drzewo ogrodzić.",
+     "en": "Pilgrims tore off pieces of bark as souvenirs, so the tree had to be fenced off.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ciel%C4%99tniki_%28wojew%C3%B3dztwo_%C5%9Bl%C4%85skie%29",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0328",
      "icon": "🌪️",
-     "pl": "**W nocy z 5 na 6 października 2017 r. powalił ją orkan Ksawery.**",
-     "en": "**On the night of 5–6 October 2017 it was brought down by the windstorm Ksawery.**",
+     "pl": "**Uszkodził ją orkan Ksawery.**",
+     "en": "**It was damaged by the windstorm Ksawery.**",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ciel%C4%99tniki_%28wojew%C3%B3dztwo_%C5%9Bl%C4%85skie%29",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -800,22 +811,26 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Lipa_szerokolistna_w_G%C5%82ucho%C5%82azach",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zpe.gov.pl/b/P1HaawMsO",
+       "label": "zpe.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0330",
      "icon": "🌱",
-     "pl": "W 1992 r. zawaliła się pod własnym ciężarem. Fragmenty pnia zabezpieczono, a w środek wsadzono **młodą lipę**, która ma przejąć jej rolę.",
-     "en": "In 1992 it collapsed under its own weight. Fragments of the trunk were preserved, and a **young lime tree** was planted in the middle to take over its role.",
+     "pl": "Lipa zawaliła się pod własnym ciężarem. Fragmenty pnia zabezpieczono, a w środek wsadzono **młodą lipę**, która ma przejąć jej rolę.",
+     "en": "The lime tree collapsed under its own weight. Parts of the trunk were secured, and a **young lime tree** was planted in the middle to take over its role.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Lipa_szerokolistna_w_G%C5%82ucho%C5%82azach",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -825,15 +840,15 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0331",
      "icon": "🌲",
-     "pl": "Powierzchniowy pomnik przyrody (1,93 ha), chroniony od 1979 r. Jest to około **200-letni** bór sosnowy z dębem i brzozą.",
-     "en": "An area natural monument (1.93 ha), protected since 1979. It is a roughly **200-year-old** pine forest with oak and birch.",
+     "pl": "Powierzchniowy pomnik przyrody. Jest to bór sosnowy z dębem i brzozą.",
+     "en": "An area nature monument. It is a pine forest with oak and birch.",
      "sources": [
       {
        "url": "https://www.pomniki-przyrody.pl/?p=20221",
        "label": "pomniki-przyrody.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0332",
@@ -848,9 +863,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://ipn.gov.pl/pl/historia-z-ipn/197856,Elzbieta-Strzeszewska-Niech-pani-jej-tam-nie-puszcza-bo-ona-juz-nie-wroci-Mord-w.html",
        "label": "ipn.gov.pl"
+      },
+      {
+       "url": "https://ipn.gov.pl/pl/historia-z-ipn/197856,Elzbieta-Strzeszewska-Niech-pani-jej-tam-nie-puszcza-bo-ona-juz-nie-wroci-Mord-w.pdf",
+       "label": "ipn.gov.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -866,9 +885,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_J%C3%B3zef",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dzieje.pl/rozmaitosci/dab-jozef-z-podkarpacia-wybrany-europejskim-drzewem-roku",
+       "label": "dzieje.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0334",
@@ -892,9 +915,17 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/D%C4%85b_J%C3%B3zef",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://dzieje.pl/node/24454",
+       "label": "dzieje.pl"
+      },
+      {
+       "url": "https://www.internationaloaksociety.org/content/d%C4%85b-j%C3%B3zef-j%C3%B3zef-oak",
+       "label": "internationaloaksociety.org"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -904,8 +935,8 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0336",
      "icon": "🌳",
-     "pl": "To jedno z największych w Europie skupisk wiekowych dębów szypułkowych: około 1400 drzew o obwodzie pnia ponad 2 m. Najpotężniejszy z nich, Rus, ma obwód około 9 m.",
-     "en": "It is one of the largest concentrations of ancient pedunculate oaks in Europe: around 1400 trees with a trunk girth of over 2 m. The mightiest of them, Rus, has a girth of about 9 m.",
+     "pl": "To jedno z największych w Europie skupisk wiekowych dębów szypułkowych: około 1400 drzew. Najpotężniejszy z nich, Rus, ma obwód około 9 m.",
+     "en": "It is one of the largest clusters of ancient pedunculate oaks in Europe: about 1,400 trees. The mightiest of them, Rus, has a girth of about 9 m.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rogalin",
@@ -914,6 +945,18 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://mnp.art.pl/rogalin-archiwum/strona/encyklopedia-rogalinskie-deby.html",
        "label": "mnp.art.pl"
+      },
+      {
+       "url": "https://www.poznan.lasy.gov.pl/documents/688373/0/Warto+zobaczy%C4%87%20w+Wielkopolsce/28ace61c-15c0-473f-abf8-e04b9ea3f18c",
+       "label": "poznan.lasy.gov.pl"
+      },
+      {
+       "url": "https://www.mosina.pl/pdf/deby-rogalinskie",
+       "label": "mosina.pl"
+      },
+      {
+       "url": "https://rogalin.mnp.art.pl/en/page/rogalin-encyclopedia/encyclopedia-place/encyclopedia-place-nature/encyclopedia-place-nature-rogalin-oaks",
+       "label": "rogalin.mnp.art.pl"
       }
      ],
      "status": "corrected"
@@ -931,9 +974,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://www.inforlex.pl/dok/tresc,DZU.2018.094.0000929,ROZPORZADZENIE-PREZYDENTA-RZECZYPOSPOLITEJ-POLSKIEJ-z-dnia-20-kwietnia-2018-r-w-sprawie-uznania-za-pomnik-historii-Rogalin-zespol-palacowo-parkowy.html",
        "label": "inforlex.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/eli/DU/2020/1766/ogl",
+       "label": "eli.gov.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -943,15 +990,19 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0338",
      "icon": "",
-     "pl": "⏳ Ma ponad 500 lat, a dokładnego wieku nie zbadano, żeby jej nie uszkodzić. To sosna reliktowa wysoka na około 3 m.",
-     "en": "⏳ It is over 500 years old; its exact age has not been measured so as not to damage it. It is a relict pine about 3 m tall.",
+     "pl": "⏳ Ma około 500 lat, a dokładnego wieku nie zbadano, żeby jej nie uszkodzić. To sosna reliktowa.",
+     "en": "⏳ It is about 500 years old, but its exact age has never been measured so as not to damage it. It is a relict pine.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sosna_na_Sokolicy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.rmf24.pl/fakty/polska/news-slynny-500-letni-symbol-pienin-zostal-zniszczony-w-trakcie-a,nId,2627787",
+       "label": "rmf24.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0339",
@@ -962,9 +1013,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Sosna_na_Sokolicy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://wydarzenia.interia.pl/malopolskie/news-slynna-pieninska-sosna-w-opatrunku,nId,5003012",
+       "label": "wydarzenia.interia.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0340",
@@ -975,9 +1030,17 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Sosna_na_Sokolicy",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.radiokrakow.pl/aktualnosci/nowy-sacz/za-tydzien-szczegolowe-wyniki-badan-zlamanej-galezi-sosny-z-sokolicy",
+       "label": "radiokrakow.pl"
+      },
+      {
+       "url": "https://scienceinpoland.pl/en/node/33026",
+       "label": "scienceinpoland.pl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -989,19 +1052,6 @@ window.ATLAS_FACTS["drzewa"] = {
      "icon": "⚡",
      "pl": "Ma rozległy ubytek i ślady nadpalenia. Ranę odsłoniło wyłamanie trzeciego konaru i prawdopodobnie zostawił ją piorun. Korona trzyma się na wąskim pasie żywej tkanki.",
      "en": "It has an extensive cavity and signs of charring. The wound was exposed when the third limb broke away, and was probably left by lightning. The crown is held up by a narrow strip of living tissue.",
-     "sources": [
-      {
-       "url": "https://www.pomniki-przyrody.pl/?p=20260",
-       "label": "pomniki-przyrody.pl"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0342",
-     "icon": "🏛️",
-     "pl": "Jest chroniony od 1955 r., ma około 21 m wysokości i 550 cm obwodu.",
-     "en": "It has been protected since 1955, stands about 21 m tall and has a girth of 550 cm.",
      "sources": [
       {
        "url": "https://www.pomniki-przyrody.pl/?p=20260",
@@ -1024,26 +1074,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://www.pomniki-przyrody.pl/?p=20018",
        "label": "pomniki-przyrody.pl"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F0344",
-     "icon": "📏",
-     "pl": "Według pomiaru z 2025 roku ma 641 cm obwodu i 25 m wysokości. W wykazie opartym na rejestrze RDOŚ we Wrocławiu (stan z 2019 roku) to jedyny pomnik przyrody w gminie Stronie Śląskie.",
-     "en": "According to a 2025 measurement, it has a girth of 641 cm and is 25 m tall. In a list based on the register of the RDOŚ in Wrocław (as of 2019), it is the only natural monument in the municipality of Stronie Śląskie.",
-     "sources": [
-      {
-       "url": "https://www.pomniki-przyrody.pl/?p=20018",
-       "label": "pomniki-przyrody.pl"
       },
       {
-       "url": "https://www.gov.pl/attachment/3774a4a3-4fc1-472a-8e32-38a33b4e2718",
-       "label": "gov.pl"
+       "url": "https://www.money.pl/gospodarka/peknieta-tama-w-stroniu-slaskim-wody-polskie-zabieraja-glos-7074518447516160a.html",
+       "label": "money.pl"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1053,28 +1090,15 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0345",
      "icon": "✈️",
-     "pl": "Posadził go około 1897 r. Walenty Struck z Jastarni „na pamiątkę dla potomnych”, po czym wyjechał za chlebem **na Alaskę** i słuch o nim zaginął.",
-     "en": "It was planted around 1897 by Walenty Struck of Jastarnia ‘as a keepsake for posterity’, after which he left to seek a living **in Alaska** and was never heard of again.",
+     "pl": "Posadził go Walenty Struck z Jastarni „na pamiątkę dla potomnych”, po czym wyjechał za chlebem **na Alaskę** i słuch o nim zaginął.",
+     "en": "It was planted by Walenty Struck of Jastarnia “as a keepsake for future generations”, who then left to seek work **in Alaska** and was never heard from again.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kasztanowiec_bia%C5%82y_w_Jastarni",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
-    },
-    {
-     "id": "F0346",
-     "icon": "📏",
-     "pl": "Ma koronę o średnicy 24 m i 18 m wysokości. Pomnikiem przyrody jest od 1982 r.",
-     "en": "Its crown is 24 m across and it is 18 m tall. It has been a natural monument since 1982.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Kasztanowiec_bia%C5%82y_w_Jastarni",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1090,9 +1114,17 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Dawidia_chi%C5%84ska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://landscapeplants.oregonstate.edu/plants/davidia-involucrata",
+       "label": "landscapeplants.oregonstate.edu"
+      },
+      {
+       "url": "https://www.rhs.org.uk/plants/5364/wd/details",
+       "label": "rhs.org.uk"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0348",
@@ -1140,15 +1172,19 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0350",
      "icon": "🌍",
-     "pl": "Mamutowce to najbardziej masywne drzewa na Ziemi, a ich kora u podstawy ma do **90 cm grubości** i chroni przed pożarami.",
-     "en": "Giant sequoias are the most massive trees on Earth, and their bark at the base can be up to **90 cm thick**, protecting them from fire.",
+     "pl": "Mamutowce to najbardziej masywne drzewa na Ziemi, a ich kora u podstawy ma nawet **kilkadziesiąt centymetrów grubości** i chroni przed pożarami.",
+     "en": "Giant sequoias are the most massive trees on Earth, and the bark at their base can be tens of centimetres thick, protecting them from fire.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Sequoiadendron_giganteum",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://nps.gov/seki/learn/nature/bigtrees.htm",
+       "label": "nps.gov"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0351",
@@ -1171,28 +1207,15 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0352",
      "icon": "🥇",
-     "pl": "To najokazalszy platan klonolistny w Polsce i jedno z najgrubszych drzew w kraju: **1066 cm** obwodu (2014) i 35 m wysokości.",
-     "en": "It is the most impressive London plane in Poland and one of the thickest trees in the country: a girth of **1066 cm** (2014) and a height of 35 m.",
+     "pl": "To najokazalszy platan klonolistny w Polsce i jedno z najgrubszych drzew w kraju.",
+     "en": "It is the most impressive London plane in Poland and one of the thickest trees in the country.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Platan_Olbrzym",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
-    },
-    {
-     "id": "F0353",
-     "icon": "🔥",
-     "pl": "Kilka razy go podpalano, więc w 2011 r. został zakonserwowany i ogrodzony.",
-     "en": "It was set on fire several times, so in 2011 it was conserved and fenced off.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Platan_Olbrzym",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []

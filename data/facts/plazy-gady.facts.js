@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["plazy-gady"] = {
  "checked": "2026-10-28",
@@ -87,15 +87,19 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0517",
      "icon": "🥚",
-     "pl": "Samica składa skrzek w jednym grubym sznurze o długości 40–100 cm.",
-     "en": "The female lays her spawn in a single thick string 40–100 cm long.",
+     "pl": "Samica składa skrzek w grubym sznurze o długości do 100 cm.",
+     "en": "The female lays her spawn in a thick string up to 100 cm long.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Grzebiuszka_ziemna",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://amphibiaweb.org/species/5270",
+       "label": "amphibiaweb.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -180,9 +184,17 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://febs.onlinelibrary.wiley.com/doi/10.1016/S0014-5793%2898%2900718-2",
        "label": "febs.onlinelibrary.wiley.com"
+      },
+      {
+       "url": "https://link.springer.com/article/10.1007/BF00907538",
+       "label": "link.springer.com"
+      },
+      {
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4070539",
+       "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0523",
@@ -228,9 +240,17 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://www.polsatnews.pl/wiadomosc/2023-10-23/salamandra-plamista-to-najwiekszy-plaz-ogoniasty-w-polsce-ostrzezono-przed-dotykaniem-zwierzecia/",
        "label": "polsatnews.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/salamandra-od-legend-o-ogniu-po-wspolczesna-ochrone-przyrody/",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://www.liverpoolmuseums.org.uk/artifact/salamandra-salamandra-linnaeus-1758-0",
+       "label": "liverpoolmuseums.org.uk"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0526",
@@ -296,15 +316,19 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0530",
      "icon": "🧶",
-     "pl": "Skrzek składa w sznurach długości **2,5–5 m**, z kilkoma tysiącami jaj.",
-     "en": "It lays its spawn in strings **2.5–5 m** long, containing several thousand eggs.",
+     "pl": "Skrzek składa w **kilkumetrowych sznurach**, z kilkoma tysiącami jaj.",
+     "en": "It lays its spawn in **strings several metres long**, with several thousand eggs.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ropucha_szara",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.wigry.org.pl/plazy2/ropu.htm",
+       "label": "wigry.org.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -366,15 +390,15 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0534",
      "icon": "🏷️",
-     "pl": "*Lissotriton* to po grecku „gładki” plus imię morskiego boga Trytona. Gatunek doczekał się aż 48 synonimów naukowych!",
-     "en": "*Lissotriton* comes from the Greek for ‘smooth’ plus the name of the sea god Triton. The species has racked up as many as 48 scientific synonyms!",
+     "pl": "*Lissotriton* to po grecku „gładki” plus imię morskiego boga Trytona.",
+     "en": "*Lissotriton* comes from the Greek for “smooth” plus the name of the sea god Triton.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Smooth_newt",
        "label": "Wikipedia (EN)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0535",
@@ -410,8 +434,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0537",
      "icon": "🏔️",
-     "pl": "Żyje w Karpatach i we wschodniej części Sudetów (czeski Hrubý Jeseník): w Czechach, Polsce, Rumunii, Słowacji i na Ukrainie. W 1901 roku wsiedlono ją też w Lesie Bawarskim w Niemczech, gdzie przetrwała co najmniej 50 lat, ale późniejszych doniesień o tej populacji nie potwierdzono.",
-     "en": "It lives in the Carpathians and the eastern Sudetes (the Czech Hrubý Jeseník), in the Czech Republic, Poland, Romania, Slovakia and Ukraine. In 1901 it was also introduced to the Bavarian Forest in Germany, where it survived for at least 50 years, but later reports of this population have not been confirmed.",
+     "pl": "Żyje w Karpatach i we wschodniej części Sudetów (czeski Hrubý Jeseník): w Czechach, Polsce, Rumunii, Słowacji i na Ukrainie. Wsiedlono ją też w Lesie Bawarskim w Niemczech.",
+     "en": "It lives in the Carpathians and the eastern Sudetes (the Czech Hrubý Jeseník): in Czechia, Poland, Romania, Slovakia and Ukraine. It was also introduced to the Bavarian Forest in Germany.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Carpathian_newt",
@@ -476,9 +500,17 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Salamandridae/Pleurodelinae/Ichthyosaura/Ichthyosaura-alpestris",
        "label": "amphibiansoftheworld.amnh.org"
+      },
+      {
+       "url": "https://www.gbif.org/taxon/73BFQ",
+       "label": "gbif.org"
+      },
+      {
+       "url": "https://www.salamandra-journal.com/salamandra/61-2025/61-1/61-1,%203,%20Mutz&Boehme,%20Ichthyosaura%20as%20a%20generic%20nomen%20for%20the%20Alpine%20Newt.pdf",
+       "label": "salamandra-journal.com"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0541",
@@ -579,15 +611,19 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0547",
      "icon": "🧬",
-     "pl": "Dawną „ropuchę zieloną” podzielono po badaniach genetycznych: 14 populacji uznano za odrębne gatunki.",
-     "en": "The former “green toad” was split up after genetic studies, and 14 populations were recognised as separate species.",
+     "pl": "Dawną „ropuchę zieloną” podzielono po badaniach genetycznych na kilkanaście odrębnych gatunków.",
+     "en": "After genetic studies, the former “green toad” was split into more than a dozen separate species.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/European_green_toad",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.danieljablonski.com/a/soubory/Dufresnes_et_al_2019_Bufotes_biogeography_taxonomy_MPE.pdf",
+       "label": "danieljablonski.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -651,9 +687,13 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Rzekotka_wschodnia",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://serval.unil.ch/notice/serval:BIB_547C07A1AA49",
+       "label": "serval.unil.ch"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0552",
@@ -693,15 +733,15 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0555",
      "icon": "❄️",
-     "pl": "Na dalekiej północy potrafi spędzić **do 9 miesięcy pod lodem** i pozostaje aktywna w temperaturach bliskich zera.",
-     "en": "In the far north it can spend **up to 9 months under the ice** and stays active at temperatures close to zero.",
+     "pl": "Na dalekiej północy potrafi zimować pod lodem.",
+     "en": "In the far north it can overwinter under the ice.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Common_frog",
        "label": "Wikipedia (EN)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -724,28 +764,32 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0557",
      "icon": "🦘",
-     "pl": "Ma **wyjątkowo długie** tylne nogi i skacze **nawet na 2 m**!",
-     "en": "It has **exceptionally long** hind legs and can jump **as far as 2 m**!",
+     "pl": "Ma **wyjątkowo długie** tylne nogi.",
+     "en": "It has **exceptionally long** hind legs.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBaba_dalmaty%C5%84ska",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0558",
      "icon": "🗺️",
-     "pl": "W Polsce przebiega północno-wschodnia granica jej zasięgu. Znana jest tylko z kilkunastu stanowisk na południu kraju.",
-     "en": "The north-eastern edge of its range runs through Poland. It is known from only a dozen or so sites in the south of the country.",
+     "pl": "W Polsce przebiega północno-wschodnia granica jej zasięgu. Występuje na południu kraju.",
+     "en": "The north-eastern limit of its range runs through Poland. It lives in the south of the country.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBaba_dalmaty%C5%84ska",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://salamandra-journal.com/index.php/contents/2021-vol-57/2039-moloniewicz-l-b-zajac-p-stachyra-j-m-szymura-m-pabijan?rCH=2",
+       "label": "salamandra-journal.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -809,9 +853,13 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Edible_frog",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4930623",
+       "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0563",
@@ -847,8 +895,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0565",
      "icon": "🥇",
-     "pl": "Osiąga do 13 cm długości i do 110 g masy. Samce mają duże rezonatory.",
-     "en": "It grows up to 13 cm long and weighs up to 110 g. Males have large vocal sacs.",
+     "pl": "Samce mają duże rezonatory.",
+     "en": "Males have large vocal sacs.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BBaba_%C5%9Bmieszka",
@@ -891,8 +939,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0568",
      "icon": "🇵🇱",
-     "pl": "To jedyny żółw żyjący naturalnie w Polsce. Jest bardzo długowieczny: może dożyć kilkudziesięciu lat, a według Lasów Państwowych nawet ponad 120.",
-     "en": "This is the only turtle living naturally in Poland. It is very long-lived: it can reach several decades of age, and according to the State Forests even more than 120 years.",
+     "pl": "To jedyny żółw żyjący naturalnie w Polsce. Jest bardzo długowieczny: może dożyć kilkudziesięciu lat, a według Lasów Państwowych nawet 120.",
+     "en": "It is the only turtle living naturally in Poland. It is very long-lived: it can reach several decades of age, and according to the State Forests even 120.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BB%C3%B3%C5%82w_b%C5%82otny",
@@ -901,6 +949,18 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://www.lasy.gov.pl/pl/edukacja/lesnoteka-1/gady/zolw-blotny",
        "label": "lasy.gov.pl"
+      },
+      {
+       "url": "https://www.national-geographic.pl/przyroda/zolw-blotny-to-jedyny-polski-przedstawiciel-tego-rzedu-jest-ekstremalnie-rzadkim-gatunkiem/",
+       "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://cybinka.zielonagora.lasy.gov.pl/documents/1226077/24625404/Cybinka+PL+%C5%BC%C3%B3%C5%82w.pdf/c7f54e3a-f134-487d-ae2d-fc7f31fa01a2",
+       "label": "cybinka.zielonagora.lasy.gov.pl"
+      },
+      {
+       "url": "https://www.gazetaprawna.pl/biznes/srodowisko/artykuly/10909495,rezerwat-przyrody-zolw-blotny-karczma-borowa.html",
+       "label": "gazetaprawna.pl"
       }
      ],
      "status": "corrected"
@@ -908,12 +968,16 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0569",
      "icon": "🏗️",
-     "pl": "Wykopanie komory lęgowej zajmuje samicy co najmniej 2 godziny. Szukając miejsca na złożenie jaj, samica bywa spotykana nawet 4–5 km od macierzystego zbiornika.",
-     "en": "Digging the nest chamber takes the female at least 2 hours. While searching for a place to lay her eggs, the female is sometimes found as far as 4–5 km from her home pond.",
+     "pl": "Szukając miejsca na złożenie jaj, samica bywa spotykana nawet do 4 km od wody.",
+     "en": "While looking for a place to lay its eggs, the female is sometimes found up to 4 km from water.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BB%C3%B3%C5%82w_b%C5%82otny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://wz.izoo.krakow.pl/files/WZ_2014_3_art14.pdf",
+       "label": "wz.izoo.krakow.pl"
       }
      ],
      "status": "corrected"
@@ -936,22 +1000,26 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Pond_slider",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://eur-lex.europa.eu/eli/reg_impl/2016/1141/oj/eng",
+       "label": "eur-lex.europa.eu"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0571",
      "icon": "📏",
-     "pl": "To duży żółw: karapaks samicy ma do 32,8 cm. W Polsce występuje w naturze, ale jest niezadomowiony.",
-     "en": "It is a large turtle: the female's carapace reaches up to 32.8 cm. In Poland it occurs in the wild but is not established.",
+     "pl": "To duży żółw. W Polsce występuje w naturze, ale jest niezadomowiony.",
+     "en": "It is a large turtle. In Poland it occurs in the wild but is not established.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/%C5%BB%C3%B3%C5%82w_ozdobny",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1011,9 +1079,13 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Padalec_kolchidzki",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://peerj.com/articles/18563",
+       "label": "peerj.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0576",
@@ -1120,9 +1192,13 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Viviparous_lizard",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://link.springer.com/article/10.1007/s00300-016-1916-z",
+       "label": "link.springer.com"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -1245,15 +1321,19 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0591",
      "icon": "🐍",
-     "pl": "Jest **niejadowity**. Ofiarę oplata i obezwładnia ciałem, a samica rodzi 4–19 żywych młodych.",
-     "en": "It is **non-venomous**. It coils around its prey and overpowers it with its body, and the female gives birth to 4–19 live young.",
+     "pl": "Jest **niejadowity**. Ofiarę oplata i obezwładnia ciałem, a samica rodzi od kilku do kilkunastu żywych młodych.",
+     "en": "It is **non-venomous**. It coils around its prey and overpowers it with its body, and the female gives birth to several to more than a dozen live young.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Gniewosz_plamisty",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.britannica.com/animal/smooth-snake",
+       "label": "britannica.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0592",
@@ -1293,8 +1373,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0594",
      "icon": "🥇",
-     "pl": "To największy wąż Polski: osiąga ponad 2 m długości, a rekordowy osobnik, znaleziony w Austrii, mierzył 225 cm.",
-     "en": "This is Poland's largest snake: it grows to over 2 m long, and the record specimen, found in Austria, measured 225 cm.",
+     "pl": "To największy wąż Polski: osiąga ponad 2 m długości.",
+     "en": "This is Poland's largest snake: it grows to over 2 m long.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/W%C4%85%C5%BC_Eskulapa",
@@ -1303,6 +1383,10 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://www.czasopismobiologia.pl/artykul/waz-eskulapa-najrzadszy-przedstawiciel-polskich-wezy",
        "label": "czasopismobiologia.pl"
+      },
+      {
+       "url": "https://gromnik.krakow.lasy.gov.pl/documents/17275539/39953456/W%C4%99%C5%BCe/4d9c30a1-f534-84b4-e54f-e3a5e1df7f28",
+       "label": "gromnik.krakow.lasy.gov.pl"
       }
      ],
      "status": "corrected"

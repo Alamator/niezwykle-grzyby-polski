@@ -221,7 +221,7 @@
       level: "skala i forma",
       region_pl: "Cała Polska poza wyższymi partiami gór; pospolity.",
       habitat_pl: "Żywe i obumierające pnie drzew liściastych, najczęściej buków, klonów i jesionów; w lasach, parkach, ogrodach i przy drogach.",
-      occurrence_note: "Młode owocniki pojawiają się w marcu i rosną do pierwszych mrozów; stare utrzymują się na pniach czasem do lutego.",
+      occurrence_note: "Owocniki wyrastają od maja do października.",
       image: commonsImage("Cerioporus squamosus (29543626074).jpg"),
       image_alt: "Żagwiak łuskowaty (Cerioporus squamosus), duży wachlarzowaty owocnik z ciemnymi łuskami",
       image_author: "Dr. Hans-Günter Wagner",

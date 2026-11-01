@@ -978,9 +978,9 @@
         "atmosfera-astronomia": {
           title: "Atmosphere and Astronomy",
           heading: "Atmospheric and Astronomical Curiosities of Poland",
-          subtitle: "33 sky and weather curiosities of Poland: Brocken spectres, sprites, white nights, noctilucent clouds, dark-sky parks, auroras, Baltic snow bands, long-distance views, frost hollows and Saharan dust.",
+          subtitle: "32 sky and weather curiosities of Poland: Brocken spectres, sprites, white nights, noctilucent clouds, dark-sky parks, auroras, Baltic snow bands, long-distance views, frost hollows and Saharan dust.",
           teaser: "the Brocken spectre, sprites, auroras and white nights",
-          count_label: "33 curiosities",
+          count_label: "32 curiosities",
           card_labels: { occurrence: "Where and when to see it", region: "Where", habitat: "Conditions" },
           search_placeholder: "e.g. Brocken, aurora, Baltic, frost hollow...",
           safety_notice: "For educational purposes. Sky and weather phenomena are not forecasts or invitations to take risks: do not chase storms, stand on ridges during electrical activity, ignore cold or use the atlas as safety guidance.",

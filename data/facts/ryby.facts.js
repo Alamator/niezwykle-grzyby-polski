@@ -1,5 +1,5 @@
 // Wygenerowane z ciekawostek Roberta po weryfikacji (P1 linki, P2 dwa modele na tekście źródła, P3 wyszukiwanie).
-// Nie edytować ręcznie — poprawki w plikach źródłowych i ponowne uruchomienie build_site_data.py.
+// Od 31.10.2026 poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["ryby"] = {
  "checked": "2026-10-28",
@@ -26,15 +26,15 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0437",
      "icon": "🏞️",
-     "pl": "Na tarło wędruje nawet **30 km w górę rzeki**.",
-     "en": "To spawn, it migrates as far as **30 km upriver**.",
+     "pl": "Na tarło wędruje w górę rzeki.",
+     "en": "To spawn, it migrates upriver.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Stynka",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -152,50 +152,6 @@ window.ATLAS_FACTS["ryby"] = {
    ],
    "notes": []
   },
-  "murowy-swiecik": {
-   "facts": [
-    {
-     "id": "F0446",
-     "icon": "💡",
-     "pl": "Na brzuchu ma skupiska **fotoforów** służących kontriluminacji. Razem z ciemnym grzbietem i srebrzystymi bokami tworzą kamuflaż w otwartym oceanie.",
-     "en": "On its belly it has clusters of **photophores** used for counter-illumination. Together with its dark back and silvery flanks, they provide camouflage in the open ocean.",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Maurolicus_muelleri",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F0447",
-     "icon": "",
-     "pl": "Codziennie wędruje w pionie: dzień spędza w głębokich wodach, a nocą podpływa ku powierzchni. Zwykle przebywa na głębokości około 300–400 m.",
-     "en": "Every day it migrates vertically: it spends the day in deep water and swims up towards the surface at night. It usually stays at depths of around 300–400 m.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Mauryk",
-       "label": "Wikipedia (PL)"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
-     "id": "F0448",
-     "icon": "🪞",
-     "pl": "Komórki świetlne siedzą w odbłyśniku z **kryształów guaniny**.",
-     "en": "Its light cells sit in a reflector made of **guanine crystals**.",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Maurolicus_muelleri",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
-    }
-   ],
-   "notes": []
-  },
   "tasza": {
    "facts": [
     {
@@ -227,15 +183,19 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0451",
      "icon": "🏷️",
-     "pl": "Inna nazwa to „zając morski”. W Bałtyku dorasta do około 30 cm.",
-     "en": "Another name for it is “sea hare”. In the Baltic it grows to about 30 cm.",
+     "pl": "Inna nazwa to „zając morski”. W Bałtyku dorasta do 40 cm.",
+     "en": "Another Polish name is “zając morski” (sea hare). In the Baltic it grows up to 40 cm long.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Tasza",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://hel.arch.ug.edu.pl/atlas/org/ryb/tas/text.htm",
+       "label": "hel.arch.ug.edu.pl"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -276,15 +236,15 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0454",
      "icon": "👀",
-     "pl": "W rozwoju jej oczy „wędrują” zwykle na prawą stronę, ale u około **30%** osobników na lewą!",
-     "en": "As it develops, its eyes usually “migrate” to the right side, but in about **30%** of individuals they move to the left!",
+     "pl": "W rozwoju jej oczy „wędrują” zwykle na prawą stronę, ale u części osobników na lewą!",
+     "en": "As it develops, its eyes usually “migrate” to the right side, but in some individuals to the left!",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/European_flounder",
        "label": "Wikipedia (EN)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0455",
@@ -370,9 +330,17 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Iglicznia_%28ryba%29",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2842728",
+       "label": "pmc.ncbi.nlm.nih.gov"
+      },
+      {
+       "url": "https://fishes-fnam.linnaeus.naturalis.nl/linnaeus_ng/app/views/species/taxon.php?id=109991",
+       "label": "fishes-fnam.linnaeus.naturalis.nl"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0461",
@@ -443,28 +411,40 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0465",
      "icon": "🥚",
-     "pl": "Jedna samica może złożyć **130–200 tys. ikrzyc** rocznie.",
-     "en": "A single female can lay **130–200 thousand eggs** a year.",
+     "pl": "Jedna samica może złożyć w sezonie nawet 200 tys. ikrzyc.",
+     "en": "A single female can lay up to 200,000 eggs in a season.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Ruffe",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://www.seagrant.wisc.edu/our-work/focus-areas/ais/invasive-species/invasive-species-fact-sheets/fish/eurasian-ruffe",
+       "label": "seagrant.wisc.edu"
+      },
+      {
+       "url": "https://webarchive.library.unt.edu/web/20090115182754/http://www.seagrant.umn.edu/exotics/ruffe.html",
+       "label": "webarchive.library.unt.edu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0466",
      "icon": "🌍",
-     "pl": "W Szkocji, gdzie został zawleczony, od około 1985 r. szybko się rozprzestrzenia i uchodzi za gatunek inwazyjny, który wyjada ikrę rodzimych ryb.",
-     "en": "In Scotland, where it was introduced, it has been spreading rapidly since around 1985 and is regarded as an invasive species that eats the spawn of native fish.",
+     "pl": "W Szkocji, gdzie został zawleczony, odnotowano go po raz pierwszy w 1982 r. Szybko się rozprzestrzenił i uchodzi za gatunek inwazyjny, który wyjada ikrę rodzimych ryb.",
+     "en": "In Scotland, where it was introduced, it was first recorded in 1982. It spread quickly and is considered an invasive species that eats the eggs of native fish.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Jazgarz",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://bvbvf1.bib-bvb.de/vufind/PrimoRecord/cdi_proquest_miscellaneous_17109217",
+       "label": "bvbvf1.bib-bvb.de"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -557,15 +537,15 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0472",
      "icon": "🥶",
-     "pl": "Jest aktywny zimą, przy **0–3 °C**.",
-     "en": "It is active in winter, at **0–3 °C**.",
+     "pl": "Jest aktywny zimą.",
+     "en": "It is active in winter.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mi%C4%99tus_pospolity",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0473",
@@ -596,15 +576,19 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0474",
      "icon": "🌊",
-     "pl": "Tarło odbywa w **Morzu Sargassowym**, ponad 6000 km od Europy.",
-     "en": "It spawns in the **Sargasso Sea**, more than 6000 km from Europe.",
+     "pl": "Tarło odbywa w **Morzu Sargassowym**, około 5000 km od Europy.",
+     "en": "It spawns in the **Sargasso Sea**, about 5,000 km from Europe.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/European_eel",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://cordis.europa.eu/article/id/31361-researchers-unlock-mystery-of-european-eels-spawning-migration/pl",
+       "label": "cordis.europa.eu"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     },
     {
      "id": "F0475",
@@ -622,15 +606,19 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0476",
      "icon": "☠️",
-     "pl": "Jego **krew zawiera ichtiotoksynę**, niebezpieczną dla ssaków. Traci właściwości trujące powyżej 58 °C.",
-     "en": "Its **blood contains an ichthyotoxin** that is dangerous to mammals. It loses its toxic properties above 58 °C.",
+     "pl": "Jego **krew zawiera ichtiotoksynę**, niebezpieczną dla ssaków.",
+     "en": "Its **blood contains an ichthyotoxin** that is dangerous to mammals.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/W%C4%99gorz_europejski",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.nature.com/articles/058369a0.pdf",
+       "label": "nature.com"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -659,9 +647,13 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Ciernik",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://archive.jgi.doe.gov/?p=1578",
+       "label": "archive.jgi.doe.gov"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     }
    ],
    "notes": []
@@ -677,9 +669,13 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://pl.wikipedia.org/wiki/Cierniczek_p%C3%B3%C5%82nocny",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://www.fishbase.se/physiology/Pungitius_pungitius",
+       "label": "fishbase.se"
       }
      ],
-     "status": "verified"
+     "status": "checked"
     },
     {
      "id": "F0480",
@@ -763,15 +759,15 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0485",
      "icon": "👨‍🍼",
-     "pl": "Samiec opiekuje się ikrą aż do wylęgu larw (9–12 dni).",
-     "en": "The male looks after the eggs until the larvae hatch (9–12 days).",
+     "pl": "Samiec opiekuje się ikrą aż do wylęgu larw.",
+     "en": "The male guards the eggs until the larvae hatch.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/S%C5%82onecznica_pospolita",
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -794,15 +790,19 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0487",
      "icon": "",
-     "pl": "⏳ Dożywa nawet 15 lat.",
-     "en": "⏳ It can live as long as 15 years.",
+     "pl": "⏳ Dożywa kilkunastu, a nawet ponad 20 lat.",
+     "en": "⏳ It can live for well over ten years, even more than 20.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Common_nase",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://agris.fao.org/search/fr/records/64747055bf943c8c79817847",
+       "label": "agris.fao.org"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -847,8 +847,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0490",
      "icon": "🌊",
-     "pl": "W okresie intensywnego żerowania, od maja do sierpnia, za dnia trzyma się w ławicach w głębokich, ciemnych warstwach wody, w Wigrach nawet na 60 m. Po zmroku ławice się rozpraszają, a sielawy podążają za zooplanktonem ku powierzchni.",
-     "en": "During its period of intensive feeding, from May to August, it stays by day in shoals in deep, dark layers of water, in Lake Wigry as deep as 60 m. After dark the shoals disperse and the vendace follow the zooplankton towards the surface.",
+     "pl": "W okresie intensywnego żerowania za dnia trzyma się w ławicach w głębokich, ciemnych warstwach wody. Po zmroku ławice się rozpraszają, a sielawy podążają za zooplanktonem ku powierzchni.",
+     "en": "During its intensive feeding season it stays in shoals in deep, dark layers of water by day. After dusk the shoals break up and the vendace follow zooplankton towards the surface.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sielawa_europejska",
@@ -880,23 +880,6 @@ window.ATLAS_FACTS["ryby"] = {
   "rozpior": {
    "facts": [
     {
-     "id": "F0492",
-     "icon": "🏆",
-     "pl": "Wędkarski rekord Polski w kategorii wagowej to 1,53 kg i 50,5 cm (2017).",
-     "en": "The Polish angling record in the weight category is 1.53 kg and 50.5 cm (2017).",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Rozpi%C3%B3r",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://wiadomosci-wedkarskie.pzw.pl/rekordy-na-plan/normy-medalowe",
-       "label": "wiadomosci-wedkarskie.pzw.pl"
-      }
-     ],
-     "status": "corrected"
-    },
-    {
      "id": "F0493",
      "icon": "🔍",
      "pl": "Ma małe oko i zadarty pysk. W okresie tarła samce dostają guzki tarłowe.",
@@ -914,19 +897,6 @@ window.ATLAS_FACTS["ryby"] = {
   },
   "krap": {
    "facts": [
-    {
-     "id": "F0494",
-     "icon": "🔍",
-     "pl": "Młodego krąpia najłatwiej odróżnić od leszcza po łuskach: krąp ma **9–11 rzędów** od płetwy grzbietowej do linii bocznej, a leszcz 13 lub więcej.",
-     "en": "A young white bream is easiest to tell apart from a common bream by its scales: the white bream has **9–11 rows** between the dorsal fin and the lateral line, while the common bream has 13 or more.",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Blicca",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
-    },
     {
      "id": "F0495",
      "icon": "🐟",
@@ -978,41 +948,6 @@ window.ATLAS_FACTS["ryby"] = {
    ],
    "notes": []
   },
-  "lis-morski": {
-   "facts": [
-    {
-     "id": "F0498",
-     "icon": "🪃",
-     "pl": "Górny płat ogona stanowi **połowę lub więcej długości ciała**. Uderzeniami ogona ogłusza ryby.",
-     "en": "The upper lobe of its tail makes up **half or more of its body length**. It stuns fish with blows of its tail.",
-     "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/Kosogon",
-       "label": "Wikipedia (PL)"
-      },
-      {
-       "url": "https://en.wikipedia.org/wiki/Common_thresher",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
-    },
-    {
-     "id": "F0499",
-     "icon": "📉",
-     "pl": "IUCN uznaje go za **narażonego** (VU).",
-     "en": "The IUCN classifies it as **Vulnerable** (VU).",
-     "sources": [
-      {
-       "url": "https://en.wikipedia.org/wiki/Common_thresher",
-       "label": "Wikipedia (EN)"
-      }
-     ],
-     "status": "verified"
-    }
-   ],
-   "notes": []
-  },
   "zebacz-smugowy": {
    "facts": [
     {
@@ -1024,9 +959,17 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://en.wikipedia.org/wiki/Atlantic_wolffish",
        "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://webarchive.library.unt.edu/web/20080916073413/http://www.nmfs.noaa.gov/pr/pdfs/species/atlanticwolffish_highlights.pdf",
+       "label": "webarchive.library.unt.edu"
+      },
+      {
+       "url": "https://cybrary.friendsofmerrymeetingbay.org/fgom/Anarhichas_lupus.htm",
+       "label": "cybrary.friendsofmerrymeetingbay.org"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0501",
@@ -1065,22 +1008,30 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://helcom.fi/wp-content/uploads/2025/12/HELCOM-Red-List-Lamna-nasus_II.pdf",
        "label": "helcom.fi"
+      },
+      {
+       "url": "https://helcom.fi/wp-content/uploads/2019/08/HELCOM-Red-List-Lamna-nasus.pdf",
+       "label": "helcom.fi"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0504",
      "icon": "📉",
-     "pl": "Jej populacja w północno-wschodnim Atlantyku zmalała o **80–95%** w ciągu 57 lat.",
-     "en": "Its population in the north-east Atlantic has fallen by **80–95%** over 57 years.",
+     "pl": "Jej populacja w północno-wschodnim Atlantyku zmalała o **80–95%** w ciągu około 60 lat.",
+     "en": "Its population in the north-eastern Atlantic has fallen by **80–95%** over about 60 years.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Lamna_%C5%9Bledziowa",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://helcom.fi/wp-content/uploads/2019/08/HELCOM-Red-List-Lamna-nasus.pdf",
+       "label": "helcom.fi"
       }
      ],
-     "status": "verified"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1100,15 +1051,23 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://www.fishbase.se/summary/regalecus-glesne.html",
        "label": "fishbase.se"
+      },
+      {
+       "url": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/oarfish/",
+       "label": "floridamuseum.ufl.edu"
+      },
+      {
+       "url": "https://fishbase.se/summary/Regalecus-glesne",
+       "label": "fishbase.se"
       }
      ],
-     "status": "corrected"
+     "status": "checked"
     },
     {
      "id": "F0506",
      "icon": "👑",
-     "pl": "Płetwa grzbietowa ma ponad 400 promieni (414–449), a pierwsze 10–12, wydłużone, tworzą czerwoną „koronę”. Według dawnych wierzeń rybaków znad Morza Północnego jego pojawienie się zapowiadało nadejście wielkich ławic śledzi, stąd nazwa „król śledzi”.",
-     "en": "Its dorsal fin has over 400 rays (414–449), and the first 10–12, which are elongated, form a red “crown”. According to old beliefs of North Sea fishermen, its appearance heralded the arrival of great shoals of herring, hence the name “king of the herrings”.",
+     "pl": "Płetwa grzbietowa ma zwykle 400–450 promieni, a pierwsze, wydłużone, tworzą czerwoną „koronę”. Według dawnych wierzeń rybaków znad Morza Północnego jego pojawienie się zapowiadało nadejście wielkich ławic śledzi, stąd nazwa „król śledzi”.",
+     "en": "The dorsal fin usually has 400–450 rays, and the first, elongated ones form a red “crown”. According to old beliefs of North Sea fishermen, its appearance heralded the arrival of large shoals of herring, hence the name “king of herrings”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Wst%C4%99gor_kr%C3%B3lewski",
@@ -1117,6 +1076,10 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://www.fishbase.se/summary/regalecus-glesne.html",
        "label": "fishbase.se"
+      },
+      {
+       "url": "https://treatment.plazi.org/id/8A566B093C696169FF6A9EBDB64EA054/8",
+       "label": "treatment.plazi.org"
       }
      ],
      "status": "corrected"
@@ -1160,8 +1123,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0509",
      "icon": "📍",
-     "pl": "Pierwszy okaz u polskiego wybrzeża Bałtyku odnotowano w **1990 r.**, choć szacuje się, że gatunek pojawił się w okolicach Gdyni kilka lat wcześniej.",
-     "en": "The first specimen off the Polish Baltic coast was recorded in **1990**, although the species is estimated to have appeared near Gdynia a few years earlier.",
+     "pl": "Pierwszy okaz u polskiego wybrzeża Bałtyku odnotowano w **1990 r.**",
+     "en": "The first specimen off the Polish Baltic coast was recorded in **1990**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Babka_%C5%9Bniadog%C5%82owa",
@@ -1170,6 +1133,10 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://www.iop.krakow.pl/gatunkiobce/default7bc8.html?nazwa=opis&id=101&je=pl",
        "label": "iop.krakow.pl"
+      },
+      {
+       "url": "https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-91563db5-7f74-49c1-813c-70874c24b589/c/czerniejewski_kasowska_inwbab_20_2017.pdf",
+       "label": "yadda.icm.edu.pl"
       }
      ],
      "status": "corrected"

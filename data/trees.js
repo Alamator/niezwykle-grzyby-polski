@@ -268,7 +268,7 @@
       safety_note: "nie niszczyć martwych pni i kłód; nawet obumarłe osobliwości są siedliskiem owadów, grzybów i pamięci miejsca",
       region_pl: "Uroczysko Łuża koło Wólki Węglowej, Mazowsze.",
       habitat_pl: "Piaszczysty bór i skraj puszczańskiego krajobrazu pod silną presją suszy.",
-      occurrence_note: "Sosna obumarła, nie dożywszy stu lat; jej śmierć opisano pod koniec listopada 2018 r. W atlasie została także po śmierci: czasem osobliwość dendrologiczna jest już szkieletem dawnego wzrostu.",
+      occurrence_note: "Sosna obumarła. W atlasie została także po śmierci: czasem osobliwość dendrologiczna jest już szkieletem dawnego wzrostu.",
       level: "dziwny kształt"
     }),
     entry({

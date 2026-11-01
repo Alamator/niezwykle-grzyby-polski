@@ -407,6 +407,10 @@ window.ATLAS_OCCURRENCE_SOURCES["grzyby"] = {
       {
         "url": "https://pl.wikipedia.org/w/index.php?title=%C5%BBagwiak_%C5%82uskowaty&oldid=76052849",
         "label": "Wikipedia (PL)"
+      },
+      {
+        "url": "https://grzyby.pl/gatunki/Polyporus_squamosus.htm",
+        "label": "grzyby.pl"
       }
     ]
   }
