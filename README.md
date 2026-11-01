@@ -34,7 +34,6 @@ data/search-index.js
 data/photo-pack-*.js
 data/region-pack-v07.js
 fonts/
-assets/logo-oroloko-ai.svg
 assets/favicon.svg
 assets/og-image.png
 assets/og/
@@ -335,4 +334,4 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 ## Stopka
 
-W stopce jest znak **Made by Oroloko** oraz informacja o asyście AI. Na ciemnej stronie leży na jasnej tabliczce, bo znak ma ciemny napis na przezroczystym tle. Opis obrazka powtarza angielski napis ze znaku, więc ma `lang="en"`: czytnik ekranu przeczyta go po angielsku.
+W stopce jest podpis autora, napisany czcionkami strony (od 1.11.2026 zamiast dawnego znaku-obrazka): „The AI does not replace your experience. It amplifies it.” (Inter), „You are still *the expert*.” (Instrument Serif, z wyróżnieniem jak w nagłówkach) i „Made by Robert Oroloko” (IBM Plex Mono, jak linijki nad tytułami). Jest po angielsku, więc ma `lang="en"`: czytnik ekranu przeczyta go po angielsku także na stronach polskich. `npm run test:technical` pilnuje, żeby każda strona, także `404.html`, miała ten sam podpis.
