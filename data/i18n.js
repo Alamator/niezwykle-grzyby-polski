@@ -81,7 +81,7 @@
 
   const undergroundCategories = {
     "kopalnie-surowce": { label: "Mines and raw materials", short: "Mines" },
-    "podziemia-wojenne": { label: "Wartime undergrounds", short: "Wartime" },
+    "podziemia-wojenne": { label: "Wartime underground sites", short: "Wartime" },
     "miejskie-piwnice": { label: "Urban cellars", short: "Cellars" },
     "fortyfikacje-schrony": { label: "Fortifications and shelters", short: "Shelters" },
     "tajemnice-legendy": { label: "Mysteries and legends", short: "Mysteries" }
@@ -481,7 +481,7 @@
         footerContact: "Kontakt i zgłoszenia błędów:",
         // What a page says about itself to search engines and link previews. scripts/build-pages.mjs uses the
         // Polish ones for the pages it makes; the app sets them while the reader moves around the atlas.
-        metaStartDescription: "Atlas Osobliwości Polski: grzyby, owady, kwiaty, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architektura drewniana, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, rekordy krajobrazu oraz kolejne niezwykłe zjawiska w atlasie, fiszkach, quizie i źródłach.",
+        metaStartDescription: "Atlas Osobliwości Polski: grzyby, owady, rośliny, ryby, ptaki, ssaki, płazy i gady, drzewa, minerały, formacje skalne, architektura drewniana, podziemia, cuda inżynierii, twierdze i ruiny, Memento Mori, rekordy krajobrazu oraz kolejne niezwykłe zjawiska w atlasie, fiszkach, quizie i źródłach.",
         metaStartShare: "Zapraszamy w podróż po kraju dziwów: 19 kolekcji osobliwości polskiej przyrody i kultury, z atlasem, fiszkami, quizem, mapą i źródłami.",
         metaCardDescription: "{hook} Karta z kolekcji {collection} w Atlasie Osobliwości Polski.",
         metaMapTitle: "Mapa Atlasu Osobliwości Polski",
@@ -761,7 +761,7 @@
         reportSubject: "Error on a card: {name} ({collection})",
         reportBody: "Card: {url}\n\nWhat is wrong (ideally with a source):\n",
         footerContact: "Contact and error reports:",
-        metaStartDescription: "Atlas of Polish Curiosities: fungi, insects, flowers, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, undergrounds, engineering wonders, fortresses and ruins, Memento Mori, landscape records and more unusual phenomena, in an atlas, flashcards, a quiz and sources.",
+        metaStartDescription: "Atlas of Polish Curiosities: fungi, insects, plants, fish, birds, mammals, amphibians and reptiles, trees, minerals, rock formations, wooden architecture, underground sites, engineering wonders, fortresses and ruins, Memento Mori, landscape records and more unusual phenomena, in an atlas, flashcards, a quiz and sources.",
         metaStartShare: "Come on a journey through a land of wonders: 19 collections of curiosities of Polish nature and culture, with an atlas, flashcards, a quiz, a map and sources.",
         metaCardDescription: "{hook} A card from the {collection} collection in the Atlas of Polish Curiosities.",
         metaMapTitle: "Map of the Atlas of Polish Curiosities",
@@ -799,8 +799,8 @@
           get items() { return lazyItemMap("owady"); }
         },
         kwiaty: {
-          title: "Flowers",
-          heading: "Unusual Flowers and Plants of Poland",
+          title: "Plants",
+          heading: "Unusual Plants of Poland",
           subtitle: "31 Polish wild or established plant curiosities: traps, scents, mimicry, parasites and relics.",
           teaser: "traps, mimicry, parasites and relics",
           count_label: "31 curiosities",
@@ -911,7 +911,7 @@
           get items() { return lazyItemMap("architektura-drewniana"); }
         },
         podziemia: {
-          title: "Undergrounds",
+          title: "Underground Sites",
           heading: "Underground Curiosities of Poland",
           subtitle: "30 subterranean curiosities of Poland: salt, flint and silver mines, urban cellars, adits, shelters and the unanswered questions of the Owl Mountains.",
           teaser: "salt and silver mines, adits, the Owl Mountains",

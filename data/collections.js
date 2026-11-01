@@ -38,8 +38,8 @@
     {
       id: "kwiaty",
       group: "przyroda-zywa",
-      title: "Kwiaty",
-      heading: "Osobliwe kwiaty i rośliny Polski",
+      title: "Rośliny",
+      heading: "Osobliwe rośliny Polski",
       subtitle: "31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych: pułapki, zapachy, mimikra, pasożyty i relikty.",
       teaser: "pułapki, mimikra, pasożyty i relikty",
       count_label: "31 osobliwości",
@@ -115,7 +115,7 @@
     {
       id: "plazy-gady",
       group: "przyroda-zywa",
-      title: "Płazy i Gady",
+      title: "Płazy i gady",
       heading: "Osobliwe płazy i gady Polski",
       subtitle: "30 herpetologiczne osobliwości Polski: błękitne gody żaby moczarowej, czosnkowa obrona grzebiuszki, odruch kumaka, grzebienie traszek, nadrzewne rzekotki, reliktowe węże, żółw błotny i inwazyjne żółwie ozdobne.",
       teaser: "błękitne gody żaby moczarowej i czosnkowa obrona grzebiuszki",
@@ -254,7 +254,7 @@
     {
       id: "cuda-inzynierii",
       group: "czlowiek-kultura",
-      title: "Cuda Inżynierii",
+      title: "Cuda inżynierii",
       heading: "Techniczne osobliwości Polski",
       subtitle: "33 techniczne osobliwości Polski: kanały, śluzy, tężnie, radiostacje, hale, zapory, mosty, tunele, koleje i przemysłowe miasta.",
       teaser: "kanały, tężnie, zapory i drewniana wieża radiostacji",
@@ -275,7 +275,7 @@
     {
       id: "twierdze-ruiny",
       group: "czlowiek-kultura",
-      title: "Twierdze i Ruiny",
+      title: "Twierdze i ruiny",
       heading: "Twierdze, ruiny i zapomniane miejsca",
       subtitle: "33 osobliwości twierdz i ruin Polski: miasta idealne, zamki-legendy, twierdze, opuszczone pałace i konstrukcje, które zostały po ambicji.",
       teaser: "miasto idealne, zamki-legendy, pałace-widma",

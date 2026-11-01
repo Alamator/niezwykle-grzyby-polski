@@ -6,7 +6,7 @@ Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama 
 
 - **Grzyby**: 60 pozycji z uzupełnionymi zdjęciami i atrybucjami.
 - **Owady**: 30 pozycji ze zdjęciami i atrybucjami z Wikimedia Commons.
-- **Kwiaty**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych ze zdjęciami i atrybucjami z Wikimedia Commons.
+- **Rośliny**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych ze zdjęciami i atrybucjami z Wikimedia Commons.
 - **Ryby**: 30 osobliwości polskich wód i ich rubieży ze zdjęciami Wikimedia Commons.
 - **Ptaki**: 32 osobliwości polskiej awifauny ze zdjęciami Wikimedia Commons.
 
@@ -190,7 +190,7 @@ Najprostsza ścieżka:
 - **Ikony i obrazki do udostępniania:** `python scripts/generate-favicons.py` i `python scripts/generate-og-image.py` (wymagają Pillow, a drugi także Node.js).
   - Znak to pochyłe „A” z Instrument Serif.
   - Obrazek atlasu pokazuje nagłówek strony głównej i mapę Polski z punktów atlasu (granice: Natural Earth, domena publiczna).
-  - Każda kolekcja ma własny obrazek: nazwa, opis z szuflady i liczba osobliwości, a obok mapa jej miejsc. Kolekcja bez miejsc na mapie ma zamiast mapy liczbę osobliwości wypisaną dużymi cyframi.
+  - Każda kolekcja ma własny obrazek: nazwa, opis z szuflady i liczba osobliwości, a obok mapa jej miejsc. Kolekcja, która ma mniej niż 5 miejsc na mapie (np. „Skamieniałości”), ma zamiast mapy liczbę osobliwości wypisaną dużymi cyframi.
   - Wszystkie są po polsku i po angielsku (opis niżej, w „Wyszukiwarki i podgląd linków”). Nie ma na nich zdjęć, bo podgląd linku nie zmieści ich podpisów.
 
 ## Zasady treści
