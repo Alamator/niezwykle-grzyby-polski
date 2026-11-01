@@ -53,8 +53,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0787",
      "icon": "🔬",
-     "pl": "To minerał z grupy tytanitu, idealnie Ca(Al₀.₅Ta₀.₅)(SiO₄)O. Ma numer IMA 2015-033 (biuletyn CNMNC z sierpnia 2015 r.).",
-     "en": "It is a titanite-group mineral, ideally Ca(Al₀.₅Ta₀.₅)(SiO₄)O. Its IMA number is 2015-033 (CNMNC newsletter, August 2015).",
+     "pl": "To minerał z grupy tytanitu. Idealny wzór: Ca(Al₀.₅Ta₀.₅)(SiO₄)O. Ma numer IMA 2015-033 (biuletyn CNMNC z sierpnia 2015 r.).",
+     "en": "It is a titanite-group mineral. Ideal formula: Ca(Al₀.₅Ta₀.₅)(SiO₄)O. Its IMA number is 2015-033 (CNMNC newsletter, August 2015).",
      "sources": [
       {
        "url": "https://doi.org/10.1180/minmag.2016.080.110",
