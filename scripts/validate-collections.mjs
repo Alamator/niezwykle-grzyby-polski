@@ -550,6 +550,48 @@ for (const file of i18nFiles) {
   }
 }
 
+// True or false in the quiz: a false statement is a fact of another card that names its own card in both
+// languages, each with that language's name (factNamesCard in js/app.js). A fact that matched only through a
+// stem of the other language's name ("gold" of "golden saxifrage" in "Golden-yellow bracts", F0272) named no
+// card at all on the Polish page, so it could be true of the asked card too. In Polish only the first word of
+// the name, the Latin genus or a proper name from the name counts: "mokry pomarańczowożółty" (F0179) only
+// describes a colour, even though the card is "Boczniaczek pomarańczowożółty".
+function appFunction(name) {
+  const start = appJs.indexOf(`function ${name}(`);
+  assert(start >= 0, `js/app.js should define ${name}`);
+  let depth = 0;
+  for (let index = appJs.indexOf("{", start); index < appJs.length; index += 1) {
+    if (appJs[index] === "{") depth += 1;
+    if (appJs[index] === "}" && --depth === 0) return appJs.slice(start, index + 1);
+  }
+  throw new Error(`could not read ${name} from js/app.js`);
+}
+const quizRules = vm.createContext({ i18n, itemSynonyms: (item) => (Array.isArray(item.synonyms) ? item.synonyms : []) });
+vm.runInContext(["nameWords", "wordStem", "latinGenus", "stemsOf", "englishItemName", "polishNamesCard", "factNamesCard"].map(appFunction).join("\n") + "\nthis.factNamesCard = factNamesCard;", quizRules);
+assert(appJs.includes("factNamesCard(candidate, item, collection) && !factMentions(candidate, selected, collection)"), "a true/false decoy should name its own card in both languages");
+{
+  const flowers = collections.find((collection) => collection.id === "kwiaty");
+  const saxifrage = flowers.items.find((item) => item.id === "sledziennica-skretolistna");
+  const goldenBracts = flowers.facts[saxifrage.id].facts.find((fact) => fact.id === "F0272");
+  assert(goldenBracts && !quizRules.factNamesCard(goldenBracts, saxifrage, flowers), "F0272 names its card only through the English 'golden' and should not be a true/false decoy");
+  const factOf = (collectionId, itemId, factId) => {
+    const collection = collections.find((entry) => entry.id === collectionId);
+    const item = collection.items.find((entry) => entry.id === itemId);
+    const fact = collection.facts[itemId].facts.find((entry) => entry.id === factId);
+    assert(fact, `${collectionId}/${itemId} should have the fact ${factId}`);
+    return quizRules.factNamesCard(fact, item, collection);
+  };
+  assert(!factOf("grzyby", "boczniaczek-pomaranczowozolty", "F0179"), "F0179 only describes a colour ('pomarańczowożółty') and should not be a true/false decoy");
+  assert(factOf("drzewa", "krzywy-las", "F0300"), "F0300 names the Krzywy Las by its first word and should stay a possible decoy");
+  assert(factOf("drzewa", "kasztanowiec-jastarnia", "F0345"), "F0345 names Jastarnia, a proper name from the card's name, and should stay a possible decoy");
+  assert(!factOf("architektura-drewniana", "kraina-otwartych-okiennic", "F1240"), "F1240 uses 'okiennice' as a common word, not the proper name 'Kraina Otwartych Okiennic', and should not be a true/false decoy");
+  for (const collection of collections) {
+    const named = collection.items.flatMap((item) => (collection.facts?.[item.id]?.facts || [])
+      .filter((fact) => fact.icon !== "🛡️" && (fact.pl || "").length >= 40 && quizRules.factNamesCard(fact, item, collection)));
+    if (Object.keys(collection.facts || {}).length) assert(named.length >= 5, `${collection.id}: the true/false quiz should keep at least 5 facts that can serve as a false statement (now ${named.length})`);
+  }
+}
+
 // Polish "Podlaskie" (region line, line under the name) is the voivodeship, so English says "Podlaskie Province",
 // as with "Lublin Province". English "Podlasie" is the historical region: it stands only where the Polish text
 // names the region too ("Podlasie" or the adjective "podlaski"), and a Polish "Podlasie" there stays "Podlasie".
