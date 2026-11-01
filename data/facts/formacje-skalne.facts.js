@@ -53,8 +53,8 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0868",
      "icon": "🧍",
-     "pl": "Granitowe skały mają do 25 m wysokości. To trzy potężne grupy oraz wiele mniejszych bloków.",
-     "en": "The granite rocks are up to 25 m high. They form three massive groups and many smaller blocks.",
+     "pl": "Granitowe skały mają do 25 m wysokości. To trzy potężne grupy skalne, kilka mniejszych i wiele pojedynczych bloków.",
+     "en": "The granite rocks are up to 25 m high. They form three massive rock groups, several smaller ones and many single blocks.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pielgrzymy",
@@ -65,7 +65,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "kpnmab.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0869",
@@ -196,7 +196,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "en.jeleniagora.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0877",
@@ -326,7 +326,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0884",
@@ -361,13 +361,13 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "geoforum.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0886",
      "icon": "🪜",
-     "pl": "Prowadzi tam 665 schodów, powstałych w 1814 r. dzięki Franzowi Pablowi, sołtysowi Karłowa i pierwszemu przewodnikowi po szczycie.",
-     "en": "665 steps lead up to it, built in 1814 thanks to Franz Pabel, the village head of Karłów and the first guide to the summit.",
+     "pl": "Prowadzą tam schody, powstałe w 1814 r. dzięki Franzowi Pablowi, sołtysowi Karłowa i pierwszemu przewodnikowi po szczycie.",
+     "en": "Steps lead up to it, built in 1814 thanks to Franz Pabel, the village head of Karłów and the first guide to the summit.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Szczeliniec_Wielki",
@@ -378,7 +378,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "geekweek.interia.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0887",
@@ -541,8 +541,8 @@ window.ATLAS_FACTS["formacje-skalne"] = {
     {
      "id": "F0897",
      "icon": "🧗",
-     "pl": "Pobliski Narożnik (851 m n.p.m.) zbudowany jest z piaskowców ciosowych górnych, czyli najmłodszej warstwy Gór Stołowych. Jego pionowe ściany od zachodu i południa są popularnym rejonem wspinaczkowym.",
-     "en": "Nearby Narożnik (851 m a.s.l.) is made of the upper quader sandstones, the youngest layer of the Table Mountains. Its sheer western and southern faces are a popular climbing area.",
+     "pl": "Narożnik zbudowany jest z piaskowców ciosowych górnych, czyli najmłodszej warstwy Gór Stołowych. Jego pionowe ściany od zachodu i południa są popularnym rejonem wspinaczkowym.",
+     "en": "Narożnik is made of the upper quader sandstones, the youngest layer of the Table Mountains. Its sheer western and southern faces are a popular climbing area.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Naro%C5%BCnik_(G%C3%B3ry_Sto%C5%82owe)",
@@ -557,7 +557,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "rcin.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -623,7 +623,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "czadrow24.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -937,7 +937,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "core.ac.uk"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -990,7 +990,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0927",
@@ -1076,7 +1076,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0933",
@@ -1106,7 +1106,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "greenvelo.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1128,7 +1128,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0936",
@@ -1143,9 +1143,17 @@ window.ATLAS_FACTS["formacje-skalne"] = {
       {
        "url": "https://whc.unesco.org/en/decisions/7390/",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Krzemionki",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Krzemionki",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1192,7 +1200,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "tychowo.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0939",
@@ -1209,7 +1217,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "archiwum.tychowo.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

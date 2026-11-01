@@ -38,7 +38,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "zamosc.ap.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -48,8 +48,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1380",
      "icon": "🏛️",
-     "pl": "Rezydencję otoczoną bastionami zbudował w latach 1621–1644 wojewoda Krzysztof Ossoliński.",
-     "en": "The bastioned residence was built in 1621–1644 by Voivode Krzysztof Ossoliński.",
+     "pl": "Rezydencję otoczoną bastionami zbudował wojewoda Krzysztof Ossoliński. Budowę ukończono w 1644 roku.",
+     "en": "The bastioned residence was built by Voivode Krzysztof Ossoliński. Construction was completed in 1644.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzy%C5%BCtop%C3%B3r",
@@ -58,15 +58,19 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://www.krzyztopor.org.pl/strona-3404-historia.html",
        "label": "krzyztopor.org.pl"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/ujazd-zamek-krzyztopor",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1381",
      "icon": "🏆",
-     "pl": "Była jedną z największych rezydencji pałacowych XVII-wiecznej Europy.",
-     "en": "It was one of the largest palace residences in 17th-century Europe.",
+     "pl": "Była to jedna z największych budowli pałacowych w Europie przed powstaniem Wersalu.",
+     "en": "It was one of the largest palace buildings in Europe before Versailles was built.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Krzy%C5%BCtop%C3%B3r",
@@ -85,7 +89,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -119,13 +123,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "zamek.malbork.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1384",
      "icon": "🍽️",
-     "pl": "Wielki Refektarz (zbudowany w drugiej ćwierci XIV w., ok. 30 × 15 m) był największym wnętrzem w świeckiej architekturze zakonu krzyżackiego. Jego sklepienie wspiera się na trzech smukłych granitowych filarach.",
-     "en": "The Great Refectory (built in the second quarter of the 14th century, about 30 × 15 m) was the largest interior in the secular architecture of the Teutonic Order. Its vault rests on three slender granite pillars.",
+     "pl": "Wielki Refektarz (zbudowany ok. 1320–1337, 30,3 × 15,3 m) był największym świeckim pomieszczeniem w państwie zakonu krzyżackiego. Jego sklepienie wspiera się na trzech granitowych filarach.",
+     "en": "The Great Refectory (built c. 1320–1337, 30.3 × 15.3 m) was the largest secular room in the State of the Teutonic Order. Its vault rests on three granite pillars.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_w_Malborku",
@@ -140,7 +144,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "cejsh.icm.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -166,7 +170,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "encyklopedia.pwn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1386",
@@ -244,7 +248,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "jaskiniepolski.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1390",
@@ -283,7 +287,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "visitopolskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1392",
@@ -396,7 +400,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "baranowsandomierski.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -418,7 +422,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "janowiec.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1399",
@@ -435,7 +439,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "czasopisma.uni.lodz.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -552,7 +556,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -574,7 +578,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "nocowanie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1407",
@@ -595,7 +599,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "ojs.academicon.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -621,7 +625,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "czorsztyn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1409",
@@ -656,7 +660,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "medievalheritage.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1411",
@@ -716,7 +720,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -747,8 +751,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1415",
      "icon": "🗼",
-     "pl": "Przyjmuje się, że pierwszy, drewniany zamek zbudował ok. 1319 r. kasztelan krakowski Nawój z Morawicy. Od jego imienia nazwano „Wieżę Nawojową”.",
-     "en": "The first castle, built of wood, is generally thought to have been erected around 1319 by Nawój of Morawica, castellan of Kraków. The \"Wieża Nawojowa\" was named after him.",
+     "pl": "Przyjmuje się, że pierwszy, drewniany zamek zbudował ok. 1319 r. kasztelan krakowski Nawój z Morawicy. Wzniósł też zamkową wieżę, zwaną do dziś „Wieżą Nawojową”.",
+     "en": "The first castle, built of wood, is generally thought to have been erected around 1319 by Nawój of Morawica, castellan of Kraków. He also built a castle tower, still called the \"Wieża Nawojowa\".",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zamek_Tenczyn",
@@ -763,7 +767,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -773,8 +777,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1416",
      "icon": "🧱",
-     "pl": "Ceglaną wieżę zbudował ok. 1350 r. Kazimierz Wielki. Razem z resztkami murów i piwnic jest pozostałością zamku w Kruszwicy, a zarazem jego najlepiej zachowaną częścią.",
-     "en": "The brick tower was built around 1350 by Casimir the Great. Together with the remnants of the walls and cellars, it is all that survives of the castle in Kruszwica, and it is also the castle's best-preserved part.",
+     "pl": "Ceglaną wieżę zbudował ok. 1350 r. Kazimierz Wielki. Jest pozostałością zamku w Kruszwicy.",
+     "en": "The brick tower was built around 1350 by Casimir the Great. It is a remnant of the castle in Kruszwica.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mysia_Wie%C5%BCa",
@@ -789,7 +793,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "pressto.amu.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1417",
@@ -832,7 +836,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "powiat.bedzin.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1419",
@@ -875,7 +879,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "mazowsze.travel"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1421",
@@ -918,7 +922,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "twierdza.klodzko.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -940,7 +944,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "geojournals.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1425",
@@ -1008,7 +1012,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "twierdza.gizycko.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1018,8 +1022,8 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
     {
      "id": "F1428",
      "icon": "🕯️",
-     "pl": "Nigdy jej nie zdobyto. Obrona z 1915 r. przeszła do historii jako „atak umarłych”.",
-     "en": "It was never captured. The defence of 1915 went down in history as the “Attack of the Dead Men”.",
+     "pl": "W I wojnie światowej jej nie zdobyto. Obrona z 1915 r. przeszła do historii jako „atak umarłych”.",
+     "en": "It was not captured in World War I. The defence of 1915 went down in history as the “Attack of the Dead Men”.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Twierdza_Osowiec",
@@ -1030,7 +1034,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1429",
@@ -1069,7 +1073,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1431",
@@ -1086,7 +1090,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "wilczyszaniec.olsztyn.lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": [
@@ -1114,7 +1118,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "polskieradio24.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1434",
@@ -1135,7 +1139,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "gdansk.ipn.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1178,7 +1182,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "pkpr.warmia.mazury.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1222,13 +1226,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "nto.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1439",
      "icon": "",
-     "pl": "To pałac w ruinie: podpalony w 1956 roku, potem rozgrabiony i zdewastowany, a później zabezpieczony tylko prowizorycznie.",
-     "en": "This is a palace in ruins: set on fire in 1956, then looted and vandalised, and later secured only provisionally.",
+     "pl": "To pałac w ruinie: podpalony w 1956 roku, potem rozgrabiony i zdewastowany, a później zabezpieczony prowizorycznie.",
+     "en": "This is a palace in ruins: set on fire in 1956, then looted and vandalised, and later secured provisionally.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Pa%C5%82ac_w_Kopicach",
@@ -1239,7 +1243,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "plus.nto.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1278,7 +1282,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "encyklopedia.warmia.mazury.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1321,7 +1325,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "polska-org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": [

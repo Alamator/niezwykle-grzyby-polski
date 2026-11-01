@@ -38,7 +38,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "umcs.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0696",
@@ -99,8 +99,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0699",
      "icon": "☠️",
-     "pl": "To jeden z rzadkich **jadowitych ssaków**. Codziennie zjada pokarm o masie 80–90% swojego ciała, jedząc co 2–3 godziny.",
-     "en": "It is one of the rare **venomous mammals**. Every day it eats food weighing 80–90% of its body mass, feeding every 2–3 hours.",
+     "pl": "To jeden z rzadkich **jadowitych ssaków**. Je co 2–3 godziny.",
+     "en": "It is one of the rare **venomous mammals**. It eats every 2–3 hours.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Common_shrew",
@@ -115,7 +115,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "mammal.org.uk"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -216,7 +216,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0708",
@@ -252,8 +252,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0710",
      "icon": "🧬",
-     "pl": "Badania genetyczne podzieliły dawny gatunek na dwa. Nazwa *N. anomalus* oznacza dziś **rzęsorka iberyjskiego**, a środkowoeuropejskie rzęsorki to *N. milleri*.",
-     "en": "Genetic studies split the former species in two. The name *N. anomalus* now refers to the **Iberian water shrew**, while Central European water shrews are *N. milleri*.",
+     "pl": "Badania genetyczne podzieliły dawny gatunek na dwa. Nazwa *N. anomalus* oznacza dziś **gatunek iberyjski**, a ten żyjący w Polsce to *N. milleri*.",
+     "en": "Genetic studies split the former species in two. The name *N. anomalus* now refers to the **Iberian species**, while the one living in Poland is *N. milleri*.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Rz%C4%99sorek_mniejszy",
@@ -268,7 +268,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0711",
@@ -285,7 +285,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "mdpi.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -389,7 +389,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "magazyn.salamandra.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -447,8 +447,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0722",
      "icon": "🌊",
-     "pl": "Poluje nad spokojną wodą: kanałami, rzekami i jeziorami. Rekordowy osobnik dożył **20,5 roku**.",
-     "en": "It hunts over calm water: canals, rivers and lakes. The record individual lived to **20.5 years**.",
+     "pl": "Poluje nad **spokojną wodą**: kanałami, rzekami i jeziorami.",
+     "en": "It hunts over **calm water**: canals, rivers and lakes.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Pond_bat",
@@ -463,7 +463,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "umweltportal.mv-regierung.de"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0723",
@@ -538,8 +538,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0727",
      "icon": "🪮",
-     "pl": "Brzeg błony ogonowej ma porośnięty **dwoma rzędami sztywnych, haczykowatych włosów**. To jego cecha rozpoznawcza.",
-     "en": "The edge of its tail membrane is fringed with **two rows of stiff, hooked hairs**. This is its distinguishing feature.",
+     "pl": "Brzeg błony ogonowej ma porośnięty **dwoma rzędami sztywnych, haczykowatych włosów**. To jedna z jego cech rozpoznawczych.",
+     "en": "The edge of its tail membrane is fringed with **two rows of stiff, hooked hairs**. This is one of its distinguishing features.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nocek_Natterera",
@@ -554,7 +554,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "kmkjournals.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -593,7 +593,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "publication.plazi.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -688,7 +688,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "academic.oup.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0736",
@@ -740,7 +740,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "academic.oup.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0739",
@@ -776,8 +776,8 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0741",
      "icon": "⚖️",
-     "pl": "Dorosła orzesznica waży około 20 g, ale jesienią, przed snem zimowym (od października do kwietnia), jej masa może się nawet podwoić.",
-     "en": "An adult hazel dormouse weighs about 20 g, but in autumn, before hibernation (from October to April), its mass can even double.",
+     "pl": "Jesienią, tuż przed snem zimowym (od października do kwietnia), masa orzesznicy leszczynowej rośnie do 30–40 g.",
+     "en": "In autumn, just before hibernation (from October to April), the hazel dormouse's mass rises to 30–40 g.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Hazel_dormouse",
@@ -800,7 +800,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "ptes.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0742",
@@ -930,7 +930,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "archiwum.tpn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -998,7 +998,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "brage.nina.no"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1265,7 +1265,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "pa.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1291,7 +1291,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "cepl.sggw.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0768",
@@ -1329,7 +1329,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "oko.press"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1368,7 +1368,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0772",
@@ -1429,7 +1429,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1495,9 +1495,9 @@ window.ATLAS_FACTS["ssaki"] = {
     },
     {
      "id": "F0780",
-     "icon": "📉📈",
-     "pl": "Na początku XX w. w Bałtyku żyło około 100 tys. szarytek; masowe polowania zmniejszyły ich liczbę do około 20 tys. w latach 40., a przez DDT i PCB w latach 70. zostało ich mniej niż 3 tys. Dziś liczebność **powoli rośnie**.",
-     "en": "At the start of the 20th century about 100,000 grey seals lived in the Baltic; mass hunting cut their numbers to about 20,000 by the 1940s, and because of DDT and PCBs fewer than 3,000 were left in the 1970s. Today their numbers are **slowly rising**.",
+     "icon": "📉",
+     "pl": "Na początku XX w. w Bałtyku żyło około 100 tys. szarytek; masowe polowania i przyłów w sieciach rybackich zmniejszyły ich liczbę do około 20 tys. w latach 40., a przez DDT i PCB w latach 70. zostało ich **mniej niż 3 tys.**",
+     "en": "At the start of the 20th century about 100,000 grey seals lived in the Baltic; mass hunting and bycatch in fishing nets cut their numbers to about 20,000 in the 1940s, and because of DDT and PCBs **fewer than 3,000** were left in the 1970s.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Szarytka_morska",
@@ -1512,7 +1512,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "septentrio.uit.no"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1547,7 +1547,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "zwierciadlo.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0783",

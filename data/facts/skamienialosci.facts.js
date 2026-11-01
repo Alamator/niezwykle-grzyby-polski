@@ -82,7 +82,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "kadzielniakielce.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0947",
@@ -117,7 +117,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "smithsonianmag.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0949",
@@ -164,7 +164,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "royalsocietypublishing.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0951",
@@ -256,8 +256,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0957",
      "icon": "📍",
-     "pl": "Sygilarie (ponad 20 m) były bardzo pospolite w górnym karbonie Polski, m.in. na Górnym Śląsku i koło Wałbrzycha.",
-     "en": "Sigillarias (over 20 m tall) were very common in the Upper Carboniferous of Poland, including Upper Silesia and the area around Wałbrzych.",
+     "pl": "Sygilarie (do ponad 20 m wysokości) były bardzo pospolite w górnym karbonie Polski, m.in. na Górnym Śląsku i w rejonie Wałbrzycha.",
+     "en": "Sigillarias (up to more than 20 m tall) were very common in the Upper Carboniferous of Poland, including Upper Silesia and the Wałbrzych area.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sygilaria",
@@ -268,7 +268,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "repository.si.edu"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -288,15 +288,19 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://www.app.pan.pl/article/item/app20100045.html",
        "label": "app.pan.pl"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Smok_wawelski",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0959",
      "icon": "🧱",
-     "pl": "Szczątki pochodzą z cegielni w Lisowicach koło Lublińca. Osady datuje się na przełom noryku i retyku (205–200 mln lat).",
-     "en": "The remains come from a brickworks in Lisowice near Lubliniec. The sediments are dated to the Norian–Rhaetian boundary (205–200 million years ago).",
+     "pl": "Szczątki pochodzą z cegielni w Lisowicach koło Lublińca. Osady datuje się na przełom noryku i retyku.",
+     "en": "The remains come from a brickworks in Lisowice near Lubliniec. The sediments are dated to the Norian–Rhaetian boundary.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Smok_(rodzaj)",
@@ -307,7 +311,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "app.pan.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0960",
@@ -363,7 +367,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "pubmed.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0963",
@@ -429,7 +433,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "palass.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0969",
@@ -498,7 +502,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -981,7 +985,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "researchgate.net"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1005",
@@ -998,7 +1002,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "eurekalert.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1006",
@@ -1111,7 +1115,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "repo.agh.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1012",
@@ -1181,7 +1185,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1016",
@@ -1207,8 +1211,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F1017",
      "icon": "",
-     "pl": "⏳ Niedźwiedź jaskiniowy wymarł pod koniec ostatniej epoki lodowej, ok. 28 tys. lat temu.",
-     "en": "⏳ The cave bear died out towards the end of the last ice age, around 28,000 years ago.",
+     "pl": "⏳ Niedźwiedź jaskiniowy wymarł pod koniec ostatniej epoki lodowej.",
+     "en": "⏳ The cave bear died out towards the end of the last ice age.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nied%C5%BAwied%C5%BA_jaskiniowy",
@@ -1219,7 +1223,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "digitalcommons.usf.edu"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []

@@ -59,7 +59,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "czermna.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -108,8 +108,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1450",
      "icon": "",
-     "pl": "Działa od stycznia 1803 r. Był pierwszym ogólnym cmentarzem miejskim Krakowa, założonym w miejsce zlikwidowanych cmentarzy przykościelnych.",
-     "en": "It has been in use since January 1803. It was Kraków’s first general municipal cemetery, founded to replace the closed-down churchyard burial grounds.",
+     "pl": "Działa od stycznia 1803 r. Był pierwszym cmentarzem komunalnym w Krakowie. Powstał w związku z zakazem pochówków na cmentarzach przykościelnych w obrębie miasta.",
+     "en": "It has been in use since January 1803. It was the first municipal cemetery in Kraków. It was established in connection with a ban on burials in churchyard cemeteries within the city.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_Rakowicki",
@@ -124,7 +124,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "zck-krakow.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1451",
@@ -151,8 +151,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1452",
      "icon": "",
-     "pl": "Pierwszy cmentarz Zakopanego powstał w połowie XIX wieku; najczęściej podaje się rok 1851, choć dokładna data nie jest pewna. Nazwa pochodzi od darczyńcy ziemi, Jana Pęksy.",
-     "en": "Zakopane’s first cemetery was established in the mid-19th century; 1851 is the year most often given, though the exact date is uncertain. Its name comes from the man who donated the land, Jan Pęksa.",
+     "pl": "Cmentarz powstał w połowie XIX wieku. Nazwa pochodzi od darczyńcy ziemi, Jana Pęksy.",
+     "en": "The cemetery was established in the mid-19th century. Its name comes from the man who donated the land, Jan Pęksa.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_Zas%C5%82u%C5%BConych_na_P%C4%99ksowym_Brzyzku",
@@ -169,9 +169,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://dzieje.pl/dziedzictwo-kulturowe/na-peksowym-brzyzku-w-zakopanem-spoczywaja-artysci-patrioci-i-sportowcy",
        "label": "dzieje.pl"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/zakopane-cmentarz-zasluzonych-na-peksowym-brzyzku",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -181,8 +185,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1454",
      "icon": "",
-     "pl": "Cmentarz założono w 1806 r. Ma ok. 33,4 ha. Pochowano tu ponad 200 tys. osób.",
-     "en": "The cemetery was founded in 1806. It covers c. 33.4 ha. More than 200,000 people are buried here.",
+     "pl": "Cmentarz założono w 1806 r. Ma ok. 33,5 ha. Pochowano tu ponad 200 tys. osób.",
+     "en": "The cemetery was founded in 1806. It covers c. 33.5 ha. More than 200,000 people are buried here.",
      "sources": [
       {
        "url": "https://sztetl.org.pl/pl/miejscowosci/w/18-warszawa/114-cmentarze/37926-cmentarz-zydowski-w-warszawie-ul-okopowa-4951",
@@ -191,9 +195,17 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://warszawa.jewish.org.pl/pl/visit/warsaw/okopowa",
        "label": "warszawa.jewish.org.pl"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/warszawa-cmentarz-zydowski",
+       "label": "zabytek.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Cmentarz_%C5%BCydowski_w_Warszawie_(Wola)",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1455",
@@ -347,19 +359,23 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1461",
      "icon": "",
-     "pl": "Najstarsze nagrobki na mizarze pochodzą z końca XVII w.; to nieociosane kamienie, na wielu z nich nie ma inskrypcji albo są nieczytelne.",
-     "en": "The oldest gravestones in the mizar date from the late 17th century; they are undressed stones, many of which bear no inscription or only illegible ones.",
+     "pl": "Najstarsze nagrobki na mizarze pochodzą z XVII i XVIII w.; to nieociosane kamienie bez czytelnych inskrypcji.",
+     "en": "The oldest gravestones in the mizar date from the 17th and 18th centuries; they are undressed stones without legible inscriptions.",
      "sources": [
       {
-       "url": "https://pl.wikipedia.org/wiki/Kruszyniany",
+       "url": "https://pl.wikipedia.org/wiki/Cmentarz_muzu%C5%82ma%C5%84ski_w_Kruszynianach",
        "label": "Wikipedia (PL)"
       },
       {
        "url": "https://dzieje.pl/dziedzictwo-kulturowe/odnowiono-xix-wieczne-nagrobki-na-mizarze-w-kruszynianach",
        "label": "dzieje.pl"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/kruszyniany-cmentarz-muzulmanski",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1462",
@@ -376,7 +392,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "pcr.uwb.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -480,7 +496,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "luzna.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1468",
@@ -550,7 +566,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "muzeum-zamojskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1472",
@@ -581,8 +597,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1473",
      "icon": "",
-     "pl": "Spoczywa tu ponad 2 tys. Polaków zamordowanych przez Niemców w latach 1939–1943. Najczęściej podaje się liczbę 2115 pochowanych, a w niektórych opracowaniach 2204.",
-     "en": "More than 2,000 Poles murdered by the Germans in 1939–1943 are buried here. The figure most often given is 2,115 burials, while some studies give 2,204.",
+     "pl": "Spoczywa tu ponad 2 tys. Polaków zamordowanych przez Niemców w latach 1939–1943. Podaje się różne liczby pochowanych, m.in. 2115 i 2204.",
+     "en": "More than 2,000 Poles murdered by the Germans in 1939–1943 are buried here. Various figures are given for the number of burials, including 2,115 and 2,204.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_w_Palmirach",
@@ -601,7 +617,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1474",
@@ -618,7 +634,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "przystanekhistoria.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -638,9 +654,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://whc.unesco.org/document/163133",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Auschwitz-Birkenau",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1476",
@@ -676,9 +696,13 @@ window.ATLAS_FACTS["memento-mori"] = {
       {
        "url": "https://www.auschwitz.org/en/museum/history-of-the-memorial/from-liberation-to-the-opening-of-the-memorial/the-opening-of-the-museum",
        "label": "auschwitz.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Pa%C5%84stwowe_Muzeum_Auschwitz-Birkenau_w_O%C5%9Bwi%C4%99cimiu",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -704,7 +728,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1479",
@@ -756,7 +780,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "belzec.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -826,8 +850,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1485",
      "icon": "",
-     "pl": "Liczba ofiar sięgnęła prawdopodobnie ok. 200 tys. osób. Byli to głównie Żydzi, a także mniejsze grupy Polaków i jeńców sowieckich.",
-     "en": "The death toll probably reached around 200,000 people. They were mainly Jews, along with smaller groups of Poles and Soviet prisoners of war.",
+     "pl": "Liczba ofiar sięgnęła prawdopodobnie ok. 200 tys. osób. Byli to głównie Żydzi, a także Romowie i Sinti oraz mniejsze grupy Polaków i jeńców sowieckich.",
+     "en": "The death toll probably reached around 200,000 people. They were mainly Jews, along with Roma and Sinti, and smaller groups of Poles and Soviet prisoners of war.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ob%C3%B3z_zag%C5%82ady_w_Che%C5%82mnie_nad_Nerem",
@@ -838,7 +862,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "chelmno-muzeum.eu"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -924,7 +948,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -985,7 +1009,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "ipn.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1493",
@@ -1020,7 +1044,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "um.warszawa.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1495",
@@ -1059,7 +1083,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "demagog.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1497",
@@ -1080,7 +1104,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1166,7 +1190,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "hub.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1188,7 +1212,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "ejournals.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1503",
@@ -1211,8 +1235,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1504",
      "icon": "",
-     "pl": "Wieś Mogiła, której nazwę wiąże się z kopcem, wzmiankowano w 1222 r. Wygląd kopca opisano po raz pierwszy w 1584 r.",
-     "en": "The village of Mogiła, whose name is linked to the mound, was first mentioned in 1222. The mound's appearance was first described in 1584.",
+     "pl": "Wieś Mogiła, której nazwę wiąże się z kopcem, wzmiankowano po raz pierwszy w 1222 r. Pierwsza wzmianka o wyglądzie kopca pochodzi z 1584 r.",
+     "en": "The village of Mogiła, whose name is linked to the mound, was first mentioned in 1222. The first mention of the mound's appearance dates from 1584.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopiec_Wandy",
@@ -1223,7 +1247,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "dziennikpolski24.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1505",
@@ -1262,7 +1286,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "wroclaw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1507",

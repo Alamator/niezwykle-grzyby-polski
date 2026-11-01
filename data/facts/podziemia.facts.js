@@ -21,13 +21,13 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "kopalniawieliczka.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1247",
      "icon": "🧂",
-     "pl": "Sól pochodzi z miocenu. Od XIII w. do 1772 r. Wieliczka razem z Bochnią tworzyła żupy krakowskie.",
-     "en": "The salt dates from the Miocene. From the 13th century until 1772, Wieliczka and Bochnia together formed the Kraków Saltworks.",
+     "pl": "Sól pochodzi z miocenu. Od XIII w. do 1772 r. Wieliczka razem z Bochnią wchodziła w skład żup krakowskich.",
+     "en": "The salt dates from the Miocene. From the 13th century until 1772, Wieliczka, together with Bochnia, was part of the Kraków Saltworks.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopalnia_Soli_%E2%80%9EWieliczka%E2%80%9D",
@@ -42,7 +42,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "muzeum.wieliczka.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1248",
@@ -59,7 +59,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "krakow.stat.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -69,15 +69,27 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1249",
      "icon": "👑",
-     "pl": "Kopalnie w Wieliczce i Bochni tworzą wspólny obiekt UNESCO „Królewskie Kopalnie Soli”. Sól wydobywano tu od XIII w.",
-     "en": "The mines in Wieliczka and Bochnia make up a single UNESCO site, the “Royal Salt Mines”. Salt has been mined here since the 13th century.",
+     "pl": "Kopalnie w Wieliczce i Bochni należą do wspólnego obiektu UNESCO „Królewskie Kopalnie Soli w Wieliczce i Bochni”. Sól wydobywano tu od XIII w.",
+     "en": "The mines in Wieliczka and Bochnia belong to a single UNESCO site, the “Wieliczka and Bochnia Royal Salt Mines”. Salt was mined here from the 13th century.",
      "sources": [
       {
        "url": "https://whc.unesco.org/en/list/32",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Kopalnia_Soli_%E2%80%9EWieliczka%E2%80%9D",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Wieliczka_Salt_Mine",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Bochnia_Salt_Mine",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1250",
@@ -94,7 +106,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "visitmalopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -116,7 +128,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1252",
@@ -155,7 +167,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1254",
@@ -176,7 +188,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -198,7 +210,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "slaskie.travel"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1256",
@@ -215,7 +227,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "unesco.tarnowskiegory.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -258,7 +270,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "delibra.bg.polsl.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1259",
@@ -285,8 +297,8 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1260",
      "icon": "🎩",
-     "pl": "Kopalnię założył hrabia Guido Henckel von Donnersmarck, który 2 października 1855 r. otrzymał nadanie górnicze.",
-     "en": "The mine was founded by Count Guido Henckel von Donnersmarck, who was granted mining rights on 2 October 1855.",
+     "pl": "Kopalnię założył hrabia Guido Henckel von Donnersmarck, który w 1855 r. otrzymał nadanie górnicze.",
+     "en": "The mine was founded by Count Guido Henckel von Donnersmarck, who was granted mining rights in 1855.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopalnia_Guido",
@@ -295,15 +307,19 @@ window.ATLAS_FACTS["podziemia"] = {
       {
        "url": "https://www.slaskie.travel/en-us/Poi/Pokaz/15656/1741/guido-coal-mine",
        "label": "slaskie.travel"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/zabrze-zespol-zabytkowych-kopalni-wegla-kamiennego",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1261",
      "icon": "⬇️",
-     "pl": "Wydobycie prowadzono na poziomach 170 i 320 m.",
-     "en": "Mining took place on the 170 m and 320 m levels.",
+     "pl": "Wydobycie prowadzono m.in. na poziomach 170 i 320 m.",
+     "en": "Mining took place on the 170 m and 320 m levels, among others.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kopalnia_Guido",
@@ -312,9 +328,13 @@ window.ATLAS_FACTS["podziemia"] = {
       {
        "url": "https://www.slaskie.travel/en-us/Poi/Pokaz/15656/1741/guido-coal-mine",
        "label": "slaskie.travel"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/zabrze-zespol-zabytkowych-kopalni-wegla-kamiennego",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -324,8 +344,8 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1262",
      "icon": "🛶",
-     "pl": "Kompleks to prawie 5 km wyrobisk. Od 14 września 2018 r. działa tu najdłuższy podziemny spływ łodziami w Polsce.",
-     "en": "The complex comprises almost 5 km of workings. Since 14 September 2018 it has offered the longest underground boat trip in Poland.",
+     "pl": "Od 14 września 2018 r. działa tu najdłuższy podziemny spływ łodziami w Polsce.",
+     "en": "Since 14 September 2018 the longest underground boat trip in Poland has operated here.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sztolnia_Kr%C3%B3lowa_Luiza",
@@ -336,13 +356,13 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "miastozabrze.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1263",
      "icon": "🏛️",
-     "pl": "Razem z Kopalnią Guido należy do Muzeum Górnictwa Węglowego w Zabrzu, które od 2013 roku tworzy z nimi jedną instytucję.",
-     "en": "Together with the Guido Mine, it belongs to the Coal Mining Museum in Zabrze, which has formed a single institution with them since 2013.",
+     "pl": "Razem z Kopalnią Guido należy do Muzeum Górnictwa Węglowego w Zabrzu. W 2013 roku Kopalnię Guido połączono z muzeum w jedną instytucję.",
+     "en": "Together with the Guido Mine, it belongs to the Coal Mining Museum in Zabrze. In 2013 the Guido Mine was merged with the museum into a single institution.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sztolnia_Kr%C3%B3lowa_Luiza",
@@ -351,9 +371,13 @@ window.ATLAS_FACTS["podziemia"] = {
       {
        "url": "https://muzeumgornictwa.pl/poznaj/muzeum/historia/",
        "label": "muzeumgornictwa.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Muzeum_G%C3%B3rnictwa_W%C4%99glowego_w_Zabrzu",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -375,7 +399,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "boehm-chronik.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -426,7 +450,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -467,8 +491,8 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1269",
      "icon": "🏗️",
-     "pl": "„Riese” („Olbrzym”) to kryptonim wielkiej budowy nowej kwatery Hitlera w Górach Sowich i na zamku Książ. Prace zaczęto prawdopodobnie w październiku 1943 roku i przerwano w 1945 roku, zanim je skończono.",
-     "en": "'Riese' ('Giant') was the code name for the vast construction of Hitler's new headquarters in the Owl Mountains and at Książ Castle. Work probably began in October 1943 and was halted in 1945, before it was finished.",
+     "pl": "„Riese” („Olbrzym”) to kryptonim wielkiej budowy w Górach Sowich i na zamku Książ. Uważa się, że zamek Książ przygotowywano na jedną z kwater głównych Hitlera. Prace prowadzono w latach 1943–1945 i ich nie ukończono.",
+     "en": "'Riese' ('Giant') was the code name for a vast construction project in the Owl Mountains and at Książ Castle. Książ Castle is believed to have been prepared as one of Hitler's headquarters. Work was carried out from 1943 to 1945 and was not completed.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Riese",
@@ -481,9 +505,13 @@ window.ATLAS_FACTS["podziemia"] = {
       {
        "url": "https://www.national-geographic.pl/traveler/kierunki/osowka-podziemne-miasto-poznaj-tajemnice-hitlerowskiego-olbrzyma/",
        "label": "national-geographic.pl"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Project_Riese",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1270",
@@ -553,7 +581,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "archiwum.walim.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1275",
@@ -570,7 +598,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "archiwum.walim.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -703,7 +731,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "poland.representation.ec.europa.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -726,8 +754,8 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1286",
      "icon": "📅",
-     "pl": "27 sierpnia 1941 r. przybyli tu koleją Adolf Hitler i Benito Mussolini i spędzili w Stępinie noc.",
-     "en": "On 27 August 1941, Adolf Hitler and Benito Mussolini arrived here by train and spent the night in Stępina.",
+     "pl": "27 sierpnia 1941 r. Adolf Hitler i Benito Mussolini przybyli koleją do kwatery głównej „Anlage Süd”.",
+     "en": "On 27 August 1941, Adolf Hitler and Benito Mussolini arrived by train at the “Anlage Süd” headquarters.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/St%C4%99pina",
@@ -736,9 +764,17 @@ window.ATLAS_FACTS["podziemia"] = {
       {
        "url": "https://frysztak.pl/historia-gminy/stepina/",
        "label": "frysztak.pl"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Anlage_S%C3%BCd",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Tunel_schronowy_w_Strzy%C5%BCowie",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -799,7 +835,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "mazury.tm.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1290",
@@ -834,7 +870,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "ph.pollub.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1292",
@@ -896,8 +932,8 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1295",
      "icon": "🏚️",
-     "pl": "W XX w. zapadliska i katastrofy budowlane zagroziły starówce. Do ratowania gruntu wezwano górników z Bytomia.",
-     "en": "In the 20th century, subsidence and building collapses threatened the old town. Miners from Bytom were called in to save the ground.",
+     "pl": "W XX w. zapadliska i katastrofy budowlane zagroziły starówce. Aby ustabilizować grunt pod budynkami, pracownicy Przedsiębiorstwa Robót Górniczych w Bytomiu prowadzili prace górnicze.",
+     "en": "In the 20th century, subsidence and building collapses threatened the old town. To stabilise the ground under the buildings, workers of the Mining Works Enterprise in Bytom carried out mining works.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Podziemna_Trasa_Turystyczna_w_Sandomierzu",
@@ -912,7 +948,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "radiokielce.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1296",
@@ -929,7 +965,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "radiokielce.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -996,15 +1032,27 @@ window.ATLAS_FACTS["podziemia"] = {
     {
      "id": "F1303",
      "icon": "🧱",
-     "pl": "Toruńska starówka (z zamkiem krzyżackim) jest od 1997 r. obiektem UNESCO „Średniowieczne miasto Toruń”.",
-     "en": "Since 1997, Toruń’s old town (with the Teutonic castle) has been a UNESCO site, the “Medieval Town of Toruń”.",
+     "pl": "Stare Miasto, Nowe Miasto i zamek krzyżacki w Toruniu są od 1997 r. obiektem UNESCO „Średniowieczny zespół miejski Torunia”.",
+     "en": "Since 1997, Toruń’s Old Town, New Town and Teutonic castle have been a UNESCO site, the “Medieval Town of Toruń”.",
      "sources": [
       {
        "url": "https://whc.unesco.org/en/list/835",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Zesp%C3%B3%C5%82_staromiejski_Torunia",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Lista_%C5%9Bwiatowego_dziedzictwa_UNESCO_w_Polsce",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Medieval_Town_of_Toru%C5%84",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1304",
@@ -1043,7 +1091,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1306",
@@ -1064,7 +1112,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1307",

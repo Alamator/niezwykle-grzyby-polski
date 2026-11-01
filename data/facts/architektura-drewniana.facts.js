@@ -21,7 +21,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1186",
@@ -38,7 +38,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "kosciolpokoju.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1187",
@@ -49,9 +49,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1054",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://zabytek.pl/en/obiekty/jawor-jawor-kosciol-ewangelicko-augsburski-pw-ducha-swietego",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -73,7 +77,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1189",
@@ -90,7 +94,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "artsandculture.google.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -133,7 +137,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "3d.drewniana.malopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1192",
@@ -184,7 +188,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "nid.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1194",
@@ -195,9 +199,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://whc.unesco.org/en/list/1053",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Binarowej",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -228,8 +236,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1196",
      "icon": "🕯️",
-     "pl": "Kościół mocno ucierpiał w czasie bitwy pod Gorlicami (1914/1915). Drewno z niego posłużyło wtedy m.in. do budowy okopów.",
-     "en": "The church was badly damaged during the Battle of Gorlice (1914/1915). Its timber was used at the time for purposes including building trenches.",
+     "pl": "Kościół mocno ucierpiał w czasie walk pod Gorlicami na przełomie 1914/1915 r. Drewno z niego posłużyło wtedy m.in. do budowy okopów.",
+     "en": "The church was badly damaged during the fighting near Gorlice at the turn of 1914/1915. Its timber was used at the time for purposes including building trenches.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Filipa_i_%C5%9Bw._Jakuba_w_S%C4%99kowej",
@@ -244,7 +252,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "visitmalopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -266,13 +274,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "visitmalopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1198",
      "icon": "🎨",
-     "pl": "Malowidła w prezbiterium pochodzą z 1689 r., a w nawie z 1711 r. Od 2003 r. kościół jest w UNESCO.",
-     "en": "The paintings in the chancel date from 1689, and those in the nave from 1711. Since 2003 the church has been on the UNESCO List.",
+     "pl": "Malowidła w prezbiterium pochodzą z 1689 r., a polichromia na północnej ścianie nawy z 1711 r. Od 2003 r. kościół jest w UNESCO.",
+     "en": "The paintings in the chancel date from 1689, and the polychrome on the north wall of the nave from 1711. Since 2003 the church has been on the UNESCO List.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Leonarda_w_Lipnicy_Murowanej",
@@ -287,7 +295,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -309,7 +317,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1200",
@@ -330,7 +338,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -341,7 +349,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
      "id": "F1201",
      "icon": "📜",
      "pl": "Najwcześniejsza pewna wzmianka pochodzi z 1470 r. Kościół miał charakter obronny.",
-     "en": "The earliest reliable mention dates from 1470. The church served a defensive purpose.",
+     "en": "The earliest reliable mention dates from 1470. The church had a defensive character.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_Wszystkich_%C5%9Awi%C4%99tych_w_Bliznem",
@@ -352,7 +360,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1202",
@@ -373,7 +381,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -418,9 +426,17 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
       {
        "url": "https://3d.drewniana.malopolska.pl/en/portfolio-item/st-paraskeva-greek-catholic-church-kwiaton-unesco-list/",
        "label": "3d.drewniana.malopolska.pl"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Wooden_Tserkvas_of_the_Carpathian_Region_in_Poland_and_Ukraine",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Drewniane_cerkwie_w_polskim_i_ukrai%C5%84skim_regionie_Karpat",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -489,7 +505,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "edd.nid.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1208",
@@ -506,7 +522,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -532,7 +548,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1210",
@@ -592,7 +608,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -614,13 +630,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "bezdroza.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1214",
      "icon": "🌍",
-     "pl": "To jedna z najstarszych i najcenniejszych drewnianych cerkwi zachowanych w Polsce. Od 2013 r. jest na Liście Światowego Dziedzictwa UNESCO.",
-     "en": "It is one of the oldest and most valuable wooden tserkvas surviving in Poland. Since 2013 it has been on the UNESCO World Heritage List.",
+     "pl": "To jedna z najstarszych i najlepiej zachowanych drewnianych cerkwi w Polsce. Od 2013 r. jest na Liście Światowego Dziedzictwa UNESCO.",
+     "en": "It is one of the oldest and best-preserved wooden tserkvas in Poland. Since 2013 it has been on the UNESCO World Heritage List.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Paraskewy_w_Radru%C5%BCu",
@@ -635,7 +651,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -645,8 +661,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1215",
      "icon": "📜",
-     "pl": "Pierwsza wzmianka o cerkwi w Smolniku pochodzi z 1589 r. Od 1974 r. świątynia jest kościołem rzymskokatolickim.",
-     "en": "The first mention of the tserkva in Smolnik dates from 1589. Since 1974 it has been a Roman Catholic church.",
+     "pl": "Pierwsza znana wzmianka o cerkwi w Smolniku pochodzi z 1589 r. Obecny budynek od 1974 r. jest kościołem rzymskokatolickim.",
+     "en": "The first known mention of a tserkva in Smolnik dates from 1589. Since 1974 the present building has been a Roman Catholic church.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cerkiew_%C5%9Bw._Micha%C5%82a_Archanio%C5%82a_w_Smolniku",
@@ -657,7 +673,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "podkarpackie.eu"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1216",
@@ -674,7 +690,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -696,7 +712,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1218",
@@ -713,7 +729,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -735,7 +751,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "wang.com.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1220",
@@ -752,7 +768,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "architektura.muratorplus.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -809,7 +825,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "muzeumtatrzanskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1225",
@@ -826,7 +842,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "archiwalna.muzeumtatrzanskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -848,7 +864,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "visitmalopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1227",
@@ -865,7 +881,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "muzeumtatrzanskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -891,13 +907,13 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1229",
      "icon": "🗺️",
-     "pl": "Leży na małopolskim Szlaku Architektury Drewnianej. Szlak ma ponad 1500 km i obejmuje 255 obiektów.",
-     "en": "It lies on the Małopolska Wooden Architecture Route. The route is over 1,500 km long and includes 255 sites.",
+     "pl": "Leży na małopolskim Szlaku Architektury Drewnianej. Szlak ma ponad 1500 km.",
+     "en": "It lies on the Małopolska Wooden Architecture Route. The route is over 1,500 km long.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Szlak_Architektury_Drewnianej_(wojew%C3%B3dztwo_ma%C5%82opolskie)",
@@ -908,7 +924,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "malopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -957,7 +973,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
      "en": "The church was built in the second half of the 15th century. The main altar is a late Gothic triptych from the 16th century.",
      "sources": [
       {
-       "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Marcina_w_Gryw%C5%82adzie",
+       "url": "https://pl.wikipedia.org/wiki/Ko%C5%9Bci%C3%B3%C5%82_%C5%9Bw._Marcina_w_Grywa%C5%82dzie",
        "label": "Wikipedia (PL)"
       },
       {
@@ -965,7 +981,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1233",
@@ -982,7 +998,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "drewniana.malopolska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1047,7 +1063,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1057,8 +1073,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1237",
      "icon": "📅",
-     "pl": "Obecny meczet datuje się zwykle na II połowę XIX w. Podczas prac konserwatorskich w 2006 r. na jednej z belek odkryto datę 1873, która może oznaczać rok budowy albo przebudowy.",
-     "en": "The present mosque is usually dated to the second half of the 19th century. During conservation work in 2006 the date 1873 was discovered on one of the beams; it may mark the year of construction or of a rebuilding.",
+     "pl": "Obecny meczet datuje się zwykle na II połowę XIX w. Podczas prac konserwatorskich na jednej z belek odkryto datę 1873, która może oznaczać rok budowy albo przebudowy.",
+     "en": "The present mosque is usually dated to the second half of the 19th century. During conservation work the date 1873 was discovered on one of the beams; it may mark the year of construction or of a rebuilding.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Meczet_w_Bohonikach",
@@ -1073,7 +1089,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "tvn24.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1238",
@@ -1096,8 +1112,8 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
     {
      "id": "F1239",
      "icon": "🪟",
-     "pl": "Szlak obejmuje m.in. Soce i Puchły. Projekt działa od 2001 r. i ratuje znikający krajobraz kulturowy doliny Narwi.",
-     "en": "The route includes Soce and Puchły, among others. The project has been running since 2001 and is saving the disappearing cultural landscape of the Narew valley.",
+     "pl": "Szlak obejmuje m.in. Soce. Projekt działa od 2001 r. i ma na celu ratowanie znikającego krajobrazu kulturowego doliny Narwi.",
+     "en": "The route includes Soce, among others. The project has been running since 2001 and aims to save the disappearing cultural landscape of the Narew valley.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Soce",
@@ -1108,7 +1124,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1240",
@@ -1143,7 +1159,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "yadda.icm.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1244",

@@ -214,7 +214,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "earthdata.nasa.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -289,7 +289,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "noaa.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1036",
@@ -343,8 +343,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1039",
      "icon": "🌗",
-     "pl": "Latem w całej Polsce nie zapada noc astronomiczna. Słońce chowa się wtedy pod horyzont na mniej niż 18°.",
-     "en": "In summer, astronomical night does not fall anywhere in Poland. The Sun then dips less than 18° below the horizon.",
+     "pl": "Latem w całej Polsce bywają noce, kiedy nie zapada noc astronomiczna. Słońce chowa się wtedy pod horyzont na mniej niż 18°.",
+     "en": "In summer, there are nights throughout Poland when astronomical night does not fall. The Sun then dips less than 18° below the horizon.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce",
@@ -355,13 +355,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1040",
      "icon": "🔭",
-     "pl": "To utrudnienie dla astronomów: w letnie noce nie zapada noc astronomiczna, więc niebo nie robi się w pełni ciemne.",
-     "en": "It's a nuisance for astronomers: on summer nights astronomical night never falls, so the sky never gets fully dark.",
+     "pl": "To utrudnienie dla astronomów: w niektóre letnie noce nie zapada noc astronomiczna, więc niebo nie robi się w pełni ciemne.",
+     "en": "It's a nuisance for astronomers: on some summer nights astronomical night does not fall, so the sky does not get fully dark.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bia%C5%82e_noce",
@@ -421,7 +421,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "obserwator.imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1044",
@@ -472,7 +472,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "tai.czasopisma.pan.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1046",
@@ -489,7 +489,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "urania.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -526,9 +526,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.gwiezdnebieszczady.pl/wps/wp-content/uploads/2013/03/Informacja-prasowa-Sprawozdanie-z-podpisania-memorandum.pdf",
        "label": "gwiezdnebieszczady.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Park_Gwiezdnego_Nieba_%E2%80%9EBieszczady%E2%80%9D",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -571,7 +575,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "darksky.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -593,7 +597,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "space.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1052",
@@ -667,7 +671,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "science.nasa.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -677,8 +681,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1056",
      "icon": "🪨",
-     "pl": "Ich ciałem macierzystym jest planetoida (3200) Phaethon, która według dzisiejszej wiedzy jest najpewniej odewoluowanym jądrem starej komety.",
-     "en": "Their parent body is the asteroid (3200) Phaethon, which, according to current knowledge, is most likely the evolved nucleus of an old comet.",
+     "pl": "Ich ciałem macierzystym jest planetoida (3200) Phaethon, która według dzisiejszej wiedzy wydaje się odewoluowanym jądrem starej komety.",
+     "en": "Their parent body is the asteroid (3200) Phaethon, which, according to current knowledge, appears to be the evolved nucleus of an old comet.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Geminidy",
@@ -689,7 +693,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "blogs.nasa.gov"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1057",
@@ -726,9 +730,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.hko.gov.hk/en/Observatorys-Blog/104520/Mirage",
        "label": "hko.gov.hk"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Hillingar_effect",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Mirage",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -886,7 +898,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "turystyczna.szklarskaporeba.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -997,7 +1009,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "obserwator.imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1074",
@@ -1061,7 +1073,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "ntrs.nasa.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

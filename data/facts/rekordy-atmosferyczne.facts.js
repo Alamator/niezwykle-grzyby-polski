@@ -75,7 +75,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "IMGW-PIB: Upał – prognoza i rekordy"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -113,7 +113,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "IMGW-PIB: Upał – prognoza i rekordy"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1512",

@@ -327,7 +327,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "link.springer.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -349,7 +349,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0376",
@@ -385,8 +385,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0378",
      "icon": "👁️",
-     "pl": "Dorosły motyl widzi kolory nawet przy bardzo słabym świetle. To pierwszy gatunek zwierzęcia, u którego udokumentowano **nocne widzenie barwne** (badania z 2002 roku). Rozróżniał kolory przy świetle tak słabym jak blask gwiazd.",
-     "en": "The adult moth can see colours even in very dim light. It is the first animal species in which **nocturnal colour vision** was documented (research from 2002). It could tell colours apart in light as faint as starlight.",
+     "pl": "Dorosły motyl widzi kolory nawet przy bardzo słabym świetle. To jeden z pierwszych gatunków zwierząt, u których udokumentowano **nocne widzenie barwne** (badania z 2002 roku). Rozróżniał kolory przy świetle tak słabym jak blask gwiazd.",
+     "en": "The adult moth can see colours even in very dim light. It is one of the first animal species in which **nocturnal colour vision** was documented (research from 2002). It could tell colours apart in light as faint as starlight.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Deilephila_elpenor",
@@ -399,9 +399,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://lup.lub.lu.se/record/131382",
        "label": "lup.lub.lu.se"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Scotopic_vision",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -642,7 +646,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "wildlifetrusts.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -764,7 +768,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "podrb.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0403",
@@ -816,7 +820,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "gbif.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0406",
@@ -874,8 +878,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0409",
      "icon": "🏷️",
-     "pl": "Jednym z gatunków rodzaju *Cimbex* jest **bryzgun brzozowiec** (*C. femoratus*), dorastający do 20 mm.",
-     "en": "One of the species of the genus *Cimbex* is the **birch sawfly** (*C. femoratus*), which grows up to 20 mm.",
+     "pl": "Jednym z gatunków rodzaju *Cimbex* jest **bryzgun brzozowiec** (*C. femoratus*).",
+     "en": "One of the species of the genus *Cimbex* is the **birch sawfly** (*C. femoratus*).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Bryzgun_brzozowiec",
@@ -884,9 +888,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://www.spektrum.de/lexikon/biologie/cimbicidae/14167",
        "label": "spektrum.de"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Cimbex_femoratus",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0410",
@@ -1114,7 +1122,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "gbif.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1346,7 +1354,7 @@ window.ATLAS_FACTS["owady"] = {
      "id": "F0435",
      "icon": "🌳",
      "pl": "Zasiedla nasłonecznione, ponad 100-letnie dęby, m.in. pomnikowego Bartka.",
-     "en": "It lives in sunlit oaks over 100 years old, including Bartek, the famous monument oak.",
+     "en": "It lives in sunlit oaks over 100 years old, including the monument oak Bartek.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Kozior%C3%B3g_d%C4%99bosz",
@@ -1355,9 +1363,13 @@ window.ATLAS_FACTS["owady"] = {
       {
        "url": "https://rcin.org.pl/iop//Content/197225/PDF/KR038_193019_r1973-t29-no1_ChPO-Starzyk-22-30.pdf",
        "label": "rcin.org.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/D%C4%85b_Bartek",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []

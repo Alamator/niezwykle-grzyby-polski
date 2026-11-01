@@ -21,7 +21,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1309",
@@ -51,7 +51,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "historia.bibliotekaelblaska.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -73,7 +73,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "ciechocinek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1312",
@@ -124,7 +124,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "muzeum.gliwice.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1314",
@@ -158,7 +158,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "muzeum.gliwice.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -180,7 +180,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "whc.unesco.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1317",
@@ -191,9 +191,13 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
       {
        "url": "https://whc.unesco.org/en/list/1165",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Hala_Stulecia_we_Wroc%C5%82awiu",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -215,7 +219,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "gazeta.policja.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1319",
@@ -249,7 +253,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "national-geographic.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -271,7 +275,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "archiwum.wlen.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1322",
@@ -314,7 +318,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "polityka.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1324",
@@ -331,7 +335,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "cyfrowa.tvp.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -374,7 +378,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "sep.krakow.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -421,7 +425,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "skarbnica.tczew.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1329",
@@ -442,7 +446,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "skarbnica.tczew.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -464,7 +468,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "wroclaw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1331",
@@ -489,7 +493,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "auto-swiat.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -528,7 +532,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "wroclaw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -550,7 +554,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "nbi.com.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1335",
@@ -593,7 +597,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "bialystok.wody.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1337",
@@ -636,7 +640,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "dziennikpowiatowy.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1339",
@@ -679,7 +683,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "journals.pan.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1341",
@@ -719,8 +723,8 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
     {
      "id": "F1343",
      "icon": "🌊",
-     "pl": "Po powodzi z 1903 r. zbudowano nowy Kanał Powodziowy. W 1997 r. system zawiódł podczas powodzi tysiąclecia.",
-     "en": "After the flood of 1903, a new Flood Canal was built. In 1997 the system failed during the Millennium Flood.",
+     "pl": "Po powodzi z 1903 r. zbudowano nowy Kanał Powodziowy. W 1997 r. system przeciwpowodziowy zawiódł podczas powodzi tysiąclecia.",
+     "en": "After the flood of 1903, a new Flood Canal was built. In 1997 the flood protection system failed during the Millennium Flood.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Wroc%C5%82awski_w%C4%99ze%C5%82_wodny",
@@ -735,7 +739,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "pap.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -757,7 +761,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "gdansk.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1345",
@@ -774,7 +778,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "gdansk.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -796,7 +800,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "inzynierbudownictwa.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1347",
@@ -817,7 +821,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "inzynieria.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -839,7 +843,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "pkl.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1349",
@@ -890,7 +894,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "radiokrakow.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1351",
@@ -911,7 +915,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "pap.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -921,8 +925,8 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
     {
      "id": "F1352",
      "icon": "⚓",
-     "pl": "Port zbudowano, by zapewnić Polsce dostęp do morza i bazę marynarki wojennej. Gdynia dostała prawa miejskie 4 marca 1926 r.",
-     "en": "The port was built to give Poland access to the sea and a naval base. Gdynia received town rights on 4 March 1926.",
+     "pl": "Port zbudowano, by zapewnić Polsce dostęp do morskich szlaków i bazę marynarki wojennej. Gdynia dostała prawa miejskie 4 marca 1926 r.",
+     "en": "The port was built to give Poland access to sea routes and a naval base. Gdynia received town rights on 4 March 1926.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Gdynia",
@@ -933,7 +937,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "api.sejm.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1353",
@@ -980,7 +984,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1355",
@@ -1001,7 +1005,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "press.uni.lodz.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1040,7 +1044,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "muzeumlniarstwa.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1110,8 +1114,8 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
     {
      "id": "F1361",
      "icon": "🏅",
-     "pl": "W 1978 r. trafiło do rejestru zabytków, a od 2011 r. jest Pomnikiem Historii.",
-     "en": "In 1978 it was entered in the register of monuments, and since 2011 it has been a Historic Monument.",
+     "pl": "W 1978 r. układ urbanistyczny osiedla trafił do rejestru zabytków, a od 2011 r. osiedle jest Pomnikiem Historii.",
+     "en": "In 1978 the estate's urban layout was entered in the register of monuments, and since 2011 the estate has been a Historic Monument.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Nikiszowiec",
@@ -1126,7 +1130,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1148,7 +1152,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "slaskie.travel"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1158,8 +1162,8 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
     {
      "id": "F1364",
      "icon": "⚡",
-     "pl": "Pierwsza komercyjna elektrownia w Łodzi dawała prąd od 1907 r. Jako elektrociepłownia szczytowa działała do 2000 r.",
-     "en": "Łódź's first commercial power station supplied electricity from 1907. It operated as a peak-load combined heat and power plant until 2000.",
+     "pl": "Pierwsza miejska elektrownia w Łodzi dawała prąd od 1907 r. Jako elektrociepłownia szczytowa działała do 2000 r.",
+     "en": "Łódź's first city power station supplied electricity from 1907. It operated as a peak-load combined heat and power plant until 2000.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/EC1_%C5%81%C3%B3d%C5%BA_%E2%80%93_Miasto_Kultury",
@@ -1172,9 +1176,13 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
       {
        "url": "https://lodz.pl/artykul/to-juz-120-lat-ec1-lodz-poznaj-historie-pierwszej-miejskiej-elektrowni-archiwalne-zdjecia-73656/",
        "label": "lodz.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Elektrownia_przy_ul._Targowej_w_%C5%81odzi",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1365",
@@ -1272,7 +1280,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1369",
@@ -1307,7 +1315,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "dzieje.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1371",
@@ -1324,7 +1332,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1367,7 +1375,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "pik.poznan.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1449,7 +1457,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "port.szczecin.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

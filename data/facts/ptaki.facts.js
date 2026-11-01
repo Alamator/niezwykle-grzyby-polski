@@ -34,7 +34,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0601",
@@ -95,8 +95,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0604",
      "icon": "🪶",
-     "pl": "To **najmniejszy ptak Europy**: waży **4,5–7 g**. Wbrew obiegowej opinii nie jest nim strzyżyk.",
-     "en": "It is **Europe's smallest bird**, weighing **4.5–7 g**. Contrary to popular belief, that title does not go to the wren.",
+     "pl": "To **najmniejszy ptak Europy**: waży **4,5–7 g**. Niektórzy błędnie przypisują ten tytuł strzyżykowi.",
+     "en": "It is **Europe's smallest bird**, weighing **4.5–7 g**. Some people wrongly give that title to the wren.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mysikr%C3%B3lik_%28zwyczajny%29",
@@ -105,15 +105,19 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://www.wildlifetrusts.org/wildlife-explorer/birds/tits-crests-and-warblers/goldcrest",
        "label": "wildlifetrusts.org"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Goldcrest",
+       "label": "Wikipedia (EN)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0605",
      "icon": "🥚",
-     "pl": "Pełne zniesienie, liczące nawet 10–12 jaj, może ważyć około półtora raza więcej niż sama samica.",
-     "en": "A full clutch, numbering as many as 10–12 eggs, can weigh about one and a half times as much as the female herself.",
+     "pl": "Całe zniesienie z 10 jaj waży 144% masy ciała samicy (przy założeniu, że samica waży 5 g).",
+     "en": "A whole clutch of 10 eggs weighs 144% of the female's body mass (assuming the female weighs 5 g).",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Mysikr%C3%B3lik_%28zwyczajny%29",
@@ -128,7 +132,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "kentwildlifetrust.org.uk"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0606",
@@ -189,7 +193,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -276,7 +280,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "lu.se"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0615",
@@ -297,7 +301,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "nature.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -320,8 +324,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0617",
      "icon": "🚀",
-     "pl": "W locie nurkowym przekracza **320 km/h**. To najszybciej poruszający się organizm na Ziemi.",
-     "en": "In its hunting dive it exceeds **320 km/h**, making it the fastest-moving organism on Earth.",
+     "pl": "W locie nurkowym potrafi przekroczyć **320 km/h**. To najszybciej poruszający się organizm na Ziemi.",
+     "en": "In a dive it can exceed **320 km/h**. It is the fastest-moving organism on Earth.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Sok%C3%B3%C5%82_w%C4%99drowny",
@@ -332,7 +336,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "guinnessworldrecords.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0618",
@@ -372,8 +376,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0620",
      "icon": "🏆",
-     "pl": "Podgatunek baueri leci jesienią z Alaski do Nowej Zelandii i wschodniej Australii nad Pacyfikiem, bez lądowania i bez żerowania. To najdłuższa znana wędrówka ptaka bez przerwy na odpoczynek i jedzenie: w 2022 roku młody ptak przeleciał około 13 560 km z Alaski na Tasmanię w 11 dni.",
-     "en": "The subspecies baueri flies in autumn from Alaska to New Zealand and eastern Australia across the Pacific, without landing and without feeding. It is the longest known bird migration without a break for rest or food: in 2022 a young bird flew about 13,560 km from Alaska to Tasmania in 11 days.",
+     "pl": "Podgatunek baueri leci z Alaski do Nowej Zelandii i wschodniej Australii nad Pacyfikiem, bez lądowania i bez żerowania. To najdłuższa znana wędrówka ptaka bez przerwy na odpoczynek i jedzenie: w 2022 roku młody ptak przeleciał co najmniej 13 560 km z Alaski na Tasmanię w 11 dni i 1 godzinę.",
+     "en": "The subspecies baueri flies from Alaska to New Zealand and eastern Australia across the Pacific, without landing and without feeding. It is the longest known bird migration without a break for rest or food: in 2022 a young bird flew at least 13,560 km from Alaska to Tasmania in 11 days and 1 hour.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Bar-tailed_godwit",
@@ -390,9 +394,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://explorersweb.com/bird-sets-record-nonstop-13560km-flight/",
        "label": "explorersweb.com"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Szlamnik_(zwyczajny)",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0621",
@@ -466,7 +474,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "britannica.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0625",
@@ -504,7 +512,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "eli.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -596,7 +604,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "researchgate.net"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -789,8 +797,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0644",
      "icon": "🕳️",
-     "pl": "Gniazduje w **norze wykopanej w stromym brzegu**. Polską nazwę próbowano wywodzić od „ziemiorodek”, czyli „rodzący się w ziemi”.",
-     "en": "It nests in a **burrow dug into a steep bank**. Attempts have been made to derive its Polish name from 'ziemiorodek', meaning 'born in the earth'.",
+     "pl": "Gniazduje w **norze wykopanej w stromym brzegu**. Polską nazwę próbowano wywodzić od „ziemio-rodek”, czyli „rodzący się w ziemi”.",
+     "en": "It nests in a **burrow dug into a steep bank**. Attempts have been made to derive its Polish name from 'ziemio-rodek', meaning 'born in the earth'.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zimorodek_%28zwyczajny%29",
@@ -801,7 +809,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "otop.org.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0645",
@@ -818,7 +826,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "facebook.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -870,7 +878,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "parkilodzkie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -905,7 +913,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "wszechswiat.ptpk.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -961,7 +969,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "researchgate.net"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1092,7 +1100,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "ebird.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0663",
@@ -1156,7 +1164,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "mdpi.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0666",
@@ -1173,7 +1181,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1257,8 +1265,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0672",
      "icon": "🏝️",
-     "pl": "W Polsce lęgi zdarzają się wyjątkowo, a w 2023 r. na sztucznej wyspie na Zalewie Szczecińskim gniazdowało aż **25 par**, co jak na polskie warunki jest dużą liczbą.",
-     "en": "In Poland it breeds only exceptionally, yet in 2023 as many as **25 pairs** nested on an artificial island in the Szczecin Lagoon, a large number by Polish standards.",
+     "pl": "W Polsce lęgi zdarzają się wyjątkowo, a w 2023 r. na Zalewie Szczecińskim gniazdowało aż **25 par**.",
+     "en": "In Poland it breeds only exceptionally, yet in 2023 as many as **25 pairs** nested at the Szczecin Lagoon.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Szablodzi%C3%B3b_%28zwyczajny%29",
@@ -1269,7 +1277,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "ornis-polonica.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -1488,7 +1496,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "pbs.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0684",
@@ -1505,7 +1513,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "komisjafaunistyczna.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

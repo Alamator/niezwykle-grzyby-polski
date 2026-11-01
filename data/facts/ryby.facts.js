@@ -104,7 +104,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "cybrary.friendsofmerrymeetingbay.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0442",
@@ -131,8 +131,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0444",
      "icon": "🫁",
-     "pl": "**Oddycha jelitem!** Połyka powietrze przy powierzchni, tlen wchłaniają naczynia krwionośne w jelicie, a resztę wydala odbytem.",
-     "en": "**It breathes through its gut!** It gulps air at the surface; blood vessels in the gut absorb the oxygen, and the rest is expelled through the anus.",
+     "pl": "**Potrafi oddychać jelitem!** Gdy w wodzie jest mało tlenu, połyka powietrze przy powierzchni, tlen wchłaniają naczynia krwionośne w jelicie, a resztę wydala odbytem.",
+     "en": "**It can breathe through its gut!** When there is little oxygen in the water, it gulps air at the surface; blood vessels in the gut absorb the oxygen, and the rest is expelled through the anus.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Piskorz",
@@ -147,7 +147,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -340,7 +340,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "fishes-fnam.linnaeus.naturalis.nl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0461",
@@ -675,7 +675,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "fishbase.se"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0480",
@@ -912,7 +912,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "fishbase.se"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -953,8 +953,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0500",
      "icon": "🦷",
-     "pl": "Za stożkowatymi zębami w szczęce górnej ma **trzy rzędy zębów miażdżących**, a w dolnej dwa rzędy zębów trzonowych, którymi radzi sobie z krabami i jeżowcami.",
-     "en": "Behind the conical teeth in its upper jaw it has **three rows of crushing teeth**, and in the lower jaw two rows of molars, which it uses to deal with crabs and sea urchins.",
+     "pl": "Za stożkowatymi zębami w szczęce górnej ma **trzy rzędy zębów miażdżących**, a w dolnej dwa rzędy zębów trzonowych. Silnymi szczękami zjada m.in. kraby i jeżowce.",
+     "en": "Behind the conical teeth in its upper jaw it has **three rows of crushing teeth**, and in the lower jaw two rows of molars. With its strong jaws it eats, among other things, crabs and sea urchins.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Atlantic_wolffish",
@@ -969,7 +969,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "cybrary.friendsofmerrymeetingbay.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0501",
@@ -986,7 +986,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "sciencedirect.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": [
@@ -1041,8 +1041,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0505",
      "icon": "📏",
-     "pl": "To najdłuższa ryba kostnoszkieletowa świata: rekordowe, wiarygodnie zmierzone okazy miały około 8 m, a niepotwierdzone doniesienia mówią nawet o 11 m. Zwykle osiąga około 3 m.",
-     "en": "It is the world's longest bony fish: record, reliably measured specimens were about 8 m long, and unconfirmed reports speak of as much as 11 m. It usually reaches about 3 m.",
+     "pl": "To najdłuższa ryba kostnoszkieletowa świata: jej rekordowa długość to około 7–8 m, a być może nawet do 11 m. Zwykle osiąga około 3 m.",
+     "en": "It is the world's longest bony fish: its record length is about 7–8 m, and possibly even up to 11 m. It usually reaches about 3 m.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Giant_oarfish",
@@ -1061,7 +1061,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "fishbase.se"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0506",

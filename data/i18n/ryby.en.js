@@ -35,7 +35,7 @@ window.ATLAS_ITEM_TEXT_EN["ryby"] = {
   },
   "piskorz": {
     "name": "Weatherfish",
-    "hook": "A mud-loving fish that breathes through its gut; taken out of water it can squeak faintly as air escapes from the gut, hence its Polish name.",
+    "hook": "A mud-loving fish that can breathe through its gut; taken out of water it can squeak faintly as air escapes from the gut, hence its Polish name.",
     "quiz_angle": "intestinal breathing, burrowing in mud and sensitivity to pressure changes",
     "safety_note": "Partially protected and habitat-sensitive species; do not catch it and do not drain oxbow lakes.",
     "region": "Scattered lowland sites in Poland, especially where calm, overgrown waters have survived.",
