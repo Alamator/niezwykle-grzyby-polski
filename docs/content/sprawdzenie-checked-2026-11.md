@@ -39,7 +39,7 @@ Przed tym sprawdzeniem 470 ciekawostek miało status `checked`: potwierdziło je
 | twierdze-ruiny | 37 | 27 | 7 | 3 |
 | **razem** | **470** | **291** | **96** | **83** |
 
-Teraz atlas ma 1458 ciekawostek: 846 `verified`, 529 `corrected` i 83 `checked`.
+Po tym podejściu atlas miał 1458 ciekawostek: 846 `verified`, 529 `corrected` i 83 `checked`. Drugie podejście, po dopuszczeniu kolejnych stron, opisano [niżej](#drugie-podejście-nowo-dopuszczone-strony-1112026).
 
 ## Poprawione brzmienie (96)
 
@@ -177,14 +177,57 @@ Przegląd sprawdził też karty poprawionych ciekawostek. Cztery karty mówiły 
 - **Piskorz:** „potrafi oddychać jelitowo” zamiast „oddycha jelitowo”.
 - **Kraina Otwartych Okiennic:** poprawny dopełniacz „Soc” zamiast „Socec”.
 
-## Zostaje `checked` (83)
+## Drugie podejście: nowo dopuszczone strony (1.11.2026)
 
-Źródła, które je potwierdziły, są stąd zablokowane, a Wikipedia i inne czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Minerały” (17) i „Skamieniałości” (15). Najczęściej potrzebne strony: `doi.org` (17 ciekawostek; przekierowuje do wydawnictw naukowych), `eli.gov.pl` (6), `msaweb.org` (4), `cambridge.org`, `national-geographic.pl`, `api.sejm.gov.pl` i `mindat.org` (po 3). Po dopuszczeniu tych stron można je sprawdzić tak samo.
+Po pierwszym podejściu Robert dopuścił kolejne strony: `eli.gov.pl` (pełne teksty ustaw i rozporządzeń), `msaweb.org`, `acta-zoologica-bulgarica.eu` i `doi.org`. Przy 16 z 83 ciekawostek `checked` któreś źródło dało się wtedy przeczytać. Sprawdzono je tak samo jak w pierwszym podejściu: dwa niezależne odczyty, a trzeci przy sporach i poprawkach. Czytelne źródło spoza listy, wskazane przez odczyty, sprawdziły jeszcze dwa niezależne odczyty. Tym razem ciekawostka mogła dostać `verified` także wtedy, gdy dopisane źródło mówi wszystko razem z czytelnymi źródłami, które już przy niej były. Oba odczyty musiały to potwierdzić cytatami. Na koniec niezależny przegląd sprawdził cztery poprawki, kartę żołędnicy i wszystkie 10 nowych `verified`.
 
-## Do decyzji Roberta: F0747 (żołędnica)
+| Id | Karta | Wynik | Rozstrzygające źródło |
+| --- | --- | --- | --- |
+| F0093 | Berłóweczka zimowa | `verified` | Dz.U. 2014 poz. 1408 (eli.gov.pl), Wikipedia (PL) |
+| F0237 | Obuwik pospolity | `verified` | Dz.U. 2014 poz. 1409 (eli.gov.pl), Wikipedia (PL) |
+| F0278 | Podejźrzon księżycowy | `verified` | Dz.U. 2014 poz. 1409 (eli.gov.pl), Wikipedia (PL) |
+| F0798 | Skandiowinchit | `verified` | streszczenie artykułu w „American Mineralogist” (msaweb.org) |
+| F0646 | Żołna | `verified` | dopisany tekst jednolity rozporządzenia w sprawie ochrony gatunkowej zwierząt (Dz.U. 2022 poz. 2380) z eli.gov.pl; ten sam tekst na `api.sejm.gov.pl` jest zablokowany |
+| F0721 | Nocek łydkowłosy | `verified` | jak przy F0646 |
+| F0016 | Czarka austriacka | `verified` | dopisane: Wikipedia (PL) „Czarka austriacka” i Dz.U. 2004 nr 168 poz. 1765 |
+| F0134 | Muchomor czerwony | `verified` | dopisane: Wikipedia (PL) „Muchomor czerwony” i tekst Dz.U. 2025 poz. 598 (eli.gov.pl) |
+| F1367 | Stocznia Gdańska — suwnice i bramy | `verified` | dopisane: Wikipedia (PL) „Grudzień 1970” i polska wersja strony zabytek.pl |
+| F1412 | Zamki Mirów i Bobolice | `verified` | dopisane: Wikipedia (PL) „Zamek w Bobolicach” |
+| F0052 | Siedzuń sosnowy | `corrected` | niżej |
+| F0791 | Taliomelan | `corrected` | niżej |
+| F0797 | Skandiowinchit | `corrected` | niżej |
+| F0747 | Żołędnica europejska | `corrected` | niżej |
+| F0796 | Skandiowinchit | zostaje `checked` | streszczenie nie podaje, że IMA zatwierdziła minerał w 2022 r.; `doi.org` przekierowuje do zablokowanej strony wydawnictwa |
+| F0680 | Wodniczka | zostaje `checked` | żadne czytelne źródło nie mówi o spadku liczebności nad Biebrzą w ostatnich latach (`otop.org.pl` jest zablokowane) |
 
-Ciekawostka i karta „Żołędnica europejska” mówią, że gatunek jest „w Polsce uznawany obecnie za wymarły”, a ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry. W październiku ostatnią obserwację z 1961 r. potwierdzono w pracy z 2024 r. („Acta Zoologica Bulgarica”), której stąd nie da się otworzyć. Czytelne źródła mówią co innego:
-- ocena IUCN z 2024 r. (cytowana w angielskiej Wikipedii) wymienia Polskę wśród krajów, w których gatunek występuje;
-- polska Wikipedia pisze, że „w Polsce występuje tylko na terenach Babiogórskiego Parku Narodowego”.
+### Poprawione brzmienie (4)
 
-Odczyty zaproponowały ukrycie ciekawostki, ale ta sama treść jest też na karcie, a praca z 2024 r. może być nowsza od ocen ogólnych. Ciekawostka zostaje więc bez zmian (`checked`) do decyzji Roberta. Rozstrzygnęłaby to lektura pracy z 2024 r. (`acta-zoologica-bulgarica.eu`, `researchgate.net`).
+| Id | Karta | Było | Jest | Dlaczego |
+| --- | --- | --- | --- | --- |
+| F0052 | Siedzuń sosnowy | Od 1990 r. był ściśle chroniony, ale 9.10.2014 r. **wykreślono go z listy**. Chroniony częściowo jest za to jego krewny, siedzuń dębowy (*S. brevipes*). | Był ściśle chroniony, ale 9.10.2014 r. **wykreślono go z listy**. Chroniony częściowo jest za to jego krewny, siedzuń dębowy (*S. brevipes*). | Rok 1990 podaje tylko Wikipedia, a jej przypis prowadzi do rozporządzenia z 2004 r., które o 1990 r. nie mówi. Rozporządzenia z 1983 r. (Dz.U. 1983 nr 27 poz. 134) i z 1995 r. (Dz.U. 1995 nr 41 poz. 214) chroniły go już wcześniej. Dopisano rozporządzenie z 2004 r., które obowiązywało do 2014 r. i wymienia wśród grzybów pod ochroną ścisłą wszystkie gatunki rodzaju *Sparassis* (wtedy pod nazwą „szmaciak”). |
+| F0791 | Taliomelan | Tworzy włókniste skupienia mniejsze niż 50 μm. Powstał w przedlodowcowej strefie utleniania, w klimacie półsuchym lub suchym. | Tworzy włókniste skupienia mniejsze niż 50 μm. Powstał w przedlodowcowej strefie utleniania, najprawdopodobniej w klimacie półsuchym lub suchym. | Streszczenie podaje klimat jako prawdopodobny („most probably”). |
+| F0797 | Skandiowinchit | Jest naprawdę mikro: pojedynczy kryształ ma ok. 20 × 8 μm, a skupienia do 50 μm. Dlatego nie dało się zmierzyć jego barwy. | Jest naprawdę mikro: pojedynczy kryształ ma ok. 20 × 8 μm, a skupienia do 50 μm. Przez tak małe kryształy i skąpość materiału nie dało się zmierzyć jego barwy. | Streszczenie podaje dwie przyczyny: skąpość materiału i wyjątkowo małe kryształy. |
+| F0747 | Żołędnica europejska | W Polsce uznawana obecnie za gatunek wymarły: ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry. W Holandii w 2007 r. znaleziono już tylko 9 osobników. | Analizy opublikowane w 2024 r. wskazują, że gatunek wymarł w Polsce: ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry. W Holandii badacze podali w 2007 r., że w dwóch lasach w prowincji Limburgia znaleźli już tylko 9 osobników. | niżej |
+
+Przegląd znalazł na karcie „Siedzuń sosnowy” to samo, co poprawka F0052 usunęła z ciekawostki: „Od 1990 do 2014 r. gatunek był pod ochroną ścisłą.” Teraz karta mówi „Do 2014 r. gatunek był pod ochroną ścisłą.” (po angielsku „Until 2014 the species was strictly protected.”).
+
+### Żołędnica (F0747): sprawa z pierwszego podejścia rozstrzygnięta
+
+Praca z 2024 r. („Acta Zoologica Bulgarica”, Suppl. 19) otwiera się teraz. Podaje:
+- ostatnia wiarygodna informacja o żołędnicy w Polsce pochodzi z 1961 r. ze wsi Zawoja u stóp Babiej Góry i od tamtej pory wiarygodnych informacji nie ma;
+- „Our analyses indicate that the garden dormouse is now extinct in Poland”, czyli wymarcie to wniosek autorów;
+- najnowsza „Czerwona lista kręgowców Polski” (Głowaciński 2022) utrzymała kategorię CR (krytycznie zagrożony), choć według autorów nowe analizy jej nie potwierdzają.
+
+„Uznawana obecnie za gatunek wymarły” było więc za mocne, bo oficjalna kategoria tak nie mówi. Ciekawostka mówi teraz, że według analiz opublikowanych w 2024 r. gatunek w Polsce wymarł. Zdanie o Holandii trzyma się angielskiej Wikipedii: w 2007 r. badacze podali, że w dwóch lasach w Limburgii znaleźli 9 osobników. Polską Wikipedię usunięto ze źródeł F0747, bo pisze, że żołędnica „w Polsce występuje tylko na terenach Babiogórskiego Parku Narodowego”, a to przeczy pracy z 2024 r.
+
+Karta „Żołędnica europejska” mówiła to samo. Poprawiono ją po polsku i po angielsku:
+- `quiz_angle`: „gatunek uznawany w Polsce za wymarły” → „brak wiarygodnej obserwacji w Polsce od 1961 r.”;
+- `region_pl`: „W Polsce uznawana obecnie za gatunek wymarły; ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry.” → „Ostatnia wiarygodna obserwacja w Polsce pochodzi z 1961 r. z rejonu Babiej Góry; według analiz opublikowanych w 2024 r. gatunek w Polsce wymarł.”
+
+Zdanie karty, że prawo nadal obejmuje żołędnicę ochroną ścisłą ze strefą ochrony, potwierdza tekst jednolity rozporządzenia w sprawie ochrony gatunkowej zwierząt (Dz.U. 2022 poz. 2380, załączniki nr 1 i 4). Zostaje bez zmian.
+
+## Zostaje `checked` (69)
+
+Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (14). `doi.org` działa, ale przekierowuje do stron wydawnictw, które są zablokowane: najczęściej `cambridge.org` (8 ciekawostek, także z linkami wprost) i `pubs.geoscienceworld.org` (4), a poza tym `tandfonline.com`, `vjs.pgi.gov.pl`, `onlinelibrary.wiley.com` i `linkinghub.elsevier.com`. Pozostałe potrzebują stron z ok. 100 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `cnmnc.units.it`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
+
+Teraz atlas ma 1458 ciekawostek: 856 `verified`, 533 `corrected` i 69 `checked`.

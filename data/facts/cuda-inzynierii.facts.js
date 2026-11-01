@@ -1256,9 +1256,17 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
       {
        "url": "https://dzieje.pl/aktualnosci/porozumienie-gdanskie",
        "label": "dzieje.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Grudzie%C5%84_1970",
+       "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://zabytek.pl/pl/obiekty/gdansk-stocznia-gdanska-miejsce-narodzin-solidarnosci",
+       "label": "zabytek.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

@@ -697,9 +697,13 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
       {
        "url": "https://orlegniazda.pl/poi/2420",
        "label": "orlegniazda.pl"
+      },
+      {
+       "url": "https://pl.wikipedia.org/wiki/Zamek_w_Bobolicach",
+       "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1413",

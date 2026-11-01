@@ -633,7 +633,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "archiwum.bdpn.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1315,7 +1315,7 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

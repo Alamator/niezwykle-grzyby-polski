@@ -185,10 +185,10 @@ window.ATLAS_ITEM_TEXT_EN["ssaki"] = {
   },
   "zolednica-europejska": {
     "name": "Garden dormouse",
-    "hook": "The garden dormouse looks like a small masked acrobat of the night, but there has been no reliable record of it in Poland since 1961.",
-    "quiz_angle": "black “mask”, tuft at the tip of the tail and a species considered extinct in Poland",
+    "hook": "The garden dormouse looks like a small masked acrobat of the night, but there has been no reliable observation of it in Poland since 1961.",
+    "quiz_angle": "black “mask”, tuft at the tip of the tail and no reliable observation in Poland since 1961",
     "safety_note": "Do not publicize the exact sites of rare dormice and do not search tree hollows.",
-    "region": "In Poland it is now considered extinct; the last reliable record dates from 1961, from the Babia Góra area.",
+    "region": "The last reliable observation in Poland dates from 1961, from the Babia Góra area; according to analyses published in 2024, the species is extinct in Poland.",
     "habitat": "Warm deciduous forests, woodlots, orchards and structurally rich places with hiding spots.",
     "occurrence": "In the atlas it is a reminder that a species can quietly disappear from a country: the law still gives the garden dormouse strict protection with a protection zone.",
     "level": "legendary dormouse"

@@ -70,9 +70,14 @@ Na prośbę Roberta sprawdzono jeszcze raz wszystkie 470 ciekawostek ze statusem
 - 83 zostaje `checked`, bo źródła, które je potwierdziły, są stąd zablokowane;
 - przy okazji poprawiono cztery karty, które mówiły to, co poprawka usunęła z ciekawostki, i link do Wikipedii z literówką w tytule (Grywałd).
 
-F0747 (żołędnica) czeka na decyzję Roberta: czytelne źródła przeczą temu, że gatunek uznaje się w Polsce za wymarły. Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
+Potem Robert dopuścił kolejne strony (m.in. `eli.gov.pl` z pełnymi tekstami ustaw i rozporządzeń, `msaweb.org`, `acta-zoologica-bulgarica.eu`, `doi.org`). Przy 16 z 83 ciekawostek `checked` któreś źródło dało się wtedy przeczytać. Sprawdzono je tak samo:
+- 10 ma teraz status `verified` (6 z nich po dopisaniu czytelnego źródła);
+- 4 mają nowe brzmienie (`corrected`), w tym F0747 (żołędnica): wymarcie w Polsce to wniosek pracy z 2024 r., a nie oficjalna kategoria, więc ciekawostka i karta mówią teraz „według analiz opublikowanych w 2024 r.”;
+- 2 zostają `checked`.
 
-Teraz atlas ma 1458 ciekawostek na 628 kartach: 83 `checked`, 846 `verified` i 529 `corrected`.
+Pozostałe 69 ciekawostek `checked` czeka na strony, które nadal są zablokowane, głównie wydawnictwa naukowe, do których przekierowuje `doi.org` (`cambridge.org`, `pubs.geoscienceworld.org`). Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
+
+Teraz atlas ma 1458 ciekawostek na 628 kartach: 69 `checked`, 856 `verified` i 533 `corrected`.
 
 **Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`, także w szufladzie rekordów.** Każda potrzebuje źródła i statusu według tabeli wyżej. Ciekawostkę, która czeka na poprawkę, można ukryć w `data/collections.js` (`WITHDRAWN.facts`, z powodem). `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły, pod żadnym id i w żadnym języku:
 - ciekawostki usuniętych kart i teksty ciekawostek pominiętych;

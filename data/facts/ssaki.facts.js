@@ -440,9 +440,13 @@ window.ATLAS_FACTS["ssaki"] = {
       {
        "url": "https://api.sejm.gov.pl/eli/acts/DU/2022/2380/text.pdf",
        "label": "api.sejm.gov.pl"
+      },
+      {
+       "url": "https://eli.gov.pl/api/acts/DU/2022/2380/text.pdf",
+       "label": "Dziennik Ustaw"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0722",
@@ -880,13 +884,9 @@ window.ATLAS_FACTS["ssaki"] = {
     {
      "id": "F0747",
      "icon": "🗺️",
-     "pl": "W Polsce uznawana obecnie za gatunek wymarły: ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry. W Holandii w 2007 r. znaleziono już tylko 9 osobników.",
-     "en": "In Poland it is now considered extinct: the last reliable sighting dates from 1961, in the Babia Góra area. In the Netherlands, only 9 individuals were found in 2007.",
+     "pl": "Analizy opublikowane w 2024 r. wskazują, że gatunek wymarł w Polsce: ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry. W Holandii badacze podali w 2007 r., że w dwóch lasach w prowincji Limburgia znaleźli już tylko 9 osobników.",
+     "en": "Analyses published in 2024 indicate that the species is extinct in Poland: the last reliable observation dates from 1961, in the Babia Góra area. In the Netherlands, researchers reported in 2007 that they had found only 9 individuals in two woods in the province of Limburg.",
      "sources": [
-      {
-       "url": "https://pl.wikipedia.org/wiki/%C5%BBo%C5%82%C4%99dnica_europejska",
-       "label": "Wikipedia (PL)"
-      },
       {
        "url": "https://en.wikipedia.org/wiki/Garden_dormouse",
        "label": "Wikipedia (EN)"
@@ -904,7 +904,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "dutchnews.nl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []

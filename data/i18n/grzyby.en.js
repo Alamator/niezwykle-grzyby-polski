@@ -150,7 +150,7 @@ window.ATLAS_ITEM_TEXT_EN["grzyby"] = {
     "safety_note": "For education; do not encourage collecting without field knowledge.",
     "region": "Fairly common in Poland, although listed as R (rare) on the Polish Red List.",
     "habitat": "Coniferous and mixed forests; on the roots of conifers, most often pine, at the base of the trunk.",
-    "occurrence": "On an infected tree, fruit bodies keep appearing from time to time over the following years. From 1990 to 2014 the species was strictly protected.",
+    "occurrence": "On an infected tree, fruit bodies keep appearing from time to time over the following years. Until 2014 the species was strictly protected.",
     "level": "intermediate"
   },
   "swiecznica-rozgaleziona": {

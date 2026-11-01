@@ -281,10 +281,10 @@
       name_lat: "Eliomys quercinus",
       category: "gryzonie-relikty-inzynierowie",
       hook: "Żołędnica wygląda jak mały nocny akrobata w masce, ale w Polsce nie ma jej wiarygodnej obserwacji od 1961 r.",
-      quiz_angle: "czarna „maska”, kita na końcu ogona i gatunek uznawany w Polsce za wymarły",
+      quiz_angle: "czarna „maska”, kita na końcu ogona i brak wiarygodnej obserwacji w Polsce od 1961 r.",
       safety_note: "nie nagłaśniać dokładnych stanowisk rzadkich pilchowatych i nie penetrować dziupli",
       protection: "strict",
-      region_pl: "W Polsce uznawana obecnie za gatunek wymarły; ostatnia wiarygodna obserwacja pochodzi z 1961 r. z rejonu Babiej Góry.",
+      region_pl: "Ostatnia wiarygodna obserwacja w Polsce pochodzi z 1961 r. z rejonu Babiej Góry; według analiz opublikowanych w 2024 r. gatunek w Polsce wymarł.",
       habitat_pl: "Ciepłe lasy liściaste, zadrzewienia, sady i strukturalnie bogate miejsca z kryjówkami.",
       occurrence_note: "W atlasie przypomina, że gatunek może po cichu zniknąć z kraju: prawo nadal obejmuje żołędnicę ochroną ścisłą ze strefą ochrony.",
       level: "pilch z legendy"
