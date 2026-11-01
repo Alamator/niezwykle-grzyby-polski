@@ -271,4 +271,4 @@ Karta „Sachanbińskiit” już wcześniej podawała zmianę nazwy z 2025 r. Ka
 
 Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (6). Potrzebują stron z 93 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `ejm.copernicus.org`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, `tandfonline.com`, `pubs.geoscienceworld.org`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
 
-Teraz atlas pokazuje 1456 ciekawostek na 627 kartach: 860 `verified`, 536 `corrected` i 60 `checked`. Dwie ciekawostki wycofanej karty „Berylokordieryt-Na” zostają w pliku jako ukryte.
+Teraz atlas ma 1456 ciekawostek na 627 kartach: 860 `verified`, 536 `corrected` i 60 `checked`. Dwie ciekawostki wycofanej karty „Berylokordieryt-Na” zostają w pliku jako ukryte.

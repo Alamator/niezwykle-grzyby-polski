@@ -79,9 +79,9 @@ Na koniec dopuszczono `www.cambridge.org` i `pubs.geoscienceworld.org`. Strony C
 
 Robert przesłał też PDF strony z „Elements”, która stąd się nie otwiera. Po jej lekturze F0801 ma nowe brzmienie (`corrected`). Biuletyn CNMNC nr 87 pokazał przy tym, że IMA zdyskredytowała we wrześniu 2025 r. berylokordieryt-Na. Decyzją Roberta karta „Berylokordieryt-Na” wyszła z atlasu (`WITHDRAWN.cards`), a szuflada „Minerały” ma 32 karty.
 
-Pozostało 60 ciekawostek `checked`. Czekają na strony z ok. 90 adresów, które nadal są zablokowane. Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
+Pozostało 60 ciekawostek `checked`. Czekają na strony z 93 adresów, które nadal są zablokowane. Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
 
-Teraz atlas pokazuje 1456 ciekawostek na 627 kartach: 60 `checked`, 860 `verified` i 536 `corrected`. Dwie ciekawostki wycofanej karty zostają w pliku jako ukryte.
+Teraz atlas ma 1456 ciekawostek na 627 kartach: 60 `checked`, 860 `verified` i 536 `corrected`. Dwie ciekawostki wycofanej karty zostają w pliku jako ukryte.
 
 **Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`, także w szufladzie rekordów.** Każda potrzebuje źródła i statusu według tabeli wyżej. Ciekawostkę, która czeka na poprawkę, można ukryć w `data/collections.js` (`WITHDRAWN.facts`, z powodem). `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły, pod żadnym id i w żadnym języku:
 - ciekawostki usuniętych kart i teksty ciekawostek pominiętych;
