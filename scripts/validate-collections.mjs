@@ -432,8 +432,8 @@ for (const id of ["zywiec-1929", "slubice-40-5"]) {
   assert(item, `weather records should include ${id}`);
   assert(!/oficjaln/i.test(cardTexts(item).pl) && !/official/i.test(cardTexts(item).en), `${id} should not call its record official`);
 }
-// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 stays out until Robert decides again
-// (sources give different values: docs/content/rekordy-atmosferyczne-2026-10.md).
+// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 stays out (Robert's decisions of 31.10 and
+// 1.11.2026; sources give different values: docs/content/rekordy-atmosferyczne-2026-10.md).
 for (const item of weatherRecords.items) {
   const { pl, en } = cardTexts(item);
   assert(!/Ko[lł]ud/i.test(`${pl} ${en}`), `${item.id} should not mention Kołuda Wielka`);
@@ -546,6 +546,26 @@ for (const file of i18nFiles) {
     }
     for (const [english, polish] of polishByEnglish) {
       assert(polish.size === 1 || sharedEnglish.has(english), `${collectionId}: one English ${field} stands for ${polish.size} different Polish texts: ${english}`);
+    }
+  }
+}
+
+// Polish "Podlaskie" (region line, line under the name) is the voivodeship, so English says "Podlaskie Province",
+// as with "Lublin Province". English "Podlasie" is the historical region: it stands only where the Polish text
+// names the region too ("Podlasie" or the adjective "podlaski"), and a Polish "Podlasie" there stays "Podlasie".
+const podlasieFields = [["name_pl", "name"], ["name_lat", "latin"], ["hook", "hook"], ["quiz_angle", "quiz_angle"],
+  ["safety_note", "safety_note"], ["region_pl", "region"], ["habitat_pl", "habitat"], ["occurrence_note", "occurrence"], ["level", "level"]];
+for (const collection of collections) {
+  for (const item of collection.items) {
+    const english = itemTextEn[collection.id]?.[item.id] || {};
+    for (const [polishField, englishField] of podlasieFields) {
+      const polish = item[polishField] || "";
+      const text = english[englishField] || "";
+      const where = `${collection.id}/${item.id}: the English ${englishField}`;
+      if (text.includes("Podlasie")) assert(/Podlasi|podlask/.test(polish), `${where} says "Podlasie", but the Polish ${polishField} does not name the region: ${text}`);
+      if (polishField !== "region_pl" && polishField !== "name_lat") continue;
+      if (/\bPodlaskie\b/.test(polish)) assert(text.includes("Podlaskie Province") && !text.includes("Podlasie"), `${where} should say "Podlaskie Province" for the Polish "Podlaskie": ${text}`);
+      if (/\bPodlasi/.test(polish)) assert(text.includes("Podlasie") && !text.includes("Podlaskie Province"), `${where} should keep "Podlasie" for the Polish "Podlasie": ${text}`);
     }
   }
 }

@@ -283,11 +283,11 @@ window.ATLAS_ITEM_TEXT_EN["twierdze-ruiny"] = {
     "hook": "A fortress protected by walls and marshes.",
     "quiz_angle": "the Biebrza marshes, the forts, the defense of the fortress and a difficult landscape of approach",
     "safety_note": "Respect access restrictions and the military and nature areas; do not enter the ruins or walk onto the marshes off the route.",
-    "region": "Osowiec-Twierdza, Podlasie.",
+    "region": "Osowiec-Twierdza, Podlaskie Province.",
     "habitat": "the fortifications worked together with the marshes, which slowed movement and limited the directions of attack.",
     "occurrence": "Osowiec is peculiar because nature was not just a backdrop: the marshy landscape became part of the defense.",
     "level": "fortress of marshes",
-    "latin": "Podlasie • walls and marshes"
+    "latin": "Podlaskie Province • walls and marshes"
   },
   "wilczy-szaniec": {
     "name": "Wolf's Lair",
