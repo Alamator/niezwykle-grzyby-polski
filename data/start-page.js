@@ -3,7 +3,7 @@
 // each collection drawer and the numbers under the hero.
 window.ATLAS_START = {
   "stats": {
-    "cards": 633,
+    "cards": 632,
     "places": 240,
     "photos": 617
   },

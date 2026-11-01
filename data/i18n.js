@@ -874,9 +874,9 @@
         mineraly: {
           title: "Minerals",
           heading: "Unusual Minerals of Poland",
-          subtitle: "33 mineralogical curiosities of Poland: IMA endemics, ores, salts, agates, striped flint, amber and minerals from old mines.",
+          subtitle: "32 mineralogical curiosities of Poland: IMA endemics, ores, salts, agates, striped flint, amber and minerals from old mines.",
           teaser: "endemics, agates, striped flint and salt crystals",
-          count_label: "33 curiosities",
+          count_label: "32 curiosities",
           card_labels: { region: "Location", habitat: "Geological setting" },
           search_placeholder: "e.g. flint, sulfur, halite, agate...",
           safety_notice: "For educational purposes. Observe minerals without damaging sites: do not enter abandoned mines, break protected rocks, collect toxic or radioactive ores, or run home chemistry experiments.",

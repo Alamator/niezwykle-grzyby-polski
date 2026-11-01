@@ -258,8 +258,17 @@ Potem Robert dopuścił `www.cambridge.org` i `pubs.geoscienceworld.org`. Strony
 
 Karty tych ciekawostek nie powtarzają poprawionych sformułowań.
 
-## Zostaje `checked` (61)
+### Uzupełnienie: F0801 i karta „Berylokordieryt-Na”
 
-Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (7). Potrzebują stron z 93 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `ejm.copernicus.org`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, `tandfonline.com`, `pubs.geoscienceworld.org`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
+Robert przesłał PDF strony z „Elements” (20(2): 134, kwiecień 2024), na którą prowadzi źródło F0801; sama strona jest za blokadą Cloudflare. Dwa niezależne odczyty i rozstrzygnięcie trzeciego:
+- Strona potwierdza wzór NaMn₄(Al₅Be)(AlSi₅O₁₈)₂·2H₂O, numer IMA 2022-109 i pokrewieństwo z kordierytem, ale nie porównuje minerału z berylokordierytem-Na. „Manganowy »brat« berylokordierytu-Na” to więc nasz wniosek z dwóch wzorów.
+- Biuletyn CNMNC nr 87 (Mineralogical Magazine 89, 26 września 2025 r., doi:10.1180/mgm.2025.10163): „The minerals avdeevite and beryllocordierite-Na have been discredited; beryllosachanbińskiite-Na has been redefined to sachanbińskiite”. Berylokordieryt-Na nie jest już uznanym minerałem.
+- F0801 (`corrected`, dopisany biuletyn nr 87): „Zatwierdzony przez IMA jako berylosachanbińskiit-Na: NaMn₄(Al₅Be)(AlSi₅O₁₈)₂·2H₂O (IMA 2022-109). Miejsce typowe: pegmatyt koło Szklar.”
 
-Teraz atlas ma 1458 ciekawostek: 862 `verified`, 535 `corrected` i 61 `checked`.
+Karta „Sachanbińskiit” już wcześniej podawała zmianę nazwy z 2025 r. Karta „Berylokordieryt-Na” przedstawiała natomiast zdyskredytowany minerał jako nowy. Decyzją Roberta karta wychodzi z atlasu (`WITHDRAWN.cards` w `data/collections.js`, z powodem). Szuflada „Minerały” ma teraz 32 karty. Dwie ciekawostki tej karty (F0799, F0800) zostają w pliku, ale strona ich nie pokazuje.
+
+## Zostaje `checked` (60)
+
+Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (6). Potrzebują stron z 93 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `ejm.copernicus.org`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, `tandfonline.com`, `pubs.geoscienceworld.org`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
+
+Teraz atlas pokazuje 1456 ciekawostek na 627 kartach: 860 `verified`, 536 `corrected` i 60 `checked`. Dwie ciekawostki wycofanej karty „Berylokordieryt-Na” zostają w pliku jako ukryte.

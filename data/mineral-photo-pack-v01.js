@@ -64,13 +64,6 @@
       "CC BY 4.0",
       ccBy40
     ),
-    "berylokordieryt-na": photo(
-      "Beryl-119311.jpg",
-      "Kadr reprezentatywny: kryształ berylu jako wizualny kontekst dla berylokordierytu-Na",
-      robLavinsky,
-      "CC BY-SA 3.0",
-      ccBySa30
-    ),
     "berylosachanbinskiit-na": photo(
       "Beryl-23651.jpg",
       "Kadr reprezentatywny: beryl w pegmatycie jako kontekst dla sachanbińskiitu",

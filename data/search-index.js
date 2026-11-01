@@ -285,7 +285,6 @@ window.ATLAS_SEARCH = {
     ["mineraly","taliomelan","Taliomelan","Thalliomelane","tlenek manganu i talu (grupa koronadytu)","manganese thallium oxide (coronadite group)"],
     ["mineraly","heflikit","Heflikit","Heflikite","minerał supergrupy epidotu ze skandem","epidote-supergroup mineral with scandium"],
     ["mineraly","skandiowinchit","Skandiowinchit","Scandio-winchite","amfibol sodowo-wapniowy ze Sc","sodium-calcium amphibole with Sc"],
-    ["mineraly","berylokordieryt-na","Berylokordieryt-Na","Beryllocordierite-Na","uwodniony krzemian berylu","hydrated beryllium silicate"],
     ["mineraly","berylosachanbinskiit-na","Sachanbińskiit","Sachanbińskiite","glinokrzemian berylu i manganu (grupa kordierytu)","beryllium manganese aluminosilicate (cordierite group)","Berylosachanbińskiit-Na"],
     ["mineraly","magnesiodutrowit","Magnesiodutrowit","Magnesio-dutrowite","turmalin magnezowy","magnesium tourmaline"],
     ["mineraly","krzemien-pasiasty","Krzemień pasiasty","Striped flint","SiO2 - kwarc, chalcedon i opal","SiO2 - quartz, chalcedony and opal"],
