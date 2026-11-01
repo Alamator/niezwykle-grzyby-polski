@@ -550,16 +550,22 @@ for (const file of i18nFiles) {
   }
 }
 
-// Polish "Podlaskie" is the voivodeship, so English says "Podlaskie Province", as with "Lublin Province".
-// English "Podlasie" is the historical region, which is not what the Polish text says.
+// Polish "Podlaskie" (region line, line under the name) is the voivodeship, so English says "Podlaskie Province",
+// as with "Lublin Province". English "Podlasie" is the historical region: it stands only where the Polish text
+// names the region too ("Podlasie" or the adjective "podlaski"), and a Polish "Podlasie" there stays "Podlasie".
+const podlasieFields = [["name_pl", "name"], ["name_lat", "latin"], ["hook", "hook"], ["quiz_angle", "quiz_angle"],
+  ["safety_note", "safety_note"], ["region_pl", "region"], ["habitat_pl", "habitat"], ["occurrence_note", "occurrence"], ["level", "level"]];
 for (const collection of collections) {
   for (const item of collection.items) {
     const english = itemTextEn[collection.id]?.[item.id] || {};
-    for (const [polishField, englishField] of [["region_pl", "region"], ["name_lat", "latin"]]) {
-      if (!/\bPodlaskie\b/.test(item[polishField] || "")) continue;
+    for (const [polishField, englishField] of podlasieFields) {
+      const polish = item[polishField] || "";
       const text = english[englishField] || "";
-      assert(text.includes("Podlaskie Province") && !text.includes("Podlasie"),
-        `${collection.id}/${item.id}: Polish "Podlaskie" should be "Podlaskie Province" in the English ${englishField}: ${text}`);
+      const where = `${collection.id}/${item.id}: the English ${englishField}`;
+      if (text.includes("Podlasie")) assert(/Podlasi|podlask/.test(polish), `${where} says "Podlasie", but the Polish ${polishField} does not name the region: ${text}`);
+      if (polishField !== "region_pl" && polishField !== "name_lat") continue;
+      if (/\bPodlaskie\b/.test(polish)) assert(text.includes("Podlaskie Province") && !text.includes("Podlasie"), `${where} should say "Podlaskie Province" for the Polish "Podlaskie": ${text}`);
+      if (/\bPodlasi/.test(polish)) assert(text.includes("Podlasie") && !text.includes("Podlaskie Province"), `${where} should keep "Podlasie" for the Polish "Podlasie": ${text}`);
     }
   }
 }

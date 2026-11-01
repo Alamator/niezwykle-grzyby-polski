@@ -1,6 +1,6 @@
 # Ciekawostki: skąd są i jak je sprawdzono (28.10.2026)
 
-Ciekawostki napisał Robert, w trzech plikach (grzyby; przyroda; ziemia, niebo, człowiek i kultura). Każdy fakt miał link do źródła. Przed publikacją każdy przeszedł weryfikację:
+Ciekawostki zostały napisane przez Roberta w trzech plikach (grzyby; przyroda; ziemia, niebo, człowiek i kultura). Każdy fakt miał link do źródła. Przed publikacją każdy przeszedł weryfikację:
 
 1. **Linki:** 864 adresy pobrane. Hasła Wikipedii przez API MediaWiki, akty prawne jako tekst PDF (Dz.U. 2014 poz. 1408 i 1409, tekst jednolity Dz.U. 2022 poz. 2380).
 2. **Zgodność ze źródłem:** dwa niezależne modele (Claude Opus 5.5 i Sonnet 5.5) czytały pełny tekst źródła i oceniały każdy fakt. Fakty o ochronie gatunkowej sprawdzano zawsze także z właściwym rozporządzeniem.
