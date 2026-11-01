@@ -22,8 +22,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1019",
      "icon": "📜",
-     "pl": "Nazwa pochodzi od szczytu Brocken w górach Harz, gdzie zjawisko w 1780 r. jako pierwszy opisał Johann Esaias Silberschlag. Podobny cień otoczony tęczową obwódką opisali jednak już wcześniej, w połowie XVIII w., Pierre Bouguer i Antonio de Ulloa w Andach.",
-     "en": "The name comes from the Brocken peak in the Harz mountains, where Johann Esaias Silberschlag first described the phenomenon in 1780. However, Pierre Bouguer and Antonio de Ulloa had already described a similar shadow surrounded by a rainbow-coloured ring earlier, in the mid-18th century, in the Andes.",
+     "pl": "Nazwa pochodzi od szczytu Brocken w górach Harz, gdzie zjawisko w 1780 r. jako pierwszy opisał Johann Esaias Silberschlag. Podobny cień otoczony tęczową obwódką zaobserwowali jednak już wcześniej, w latach 1737–1739, Pierre Bouguer i Antonio de Ulloa w Andach.",
+     "en": "The name comes from the Brocken peak in the Harz mountains, where Johann Esaias Silberschlag first described the phenomenon in 1780. However, Pierre Bouguer and Antonio de Ulloa had already observed a similar shadow surrounded by a rainbow-coloured ring earlier, in 1737–1739, in the Andes.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Widmo_Brockenu",
@@ -40,9 +40,17 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.cambridge.org/core/books/abs/diffraction-effects-in-semiclassical-scattering/glory/50FABA20DFE356B768663E737E0B6BD2",
        "label": "cambridge.org"
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Brocken_spectre",
+       "label": "Wikipedia (EN)"
+      },
+      {
+       "url": "https://de.wikipedia.org/wiki/Brockengespenst",
+       "label": "Wikipedia (DE)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []

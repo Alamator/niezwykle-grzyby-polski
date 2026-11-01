@@ -75,9 +75,11 @@ Potem Robert dopuścił kolejne strony (m.in. `eli.gov.pl` z pełnymi tekstami u
 - 4 mają nowe brzmienie (`corrected`), w tym F0747 (żołędnica): wymarcie w Polsce to wniosek pracy z 2024 r., a nie oficjalna kategoria, więc ciekawostka i karta mówią teraz „według analiz opublikowanych w 2024 r.”;
 - 2 zostają `checked`.
 
-Pozostałe 69 ciekawostek `checked` czeka na strony, które nadal są zablokowane, głównie wydawnictwa naukowe, do których przekierowuje `doi.org` (`cambridge.org`, `pubs.geoscienceworld.org`). Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
+Na koniec dopuszczono `www.cambridge.org` i `pubs.geoscienceworld.org`. Strony Cambridge się otwierają, a `pubs.geoscienceworld.org` zatrzymuje każde zapytanie spoza przeglądarki stroną Cloudflare, więc nadal jest nieczytelne. Spośród 12 ciekawostek ze źródłami na tych stronach 6 ma teraz status `verified` (3 po dopisaniu czytelnego źródła, głównie biuletynu komisji nowych minerałów IMA), 2 mają nowe brzmienie (F0788, F1019), a 4 zostają `checked`.
 
-Teraz atlas ma 1458 ciekawostek na 628 kartach: 69 `checked`, 856 `verified` i 533 `corrected`.
+Pozostały 61 ciekawostek `checked`. Czekają na strony z 93 adresów, które nadal są zablokowane. Szczegóły, wszystkie poprawki i dopisane źródła: [sprawdzenie-checked-2026-11.md](sprawdzenie-checked-2026-11.md).
+
+Teraz atlas ma 1458 ciekawostek na 628 kartach: 61 `checked`, 862 `verified` i 535 `corrected`.
 
 **Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`, także w szufladzie rekordów.** Każda potrzebuje źródła i statusu według tabeli wyżej. Ciekawostkę, która czeka na poprawkę, można ukryć w `data/collections.js` (`WITHDRAWN.facts`, z powodem). `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły, pod żadnym id i w żadnym języku:
 - ciekawostki usuniętych kart i teksty ciekawostek pominiętych;

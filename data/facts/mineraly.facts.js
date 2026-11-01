@@ -67,15 +67,19 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://geo.uw.edu.pl/wp-content/uploads/sites/65/2023/05/S_Ilnicki_publikacje.pdf",
        "label": "geo.uw.edu.pl"
+      },
+      {
+       "url": "https://doi.org/10.1180/minmag.2015.079.4.05",
+       "label": "doi.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0788",
      "icon": "📍",
-     "pl": "Znaleziono go w waryscyjskim pegmatycie granitowym w Piławie Górnej (blok Gór Sowich). Występuje razem z tytanitami bogatymi w glin, tantal i niob, minerałem z nadgrupy pirochloru i miką potasową w niejednorodnych agregatach wielkości ok. 120 × 70 μm w spękanym krysztale cyrkonu.",
-     "en": "It was found in a Variscan granitic pegmatite at Piława Górna (Owl Mountains Block). It occurs together with Al-, Ta- and Nb-rich titanites, a pyrochlore-supergroup mineral and potassium mica in heterogeneous aggregates measuring about 120 × 70 μm within a fractured zircon crystal.",
+     "pl": "Znaleziono go w waryscyjskim pegmatycie granitowym w Piławie Górnej (blok Gór Sowich). Występuje razem z tytanitami zawierającymi glin, tantal i niob, minerałem z nadgrupy pirochloru i miką potasową w niejednorodnych agregatach wielkości ok. 120 × 70 μm w spękanym krysztale cyrkonu.",
+     "en": "It was found in a Variscan granitic pegmatite at Piława Górna (Owl Mountains Block). It occurs together with Al-, Ta- and Nb-bearing titanites, a pyrochlore-supergroup mineral and potassium mica in heterogeneous aggregates measuring about 120 × 70 μm within a fractured zircon crystal.",
      "sources": [
       {
        "url": "https://doi.org/10.1180/minmag.2016.080.110",
@@ -90,7 +94,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "resolver.caltech.edu"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0789",
@@ -127,9 +131,17 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://www.degruyterbrill.com/document/doi/10.2138/am-2021-7577/html?lang=en",
        "label": "degruyterbrill.com"
+      },
+      {
+       "url": "https://msaweb.org/MSA/AmMin/TOC/2021/Abstracts/AM106P2020.pdf",
+       "label": "msaweb.org"
+      },
+      {
+       "url": "https://doi.org/10.1180/mgm.2019.73",
+       "label": "doi.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0791",
@@ -181,7 +193,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "doi.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0794",
@@ -247,9 +259,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://msaweb.org/MSA/AmMin/TOC/2024/Abstracts/AM109P0940.pdf",
        "label": "msaweb.org"
+      },
+      {
+       "url": "https://doi.org/10.1180/mgm.2022.56",
+       "label": "doi.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0797",
@@ -305,7 +321,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "cnmnc.units.it"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0800",
@@ -322,7 +338,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "cnmnc.units.it"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -342,6 +358,10 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://ejm.copernicus.org/articles/35/285/2023/",
        "label": "ejm.copernicus.org"
+      },
+      {
+       "url": "https://doi.org/10.1180/mgm.2023.21",
+       "label": "doi.org"
       }
      ],
      "status": "checked"

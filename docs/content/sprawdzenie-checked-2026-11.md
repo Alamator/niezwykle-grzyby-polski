@@ -226,8 +226,40 @@ Karta „Żołędnica europejska” mówiła to samo. Poprawiono ją po polsku i
 
 Zdanie karty, że prawo nadal obejmuje żołędnicę ochroną ścisłą ze strefą ochrony, potwierdza tekst jednolity rozporządzenia w sprawie ochrony gatunkowej zwierząt (Dz.U. 2022 poz. 2380, załączniki nr 1 i 4). Zostaje bez zmian.
 
-## Zostaje `checked` (69)
+Po drugim podejściu atlas miał 1458 ciekawostek: 856 `verified`, 533 `corrected` i 69 `checked`.
 
-Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (14). `doi.org` działa, ale przekierowuje do stron wydawnictw, które są zablokowane: najczęściej `cambridge.org` (8 ciekawostek, także z linkami wprost) i `pubs.geoscienceworld.org` (4), a poza tym `tandfonline.com`, `vjs.pgi.gov.pl`, `onlinelibrary.wiley.com` i `linkinghub.elsevier.com`. Pozostałe potrzebują stron z ok. 100 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `cnmnc.units.it`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
+## Trzecie podejście: `cambridge.org` (1.11.2026)
 
-Teraz atlas ma 1458 ciekawostek: 856 `verified`, 533 `corrected` i 69 `checked`.
+Potem Robert dopuścił `www.cambridge.org` i `pubs.geoscienceworld.org`. Strony Cambridge się otwierają: artykuły w „Mineralogical Magazine” i „Mycologist” oraz rozdział książki o glorii. `pubs.geoscienceworld.org` odpowiada każdemu zapytaniu spoza przeglądarki stroną Cloudflare „Enable JavaScript and cookies” (błąd 403), więc tamte źródła nadal są nieczytelne. Tej blokady nie obchodzono.
+
+Źródła na tych stronach miało 12 ciekawostek `checked`. Sprawdzono je tak samo jak wcześniej: dwa niezależne odczyty, a trzeci przy sporach i poprawkach. Źródło dopisano tylko tam, gdzie oba odczyty potwierdziły cytatami, że razem z czytelnymi źródłami ciekawostki mówi ono wszystko. Najczęściej był to biuletyn komisji nowych minerałów IMA (CNMNC Newsletter) w „Mineralogical Magazine”. Podaje on numer IMA, wzór i miejsce typowe nowego minerału.
+
+| Id | Karta | Wynik | Rozstrzygające źródło |
+| --- | --- | --- | --- |
+| F0787 | Żabińskiit | `verified` | artykuł w „Mineralogical Magazine” (2016); dopisany CNMNC Newsletter 26 (IMA 2015-033) |
+| F0793 | Heflikit | `verified` | artykuł w „Mineralogical Magazine” (2023) |
+| F0799 | Berylokordieryt-Na | `verified` | CNMNC Newsletter 72 |
+| F0800 | Berylokordieryt-Na | `verified` | CNMNC Newsletter 72 |
+| F0790 | Taliomelan | `verified` | dopisane: streszczenie artykułu w „American Mineralogist” (msaweb.org) i CNMNC Newsletter 52 („In a quarry at the Zalas village, near Cracow”) |
+| F0796 | Skandiowinchit | `verified` | dopisany CNMNC Newsletter 67: IMA 2022-009 wśród minerałów zatwierdzonych w maju 2022 r.; reszta jest w streszczeniu na msaweb.org |
+| F0788 | Żabińskiit | `corrected` | niżej |
+| F1019 | Widmo Brockenu | `corrected` | niżej |
+| F0789 | Żabińskiit | zostaje `checked` | czytelne źródła nie mówią, kogo upamiętnia nazwa minerału; `muzmin.uwr.edu.pl` jest zablokowane |
+| F0792 | Taliomelan | zostaje `checked` | toksyczność talu potwierdza Wikipedia, ale „to minerał do laboratorium, nie do kieszeni” to wniosek, którego żadne źródło nie mówi; `zpe.gov.pl` jest zablokowane |
+| F0801 | Sachanbińskiit | zostaje `checked` | dopisany CNMNC Newsletter 72 potwierdza wzór, numer IMA i Szklary, ale nie mówi wprost, że to manganowy „brat” berylokordierytu-Na |
+| F0004 | Sromotnik smrodliwy | zostaje `checked` | artykuł w „Mycologist” potwierdza model z 2004 r., asfalt i 1,33 kN/m²; tempa 1–15 cm na godzinę według Uniwersytetu Oksfordzkiego nie da się sprawdzić, bo strona jest zablokowana |
+
+### Poprawione brzmienie (2)
+
+| Id | Karta | Było | Jest | Dlaczego |
+| --- | --- | --- | --- | --- |
+| F0788 | Żabińskiit | … Występuje razem z tytanitami bogatymi w glin, tantal i niob, … | … Występuje razem z tytanitami zawierającymi glin, tantal i niob, … | W źródle tytanity są „(Al,Ta,Nb)-bearing”, czyli zawierają te pierwiastki. „Bogate” to więcej, niż mówi źródło. |
+| F1019 | Widmo Brockenu | … Podobny cień otoczony tęczową obwódką opisali jednak już wcześniej, w połowie XVIII w., Pierre Bouguer i Antonio de Ulloa w Andach. | … Podobny cień otoczony tęczową obwódką zaobserwowali jednak już wcześniej, w latach 1737–1739, Pierre Bouguer i Antonio de Ulloa w Andach. | Rozdział o glorii (Cambridge) datuje te obserwacje na lata 1737–1739. Żadne czytelne źródło nie datuje ich opisu. Dopisano Wikipedię (EN i DE): niemiecka mówi, że Silberschlag opisał zjawisko na Brockenie. |
+
+Karty tych ciekawostek nie powtarzają poprawionych sformułowań.
+
+## Zostaje `checked` (61)
+
+Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (7). Potrzebują stron z 93 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `ejm.copernicus.org`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, `tandfonline.com`, `pubs.geoscienceworld.org`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
+
+Teraz atlas ma 1458 ciekawostek: 862 `verified`, 535 `corrected` i 61 `checked`.
