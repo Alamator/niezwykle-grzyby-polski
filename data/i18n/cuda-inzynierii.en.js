@@ -140,18 +140,18 @@ window.ATLAS_ITEM_TEXT_EN["cuda-inzynierii"] = {
     "hook": "Hand-operated geometry of water and levels.",
     "quiz_angle": "the canal, locks, chambers, water levels and historic water transport",
     "safety_note": "At the locks, keep your distance from the edges, gates and moving parts; follow the instructions of the canal staff.",
-    "region": "Podlasie.",
+    "region": "Podlaskie Province.",
     "habitat": "a lock encloses a boat in a chamber and changes the water level to overcome the difference in height between sections of the canal.",
     "occurrence": "This card shows very easy-to-read engineering: just watch the chamber, the gates and the water level.",
     "level": "water elevator",
-    "latin": "Podlasie • geometry of levels"
+    "latin": "Podlaskie Province • geometry of levels"
   },
   "sluza-paniewo": {
     "name": "Paniewo Lock",
     "hook": "A 19th-century water elevator.",
     "quiz_angle": "a two-chamber lock, a larger difference in levels, manual operation and the precision of hydraulic engineering",
     "safety_note": "Do not touch the lock mechanisms and do not stand at the edges of the chambers while the equipment is operating.",
-    "region": "Augustów Canal, Podlasie.",
+    "region": "Augustów Canal, Podlaskie Province.",
     "habitat": "two chambers work in sequence, splitting a larger change in level into safer stages.",
     "occurrence": "Paniewo explains well that a lock is a machine made of water, gates and a patient sequence of actions.",
     "level": "two chambers",

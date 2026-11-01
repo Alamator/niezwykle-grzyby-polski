@@ -87,6 +87,7 @@ Najprostsza ścieżka:
 4. Dodaj angielskie teksty:
    - nazwę, opisy i kategorie kolekcji w `data/i18n.js`, razem z angielskim `teaser` i `count_label` (np. „30 curiosities”);
    - teksty kart w `data/i18n/<kolekcja>.en.js`, na liście `scripts` kolekcji. Każda karta ma tu każde pole (`name`, `hook`, `quiz_angle`, `safety_note`, `region`, `habitat`, `occurrence`, `level`, a dla miejsc także `latin`, czyli podpis pod nazwą), przetłumaczone 1:1 z polskiego. Karta bez angielskiego tekstu pokazałaby polski, a `npm run test:collections` tego pilnuje.
+   - Województwo podlaskie (`Podlaskie` w polu `region_pl` albo w podpisie pod nazwą) to po angielsku „Podlaskie Province”, jak „Lublin Province”. Angielskie „Podlasie” oznacza krainę historyczną, więc zostaje tylko tam, gdzie polski tekst też mówi „Podlasie”. Tego też pilnuje `npm run test:collections`.
 5. Kolejność plików na liście `scripts`: dane, paczka zdjęć, `data/i18n/<kolekcja>.en.js`, punkty mapy, źródła występowania (jeśli są), a na końcu ciekawostki `data/facts/<kolekcja>.facts.js`.
    - Ciekawostki pisze się w repozytorium, tylko sprawdzone w źródłach (zasady i statusy: `docs/content/README-weryfikacja.md`). Dopóki pliku nie ma, kolekcja stoi na liście `FACTS_PENDING` w `scripts/validate-facts.mjs` i nie ma go na liście `scripts`. Kolekcja działa wtedy bez ciekawostek, a „Ciekawostka dnia” ją pomija.
    - Gdy plik będzie gotowy, dopisz go na końcu `scripts` i zdejmij kolekcję z `FACTS_PENDING`. Test przypomni o tym sam.

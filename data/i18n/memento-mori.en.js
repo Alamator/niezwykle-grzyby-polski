@@ -85,22 +85,22 @@ window.ATLAS_ITEM_TEXT_EN["memento-mori"] = {
     "hook": "Polish Islam written in stone tombstones.",
     "quiz_angle": "Polish Tatars, the mizar, the orientation of the graves, inscriptions and the nearby wooden mosque",
     "safety_note": "Treat the mizar as an active place of religious memory, and do not walk between the graves without need.",
-    "region": "Kruszyniany, Podlasie.",
+    "region": "Kruszyniany, Podlaskie Province.",
     "habitat": "tombstones, the languages of the inscriptions and the layout of burials show the continuity of the Tatar presence in the Commonwealth.",
     "occurrence": "The peculiarity is the multicultural dimension of the Polish landscape: the mizar is a reminder that local history can be Muslim, Tatar and borderland.",
     "level": "mizar",
-    "latin": "Podlasie • Tatar Muslim cemetery"
+    "latin": "Podlaskie Province • Tatar Muslim cemetery"
   },
   "mizar-bohoniki": {
     "name": "Bohoniki Mizar",
     "hook": "A quiet trace of the Commonwealth of many cultures.",
     "quiz_angle": "Tatars, Islam in Poland, stone tombstones, the borderland and the local continuity of the community",
     "safety_note": "Keep quiet and show respect for the Muslim tradition and the local community.",
-    "region": "Bohoniki, Podlasie.",
+    "region": "Bohoniki, Podlaskie Province.",
     "habitat": "the mizar orders family and religious biographies in a borderland landscape where cultures have long met.",
     "occurrence": "Bohoniki is peculiar not for monumentality but for endurance: a small necropolis keeps a big story about a shared state of many faiths.",
     "level": "mizar",
-    "latin": "Podlasie • Tatar necropolis"
+    "latin": "Podlaskie Province • Tatar necropolis"
   },
   "cmentarz-mennonicki-stogi": {
     "name": "Mennonite Cemetery in Stogi Malborskie",

@@ -118,7 +118,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "hook": "A lake that looks calm but hides an underwater abyss.",
     "quiz_angle": "a glacial tunnel valley, great depth, cold water and the landscape of the Suwałki region",
     "safety_note": "For educational purposes. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
-    "region": "Suwałki region, Podlasie.",
+    "region": "Suwałki region, Podlaskie Province.",
     "habitat": "the ice sheet and meltwater carved a deep trough, which filled with water.",
     "occurrence": "The peculiarity is a vertical scale invisible from the shore: the most important record lies beneath the surface.",
     "level": "deepest lake",
@@ -140,7 +140,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "hook": "A Polish land of mist, reeds, peat and birds.",
     "quiz_angle": "peatlands, flooded areas, the largest national park in Poland and the natural rhythm of water",
     "safety_note": "For educational purposes. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
-    "region": "Biebrza National Park, Podlasie.",
+    "region": "Biebrza National Park, Podlaskie Province.",
     "habitat": "a low valley, peat and periodic floods maintain an extensive wetland landscape.",
     "occurrence": "A peculiarity of scale: instead of a single attraction, we get a huge, slow system of water and peat.",
     "level": "great marsh",
@@ -151,11 +151,11 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "hook": "A river that, instead of one channel, takes many ways at once.",
     "quiz_angle": "an anastomosing pattern, channels separated by reeds, a water labyrinth and a slow flow",
     "safety_note": "For educational purposes. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
-    "region": "Podlasie.",
+    "region": "Podlaskie Province.",
     "habitat": "the valley's slight gradient, vegetation and sediments split the current of the Narew into many parallel channels.",
     "occurrence": "The nickname works as a hook: the peculiarity is the labyrinthine way the river flows, not a literal resemblance to the Amazon.",
     "level": "Polish Amazon",
-    "latin": "Podlasie • multi-channel river"
+    "latin": "Podlaskie Province • multi-channel river"
   },
   "ujscie-warty": {
     "name": "Ujście Warty National Park",
@@ -184,11 +184,11 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "hook": "A place where a river flows through a living bog.",
     "quiz_angle": "a natural valley, peatlands, meanders and the dependence of habitats on clean water",
     "safety_note": "For educational purposes. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
-    "region": "Podlasie.",
+    "region": "Podlaskie Province.",
     "habitat": "the river, the peat and groundwater supply maintain a mosaic of wetlands in the valley.",
     "occurrence": "A landscape in which the most important thing is the absence of straightening: the river keeps its own natural rhythm.",
     "level": "wild valley",
-    "latin": "Podlasie • wild river valley"
+    "latin": "Podlaskie Province • wild river valley"
   },
   "bifurkacja-wagrowiecka": {
     "name": "Crossing of the Wełna and Nielba rivers",
@@ -492,7 +492,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "hook": "A meadow on which a glacier scattered a stone cargo.",
     "quiz_angle": "glacial erratics, the ice sheet, a concentration of blocks and the Czarna Hańcza valley",
     "safety_note": "For educational purposes. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
-    "region": "Suwałki region, Podlasie.",
+    "region": "Suwałki region, Podlaskie Province.",
     "habitat": "the ice sheet brought rock blocks from the north and left them behind when the ice melted.",
     "occurrence": "The peculiarity is the concentration: in a small area you can see the glacier's stone signature.",
     "level": "glacier's cargo",
@@ -613,7 +613,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-krajobrazu"] = {
     "hook": "A wooden hermitage among water, marshes and silence.",
     "quiz_angle": "a cultural landscape, the Narew floodwaters, a wooden hermitage and a periodic island effect",
     "safety_note": "For educational purposes. Treat the card as a description of the landscape and its mechanism, not as directions for getting there; check the current protection rules and move only along legally accessible routes.",
-    "region": "Narew valley, Podlasie.",
+    "region": "Narew valley, Podlaskie Province.",
     "habitat": "periodic floods and marshy surroundings set the wooden skete into an almost island landscape.",
     "occurrence": "A landscape and cultural bonus: the peculiarity comes from the relationship of architecture, water and silence.",
     "level": "cultural landscape",

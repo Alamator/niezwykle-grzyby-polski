@@ -432,8 +432,8 @@ for (const id of ["zywiec-1929", "slubice-40-5"]) {
   assert(item, `weather records should include ${id}`);
   assert(!/oficjaln/i.test(cardTexts(item).pl) && !/official/i.test(cardTexts(item).en), `${id} should not call its record official`);
 }
-// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 stays out until Robert decides again
-// (sources give different values: docs/content/rekordy-atmosferyczne-2026-10.md).
+// Kołuda Wielka (a disputed reading) is not mentioned, and Kamienica 2024 stays out (Robert's decisions of 31.10 and
+// 1.11.2026; sources give different values: docs/content/rekordy-atmosferyczne-2026-10.md).
 for (const item of weatherRecords.items) {
   const { pl, en } = cardTexts(item);
   assert(!/Ko[lł]ud/i.test(`${pl} ${en}`), `${item.id} should not mention Kołuda Wielka`);
@@ -546,6 +546,20 @@ for (const file of i18nFiles) {
     }
     for (const [english, polish] of polishByEnglish) {
       assert(polish.size === 1 || sharedEnglish.has(english), `${collectionId}: one English ${field} stands for ${polish.size} different Polish texts: ${english}`);
+    }
+  }
+}
+
+// Polish "Podlaskie" is the voivodeship, so English says "Podlaskie Province", as with "Lublin Province".
+// English "Podlasie" is the historical region, which is not what the Polish text says.
+for (const collection of collections) {
+  for (const item of collection.items) {
+    const english = itemTextEn[collection.id]?.[item.id] || {};
+    for (const [polishField, englishField] of [["region_pl", "region"], ["name_lat", "latin"]]) {
+      if (!/\bPodlaskie\b/.test(item[polishField] || "")) continue;
+      const text = english[englishField] || "";
+      assert(text.includes("Podlaskie Province") && !text.includes("Podlasie"),
+        `${collection.id}/${item.id}: Polish "Podlaskie" should be "Podlaskie Province" in the English ${englishField}: ${text}`);
     }
   }
 }
