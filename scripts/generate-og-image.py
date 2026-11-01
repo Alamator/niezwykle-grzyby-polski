@@ -5,7 +5,8 @@ Draws every image that scripts/og-images.mjs lists, in the look of the start pag
 (assets/og-image.png in Polish, assets/og/atlas-en.png in English) with the heading of the start page, and one
 image per collection and language (assets/og/<collection>-<language>.png) with the collection's name and
 teaser. Next to the text is a map of Poland with the places of the atlas or of the collection; a collection
-without places shows its count label (count_label) in large figures instead. Then it writes
+with fewer than 5 places (MIN_MAP_PLACES in scripts/og-images.mjs) shows its count label (count_label) in large
+figures instead. Then it writes
 assets/og/manifest.json: what each image shows and a hash of its file, which the build and npm run
 test:technical compare with the data. Every text is checked to fit and not to touch another.
 Fonts come from fonts/ (SIL Open Font License); the points from data/places/*.places.js (Wikidata, CC0); the

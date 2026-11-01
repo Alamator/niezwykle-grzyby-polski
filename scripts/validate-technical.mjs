@@ -399,11 +399,13 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   }
   // No Polish stays on an English page, keyed or not: nothing a reader sees or hears there (text, name or hint,
   // outside the head and the copy for readers without scripts) is the same as in index.html or on the page's
-  // Polish twin. The wordmark keeps the Polish brand; photo credits and words written alike stay too.
+  // Polish twin. The wordmark keeps the Polish brand; photo credits, words written alike and the author's sign in
+  // the footer, which is English on every page, stay too.
   const shown = (html) => {
     const body = html.slice(html.indexOf("<body"))
       .replace(/<(noscript|script|style|svg)\b[\s\S]*?<\/\1>/g, "")
       .replace(/(<a id="wordmark"[^>]*>)[\s\S]*?(<\/a>)/, "$1$2")
+      .replace(/<div class="site-footer__sign" lang="en">[\s\S]*?<\/div>/, "")
       .replace(/(<a class="photo-credit[^>]*>(?:<span[^>]*>[^<]*<\/span>)?)[^<]*/g, "$1");
     const texts = body.split(/<[^>]*>/);
     const names = [...body.matchAll(/<[^>]*>/g)].filter(([tag]) => !/\slang="en"/.test(tag))
@@ -476,10 +478,14 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   for (const collection of collections) {
     assert(notFound.includes(`href="${collection.route || `/atlas/${collection.id}`}"`), `404.html should link to ${collection.id}`);
   }
-  assert(notFound.includes("/assets/logo-oroloko-ai.svg"), "404.html should keep the Made by Oroloko footer");
-  // The logo's description repeats its English words, so screen readers read it in English.
-  for (const [file, html] of [["index.html", indexHtml], ["404.html", notFound]]) {
-    assert(html.includes('<img class="footer-logo" src="/assets/logo-oroloko-ai.svg" lang="en" alt="'), `${file}: the footer logo should be marked as English`);
+  // The author's sign in the footer, "Made by Robert Oroloko", is text in the site's fonts, the same on every page.
+  // It is English, so screen readers read it in English on the Polish pages too.
+  {
+    const sign = (html) => html.match(/<div class="site-footer__sign" lang="en">[\s\S]*?<\/div>/)?.[0];
+    assert.equal(sign(indexHtml), '<div class="site-footer__sign" lang="en">\n      <p class="site-footer__lead">The AI does not replace your experience. <span>It amplifies it.</span></p>\n      <p class="site-footer__claim">You are still <em>the expert</em>.</p>\n      <p class="site-footer__made">Made by Robert Oroloko</p>\n    </div>',
+      "index.html should end with the Made by Robert Oroloko footer, marked as English");
+    assert.equal(sign(notFound), sign(indexHtml), "404.html should keep the same Made by Robert Oroloko footer");
+    for (const page of pages) assert.equal(sign(page.html), sign(indexHtml), `${page.route}: the page should keep the Made by Robert Oroloko footer`);
   }
   // scripts/version-assets.mjs, tried on a temporary copy with the start page, a card page and the 404 page:
   // every address of a site file gets the hash of that file, as it is after its own addresses got theirs.

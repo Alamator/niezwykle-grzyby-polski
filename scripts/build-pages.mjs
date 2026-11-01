@@ -497,8 +497,10 @@ export function notFoundHtml(win) {
     </nav>
   </main>
   <footer class="site-footer">
-    <div class="site-footer__plaque">
-      <img class="footer-logo" src="/assets/logo-oroloko-ai.svg" lang="en" alt="The AI does not replace your experience. It amplifies it. You are still the expert. Made by Robert Oroloko" width="800" height="110" loading="lazy" />
+    <div class="site-footer__sign" lang="en">
+      <p class="site-footer__lead">The AI does not replace your experience. <span>It amplifies it.</span></p>
+      <p class="site-footer__claim">You are still <em>the expert</em>.</p>
+      <p class="site-footer__made">Made by Robert Oroloko</p>
     </div>
   </footer>
 </body>

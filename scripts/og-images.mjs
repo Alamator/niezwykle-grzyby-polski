@@ -32,6 +32,9 @@ const WORDS = {
   en: { atlasPlaces: "{places} in the atlas", collectionPlaces: "{places} in the collection" }
 };
 const MAP_CREDIT = "Wikidata · Natural Earth";
+// A collection with fewer places than this shows its count label in large figures instead of a nearly empty map
+// (Skamieniałości: 4 places for 32 cards).
+export const MIN_MAP_PLACES = 5;
 
 // A word missing from values stops the build, so no description loses a part unnoticed.
 const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => {
@@ -89,7 +92,8 @@ export function ogImages(win, textsFor, places) {
         throw new Error(`${where}: a link preview image needs the collection's title, teaser and count_label (data/collections.js, and data/i18n.js in English)`);
       }
       const group = texts.group(collection);
-      const drawn = own.length
+      const withMap = own.length >= MIN_MAP_PLACES;
+      const drawn = withMap
         ? {
           eyebrow: `${group} · ${countLabel}`.toUpperCase(),
           title,
@@ -102,7 +106,7 @@ export function ogImages(win, textsFor, places) {
         file: collectionImageFile(collection, language),
         language,
         collection: collection.id,
-        alt: fill(own.length ? texts.words.collectionMapImageAlt : texts.words.collectionImageAlt, { title, count: countLabel, teaser }),
+        alt: fill(withMap ? texts.words.collectionMapImageAlt : texts.words.collectionImageAlt, { title, count: countLabel, teaser }),
         drawn
       });
     }

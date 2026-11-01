@@ -6,7 +6,7 @@ Projekt wyrósł z atlasu grzybów i jest teraz przygotowany jako wspólna rama 
 
 - **Grzyby**: 60 pozycji z uzupełnionymi zdjęciami i atrybucjami.
 - **Owady**: 30 pozycji ze zdjęciami i atrybucjami z Wikimedia Commons.
-- **Kwiaty**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych ze zdjęciami i atrybucjami z Wikimedia Commons.
+- **Rośliny**: 31 polskich, dziko rosnących lub zadomowionych osobliwości roślinnych ze zdjęciami i atrybucjami z Wikimedia Commons.
 - **Ryby**: 30 osobliwości polskich wód i ich rubieży ze zdjęciami Wikimedia Commons.
 - **Ptaki**: 32 osobliwości polskiej awifauny ze zdjęciami Wikimedia Commons.
 
@@ -34,7 +34,6 @@ data/search-index.js
 data/photo-pack-*.js
 data/region-pack-v07.js
 fonts/
-assets/logo-oroloko-ai.svg
 assets/favicon.svg
 assets/og-image.png
 assets/og/
@@ -190,7 +189,7 @@ Najprostsza ścieżka:
 - **Ikony i obrazki do udostępniania:** `python scripts/generate-favicons.py` i `python scripts/generate-og-image.py` (wymagają Pillow, a drugi także Node.js).
   - Znak to pochyłe „A” z Instrument Serif.
   - Obrazek atlasu pokazuje nagłówek strony głównej i mapę Polski z punktów atlasu (granice: Natural Earth, domena publiczna).
-  - Każda kolekcja ma własny obrazek: nazwa, opis z szuflady i liczba osobliwości, a obok mapa jej miejsc. Kolekcja bez miejsc na mapie ma zamiast mapy liczbę osobliwości wypisaną dużymi cyframi.
+  - Każda kolekcja ma własny obrazek: nazwa, opis z szuflady i liczba osobliwości, a obok mapa jej miejsc. Kolekcja, która ma mniej niż 5 miejsc na mapie (np. „Skamieniałości”), ma zamiast mapy liczbę osobliwości wypisaną dużymi cyframi.
   - Wszystkie są po polsku i po angielsku (opis niżej, w „Wyszukiwarki i podgląd linków”). Nie ma na nich zdjęć, bo podgląd linku nie zmieści ich podpisów.
 
 ## Zasady treści
@@ -335,4 +334,4 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
 
 ## Stopka
 
-W stopce jest znak **Made by Oroloko** oraz informacja o asyście AI. Na ciemnej stronie leży na jasnej tabliczce, bo znak ma ciemny napis na przezroczystym tle. Opis obrazka powtarza angielski napis ze znaku, więc ma `lang="en"`: czytnik ekranu przeczyta go po angielsku.
+W stopce jest podpis autora, napisany czcionkami strony (od 1.11.2026 zamiast dawnego znaku-obrazka): „The AI does not replace your experience. It amplifies it.” (Inter), „You are still *the expert*.” (Instrument Serif, z wyróżnieniem jak w nagłówkach) i „Made by Robert Oroloko” (IBM Plex Mono, jak linijki nad tytułami). Jest po angielsku, więc ma `lang="en"`: czytnik ekranu przeczyta go po angielsku także na stronach polskich. `npm run test:technical` pilnuje, żeby każda strona, także `404.html`, miała ten sam podpis.
