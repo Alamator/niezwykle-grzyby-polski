@@ -192,7 +192,7 @@ assert.equal(flowers.items.length, 31, "flower collection should contain 31 Poli
 assert.equal(fish.items.length, 30, "fish collection should contain 30 fish curiosities (Mauryk and Kosogon withdrawn: no confirmed Baltic record)");
 assert.equal(birds.items.length, 32, "bird collection should contain 32 bird curiosities");
 assert.equal(trees.items.length, 30, "tree collection should contain 30 dendrological curiosities");
-assert.equal(minerals.items.length, 33, "mineral collection should contain 33 mineralogical curiosities");
+assert.equal(minerals.items.length, 32, "mineral collection should contain 32 mineralogical curiosities");
 assert.equal(rockFormations.items.length, 32, "rock formation collection should contain 32 geological curiosities (Zęzów i Czarne Działy withdrawn)");
 assert.equal(fossils.items.length, 32, "fossil collection should contain 32 paleontological curiosities (Tholodus schmidi withdrawn: no published Polish record)");
 assert.equal(skyPhenomena.items.length, 32, "atmosphere and astronomy collection should contain 32 sky and weather curiosities");
@@ -263,7 +263,7 @@ assert(
 const mineralImages = minerals.items.filter(
   (item) => item.image && item.image_author && item.image_source && item.image_license && item.license_url && item.image_modifications
 );
-assert.equal(mineralImages.length, 33, "mineral collection should include 33 curated images with attribution");
+assert.equal(mineralImages.length, 32, "mineral collection should include 32 curated images with attribution");
 assert(
   minerals.items.every((item) => item.image.startsWith("https://commons.wikimedia.org/wiki/Special:Redirect/file/")),
   "mineral images should use Wikimedia Commons Special:Redirect links"

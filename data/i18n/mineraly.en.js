@@ -58,17 +58,6 @@ window.ATLAS_ITEM_TEXT_EN["mineraly"] = {
     "level": "scientific jewel",
     "latin": "sodium-calcium amphibole with Sc"
   },
-  "berylokordieryt-na": {
-    "name": "Beryllocordierite-Na",
-    "hook": "A new mineral from the Szklary Massif is a reminder that beryllium does not always end up as a showy beryl crystal.",
-    "quiz_angle": "beryllium, sodium, the Szklary pegmatites and structural kinship with cordierite",
-    "safety_note": "Do not break up pegmatite veins in the field; sites of rare minerals are easy to destroy.",
-    "region": "The Szklary Massif in Lower Silesia.",
-    "habitat": "Pegmatite veins and rocks strongly enriched in light elements.",
-    "occurrence": "In the atlas it shows the stage at which pegmatite chemistry becomes so specialized that new phases form.",
-    "level": "micro-curiosity",
-    "latin": "hydrated beryllium silicate"
-  },
   "berylosachanbinskiit-na": {
     "name": "Sachanbińskiite",
     "hook": "One of the most specialized cards in the collection: a beryllium-manganese mineral from Polish pegmatites.",

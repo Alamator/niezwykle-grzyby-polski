@@ -88,19 +88,6 @@
       level: "naukowy klejnot"
     }),
     entry({
-      id: "berylokordieryt-na",
-      name_pl: "Berylokordieryt-Na",
-      name_lat: "uwodniony krzemian berylu",
-      category: "endemity-nowe-mineraly",
-      hook: "Nowy minerał z masywu Szklar przypomina, że beryl nie zawsze kończy jako efektowny kryształ berylu.",
-      quiz_angle: "beryl, sód, pegmatyty Szklar i strukturalne pokrewieństwo z kordierytem",
-      safety_note: "nie rozbijać żył pegmatytowych w terenie; stanowiska rzadkich minerałów są łatwe do zniszczenia",
-      region_pl: "Masyw Szklar na Dolnym Śląsku.",
-      habitat_pl: "Żyły pegmatytowe i skały silnie wzbogacone w pierwiastki lekkie.",
-      occurrence_note: "W atlasie pokazuje etap, w którym chemia pegmatytu staje się tak wyspecjalizowana, że powstają nowe fazy.",
-      level: "mikroosobliwość"
-    }),
-    entry({
       id: "berylosachanbinskiit-na",
       name_pl: "Sachanbińskiit",
       name_lat: "glinokrzemian berylu i manganu (grupa kordierytu)",

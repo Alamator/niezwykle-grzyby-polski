@@ -348,8 +348,8 @@ window.ATLAS_FACTS["mineraly"] = {
     {
      "id": "F0801",
      "icon": "🆕",
-     "pl": "Manganowy „brat” berylokordierytu-Na: NaMn₄(Al₅Be)(AlSi₅O₁₈)₂·2H₂O (IMA 2022-109), także ze Szklar.",
-     "en": "The manganese “sibling” of beryllocordierite-Na: NaMn₄(Al₅Be)(AlSi₅O₁₈)₂·2H₂O (IMA 2022-109), also from Szklary.",
+     "pl": "Zatwierdzony przez IMA jako berylosachanbińskiit-Na: NaMn₄(Al₅Be)(AlSi₅O₁₈)₂·2H₂O (IMA 2022-109). Miejsce typowe: pegmatyt koło Szklar.",
+     "en": "Approved by the IMA as beryllosachanbińskiite-Na: NaMn₄(Al₅Be)(AlSi₅O₁₈)₂·2H₂O (IMA 2022-109). Type locality: a pegmatite near Szklary.",
      "sources": [
       {
        "url": "https://doi.org/10.2138/gselements.20.2.134",
@@ -362,9 +362,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://doi.org/10.1180/mgm.2023.21",
        "label": "doi.org"
+      },
+      {
+       "url": "https://doi.org/10.1180/mgm.2025.10163",
+       "label": "doi.org"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0802",
