@@ -11,6 +11,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { buildMapPoints } from "./build-map-points.mjs";
 import { buildStartPage, loadAtlas } from "./build-start-page.mjs";
+import { REDRAW, atlasImageFile, collectionImageFile, imageProblems, ogImages } from "./og-images.mjs";
 
 const SITE_NAME = "Atlas Osobliwości Polski";
 export const MAP_ROUTE = "/mapa";
@@ -21,13 +22,23 @@ export const LANGUAGES = ["pl", "en"];
 // Questions in the daily challenge and in the random quiz (DAILY_QUESTIONS and MIX_QUESTIONS in js/app.js).
 const DAILY_QUESTIONS = 5;
 const MIX_QUESTIONS = 10;
-// Words only the built pages use: for readers without scripts, and the description of the link preview image.
+// Words only the built pages use: for readers without scripts, and the descriptions of the link preview images
+// (scripts/og-images.mjs; {heading} is the start page's heading). index.html gives the Polish start page the
+// same description of the atlas's image.
 const STATIC_WORDS = {
-  pl: { allCards: "wszystkie karty", quizNeedsScripts: "Quiz działa w przeglądarce z włączonym JavaScriptem. Karty, z których powstają pytania, są w kolekcjach:" },
+  pl: {
+    allCards: "wszystkie karty",
+    quizNeedsScripts: "Quiz działa w przeglądarce z włączonym JavaScriptem. Karty, z których powstają pytania, są w kolekcjach:",
+    imageAlt: "Atlas Osobliwości Polski: „{heading}” i mapa Polski z punktów miejsc z atlasu",
+    collectionImageAlt: "Atlas Osobliwości Polski, kolekcja „{title}”: {count} – {teaser}",
+    collectionMapImageAlt: "Atlas Osobliwości Polski, kolekcja „{title}”: {count} – {teaser} – i mapa Polski z miejscami z tej kolekcji"
+  },
   en: {
     allCards: "all cards",
     quizNeedsScripts: "The quiz works in a browser with JavaScript turned on. The cards its questions come from are in these collections:",
-    imageAlt: "Atlas of Polish Curiosities: the Polish heading “Polska, jakiej nie pokazują przewodniki” (The Poland guidebooks leave out) and a map of Poland drawn with the places of the atlas"
+    imageAlt: "Atlas of Polish Curiosities: “{heading}” and a map of Poland drawn with the places of the atlas",
+    collectionImageAlt: "Atlas of Polish Curiosities, the “{title}” collection: {count} – {teaser}",
+    collectionMapImageAlt: "Atlas of Polish Curiosities, the “{title}” collection: {count} – {teaser} – and a map of Poland with the collection's places"
   }
 };
 
@@ -122,6 +133,13 @@ function headHtml(indexHtml, origin, page, texts) {
   html = setMeta(html, "property", "og:description", page.share || page.description);
   html = setMeta(html, "name", "twitter:title", page.shareTitle);
   html = setMeta(html, "name", "twitter:description", page.share || page.description);
+  // The link preview image: a collection and its cards show the collection's, the other pages the atlas's
+  // (scripts/og-images.mjs), each in the language of the page.
+  const image = page.image || texts.image(null);
+  html = setMeta(html, "property", "og:image", `${origin}/${image.file}`);
+  html = setMeta(html, "name", "twitter:image", `${origin}/${image.file}`);
+  html = setMeta(html, "property", "og:image:alt", image.alt);
+  html = setMeta(html, "name", "twitter:image:alt", image.alt);
   if (page.content !== "#startPage") {
     // Opened on its own page, as the app shows it, so the start page does not flash first; "Przejdź do
     // treści" leads to that page.
@@ -203,8 +221,6 @@ function englishHtml(html, texts) {
   html = replaceOnce(html, '<html lang="pl">', '<html lang="en">', "page language");
   html = setMeta(html, "property", "og:locale", "en_US");
   html = setMeta(html, "property", "og:site_name", texts.site);
-  html = setMeta(html, "property", "og:image:alt", texts.words.imageAlt);
-  html = setMeta(html, "name", "twitter:image:alt", texts.words.imageAlt);
   // The links renderChrome in js/app.js points to the pages of the reader's language.
   for (const [id, route] of [["wordmark", "/"], ["drawerLink", "/#myDrawer"], ["mapLink", MAP_ROUTE], ["mapAllLink", MAP_ROUTE],
     ["dailyQuizCardLink", QUIZ_ROUTE], ["atlasQuizLink", QUIZ_ROUTE]]) {
@@ -289,9 +305,22 @@ function collectionPhotoHtml(collection, cover, texts) {
 
 export function buildPages(win, indexHtml) {
   const origin = canonicalOrigin(indexHtml);
+  const images = ogImages(win, (language) => languageTexts(win, language), buildMapPoints(win).places);
+  // A page must not describe an image that shows something else, so images drawn from older data stop the build.
+  const problems = imageProblems(images);
+  if (problems.length) throw new Error(`link preview images: ${problems.join("; ")}; ${REDRAW}`);
+  // index.html, the Polish start page, describes the atlas's image itself: after a new heading it needs the new text.
+  const atlasAlt = escapeHtml(images.find((entry) => entry.file === atlasImageFile("pl")).alt);
+  for (const tag of [`<meta property="og:image:alt" content="${atlasAlt}" />`, `<meta name="twitter:image:alt" content="${atlasAlt}" />`]) {
+    if (!indexHtml.includes(tag)) throw new Error(`index.html should have ${tag}, which follows heroTitle in data/i18n.js`);
+  }
   const pages = [];
   for (const language of LANGUAGES) {
-    const texts = { ...languageTexts(win, language), collections: win.ATLAS_APP_DATA.collections.length };
+    const image = (collection) => {
+      const file = collection ? collectionImageFile(collection, language) : atlasImageFile(language);
+      return images.find((entry) => entry.file === file);
+    };
+    const texts = { ...languageTexts(win, language), collections: win.ATLAS_APP_DATA.collections.length, image };
     if (language !== "pl") pages.push(startPage(win, indexHtml, origin, texts));
     pages.push(mapPage(win, indexHtml, origin, texts), quizPage(win, indexHtml, origin, texts), ...collectionPages(win, indexHtml, origin, texts));
   }
@@ -335,7 +364,8 @@ function collectionPages(win, indexHtml, origin, texts) {
       atlasTitle: `${texts.collection(collection, "count_label")} - ${title}`,
       sourceNote: texts.collection(collection, "source_note"),
       searchHint: texts.collection(collection, "search_placeholder") || ui.searchFallback,
-      hasMap: Object.keys(collection.places || {}).length > 0
+      hasMap: Object.keys(collection.places || {}).length > 0,
+      image: texts.image(collection)
     };
     const slugs = new Set();
     for (const item of collection.items) {

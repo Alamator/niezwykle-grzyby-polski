@@ -1039,7 +1039,9 @@
   }
 
   // The head of the page shown, as scripts/build-pages.mjs writes it into the page for its address: tab
-  // title, description, canonical address and link preview. Addresses are on the canonical domain.
+  // title, description, canonical address and link preview. Addresses are on the canonical domain. The link
+  // preview image stays as the page the browser loaded names it: services that show previews read each
+  // address's built page, not this one.
   const CANONICAL_ORIGIN = new URL($('link[rel="canonical"]')?.href || window.location.href).origin;
 
   function sentence(text) {

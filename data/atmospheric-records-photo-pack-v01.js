@@ -87,11 +87,11 @@
       ccBySa40
     ),
     "kalisz-opady-roczne": photo(
-      "Kalisz Panorama.jpg",
-      "Kadr kontekstowy: panorama Kalisza",
-      "Wydra666 at pl.wikipedia",
-      "CC BY-SA 3.0",
-      ccBySa30
+      "Kalisz Town Hall 2019 P04.jpg",
+      "Kadr kontekstowy: ratusz i Główny Rynek w Kaliszu z lotu ptaka",
+      "Fallaner",
+      "CC BY-SA 4.0",
+      ccBySa40
     ),
     "sniezka-wiatr": photo(
       "Karkonosze, Śnieżka, stacja meteorologiczna i restauracja.jpg",

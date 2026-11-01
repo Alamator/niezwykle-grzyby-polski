@@ -6,3 +6,5 @@
 /quiz.html
 /sitemap.xml
 /404.html
+# Python's compiled files, e.g. after importing scripts/generate-og-image.py.
+__pycache__/

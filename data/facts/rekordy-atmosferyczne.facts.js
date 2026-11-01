@@ -395,7 +395,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
