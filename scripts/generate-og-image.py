@@ -113,7 +113,7 @@ def lines_of(words: list, width, limit: float, size: int):
     if not pairs:
         return None
     def cost(pair):
-        natural = pair[0][-1].endswith(",") or pair[1][0].split()[0].lower() in CONJUNCTIONS
+        natural = (pair[0][-1].endswith(",") or pair[1][0].split()[0].lower() in CONJUNCTIONS) and pair[0][-1].lower() not in CONJUNCTIONS
         return abs(width(pair[0]) - width(pair[1])) + (0 if natural else 6.5 * size)
     return list(min(pairs, key=cost))
 
@@ -131,7 +131,15 @@ def heading_words(runs: list) -> list:
             else:
                 words.append([(part, kind)])
         previous = text
-    return words
+    # A one-letter word stays with the word after it, as in words_of(), also two in a row ("i w nim").
+    glued = []
+    for word in words:
+        last = glued[-1] if glued else None
+        if last and last[-1][0] in ONE_LETTER and (len(last) == 1 or last[-2][0] == " "):
+            glued[-1] = last + [(" ", word[0][1])] + word
+        else:
+            glued.append(word)
+    return glued
 
 
 def projector(box):
@@ -263,7 +271,7 @@ def draw_atlas(spec: dict, size) -> Drawing:
         else:
             lines.append([word])
     if len(lines) > 3:
-        raise ValueError("the heading needs more than three lines")
+        raise ValueError("the heading does not fit in three lines")
     for number, line in enumerate(lines):
         right = drawing.text(f"the heading line {number + 1}", (Drawing.SERIF_LEFT, 236 + 106 * number),
                              [(text, family, colour, 0) for text, family, colour in pieces(line)])
@@ -287,7 +295,7 @@ def draw_collection(spec: dict, size) -> Drawing:
         if title_lines:
             break
     else:
-        raise ValueError(f"the name \"{spec['title']}\" needs more than two lines")
+        raise ValueError(f"the name \"{spec['title']}\" does not fit in two lines")
     y = 236
     for number, line in enumerate(title_lines):
         if number:
@@ -300,7 +308,7 @@ def draw_collection(spec: dict, size) -> Drawing:
         if teaser_lines:
             break
     else:
-        raise ValueError(f"the teaser \"{spec['teaser']}\" needs more than two lines")
+        raise ValueError(f"the teaser \"{spec['teaser']}\" does not fit in two lines")
     y += 72
     for number, line in enumerate(teaser_lines):
         if number:

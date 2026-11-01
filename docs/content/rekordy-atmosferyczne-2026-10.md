@@ -75,8 +75,8 @@ Materiał wyjściowy to 30 pozycji o rekordach pogody w Polsce, przygotowanych 3
 | Siedlce −41 °C | atlas ma już kartę „Siedlce i rekord mrozu” |
 | Litworowy Kocioł −41,1 °C | atlas ma już kartę „Litworowy Kocioł” |
 | Zorza w maju 2024 | atlas ma już kartę o zorzach nad Polską |
-| Kamienica 2024 | 254,5 mm nie znalazło się w żadnym źródle; do sprawdzenia przez Roberta we wpisie IMGW |
-| 388 cm śniegu na Kasprowym | źródła podają 355 albo 335 cm; do sprawdzenia przez Roberta w Vademecum IMGW |
+| Kamienica 2024 | 254,5 mm nie znalazło się w żadnym źródle; zostaje poza atlasem (decyzja z 31.10.2026, niżej) |
+| 388 cm śniegu na Kasprowym | bez osobnej karty; od 31.10.2026 ciekawostka F1543 na karcie Kasprowego Wierchu (niżej) |
 
 Nowe karty sprawdza też `npm run test:collections`:
 - Żywiec i Słubice nie nazywają swojego rekordu oficjalnym, także w ciekawostkach, a szuflada nie wspomina Kołudy Wielkiej ani 254,5 mm z Kamienicy;
@@ -89,8 +89,8 @@ Ciekawostki szuflady to sprawdzone teksty z `new_facts`. Od 31.10.2026 poprawia 
 
 - **Zdjęcia na podglądzie (rozstrzygnięte 31.10.2026):** Wrocław, Suwałki i Kalisz. Początkowo nie dało się ich stąd obejrzeć (sprawdzone były autor i licencja); obejrzane później tego dnia, a Kalisz ma nowe zdjęcie (niżej).
 - **Przypis „c” przy Kaliszu (rozstrzygnięte 31.10.2026):** w tabeli rocznika GUS Poznań 2023 wiersz Kalisza ma przypis „c”. Początkowo PDF się stąd nie otwierał; po dopuszczeniu `poznan.stat.gov.pl` odczytano go: przypis dotyczy tylko zachmurzenia (niżej).
-- **Kamienica 2024 i 388 cm śniegu na Kasprowym (rozstrzygnięte 31.10.2026):** wejdą, jeśli potwierdzisz je w źródłach IMGW. 388 cm weszło jako ciekawostka, a Kamienica zostaje poza atlasem (niżej).
-- **Adresy kart:** pięć różni się od szkicu, np. `wroclaw-srednia-roczna` zamiast `wroclaw-biegun-ciepla`; pełna lista jest w `id_changes`. Po publikacji adresy nie powinny się już zmieniać.
+- **Kamienica 2024 i 388 cm śniegu na Kasprowym (rozstrzygnięte 31.10.2026):** początkowo miały wejść po potwierdzeniu w źródłach IMGW. 388 cm weszło jako ciekawostka F1543, a Kamienica zostaje poza atlasem (niżej).
+- **Adresy kart (zasada na stałe):** pięć różni się od szkicu, np. `wroclaw-srednia-roczna` zamiast `wroclaw-biegun-ciepla`; pełna lista jest w `id_changes`. Po publikacji adresy kart się nie zmieniają.
 
 ## Decyzje z 31.10.2026: 388 cm, Kamienica, Kalisz
 

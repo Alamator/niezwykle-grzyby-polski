@@ -119,7 +119,12 @@ export function fileHash(file) {
 export function imageProblems(images, root = ".") {
   const manifestFile = path.join(root, OG_MANIFEST);
   if (!fs.existsSync(manifestFile)) return [`${OG_MANIFEST} is missing`];
-  const manifest = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
+  } catch {
+    return [`${OG_MANIFEST} is not valid JSON (a merge conflict?)`];
+  }
   const problems = [];
   for (const image of images) {
     const file = path.join(root, image.file);

@@ -309,6 +309,11 @@ export function buildPages(win, indexHtml) {
   // A page must not describe an image that shows something else, so images drawn from older data stop the build.
   const problems = imageProblems(images);
   if (problems.length) throw new Error(`link preview images: ${problems.join("; ")}; ${REDRAW}`);
+  // index.html, the Polish start page, describes the atlas's image itself: after a new heading it needs the new text.
+  const atlasAlt = escapeHtml(images.find((entry) => entry.file === atlasImageFile("pl")).alt);
+  for (const tag of [`<meta property="og:image:alt" content="${atlasAlt}" />`, `<meta name="twitter:image:alt" content="${atlasAlt}" />`]) {
+    if (!indexHtml.includes(tag)) throw new Error(`index.html should have ${tag}, which follows heroTitle in data/i18n.js`);
+  }
   const pages = [];
   for (const language of LANGUAGES) {
     const image = (collection) => {
