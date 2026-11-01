@@ -466,7 +466,7 @@
       "skamienialosci/tholodus-schmidi": "Tholodus schmidi: brak publikacji o znaleziskach z Polski (C127).",
       "architektura-drewniana/chata-na-wysokosci": "Chata na Wysokości: prywatna kwatera, historia tylko według właścicieli, bez ciekawostek i bez zdjęcia obiektu (C144).",
       "atmosfera-astronomia/rekord-godziszow-zadni-gerlach": "Godziszów i Zadni Gerlach: rekordowego zdjęcia z 30.01.2025 (246,1 km) nie potwierdza żadne niezależne źródło, a widok Tatr z daleka opisuje karta „Tatry z Wyżyny Lubelskiej” (31.10.2026).",
-      "mineraly/berylokordieryt-na": "Berylokordieryt-Na: Komisja IMA-CNMNC zdyskredytowała ten minerał we wrześniu 2025 r. (CNMNC Newsletter 87, Mineralogical Magazine 89, doi:10.1180/mgm.2025.10163), więc nie jest już uznanym minerałem. Historię minerałów ze Szklar opowiada karta Sachanbińskiit."
+      "mineraly/berylokordieryt-na": "Berylokordieryt-Na: Komisja IMA-CNMNC zdyskredytowała ten minerał we wrześniu 2025 r. (CNMNC Newsletter 87, Mineralogical Magazine 89, doi:10.1180/mgm.2025.10163), więc nie jest już uznanym minerałem."
     },
     facts: {},
     numbers: []
