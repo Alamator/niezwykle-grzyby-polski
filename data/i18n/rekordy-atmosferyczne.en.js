@@ -63,11 +63,11 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-atmosferyczne"] = {
     "hook": "One of the coldest places in Poland outside the mountains: the mean annual temperature here was 7.2 °C in 1991–2020.",
     "quiz_angle": "one of the coldest places outside the mountains, 7.2 °C against 9.7 °C in Wrocław",
     "safety_note": "In severe frost, dress in layers and check current weather warnings.",
-    "region": "Suwałki, Podlasie.",
+    "region": "Suwałki, Podlaskie Province.",
     "habitat": "1991–2020 (long-term average).",
     "occurrence": "The mean annual air temperature at the weather station in Suwałki was 7.2 °C in 1991–2020 and 6.3 °C in 1971–2000 (IMGW-PIB data in a GUS publication).",
     "level": "cool north-east",
-    "latin": "Podlasie • a cool annual mean"
+    "latin": "Podlaskie Province • a cool annual mean"
   },
   "hala-gasienicowa-300-mm": {
     "name": "Hala Gąsienicowa, 300 mm of precipitation in one day",
@@ -126,7 +126,7 @@ window.ATLAS_ITEM_TEXT_EN["rekordy-atmosferyczne"] = {
   },
   "halny-1968": {
     "name": "Kasprowy Wierch, the May 1968 halny",
-    "hook": "On 6 May 1968, gusts of a foehn wind here reached up to 75–80 m/s, or 270–288 km/h, according to IMGW-PIB.",
+    "hook": "On 6 May 1968, gusts of a foehn wind here reached up to 75–80 m/s according to IMGW-PIB (270–288 km/h when converted).",
     "quiz_angle": "the halny is a warm, dry foehn wind; for May 1968 IMGW-PIB gives gusts of up to 75–80 m/s",
     "safety_note": "During a halny, avoid forests and exposed ridges; this wind can break trees and tear off roofs.",
     "region": "Kasprowy Wierch in the Tatras, Lesser Poland.",

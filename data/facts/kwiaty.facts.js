@@ -151,11 +151,11 @@ window.ATLAS_FACTS["kwiaty"] = {
        "label": "Wikipedia (EN)"
       },
       {
-       "url": "https://www.darwinproject.ac.uk/DCP-LETT-2996",
+       "url": "https://www.darwinproject.ac.uk/view/letters/DCP-LETT-2996",
        "label": "darwinproject.ac.uk"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0210",

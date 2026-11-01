@@ -220,15 +220,19 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
     {
      "id": "F1319",
      "icon": "💧",
-     "pl": "Jezioro Solińskie ma największą pojemność w Polsce: 472 mln m³.",
-     "en": "Lake Solina has the largest capacity in Poland: 472 million m³.",
+     "pl": "Jezioro Solińskie to zbiornik zaporowy o największej pojemności w Polsce. Przy normalnym poziomie piętrzenia (420 m n.p.m.) mieści 472 mln m³.",
+     "en": "Lake Solina is the dam reservoir with the largest capacity in Poland. At its normal impoundment level (420 m above sea level) it holds 472 million m³.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Jezioro_Soli%C5%84skie",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://doi.prz.edu.pl/pl/pdf/biis/151",
+       "label": "Politechnika Rzeszowska (JCEEA 2014)"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1320",

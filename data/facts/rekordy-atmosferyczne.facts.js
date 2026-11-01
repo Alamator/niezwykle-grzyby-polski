@@ -1,8 +1,8 @@
-// Ciekawostki do szuflady „Rekordy atmosferyczne”, sprawdzone 30–31.10.2026 (docs/content/rekordy-atmosferyczne-2026-10.md).
+// Ciekawostki do szuflady „Rekordy atmosferyczne”, sprawdzone 30.10–1.11.2026 (docs/content/rekordy-atmosferyczne-2026-10.md).
 // Poprawki wprowadza się w tym pliku; zasady: docs/content/README-weryfikacja.md.
 window.ATLAS_FACTS = window.ATLAS_FACTS || {};
 window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
- "checked": "2026-10-31",
+ "checked": "2026-11-01",
  "items": {
   "slubice-40-5": {
    "facts": [
@@ -23,9 +23,17 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       {
        "url": "https://www.pap.pl/aktualnosci/imgw-padl-nowy-rekord-ciepla-w-historii-pomiarow-405-st-c-w-slubicach",
        "label": "pap.pl"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2026/07/13/charakterystyka-wybranych-elementow-klimatu-w-polsce-w-czerwcu-2026-roku/",
+       "label": "IMGW-PIB Obserwator: klimat w czerwcu 2026"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2026/07/06/ekstremalny-upal-nie-tylko-w-powietrzu/",
+       "label": "IMGW-PIB Obserwator: Ekstremalny upał"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1509",
@@ -38,11 +46,11 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "stat.gov.pl"
       },
       {
-       "url": "https://www.bdl.lasy.gov.pl/portal/Media/Publikacje/gus-ochrona/ochrona_srodowiska_2025.pdf",
-       "label": "bdl.lasy.gov.pl"
+       "url": "https://stat.gov.pl/download/gfx/portalinformacyjny/pl/defaultaktualnosci/5484/1/26/1/ochrona_srodowiska_2025.pdf",
+       "label": "stat.gov.pl (PDF)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1510",
@@ -57,6 +65,14 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       {
        "url": "https://obserwator.imgw.pl/2026/07/27/ekstremalne-kontrasty-termiczne-w-pierwszej-polowie-2026-roku/",
        "label": "obserwator.imgw.pl"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2026/07/06/ekstremalny-upal-nie-tylko-w-powietrzu/",
+       "label": "IMGW-PIB Obserwator: Ekstremalny upał"
+      },
+      {
+       "url": "https://imgw.pl/upal-prognoza-i-rekordy/",
+       "label": "IMGW-PIB: Upał – prognoza i rekordy"
       }
      ],
      "status": "checked"
@@ -87,6 +103,14 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       {
        "url": "https://pl.wikipedia.org/w/index.php?title=Pr%C3%B3szk%C3%B3w&oldid=80094890",
        "label": "Wikipedia (PL)"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2026/07/06/ekstremalny-upal-nie-tylko-w-powietrzu/",
+       "label": "IMGW-PIB Obserwator: Ekstremalny upał"
+      },
+      {
+       "url": "https://imgw.pl/upal-prognoza-i-rekordy/",
+       "label": "IMGW-PIB: Upał – prognoza i rekordy"
       }
      ],
      "status": "checked"
@@ -138,7 +162,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1515",
@@ -151,7 +175,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -177,11 +201,11 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "szczecin.stat.gov.pl"
       },
       {
-       "url": "https://www.bdl.lasy.gov.pl/portal/Media/Publikacje/gus-ochrona/ochrona_srodowiska_2025.pdf",
-       "label": "bdl.lasy.gov.pl"
+       "url": "https://stat.gov.pl/download/gfx/portalinformacyjny/pl/defaultaktualnosci/5484/1/26/1/ochrona_srodowiska_2025.pdf",
+       "label": "stat.gov.pl (PDF)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1517",
@@ -194,11 +218,11 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "stat.gov.pl"
       },
       {
-       "url": "https://www.bdl.lasy.gov.pl/portal/Media/Publikacje/gus-ochrona/ochrona_srodowiska_2025.pdf",
-       "label": "bdl.lasy.gov.pl"
+       "url": "https://stat.gov.pl/download/gfx/portalinformacyjny/pl/defaultaktualnosci/5484/1/26/1/ochrona_srodowiska_2025.pdf",
+       "label": "stat.gov.pl (PDF)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -216,7 +240,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "bialystok.stat.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -238,7 +262,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "T. Niedźwiedź (RE-BUŚ)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1520",
@@ -255,7 +279,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "IMGW-PIB Obserwator 2020"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1521",
@@ -268,20 +292,28 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "IMGW-PIB Obserwator 2020"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1522",
      "icon": "🏔️",
-     "pl": "Stacja meteorologiczna na Hali Gąsienicowej, która 30 czerwca 1973 r. zmierzyła 300 mm opadu w ciągu doby, leży na wysokości 1520 m n.p.m.",
-     "en": "The weather station at Hala Gąsienicowa that measured 300 mm of precipitation in one day on 30 June 1973 stands at 1,520 m above sea level.",
+     "pl": "Stacja meteorologiczna na Hali Gąsienicowej, która 30 czerwca 1973 r. zmierzyła 300 mm opadu w ciągu doby, leżała wtedy według metadanych IMGW-PIB na wysokości 1520 m n.p.m.",
+     "en": "According to IMGW-PIB station metadata, the weather station at Hala Gąsienicowa that measured 300 mm of precipitation in one day on 30 June 1973 stood at 1,520 m above sea level at the time.",
      "sources": [
       {
        "url": "https://rebus.us.edu.pl/handle/20.500.12128/16240",
        "label": "T. Niedźwiedź (RE-BUŚ)"
+      },
+      {
+       "url": "https://klimat.imgw.pl/pl/meta-dane/",
+       "label": "IMGW-PIB metadane stacji"
+      },
+      {
+       "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
+       "label": "IMGW-PIB Obserwator 2020"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -297,9 +329,13 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
       {
        "url": "https://www.igipz.pan.pl/tl_files/igipz/ZGiHGiW/sgcb/sgbc_33/33_1.pdf",
        "label": "T. Niedźwiedź (IGiPZ PAN 1999)"
+      },
+      {
+       "url": "https://imgw.pl/wp-content/uploads/2024/11/imgw-pib-monografia-2021-przebieg-i-skutki-wybranych-powodzi-w-dorzeczu-odry-calosc.pdf",
+       "label": "IMGW-PIB 2021 (PDF)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1524",
@@ -316,7 +352,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "T. Niedźwiedź (IGiPZ PAN 1999)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1525",
@@ -339,28 +375,36 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
     {
      "id": "F1526",
      "icon": "💧",
-     "pl": "W latach 1966–2006 średnia roczna suma opadów na Kasprowym Wierchu wyniosła 1797,7 mm, a w Zakopanem 1117,6 mm.",
-     "en": "In 1966–2006 the mean annual precipitation total on Kasprowy Wierch was 1,797.7 mm, and in Zakopane 1,117.6 mm.",
+     "pl": "W latach 1966–2006 średnia roczna suma opadów na Kasprowym Wierchu wyniosła 1797,7 mm.",
+     "en": "In 1966–2006 the mean annual precipitation total on Kasprowy Wierch was 1,797.7 mm.",
      "sources": [
       {
        "url": "https://archiwum.tpn.pl/filebrowser/files/T1_22.pdf",
        "label": "E. Żmudzka (TPN)"
+      },
+      {
+       "url": "https://bibliotekanauki.pl/articles/2035472",
+       "label": "Miscellanea Geographica 2011"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1527",
      "icon": "🌧️",
-     "pl": "W latach 1966–2006 najwięcej opadów spadło na Kasprowym Wierchu w 2001 r.: 2600,3 mm. W Zakopanem był to również rok z największą sumą, 1462,2 mm.",
-     "en": "In 1966–2006 the most precipitation on Kasprowy Wierch fell in 2001: 2,600.3 mm. In Zakopane it was also the year with the highest total, 1,462.2 mm.",
+     "pl": "W latach 1966–2006 najwięcej opadów spadło na Kasprowym Wierchu w 2001 r.: 2600,3 mm.",
+     "en": "In 1966–2006 the most precipitation on Kasprowy Wierch fell in 2001: 2,600.3 mm.",
      "sources": [
       {
        "url": "https://archiwum.tpn.pl/filebrowser/files/T1_22.pdf",
        "label": "E. Żmudzka (TPN)"
+      },
+      {
+       "url": "https://bibliotekanauki.pl/articles/2035472",
+       "label": "Miscellanea Geographica 2011"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1543",
@@ -413,7 +457,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "obserwator.imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -431,7 +475,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "obserwator.imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1531",
@@ -549,7 +593,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "obserwator.imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1538",
@@ -566,7 +610,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1539",
@@ -583,7 +627,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "obserwator.imgw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1540",
@@ -618,7 +662,7 @@ window.ATLAS_FACTS["rekordy-atmosferyczne"] = {
        "label": "Wikipedia (PL)"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

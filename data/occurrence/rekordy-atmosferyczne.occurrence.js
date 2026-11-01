@@ -3,7 +3,7 @@
 // that was read. Loaded with the collection (data/collections.js); a text that changes needs its sources checked again.
 window.ATLAS_OCCURRENCE_SOURCES = window.ATLAS_OCCURRENCE_SOURCES || {};
 window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
-  "checked": "2026-10-31",
+  "checked": "2026-11-01",
   "items": {
     "slubice-40-5": [
       {
@@ -17,6 +17,18 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://www.pap.pl/aktualnosci/imgw-padl-nowy-rekord-ciepla-w-historii-pomiarow-405-st-c-w-slubicach",
         "label": "PAP 2026"
+      },
+      {
+        "url": "https://obserwator.imgw.pl/2026/07/13/charakterystyka-wybranych-elementow-klimatu-w-polsce-w-czerwcu-2026-roku/",
+        "label": "IMGW-PIB Obserwator: klimat w czerwcu 2026"
+      },
+      {
+        "url": "https://obserwator.imgw.pl/2026/07/06/ekstremalny-upal-nie-tylko-w-powietrzu/",
+        "label": "IMGW-PIB Obserwator: Ekstremalny upał"
+      },
+      {
+        "url": "https://imgw.pl/upal-prognoza-i-rekordy/",
+        "label": "IMGW-PIB: Upał – prognoza i rekordy"
       }
     ],
     "proszkow-1921": [
@@ -35,6 +47,14 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://pl.wikipedia.org/w/index.php?title=Pr%C3%B3szk%C3%B3w&oldid=80094890",
         "label": "Wikipedia (PL): Prószków"
+      },
+      {
+        "url": "https://obserwator.imgw.pl/2026/07/06/ekstremalny-upal-nie-tylko-w-powietrzu/",
+        "label": "IMGW-PIB Obserwator: Ekstremalny upał"
+      },
+      {
+        "url": "https://imgw.pl/upal-prognoza-i-rekordy/",
+        "label": "IMGW-PIB: Upał – prognoza i rekordy"
       }
     ],
     "zywiec-1929": [
@@ -59,6 +79,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
         "label": "GUS Ochrona środowiska 2025"
       },
       {
+        "url": "https://klimat.imgw.pl/pl/climate-normals/",
+        "label": "IMGW-PIB normy klimatyczne"
+      },
+      {
         "url": "https://www.radiokrakow.pl/aktualnosci/tarnow/tarnow-nie-jest-juz-nacieplejszy-ale-najpogodniejszy-tytul-polski-biegun-ciepla-jednak-zostaje",
         "label": "Radio Kraków"
       }
@@ -67,6 +91,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://bialystok.stat.gov.pl/download/gfx/bialystok/pl/defaultstronaopisowa/1398/1/1/4_warunki_naturalne_i_ochrona_srodowiska.pdf",
         "label": "GUS Białystok"
+      },
+      {
+        "url": "https://klimat.imgw.pl/pl/climate-normals/",
+        "label": "IMGW-PIB normy klimatyczne"
       }
     ],
     "hala-gasienicowa-300-mm": [
@@ -77,6 +105,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://rebus.us.edu.pl/handle/20.500.12128/16240",
         "label": "T. Niedźwiedź (RE-BUŚ)"
+      },
+      {
+        "url": "https://klimat.imgw.pl/pl/meta-dane/",
+        "label": "IMGW-PIB metadane stacji"
       }
     ],
     "powodz-1997-opady": [
@@ -87,6 +119,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://pl.wikipedia.org/w/index.php?title=Pow%C3%B3d%C5%BA_tysi%C4%85clecia&oldid=80236780",
         "label": "Wikipedia (PL): Powódź tysiąclecia"
+      },
+      {
+        "url": "https://imgw.pl/wp-content/uploads/2024/11/imgw-pib-monografia-2021-przebieg-i-skutki-wybranych-powodzi-w-dorzeczu-odry-calosc.pdf",
+        "label": "IMGW-PIB 2021 (PDF)"
       }
     ],
     "kasprowy-opady-roczne": [
@@ -97,6 +133,10 @@ window.ATLAS_OCCURRENCE_SOURCES["rekordy-atmosferyczne"] = {
       {
         "url": "https://obserwator.imgw.pl/2020/11/19/tatrzanska-stacja-gasienicowa/",
         "label": "IMGW-PIB Obserwator 2020"
+      },
+      {
+        "url": "https://bibliotekanauki.pl/articles/2035472",
+        "label": "Miscellanea Geographica 2011"
       }
     ],
     "kalisz-opady-roczne": [
