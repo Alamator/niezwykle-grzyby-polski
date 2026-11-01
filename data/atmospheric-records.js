@@ -166,7 +166,7 @@
       name_pl: "Kasprowy Wierch — halny z maja 1968 roku",
       name_lat: "Tatry • porywy do 75–80 m/s według IMGW-PIB",
       category: "wiatr",
-      hook: "6 maja 1968 r. porywy wiatru fenowego dochodziły tu według IMGW-PIB do 75–80 m/s, czyli 270–288 km/h.",
+      hook: "6 maja 1968 r. porywy wiatru fenowego dochodziły tu według IMGW-PIB do 75–80 m/s (po przeliczeniu 270–288 km/h).",
       quiz_angle: "halny to ciepły, suchy wiatr fenowy; dla maja 1968 r. IMGW-PIB podaje porywy do 75–80 m/s",
       safety_note: "podczas halnego omijać las i odsłonięte grzbiety; ten wiatr potrafi łamać drzewa i zrywać dachy",
       region_pl: "Kasprowy Wierch w Tatrach, Małopolskie.",

@@ -52,7 +52,17 @@ Przegląd tych zmian (31.10.2026) znalazł kilka miejsc, w których odkryte ciek
 
 Później tego dnia F1528 (Kalisz) dostała status `verified` zamiast `checked`: rocznik GUS Poznań 2023 dał się otworzyć i potwierdza 507, 494 i 437 mm, a przypis „c” przy Kaliszu dotyczy tylko zachmurzenia (`rekordy-atmosferyczne-2026-10.md`).
 
-Teraz atlas ma 1458 ciekawostek na 628 kartach: 493 `checked`, 536 `verified` i 429 `corrected`.
+## 1.11.2026: źródła, które wcześniej się nie otwierały
+
+Robert dopuścił w ustawieniach środowiska kolejne strony, m.in. IMGW-PIB, GUS i Lasów Państwowych. Dzięki temu sprawdzono jeszcze raz ciekawostki, których źródła wcześniej się nie otwierały: całą szufladę „Rekordy atmosferyczne” i trzy źródła z audytu 30.10.2026. Każdą ciekawostkę przeczytały dwa niezależne odczyty, na pełnych tekstach źródeł.
+
+- **Szuflada „Rekordy atmosferyczne”:** 18 ciekawostek ma teraz status `verified`, a 3 mają nowe brzmienie (`corrected`: F1522, F1526, F1527). F1510 i F1511 zostają `checked`. Kilka ciekawostek i kart dostało nowe źródła IMGW-PIB. Szczegóły: [rekordy-atmosferyczne-2026-10.md](rekordy-atmosferyczne-2026-10.md).
+- **Źródła usunięte albo zmienione 31.10.2026 (`fix_sources`, wyżej):**
+  - F0209 (Darwin i rosiczki): list Darwina do Ch. Lyella z 24.11.1860 otwiera się i ma cytat z ciekawostki („I care more about Drosera than the origin of all the species in the world”). Link prowadzi teraz wprost do adresu, na który przekierowuje dawny (`/view/letters/DCP-LETT-2996`). Status `verified`.
+  - F1319 (Solina): artykuł Politechniki Rzeszowskiej (JCEEA 2014) otwiera się pod adresem `https://` i wrócił jako źródło. Podaje, że Solina to zbiornik zaporowy o największej pojemności w Polsce, a przy normalnym poziomie piętrzenia (420 m n.p.m.) mieści 472 mln m³. Ciekawostka mówi teraz dokładnie to. Wcześniej brzmiała „Jezioro Solińskie ma największą pojemność w Polsce”, bez słowa o zbiornikach zaporowych. Status `corrected`.
+  - F0600 (bielik): PDF na `uwb.edu.pl` nadal się nie otwiera (serwer odpowiada błędem 503). Ciekawostka zostaje bez zmian, z dwoma hasłami Wikipedii.
+
+Teraz atlas ma 1458 ciekawostek na 628 kartach: 470 `checked`, 555 `verified` i 433 `corrected`.
 
 **Od tej pory ciekawostki poprawia się w `data/facts/*.facts.js`, także w szufladzie rekordów.** Każda potrzebuje źródła i statusu według tabeli wyżej. Ciekawostkę, która czeka na poprawkę, można ukryć w `data/collections.js` (`WITHDRAWN.facts`, z powodem). `npm run test:facts` pilnuje, żeby nie wróciło to, co sprawdzenia z 28–31.10.2026 usunęły albo poprawiły, pod żadnym id i w żadnym języku:
 - ciekawostki usuniętych kart i teksty ciekawostek pominiętych;
