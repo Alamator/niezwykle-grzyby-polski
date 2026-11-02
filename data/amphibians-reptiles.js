@@ -391,9 +391,9 @@
       quiz_angle: "udokumentowana populacja, rybożerność, południowa Polska i odróżnienie od zaskrońca zwyczajnego",
       safety_note: "nie nagłaśniać dokładnych miejsc i nie penetrować brzegów stanowisk; mała populacja wymaga spokoju",
       protection: "strict",
-      region_pl: "Bardzo lokalnie w południowej Polsce, szczególnie w rejonie Śląska Cieszyńskiego i dolin rzecznych o odpowiednich warunkach.",
+      region_pl: "Bardzo lokalnie w południowej Polsce, w rejonie Śląska Cieszyńskiego.",
       habitat_pl: "Ciepłe brzegi rzek i zbiorników, kamieniste lub zarośnięte strefy przywodne oraz miejsca z dostępem do ryb.",
-      occurrence_note: "Pierwszego współczesnego osobnika w Polsce stwierdzono w lipcu 2009 r. W atlasie to przykład dobrze udokumentowanej nowości faunistycznej, a nie luźnej legendy o egzotycznym wężu.",
+      occurrence_note: "Pierwszej udokumentowanej obserwacji w Polsce dokonano w lipcu 2009 r. W atlasie to przykład dobrze udokumentowanej nowości faunistycznej, a nie luźnej legendy o egzotycznym wężu.",
       level: "nowy wąż"
     }),
     entry({

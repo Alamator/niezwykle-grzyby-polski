@@ -1320,7 +1320,7 @@ window.ATLAS_FACTS["ptaki"] = {
        "label": "birdsoftheworld.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0675",
@@ -1420,8 +1420,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0680",
      "icon": "🇵🇱",
-     "pl": "W Polsce gniazduje około 25% światowej populacji, czyli najwięcej w Unii Europejskiej. Dzięki ochronie czynnej liczebność przez lata rosła, ale w ostatnich latach populacja nad Biebrzą wyraźnie spadła.",
-     "en": "About 25% of the world population nests in Poland, the largest share in the European Union. Thanks to active conservation, numbers rose for years, but in recent years the population in the Biebrza valley has fallen markedly.",
+     "pl": "W Polsce gniazduje około 25% światowej populacji, czyli najwięcej w Unii Europejskiej. Podczas suszy w 2025 roku populacja nad Biebrzą osiągnęła zaledwie 50% normalnej liczebności.",
+     "en": "About 25% of the world population nests in Poland, the largest share in the European Union. During the 2025 drought the population in the Biebrza valley reached only 50% of its normal numbers.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Wodniczka_%28ptak%29",
@@ -1438,9 +1438,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://www.gov.pl/attachment/adb71c50-4569-447c-8693-4f081919a41a",
        "label": "gov.pl"
+      },
+      {
+       "url": "https://bbpn.gov.pl/2026-rokiem-ochrony-zasobow-wodnych",
+       "label": "bbpn.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0681",
@@ -1623,8 +1627,8 @@ window.ATLAS_FACTS["ptaki"] = {
     {
      "id": "F0693",
      "icon": "🎂",
-     "pl": "Najstarsza znana mewa delawarska dożyła co najmniej 29 lat i 6 miesięcy. Zaobrączkowano ją jako pisklę w Toronto w 1992 roku, a ostatni raz widziano ją w Cleveland w grudniu 2021 roku.",
-     "en": "The oldest known ring-billed gull lived to at least 29 years and 6 months. It was ringed as a chick in Toronto in 1992 and last seen in Cleveland in December 2021.",
+     "pl": "Najstarsza znana mewa delawarska dożyła co najmniej 29 lat i 6 miesięcy. Zaobrączkowano ją jako pisklę w Toronto w 1992 roku, a w 2021 roku obserwowano ją w Cleveland.",
+     "en": "The oldest known ring-billed gull lived to at least 29 years and 6 months. It was ringed as a chick in Toronto in 1992 and was observed in Cleveland in 2021.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Ring-billed_gull",
@@ -1633,9 +1637,13 @@ window.ATLAS_FACTS["ptaki"] = {
       {
        "url": "https://www.usgs.gov/media/images/ring-billed-gull-longevity",
        "label": "usgs.gov"
+      },
+      {
+       "url": "https://www.dispatch.com/story/lifestyle/home-garden/2021/03/21/nature-documenting-age-wild-birds-not-easy-task/4698900001/",
+       "label": "dispatch.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []

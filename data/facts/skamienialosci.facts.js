@@ -122,8 +122,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0949",
      "icon": "🥇",
-     "pl": "Do 2007 r., gdy opisano kompletne skamieniałości drzewa Wattieza z Nowego Jorku, wielu naukowców uważało Archaeopteris za najstarsze znane drzewo.",
-     "en": "Until 2007, when complete fossils of the tree Wattieza from New York were described, many scientists considered Archaeopteris to be the oldest known tree.",
+     "pl": "Do 2007 r., gdy opisano skamieniałości drzewa Wattieza ze stanu Nowy Jork, wielu naukowców uważało Archaeopteris za najstarsze znane drzewo.",
+     "en": "Until 2007, when fossils of the tree Wattieza from New York State were described, many scientists considered Archaeopteris to be the oldest known tree.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Archaeopteris",
@@ -142,7 +142,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "cbc.ca"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -200,8 +200,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0954",
      "icon": "",
-     "pl": "⏳ Są o ok. 18 mln lat starsze od najstarszych znanych szkieletów czworonogów.",
-     "en": "⏳ They are about 18 million years older than the oldest known tetrapod skeletons.",
+     "pl": "⏳ Są o ok. 18 mln lat starsze od najstarszych znanych skamieniałych szczątków czworonogów.",
+     "en": "⏳ They are about 18 million years older than the oldest known tetrapod body fossils.",
      "sources": [
       {
        "url": "https://www.science.org/content/article/ancient-four-legged-beasts-leave-their-mark",
@@ -212,7 +212,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "nature.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0955",
@@ -227,9 +227,17 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://ui.adsabs.harvard.edu/abs/2015Ichno..22..136L",
        "label": "ui.adsabs.harvard.edu"
+      },
+      {
+       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1755691018000695",
+       "label": "cambridge.org"
+      },
+      {
+       "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-025-08884-5/MediaObjects/41586_2025_8884_MOESM3_ESM.pdf",
+       "label": "media.springernature.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -468,7 +476,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "researchgate.net"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0971",
@@ -553,9 +561,13 @@ window.ATLAS_FACTS["skamienialosci"] = {
       {
        "url": "https://www.pgi.gov.pl/en/dinosaurs/borkowice",
        "label": "pgi.gov.pl"
+      },
+      {
+       "url": "https://geojournals.pgi.gov.pl/pg/article/download/33262/24403/53958",
+       "label": "geojournals.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0976",
@@ -576,7 +588,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "scienceinpoland.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -629,7 +641,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "orbi.uliege.be"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0980",
@@ -668,7 +680,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "muzeumewolucji.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -678,8 +690,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F0983",
      "icon": "🦀",
-     "pl": "Opisali go w 2014 r. Adrian Kin i Błażej Błażejowski, na podstawie ośmiu okazów sprzed ok. 148 mln lat.",
-     "en": "It was described in 2014 by Adrian Kin and Błażej Błażejowski, based on eight specimens from around 148 million years ago.",
+     "pl": "Opisali go w 2014 r. Adrian Kin i Błażej Błażejowski, na podstawie co najmniej ośmiu okazów sprzed ok. 148 mln lat.",
+     "en": "It was described in 2014 by Adrian Kin and Błażej Błażejowski, based on at least eight specimens from around 148 million years ago.",
      "sources": [
       {
        "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0108036",
@@ -690,7 +702,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "link.springer.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0984",
@@ -707,7 +719,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "onlinelibrary.wiley.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -751,20 +763,20 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0988",
      "icon": "🦷",
-     "pl": "Zęby plezjozauroidów z Owadowa opisano w 2023 r.",
-     "en": "Plesiosauroid teeth from Owadów were described in 2023.",
+     "pl": "Zęby plezjozauroidów z Owadowa-Brzezinek opisano w 2023 r.",
+     "en": "Plesiosauroid teeth from Owadów-Brzezinki were described in 2023.",
      "sources": [
       {
        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10351514/",
        "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -821,7 +833,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "geojournals.pgi.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0993",
@@ -1033,8 +1045,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F1007",
      "icon": "📜",
-     "pl": "Już w XV wieku o skrzemieniałych pniach z Roztocza Południowego, z okolic Potylicza, Hrebennego i Prus, pisał Jan Długosz w swoich „Rocznikach”.",
-     "en": "As early as the 15th century, Jan Długosz wrote in his “Annals” about petrified tree trunks from Southern Roztocze, from around Potylicz, Hrebenne and Prusy.",
+     "pl": "Już w XV wieku o skrzemieniałych pniach z Roztocza Południowego, z okolic Potylicza, Hrebennego i Prusia, pisał Jan Długosz w swoich „Rocznikach”.",
+     "en": "As early as the 15th century, Jan Długosz wrote in his “Annals” about petrified tree trunks from Southern Roztocze, from around Potylicz, Hrebenne and Prusie.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Skrzemienia%C5%82e_drewno",
@@ -1045,7 +1057,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "roztoczanskipn.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1008",
@@ -1138,8 +1150,8 @@ window.ATLAS_FACTS["skamienialosci"] = {
     {
      "id": "F1013",
      "icon": "🦣",
-     "pl": "Szczątki z tego stanowiska należą do co najmniej 112 mamutów, licząc po zębach.",
-     "en": "The remains from this site belong to at least 112 mammoths, counting by their teeth.",
+     "pl": "Szczątki z tego stanowiska należą do co najmniej 112 mamutów, licząc po żuchwach i dolnych zębach trzonowych.",
+     "en": "The remains from this site belong to at least 112 mammoths, counting by their mandibles and lower molars.",
      "sources": [
       {
        "url": "https://doi.org/10.1016/j.quascirev.2019.04.004",
@@ -1150,7 +1162,7 @@ window.ATLAS_FACTS["skamienialosci"] = {
        "label": "sciencedirect.com"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1014",

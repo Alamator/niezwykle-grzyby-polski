@@ -46,8 +46,8 @@ window.ATLAS_ITEM_TEXT_EN["skamienialosci"] = {
   },
   "tropy-tetrapodow-z-zachelmia": {
     "name": "Zachełmie tetrapod tracks",
-    "hook": "The tracks from Zachełmie shifted the story of vertebrates moving onto land and showed that legs with toes could have practiced stepping in a shallow lagoon.",
-    "quiz_angle": "tracks from the Devonian, an alternating gait and a tidal lagoon setting instead of the classic river delta",
+    "hook": "The tracks from Zachełmie shifted the story of vertebrates moving onto land and showed that legs with toes could have practiced stepping in shallow water.",
+    "quiz_angle": "tracks from the Devonian, an alternating gait and a setting of shallow ephemeral lakes on a coastal plain instead of the classic river delta",
     "safety_note": "View the reserve without leaving the designated areas; the tracks are a record of world importance, not a souvenir to take away.",
     "region": "Zachełmie near Zagnańsk, Świętokrzyskie Mountains.",
     "habitat": "A Middle Devonian coastal zone with stromatolite mats, desiccation cracks and a muddy bottom.",

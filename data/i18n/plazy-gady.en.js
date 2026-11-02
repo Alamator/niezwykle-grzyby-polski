@@ -268,9 +268,9 @@ window.ATLAS_ITEM_TEXT_EN["plazy-gady"] = {
     "hook": "Its stable population in southern Poland was a herpetological sensation: a fish-eating snake turned out to be part of the country's fauna.",
     "quiz_angle": "documented population, fish-eating diet, southern Poland and telling it apart from the grass snake",
     "safety_note": "Do not publicize exact locations and do not search the banks at its sites; the small population needs peace and quiet.",
-    "region": "Very locally in southern Poland, especially in the Cieszyn Silesia area and in river valleys with suitable conditions.",
+    "region": "Very locally in southern Poland, in the Cieszyn Silesia area.",
     "habitat": "Warm banks of rivers and reservoirs, stony or overgrown waterside zones and places with access to fish.",
-    "occurrence": "The first modern individual in Poland was recorded in July 2009. In the atlas it is an example of a well-documented new addition to the fauna, not a loose legend about an exotic snake.",
+    "occurrence": "The first documented observation in Poland was made in July 2009. In the atlas it is an example of a well-documented new addition to the fauna, not a loose legend about an exotic snake.",
     "level": "new snake"
   },
   "gniewosz-plamisty": {

@@ -977,7 +977,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "sulecin.szczecin.lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0752",
@@ -1170,7 +1170,7 @@ window.ATLAS_FACTS["ssaki"] = {
        "label": "ibs.bialowieza.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0762",

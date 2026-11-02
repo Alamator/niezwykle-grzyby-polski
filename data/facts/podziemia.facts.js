@@ -143,9 +143,13 @@ window.ATLAS_FACTS["podziemia"] = {
       {
        "url": "https://whc.unesco.org/en/decisions/7390/",
        "label": "whc.unesco.org"
+      },
+      {
+       "url": "https://www.gov.pl/web/kultura/krzemionkowski-region-prehistorycznego-gornictwa-krzemienia-pasiastego-na-liscie-swiatowego-dziedzictwa-kulturalnego-i-naturalnego-unesco",
+       "label": "gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -976,7 +980,7 @@ window.ATLAS_FACTS["podziemia"] = {
      "id": "F1297",
      "icon": "🏛️",
      "pl": "Pod adresem Rynek Główny 1 działa oddział Muzeum Krakowa **„Rynek Podziemny”**. Ma wystawę stałą „Śladem europejskiej tożsamości Krakowa” i prowadzi zajęcia „Co się kryje pod Rynkiem? Tajemnice archeologii”.",
-     "en": "At Rynek Główny 1 you will find a branch of the Museum of Kraków, **“Rynek Underground”**. It has a permanent exhibition, “In the Footsteps of Kraków’s European Identity”, and runs workshops titled “What Lies Beneath the Market Square? Secrets of Archaeology”.",
+     "en": "At Rynek Główny 1 you will find a branch of the Museum of Kraków, **“Rynek Underground”**. It has a permanent exhibition, “In the Footsteps of Kraków’s European Identity”, and runs classes titled “What Lies Beneath the Market Square? Secrets of Archaeology”.",
      "sources": [
       {
        "url": "https://muzeumkrakowa.pl/oddzialy/rynek-podziemny",
@@ -987,7 +991,7 @@ window.ATLAS_FACTS["podziemia"] = {
        "label": "muzeumkrakowa.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
