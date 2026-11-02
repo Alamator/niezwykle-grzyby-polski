@@ -109,9 +109,17 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://muzmin.uwr.edu.pl/en/2024/09/26/nowoodkryte-mineraly/",
        "label": "muzmin.uwr.edu.pl"
+      },
+      {
+       "url": "https://www.mindat.org/min-46703.html",
+       "label": "mindat.org"
+      },
+      {
+       "url": "https://handbookofmineralogy.org/wp-content/uploads/2022/07/z%CC%87abin%CC%81skiite.pdf",
+       "label": "handbookofmineralogy.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -406,7 +414,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "athena.unige.ch"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -428,7 +436,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "ejm.copernicus.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0805",
@@ -441,7 +449,7 @@ window.ATLAS_FACTS["mineraly"] = {
        "label": "mindat.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -630,9 +638,13 @@ window.ATLAS_FACTS["mineraly"] = {
       {
        "url": "https://webmineral.com/data/Hauerite.shtml",
        "label": "webmineral.com"
+      },
+      {
+       "url": "https://www.mindat.org/min-1831.html",
+       "label": "mindat.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0817",

@@ -567,9 +567,13 @@ window.ATLAS_FACTS["kwiaty"] = {
       {
        "url": "https://pressto.amu.edu.pl/index.php/biorc/article/download/biorc-2020-0007/29483/72196",
        "label": "pressto.amu.edu.pl"
+      },
+      {
+       "url": "https://www.gov.pl/attachment/083ee999-5266-4597-9f3f-5e01e93587d4",
+       "label": "gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

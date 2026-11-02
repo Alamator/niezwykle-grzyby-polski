@@ -250,7 +250,7 @@ window.ATLAS_FACTS["plazy-gady"] = {
        "label": "liverpoolmuseums.org.uk"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0526",
@@ -1273,8 +1273,8 @@ window.ATLAS_FACTS["plazy-gady"] = {
     {
      "id": "F0588",
      "icon": "🆕",
-     "pl": "Pierwszy współczesny osobnik w Polsce: **lipiec 2009** w regionie Śląska Cieszyńskiego. Późniejsze obserwacje wskazują na **stabilną, rozmnażającą się populację**.",
-     "en": "The first modern-day individual in Poland: **July 2009** in the Cieszyn Silesia region. Later observations point to a **stable, breeding population**.",
+     "pl": "Pierwsza udokumentowana obserwacja w Polsce: **lipiec 2009** w regionie Śląska Cieszyńskiego. Późniejsze obserwacje wskazują na **stabilną, rozmnażającą się populację**.",
+     "en": "The first documented observation in Poland: **July 2009** in the Cieszyn Silesia region. Later observations point to a **stable, breeding population**.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Zaskroniec_rybo%C5%82%C3%B3w",
@@ -1283,9 +1283,13 @@ window.ATLAS_FACTS["plazy-gady"] = {
       {
        "url": "https://scienceinpoland.pl/en/news/news,77639,new-species-are-also-discovered-poland-what-about-their-protection.html",
        "label": "scienceinpoland.pl"
+      },
+      {
+       "url": "https://ruj.uj.edu.pl/server/api/core/bitstreams/848861f8-3910-4090-866d-1d8276d878b4/content",
+       "label": "ruj.uj.edu.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0589",

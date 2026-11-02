@@ -1264,8 +1264,8 @@ window.ATLAS_FACTS["owady"] = {
     {
      "id": "F0431",
      "icon": "🦌",
-     "pl": "To jeden z największych chrząszczy Europy. Larwy rozwijają się w próchniejącym drewnie kilka lat (zwykle około pięciu), a dorosłe żyją tylko kilka tygodni.",
-     "en": "This is one of Europe's largest beetles. The larvae develop in rotting wood for several years (usually about five), while the adults live for only a few weeks.",
+     "pl": "To jeden z największych chrząszczy Europy. Larwy rozwijają się w próchniejącym drewnie kilka lat, a dorosłe żyją tylko kilka tygodni.",
+     "en": "This is one of Europe's largest beetles. The larvae develop in rotting wood for several years, while the adults live for only a few weeks.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Lucanus_cervus",
@@ -1288,7 +1288,7 @@ window.ATLAS_FACTS["owady"] = {
        "label": "nhm.ac.uk"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0432",

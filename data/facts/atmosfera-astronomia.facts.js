@@ -507,8 +507,8 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
     {
      "id": "F1047",
      "icon": "✨",
-     "pl": "Oficjalna nazwa to Park Gwiezdnego Nieba „Bieszczady”. Powołano go 8 marca 2013 r. w Lutowiskach.",
-     "en": "Its official name is Park Gwiezdnego Nieba 'Bieszczady'. It was established on 8 March 2013 in Lutowiska.",
+     "pl": "Jego nazwa to Park Gwiezdnego Nieba „Bieszczady”. Powołano go 8 marca 2013 r. w Lutowiskach.",
+     "en": "Its name is Park Gwiezdnego Nieba 'Bieszczady'. It was established on 8 March 2013 in Lutowiska.",
      "sources": [
       {
        "url": "https://www.gwiezdnebieszczady.pl/o-inicjatywe/",
@@ -517,9 +517,13 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
       {
        "url": "https://www.gwiezdnebieszczady.pl/wps/wp-content/uploads/2013/03/Informacja-prasowa-Sprawozdanie-z-podpisania-memorandum.pdf",
        "label": "gwiezdnebieszczady.pl"
+      },
+      {
+       "url": "https://www.lutowiska.pl/aktualnosci-astro/items/park-gwiezdnego-nieba-bieszczady-oficjalnie-powolany",
+       "label": "lutowiska.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1048",
@@ -936,7 +940,7 @@ window.ATLAS_FACTS["atmosfera-astronomia"] = {
        "label": "radiokrakow.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1070",

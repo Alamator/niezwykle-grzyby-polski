@@ -162,7 +162,7 @@ window.ATLAS_FACTS["architektura-drewniana"] = {
        "label": "swietokrzyskie.pro"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

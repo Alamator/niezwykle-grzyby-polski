@@ -388,8 +388,8 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
     {
      "id": "F1327",
      "icon": "🌉",
-     "pl": "Most drogowy (lisewski) zbudowano w latach 1851–1857 jako most drogowo-kolejowy. Był pierwszym w kontynentalnej Europie mostem kratownicowym o dużej rozpiętości przęseł.",
-     "en": "The road bridge (the Lisewo bridge) was built in 1851–1857 as a combined road and rail bridge. It was the first truss bridge with large spans in continental Europe.",
+     "pl": "Most drogowy (lisewski) zbudowano w latach 1851–1857 jako most drogowo-kolejowy. Był pierwszym w kontynentalnej Europie mostem kratowym o dużej rozpiętości przęseł.",
+     "en": "The road bridge (the Lisewo bridge) was built in 1851–1857 as a combined road and rail bridge. It was the first lattice-truss bridge with large spans in continental Europe.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Most_drogowy_w_Tczewie",
@@ -404,7 +404,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "ochronazabytkow.nid.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1328",
@@ -718,7 +718,7 @@ window.ATLAS_FACTS["cuda-inzynierii"] = {
        "label": "odrapcu.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1343",

@@ -270,7 +270,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "gorykaczawskie.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0881",
@@ -855,7 +855,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "nbi.com.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -898,7 +898,7 @@ window.ATLAS_FACTS["formacje-skalne"] = {
        "label": "cris.unibo.it"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

@@ -21,7 +21,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "unesco.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1379",
@@ -539,7 +539,7 @@ window.ATLAS_FACTS["twierdze-ruiny"] = {
        "label": "kpnmab.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1405",

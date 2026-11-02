@@ -321,7 +321,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "wroclaw.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -366,9 +366,13 @@ window.ATLAS_FACTS["drzewa"] = {
       {
        "url": "https://gryfino.szczecin.lasy.gov.pl/krzywy-las-kolo-gryfina",
        "label": "gryfino.szczecin.lasy.gov.pl"
+      },
+      {
+       "url": "https://gryfino.szczecin.lasy.gov.pl/wiecej-o-krzywym-lesie",
+       "label": "gryfino.szczecin.lasy.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0300",
@@ -648,15 +652,15 @@ window.ATLAS_FACTS["drzewa"] = {
     {
      "id": "F0319",
      "icon": "🏰",
-     "pl": "W tym parku stał dwór hetmana **Stefana Czarnieckiego**. Kula pasuje do działa 6-funtowego, ale jej wiek i pochodzenie mają dopiero ustalić archeolodzy.",
-     "en": "This park was once the site of the manor house of Hetman **Stefan Czarniecki**. The cannonball fits a 6-pounder gun, but its age and origin have yet to be established by archaeologists.",
+     "pl": "W tym parku stał dwór, w którym czasowo mieszkał hetman **Stefan Czarniecki**. Kula pasuje do działa 6-funtowego, ale jej wiek i pochodzenie nie są pewne. O jej zbadanie poproszono archeologów.",
+     "en": "This park was once the site of a manor house where Hetman **Stefan Czarniecki** lived for a time. The cannonball fits a 6-pounder gun, but its age and origin are not certain. Archaeologists have been asked to examine it.",
      "sources": [
       {
        "url": "https://wloszczowa.pl/aktualnosci/jakie-tajemnice-kryje-jeszcze-historyczna-czarnca-w-starym-drzewie-w-parku-arboretum-pracownicy-miejskiej-zieleni-znalezli-najprawdopodobniej-kule-armatnia-z-xvi-lub-xvii-wieku.html",
        "label": "wloszczowa.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0320",
@@ -877,7 +881,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "ipn.gov.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1088,7 +1092,7 @@ window.ATLAS_FACTS["drzewa"] = {
        "label": "money.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

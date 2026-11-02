@@ -42,7 +42,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "polska.travel"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F1447",
@@ -300,8 +300,8 @@ window.ATLAS_FACTS["memento-mori"] = {
     {
      "id": "F1459",
      "icon": "",
-     "pl": "Cmentarz powstał w XVI wieku. Źródła różnie podają rok założenia, od 1533 do 1551 r., a najstarszy zachowany nagrobek pochodzi z 1552 r. To najstarszy zachowany cmentarz żydowski w Krakowie i jeden z najstarszych zachowanych w Europie.",
-     "en": "The cemetery was founded in the 16th century. Sources give different founding dates, from 1533 to 1551, and the oldest surviving gravestone dates from 1552. It is the oldest surviving Jewish cemetery in Kraków and one of the oldest surviving in Europe.",
+     "pl": "Cmentarz powstał w XVI wieku. Źródła różnie podają rok założenia, od 1533 do 1552 r., a najstarszy zachowany nagrobek pochodzi z 1552 r. To najstarszy zachowany cmentarz żydowski w Krakowie i jeden z najstarszych zachowanych w Europie.",
+     "en": "The cemetery was founded in the 16th century. Sources give different founding dates, from 1533 to 1552, and the oldest surviving gravestone dates from 1552. It is the oldest surviving Jewish cemetery in Kraków and one of the oldest surviving in Europe.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Cmentarz_Remuh",
@@ -324,7 +324,7 @@ window.ATLAS_FACTS["memento-mori"] = {
        "label": "muzeumkrakowa.pl"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F1460",

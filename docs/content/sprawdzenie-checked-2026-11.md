@@ -267,8 +267,141 @@ Robert przesłał PDF strony z „Elements” (20(2): 134, kwiecień 2024), na k
 
 Karta „Sachanbińskiit” już wcześniej podawała zmianę nazwy z 2025 r. Karta „Berylokordieryt-Na” przedstawiała natomiast zdyskredytowany minerał jako nowy. Decyzją Roberta karta wychodzi z atlasu (`WITHDRAWN.cards` w `data/collections.js`, z powodem). Szuflada „Minerały” ma teraz 32 karty. Dwie ciekawostki tej karty (F0799, F0800) zostają w pliku, ale strona ich nie pokazuje.
 
-## Zostaje `checked` (60)
+## Po trzecim podejściu: 60 `checked`
 
-Źródła, które je potwierdziły, nadal się stąd nie otwierają, a czytelne strony nie mówią wszystkiego. Najwięcej jest ich w szufladach „Skamieniałości” (15) i „Minerały” (6). Potrzebują stron z 93 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `ejm.copernicus.org`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, `tandfonline.com`, `pubs.geoscienceworld.org`, portale informacyjne). Gdy zostaną dopuszczone, te ciekawostki można sprawdzić tak samo.
+Źródła, które je potwierdziły, nie otwierały się stąd, a czytelne strony nie mówiły wszystkiego. Najwięcej było ich w szufladach „Skamieniałości” (15) i „Minerały” (6). Potrzebowały stron z 93 różnych adresów, każdy dla jednej albo dwóch ciekawostek (m.in. `mindat.org`, `ejm.copernicus.org`, `journals.plos.org`, `pmc.ncbi.nlm.nih.gov`, `tandfonline.com`, `pubs.geoscienceworld.org`, portale informacyjne). Sprawdzono je w czwartym podejściu, [niżej](#czwarte-podejście-teksty-stron-od-roberta-2112026).
 
-Teraz atlas ma 1456 ciekawostek na 627 kartach: 860 `verified`, 536 `corrected` i 60 `checked`. Dwie ciekawostki wycofanej karty „Berylokordieryt-Na” zostają w pliku jako ukryte.
+Po trzecim podejściu atlas miał 1456 ciekawostek na 627 kartach: 860 `verified`, 536 `corrected` i 60 `checked`. Dwie ciekawostki wycofanej karty „Berylokordieryt-Na” zostają w pliku jako ukryte.
+
+## Czwarte podejście: teksty stron od Roberta (2.11.2026)
+
+Strony źródeł tych 60 ciekawostek pobrano 2.11.2026 poza tym środowiskiem, z pomocą narzędzia Grok, i przekazano tu jako 136 plików tekstowych razem z raportem Groka. Każdy plik zaczyna się od adresu strony, daty i sposobu pobrania: 102 pliki to tekst pobranej strony (curl), 28 to strona przerobiona na tekst przez serwis pobierający (26 Exa, 2 Bright Data), a 6 to kopie tego samego adresu z Wayback Machine (zrzuty z lat 2023–2026). Część plików to strony spoza listy źródeł, wskazane przez Groka jako zastępcze.
+
+**Czy teksty są wierne.** Dwie z tych stron otwierają się także stąd: artykuł P. E. Ahlberga z `cambridge.org` i strona Ministerstwa Kultury o Krzemionkach na `gov.pl`. Ich teksty od Roberta zgadzają się z pobraniem stąd zdanie po zdaniu (1722 z 1722 i 51 z 51 zdań). Zarządzenie RDOŚ w Katowicach z 2017 r. (`gov.pl`) to skan bez warstwy tekstowej, a Grok przepisał tylko jego fragment. Obie strony skanu przepisano więc tu z obrazu i tego tekstu użyto. Pozostałych stron nie da się stąd porównać z oryginałem. W tabeli `verified` niżej zaznaczono, gdzie rozstrzyga tekst z serwisu pobierającego albo kopia z Wayback Machine.
+
+**Jak sprawdzono.** Tak samo jak wcześniej: dwa niezależne odczyty, zdanie po zdaniu, po polsku i po angielsku. Trzeci odczyt (sędzia) rozstrzygał każdą proponowaną zmianę, każdy spór i 21 ciekawostek, przy których raport Groka miał uwagi. Wnioski z raportu o niczym nie przesądzały: sędzia sprawdzał każdą uwagę w tekstach stron. Skrypt potwierdził, że każdy z 257 cytatów, na których opierają się zmiany, jest w pliku źródła. Stronę spoza listy dopisywano tylko wtedy, gdy oba odczyty i sędzia potwierdzili ją cytatem i uznali za wiarygodną (urząd, czasopismo naukowe, baza danych, muzeum, park, poważna gazeta). Prywatnego bloga wskazanego przez Groka nie dopisano. Na koniec niezależny przegląd sprawdził wszystkie 57 zmian i ich karty. Każde zgłoszenie sprawdził sceptyczny odczyt: z 8 zgłoszeń potwierdził 5 i te wprowadzono (F0503, F0680 oraz trzy poprawki na dwóch kartach, niżej).
+
+| Szuflada | Ciekawostek | `verified` | `corrected` | zostaje `checked` |
+| --- | --- | --- | --- | --- |
+| Skamieniałości | 15 | 9 | 6 | 0 |
+| Minerały | 6 | 5 | 0 | 1 |
+| Drzewa | 5 | 4 | 1 | 0 |
+| Formacje skalne | 4 | 3 | 0 | 1 |
+| Grzyby | 3 | 3 | 0 | 0 |
+| Ryby | 3 | 0 | 3 | 0 |
+| Ptaki | 3 | 1 | 2 | 0 |
+| Atmosfera i astronomia | 3 | 1 | 1 | 1 |
+| Rekordy krajobrazu | 3 | 3 | 0 | 0 |
+| Płazy i gady | 2 | 1 | 1 | 0 |
+| Ssaki | 2 | 2 | 0 | 0 |
+| Podziemia | 2 | 1 | 1 | 0 |
+| Cuda inżynierii | 2 | 1 | 1 | 0 |
+| Twierdze i ruiny | 2 | 2 | 0 | 0 |
+| Memento Mori | 2 | 1 | 1 | 0 |
+| Rośliny | 1 | 1 | 0 | 0 |
+| Owady | 1 | 0 | 1 | 0 |
+| Architektura drewniana | 1 | 1 | 0 | 0 |
+| **Razem** | **60** | **39** | **18** | **3** |
+
+### `verified` (39)
+
+| Id | Karta | Źródła, które mówią wszystko | Tekst z serwisu pobierającego albo z archiwum |
+| --- | --- | --- | --- |
+| F0004 | Sromotnik smrodliwy | `herbaria.plants.ox.ac.uk`, `en.wikipedia.org`, `cambridge.org` | – |
+| F0012 | Sromotnik fiołkowy | `encyclopedia.odeuropa.eu` | – |
+| F0172 | Łycznik ochrowy | `cdnsciencepub.com`, `en.wikipedia.org` | `cdnsciencepub.com` (Exa) |
+| F0234 | Dwulistnik pszczeli | `gov.pl`, `pressto.amu.edu.pl`, `pl.wikipedia.org` | – |
+| F0297 | Sosna na Szczudłach | `echodnia.eu` | – |
+| F0299 | Krzywy Las | `gryfino.szczecin.lasy.gov.pl`, `pl.wikipedia.org` | – |
+| F0332 | Drzewostan Sosnowy w Ościsłowie | `pomniki-przyrody.pl`, `ipn.gov.pl` | – |
+| F0343 | Lipa w Stroniu Śląskim | `pomniki-przyrody.pl` | – |
+| F0525 | Salamandra plamista | `polsatnews.pl`, `pl.wikipedia.org`, `liverpoolmuseums.org.uk`, `national-geographic.pl` | – |
+| F0674 | Pluszcz | `pl.wikipedia.org`, `anatomypubs.onlinelibrary.wiley.com`, `birdsoftheworld.org` | `anatomypubs.onlinelibrary.wiley.com` (Wayback Machine) |
+| F0751 | Bóbr europejski | `sulecin.szczecin.lasy.gov.pl`, `zolopole.lasy.gov.pl` | – |
+| F0761 | Jenot azjatycki | `legislation.gov.uk`, `eur-lex.europa.eu`, `pl.wikipedia.org` | `eur-lex.europa.eu` (Wayback Machine) |
+| F0789 | Żabińskiit | `mindat.org`, `handbookofmineralogy.org`, `muzmin.uwr.edu.pl` | `mindat.org` (Exa) |
+| F0803 | Sachanbińskiit | `athena.unige.ch` | – |
+| F0804 | Magnesiodutrowit | `mindat.org`, `ejm.copernicus.org` | `mindat.org` (Exa) |
+| F0805 | Magnesiodutrowit | `mindat.org` | `mindat.org` (Exa) |
+| F0816 | Haueryt z Machowa i Jeziórka | `mindat.org`, `en.wikipedia.org` | `mindat.org` (Exa) |
+| F0880 | Organy Wielisławskie | `pl.wikipedia.org`, `gorykaczawskie.pl` | – |
+| F0918 | Giewont | `z-ne.pl`, `pl.wikipedia.org` | – |
+| F0920 | Przełom Białki | `journals.plos.org` | – |
+| F0955 | Tropy tetrapodów z Zachełmia | `doi.org`, `cambridge.org`, `media.springernature.com` | `doi.org` (Exa) |
+| F0970 | Tropy dinozaurów z Gór Świętokrzyskich | `doi.org`, `researchgate.net` | `doi.org` (Exa), `researchgate.net` (Exa) |
+| F0975 | Tropy dinozaurów z Borkowic | `pgi.gov.pl`, `geojournals.pgi.gov.pl` | `pgi.gov.pl` (Bright Data), `geojournals.pgi.gov.pl` (Exa) |
+| F0976 | Tropy dinozaurów z Borkowic | `uu.se`, `geojournals.pgi.gov.pl` | `geojournals.pgi.gov.pl` (Exa) |
+| F0979 | Plezjozaury Annopola | `paleo.pan.pl`, `orbi.uliege.be` | – |
+| F0981 | Krokodylomorfy z Owadowa-Brzezinek | `doi.org`, `muzeumewolucji.pl` | `doi.org` (Wayback Machine) |
+| F0984 | Crenatolimulus darwini z Owadowa-Brzezinek | `onlinelibrary.wiley.com` | `onlinelibrary.wiley.com` (Exa) |
+| F0987 | Laguna Owadów-Brzezinki | `pmc.ncbi.nlm.nih.gov` | – |
+| F0991 | Gigantyczne amonity z Opola | `pl.wikipedia.org`, `naukawpolsce.pl` | – |
+| F1069 | Litworowy Kocioł | `pl.wikipedia.org`, `oko.press`, `energetyka24.com`, `radiokrakow.pl` | – |
+| F1087 | Sosna na Szczudłach w Wełczu | `radiokielce.pl`, `busko.com.pl` | – |
+| F1162 | Organy Wielisławskie | `polska.travel`, `pl.wikipedia.org`, `geopark.org.pl` | `polska.travel` (Wayback Machine), `geopark.org.pl` (Wayback Machine) |
+| F1173 | Raczki Elbląskie — dawny najniższy punkt Polski | `geoforum.pl`, `tvn24.pl`, `pl.wikipedia.org`, `wydarzenia.interia.pl` | – |
+| F1192 | Kościół św. Michała Archanioła w Dębnie Podhalańskim | `swietokrzyskie.pro`, `pl.wikipedia.org` | – |
+| F1252 | Krzemionki Opatowskie | `whc.unesco.org`, `gov.pl` | – |
+| F1342 | Wrocławski Węzeł Wodny | `odrapcu.pl` | – |
+| F1378 | Zamość | `whc.unesco.org`, `unesco.pl` | – |
+| F1404 | Zamek Chojnik | `kpnmab.pl`, `pl.wikipedia.org` | – |
+| F1446 | Kaplica Czaszek w Czermnej | `smithsonianmag.com`, `polska.travel` | – |
+
+### Poprawione brzmienie (18)
+
+| Id | Karta | Co się zmieniło i dlaczego |
+| --- | --- | --- |
+| F0319 | Drzewo z kulą armatnią | „dwór, w którym czasowo mieszkał hetman **Stefan Czarniecki**” zamiast „dwór hetmana”; zamiast „wiek i pochodzenie mają dopiero ustalić archeolodzy”: „nie są pewne. O jej zbadanie poproszono archeologów”. Tak pisze artykuł Urzędu Gminy Włoszczowa (12.11.2025). |
+| F0431 | Jelonek rogacz | bez „(zwykle około pięciu)”: źródła podają 2–5 lat (RDLP Poznań), 4–6 (Radio Kielce) i 3–7 (NHM, Wikipedia). |
+| F0478 | Ciernik | „u wielu słodkowodnych populacji ciernika” zamiast „u słodkowodnych cierników”; bez „zarodka”. Dopisana praca Chan i in. 2010 (`pmc.ncbi.nlm.nih.gov`, Exa): utrata pasa miednicowego dotyczy ponad dwudziestu populacji słodkowodnych, a enhancer działa w zawiązkach płetw larw. |
+| F0483 | Sapa | „Do dorzecza Wisły **przywędrowała Kanałem Dniepr–Bug**.” bez „Angielska Wikipedia podaje” i bez zdania „Warto to potwierdzić w literaturze ichtiologicznej”: FishBase potwierdza tę drogę. |
+| F0503 | Lamna śledziowa | HELCOM: dziś bardzo rzadka w Kattegacie, a dalej na południe, w Sundzie, jeszcze rzadsza (wcześniej „tam”, czyli w obu, i „dalej na południe” od obu). Przegląd: „To rekin notowany w rejonie Morza Bałtyckiego.” zamiast „jeden z kilku rekinów”, bo inne rekiny podaje tylko zdanie Wikipedii oznaczone jako bez przypisu. |
+| F0588 | Zaskroniec rybołów | „Pierwsza udokumentowana obserwacja” zamiast „Pierwszy współczesny osobnik”: praca Zając i in. 2022 (`ruj.uj.edu.pl`, dopisana) wymienia wcześniejszy, niepotwierdzony okaz z Ludyni (opisany w 1923 r.). |
+| F0680 | Wodniczka | zamiast „w ostatnich latach populacja nad Biebrzą wyraźnie spadła”: „Podczas suszy w 2025 roku populacja nad Biebrzą osiągnęła zaledwie 50% normalnej liczebności.” (Biebrzański PN, `bbpn.gov.pl`, dopisany, Exa). Przegląd usunął też „Dzięki ochronie czynnej liczebność przez lata rosła, ale”: GIOŚ i raport OTOP z 2024 r. podają od 2011 r. umiarkowany spadek. |
+| F0693 | Mewa delawarska | „a w 2021 roku obserwowano ją w Cleveland” zamiast „ostatni raz widziano ją w Cleveland w grudniu 2021 roku”: miejsce grudniowej obserwacji podaje tylko prywatny blog, a żadne źródło nie mówi, że była ostatnia. Dopisany „The Columbus Dispatch” (`dispatch.com`, Exa): obrączkowanie w Toronto w 1992 r. |
+| F0949 | Wczesna flora lądowa dewonu | bez „kompletne” (drzewo złożono z dwóch skamieniałości); „ze stanu Nowy Jork” zamiast „z Nowego Jorku” (Gilboa). |
+| F0954 | Tropy tetrapodów z Zachełmia | „najstarszych znanych skamieniałych szczątków czworonogów” zamiast „szkieletów”: „Nature” porównuje z „body fossils”. |
+| F0983 | Crenatolimulus darwini z Owadowa-Brzezinek | „co najmniej ośmiu okazów”: praca raz podaje osiem okazów, a raz holotyp i osiem paratypów. |
+| F0988 | Laguna Owadów-Brzezinki | „z Owadowa-Brzezinek” zamiast „z Owadowa”: tak nazywa stanowisko praca z 2023 r. |
+| F1007 | Skamieniałe drewna Roztocza | „Prusia” zamiast „Prus” (wieś Prusie u Długosza), po angielsku „Prusie” zamiast „Prusy”. |
+| F1013 | Kraków-Spadzista i łowcy mamutów | „licząc po żuchwach i dolnych zębach trzonowych” zamiast „licząc po zębach” (Wojtal i in. 2019, Exa). |
+| F1047 | Park Gwiezdnego Nieba „Bieszczady” | „Jego nazwa” zamiast „Oficjalna nazwa”: żadne źródło nie nazywa jej oficjalną. Dopisana strona gminy Lutowiska (`lutowiska.pl`, Exa). |
+| F1297 | Rynek Podziemny w Krakowie | tylko po angielsku: „classes” zamiast „workshops”, bo muzeum pisze o zajęciach edukacyjnych. |
+| F1327 | Mosty Tczewskie | „mostem kratowym” / „lattice-truss bridge” zamiast „kratownicowym” / „truss bridge”: ASCE i NID mówią o pierwszym moście kratowym, a NID wymienia wcześniejsze, mniejsze mosty kratowe. |
+| F1459 | Cmentarz Remuh | „od 1533 do 1552 r.” zamiast „do 1551 r.”: broszura Muzeum Krakowa podaje rok założenia 1552. |
+
+### Dopisane źródła (14 przy 12 ciekawostkach)
+
+| Id | Dopisane źródło | Co potwierdza |
+| --- | --- | --- |
+| F0234 | zarządzenie RDOŚ w Katowicach z 31.10.2017 (`gov.pl`, skan przepisany tu) | uzasadnienie: dwulistnika nie uwzględniono w rozporządzeniu z 9.10.2014 w sprawie ochrony gatunkowej roślin |
+| F0299 | Nadleśnictwo Gryfino, „Więcej o Krzywym Lesie” | że pochodzenie krzywych drzew wciąż jest tylko hipotezą |
+| F0478 | Chan i in. 2010, „Science” (`pmc.ncbi.nlm.nih.gov`) | enhancer *Pitx1*, kolce i pas miednicowy |
+| F0588 | Zając i in. 2022, „Przegląd Przyrodniczy” (`ruj.uj.edu.pl`) | pierwsza udokumentowana obserwacja w 2009 r., rozmnażająca się populacja |
+| F0680 | Biebrzański Park Narodowy (`bbpn.gov.pl`) | 50% normalnej liczebności w czasie suszy 2025 r. |
+| F0693 | „The Columbus Dispatch” (`dispatch.com`) | obrączkowanie jako pisklę w Toronto w 1992 r. |
+| F0789 | `mindat.org` i „Handbook of Mineralogy” | kogo upamiętnia nazwa żabińskiitu i gdzie jest holotyp |
+| F0816 | `mindat.org` | opis z 1846 r. i miejsce typowe: złoże Kalinka koło Detvy |
+| F0955 | Ahlberg 2018 (`cambridge.org`, pobrany stąd) i materiały uzupełniające do pracy w „Nature” z 2025 r. (`media.springernature.com`) | że autorzy odkrycia i część badaczy uznają te struktury za tropy czworonogów (interpretację Lucasa z 2015 r. potwierdza źródło już podane przy ciekawostce) |
+| F0975 | artykuł w „Przeglądzie Geologicznym” (`geojournals.pgi.gov.pl`, Exa) | lipiec 2021 r. i wyrobisko glin w Borkowicach |
+| F1047 | gmina Lutowiska (`lutowiska.pl`) | powołanie parku 8 marca 2013 r. w Lutowiskach |
+| F1252 | Ministerstwo Kultury (`gov.pl`, pobrana stąd) | nazwa „Krzemionkowski region prehistorycznego górnictwa krzemienia pasiastego” |
+
+### Poprawki kart (po przeglądzie)
+
+- **Zaskroniec rybołów:** „Pierwszej udokumentowanej obserwacji w Polsce dokonano w lipcu 2009 r.” zamiast „Pierwszego współczesnego osobnika…”, tak jak w F0588. Region: „Bardzo lokalnie w południowej Polsce, w rejonie Śląska Cieszyńskiego.” bez „i dolin rzecznych o odpowiednich warunkach”, bo praca UJ zna w Polsce jedną populację. Po angielsku tak samo.
+- **Tropy tetrapodów z Zachełmia:** Ahlberg (2018), dopisany do F0955, pisze, że środowisko Zachełmia uważane w 2010 r. za pływowe zinterpretowano od nowa (Qvarnström i in. 2018) jako płytkie, okresowe jeziora na nizinie nadmorskiej. Karta mówi teraz „krok w płytkiej wodzie” zamiast „w płytkiej lagunie” i „środowisko płytkich okresowych jezior na nizinie nadmorskiej zamiast klasycznej rzecznej delty” zamiast „pływowej laguny”. Po angielsku tak samo.
+
+Przegląd zgłosił też trzy sprawy, które sceptyczny odczyt odrzucił: link zdjęcia Krzywego Lasu na stronie startowej jest poprawny; sprostowanie z 4.03.2026 do pracy o bumerangu z Obłazowej (F0920) nie ma powodu zmieniać datowania, a pobrana po nim strona podaje to samo; F0987 słusznie podaje pierwotną nazwę *Cryopterygius kielanae*.
+
+## Zostaje `checked` (3)
+
+Każdą z nich potwierdza w całości któreś ze źródeł, z wyjątkiem jednego szczegółu. Nic jej nie przeczy, ale żaden tekst nie mówi tego szczegółu wprost. Najmniejsza zmiana, po której ciekawostka byłaby `verified`, czeka na decyzję Roberta.
+
+| Id | Karta | Czego nie potwierdza żaden tekst | Wersja, którą źródła potwierdzają w całości |
+| --- | --- | --- | --- |
+| F0792 | Taliomelan | „więc to minerał do laboratorium, nie do kieszeni” to nasz wniosek; e-lekcja ZPE potwierdza silną toksyczność talu | „Tal jest silnie toksyczny.” |
+| F0869 | Pielgrzymy | tłumaczenie Dreisteine = „Trzy Kamienie”; Wikipedia podaje tylko niemiecką nazwę, a miesięcznik „Karkonosze” (2011) dawną nazwę „Trzy Kamienie” ze starych map, bez związku z nazwą niemiecką | bez nawiasu z tłumaczeniem |
+| F1044 | Obłoki srebrzyste | „w Moskwie”: źródła podają datę 13 czerwca 1885 r., ale nie miejsce obserwacji; Moskwę wymienia tylko praca HGSS, przy innej obserwacji (26 czerwca, „near Moscow”) | bez „w Moskwie” |
+
+Teraz atlas ma 1456 ciekawostek na 627 kartach: 899 `verified`, 554 `corrected` i 3 `checked`. Dwie ciekawostki wycofanej karty „Berylokordieryt-Na” zostają w pliku jako ukryte.

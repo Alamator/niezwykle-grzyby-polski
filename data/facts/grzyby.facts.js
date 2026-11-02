@@ -114,7 +114,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "cambridge.org"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0005",
@@ -227,7 +227,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "encyclopedia.odeuropa.eu"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0013",
@@ -2813,7 +2813,7 @@ window.ATLAS_FACTS["grzyby"] = {
        "label": "informahealthcare.com"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     },
     {
      "id": "F0173",

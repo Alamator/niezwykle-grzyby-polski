@@ -171,7 +171,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "radiokielce.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1496,7 +1496,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "polska.travel"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []
@@ -1721,7 +1721,7 @@ window.ATLAS_FACTS["rekordy-krajobrazu"] = {
        "label": "geoforum.pl"
       }
      ],
-     "status": "checked"
+     "status": "verified"
     }
    ],
    "notes": []

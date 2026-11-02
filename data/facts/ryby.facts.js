@@ -641,8 +641,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0478",
      "icon": "🧬",
-     "pl": "Redukcja pasa miednicowego i kolców, w które przekształciły się płetwy brzuszne, u słodkowodnych cierników wynika z mutacji w jednym „przełączniku” (enhancerze) genu *Pitx1*. Przez nią gen nie działa w zawiązkach płetw brzusznych zarodka.",
-     "en": "In freshwater sticklebacks, the reduction of the pelvic girdle and of the spines into which the pelvic fins have been transformed results from a mutation in a single \"switch\" (enhancer) of the *Pitx1* gene. Because of it, the gene does not work in the embryo's pelvic fin buds.",
+     "pl": "Redukcja pasa miednicowego i kolców, w które przekształciły się płetwy brzuszne, u wielu słodkowodnych populacji ciernika wynika z mutacji w jednym „przełączniku” (enhancerze) genu *Pitx1*. Przez nią gen nie działa w zawiązkach płetw brzusznych.",
+     "en": "In many freshwater stickleback populations, the reduction of the pelvic girdle and of the spines into which the pelvic fins have been transformed results from a mutation in a single \"switch\" (enhancer) of the *Pitx1* gene. Because of it, the gene does not work in the pelvic fin buds.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Ciernik",
@@ -651,9 +651,13 @@ window.ATLAS_FACTS["ryby"] = {
       {
        "url": "https://archive.jgi.doe.gov/?p=1578",
        "label": "archive.jgi.doe.gov"
+      },
+      {
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3109066/",
+       "label": "pmc.ncbi.nlm.nih.gov"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -724,8 +728,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0483",
      "icon": "",
-     "pl": "Angielska Wikipedia podaje, że do dorzecza Wisły **przywędrowała Kanałem Dniepr–Bug**. Warto to potwierdzić w literaturze ichtiologicznej.",
-     "en": "The English Wikipedia states that it **reached the Vistula basin via the Dnieper–Bug Canal**. This is worth confirming in the ichthyological literature.",
+     "pl": "Do dorzecza Wisły **przywędrowała Kanałem Dniepr–Bug**.",
+     "en": "It **reached the Vistula basin via the Dnieper–Bug Canal**.",
      "sources": [
       {
        "url": "https://en.wikipedia.org/wiki/Ballerus_sapa",
@@ -736,7 +740,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "fishbase.se"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     }
    ],
    "notes": []
@@ -998,8 +1002,8 @@ window.ATLAS_FACTS["ryby"] = {
     {
      "id": "F0503",
      "icon": "🦈",
-     "pl": "To jeden z kilku rekinów notowanych w rejonie Morza Bałtyckiego. Do połowy XX wieku regularnie wpływał do Kattegatu i Sundu za ławicami śledzi i makreli. Dziś jest tam bardzo rzadkim gościem, a dalej na południe pojawia się jeszcze rzadziej.",
-     "en": "It is one of several sharks recorded in the Baltic Sea region. Until the mid-20th century it regularly entered the Kattegat and the Sound in pursuit of herring and mackerel shoals. Today it is a very rare visitor there, and further south it turns up even more rarely.",
+     "pl": "To rekin notowany w rejonie Morza Bałtyckiego. Do połowy XX wieku regularnie wpływał do Kattegatu i Sundu za ławicami śledzi i makreli. Dziś jest bardzo rzadkim gościem w Kattegacie, a dalej na południe, w Sundzie, pojawia się jeszcze rzadziej.",
+     "en": "It is a shark recorded in the Baltic Sea region. Until the mid-20th century it regularly entered the Kattegat and the Sound in pursuit of herring and mackerel shoals. Today it is a very rare visitor in the Kattegat, and further south, in the Sound, it turns up even more rarely.",
      "sources": [
       {
        "url": "https://pl.wikipedia.org/wiki/Lamna_%C5%9Bledziowa",
@@ -1014,7 +1018,7 @@ window.ATLAS_FACTS["ryby"] = {
        "label": "helcom.fi"
       }
      ],
-     "status": "checked"
+     "status": "corrected"
     },
     {
      "id": "F0504",
