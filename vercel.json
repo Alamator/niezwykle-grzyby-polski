@@ -2,6 +2,7 @@
   "buildCommand": "npm run build && node scripts/version-assets.mjs --in-place",
   "outputDirectory": ".",
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/:path*",
@@ -24,16 +25,76 @@
       ],
       "destination": "https://www.atlas-osobliwosci.pl/:path*",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/atlas/:path*",
-      "destination": "/"
     },
     {
-      "source": "/en/atlas/:path*",
-      "destination": "/en"
+      "source": "/atlas/ryby/murowy-swiecik",
+      "destination": "/atlas/ryby",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/ryby/murowy-swiecik",
+      "destination": "/en/atlas/ryby",
+      "permanent": true
+    },
+    {
+      "source": "/atlas/ryby/lis-morski",
+      "destination": "/atlas/ryby",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/ryby/lis-morski",
+      "destination": "/en/atlas/ryby",
+      "permanent": true
+    },
+    {
+      "source": "/atlas/formacje-skalne/zezow-czarne-dzialy",
+      "destination": "/atlas/formacje-skalne",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/formacje-skalne/zezow-czarne-dzialy",
+      "destination": "/en/atlas/formacje-skalne",
+      "permanent": true
+    },
+    {
+      "source": "/atlas/skamienialosci/tholodus-schmidi",
+      "destination": "/atlas/skamienialosci",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/skamienialosci/tholodus-schmidi",
+      "destination": "/en/atlas/skamienialosci",
+      "permanent": true
+    },
+    {
+      "source": "/atlas/architektura-drewniana/chata-na-wysokosci",
+      "destination": "/atlas/architektura-drewniana",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/architektura-drewniana/chata-na-wysokosci",
+      "destination": "/en/atlas/architektura-drewniana",
+      "permanent": true
+    },
+    {
+      "source": "/atlas/atmosfera-astronomia/rekord-godziszow-zadni-gerlach",
+      "destination": "/atlas/atmosfera-astronomia",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/atmosfera-astronomia/rekord-godziszow-zadni-gerlach",
+      "destination": "/en/atlas/atmosfera-astronomia",
+      "permanent": true
+    },
+    {
+      "source": "/atlas/mineraly/berylokordieryt-na",
+      "destination": "/atlas/mineraly",
+      "permanent": true
+    },
+    {
+      "source": "/en/atlas/mineraly/berylokordieryt-na",
+      "destination": "/en/atlas/mineraly",
+      "permanent": true
     }
   ],
   "headers": [
