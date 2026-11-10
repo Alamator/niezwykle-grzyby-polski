@@ -30,6 +30,14 @@ export function localContentSecurityPolicy() {
   return policy.split(/;\s*/).filter((directive) => directive && !directive.startsWith("frame-ancestors ")).join("; ");
 }
 
+// The redirects of vercel.json for this site's own addresses (the ones without a host condition), as Vercel
+// answers them: a permanent one with 308, a temporary one with 307.
+export function localRedirects() {
+  const config = JSON.parse(readFileSync(path.join(projectRoot, "vercel.json"), "utf8"));
+  return new Map((config.redirects || []).filter((rule) => !rule.has && !rule.missing && !rule.source.includes(":"))
+    .map((rule) => [rule.source, { location: rule.destination, status: rule.permanent ? 308 : 307 }]));
+}
+
 function contentType(filePath) {
   return mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream";
 }
@@ -59,14 +67,14 @@ export async function resolveRequestFile(requestUrl, rootDir = projectRoot) {
   if (candidate && await isFile(`${candidate}.html`)) return `${candidate}.html`;
 
   // Before a build the app itself opens these addresses: a collection, a card, the map of every place or
-  // the quiz of the whole atlas, in Polish or under /en. An English address that leads nowhere opens the
-  // English start page once the build has made it, as on Vercel (vercel.json).
+  // the quiz of the whole atlas, in Polish or under /en. Once npm run build has made a page for each of them,
+  // an address without a page leads nowhere, as on Vercel: the 404 page.
+  if (await isFile(path.join(rootDir, "sitemap.xml"))) return null;
   const route = pathname.replace(/\/+$/, "");
   const english = route === "/en" || route.startsWith("/en/");
   const appRoute = english ? route.slice(3) || "/" : route;
   if (appRoute === "/" || appRoute.startsWith("/atlas/") || ["/mapa", "/quiz"].includes(appRoute)) {
-    const englishStart = path.join(rootDir, "en.html");
-    return english && await isFile(englishStart) ? englishStart : path.join(rootDir, "index.html");
+    return path.join(rootDir, "index.html");
   }
 
   return null;
@@ -75,10 +83,22 @@ export async function resolveRequestFile(requestUrl, rootDir = projectRoot) {
 export function createStaticServer({ rootDir = projectRoot } = {}) {
   const policy = localContentSecurityPolicy();
   const security = policy ? { "Content-Security-Policy": policy } : {};
+  const redirects = localRedirects();
   return http.createServer(async (request, response) => {
     if (!["GET", "HEAD"].includes(request.method || "")) {
       response.writeHead(405, { Allow: "GET, HEAD" });
       response.end("Method not allowed");
+      return;
+    }
+
+    const { pathname, search } = new URL(request.url || "/", "http://localhost");
+    // Like trailingSlash: false in vercel.json: an address ending in "/" leads to the same one without it.
+    const redirect = pathname.length > 1 && pathname.endsWith("/")
+      ? { location: `${pathname.replace(/\/+$/, "") || "/"}${search}`, status: 308 }
+      : redirects.get(pathname);
+    if (redirect) {
+      response.writeHead(redirect.status, { Location: redirect.location, "Cache-Control": "no-store" });
+      response.end();
       return;
     }
 

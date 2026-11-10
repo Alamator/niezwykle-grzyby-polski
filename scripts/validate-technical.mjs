@@ -400,10 +400,12 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
   // No Polish stays on an English page, keyed or not: nothing a reader sees or hears there (text, name or hint,
   // outside the head and the copy for readers without scripts) is the same as in index.html or on the page's
   // Polish twin. The wordmark keeps the Polish brand; photo credits, words written alike and the author's sign in
-  // the footer, which is English on every page, stay too.
+  // the footer, which is English on every page, stay too. The card written into a card's page has its own check
+  // below: its Latin names, labels and source names are often written alike in both languages.
   const shown = (html) => {
     const body = html.slice(html.indexOf("<body"))
       .replace(/<(noscript|script|style|svg)\b[\s\S]*?<\/\1>/g, "")
+      .replace(/<article id="staticCard"[\s\S]*?<\/article>/, "")
       .replace(/(<a id="wordmark"[^>]*>)[\s\S]*?(<\/a>)/, "$1$2")
       .replace(/<div class="site-footer__sign" lang="en">[\s\S]*?<\/div>/, "")
       .replace(/(<a class="photo-credit[^>]*>(?:<span[^>]*>[^<]*<\/span>)?)[^<]*/g, "$1");
@@ -470,8 +472,118 @@ assert(fs.readFileSync("robots.txt", "utf8").includes(`Sitemap: ${origin}/sitema
       assert.equal(item.item.startsWith(`${origin}${ENGLISH_PREFIX}/`), english, `${page.route}: ${item.item} on the path should be in the page's language`);
     }
   }
-  // An unknown English card or collection opens the English start page, as an unknown Polish one opens the Polish.
-  assert(vercelConfig.rewrites?.some((rule) => rule.source === "/en/atlas/:path*" && rule.destination === ENGLISH_PREFIX), "vercel.json should send unknown English atlas addresses to the English start page");
+  // A card's own page holds the card where the app draws the collection's cards (staticCardHtml): the card's name
+  // as the page's heading, its description, where it occurs and its first fun facts with their sources, in the
+  // page's language, and links to its collection and the cards next to it. The collection's name is not the
+  // heading there (js/app.js makes it one once the collection's cards are drawn); on a collection's page it is.
+  {
+    const { languageTexts, markdownLight: markdown, cardRoute } = await import("./build-pages.mjs");
+    const constant = (source, name) => source.match(new RegExp(`const ${name} = ([^;]+);`))?.[1];
+    for (const name of ["FACTS_LIMIT", "CALM_COLLECTIONS", "FACT_ICON_FALLBACK"]) {
+      assert(constant(appJs, name) && constant(appJs, name) === constant(buildPagesJs, name), `${name} should be the same in js/app.js and scripts/build-pages.mjs`);
+    }
+    const limit = Number(constant(appJs, "FACTS_LIMIT"));
+    for (const language of ["pl", "en"]) {
+      const texts = languageTexts(win, language);
+      for (const collection of collections) {
+        const collectionPage = byRoute.get(addressFor(routeForCollection(collection), language));
+        assert(collectionPage.html.includes(`<h1 id="collectionTitle">${esc(texts.collection(collection, "heading") || texts.collection(collection, "title"))}</h1>`), `${collectionPage.route}: the collection's name should be the page's heading`);
+        assert(!collectionPage.html.includes('id="staticCard"'), `${collectionPage.route}: a collection's page should not hold a card`);
+        collection.items.forEach((item, index) => {
+          const route = addressFor(cardRoute(collection, item), language);
+          const html = byRoute.get(route)?.html || "";
+          const card = html.match(/<article id="staticCard"[\s\S]*?<\/article>/)?.[0] || "";
+          assert(html.includes(`<div id="atlasGrid" class="card-grid" aria-live="polite"><article id="staticCard" class="static-card" data-collection="${collection.id}" data-card="${cardSlug(item.id)}" data-language="${language}">`), `${route}: the page should hold its card where the collection's cards go, marked for the app`);
+          assert(card.includes(`<h1>${esc(texts.name(collection, item))}</h1>`), `${route}: the card's name should be the page's heading`);
+          assert(html.includes(`<p id="collectionTitle" class="collection-bar__title">`) && !html.includes('<h1 id="collectionTitle">'), `${route}: the collection's name should not be the heading of a card's page`);
+          assert(!/<noscript>/.test(html.slice(html.indexOf('<div class="app-main__body shell">'), html.indexOf('<section id="atlas"'))), `${route}: the card should be in the page itself, not only for readers without scripts`);
+          assert(card.includes(`<p class="hook">${esc(texts.hook(collection, item))}</p>`), `${route}: the card should give its description`);
+          // Where it occurs, under its collection's labels, from the data itself (not from build-pages.mjs), so
+          // the English cards cannot slip into Polish.
+          const translated = language === "en" ? win.ATLAS_I18N.collections.en?.[collection.id] || {} : null;
+          const own = translated ? translated.items?.[item.id] || {} : { region: item.region_pl, habitat: item.habitat_pl, occurrence: item.occurrence_note };
+          const labels = (translated ? translated.card_labels : collection.card_labels) || {};
+          const ui = i18nUi[language];
+          if (own.region) {
+            assert(card.includes(`<section class="occurrence-box"><h2>${esc(labels.occurrence || ui.occurrenceTitle)}</h2><p><strong>${esc(labels.region || ui.regionLabel)}:</strong> ${esc(own.region)}</p>`), `${route}: the card should say where it occurs, under its collection's labels`);
+            if (own.habitat) assert(card.includes(`<p><strong>${esc(labels.habitat || ui.habitatLabel)}:</strong> ${esc(own.habitat)}</p>`), `${route}: the card should give its habitat, under its collection's label`);
+            if (own.occurrence) assert(card.includes(`<p>${esc(own.occurrence)}</p>`), `${route}: the card should give its occurrence note`);
+            const checkedSources = (collection.occurrence_sources?.[item.id] || []).filter((source) => /^https:\/\//.test(source?.url || ""));
+            if (checkedSources.length) {
+              const [y, m, d] = String(collection.occurrence_checked || "").split("-");
+              const date = y ? `${d}${language === "en" ? "/" : "."}${m}${language === "en" ? "/" : "."}${y}` : "";
+              assert(card.includes(`<p class="occurrence-box__sources">${esc(ui.occurrenceSources)}: `) && (!date || card.includes(`${esc(ui.occurrenceChecked.replace("{date}", date))}</p>`)), `${route}: the card should name the sources of where it occurs and when they were checked`);
+            }
+          } else {
+            assert(!card.includes('class="occurrence-box"'), `${route}: a card without a region should have no occurrence box`);
+          }
+          const facts = (collection.facts?.[item.id]?.facts || []).slice(0, limit);
+          for (const fact of facts) {
+            assert(card.includes(`<p class="fact__text">${markdown(texts.fact(fact))}</p>`), `${route}: the card should give fun fact ${fact.id}`);
+            for (const source of (fact.sources || []).filter((entry) => /^https?:\/\//.test(entry?.url || ""))) {
+              assert(card.includes(`href="${esc(source.url)}"`), `${route}: fun fact ${fact.id} should name its source ${source.url}`);
+            }
+            if (language === "en" && fact.en && fact.en !== fact.pl) assert(!card.includes(markdown(fact.pl)), `${route}: fun fact ${fact.id} should be in English`);
+          }
+          if (facts.length) {
+            assert(card.includes(`<section class="facts facts--dialog"><h2>${esc(ui[collection.id === "memento-mori" ? "factsTitleCalm" : "factsTitle"])}</h2>`), `${route}: the fun facts should have the title the app gives them`);
+            if (facts.some((fact) => (fact.sources || []).some((source) => /^https?:\/\//.test(source?.url || "")))) assert(card.includes(`<span class="fact__source">${esc(ui.factSource)}: `), `${route}: the sources should be named in the page's language`);
+          }
+          const words = language === "en" ? { more: "More cards", all: "all cards", previous: "Previous card", next: "Next card" } : { more: "Więcej kart", all: "wszystkie karty", previous: "Poprzednia karta", next: "Następna karta" };
+          assert(card.includes(`aria-label="${words.more}"`) && card.includes(`: ${words.all}</a>`), `${route}: the way to the collection should be in the page's language`);
+          if (index > 0) assert(card.includes(`<li>${words.previous}: <a `), `${route}: the previous card should be named in the page's language`);
+          if (index < collection.items.length - 1) assert(card.includes(`<li>${words.next}: <a `), `${route}: the next card should be named in the page's language`);
+          const others = (collection.facts?.[item.id]?.facts || []).slice(limit);
+          for (const fact of others) assert(!card.includes(markdown(texts.fact(fact))), `${route}: the card should give only the fun facts the app shows (${fact.id})`);
+          if (language === "en" && texts.hook(collection, item) !== item.hook) assert(!card.includes(esc(item.hook)), `${route}: the description should be in English`);
+          assert(card.includes(`<a href="${addressFor(routeForCollection(collection), language)}">`), `${route}: the card should lead to its collection`);
+          for (const other of [collection.items[index - 1], collection.items[index + 1]].filter(Boolean)) {
+            assert(card.includes(`<a href="${addressFor(cardRoute(collection, other), language)}">`), `${route}: the card should lead to the card next to it, ${other.id}`);
+          }
+        });
+      }
+    }
+    // The app keeps the card while it is open, also while the collection's data loads, and draws the
+    // collection's cards when the reader closes it; the collection's name is then the page's heading again.
+    for (const line of [
+      'return Boolean(item) && card.dataset.collection === state.collectionId && card.dataset.card === cardSlug(item.id) && card.dataset.language === state.language;',
+      'if ($("#staticCard") && state.collectionId) renderAtlasGrid();',
+      'staticCard.dataset.card === routeFromPath()?.slug && staticCard.dataset.language === state.language;',
+      'if (cardInPage) announce(errorLabel, { long: true });',
+      'const heading = document.createElement("h1");',
+      'heading.id = "collectionTitle";'
+    ]) {
+      assert(appJs.includes(line), `js/app.js should keep the card of a card's page until it is closed; missing: ${line}`);
+    }
+    assert(/function renderAtlasGrid\(\) \{[^}]*?if \(cardPageShowing\(\)\) return;\s*restoreCollectionHeading\(\);\s*\$\("#atlasGrid"\)\.innerHTML/.test(appJs),
+      "renderAtlasGrid in js/app.js should keep a card's page as it is while its card is open, and otherwise make the collection's name the heading before drawing the cards");
+    assert(/if \(!cardInPage\) \{\s*restoreCollectionHeading\(\);\s*\$\("#atlasGrid"\)\.innerHTML = `<div class="empty-state">\$\{escapeHtml\(loadingLabel\)\}<\/div>`;/.test(appJs),
+      "selectCollection in js/app.js should keep a card's page while the collection loads and otherwise show the loading text under the collection's heading");
+  }
+  // Every collection and card has its own page, so an atlas address without one gets the 404 page (status 404),
+  // not the start page with "200 OK", which search engines count as a "soft 404". A withdrawn card's address
+  // leads to its collection, permanently, in both languages.
+  assert.equal((vercelConfig.rewrites || []).length, 0, "vercel.json should have no rewrites: every page is built, and a rewrite would answer an address without a page with another page and 200 (a soft 404)");
+  {
+    const withdrawnCards = Object.keys(win.ATLAS_APP_DATA.withdrawn?.cards || {});
+    assert(withdrawnCards.length, "data/collections.js should list the withdrawn cards (WITHDRAWN.cards)");
+    const ownRedirects = (vercelConfig.redirects || []).filter((rule) => !rule.has);
+    for (const key of withdrawnCards) {
+      const [collectionId, cardId] = key.split("/");
+      const collection = collections.find((entry) => entry.id === collectionId);
+      assert(collection, `withdrawn card ${key}: no collection ${collectionId}`);
+      for (const language of ["pl", "en"]) {
+        const source = addressFor(`${routeForCollection(collection)}/${cardSlug(cardId)}`, language);
+        assert(ownRedirects.some((rule) => rule.source === source && rule.destination === addressFor(routeForCollection(collection), language) && rule.permanent === true),
+          `vercel.json should send the withdrawn card ${source} to its collection, permanently`);
+      }
+    }
+    for (const rule of ownRedirects) {
+      assert(!byRoute.has(rule.source), `vercel.json should not send ${rule.source} away: it is a page of the atlas`);
+      assert(byRoute.has(rule.destination), `vercel.json sends ${rule.source} to ${rule.destination}, which is not a page of the atlas`);
+    }
+    assert.equal(ownRedirects.length, 2 * withdrawnCards.length, "vercel.json should send only withdrawn cards elsewhere");
+  }
   // 404.html: out of search results, with a way home and a link to every collection.
   assert(notFound.includes('<meta name="robots" content="noindex" />'), "404.html should stay out of search results");
   assert(notFound.includes('<a class="primary" href="/">'), "404.html should lead back to the start page");
@@ -638,18 +750,35 @@ try {
   assert.equal(mapResponse.status, 200, "local dev server should serve the map of every place");
   assert.match(await mapResponse.text(), /id="mapPage"/, "the map address should open the app");
 
-  // Once npm run build has made the English pages, every English address opens an English page; an
-  // unknown card opens the English start page, as on Vercel.
+  // Once npm run build has made the English pages, every English address opens an English page.
   const englishBuilt = fs.existsSync("en.html");
-  for (const address of ["/en", "/en/", "/en/atlas/grzyby", "/en/atlas/grzyby/okratek-australijski", "/en/mapa", "/en/quiz", "/en/atlas/grzyby/no-such-card"]) {
+  for (const address of ["/en", "/en/atlas/grzyby", "/en/atlas/grzyby/okratek-australijski", "/en/mapa", "/en/quiz"]) {
     const response = await fetch(`http://127.0.0.1:${port}${address}`);
     assert.equal(response.status, 200, `local dev server should serve ${address}`);
     const html = await response.text();
     assert.match(html, /id="startPage"/, `${address} should open the app`);
     if (englishBuilt) assert(html.includes('<html lang="en">'), `${address} should open an English page`);
-    if (englishBuilt && address.endsWith("/no-such-card")) {
-      assert(html.includes(`<link rel="canonical" href="${origin}/en" />`), `${address} should open the English start page`);
+  }
+  // An atlas address without a page: before a build the app opens it; once npm run build has made the pages,
+  // it gets the 404 page with status 404, as on Vercel.
+  const built = fs.existsSync("sitemap.xml");
+  for (const address of ["/atlas/grzyby/no-such-card", "/en/atlas/grzyby/no-such-card", "/atlas/no-such-collection"]) {
+    const response = await fetch(`http://127.0.0.1:${port}${address}`);
+    const html = await response.text();
+    if (built) {
+      assert.equal(response.status, 404, `${address} leads to no page and should get status 404`);
+      if (fs.existsSync("404.html")) assert(html.includes('<meta name="robots" content="noindex" />'), `${address} should get the 404 page`);
+    } else {
+      assert.equal(response.status, 200, `before a build ${address} should open the app`);
     }
+  }
+  // An address ending in "/" leads to the same one without it (trailingSlash: false in vercel.json), and a
+  // withdrawn card's address to its collection, as vercel.json says.
+  assert.equal(vercelConfig.trailingSlash, false, "vercel.json should send an address ending in \"/\" to the same one without it, so each page has one address");
+  for (const [address, collection] of [["/en/", "/en"], ["/atlas/grzyby/", "/atlas/grzyby"], ["/atlas/ryby/lis-morski", "/atlas/ryby"], ["/en/atlas/ryby/lis-morski", "/en/atlas/ryby"]]) {
+    const response = await fetch(`http://127.0.0.1:${port}${address}`, { redirect: "manual" });
+    assert.equal(response.status, 308, `${address} should be sent away permanently`);
+    assert.equal(response.headers.get("location"), collection, `${address} should lead to ${collection}`);
   }
 
   const missingResponse = await fetch(`http://127.0.0.1:${port}/not-a-real-file.js`);

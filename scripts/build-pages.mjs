@@ -22,12 +22,20 @@ export const LANGUAGES = ["pl", "en"];
 // Questions in the daily challenge and in the random quiz (DAILY_QUESTIONS and MIX_QUESTIONS in js/app.js).
 const DAILY_QUESTIONS = 5;
 const MIX_QUESTIONS = 10;
+// Fun facts shown on a card, and the collections that title them "Warto wiedzieć" (FACTS_LIMIT and
+// CALM_COLLECTIONS in js/app.js), and the icon of a fact without its own (FACT_ICON_FALLBACK).
+const FACTS_LIMIT = 4;
+const CALM_COLLECTIONS = new Set(["memento-mori"]);
+const FACT_ICON_FALLBACK = "💡";
 // Words only the built pages use: for readers without scripts, and the descriptions of the link preview images
 // (scripts/og-images.mjs; {heading} is the start page's heading). index.html gives the Polish start page the
 // same description of the atlas's image.
 const STATIC_WORDS = {
   pl: {
     allCards: "wszystkie karty",
+    moreCards: "Więcej kart",
+    previousCard: "Poprzednia karta",
+    nextCard: "Następna karta",
     quizNeedsScripts: "Quiz działa w przeglądarce z włączonym JavaScriptem. Karty, z których powstają pytania, są w kolekcjach:",
     imageAlt: "Atlas Osobliwości Polski: „{heading}” i mapa Polski z punktów miejsc z atlasu",
     collectionImageAlt: "Atlas Osobliwości Polski, kolekcja „{title}”: {count} – {teaser}",
@@ -35,6 +43,9 @@ const STATIC_WORDS = {
   },
   en: {
     allCards: "all cards",
+    moreCards: "More cards",
+    previousCard: "Previous card",
+    nextCard: "Next card",
     quizNeedsScripts: "The quiz works in a browser with JavaScript turned on. The cards its questions come from are in these collections:",
     imageAlt: "Atlas of Polish Curiosities: “{heading}” and a map of Poland drawn with the places of the atlas",
     collectionImageAlt: "Atlas of Polish Curiosities, the “{title}” collection: {count} – {teaser}",
@@ -88,6 +99,9 @@ export function languageTexts(win, language) {
     hook: (collection, item) => card(collection, item).hook || item.hook,
     latin: (collection, item) => card(collection, item).latin || item.name_lat || "",
     region: (collection, item) => (language === "en" ? card(collection, item).region : item.region_pl) || "",
+    habitat: (collection, item) => (language === "en" ? card(collection, item).habitat : item.habitat_pl) || "",
+    occurrence: (collection, item) => (language === "en" ? card(collection, item).occurrence : item.occurrence_note) || "",
+    fact: (fact) => fact[language] || fact.pl || "",
     plural: (forms, count) => (forms[new Intl.PluralRules(language).select(count)] ?? forms.other).replace("{count}", count),
     address: (route) => addressFor(route, language)
   };
@@ -277,7 +291,11 @@ function pageHtml(indexHtml, origin, page, texts) {
     html = replaceOnce(html, '<button class="nav-btn is-hidden" data-view="map" type="button"', '<button class="nav-btn" data-view="map" type="button"', "map tab");
   }
   html = replaceOnce(html, /<p class="eyebrow" id="collectionEyebrow">[^<]*<\/p>/, `<p class="eyebrow" id="collectionEyebrow">${escapeHtml(page.group)}</p>`, "collection eyebrow");
-  html = replaceOnce(html, '<h1 id="collectionTitle">Atlas</h1>', `<h1 id="collectionTitle">${escapeHtml(page.heading)}</h1>`, "collection title");
+  // On a card's page the card's name is the page's heading, so the collection's name is not
+  // (restoreCollectionHeading in js/app.js makes it the heading again once the collection's cards are drawn).
+  html = replaceOnce(html, '<h1 id="collectionTitle">Atlas</h1>', page.card
+    ? `<p id="collectionTitle" class="collection-bar__title">${escapeHtml(page.heading)}</p>`
+    : `<h1 id="collectionTitle">${escapeHtml(page.heading)}</h1>`, "collection title");
   html = replaceOnce(html, '<p id="collectionLead" class="collection-bar__lead"></p>', `<p id="collectionLead" class="collection-bar__lead">${escapeHtml(page.lead)}</p>`, "collection lead");
   html = replaceOnce(html, '<div id="collectionPhoto" class="collection-bar__photo"></div>', page.photo, "collection photo");
   html = replaceOnce(html, /<h2 id="atlas-title">[^<]*<\/h2>/, `<h2 id="atlas-title">${escapeHtml(page.atlasTitle)}</h2>`, "atlas title");
@@ -285,9 +303,74 @@ function pageHtml(indexHtml, origin, page, texts) {
   // The app keeps this text while the collection's data loads (updateActiveCollectionLabels in js/app.js).
   html = replaceOnce(html, /<span id="safetyNotice">[^<]*<\/span>/, `<span id="safetyNotice" data-collection="${escapeHtml(page.collectionId)}">${escapeHtml(page.safety)}</span>`, "safety notice");
   html = replaceOnce(html, /(<input id="searchInput"[^>]*? placeholder=")[^"]*"/, (_, start) => `${start}${escapeHtml(page.searchHint)}"`, "search hint");
-  // The text of the page for readers and crawlers that do not run scripts.
-  html = replaceOnce(html, '<div class="app-main__body shell">', `<div class="app-main__body shell">\n        <noscript>${page.noscript}</noscript>`, "main body");
+  if (page.card) {
+    // A card's page holds the card itself where the app draws the collection's cards, for everyone who sees
+    // the page before the app runs, search engines included; the app keeps it while the card is open.
+    html = replaceOnce(html, '<div id="atlasGrid" class="card-grid" aria-live="polite"></div>', `<div id="atlasGrid" class="card-grid" aria-live="polite">${page.card}</div>`, "collection cards");
+  } else {
+    // The text of the page for readers and crawlers that do not run scripts.
+    html = replaceOnce(html, '<div class="app-main__body shell">', `<div class="app-main__body shell">\n        <noscript>${page.noscript}</noscript>`, "main body");
+  }
   return html;
+}
+
+function hostOf(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+// What the card window shows (renderDialogContent in js/app.js), in the page's language: the card's name as
+// the page's heading, its description, where it occurs and its fun facts with their sources, then the way to
+// its collection and to the cards next to it. cardPageShowing in js/app.js reads the data- marks.
+export function staticCardHtml(collection, item, texts, neighbours = {}) {
+  const { ui, words } = texts;
+  const label = (field, key) => texts.collection(collection, "card_labels")?.[field] || ui[key];
+  const link = (source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label || hostOf(source.url))}</a>`;
+  const region = texts.region(collection, item);
+  const habitat = texts.habitat(collection, item);
+  const occurrence = texts.occurrence(collection, item);
+  const latin = texts.latin(collection, item);
+  const occurrenceSources = (collection.occurrence_sources?.[item.id] || []).filter((source) => /^https:\/\//.test(source?.url || ""));
+  // When the sources were checked, as occurrenceSourcesHtml in js/app.js writes it (formatDate, numeric).
+  const checked = String(collection.occurrence_checked || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const checkedText = checked
+    ? ` · ${escapeHtml(fill(ui.occurrenceChecked, { date: new Date(Number(checked[1]), Number(checked[2]) - 1, Number(checked[3]))
+      .toLocaleDateString(texts.language === "en" ? "en-GB" : "pl-PL", { day: "2-digit", month: "2-digit", year: "numeric" }) }))}`
+    : "";
+  const facts = (collection.facts?.[item.id]?.facts || []).slice(0, FACTS_LIMIT);
+  const route = routeForCollection(collection);
+  const factHtml = (fact) => {
+    const sources = (fact.sources || []).filter((source) => /^https?:\/\//.test(source?.url || ""));
+    return `<li class="fact"><span class="fact__icon" aria-hidden="true">${escapeHtml(fact.icon || FACT_ICON_FALLBACK)}</span><div class="fact__body">` +
+      `<p class="fact__text">${markdownLight(texts.fact(fact))}</p>` +
+      (sources.length ? `<span class="fact__source">${escapeHtml(ui.factSource)}: ${sources.map(link).join(", ")}</span>` : "") +
+      "</div></li>";
+  };
+  const neighbour = (word, other) => (other
+    ? `<li>${escapeHtml(word)}: <a href="${escapeHtml(texts.address(cardRoute(collection, other)))}">${escapeHtml(texts.name(collection, other))}</a></li>`
+    : "");
+  return `<article id="staticCard" class="static-card" data-collection="${escapeHtml(collection.id)}" data-card="${escapeHtml(cardSlug(item.id))}" data-language="${texts.language}">` +
+    `<p class="eyebrow"><a href="${escapeHtml(texts.address(route))}">${escapeHtml(texts.collection(collection, "title"))}</a></p>` +
+    `<h1>${escapeHtml(texts.name(collection, item))}</h1>` +
+    (latin ? `<p class="latin">${escapeHtml(latin)}</p>` : "") +
+    `<p class="hook">${escapeHtml(texts.hook(collection, item))}</p>` +
+    (region
+      ? `<section class="occurrence-box"><h2>${escapeHtml(label("occurrence", "occurrenceTitle"))}</h2>` +
+        `<p><strong>${escapeHtml(label("region", "regionLabel"))}:</strong> ${escapeHtml(region)}</p>` +
+        (habitat ? `<p><strong>${escapeHtml(label("habitat", "habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : "") +
+        (occurrence ? `<p>${escapeHtml(occurrence)}</p>` : "") +
+        (occurrenceSources.length ? `<p class="occurrence-box__sources">${escapeHtml(ui.occurrenceSources)}: ${occurrenceSources.map(link).join(", ")}${checkedText}</p>` : "") +
+        "</section>"
+      : "") +
+    (facts.length
+      ? `<section class="facts facts--dialog"><h2>${escapeHtml(ui[CALM_COLLECTIONS.has(collection.id) ? "factsTitleCalm" : "factsTitle"])}</h2><ul class="facts__list">${facts.map(factHtml).join("")}</ul></section>`
+      : "") +
+    `<nav class="static-card__more" aria-label="${escapeHtml(words.moreCards)}"><p><a href="${escapeHtml(texts.address(route))}">${escapeHtml(texts.collection(collection, "title"))}: ${escapeHtml(words.allCards)}</a></p>` +
+    ((neighbours.previous || neighbours.next) ? `<ul class="static-list">${neighbour(words.previousCard, neighbours.previous)}${neighbour(words.nextCard, neighbours.next)}</ul>` : "") +
+    "</nav></article>";
 }
 
 // The photo at the top of a collection, as js/app.js draws it (renderCollectionPhoto), marked with the
@@ -346,7 +429,7 @@ function startPage(win, indexHtml, origin, texts) {
 // Every collection and every card, opened on their collection.
 function collectionPages(win, indexHtml, origin, texts) {
   const app = win.ATLAS_APP_DATA;
-  const { ui, words } = texts;
+  const { ui } = texts;
   const { covers } = buildStartPage(win);
   const pages = [];
   for (const collection of app.collections) {
@@ -384,9 +467,8 @@ function collectionPages(win, indexHtml, origin, texts) {
       noscript: `<ul class="static-list">${collection.items.map((item) => `<li><a href="${escapeHtml(texts.address(cardRoute(collection, item)))}">${escapeHtml(texts.name(collection, item))}</a>: ${escapeHtml(texts.hook(collection, item))}</li>`).join("")}</ul>`
     };
     pages.push(built(page, texts, pageHtml(indexHtml, origin, page, texts)));
-    for (const item of collection.items) {
+    collection.items.forEach((item, index) => {
       const name = texts.name(collection, item);
-      const region = texts.region(collection, item);
       const card = {
         ...base,
         route: cardRoute(collection, item),
@@ -394,13 +476,10 @@ function collectionPages(win, indexHtml, origin, texts) {
         title: `${name} – ${title} – ${texts.site}`,
         shareTitle: name,
         description: fill(ui.metaCardDescription, { hook: sentence(texts.hook(collection, item)), collection: title }),
-        noscript: `<article class="static-card"><p class="eyebrow">${escapeHtml(title)}</p><h2>${escapeHtml(name)}</h2>` +
-          `<p class="latin">${escapeHtml(texts.latin(collection, item))}</p><p>${escapeHtml(texts.hook(collection, item))}</p>` +
-          (region ? `<p><strong>Region:</strong> ${escapeHtml(region)}</p>` : "") +
-          `<p><a href="${escapeHtml(texts.address(route))}">${escapeHtml(title)}: ${words.allCards}</a></p></article>`
+        card: staticCardHtml(collection, item, texts, { previous: collection.items[index - 1], next: collection.items[index + 1] })
       };
       pages.push(built(card, texts, pageHtml(indexHtml, origin, card, texts)));
-    }
+    });
   }
   return pages;
 }

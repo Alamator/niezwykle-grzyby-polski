@@ -879,9 +879,31 @@
     renderAtlasGrid();
   }
 
+  // A card's own page (scripts/build-pages.mjs, staticCardHtml) arrives with the card written where the
+  // collection's cards go and with the card's name as the page's heading, so the page is about the card for
+  // search engines too. It stays while that card is open; the collection's cards take its place after.
+  function cardPageShowing() {
+    const card = $("#staticCard");
+    if (!card) return false;
+    const item = itemFromLocation();
+    return Boolean(item) && card.dataset.collection === state.collectionId && card.dataset.card === cardSlug(item.id) && card.dataset.language === state.language;
+  }
+
+  // Once the collection's cards are drawn, the collection's name is the page's heading again.
+  function restoreCollectionHeading() {
+    const title = $("#collectionTitle");
+    if (!title || title.tagName === "H1") return;
+    const heading = document.createElement("h1");
+    heading.id = "collectionTitle";
+    heading.textContent = title.textContent;
+    title.replaceWith(heading);
+  }
+
   function renderAtlasGrid() {
     const list = filteredItems();
     renderStats(list);
+    if (cardPageShowing()) return;
+    restoreCollectionHeading();
     $("#atlasGrid").innerHTML = list.length
       ? list.map(cardHtml).join("")
       : `<div class="empty-state">${escapeHtml(t("noResults"))}</div>`;
@@ -2966,7 +2988,15 @@
         ? "Loading collection data…"
         : "Wczytuję dane kolekcji…";
       $("#statsGrid").innerHTML = "";
-      $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(loadingLabel)}</div>`;
+      // A card's own page keeps its card in view while the collection loads, as long as the address still
+      // names that card in that language (cardPageShowing).
+      const staticCard = $("#staticCard");
+      const cardInPage = Boolean(staticCard) && staticCard.dataset.collection === collection.id &&
+        staticCard.dataset.card === routeFromPath()?.slug && staticCard.dataset.language === state.language;
+      if (!cardInPage) {
+        restoreCollectionHeading();
+        $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(loadingLabel)}</div>`;
+      }
       try {
         await app.loadCollection(collection.id);
       } catch (err) {
@@ -2974,7 +3004,8 @@
         const errorLabel = state.language === "en"
           ? "Could not load the collection. Check your connection and try again."
           : "Nie udało się załadować kolekcji. Sprawdź połączenie i odśwież.";
-        $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(errorLabel)}</div>`;
+        if (cardInPage) announce(errorLabel, { long: true });
+        else $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(errorLabel)}</div>`;
         return;
       }
       if (selectionSerial !== serial) return;
@@ -3227,6 +3258,8 @@
 
     $("#itemDialog").addEventListener("close", () => {
       clearItemRoute();
+      // Closing the card of a card's own page shows its collection (cardPageShowing).
+      if ($("#staticCard") && state.collectionId) renderAtlasGrid();
       updateHead();
     });
 

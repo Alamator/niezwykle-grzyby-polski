@@ -101,9 +101,12 @@ assert.match(appJs, /history\.pushState/, "app should push collection routes int
 assert.match(appJs, /popstate/, "app should restore collections from browser history");
 assert.doesNotMatch(appJs, /serviceWorker\.register/, "app should not re-register the self-unregistering service worker");
 assert.match(cacheResetJs, /getRegistrations\(\)/, "cache reset should keep unregistering old service workers");
-assert(
-  vercelConfig.rewrites?.some((rewrite) => rewrite.source === "/atlas/:path*" && rewrite.destination === "/"),
-  "Vercel should rewrite nested atlas routes to the static SPA entry using the documented wildcard syntax"
+// Every collection and card has its own built page (scripts/build-pages.mjs), so an atlas address without one
+// leads nowhere and gets the 404 page, not the start page with "200 OK" (a "soft 404" for search engines).
+assert.equal(
+  (vercelConfig.rewrites || []).length,
+  0,
+  "vercel.json should have no rewrites: every page is built, and a rewrite would answer an address without a page with another page and 200 (a soft 404)"
 );
 
 // Run all manifest data files in a shared vm context (preserving per-entry order), then i18n.js,
