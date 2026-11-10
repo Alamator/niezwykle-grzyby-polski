@@ -2988,9 +2988,15 @@
         ? "Loading collection data…"
         : "Wczytuję dane kolekcji…";
       $("#statsGrid").innerHTML = "";
-      // A card's own page keeps its card in view while the collection loads (cardPageShowing).
-      const cardInPage = $("#staticCard")?.dataset.collection === collection.id;
-      if (!cardInPage) $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(loadingLabel)}</div>`;
+      // A card's own page keeps its card in view while the collection loads, as long as the address still
+      // names that card in that language (cardPageShowing).
+      const staticCard = $("#staticCard");
+      const cardInPage = Boolean(staticCard) && staticCard.dataset.collection === collection.id &&
+        staticCard.dataset.card === routeFromPath()?.slug && staticCard.dataset.language === state.language;
+      if (!cardInPage) {
+        restoreCollectionHeading();
+        $("#atlasGrid").innerHTML = `<div class="empty-state">${escapeHtml(loadingLabel)}</div>`;
+      }
       try {
         await app.loadCollection(collection.id);
       } catch (err) {

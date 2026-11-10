@@ -103,9 +103,10 @@ assert.doesNotMatch(appJs, /serviceWorker\.register/, "app should not re-registe
 assert.match(cacheResetJs, /getRegistrations\(\)/, "cache reset should keep unregistering old service workers");
 // Every collection and card has its own built page (scripts/build-pages.mjs), so an atlas address without one
 // leads nowhere and gets the 404 page, not the start page with "200 OK" (a "soft 404" for search engines).
-assert(
-  !(vercelConfig.rewrites || []).some((rewrite) => /^(\/en)?\/atlas\//.test(rewrite.source)),
-  "vercel.json should not send atlas addresses without a page to another page"
+assert.equal(
+  (vercelConfig.rewrites || []).length,
+  0,
+  "vercel.json should have no rewrites: every page is built, and a rewrite would answer an address without a page with another page and 200 (a soft 404)"
 );
 
 // Run all manifest data files in a shared vm context (preserving per-entry order), then i18n.js,

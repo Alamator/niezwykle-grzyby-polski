@@ -65,6 +65,8 @@ http://localhost:5173/atlas/rekordy-krajobrazu
 
 Strony kolekcji i kart z własnymi tytułami powstają po `npm run build`. Bez tego lokalny serwer pokazuje te adresy przez `index.html`, a aplikacja i tak otwiera właściwą kartę.
 
+Po `npm run build` lokalny serwer odpowiada jak Vercel: adres bez zbudowanej strony dostaje stronę 404, adres ze `/` na końcu i adres wycofanej karty są przekierowane. Karta albo kolekcja dodana po ostatnim budowaniu otworzy się po kliknięciu w aplikacji, ale po odświeżeniu albo wejściu wprost z adresu pokaże 404, dopóki nie uruchomisz znowu `npm run build` (albo nie usuniesz `sitemap.xml`, co przywraca otwieranie takich adresów przez `index.html`).
+
 ## Testy
 
 ```bash
@@ -321,7 +323,7 @@ Framework: **Other** albo brak frameworka. Output Directory `.` (główny katalo
   - `data-i18n-placeholder` dla podpowiedzi w polu.
 - **Jedno źródło tekstów:** aplikacja wpisuje teksty z tych kluczy, a `npm run build` robi to samo na stronach angielskich. Strona angielska jest więc po angielsku od pierwszej chwili, także bez skryptów.
   - Nowy stały tekst dodaje się w `index.html` z kluczem `data-i18n` i w `data/i18n.js` w obu językach.
-- **Nieznany adres:** pod `/en/atlas/...` otwiera angielską stronę główną (`vercel.json`), tak jak polski otwiera polską.
+- **Nieznany adres:** pod `/en/atlas/...`, tak jak pod polskim adresem, dostaje wspólną stronę `404.html` z kodem 404 (po polsku, z linijką po angielsku i linkiem do angielskiej strony głównej); opis wyżej, „Adres bez strony”. `vercel.json` nie ma reguł `rewrites`: dawały „soft 404”, a testy ich nie przepuszczą.
 - **`npm run test:technical` pilnuje:**
   - par stron i `hreflang`;
   - adresów kanonicznych, języka i mapy strony;

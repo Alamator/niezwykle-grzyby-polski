@@ -334,6 +334,12 @@ export function staticCardHtml(collection, item, texts, neighbours = {}) {
   const occurrence = texts.occurrence(collection, item);
   const latin = texts.latin(collection, item);
   const occurrenceSources = (collection.occurrence_sources?.[item.id] || []).filter((source) => /^https:\/\//.test(source?.url || ""));
+  // When the sources were checked, as occurrenceSourcesHtml in js/app.js writes it (formatDate, numeric).
+  const checked = String(collection.occurrence_checked || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const checkedText = checked
+    ? ` · ${escapeHtml(fill(ui.occurrenceChecked, { date: new Date(Number(checked[1]), Number(checked[2]) - 1, Number(checked[3]))
+      .toLocaleDateString(texts.language === "en" ? "en-GB" : "pl-PL", { day: "2-digit", month: "2-digit", year: "numeric" }) }))}`
+    : "";
   const facts = (collection.facts?.[item.id]?.facts || []).slice(0, FACTS_LIMIT);
   const route = routeForCollection(collection);
   const factHtml = (fact) => {
@@ -356,7 +362,7 @@ export function staticCardHtml(collection, item, texts, neighbours = {}) {
         `<p><strong>${escapeHtml(label("region", "regionLabel"))}:</strong> ${escapeHtml(region)}</p>` +
         (habitat ? `<p><strong>${escapeHtml(label("habitat", "habitatLabel"))}:</strong> ${escapeHtml(habitat)}</p>` : "") +
         (occurrence ? `<p>${escapeHtml(occurrence)}</p>` : "") +
-        (occurrenceSources.length ? `<p class="occurrence-box__sources">${escapeHtml(ui.occurrenceSources)}: ${occurrenceSources.map(link).join(", ")}</p>` : "") +
+        (occurrenceSources.length ? `<p class="occurrence-box__sources">${escapeHtml(ui.occurrenceSources)}: ${occurrenceSources.map(link).join(", ")}${checkedText}</p>` : "") +
         "</section>"
       : "") +
     (facts.length
